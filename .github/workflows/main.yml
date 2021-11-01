@@ -1,0 +1,93 @@
+name: CI for WebHelp Contribution
+
+on:
+  push:
+  schedule:
+  - cron: '0 0 * * *'
+  workflow_dispatch:
+    inputs:
+      zowe-version:
+        description: "Specify the Zowe verison"
+        required: false
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    if: (github.event_name == 'push' || github.event.pull_request.head.repo.full_name != github.repository) && !contains(github.event.head_commit.message, '[ci skip]')
+
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v2
+
+    - name: Use Node.js LTS
+      uses: actions/setup-node@v2
+      with:
+        node-version: lts/*
+
+    - name: Setup .npmrc
+      id: setup-npmrc
+      run: npm config set @zowe:registry=https://zowe.jfrog.io/zowe/api/npm/npm-local-release/
+
+    - name: Install Node Package Dependencies
+      id: install-node
+      run: | 
+        npm i --prod
+        npm install -g puppeteer-cli
+
+    - name: Install PIP Dependencies
+      id: install-pip
+      if: ${{ github.event.inputs.zowe-version && github.event.inputs.zowe-version != ''}}
+      run: pip3 install yq
+
+    - name: Set up Zowe from Versions
+      id: get-version-from-workflow
+      if: ${{ github.event.inputs.zowe-version && github.event.inputs.zowe-version != ''}}
+      run: |
+        curl -s https://raw.githubusercontent.com/zowe/zowe-cli-standalone-package/${{ github.event.inputs.zowe-version }}/master/zowe-versions.yaml > __zowe__version__
+        npm install -g @zowe/cli@$(yq '."zowe-cli".cli' __zowe__version__ | tr -d '"')
+        zowe plugins install @zowe/cics-for-zowe-cli@$(yq '."zowe-plugins".cics' __zowe__version__ | tr -d '"')
+        zowe plugins install @zowe/db2-for-zowe-cli@$(yq '."zowe-plugins".db2' __zowe__version__ | tr -d '"')
+        zowe plugins install @zowe/ims-for-zowe-cli@$(yq '."zowe-plugins".ims' __zowe__version__ | tr -d '"')
+        zowe plugins install @zowe/mq-for-zowe-cli@$(yq '."zowe-plugins".mq' __zowe__version__ | tr -d '"')
+        zowe plugins install @zowe/secure-credential-store-for-zowe-cli@$(yq '."zowe-plugins"."secure-credential-store"' __zowe__version__ | tr -d '"')
+        zowe plugins install @zowe/zos-ftp-for-zowe-cli@$(yq '."zowe-plugins"."zos-ftp"' __zowe__version__ | tr -d '"')
+        rm __zowe__version__
+
+    - name: Get Zowe version
+      id: get-version
+      if: ${{ steps.get-version-from-workflow.outcome == 'skipped' }}
+      run: |
+        curl -s https://raw.githubusercontent.com/zowe/zowe-cli-standalone-package/master/zowe-versions.yaml > __zowe__version__
+        echo "::set-output name=number::$([[ $(cat __zowe__version__ | grep zowe:) != "" ]] && (cat __zowe__version__ | grep zowe: | cut -d ':' -f 2) || echo 'CLI_v'$(npx zowe --version))"
+        rm __zowe__version__
+    
+    - name: Set Up Zowe
+      id: setup-zowe
+      if: ${{ steps.get-version-from-workflow.outcome == 'skipped' }}
+      run: |
+        npm install -g @zowe/cli@zowe-v1-lts
+        zowe plugins install @zowe/cics-for-zowe-cli@zowe-v1-lts
+        zowe plugins install @zowe/db2-for-zowe-cli@zowe-v1-lts
+        zowe plugins install @zowe/ims-for-zowe-cli@zowe-v1-lts
+        zowe plugins install @zowe/mq-for-zowe-cli@zowe-v1-lts
+        zowe plugins install @zowe/secure-credential-store-for-zowe-cli@zowe-v1-lts
+        zowe plugins install @zowe/zos-ftp-for-zowe-cli@zowe-v1-lts
+
+    - name: Build Web Help
+      id: build
+      run: |
+        which zowe || true
+        zowe --version || true
+        npm run build:local -- ${{ github.event.inputs.zowe-version || steps.get-version.outputs.number }}
+        export margin="0.4in"
+        puppeteer print ./generatedWebHelp/docs/all.html ./zowe.pdf --margin-top $margin --margin-right $margin --margin-bottom $margin --margin-left $margin --no-sandbox 
+
+    - name: Archive Results
+      id: upload
+      if: ${{ always() && steps.build.outcome == 'success' }}
+      uses: actions/upload-artifact@v2
+      with:
+        name: results
+        path: |
+          generatedWebHelp/
+          zowe.pdf
