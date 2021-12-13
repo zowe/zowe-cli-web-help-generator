@@ -1,0 +1,1868 @@
+// The Program is owned by IBM or an IBM supplier, and is copyrighted
+{
+  "name": "znetview-base",
+  "description": "Perform basic NetView operations.",
+  "type": "group",
+  "children": [
+    {
+      "name": "auth",
+      "summary": "Connect to the NetView REST Server authentication service and obtain a token, or disconnect from the NetView REST Server and revoke the token",
+      "description": "Connect to the NetView REST Server authentication service and obtain a token, or disconnect from the NetView REST Server and revoke the token.",
+      "type": "group",
+      "children": [
+        {
+          "name": "login",
+          "aliases": [
+            "li"
+          ],
+          "summary": "Log in to the NetView REST Server authentication service and obtain a token",
+          "description": "Log in to the NetView REST Server authentication service and obtain a token. When you log in to the NetView REST Server authentication service without any option, the token will be stored in your default NetView profile until it expires.",
+          "type": "command",
+          "handler": "",
+          "positionals": [],
+          "options": [
+            {
+              "name": "show-token",
+              "description": "Displays the token when the login is successful and does not save the token in a profile.",
+              "type": "boolean",
+              "aliases": [
+                "st"
+              ],
+              "defaultValue": false,
+              "group": "Options"
+            },
+            {
+              "name": "host",
+              "aliases": [
+                "H"
+              ],
+              "description": "The host name of your NetView REST Server.",
+              "type": "string",
+              "group": "NetView Connection Options"
+            },
+            {
+              "name": "port",
+              "aliases": [
+                "P"
+              ],
+              "description": "The port number of your NetView REST Server.",
+              "type": "number",
+              "group": "NetView Connection Options"
+            },
+            {
+              "name": "user",
+              "aliases": [
+                "u"
+              ],
+              "description": "The user name to authenticate to your NetView REST Server.",
+              "type": "string",
+              "group": "NetView Connection Options"
+            },
+            {
+              "name": "password",
+              "aliases": [
+                "pw"
+              ],
+              "description": "The password to authenticate to your NetView REST Server.",
+              "type": "string",
+              "group": "NetView Connection Options"
+            },
+            {
+              "name": "token-type",
+              "aliases": [
+                "tt"
+              ],
+              "description": "The type of the token to authenticate to your NetView REST Server. The only token type that is valid when using NetView REST Server authentication is JSESSIONID.",
+              "type": "string",
+              "group": "NetView Connection Options"
+            },
+            {
+              "name": "token-value",
+              "aliases": [
+                "tv"
+              ],
+              "description": "The value of the token to authenticate to your NetView REST Server.",
+              "type": "string",
+              "group": "NetView Connection Options"
+            },
+            {
+              "name": "base-path",
+              "aliases": [
+                "bp"
+              ],
+              "description": "The base path for your Zowe API Mediation Layer instance. Specify this option to prepend the base path to NetView REST service when making REST requests to the Zowe API Mediation Layer. \n\nNote: Do not specify this option if you are not using the Zowe API Mediation Layer.",
+              "type": "string",
+              "group": "NetView Connection Options"
+            },
+            {
+              "name": "response-format-json",
+              "aliases": [
+                "rfj"
+              ],
+              "group": "Global options",
+              "description": "Produce JSON formatted data from a command",
+              "type": "boolean"
+            },
+            {
+              "name": "help",
+              "aliases": [
+                "h"
+              ],
+              "group": "Global options",
+              "description": "Display help text",
+              "type": "boolean"
+            },
+            {
+              "name": "help-examples",
+              "group": "Global options",
+              "description": "Display examples for all the commands in a group",
+              "type": "boolean",
+              "aliases": []
+            },
+            {
+              "name": "help-web",
+              "aliases": [
+                "hw"
+              ],
+              "group": "Global options",
+              "description": "Display HTML help in browser",
+              "type": "boolean"
+            },
+            {
+              "name": "znetview-profile",
+              "aliases": [
+                "znetview-p"
+              ],
+              "group": "Profile Options",
+              "description": "The name of a (znetview) profile to load for this command execution.",
+              "type": "string"
+            },
+            {
+              "name": "base-profile",
+              "aliases": [
+                "base-p"
+              ],
+              "group": "Profile Options",
+              "description": "The name of a (base) profile to load for this command execution.",
+              "type": "string"
+            },
+            {
+              "name": "reject-unauthorized",
+              "aliases": [
+                "ru"
+              ],
+              "description": "Reject self-signed certificates.",
+              "type": "boolean",
+              "defaultValue": true,
+              "group": "Base Connection Options"
+            },
+            {
+              "name": "cert-file",
+              "description": "The file path to a certificate file to use for authentication",
+              "type": "existingLocalFile",
+              "group": "Base Connection Options",
+              "aliases": []
+            },
+            {
+              "name": "cert-key-file",
+              "description": "The file path to a certificate key file to use for authentication",
+              "type": "existingLocalFile",
+              "group": "Base Connection Options",
+              "aliases": []
+            }
+          ],
+          "examples": [
+            {
+              "description": "Log in to the NetView REST Server. The authentication token will be stored in your default NetView profile.",
+              "options": ""
+            },
+            {
+              "description": "Log in to the NetView REST Server. The authentication token will not be stored in your default NetView profile",
+              "options": "--show-token"
+            }
+          ],
+          "profile": {
+            "optional": [
+              "znetview",
+              "base"
+            ]
+          },
+          "passOn": [],
+          "children": []
+        },
+        {
+          "name": "logout",
+          "aliases": [
+            "lo"
+          ],
+          "summary": "Log out of the NetView REST Server",
+          "description": "Log out of the NetView REST Server. The authentication token is revoked and removed from the default NetView profile, if the token was stored there.",
+          "type": "command",
+          "handler": "",
+          "positionals": [],
+          "examples": [
+            {
+              "description": "Log out of the NetView REST Server to revoke the authentication token that is in use and remove it from your default NetView profile",
+              "options": ""
+            },
+            {
+              "description": "Log out of NetView REST Server to revoke the token that is specified in the --token-value option, in case you logged in to the NetView REST Server with the --show-token option",
+              "options": "--token-value xxxxxxxxxxxxxxxxxxxx"
+            }
+          ],
+          "profile": {
+            "optional": [
+              "znetview",
+              "base"
+            ]
+          },
+          "options": [
+            {
+              "name": "host",
+              "aliases": [
+                "H"
+              ],
+              "description": "The host name of your NetView REST Server.",
+              "type": "string",
+              "group": "NetView Connection Options"
+            },
+            {
+              "name": "port",
+              "aliases": [
+                "P"
+              ],
+              "description": "The port number of your NetView REST Server.",
+              "type": "number",
+              "group": "NetView Connection Options"
+            },
+            {
+              "name": "user",
+              "aliases": [
+                "u"
+              ],
+              "description": "The user name to authenticate to your NetView REST Server.",
+              "type": "string",
+              "group": "NetView Connection Options"
+            },
+            {
+              "name": "password",
+              "aliases": [
+                "pw"
+              ],
+              "description": "The password to authenticate to your NetView REST Server.",
+              "type": "string",
+              "group": "NetView Connection Options"
+            },
+            {
+              "name": "token-type",
+              "aliases": [
+                "tt"
+              ],
+              "description": "The type of the token to authenticate to your NetView REST Server. The only token type that is valid when using NetView REST Server authentication is JSESSIONID.",
+              "type": "string",
+              "group": "NetView Connection Options"
+            },
+            {
+              "name": "token-value",
+              "aliases": [
+                "tv"
+              ],
+              "description": "The value of the token to authenticate to your NetView REST Server.",
+              "type": "string",
+              "group": "NetView Connection Options"
+            },
+            {
+              "name": "base-path",
+              "aliases": [
+                "bp"
+              ],
+              "description": "The base path for your Zowe API Mediation Layer instance. Specify this option to prepend the base path to NetView REST service when making REST requests to the Zowe API Mediation Layer. \n\nNote: Do not specify this option if you are not using the Zowe API Mediation Layer.",
+              "type": "string",
+              "group": "NetView Connection Options"
+            },
+            {
+              "name": "response-format-json",
+              "aliases": [
+                "rfj"
+              ],
+              "group": "Global options",
+              "description": "Produce JSON formatted data from a command",
+              "type": "boolean"
+            },
+            {
+              "name": "help",
+              "aliases": [
+                "h"
+              ],
+              "group": "Global options",
+              "description": "Display help text",
+              "type": "boolean"
+            },
+            {
+              "name": "help-examples",
+              "group": "Global options",
+              "description": "Display examples for all the commands in a group",
+              "type": "boolean",
+              "aliases": []
+            },
+            {
+              "name": "help-web",
+              "aliases": [
+                "hw"
+              ],
+              "group": "Global options",
+              "description": "Display HTML help in browser",
+              "type": "boolean"
+            },
+            {
+              "name": "znetview-profile",
+              "aliases": [
+                "znetview-p"
+              ],
+              "group": "Profile Options",
+              "description": "The name of a (znetview) profile to load for this command execution.",
+              "type": "string"
+            },
+            {
+              "name": "base-profile",
+              "aliases": [
+                "base-p"
+              ],
+              "group": "Profile Options",
+              "description": "The name of a (base) profile to load for this command execution.",
+              "type": "string"
+            },
+            {
+              "name": "reject-unauthorized",
+              "aliases": [
+                "ru"
+              ],
+              "description": "Reject self-signed certificates.",
+              "type": "boolean",
+              "defaultValue": true,
+              "group": "Base Connection Options"
+            },
+            {
+              "name": "cert-file",
+              "description": "The file path to a certificate file to use for authentication",
+              "type": "existingLocalFile",
+              "group": "Base Connection Options",
+              "aliases": []
+            },
+            {
+              "name": "cert-key-file",
+              "description": "The file path to a certificate key file to use for authentication",
+              "type": "existingLocalFile",
+              "group": "Base Connection Options",
+              "aliases": []
+            }
+          ],
+          "passOn": [],
+          "children": []
+        }
+      ],
+      "passOn": [
+        {
+          "property": "options",
+          "value": [
+            {
+              "name": "host",
+              "aliases": [
+                "H"
+              ],
+              "description": "The host name of your NetView REST Server.",
+              "type": "string",
+              "group": "NetView Connection Options"
+            },
+            {
+              "name": "port",
+              "aliases": [
+                "P"
+              ],
+              "description": "The port number of your NetView REST Server.",
+              "type": "number",
+              "group": "NetView Connection Options"
+            },
+            {
+              "name": "user",
+              "aliases": [
+                "u"
+              ],
+              "description": "The user name to authenticate to your NetView REST Server.",
+              "type": "string",
+              "group": "NetView Connection Options"
+            },
+            {
+              "name": "password",
+              "aliases": [
+                "pw"
+              ],
+              "description": "The password to authenticate to your NetView REST Server.",
+              "type": "string",
+              "group": "NetView Connection Options"
+            },
+            {
+              "name": "token-type",
+              "aliases": [
+                "tt"
+              ],
+              "description": "The type of the token to authenticate to your NetView REST Server. The only token type that is valid when using NetView REST Server authentication is JSESSIONID.",
+              "type": "string",
+              "group": "NetView Connection Options"
+            },
+            {
+              "name": "token-value",
+              "aliases": [
+                "tv"
+              ],
+              "description": "The value of the token to authenticate to your NetView REST Server.",
+              "type": "string",
+              "group": "NetView Connection Options"
+            },
+            {
+              "name": "base-path",
+              "aliases": [
+                "bp"
+              ],
+              "description": "The base path for your Zowe API Mediation Layer instance. Specify this option to prepend the base path to NetView REST service when making REST requests to the Zowe API Mediation Layer. \n\nNote: Do not specify this option if you are not using the Zowe API Mediation Layer.",
+              "type": "string",
+              "group": "NetView Connection Options"
+            }
+          ],
+          "merge": true,
+          "ignoreNodes": [
+            {
+              "type": "group"
+            }
+          ]
+        }
+      ],
+      "options": [
+        {
+          "name": "response-format-json",
+          "aliases": [
+            "rfj"
+          ],
+          "group": "Global options",
+          "description": "Produce JSON formatted data from a command",
+          "type": "boolean"
+        },
+        {
+          "name": "help",
+          "aliases": [
+            "h"
+          ],
+          "group": "Global options",
+          "description": "Display help text",
+          "type": "boolean"
+        },
+        {
+          "name": "help-examples",
+          "group": "Global options",
+          "description": "Display examples for all the commands in a group",
+          "type": "boolean",
+          "aliases": []
+        },
+        {
+          "name": "help-web",
+          "aliases": [
+            "hw"
+          ],
+          "group": "Global options",
+          "description": "Display HTML help in browser",
+          "type": "boolean"
+        }
+      ],
+      "aliases": [],
+      "positionals": []
+    },
+    {
+      "name": "issue",
+      "summary": "Issue NetView commands",
+      "description": "Issue NetView commands",
+      "type": "group",
+      "children": [
+        {
+          "name": "command",
+          "aliases": [
+            "cmd"
+          ],
+          "summary": "Issue NetView commands",
+          "description": "Issue NetView commands and display responses. This REST API will not work for every NetView command. Any command that provides outputs in a panel will not be retrieved.\n\nNote: No specific formatting has been done for command output.",
+          "type": "command",
+          "handler": "",
+          "positionals": [
+            {
+              "name": "commandText",
+              "type": "string",
+              "description": "The command sent to NetView program. Some command line environments have problems with certain special characters. If your command text contains any of these characters, you may need to put your command in single quotes instead of double quotes.",
+              "required": true
+            }
+          ],
+          "options": [
+            {
+              "name": "domain",
+              "description": "The NetView domain to which the request will be sent.\n\nThe default is the NetView domain to which the NetView REST Server is connected.",
+              "type": "string",
+              "aliases": [
+                "D"
+              ],
+              "group": "Options"
+            },
+            {
+              "name": "host",
+              "aliases": [
+                "H"
+              ],
+              "description": "The host name of your NetView REST Server.",
+              "type": "string",
+              "group": "NetView Connection Options"
+            },
+            {
+              "name": "port",
+              "aliases": [
+                "P"
+              ],
+              "description": "The port number of your NetView REST Server.",
+              "type": "number",
+              "group": "NetView Connection Options"
+            },
+            {
+              "name": "user",
+              "aliases": [
+                "u"
+              ],
+              "description": "The user name to authenticate to your NetView REST Server.",
+              "type": "string",
+              "group": "NetView Connection Options"
+            },
+            {
+              "name": "password",
+              "aliases": [
+                "pw"
+              ],
+              "description": "The password to authenticate to your NetView REST Server.",
+              "type": "string",
+              "group": "NetView Connection Options"
+            },
+            {
+              "name": "token-type",
+              "aliases": [
+                "tt"
+              ],
+              "description": "The type of the token to authenticate to your NetView REST Server. The only token type that is valid when using NetView REST Server authentication is JSESSIONID.",
+              "type": "string",
+              "group": "NetView Connection Options"
+            },
+            {
+              "name": "token-value",
+              "aliases": [
+                "tv"
+              ],
+              "description": "The value of the token to authenticate to your NetView REST Server.",
+              "type": "string",
+              "group": "NetView Connection Options"
+            },
+            {
+              "name": "base-path",
+              "aliases": [
+                "bp"
+              ],
+              "description": "The base path for your Zowe API Mediation Layer instance. Specify this option to prepend the base path to NetView REST service when making REST requests to the Zowe API Mediation Layer. \n\nNote: Do not specify this option if you are not using the Zowe API Mediation Layer.",
+              "type": "string",
+              "group": "NetView Connection Options"
+            },
+            {
+              "name": "response-format-json",
+              "aliases": [
+                "rfj"
+              ],
+              "group": "Global options",
+              "description": "Produce JSON formatted data from a command",
+              "type": "boolean"
+            },
+            {
+              "name": "help",
+              "aliases": [
+                "h"
+              ],
+              "group": "Global options",
+              "description": "Display help text",
+              "type": "boolean"
+            },
+            {
+              "name": "help-examples",
+              "group": "Global options",
+              "description": "Display examples for all the commands in a group",
+              "type": "boolean",
+              "aliases": []
+            },
+            {
+              "name": "help-web",
+              "aliases": [
+                "hw"
+              ],
+              "group": "Global options",
+              "description": "Display HTML help in browser",
+              "type": "boolean"
+            },
+            {
+              "name": "znetview-profile",
+              "aliases": [
+                "znetview-p"
+              ],
+              "group": "Profile Options",
+              "description": "The name of a (znetview) profile to load for this command execution.",
+              "type": "string"
+            },
+            {
+              "name": "base-profile",
+              "aliases": [
+                "base-p"
+              ],
+              "group": "Profile Options",
+              "description": "The name of a (base) profile to load for this command execution.",
+              "type": "string"
+            },
+            {
+              "name": "reject-unauthorized",
+              "aliases": [
+                "ru"
+              ],
+              "description": "Reject self-signed certificates.",
+              "type": "boolean",
+              "defaultValue": true,
+              "group": "Base Connection Options"
+            },
+            {
+              "name": "cert-file",
+              "description": "The file path to a certificate file to use for authentication",
+              "type": "existingLocalFile",
+              "group": "Base Connection Options",
+              "aliases": []
+            },
+            {
+              "name": "cert-key-file",
+              "description": "The file path to a certificate key file to use for authentication",
+              "type": "existingLocalFile",
+              "group": "Base Connection Options",
+              "aliases": []
+            }
+          ],
+          "examples": [
+            {
+              "description": "Issue NetView command \"lista\" for domain CNM01",
+              "options": "\"lista\" --domain CNM01"
+            }
+          ],
+          "profile": {
+            "optional": [
+              "znetview",
+              "base"
+            ]
+          },
+          "passOn": [],
+          "children": []
+        }
+      ],
+      "passOn": [
+        {
+          "property": "options",
+          "value": [
+            {
+              "name": "host",
+              "aliases": [
+                "H"
+              ],
+              "description": "The host name of your NetView REST Server.",
+              "type": "string",
+              "group": "NetView Connection Options"
+            },
+            {
+              "name": "port",
+              "aliases": [
+                "P"
+              ],
+              "description": "The port number of your NetView REST Server.",
+              "type": "number",
+              "group": "NetView Connection Options"
+            },
+            {
+              "name": "user",
+              "aliases": [
+                "u"
+              ],
+              "description": "The user name to authenticate to your NetView REST Server.",
+              "type": "string",
+              "group": "NetView Connection Options"
+            },
+            {
+              "name": "password",
+              "aliases": [
+                "pw"
+              ],
+              "description": "The password to authenticate to your NetView REST Server.",
+              "type": "string",
+              "group": "NetView Connection Options"
+            },
+            {
+              "name": "token-type",
+              "aliases": [
+                "tt"
+              ],
+              "description": "The type of the token to authenticate to your NetView REST Server. The only token type that is valid when using NetView REST Server authentication is JSESSIONID.",
+              "type": "string",
+              "group": "NetView Connection Options"
+            },
+            {
+              "name": "token-value",
+              "aliases": [
+                "tv"
+              ],
+              "description": "The value of the token to authenticate to your NetView REST Server.",
+              "type": "string",
+              "group": "NetView Connection Options"
+            },
+            {
+              "name": "base-path",
+              "aliases": [
+                "bp"
+              ],
+              "description": "The base path for your Zowe API Mediation Layer instance. Specify this option to prepend the base path to NetView REST service when making REST requests to the Zowe API Mediation Layer. \n\nNote: Do not specify this option if you are not using the Zowe API Mediation Layer.",
+              "type": "string",
+              "group": "NetView Connection Options"
+            }
+          ],
+          "merge": true,
+          "ignoreNodes": [
+            {
+              "type": "group"
+            }
+          ]
+        }
+      ],
+      "options": [
+        {
+          "name": "response-format-json",
+          "aliases": [
+            "rfj"
+          ],
+          "group": "Global options",
+          "description": "Produce JSON formatted data from a command",
+          "type": "boolean"
+        },
+        {
+          "name": "help",
+          "aliases": [
+            "h"
+          ],
+          "group": "Global options",
+          "description": "Display help text",
+          "type": "boolean"
+        },
+        {
+          "name": "help-examples",
+          "group": "Global options",
+          "description": "Display examples for all the commands in a group",
+          "type": "boolean",
+          "aliases": []
+        },
+        {
+          "name": "help-web",
+          "aliases": [
+            "hw"
+          ],
+          "group": "Global options",
+          "description": "Display HTML help in browser",
+          "type": "boolean"
+        }
+      ],
+      "aliases": [],
+      "positionals": []
+    },
+    {
+      "name": "list",
+      "aliases": [
+        "ls"
+      ],
+      "summary": "List Canzlog messages, task utilization information, and active NetView domains",
+      "description": "List Canzlog messages, task utilization information, and active NetView domains.",
+      "type": "group",
+      "children": [
+        {
+          "name": "domains",
+          "summary": "List active NetView domains known to a sysplex or enterprise master NetView program",
+          "aliases": [
+            "doms"
+          ],
+          "description": "List data about active NetView domains in a sysplex or active domains configured to the enterprise master NetView program. The command that NetView program is running is LIST STATUS=XCFGRPS, which returns a list of z/OS® XCF groups in which the NetView program participates. Note: The DISCOVERY Tower must be enabled to retrieve data from other NetView domains configured to the enterprise master NetView program.",
+          "positionals": [],
+          "type": "command",
+          "handler": "",
+          "profile": {
+            "optional": [
+              "znetview",
+              "base"
+            ]
+          },
+          "options": [
+            {
+              "name": "domain",
+              "description": "The NetView domain to which the request will be sent.\n\nThe default is the NetView domain to which the NetView REST Server is connected.",
+              "type": "string",
+              "aliases": [
+                "D"
+              ],
+              "group": "Options"
+            },
+            {
+              "name": "host",
+              "aliases": [
+                "H"
+              ],
+              "description": "The host name of your NetView REST Server.",
+              "type": "string",
+              "group": "NetView Connection Options"
+            },
+            {
+              "name": "port",
+              "aliases": [
+                "P"
+              ],
+              "description": "The port number of your NetView REST Server.",
+              "type": "number",
+              "group": "NetView Connection Options"
+            },
+            {
+              "name": "user",
+              "aliases": [
+                "u"
+              ],
+              "description": "The user name to authenticate to your NetView REST Server.",
+              "type": "string",
+              "group": "NetView Connection Options"
+            },
+            {
+              "name": "password",
+              "aliases": [
+                "pw"
+              ],
+              "description": "The password to authenticate to your NetView REST Server.",
+              "type": "string",
+              "group": "NetView Connection Options"
+            },
+            {
+              "name": "token-type",
+              "aliases": [
+                "tt"
+              ],
+              "description": "The type of the token to authenticate to your NetView REST Server. The only token type that is valid when using NetView REST Server authentication is JSESSIONID.",
+              "type": "string",
+              "group": "NetView Connection Options"
+            },
+            {
+              "name": "token-value",
+              "aliases": [
+                "tv"
+              ],
+              "description": "The value of the token to authenticate to your NetView REST Server.",
+              "type": "string",
+              "group": "NetView Connection Options"
+            },
+            {
+              "name": "base-path",
+              "aliases": [
+                "bp"
+              ],
+              "description": "The base path for your Zowe API Mediation Layer instance. Specify this option to prepend the base path to NetView REST service when making REST requests to the Zowe API Mediation Layer. \n\nNote: Do not specify this option if you are not using the Zowe API Mediation Layer.",
+              "type": "string",
+              "group": "NetView Connection Options"
+            },
+            {
+              "name": "response-format-json",
+              "aliases": [
+                "rfj"
+              ],
+              "group": "Global options",
+              "description": "Produce JSON formatted data from a command",
+              "type": "boolean"
+            },
+            {
+              "name": "help",
+              "aliases": [
+                "h"
+              ],
+              "group": "Global options",
+              "description": "Display help text",
+              "type": "boolean"
+            },
+            {
+              "name": "help-examples",
+              "group": "Global options",
+              "description": "Display examples for all the commands in a group",
+              "type": "boolean",
+              "aliases": []
+            },
+            {
+              "name": "help-web",
+              "aliases": [
+                "hw"
+              ],
+              "group": "Global options",
+              "description": "Display HTML help in browser",
+              "type": "boolean"
+            },
+            {
+              "name": "znetview-profile",
+              "aliases": [
+                "znetview-p"
+              ],
+              "group": "Profile Options",
+              "description": "The name of a (znetview) profile to load for this command execution.",
+              "type": "string"
+            },
+            {
+              "name": "base-profile",
+              "aliases": [
+                "base-p"
+              ],
+              "group": "Profile Options",
+              "description": "The name of a (base) profile to load for this command execution.",
+              "type": "string"
+            },
+            {
+              "name": "reject-unauthorized",
+              "aliases": [
+                "ru"
+              ],
+              "description": "Reject self-signed certificates.",
+              "type": "boolean",
+              "defaultValue": true,
+              "group": "Base Connection Options"
+            },
+            {
+              "name": "cert-file",
+              "description": "The file path to a certificate file to use for authentication",
+              "type": "existingLocalFile",
+              "group": "Base Connection Options",
+              "aliases": []
+            },
+            {
+              "name": "cert-key-file",
+              "description": "The file path to a certificate key file to use for authentication",
+              "type": "existingLocalFile",
+              "group": "Base Connection Options",
+              "aliases": []
+            }
+          ],
+          "passOn": [],
+          "children": []
+        },
+        {
+          "name": "canzlog",
+          "aliases": [
+            "cz"
+          ],
+          "summary": "List messages from Canzlog that based on specified parameters",
+          "description": "List a message or a set of messages from Canzlog. ",
+          "type": "command",
+          "handler": "",
+          "positionals": [
+            {
+              "name": "requestType",
+              "type": "string",
+              "description": "Specifies the type of request to be used to retrieve Canzlog messages. \nThe following values are valid: \n\nczid\n\ntimestamp\n\ntimerange\n\nrecent\n\n",
+              "required": true
+            }
+          ],
+          "options": [
+            {
+              "name": "begin",
+              "description": "The specific time for the request type 'timestamp' or the start time for the request type 'timerange', in format of \"mm/dd/yy hh:mm:ss\". \n\nNote: It is required for the request types 'timerange' and 'timestamp'.",
+              "type": "string",
+              "aliases": [
+                "beg"
+              ],
+              "group": "Options"
+            },
+            {
+              "name": "direction",
+              "description": "Specifies which direction, backward or forward, for which to retrieve additional Canzlog messages. \n\nNote: This is valid for request types 'czid', 'timestamp'.",
+              "defaultValue": "fwd",
+              "allowableValues": {
+                "values": [
+                  "fwd",
+                  "bwd"
+                ],
+                "caseSensitive": false
+              },
+              "type": "string",
+              "aliases": [
+                "dir"
+              ],
+              "group": "Options"
+            },
+            {
+              "name": "domain",
+              "description": "The NetView domain to which the request will be sent.\n\nThe default is the NetView domain to which the NetView REST Server is connected.",
+              "type": "string",
+              "aliases": [
+                "D"
+              ],
+              "group": "Options"
+            },
+            {
+              "name": "end",
+              "description": "The end time for the request type time range, in format of \"mm/dd/yy hh:mm:ss\". \n\nNote: It is required for the request type 'timerange'.",
+              "type": "string",
+              "group": "Options",
+              "aliases": []
+            },
+            {
+              "name": "id",
+              "description": "The CZID of the message you’re retrieving. \n\nNote: It is required for the request type 'CZID'.",
+              "type": "number",
+              "group": "Options",
+              "aliases": []
+            },
+            {
+              "name": "number",
+              "description": "Specifies the number of messages to retrieve. \n\nNote: This is valid for request types 'czid', 'timestamp' and 'recent'. ",
+              "defaultValue": 1,
+              "numericValueRange": [
+                1,
+                5000
+              ],
+              "type": "string",
+              "aliases": [
+                "num"
+              ],
+              "group": "Options"
+            },
+            {
+              "name": "show-details",
+              "description": "Specifies if you want to display all attribute data of the Canzlog messages.",
+              "defaultValue": false,
+              "type": "boolean",
+              "aliases": [
+                "sd"
+              ],
+              "group": "Options"
+            },
+            {
+              "name": "host",
+              "aliases": [
+                "H"
+              ],
+              "description": "The host name of your NetView REST Server.",
+              "type": "string",
+              "group": "NetView Connection Options"
+            },
+            {
+              "name": "port",
+              "aliases": [
+                "P"
+              ],
+              "description": "The port number of your NetView REST Server.",
+              "type": "number",
+              "group": "NetView Connection Options"
+            },
+            {
+              "name": "user",
+              "aliases": [
+                "u"
+              ],
+              "description": "The user name to authenticate to your NetView REST Server.",
+              "type": "string",
+              "group": "NetView Connection Options"
+            },
+            {
+              "name": "password",
+              "aliases": [
+                "pw"
+              ],
+              "description": "The password to authenticate to your NetView REST Server.",
+              "type": "string",
+              "group": "NetView Connection Options"
+            },
+            {
+              "name": "token-type",
+              "aliases": [
+                "tt"
+              ],
+              "description": "The type of the token to authenticate to your NetView REST Server. The only token type that is valid when using NetView REST Server authentication is JSESSIONID.",
+              "type": "string",
+              "group": "NetView Connection Options"
+            },
+            {
+              "name": "token-value",
+              "aliases": [
+                "tv"
+              ],
+              "description": "The value of the token to authenticate to your NetView REST Server.",
+              "type": "string",
+              "group": "NetView Connection Options"
+            },
+            {
+              "name": "base-path",
+              "aliases": [
+                "bp"
+              ],
+              "description": "The base path for your Zowe API Mediation Layer instance. Specify this option to prepend the base path to NetView REST service when making REST requests to the Zowe API Mediation Layer. \n\nNote: Do not specify this option if you are not using the Zowe API Mediation Layer.",
+              "type": "string",
+              "group": "NetView Connection Options"
+            },
+            {
+              "name": "response-format-json",
+              "aliases": [
+                "rfj"
+              ],
+              "group": "Global options",
+              "description": "Produce JSON formatted data from a command",
+              "type": "boolean"
+            },
+            {
+              "name": "help",
+              "aliases": [
+                "h"
+              ],
+              "group": "Global options",
+              "description": "Display help text",
+              "type": "boolean"
+            },
+            {
+              "name": "help-examples",
+              "group": "Global options",
+              "description": "Display examples for all the commands in a group",
+              "type": "boolean",
+              "aliases": []
+            },
+            {
+              "name": "help-web",
+              "aliases": [
+                "hw"
+              ],
+              "group": "Global options",
+              "description": "Display HTML help in browser",
+              "type": "boolean"
+            },
+            {
+              "name": "znetview-profile",
+              "aliases": [
+                "znetview-p"
+              ],
+              "group": "Profile Options",
+              "description": "The name of a (znetview) profile to load for this command execution.",
+              "type": "string"
+            },
+            {
+              "name": "base-profile",
+              "aliases": [
+                "base-p"
+              ],
+              "group": "Profile Options",
+              "description": "The name of a (base) profile to load for this command execution.",
+              "type": "string"
+            },
+            {
+              "name": "reject-unauthorized",
+              "aliases": [
+                "ru"
+              ],
+              "description": "Reject self-signed certificates.",
+              "type": "boolean",
+              "defaultValue": true,
+              "group": "Base Connection Options"
+            },
+            {
+              "name": "cert-file",
+              "description": "The file path to a certificate file to use for authentication",
+              "type": "existingLocalFile",
+              "group": "Base Connection Options",
+              "aliases": []
+            },
+            {
+              "name": "cert-key-file",
+              "description": "The file path to a certificate key file to use for authentication",
+              "type": "existingLocalFile",
+              "group": "Base Connection Options",
+              "aliases": []
+            }
+          ],
+          "examples": [
+            {
+              "description": "List 3 Canzlog messages starting with the message specified by czid and retrieving the next 2 messages for domain CNM01",
+              "options": "czid --id 237766 --direction fwd --number 3 --domain CNM01"
+            },
+            {
+              "description": "List 4 Canzlog messages starting with the message specified by the timestamp and retrieving the previous 3 messages for domain CNM01",
+              "options": "timestamp --begin \"09/10/20 00:00:00\" --direction bwd --number 4 --domain CNM01"
+            },
+            {
+              "description": "List Canzlog messages specified by the timerange for domain CNM01",
+              "options": "timerange –-begin \"09/10/20 00:00:00\" --end \"09/10/20 00:10:00\" --domain CNM01"
+            },
+            {
+              "description": "List the 2 most recent Canzlog messages for domain CNM01",
+              "options": "recent --number 2 --domain CNM01"
+            }
+          ],
+          "profile": {
+            "optional": [
+              "znetview",
+              "base"
+            ]
+          },
+          "passOn": [],
+          "children": []
+        },
+        {
+          "name": "task-info",
+          "summary": "List NetView task utilization information",
+          "aliases": [
+            "task"
+          ],
+          "description": "Lists the CPU utilization, storage utilization, number of queued messages, and the running command  (if available) for active NetView tasks.",
+          "positionals": [],
+          "type": "command",
+          "handler": "",
+          "profile": {
+            "optional": [
+              "znetview",
+              "base"
+            ]
+          },
+          "options": [
+            {
+              "name": "domain",
+              "description": "The NetView domain to which the request will be sent.\n\nThe default is the NetView domain to which the NetView REST Server is connected.",
+              "type": "string",
+              "aliases": [
+                "D"
+              ],
+              "group": "Options"
+            },
+            {
+              "name": "host",
+              "aliases": [
+                "H"
+              ],
+              "description": "The host name of your NetView REST Server.",
+              "type": "string",
+              "group": "NetView Connection Options"
+            },
+            {
+              "name": "port",
+              "aliases": [
+                "P"
+              ],
+              "description": "The port number of your NetView REST Server.",
+              "type": "number",
+              "group": "NetView Connection Options"
+            },
+            {
+              "name": "user",
+              "aliases": [
+                "u"
+              ],
+              "description": "The user name to authenticate to your NetView REST Server.",
+              "type": "string",
+              "group": "NetView Connection Options"
+            },
+            {
+              "name": "password",
+              "aliases": [
+                "pw"
+              ],
+              "description": "The password to authenticate to your NetView REST Server.",
+              "type": "string",
+              "group": "NetView Connection Options"
+            },
+            {
+              "name": "token-type",
+              "aliases": [
+                "tt"
+              ],
+              "description": "The type of the token to authenticate to your NetView REST Server. The only token type that is valid when using NetView REST Server authentication is JSESSIONID.",
+              "type": "string",
+              "group": "NetView Connection Options"
+            },
+            {
+              "name": "token-value",
+              "aliases": [
+                "tv"
+              ],
+              "description": "The value of the token to authenticate to your NetView REST Server.",
+              "type": "string",
+              "group": "NetView Connection Options"
+            },
+            {
+              "name": "base-path",
+              "aliases": [
+                "bp"
+              ],
+              "description": "The base path for your Zowe API Mediation Layer instance. Specify this option to prepend the base path to NetView REST service when making REST requests to the Zowe API Mediation Layer. \n\nNote: Do not specify this option if you are not using the Zowe API Mediation Layer.",
+              "type": "string",
+              "group": "NetView Connection Options"
+            },
+            {
+              "name": "response-format-json",
+              "aliases": [
+                "rfj"
+              ],
+              "group": "Global options",
+              "description": "Produce JSON formatted data from a command",
+              "type": "boolean"
+            },
+            {
+              "name": "help",
+              "aliases": [
+                "h"
+              ],
+              "group": "Global options",
+              "description": "Display help text",
+              "type": "boolean"
+            },
+            {
+              "name": "help-examples",
+              "group": "Global options",
+              "description": "Display examples for all the commands in a group",
+              "type": "boolean",
+              "aliases": []
+            },
+            {
+              "name": "help-web",
+              "aliases": [
+                "hw"
+              ],
+              "group": "Global options",
+              "description": "Display HTML help in browser",
+              "type": "boolean"
+            },
+            {
+              "name": "znetview-profile",
+              "aliases": [
+                "znetview-p"
+              ],
+              "group": "Profile Options",
+              "description": "The name of a (znetview) profile to load for this command execution.",
+              "type": "string"
+            },
+            {
+              "name": "base-profile",
+              "aliases": [
+                "base-p"
+              ],
+              "group": "Profile Options",
+              "description": "The name of a (base) profile to load for this command execution.",
+              "type": "string"
+            },
+            {
+              "name": "reject-unauthorized",
+              "aliases": [
+                "ru"
+              ],
+              "description": "Reject self-signed certificates.",
+              "type": "boolean",
+              "defaultValue": true,
+              "group": "Base Connection Options"
+            },
+            {
+              "name": "cert-file",
+              "description": "The file path to a certificate file to use for authentication",
+              "type": "existingLocalFile",
+              "group": "Base Connection Options",
+              "aliases": []
+            },
+            {
+              "name": "cert-key-file",
+              "description": "The file path to a certificate key file to use for authentication",
+              "type": "existingLocalFile",
+              "group": "Base Connection Options",
+              "aliases": []
+            }
+          ],
+          "examples": [
+            {
+              "description": "List the task utilization information from domain CNM01",
+              "options": "–-domain CNM01"
+            }
+          ],
+          "passOn": [],
+          "children": []
+        }
+      ],
+      "passOn": [
+        {
+          "property": "options",
+          "value": [
+            {
+              "name": "host",
+              "aliases": [
+                "H"
+              ],
+              "description": "The host name of your NetView REST Server.",
+              "type": "string",
+              "group": "NetView Connection Options"
+            },
+            {
+              "name": "port",
+              "aliases": [
+                "P"
+              ],
+              "description": "The port number of your NetView REST Server.",
+              "type": "number",
+              "group": "NetView Connection Options"
+            },
+            {
+              "name": "user",
+              "aliases": [
+                "u"
+              ],
+              "description": "The user name to authenticate to your NetView REST Server.",
+              "type": "string",
+              "group": "NetView Connection Options"
+            },
+            {
+              "name": "password",
+              "aliases": [
+                "pw"
+              ],
+              "description": "The password to authenticate to your NetView REST Server.",
+              "type": "string",
+              "group": "NetView Connection Options"
+            },
+            {
+              "name": "token-type",
+              "aliases": [
+                "tt"
+              ],
+              "description": "The type of the token to authenticate to your NetView REST Server. The only token type that is valid when using NetView REST Server authentication is JSESSIONID.",
+              "type": "string",
+              "group": "NetView Connection Options"
+            },
+            {
+              "name": "token-value",
+              "aliases": [
+                "tv"
+              ],
+              "description": "The value of the token to authenticate to your NetView REST Server.",
+              "type": "string",
+              "group": "NetView Connection Options"
+            },
+            {
+              "name": "base-path",
+              "aliases": [
+                "bp"
+              ],
+              "description": "The base path for your Zowe API Mediation Layer instance. Specify this option to prepend the base path to NetView REST service when making REST requests to the Zowe API Mediation Layer. \n\nNote: Do not specify this option if you are not using the Zowe API Mediation Layer.",
+              "type": "string",
+              "group": "NetView Connection Options"
+            }
+          ],
+          "merge": true,
+          "ignoreNodes": [
+            {
+              "type": "group"
+            }
+          ]
+        }
+      ],
+      "options": [
+        {
+          "name": "response-format-json",
+          "aliases": [
+            "rfj"
+          ],
+          "group": "Global options",
+          "description": "Produce JSON formatted data from a command",
+          "type": "boolean"
+        },
+        {
+          "name": "help",
+          "aliases": [
+            "h"
+          ],
+          "group": "Global options",
+          "description": "Display help text",
+          "type": "boolean"
+        },
+        {
+          "name": "help-examples",
+          "group": "Global options",
+          "description": "Display examples for all the commands in a group",
+          "type": "boolean",
+          "aliases": []
+        },
+        {
+          "name": "help-web",
+          "aliases": [
+            "hw"
+          ],
+          "group": "Global options",
+          "description": "Display HTML help in browser",
+          "type": "boolean"
+        }
+      ],
+      "positionals": []
+    },
+    {
+      "name": "record",
+      "aliases": [
+        "rc"
+      ],
+      "summary": "Record a message from Canzlog with provided information",
+      "description": "Record a Canzlog message and its message attributes.",
+      "type": "group",
+      "children": [
+        {
+          "name": "canzlog",
+          "aliases": [
+            "cz"
+          ],
+          "summary": "Record a message from Canzlog with provided information",
+          "description": "Record the Canzlog message and its message attributes in the topmost concatenated DSIASRC DD data set. \n\nThe recording contains all the relevant information about the message that can be retrieved from Canzlog, and much of the information is in a non-readable format. \n\nThis step should be done as soon as the Canzlog message are successfully retrieved, because the message could become unavailable in a short time.",
+          "type": "command",
+          "handler": "",
+          "positionals": [
+            {
+              "name": "czid",
+              "type": "string",
+              "description": "The CZID of the message to be recorded.",
+              "required": true
+            }
+          ],
+          "options": [
+            {
+              "name": "record-member-name",
+              "description": "Specifies the member name in the DSIASRC data set where the Canzlog message and its message attributes are stored.",
+              "required": true,
+              "type": "string",
+              "aliases": [
+                "rmn"
+              ],
+              "group": "Required Options"
+            },
+            {
+              "name": "domain",
+              "description": "The NetView domain to which the request will be sent.\n\nThe default is the NetView domain to which the NetView REST Server is connected.",
+              "type": "string",
+              "aliases": [
+                "D"
+              ],
+              "group": "Options"
+            },
+            {
+              "name": "host",
+              "aliases": [
+                "H"
+              ],
+              "description": "The host name of your NetView REST Server.",
+              "type": "string",
+              "group": "NetView Connection Options"
+            },
+            {
+              "name": "port",
+              "aliases": [
+                "P"
+              ],
+              "description": "The port number of your NetView REST Server.",
+              "type": "number",
+              "group": "NetView Connection Options"
+            },
+            {
+              "name": "user",
+              "aliases": [
+                "u"
+              ],
+              "description": "The user name to authenticate to your NetView REST Server.",
+              "type": "string",
+              "group": "NetView Connection Options"
+            },
+            {
+              "name": "password",
+              "aliases": [
+                "pw"
+              ],
+              "description": "The password to authenticate to your NetView REST Server.",
+              "type": "string",
+              "group": "NetView Connection Options"
+            },
+            {
+              "name": "token-type",
+              "aliases": [
+                "tt"
+              ],
+              "description": "The type of the token to authenticate to your NetView REST Server. The only token type that is valid when using NetView REST Server authentication is JSESSIONID.",
+              "type": "string",
+              "group": "NetView Connection Options"
+            },
+            {
+              "name": "token-value",
+              "aliases": [
+                "tv"
+              ],
+              "description": "The value of the token to authenticate to your NetView REST Server.",
+              "type": "string",
+              "group": "NetView Connection Options"
+            },
+            {
+              "name": "base-path",
+              "aliases": [
+                "bp"
+              ],
+              "description": "The base path for your Zowe API Mediation Layer instance. Specify this option to prepend the base path to NetView REST service when making REST requests to the Zowe API Mediation Layer. \n\nNote: Do not specify this option if you are not using the Zowe API Mediation Layer.",
+              "type": "string",
+              "group": "NetView Connection Options"
+            },
+            {
+              "name": "response-format-json",
+              "aliases": [
+                "rfj"
+              ],
+              "group": "Global options",
+              "description": "Produce JSON formatted data from a command",
+              "type": "boolean"
+            },
+            {
+              "name": "help",
+              "aliases": [
+                "h"
+              ],
+              "group": "Global options",
+              "description": "Display help text",
+              "type": "boolean"
+            },
+            {
+              "name": "help-examples",
+              "group": "Global options",
+              "description": "Display examples for all the commands in a group",
+              "type": "boolean",
+              "aliases": []
+            },
+            {
+              "name": "help-web",
+              "aliases": [
+                "hw"
+              ],
+              "group": "Global options",
+              "description": "Display HTML help in browser",
+              "type": "boolean"
+            },
+            {
+              "name": "znetview-profile",
+              "aliases": [
+                "znetview-p"
+              ],
+              "group": "Profile Options",
+              "description": "The name of a (znetview) profile to load for this command execution.",
+              "type": "string"
+            },
+            {
+              "name": "base-profile",
+              "aliases": [
+                "base-p"
+              ],
+              "group": "Profile Options",
+              "description": "The name of a (base) profile to load for this command execution.",
+              "type": "string"
+            },
+            {
+              "name": "reject-unauthorized",
+              "aliases": [
+                "ru"
+              ],
+              "description": "Reject self-signed certificates.",
+              "type": "boolean",
+              "defaultValue": true,
+              "group": "Base Connection Options"
+            },
+            {
+              "name": "cert-file",
+              "description": "The file path to a certificate file to use for authentication",
+              "type": "existingLocalFile",
+              "group": "Base Connection Options",
+              "aliases": []
+            },
+            {
+              "name": "cert-key-file",
+              "description": "The file path to a certificate key file to use for authentication",
+              "type": "existingLocalFile",
+              "group": "Base Connection Options",
+              "aliases": []
+            }
+          ],
+          "examples": [
+            {
+              "description": "Record a canzlog message from domain CNM01 and store them to member TESTREC",
+              "options": "237766 --record-member-name TESTREC  --domain CNM01"
+            }
+          ],
+          "profile": {
+            "optional": [
+              "znetview",
+              "base"
+            ]
+          },
+          "passOn": [],
+          "children": []
+        }
+      ],
+      "passOn": [
+        {
+          "property": "options",
+          "value": [
+            {
+              "name": "host",
+              "aliases": [
+                "H"
+              ],
+              "description": "The host name of your NetView REST Server.",
+              "type": "string",
+              "group": "NetView Connection Options"
+            },
+            {
+              "name": "port",
+              "aliases": [
+                "P"
+              ],
+              "description": "The port number of your NetView REST Server.",
+              "type": "number",
+              "group": "NetView Connection Options"
+            },
+            {
+              "name": "user",
+              "aliases": [
+                "u"
+              ],
+              "description": "The user name to authenticate to your NetView REST Server.",
+              "type": "string",
+              "group": "NetView Connection Options"
+            },
+            {
+              "name": "password",
+              "aliases": [
+                "pw"
+              ],
+              "description": "The password to authenticate to your NetView REST Server.",
+              "type": "string",
+              "group": "NetView Connection Options"
+            },
+            {
+              "name": "token-type",
+              "aliases": [
+                "tt"
+              ],
+              "description": "The type of the token to authenticate to your NetView REST Server. The only token type that is valid when using NetView REST Server authentication is JSESSIONID.",
+              "type": "string",
+              "group": "NetView Connection Options"
+            },
+            {
+              "name": "token-value",
+              "aliases": [
+                "tv"
+              ],
+              "description": "The value of the token to authenticate to your NetView REST Server.",
+              "type": "string",
+              "group": "NetView Connection Options"
+            },
+            {
+              "name": "base-path",
+              "aliases": [
+                "bp"
+              ],
+              "description": "The base path for your Zowe API Mediation Layer instance. Specify this option to prepend the base path to NetView REST service when making REST requests to the Zowe API Mediation Layer. \n\nNote: Do not specify this option if you are not using the Zowe API Mediation Layer.",
+              "type": "string",
+              "group": "NetView Connection Options"
+            }
+          ],
+          "merge": true,
+          "ignoreNodes": [
+            {
+              "type": "group"
+            }
+          ]
+        }
+      ],
+      "options": [
+        {
+          "name": "response-format-json",
+          "aliases": [
+            "rfj"
+          ],
+          "group": "Global options",
+          "description": "Produce JSON formatted data from a command",
+          "type": "boolean"
+        },
+        {
+          "name": "help",
+          "aliases": [
+            "h"
+          ],
+          "group": "Global options",
+          "description": "Display help text",
+          "type": "boolean"
+        },
+        {
+          "name": "help-examples",
+          "group": "Global options",
+          "description": "Display examples for all the commands in a group",
+          "type": "boolean",
+          "aliases": []
+        },
+        {
+          "name": "help-web",
+          "aliases": [
+            "hw"
+          ],
+          "group": "Global options",
+          "description": "Display HTML help in browser",
+          "type": "boolean"
+        }
+      ],
+      "positionals": []
+    }
+  ],
+  "summary": "Perform basic NetView operations",
+  "aliases": [
+    "nvbase"
+  ],
+  "options": [
+    {
+      "name": "response-format-json",
+      "aliases": [
+        "rfj"
+      ],
+      "group": "Global options",
+      "description": "Produce JSON formatted data from a command",
+      "type": "boolean"
+    },
+    {
+      "name": "help",
+      "aliases": [
+        "h"
+      ],
+      "group": "Global options",
+      "description": "Display help text",
+      "type": "boolean"
+    },
+    {
+      "name": "help-examples",
+      "group": "Global options",
+      "description": "Display examples for all the commands in a group",
+      "type": "boolean",
+      "aliases": []
+    },
+    {
+      "name": "help-web",
+      "aliases": [
+        "hw"
+      ],
+      "group": "Global options",
+      "description": "Display HTML help in browser",
+      "type": "boolean"
+    }
+  ],
+  "positionals": [],
+  "passOn": []
+}
