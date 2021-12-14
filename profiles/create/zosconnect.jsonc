@@ -1,0 +1,122 @@
+// Copyright IBM Corporation
+{
+  "name": "zosconnect-profile",
+  "aliases": [
+    "zosconnect"
+  ],
+  "summary": "Create a zosconnect profile",
+  "description": "z/OS Connect EE connection profile",
+  "type": "command",
+  "handler": "",
+  "customize": {
+    "profileTypeIdentifier": "zosconnect"
+  },
+  "positionals": [
+    {
+      "name": "profileName",
+      "description": "Specifies the name of the new zosconnect profile. You can load this profile by using the name on commands that support the \"--zosconnect-profile\" option.",
+      "type": "string",
+      "required": true
+    }
+  ],
+  "options": [
+    {
+      "description": "URI of the z/OS Connect EE server",
+      "type": "string",
+      "name": "address",
+      "aliases": [
+        "a"
+      ],
+      "required": true,
+      "group": "Required Options"
+    },
+    {
+      "description": "User ID for accessing the server",
+      "type": "string",
+      "name": "user",
+      "aliases": [
+        "u"
+      ],
+      "required": false,
+      "group": "Options"
+    },
+    {
+      "description": "Password for the User",
+      "type": "string",
+      "name": "password",
+      "aliases": [
+        "p"
+      ],
+      "required": false,
+      "implies": [
+        "user"
+      ],
+      "group": "Options"
+    },
+    {
+      "description": "Reject self-signed certificates",
+      "type": "boolean",
+      "aliases": [
+        "ru"
+      ],
+      "name": "rejectUnauthorized",
+      "required": false,
+      "defaultValue": true,
+      "group": "Options"
+    },
+    {
+      "name": "overwrite",
+      "aliases": [
+        "ow"
+      ],
+      "description": "Overwrite the zosconnect profile when a profile of the same name exists.",
+      "type": "boolean",
+      "group": "Options"
+    },
+    {
+      "name": "disable-defaults",
+      "aliases": [
+        "dd"
+      ],
+      "description": "Disable populating profile values of undefined properties with default values.",
+      "type": "boolean",
+      "group": "Options"
+    },
+    {
+      "name": "response-format-json",
+      "aliases": [
+        "rfj"
+      ],
+      "group": "Global options",
+      "description": "Produce JSON formatted data from a command",
+      "type": "boolean"
+    },
+    {
+      "name": "help",
+      "aliases": [
+        "h"
+      ],
+      "group": "Global options",
+      "description": "Display help text",
+      "type": "boolean"
+    },
+    {
+      "name": "help-examples",
+      "group": "Global options",
+      "description": "Display examples for all the commands in a group",
+      "type": "boolean",
+      "aliases": []
+    },
+    {
+      "name": "help-web",
+      "aliases": [
+        "hw"
+      ],
+      "group": "Global options",
+      "description": "Display HTML help in browser",
+      "type": "boolean"
+    }
+  ],
+  "passOn": [],
+  "children": []
+}
