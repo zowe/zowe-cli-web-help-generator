@@ -1,0 +1,4145 @@
+// Copyright IBM Corporation
+{
+  "name": "zosconnect",
+  "description": "z/OS Connect EE plugin for Zowe CLI",
+  "type": "group",
+  "children": [
+    {
+      "name": "api",
+      "type": "group",
+      "description": "Manage z/OS Connect EE APIs",
+      "children": [
+        {
+          "name": "install",
+          "description": "Install a new API",
+          "type": "command",
+          "handler": "",
+          "positionals": [
+            {
+              "name": "file",
+              "type": "string",
+              "description": "The AAR file to install",
+              "required": true
+            }
+          ],
+          "profile": {
+            "required": [
+              "zosconnect"
+            ],
+            "optional": [
+              "base"
+            ]
+          },
+          "options": [
+            {
+              "name": "address",
+              "description": "URI of the z/OS Connect EE server",
+              "type": "string",
+              "aliases": [
+                "a"
+              ],
+              "required": true,
+              "group": "z/OS Connect EE Connection Options"
+            },
+            {
+              "name": "user",
+              "description": "User ID for accessing the server",
+              "type": "string",
+              "aliases": [
+                "u"
+              ],
+              "required": false,
+              "group": "z/OS Connect EE Connection Options"
+            },
+            {
+              "name": "password",
+              "description": "Password for the User",
+              "type": "string",
+              "aliases": [
+                "p"
+              ],
+              "required": false,
+              "group": "z/OS Connect EE Connection Options"
+            },
+            {
+              "name": "rejectUnauthorized",
+              "description": "Reject self-signed certificates",
+              "type": "boolean",
+              "aliases": [
+                "ru"
+              ],
+              "required": false,
+              "defaultValue": true,
+              "group": "Options"
+            },
+            {
+              "name": "response-format-json",
+              "aliases": [
+                "rfj"
+              ],
+              "group": "Global options",
+              "description": "Produce JSON formatted data from a command",
+              "type": "boolean"
+            },
+            {
+              "name": "help",
+              "aliases": [
+                "h"
+              ],
+              "group": "Global options",
+              "description": "Display help text",
+              "type": "boolean"
+            },
+            {
+              "name": "help-examples",
+              "group": "Global options",
+              "description": "Display examples for all the commands in a group",
+              "type": "boolean",
+              "aliases": []
+            },
+            {
+              "name": "help-web",
+              "aliases": [
+                "hw"
+              ],
+              "group": "Global options",
+              "description": "Display HTML help in browser",
+              "type": "boolean"
+            },
+            {
+              "name": "zosconnect-profile",
+              "aliases": [
+                "zosconnect-p"
+              ],
+              "group": "Profile Options",
+              "description": "The name of a (zosconnect) profile to load for this command execution.",
+              "type": "string"
+            },
+            {
+              "name": "base-profile",
+              "aliases": [
+                "base-p"
+              ],
+              "group": "Profile Options",
+              "description": "The name of a (base) profile to load for this command execution.",
+              "type": "string"
+            },
+            {
+              "name": "host",
+              "aliases": [
+                "H"
+              ],
+              "description": "Host name of service on the mainframe.",
+              "type": "string",
+              "group": "Base Connection Options"
+            },
+            {
+              "name": "port",
+              "aliases": [
+                "P"
+              ],
+              "description": "Port number of service on the mainframe.",
+              "type": "number",
+              "group": "Base Connection Options"
+            },
+            {
+              "name": "reject-unauthorized",
+              "aliases": [
+                "ru"
+              ],
+              "description": "Reject self-signed certificates.",
+              "type": "boolean",
+              "defaultValue": true,
+              "group": "Base Connection Options"
+            },
+            {
+              "name": "token-type",
+              "aliases": [
+                "tt"
+              ],
+              "description": "The type of token to get and use for the API. Omit this option to use the default token type, which is provided by 'zowe auth login'.",
+              "type": "string",
+              "group": "Base Connection Options"
+            },
+            {
+              "name": "token-value",
+              "aliases": [
+                "tv"
+              ],
+              "description": "The value of the token to pass to the API.",
+              "type": "string",
+              "group": "Base Connection Options"
+            },
+            {
+              "name": "cert-file",
+              "description": "The file path to a certificate file to use for authentication",
+              "type": "existingLocalFile",
+              "group": "Base Connection Options",
+              "aliases": []
+            },
+            {
+              "name": "cert-key-file",
+              "description": "The file path to a certificate key file to use for authentication",
+              "type": "existingLocalFile",
+              "group": "Base Connection Options",
+              "aliases": []
+            }
+          ],
+          "aliases": [],
+          "passOn": [],
+          "children": []
+        },
+        {
+          "name": "update",
+          "description": "Update an existing API",
+          "type": "command",
+          "handler": "",
+          "positionals": [
+            {
+              "name": "apiName",
+              "description": "The name of the API to update.",
+              "type": "string",
+              "required": true
+            },
+            {
+              "name": "file",
+              "description": "The new AAR file for the API",
+              "type": "string",
+              "required": true
+            }
+          ],
+          "profile": {
+            "required": [
+              "zosconnect"
+            ],
+            "optional": [
+              "base"
+            ]
+          },
+          "options": [
+            {
+              "name": "address",
+              "description": "URI of the z/OS Connect EE server",
+              "type": "string",
+              "aliases": [
+                "a"
+              ],
+              "required": true,
+              "group": "z/OS Connect EE Connection Options"
+            },
+            {
+              "name": "user",
+              "description": "User ID for accessing the server",
+              "type": "string",
+              "aliases": [
+                "u"
+              ],
+              "required": false,
+              "group": "z/OS Connect EE Connection Options"
+            },
+            {
+              "name": "password",
+              "description": "Password for the User",
+              "type": "string",
+              "aliases": [
+                "p"
+              ],
+              "required": false,
+              "group": "z/OS Connect EE Connection Options"
+            },
+            {
+              "name": "rejectUnauthorized",
+              "description": "Reject self-signed certificates",
+              "type": "boolean",
+              "aliases": [
+                "ru"
+              ],
+              "required": false,
+              "defaultValue": true,
+              "group": "Options"
+            },
+            {
+              "name": "response-format-json",
+              "aliases": [
+                "rfj"
+              ],
+              "group": "Global options",
+              "description": "Produce JSON formatted data from a command",
+              "type": "boolean"
+            },
+            {
+              "name": "help",
+              "aliases": [
+                "h"
+              ],
+              "group": "Global options",
+              "description": "Display help text",
+              "type": "boolean"
+            },
+            {
+              "name": "help-examples",
+              "group": "Global options",
+              "description": "Display examples for all the commands in a group",
+              "type": "boolean",
+              "aliases": []
+            },
+            {
+              "name": "help-web",
+              "aliases": [
+                "hw"
+              ],
+              "group": "Global options",
+              "description": "Display HTML help in browser",
+              "type": "boolean"
+            },
+            {
+              "name": "zosconnect-profile",
+              "aliases": [
+                "zosconnect-p"
+              ],
+              "group": "Profile Options",
+              "description": "The name of a (zosconnect) profile to load for this command execution.",
+              "type": "string"
+            },
+            {
+              "name": "base-profile",
+              "aliases": [
+                "base-p"
+              ],
+              "group": "Profile Options",
+              "description": "The name of a (base) profile to load for this command execution.",
+              "type": "string"
+            },
+            {
+              "name": "host",
+              "aliases": [
+                "H"
+              ],
+              "description": "Host name of service on the mainframe.",
+              "type": "string",
+              "group": "Base Connection Options"
+            },
+            {
+              "name": "port",
+              "aliases": [
+                "P"
+              ],
+              "description": "Port number of service on the mainframe.",
+              "type": "number",
+              "group": "Base Connection Options"
+            },
+            {
+              "name": "reject-unauthorized",
+              "aliases": [
+                "ru"
+              ],
+              "description": "Reject self-signed certificates.",
+              "type": "boolean",
+              "defaultValue": true,
+              "group": "Base Connection Options"
+            },
+            {
+              "name": "token-type",
+              "aliases": [
+                "tt"
+              ],
+              "description": "The type of token to get and use for the API. Omit this option to use the default token type, which is provided by 'zowe auth login'.",
+              "type": "string",
+              "group": "Base Connection Options"
+            },
+            {
+              "name": "token-value",
+              "aliases": [
+                "tv"
+              ],
+              "description": "The value of the token to pass to the API.",
+              "type": "string",
+              "group": "Base Connection Options"
+            },
+            {
+              "name": "cert-file",
+              "description": "The file path to a certificate file to use for authentication",
+              "type": "existingLocalFile",
+              "group": "Base Connection Options",
+              "aliases": []
+            },
+            {
+              "name": "cert-key-file",
+              "description": "The file path to a certificate key file to use for authentication",
+              "type": "existingLocalFile",
+              "group": "Base Connection Options",
+              "aliases": []
+            }
+          ],
+          "aliases": [],
+          "passOn": [],
+          "children": []
+        },
+        {
+          "name": "delete",
+          "description": "Delete an API",
+          "type": "command",
+          "handler": "",
+          "positionals": [
+            {
+              "name": "apiName",
+              "description": "The name of the API to delete.",
+              "type": "string",
+              "required": true
+            }
+          ],
+          "options": [
+            {
+              "name": "force",
+              "type": "boolean",
+              "description": "Whether the API should be deleted regardless of status",
+              "aliases": [
+                "f"
+              ],
+              "group": "Options"
+            },
+            {
+              "name": "address",
+              "description": "URI of the z/OS Connect EE server",
+              "type": "string",
+              "aliases": [
+                "a"
+              ],
+              "required": true,
+              "group": "z/OS Connect EE Connection Options"
+            },
+            {
+              "name": "user",
+              "description": "User ID for accessing the server",
+              "type": "string",
+              "aliases": [
+                "u"
+              ],
+              "required": false,
+              "group": "z/OS Connect EE Connection Options"
+            },
+            {
+              "name": "password",
+              "description": "Password for the User",
+              "type": "string",
+              "aliases": [
+                "p"
+              ],
+              "required": false,
+              "group": "z/OS Connect EE Connection Options"
+            },
+            {
+              "name": "rejectUnauthorized",
+              "description": "Reject self-signed certificates",
+              "type": "boolean",
+              "aliases": [
+                "ru"
+              ],
+              "required": false,
+              "defaultValue": true,
+              "group": "Options"
+            },
+            {
+              "name": "response-format-json",
+              "aliases": [
+                "rfj"
+              ],
+              "group": "Global options",
+              "description": "Produce JSON formatted data from a command",
+              "type": "boolean"
+            },
+            {
+              "name": "help",
+              "aliases": [
+                "h"
+              ],
+              "group": "Global options",
+              "description": "Display help text",
+              "type": "boolean"
+            },
+            {
+              "name": "help-examples",
+              "group": "Global options",
+              "description": "Display examples for all the commands in a group",
+              "type": "boolean",
+              "aliases": []
+            },
+            {
+              "name": "help-web",
+              "aliases": [
+                "hw"
+              ],
+              "group": "Global options",
+              "description": "Display HTML help in browser",
+              "type": "boolean"
+            },
+            {
+              "name": "zosconnect-profile",
+              "aliases": [
+                "zosconnect-p"
+              ],
+              "group": "Profile Options",
+              "description": "The name of a (zosconnect) profile to load for this command execution.",
+              "type": "string"
+            },
+            {
+              "name": "base-profile",
+              "aliases": [
+                "base-p"
+              ],
+              "group": "Profile Options",
+              "description": "The name of a (base) profile to load for this command execution.",
+              "type": "string"
+            },
+            {
+              "name": "host",
+              "aliases": [
+                "H"
+              ],
+              "description": "Host name of service on the mainframe.",
+              "type": "string",
+              "group": "Base Connection Options"
+            },
+            {
+              "name": "port",
+              "aliases": [
+                "P"
+              ],
+              "description": "Port number of service on the mainframe.",
+              "type": "number",
+              "group": "Base Connection Options"
+            },
+            {
+              "name": "reject-unauthorized",
+              "aliases": [
+                "ru"
+              ],
+              "description": "Reject self-signed certificates.",
+              "type": "boolean",
+              "defaultValue": true,
+              "group": "Base Connection Options"
+            },
+            {
+              "name": "token-type",
+              "aliases": [
+                "tt"
+              ],
+              "description": "The type of token to get and use for the API. Omit this option to use the default token type, which is provided by 'zowe auth login'.",
+              "type": "string",
+              "group": "Base Connection Options"
+            },
+            {
+              "name": "token-value",
+              "aliases": [
+                "tv"
+              ],
+              "description": "The value of the token to pass to the API.",
+              "type": "string",
+              "group": "Base Connection Options"
+            },
+            {
+              "name": "cert-file",
+              "description": "The file path to a certificate file to use for authentication",
+              "type": "existingLocalFile",
+              "group": "Base Connection Options",
+              "aliases": []
+            },
+            {
+              "name": "cert-key-file",
+              "description": "The file path to a certificate key file to use for authentication",
+              "type": "existingLocalFile",
+              "group": "Base Connection Options",
+              "aliases": []
+            }
+          ],
+          "profile": {
+            "required": [
+              "zosconnect"
+            ],
+            "optional": [
+              "base"
+            ]
+          },
+          "aliases": [],
+          "passOn": [],
+          "children": []
+        },
+        {
+          "name": "list",
+          "description": "List the APIs installed in the server",
+          "type": "command",
+          "handler": "",
+          "profile": {
+            "required": [
+              "zosconnect"
+            ],
+            "optional": [
+              "base"
+            ]
+          },
+          "options": [
+            {
+              "name": "address",
+              "description": "URI of the z/OS Connect EE server",
+              "type": "string",
+              "aliases": [
+                "a"
+              ],
+              "required": true,
+              "group": "z/OS Connect EE Connection Options"
+            },
+            {
+              "name": "user",
+              "description": "User ID for accessing the server",
+              "type": "string",
+              "aliases": [
+                "u"
+              ],
+              "required": false,
+              "group": "z/OS Connect EE Connection Options"
+            },
+            {
+              "name": "password",
+              "description": "Password for the User",
+              "type": "string",
+              "aliases": [
+                "p"
+              ],
+              "required": false,
+              "group": "z/OS Connect EE Connection Options"
+            },
+            {
+              "name": "rejectUnauthorized",
+              "description": "Reject self-signed certificates",
+              "type": "boolean",
+              "aliases": [
+                "ru"
+              ],
+              "required": false,
+              "defaultValue": true,
+              "group": "Options"
+            },
+            {
+              "name": "response-format-json",
+              "aliases": [
+                "rfj"
+              ],
+              "group": "Global options",
+              "description": "Produce JSON formatted data from a command",
+              "type": "boolean"
+            },
+            {
+              "name": "help",
+              "aliases": [
+                "h"
+              ],
+              "group": "Global options",
+              "description": "Display help text",
+              "type": "boolean"
+            },
+            {
+              "name": "help-examples",
+              "group": "Global options",
+              "description": "Display examples for all the commands in a group",
+              "type": "boolean",
+              "aliases": []
+            },
+            {
+              "name": "help-web",
+              "aliases": [
+                "hw"
+              ],
+              "group": "Global options",
+              "description": "Display HTML help in browser",
+              "type": "boolean"
+            },
+            {
+              "name": "zosconnect-profile",
+              "aliases": [
+                "zosconnect-p"
+              ],
+              "group": "Profile Options",
+              "description": "The name of a (zosconnect) profile to load for this command execution.",
+              "type": "string"
+            },
+            {
+              "name": "base-profile",
+              "aliases": [
+                "base-p"
+              ],
+              "group": "Profile Options",
+              "description": "The name of a (base) profile to load for this command execution.",
+              "type": "string"
+            },
+            {
+              "name": "host",
+              "aliases": [
+                "H"
+              ],
+              "description": "Host name of service on the mainframe.",
+              "type": "string",
+              "group": "Base Connection Options"
+            },
+            {
+              "name": "port",
+              "aliases": [
+                "P"
+              ],
+              "description": "Port number of service on the mainframe.",
+              "type": "number",
+              "group": "Base Connection Options"
+            },
+            {
+              "name": "reject-unauthorized",
+              "aliases": [
+                "ru"
+              ],
+              "description": "Reject self-signed certificates.",
+              "type": "boolean",
+              "defaultValue": true,
+              "group": "Base Connection Options"
+            },
+            {
+              "name": "token-type",
+              "aliases": [
+                "tt"
+              ],
+              "description": "The type of token to get and use for the API. Omit this option to use the default token type, which is provided by 'zowe auth login'.",
+              "type": "string",
+              "group": "Base Connection Options"
+            },
+            {
+              "name": "token-value",
+              "aliases": [
+                "tv"
+              ],
+              "description": "The value of the token to pass to the API.",
+              "type": "string",
+              "group": "Base Connection Options"
+            },
+            {
+              "name": "cert-file",
+              "description": "The file path to a certificate file to use for authentication",
+              "type": "existingLocalFile",
+              "group": "Base Connection Options",
+              "aliases": []
+            },
+            {
+              "name": "cert-key-file",
+              "description": "The file path to a certificate key file to use for authentication",
+              "type": "existingLocalFile",
+              "group": "Base Connection Options",
+              "aliases": []
+            }
+          ],
+          "aliases": [],
+          "positionals": [],
+          "passOn": [],
+          "children": []
+        },
+        {
+          "name": "start",
+          "description": "Set an APIs status to started",
+          "type": "command",
+          "handler": "",
+          "positionals": [
+            {
+              "name": "apiName",
+              "description": "The name of the API to start.",
+              "type": "string",
+              "required": true
+            }
+          ],
+          "profile": {
+            "required": [
+              "zosconnect"
+            ],
+            "optional": [
+              "base"
+            ]
+          },
+          "options": [
+            {
+              "name": "address",
+              "description": "URI of the z/OS Connect EE server",
+              "type": "string",
+              "aliases": [
+                "a"
+              ],
+              "required": true,
+              "group": "z/OS Connect EE Connection Options"
+            },
+            {
+              "name": "user",
+              "description": "User ID for accessing the server",
+              "type": "string",
+              "aliases": [
+                "u"
+              ],
+              "required": false,
+              "group": "z/OS Connect EE Connection Options"
+            },
+            {
+              "name": "password",
+              "description": "Password for the User",
+              "type": "string",
+              "aliases": [
+                "p"
+              ],
+              "required": false,
+              "group": "z/OS Connect EE Connection Options"
+            },
+            {
+              "name": "rejectUnauthorized",
+              "description": "Reject self-signed certificates",
+              "type": "boolean",
+              "aliases": [
+                "ru"
+              ],
+              "required": false,
+              "defaultValue": true,
+              "group": "Options"
+            },
+            {
+              "name": "response-format-json",
+              "aliases": [
+                "rfj"
+              ],
+              "group": "Global options",
+              "description": "Produce JSON formatted data from a command",
+              "type": "boolean"
+            },
+            {
+              "name": "help",
+              "aliases": [
+                "h"
+              ],
+              "group": "Global options",
+              "description": "Display help text",
+              "type": "boolean"
+            },
+            {
+              "name": "help-examples",
+              "group": "Global options",
+              "description": "Display examples for all the commands in a group",
+              "type": "boolean",
+              "aliases": []
+            },
+            {
+              "name": "help-web",
+              "aliases": [
+                "hw"
+              ],
+              "group": "Global options",
+              "description": "Display HTML help in browser",
+              "type": "boolean"
+            },
+            {
+              "name": "zosconnect-profile",
+              "aliases": [
+                "zosconnect-p"
+              ],
+              "group": "Profile Options",
+              "description": "The name of a (zosconnect) profile to load for this command execution.",
+              "type": "string"
+            },
+            {
+              "name": "base-profile",
+              "aliases": [
+                "base-p"
+              ],
+              "group": "Profile Options",
+              "description": "The name of a (base) profile to load for this command execution.",
+              "type": "string"
+            },
+            {
+              "name": "host",
+              "aliases": [
+                "H"
+              ],
+              "description": "Host name of service on the mainframe.",
+              "type": "string",
+              "group": "Base Connection Options"
+            },
+            {
+              "name": "port",
+              "aliases": [
+                "P"
+              ],
+              "description": "Port number of service on the mainframe.",
+              "type": "number",
+              "group": "Base Connection Options"
+            },
+            {
+              "name": "reject-unauthorized",
+              "aliases": [
+                "ru"
+              ],
+              "description": "Reject self-signed certificates.",
+              "type": "boolean",
+              "defaultValue": true,
+              "group": "Base Connection Options"
+            },
+            {
+              "name": "token-type",
+              "aliases": [
+                "tt"
+              ],
+              "description": "The type of token to get and use for the API. Omit this option to use the default token type, which is provided by 'zowe auth login'.",
+              "type": "string",
+              "group": "Base Connection Options"
+            },
+            {
+              "name": "token-value",
+              "aliases": [
+                "tv"
+              ],
+              "description": "The value of the token to pass to the API.",
+              "type": "string",
+              "group": "Base Connection Options"
+            },
+            {
+              "name": "cert-file",
+              "description": "The file path to a certificate file to use for authentication",
+              "type": "existingLocalFile",
+              "group": "Base Connection Options",
+              "aliases": []
+            },
+            {
+              "name": "cert-key-file",
+              "description": "The file path to a certificate key file to use for authentication",
+              "type": "existingLocalFile",
+              "group": "Base Connection Options",
+              "aliases": []
+            }
+          ],
+          "aliases": [],
+          "passOn": [],
+          "children": []
+        },
+        {
+          "name": "stop",
+          "description": "Set an APIs status to stopped",
+          "type": "command",
+          "handler": "",
+          "positionals": [
+            {
+              "name": "apiName",
+              "description": "The name of the API to stop.",
+              "type": "string",
+              "required": true
+            }
+          ],
+          "profile": {
+            "required": [
+              "zosconnect"
+            ],
+            "optional": [
+              "base"
+            ]
+          },
+          "options": [
+            {
+              "name": "address",
+              "description": "URI of the z/OS Connect EE server",
+              "type": "string",
+              "aliases": [
+                "a"
+              ],
+              "required": true,
+              "group": "z/OS Connect EE Connection Options"
+            },
+            {
+              "name": "user",
+              "description": "User ID for accessing the server",
+              "type": "string",
+              "aliases": [
+                "u"
+              ],
+              "required": false,
+              "group": "z/OS Connect EE Connection Options"
+            },
+            {
+              "name": "password",
+              "description": "Password for the User",
+              "type": "string",
+              "aliases": [
+                "p"
+              ],
+              "required": false,
+              "group": "z/OS Connect EE Connection Options"
+            },
+            {
+              "name": "rejectUnauthorized",
+              "description": "Reject self-signed certificates",
+              "type": "boolean",
+              "aliases": [
+                "ru"
+              ],
+              "required": false,
+              "defaultValue": true,
+              "group": "Options"
+            },
+            {
+              "name": "response-format-json",
+              "aliases": [
+                "rfj"
+              ],
+              "group": "Global options",
+              "description": "Produce JSON formatted data from a command",
+              "type": "boolean"
+            },
+            {
+              "name": "help",
+              "aliases": [
+                "h"
+              ],
+              "group": "Global options",
+              "description": "Display help text",
+              "type": "boolean"
+            },
+            {
+              "name": "help-examples",
+              "group": "Global options",
+              "description": "Display examples for all the commands in a group",
+              "type": "boolean",
+              "aliases": []
+            },
+            {
+              "name": "help-web",
+              "aliases": [
+                "hw"
+              ],
+              "group": "Global options",
+              "description": "Display HTML help in browser",
+              "type": "boolean"
+            },
+            {
+              "name": "zosconnect-profile",
+              "aliases": [
+                "zosconnect-p"
+              ],
+              "group": "Profile Options",
+              "description": "The name of a (zosconnect) profile to load for this command execution.",
+              "type": "string"
+            },
+            {
+              "name": "base-profile",
+              "aliases": [
+                "base-p"
+              ],
+              "group": "Profile Options",
+              "description": "The name of a (base) profile to load for this command execution.",
+              "type": "string"
+            },
+            {
+              "name": "host",
+              "aliases": [
+                "H"
+              ],
+              "description": "Host name of service on the mainframe.",
+              "type": "string",
+              "group": "Base Connection Options"
+            },
+            {
+              "name": "port",
+              "aliases": [
+                "P"
+              ],
+              "description": "Port number of service on the mainframe.",
+              "type": "number",
+              "group": "Base Connection Options"
+            },
+            {
+              "name": "reject-unauthorized",
+              "aliases": [
+                "ru"
+              ],
+              "description": "Reject self-signed certificates.",
+              "type": "boolean",
+              "defaultValue": true,
+              "group": "Base Connection Options"
+            },
+            {
+              "name": "token-type",
+              "aliases": [
+                "tt"
+              ],
+              "description": "The type of token to get and use for the API. Omit this option to use the default token type, which is provided by 'zowe auth login'.",
+              "type": "string",
+              "group": "Base Connection Options"
+            },
+            {
+              "name": "token-value",
+              "aliases": [
+                "tv"
+              ],
+              "description": "The value of the token to pass to the API.",
+              "type": "string",
+              "group": "Base Connection Options"
+            },
+            {
+              "name": "cert-file",
+              "description": "The file path to a certificate file to use for authentication",
+              "type": "existingLocalFile",
+              "group": "Base Connection Options",
+              "aliases": []
+            },
+            {
+              "name": "cert-key-file",
+              "description": "The file path to a certificate key file to use for authentication",
+              "type": "existingLocalFile",
+              "group": "Base Connection Options",
+              "aliases": []
+            }
+          ],
+          "aliases": [],
+          "passOn": [],
+          "children": []
+        },
+        {
+          "name": "info",
+          "description": "Get detailed information about an API",
+          "type": "command",
+          "handler": "",
+          "positionals": [
+            {
+              "name": "apiName",
+              "description": "The name of the API.",
+              "type": "string",
+              "required": true
+            }
+          ],
+          "profile": {
+            "required": [
+              "zosconnect"
+            ],
+            "optional": [
+              "base"
+            ]
+          },
+          "options": [
+            {
+              "name": "address",
+              "description": "URI of the z/OS Connect EE server",
+              "type": "string",
+              "aliases": [
+                "a"
+              ],
+              "required": true,
+              "group": "z/OS Connect EE Connection Options"
+            },
+            {
+              "name": "user",
+              "description": "User ID for accessing the server",
+              "type": "string",
+              "aliases": [
+                "u"
+              ],
+              "required": false,
+              "group": "z/OS Connect EE Connection Options"
+            },
+            {
+              "name": "password",
+              "description": "Password for the User",
+              "type": "string",
+              "aliases": [
+                "p"
+              ],
+              "required": false,
+              "group": "z/OS Connect EE Connection Options"
+            },
+            {
+              "name": "rejectUnauthorized",
+              "description": "Reject self-signed certificates",
+              "type": "boolean",
+              "aliases": [
+                "ru"
+              ],
+              "required": false,
+              "defaultValue": true,
+              "group": "Options"
+            },
+            {
+              "name": "response-format-json",
+              "aliases": [
+                "rfj"
+              ],
+              "group": "Global options",
+              "description": "Produce JSON formatted data from a command",
+              "type": "boolean"
+            },
+            {
+              "name": "help",
+              "aliases": [
+                "h"
+              ],
+              "group": "Global options",
+              "description": "Display help text",
+              "type": "boolean"
+            },
+            {
+              "name": "help-examples",
+              "group": "Global options",
+              "description": "Display examples for all the commands in a group",
+              "type": "boolean",
+              "aliases": []
+            },
+            {
+              "name": "help-web",
+              "aliases": [
+                "hw"
+              ],
+              "group": "Global options",
+              "description": "Display HTML help in browser",
+              "type": "boolean"
+            },
+            {
+              "name": "zosconnect-profile",
+              "aliases": [
+                "zosconnect-p"
+              ],
+              "group": "Profile Options",
+              "description": "The name of a (zosconnect) profile to load for this command execution.",
+              "type": "string"
+            },
+            {
+              "name": "base-profile",
+              "aliases": [
+                "base-p"
+              ],
+              "group": "Profile Options",
+              "description": "The name of a (base) profile to load for this command execution.",
+              "type": "string"
+            },
+            {
+              "name": "host",
+              "aliases": [
+                "H"
+              ],
+              "description": "Host name of service on the mainframe.",
+              "type": "string",
+              "group": "Base Connection Options"
+            },
+            {
+              "name": "port",
+              "aliases": [
+                "P"
+              ],
+              "description": "Port number of service on the mainframe.",
+              "type": "number",
+              "group": "Base Connection Options"
+            },
+            {
+              "name": "reject-unauthorized",
+              "aliases": [
+                "ru"
+              ],
+              "description": "Reject self-signed certificates.",
+              "type": "boolean",
+              "defaultValue": true,
+              "group": "Base Connection Options"
+            },
+            {
+              "name": "token-type",
+              "aliases": [
+                "tt"
+              ],
+              "description": "The type of token to get and use for the API. Omit this option to use the default token type, which is provided by 'zowe auth login'.",
+              "type": "string",
+              "group": "Base Connection Options"
+            },
+            {
+              "name": "token-value",
+              "aliases": [
+                "tv"
+              ],
+              "description": "The value of the token to pass to the API.",
+              "type": "string",
+              "group": "Base Connection Options"
+            },
+            {
+              "name": "cert-file",
+              "description": "The file path to a certificate file to use for authentication",
+              "type": "existingLocalFile",
+              "group": "Base Connection Options",
+              "aliases": []
+            },
+            {
+              "name": "cert-key-file",
+              "description": "The file path to a certificate key file to use for authentication",
+              "type": "existingLocalFile",
+              "group": "Base Connection Options",
+              "aliases": []
+            }
+          ],
+          "aliases": [],
+          "passOn": [],
+          "children": []
+        }
+      ],
+      "passOn": [
+        {
+          "property": "options",
+          "value": [
+            {
+              "name": "address",
+              "description": "URI of the z/OS Connect EE server",
+              "type": "string",
+              "aliases": [
+                "a"
+              ],
+              "required": true,
+              "group": "z/OS Connect EE Connection Options"
+            },
+            {
+              "name": "user",
+              "description": "User ID for accessing the server",
+              "type": "string",
+              "aliases": [
+                "u"
+              ],
+              "required": false,
+              "group": "z/OS Connect EE Connection Options"
+            },
+            {
+              "name": "password",
+              "description": "Password for the User",
+              "type": "string",
+              "aliases": [
+                "p"
+              ],
+              "required": false,
+              "group": "z/OS Connect EE Connection Options"
+            },
+            {
+              "name": "rejectUnauthorized",
+              "description": "Reject self-signed certificates",
+              "type": "boolean",
+              "aliases": [
+                "ru"
+              ],
+              "required": false,
+              "defaultValue": true
+            }
+          ],
+          "merge": true,
+          "ignoreNodes": [
+            {
+              "type": "group"
+            }
+          ]
+        }
+      ],
+      "options": [
+        {
+          "name": "response-format-json",
+          "aliases": [
+            "rfj"
+          ],
+          "group": "Global options",
+          "description": "Produce JSON formatted data from a command",
+          "type": "boolean"
+        },
+        {
+          "name": "help",
+          "aliases": [
+            "h"
+          ],
+          "group": "Global options",
+          "description": "Display help text",
+          "type": "boolean"
+        },
+        {
+          "name": "help-examples",
+          "group": "Global options",
+          "description": "Display examples for all the commands in a group",
+          "type": "boolean",
+          "aliases": []
+        },
+        {
+          "name": "help-web",
+          "aliases": [
+            "hw"
+          ],
+          "group": "Global options",
+          "description": "Display HTML help in browser",
+          "type": "boolean"
+        }
+      ],
+      "aliases": [],
+      "positionals": []
+    },
+    {
+      "name": "apirequester",
+      "type": "group",
+      "description": "Manage z/OS Connect EE API Requesters",
+      "children": [
+        {
+          "name": "list",
+          "description": "List the API Requesters installed in the server",
+          "type": "command",
+          "handler": "",
+          "profile": {
+            "required": [
+              "zosconnect"
+            ],
+            "optional": [
+              "base"
+            ]
+          },
+          "options": [
+            {
+              "name": "address",
+              "description": "URI of the z/OS Connect EE server",
+              "type": "string",
+              "aliases": [
+                "a"
+              ],
+              "required": true,
+              "group": "z/OS Connect EE Connection Options"
+            },
+            {
+              "name": "user",
+              "description": "User ID for accessing the server",
+              "type": "string",
+              "aliases": [
+                "u"
+              ],
+              "required": false,
+              "group": "z/OS Connect EE Connection Options"
+            },
+            {
+              "name": "password",
+              "description": "Password for the User",
+              "type": "string",
+              "aliases": [
+                "p"
+              ],
+              "required": false,
+              "group": "z/OS Connect EE Connection Options"
+            },
+            {
+              "name": "rejectUnauthorized",
+              "description": "Reject self-signed certificates",
+              "type": "boolean",
+              "aliases": [
+                "ru"
+              ],
+              "required": false,
+              "defaultValue": true,
+              "group": "Options"
+            },
+            {
+              "name": "response-format-json",
+              "aliases": [
+                "rfj"
+              ],
+              "group": "Global options",
+              "description": "Produce JSON formatted data from a command",
+              "type": "boolean"
+            },
+            {
+              "name": "help",
+              "aliases": [
+                "h"
+              ],
+              "group": "Global options",
+              "description": "Display help text",
+              "type": "boolean"
+            },
+            {
+              "name": "help-examples",
+              "group": "Global options",
+              "description": "Display examples for all the commands in a group",
+              "type": "boolean",
+              "aliases": []
+            },
+            {
+              "name": "help-web",
+              "aliases": [
+                "hw"
+              ],
+              "group": "Global options",
+              "description": "Display HTML help in browser",
+              "type": "boolean"
+            },
+            {
+              "name": "zosconnect-profile",
+              "aliases": [
+                "zosconnect-p"
+              ],
+              "group": "Profile Options",
+              "description": "The name of a (zosconnect) profile to load for this command execution.",
+              "type": "string"
+            },
+            {
+              "name": "base-profile",
+              "aliases": [
+                "base-p"
+              ],
+              "group": "Profile Options",
+              "description": "The name of a (base) profile to load for this command execution.",
+              "type": "string"
+            },
+            {
+              "name": "host",
+              "aliases": [
+                "H"
+              ],
+              "description": "Host name of service on the mainframe.",
+              "type": "string",
+              "group": "Base Connection Options"
+            },
+            {
+              "name": "port",
+              "aliases": [
+                "P"
+              ],
+              "description": "Port number of service on the mainframe.",
+              "type": "number",
+              "group": "Base Connection Options"
+            },
+            {
+              "name": "reject-unauthorized",
+              "aliases": [
+                "ru"
+              ],
+              "description": "Reject self-signed certificates.",
+              "type": "boolean",
+              "defaultValue": true,
+              "group": "Base Connection Options"
+            },
+            {
+              "name": "token-type",
+              "aliases": [
+                "tt"
+              ],
+              "description": "The type of token to get and use for the API. Omit this option to use the default token type, which is provided by 'zowe auth login'.",
+              "type": "string",
+              "group": "Base Connection Options"
+            },
+            {
+              "name": "token-value",
+              "aliases": [
+                "tv"
+              ],
+              "description": "The value of the token to pass to the API.",
+              "type": "string",
+              "group": "Base Connection Options"
+            },
+            {
+              "name": "cert-file",
+              "description": "The file path to a certificate file to use for authentication",
+              "type": "existingLocalFile",
+              "group": "Base Connection Options",
+              "aliases": []
+            },
+            {
+              "name": "cert-key-file",
+              "description": "The file path to a certificate key file to use for authentication",
+              "type": "existingLocalFile",
+              "group": "Base Connection Options",
+              "aliases": []
+            }
+          ],
+          "aliases": [],
+          "positionals": [],
+          "passOn": [],
+          "children": []
+        },
+        {
+          "name": "install",
+          "description": "Install a new API Requester",
+          "type": "command",
+          "handler": "",
+          "positionals": [
+            {
+              "name": "file",
+              "type": "string",
+              "description": "The ARA file to install",
+              "required": true
+            }
+          ],
+          "profile": {
+            "required": [
+              "zosconnect"
+            ],
+            "optional": [
+              "base"
+            ]
+          },
+          "options": [
+            {
+              "name": "address",
+              "description": "URI of the z/OS Connect EE server",
+              "type": "string",
+              "aliases": [
+                "a"
+              ],
+              "required": true,
+              "group": "z/OS Connect EE Connection Options"
+            },
+            {
+              "name": "user",
+              "description": "User ID for accessing the server",
+              "type": "string",
+              "aliases": [
+                "u"
+              ],
+              "required": false,
+              "group": "z/OS Connect EE Connection Options"
+            },
+            {
+              "name": "password",
+              "description": "Password for the User",
+              "type": "string",
+              "aliases": [
+                "p"
+              ],
+              "required": false,
+              "group": "z/OS Connect EE Connection Options"
+            },
+            {
+              "name": "rejectUnauthorized",
+              "description": "Reject self-signed certificates",
+              "type": "boolean",
+              "aliases": [
+                "ru"
+              ],
+              "required": false,
+              "defaultValue": true,
+              "group": "Options"
+            },
+            {
+              "name": "response-format-json",
+              "aliases": [
+                "rfj"
+              ],
+              "group": "Global options",
+              "description": "Produce JSON formatted data from a command",
+              "type": "boolean"
+            },
+            {
+              "name": "help",
+              "aliases": [
+                "h"
+              ],
+              "group": "Global options",
+              "description": "Display help text",
+              "type": "boolean"
+            },
+            {
+              "name": "help-examples",
+              "group": "Global options",
+              "description": "Display examples for all the commands in a group",
+              "type": "boolean",
+              "aliases": []
+            },
+            {
+              "name": "help-web",
+              "aliases": [
+                "hw"
+              ],
+              "group": "Global options",
+              "description": "Display HTML help in browser",
+              "type": "boolean"
+            },
+            {
+              "name": "zosconnect-profile",
+              "aliases": [
+                "zosconnect-p"
+              ],
+              "group": "Profile Options",
+              "description": "The name of a (zosconnect) profile to load for this command execution.",
+              "type": "string"
+            },
+            {
+              "name": "base-profile",
+              "aliases": [
+                "base-p"
+              ],
+              "group": "Profile Options",
+              "description": "The name of a (base) profile to load for this command execution.",
+              "type": "string"
+            },
+            {
+              "name": "host",
+              "aliases": [
+                "H"
+              ],
+              "description": "Host name of service on the mainframe.",
+              "type": "string",
+              "group": "Base Connection Options"
+            },
+            {
+              "name": "port",
+              "aliases": [
+                "P"
+              ],
+              "description": "Port number of service on the mainframe.",
+              "type": "number",
+              "group": "Base Connection Options"
+            },
+            {
+              "name": "reject-unauthorized",
+              "aliases": [
+                "ru"
+              ],
+              "description": "Reject self-signed certificates.",
+              "type": "boolean",
+              "defaultValue": true,
+              "group": "Base Connection Options"
+            },
+            {
+              "name": "token-type",
+              "aliases": [
+                "tt"
+              ],
+              "description": "The type of token to get and use for the API. Omit this option to use the default token type, which is provided by 'zowe auth login'.",
+              "type": "string",
+              "group": "Base Connection Options"
+            },
+            {
+              "name": "token-value",
+              "aliases": [
+                "tv"
+              ],
+              "description": "The value of the token to pass to the API.",
+              "type": "string",
+              "group": "Base Connection Options"
+            },
+            {
+              "name": "cert-file",
+              "description": "The file path to a certificate file to use for authentication",
+              "type": "existingLocalFile",
+              "group": "Base Connection Options",
+              "aliases": []
+            },
+            {
+              "name": "cert-key-file",
+              "description": "The file path to a certificate key file to use for authentication",
+              "type": "existingLocalFile",
+              "group": "Base Connection Options",
+              "aliases": []
+            }
+          ],
+          "aliases": [],
+          "passOn": [],
+          "children": []
+        },
+        {
+          "name": "delete",
+          "description": "Delete an API Requester",
+          "type": "command",
+          "handler": "",
+          "positionals": [
+            {
+              "name": "apiRequesterName",
+              "description": "The name of the API Requster to delete.",
+              "type": "string",
+              "required": true
+            }
+          ],
+          "options": [
+            {
+              "name": "force",
+              "type": "boolean",
+              "description": "Delete the API Requester regardless of status.",
+              "aliases": [
+                "f"
+              ],
+              "group": "Options"
+            },
+            {
+              "name": "address",
+              "description": "URI of the z/OS Connect EE server",
+              "type": "string",
+              "aliases": [
+                "a"
+              ],
+              "required": true,
+              "group": "z/OS Connect EE Connection Options"
+            },
+            {
+              "name": "user",
+              "description": "User ID for accessing the server",
+              "type": "string",
+              "aliases": [
+                "u"
+              ],
+              "required": false,
+              "group": "z/OS Connect EE Connection Options"
+            },
+            {
+              "name": "password",
+              "description": "Password for the User",
+              "type": "string",
+              "aliases": [
+                "p"
+              ],
+              "required": false,
+              "group": "z/OS Connect EE Connection Options"
+            },
+            {
+              "name": "rejectUnauthorized",
+              "description": "Reject self-signed certificates",
+              "type": "boolean",
+              "aliases": [
+                "ru"
+              ],
+              "required": false,
+              "defaultValue": true,
+              "group": "Options"
+            },
+            {
+              "name": "response-format-json",
+              "aliases": [
+                "rfj"
+              ],
+              "group": "Global options",
+              "description": "Produce JSON formatted data from a command",
+              "type": "boolean"
+            },
+            {
+              "name": "help",
+              "aliases": [
+                "h"
+              ],
+              "group": "Global options",
+              "description": "Display help text",
+              "type": "boolean"
+            },
+            {
+              "name": "help-examples",
+              "group": "Global options",
+              "description": "Display examples for all the commands in a group",
+              "type": "boolean",
+              "aliases": []
+            },
+            {
+              "name": "help-web",
+              "aliases": [
+                "hw"
+              ],
+              "group": "Global options",
+              "description": "Display HTML help in browser",
+              "type": "boolean"
+            },
+            {
+              "name": "zosconnect-profile",
+              "aliases": [
+                "zosconnect-p"
+              ],
+              "group": "Profile Options",
+              "description": "The name of a (zosconnect) profile to load for this command execution.",
+              "type": "string"
+            },
+            {
+              "name": "base-profile",
+              "aliases": [
+                "base-p"
+              ],
+              "group": "Profile Options",
+              "description": "The name of a (base) profile to load for this command execution.",
+              "type": "string"
+            },
+            {
+              "name": "host",
+              "aliases": [
+                "H"
+              ],
+              "description": "Host name of service on the mainframe.",
+              "type": "string",
+              "group": "Base Connection Options"
+            },
+            {
+              "name": "port",
+              "aliases": [
+                "P"
+              ],
+              "description": "Port number of service on the mainframe.",
+              "type": "number",
+              "group": "Base Connection Options"
+            },
+            {
+              "name": "reject-unauthorized",
+              "aliases": [
+                "ru"
+              ],
+              "description": "Reject self-signed certificates.",
+              "type": "boolean",
+              "defaultValue": true,
+              "group": "Base Connection Options"
+            },
+            {
+              "name": "token-type",
+              "aliases": [
+                "tt"
+              ],
+              "description": "The type of token to get and use for the API. Omit this option to use the default token type, which is provided by 'zowe auth login'.",
+              "type": "string",
+              "group": "Base Connection Options"
+            },
+            {
+              "name": "token-value",
+              "aliases": [
+                "tv"
+              ],
+              "description": "The value of the token to pass to the API.",
+              "type": "string",
+              "group": "Base Connection Options"
+            },
+            {
+              "name": "cert-file",
+              "description": "The file path to a certificate file to use for authentication",
+              "type": "existingLocalFile",
+              "group": "Base Connection Options",
+              "aliases": []
+            },
+            {
+              "name": "cert-key-file",
+              "description": "The file path to a certificate key file to use for authentication",
+              "type": "existingLocalFile",
+              "group": "Base Connection Options",
+              "aliases": []
+            }
+          ],
+          "profile": {
+            "required": [
+              "zosconnect"
+            ],
+            "optional": [
+              "base"
+            ]
+          },
+          "aliases": [],
+          "passOn": [],
+          "children": []
+        },
+        {
+          "name": "update",
+          "description": "Update an existing API Requester",
+          "type": "command",
+          "handler": "",
+          "positionals": [
+            {
+              "name": "apiRequesterName",
+              "description": "The name of the API Requester to update",
+              "type": "string",
+              "required": true
+            },
+            {
+              "name": "file",
+              "description": "The new ARA file for the API Requester",
+              "type": "string",
+              "required": true
+            }
+          ],
+          "profile": {
+            "required": [
+              "zosconnect"
+            ],
+            "optional": [
+              "base"
+            ]
+          },
+          "options": [
+            {
+              "name": "address",
+              "description": "URI of the z/OS Connect EE server",
+              "type": "string",
+              "aliases": [
+                "a"
+              ],
+              "required": true,
+              "group": "z/OS Connect EE Connection Options"
+            },
+            {
+              "name": "user",
+              "description": "User ID for accessing the server",
+              "type": "string",
+              "aliases": [
+                "u"
+              ],
+              "required": false,
+              "group": "z/OS Connect EE Connection Options"
+            },
+            {
+              "name": "password",
+              "description": "Password for the User",
+              "type": "string",
+              "aliases": [
+                "p"
+              ],
+              "required": false,
+              "group": "z/OS Connect EE Connection Options"
+            },
+            {
+              "name": "rejectUnauthorized",
+              "description": "Reject self-signed certificates",
+              "type": "boolean",
+              "aliases": [
+                "ru"
+              ],
+              "required": false,
+              "defaultValue": true,
+              "group": "Options"
+            },
+            {
+              "name": "response-format-json",
+              "aliases": [
+                "rfj"
+              ],
+              "group": "Global options",
+              "description": "Produce JSON formatted data from a command",
+              "type": "boolean"
+            },
+            {
+              "name": "help",
+              "aliases": [
+                "h"
+              ],
+              "group": "Global options",
+              "description": "Display help text",
+              "type": "boolean"
+            },
+            {
+              "name": "help-examples",
+              "group": "Global options",
+              "description": "Display examples for all the commands in a group",
+              "type": "boolean",
+              "aliases": []
+            },
+            {
+              "name": "help-web",
+              "aliases": [
+                "hw"
+              ],
+              "group": "Global options",
+              "description": "Display HTML help in browser",
+              "type": "boolean"
+            },
+            {
+              "name": "zosconnect-profile",
+              "aliases": [
+                "zosconnect-p"
+              ],
+              "group": "Profile Options",
+              "description": "The name of a (zosconnect) profile to load for this command execution.",
+              "type": "string"
+            },
+            {
+              "name": "base-profile",
+              "aliases": [
+                "base-p"
+              ],
+              "group": "Profile Options",
+              "description": "The name of a (base) profile to load for this command execution.",
+              "type": "string"
+            },
+            {
+              "name": "host",
+              "aliases": [
+                "H"
+              ],
+              "description": "Host name of service on the mainframe.",
+              "type": "string",
+              "group": "Base Connection Options"
+            },
+            {
+              "name": "port",
+              "aliases": [
+                "P"
+              ],
+              "description": "Port number of service on the mainframe.",
+              "type": "number",
+              "group": "Base Connection Options"
+            },
+            {
+              "name": "reject-unauthorized",
+              "aliases": [
+                "ru"
+              ],
+              "description": "Reject self-signed certificates.",
+              "type": "boolean",
+              "defaultValue": true,
+              "group": "Base Connection Options"
+            },
+            {
+              "name": "token-type",
+              "aliases": [
+                "tt"
+              ],
+              "description": "The type of token to get and use for the API. Omit this option to use the default token type, which is provided by 'zowe auth login'.",
+              "type": "string",
+              "group": "Base Connection Options"
+            },
+            {
+              "name": "token-value",
+              "aliases": [
+                "tv"
+              ],
+              "description": "The value of the token to pass to the API.",
+              "type": "string",
+              "group": "Base Connection Options"
+            },
+            {
+              "name": "cert-file",
+              "description": "The file path to a certificate file to use for authentication",
+              "type": "existingLocalFile",
+              "group": "Base Connection Options",
+              "aliases": []
+            },
+            {
+              "name": "cert-key-file",
+              "description": "The file path to a certificate key file to use for authentication",
+              "type": "existingLocalFile",
+              "group": "Base Connection Options",
+              "aliases": []
+            }
+          ],
+          "aliases": [],
+          "passOn": [],
+          "children": []
+        },
+        {
+          "name": "start",
+          "description": "Set an API Requester status to started",
+          "type": "command",
+          "handler": "",
+          "positionals": [
+            {
+              "name": "apiRequesterName",
+              "description": "The name of the API Requester to start.",
+              "type": "string",
+              "required": true
+            }
+          ],
+          "profile": {
+            "required": [
+              "zosconnect"
+            ],
+            "optional": [
+              "base"
+            ]
+          },
+          "options": [
+            {
+              "name": "address",
+              "description": "URI of the z/OS Connect EE server",
+              "type": "string",
+              "aliases": [
+                "a"
+              ],
+              "required": true,
+              "group": "z/OS Connect EE Connection Options"
+            },
+            {
+              "name": "user",
+              "description": "User ID for accessing the server",
+              "type": "string",
+              "aliases": [
+                "u"
+              ],
+              "required": false,
+              "group": "z/OS Connect EE Connection Options"
+            },
+            {
+              "name": "password",
+              "description": "Password for the User",
+              "type": "string",
+              "aliases": [
+                "p"
+              ],
+              "required": false,
+              "group": "z/OS Connect EE Connection Options"
+            },
+            {
+              "name": "rejectUnauthorized",
+              "description": "Reject self-signed certificates",
+              "type": "boolean",
+              "aliases": [
+                "ru"
+              ],
+              "required": false,
+              "defaultValue": true,
+              "group": "Options"
+            },
+            {
+              "name": "response-format-json",
+              "aliases": [
+                "rfj"
+              ],
+              "group": "Global options",
+              "description": "Produce JSON formatted data from a command",
+              "type": "boolean"
+            },
+            {
+              "name": "help",
+              "aliases": [
+                "h"
+              ],
+              "group": "Global options",
+              "description": "Display help text",
+              "type": "boolean"
+            },
+            {
+              "name": "help-examples",
+              "group": "Global options",
+              "description": "Display examples for all the commands in a group",
+              "type": "boolean",
+              "aliases": []
+            },
+            {
+              "name": "help-web",
+              "aliases": [
+                "hw"
+              ],
+              "group": "Global options",
+              "description": "Display HTML help in browser",
+              "type": "boolean"
+            },
+            {
+              "name": "zosconnect-profile",
+              "aliases": [
+                "zosconnect-p"
+              ],
+              "group": "Profile Options",
+              "description": "The name of a (zosconnect) profile to load for this command execution.",
+              "type": "string"
+            },
+            {
+              "name": "base-profile",
+              "aliases": [
+                "base-p"
+              ],
+              "group": "Profile Options",
+              "description": "The name of a (base) profile to load for this command execution.",
+              "type": "string"
+            },
+            {
+              "name": "host",
+              "aliases": [
+                "H"
+              ],
+              "description": "Host name of service on the mainframe.",
+              "type": "string",
+              "group": "Base Connection Options"
+            },
+            {
+              "name": "port",
+              "aliases": [
+                "P"
+              ],
+              "description": "Port number of service on the mainframe.",
+              "type": "number",
+              "group": "Base Connection Options"
+            },
+            {
+              "name": "reject-unauthorized",
+              "aliases": [
+                "ru"
+              ],
+              "description": "Reject self-signed certificates.",
+              "type": "boolean",
+              "defaultValue": true,
+              "group": "Base Connection Options"
+            },
+            {
+              "name": "token-type",
+              "aliases": [
+                "tt"
+              ],
+              "description": "The type of token to get and use for the API. Omit this option to use the default token type, which is provided by 'zowe auth login'.",
+              "type": "string",
+              "group": "Base Connection Options"
+            },
+            {
+              "name": "token-value",
+              "aliases": [
+                "tv"
+              ],
+              "description": "The value of the token to pass to the API.",
+              "type": "string",
+              "group": "Base Connection Options"
+            },
+            {
+              "name": "cert-file",
+              "description": "The file path to a certificate file to use for authentication",
+              "type": "existingLocalFile",
+              "group": "Base Connection Options",
+              "aliases": []
+            },
+            {
+              "name": "cert-key-file",
+              "description": "The file path to a certificate key file to use for authentication",
+              "type": "existingLocalFile",
+              "group": "Base Connection Options",
+              "aliases": []
+            }
+          ],
+          "aliases": [],
+          "passOn": [],
+          "children": []
+        },
+        {
+          "name": "stop",
+          "description": "Set an API Requesters status to stopped",
+          "type": "command",
+          "handler": "",
+          "positionals": [
+            {
+              "name": "apiRequesterName",
+              "description": "The name of the API Requester to stop.",
+              "type": "string",
+              "required": true
+            }
+          ],
+          "profile": {
+            "required": [
+              "zosconnect"
+            ],
+            "optional": [
+              "base"
+            ]
+          },
+          "options": [
+            {
+              "name": "address",
+              "description": "URI of the z/OS Connect EE server",
+              "type": "string",
+              "aliases": [
+                "a"
+              ],
+              "required": true,
+              "group": "z/OS Connect EE Connection Options"
+            },
+            {
+              "name": "user",
+              "description": "User ID for accessing the server",
+              "type": "string",
+              "aliases": [
+                "u"
+              ],
+              "required": false,
+              "group": "z/OS Connect EE Connection Options"
+            },
+            {
+              "name": "password",
+              "description": "Password for the User",
+              "type": "string",
+              "aliases": [
+                "p"
+              ],
+              "required": false,
+              "group": "z/OS Connect EE Connection Options"
+            },
+            {
+              "name": "rejectUnauthorized",
+              "description": "Reject self-signed certificates",
+              "type": "boolean",
+              "aliases": [
+                "ru"
+              ],
+              "required": false,
+              "defaultValue": true,
+              "group": "Options"
+            },
+            {
+              "name": "response-format-json",
+              "aliases": [
+                "rfj"
+              ],
+              "group": "Global options",
+              "description": "Produce JSON formatted data from a command",
+              "type": "boolean"
+            },
+            {
+              "name": "help",
+              "aliases": [
+                "h"
+              ],
+              "group": "Global options",
+              "description": "Display help text",
+              "type": "boolean"
+            },
+            {
+              "name": "help-examples",
+              "group": "Global options",
+              "description": "Display examples for all the commands in a group",
+              "type": "boolean",
+              "aliases": []
+            },
+            {
+              "name": "help-web",
+              "aliases": [
+                "hw"
+              ],
+              "group": "Global options",
+              "description": "Display HTML help in browser",
+              "type": "boolean"
+            },
+            {
+              "name": "zosconnect-profile",
+              "aliases": [
+                "zosconnect-p"
+              ],
+              "group": "Profile Options",
+              "description": "The name of a (zosconnect) profile to load for this command execution.",
+              "type": "string"
+            },
+            {
+              "name": "base-profile",
+              "aliases": [
+                "base-p"
+              ],
+              "group": "Profile Options",
+              "description": "The name of a (base) profile to load for this command execution.",
+              "type": "string"
+            },
+            {
+              "name": "host",
+              "aliases": [
+                "H"
+              ],
+              "description": "Host name of service on the mainframe.",
+              "type": "string",
+              "group": "Base Connection Options"
+            },
+            {
+              "name": "port",
+              "aliases": [
+                "P"
+              ],
+              "description": "Port number of service on the mainframe.",
+              "type": "number",
+              "group": "Base Connection Options"
+            },
+            {
+              "name": "reject-unauthorized",
+              "aliases": [
+                "ru"
+              ],
+              "description": "Reject self-signed certificates.",
+              "type": "boolean",
+              "defaultValue": true,
+              "group": "Base Connection Options"
+            },
+            {
+              "name": "token-type",
+              "aliases": [
+                "tt"
+              ],
+              "description": "The type of token to get and use for the API. Omit this option to use the default token type, which is provided by 'zowe auth login'.",
+              "type": "string",
+              "group": "Base Connection Options"
+            },
+            {
+              "name": "token-value",
+              "aliases": [
+                "tv"
+              ],
+              "description": "The value of the token to pass to the API.",
+              "type": "string",
+              "group": "Base Connection Options"
+            },
+            {
+              "name": "cert-file",
+              "description": "The file path to a certificate file to use for authentication",
+              "type": "existingLocalFile",
+              "group": "Base Connection Options",
+              "aliases": []
+            },
+            {
+              "name": "cert-key-file",
+              "description": "The file path to a certificate key file to use for authentication",
+              "type": "existingLocalFile",
+              "group": "Base Connection Options",
+              "aliases": []
+            }
+          ],
+          "aliases": [],
+          "passOn": [],
+          "children": []
+        },
+        {
+          "name": "info",
+          "description": "Get detailed information about an API Requester",
+          "type": "command",
+          "handler": "",
+          "positionals": [
+            {
+              "name": "apiRequesterName",
+              "description": "The name of the API Requester.",
+              "type": "string",
+              "required": true
+            }
+          ],
+          "profile": {
+            "required": [
+              "zosconnect"
+            ],
+            "optional": [
+              "base"
+            ]
+          },
+          "options": [
+            {
+              "name": "address",
+              "description": "URI of the z/OS Connect EE server",
+              "type": "string",
+              "aliases": [
+                "a"
+              ],
+              "required": true,
+              "group": "z/OS Connect EE Connection Options"
+            },
+            {
+              "name": "user",
+              "description": "User ID for accessing the server",
+              "type": "string",
+              "aliases": [
+                "u"
+              ],
+              "required": false,
+              "group": "z/OS Connect EE Connection Options"
+            },
+            {
+              "name": "password",
+              "description": "Password for the User",
+              "type": "string",
+              "aliases": [
+                "p"
+              ],
+              "required": false,
+              "group": "z/OS Connect EE Connection Options"
+            },
+            {
+              "name": "rejectUnauthorized",
+              "description": "Reject self-signed certificates",
+              "type": "boolean",
+              "aliases": [
+                "ru"
+              ],
+              "required": false,
+              "defaultValue": true,
+              "group": "Options"
+            },
+            {
+              "name": "response-format-json",
+              "aliases": [
+                "rfj"
+              ],
+              "group": "Global options",
+              "description": "Produce JSON formatted data from a command",
+              "type": "boolean"
+            },
+            {
+              "name": "help",
+              "aliases": [
+                "h"
+              ],
+              "group": "Global options",
+              "description": "Display help text",
+              "type": "boolean"
+            },
+            {
+              "name": "help-examples",
+              "group": "Global options",
+              "description": "Display examples for all the commands in a group",
+              "type": "boolean",
+              "aliases": []
+            },
+            {
+              "name": "help-web",
+              "aliases": [
+                "hw"
+              ],
+              "group": "Global options",
+              "description": "Display HTML help in browser",
+              "type": "boolean"
+            },
+            {
+              "name": "zosconnect-profile",
+              "aliases": [
+                "zosconnect-p"
+              ],
+              "group": "Profile Options",
+              "description": "The name of a (zosconnect) profile to load for this command execution.",
+              "type": "string"
+            },
+            {
+              "name": "base-profile",
+              "aliases": [
+                "base-p"
+              ],
+              "group": "Profile Options",
+              "description": "The name of a (base) profile to load for this command execution.",
+              "type": "string"
+            },
+            {
+              "name": "host",
+              "aliases": [
+                "H"
+              ],
+              "description": "Host name of service on the mainframe.",
+              "type": "string",
+              "group": "Base Connection Options"
+            },
+            {
+              "name": "port",
+              "aliases": [
+                "P"
+              ],
+              "description": "Port number of service on the mainframe.",
+              "type": "number",
+              "group": "Base Connection Options"
+            },
+            {
+              "name": "reject-unauthorized",
+              "aliases": [
+                "ru"
+              ],
+              "description": "Reject self-signed certificates.",
+              "type": "boolean",
+              "defaultValue": true,
+              "group": "Base Connection Options"
+            },
+            {
+              "name": "token-type",
+              "aliases": [
+                "tt"
+              ],
+              "description": "The type of token to get and use for the API. Omit this option to use the default token type, which is provided by 'zowe auth login'.",
+              "type": "string",
+              "group": "Base Connection Options"
+            },
+            {
+              "name": "token-value",
+              "aliases": [
+                "tv"
+              ],
+              "description": "The value of the token to pass to the API.",
+              "type": "string",
+              "group": "Base Connection Options"
+            },
+            {
+              "name": "cert-file",
+              "description": "The file path to a certificate file to use for authentication",
+              "type": "existingLocalFile",
+              "group": "Base Connection Options",
+              "aliases": []
+            },
+            {
+              "name": "cert-key-file",
+              "description": "The file path to a certificate key file to use for authentication",
+              "type": "existingLocalFile",
+              "group": "Base Connection Options",
+              "aliases": []
+            }
+          ],
+          "aliases": [],
+          "passOn": [],
+          "children": []
+        }
+      ],
+      "passOn": [
+        {
+          "property": "options",
+          "value": [
+            {
+              "name": "address",
+              "description": "URI of the z/OS Connect EE server",
+              "type": "string",
+              "aliases": [
+                "a"
+              ],
+              "required": true,
+              "group": "z/OS Connect EE Connection Options"
+            },
+            {
+              "name": "user",
+              "description": "User ID for accessing the server",
+              "type": "string",
+              "aliases": [
+                "u"
+              ],
+              "required": false,
+              "group": "z/OS Connect EE Connection Options"
+            },
+            {
+              "name": "password",
+              "description": "Password for the User",
+              "type": "string",
+              "aliases": [
+                "p"
+              ],
+              "required": false,
+              "group": "z/OS Connect EE Connection Options"
+            },
+            {
+              "name": "rejectUnauthorized",
+              "description": "Reject self-signed certificates",
+              "type": "boolean",
+              "aliases": [
+                "ru"
+              ],
+              "required": false,
+              "defaultValue": true
+            }
+          ],
+          "merge": true,
+          "ignoreNodes": [
+            {
+              "type": "group"
+            }
+          ]
+        }
+      ],
+      "options": [
+        {
+          "name": "response-format-json",
+          "aliases": [
+            "rfj"
+          ],
+          "group": "Global options",
+          "description": "Produce JSON formatted data from a command",
+          "type": "boolean"
+        },
+        {
+          "name": "help",
+          "aliases": [
+            "h"
+          ],
+          "group": "Global options",
+          "description": "Display help text",
+          "type": "boolean"
+        },
+        {
+          "name": "help-examples",
+          "group": "Global options",
+          "description": "Display examples for all the commands in a group",
+          "type": "boolean",
+          "aliases": []
+        },
+        {
+          "name": "help-web",
+          "aliases": [
+            "hw"
+          ],
+          "group": "Global options",
+          "description": "Display HTML help in browser",
+          "type": "boolean"
+        }
+      ],
+      "aliases": [],
+      "positionals": []
+    },
+    {
+      "name": "service",
+      "type": "group",
+      "description": "Manage z/OS Connect EE Services",
+      "children": [
+        {
+          "name": "list",
+          "description": "List the Services installed in the server",
+          "type": "command",
+          "handler": "",
+          "profile": {
+            "required": [
+              "zosconnect"
+            ],
+            "optional": [
+              "base"
+            ]
+          },
+          "options": [
+            {
+              "name": "address",
+              "description": "URI of the z/OS Connect EE server",
+              "type": "string",
+              "aliases": [
+                "a"
+              ],
+              "required": true,
+              "group": "z/OS Connect EE Connection Options"
+            },
+            {
+              "name": "user",
+              "description": "User ID for accessing the server",
+              "type": "string",
+              "aliases": [
+                "u"
+              ],
+              "required": false,
+              "group": "z/OS Connect EE Connection Options"
+            },
+            {
+              "name": "password",
+              "description": "Password for the User",
+              "type": "string",
+              "aliases": [
+                "p"
+              ],
+              "required": false,
+              "group": "z/OS Connect EE Connection Options"
+            },
+            {
+              "name": "rejectUnauthorized",
+              "description": "Reject self-signed certificates",
+              "type": "boolean",
+              "aliases": [
+                "ru"
+              ],
+              "required": false,
+              "defaultValue": true,
+              "group": "Options"
+            },
+            {
+              "name": "response-format-json",
+              "aliases": [
+                "rfj"
+              ],
+              "group": "Global options",
+              "description": "Produce JSON formatted data from a command",
+              "type": "boolean"
+            },
+            {
+              "name": "help",
+              "aliases": [
+                "h"
+              ],
+              "group": "Global options",
+              "description": "Display help text",
+              "type": "boolean"
+            },
+            {
+              "name": "help-examples",
+              "group": "Global options",
+              "description": "Display examples for all the commands in a group",
+              "type": "boolean",
+              "aliases": []
+            },
+            {
+              "name": "help-web",
+              "aliases": [
+                "hw"
+              ],
+              "group": "Global options",
+              "description": "Display HTML help in browser",
+              "type": "boolean"
+            },
+            {
+              "name": "zosconnect-profile",
+              "aliases": [
+                "zosconnect-p"
+              ],
+              "group": "Profile Options",
+              "description": "The name of a (zosconnect) profile to load for this command execution.",
+              "type": "string"
+            },
+            {
+              "name": "base-profile",
+              "aliases": [
+                "base-p"
+              ],
+              "group": "Profile Options",
+              "description": "The name of a (base) profile to load for this command execution.",
+              "type": "string"
+            },
+            {
+              "name": "host",
+              "aliases": [
+                "H"
+              ],
+              "description": "Host name of service on the mainframe.",
+              "type": "string",
+              "group": "Base Connection Options"
+            },
+            {
+              "name": "port",
+              "aliases": [
+                "P"
+              ],
+              "description": "Port number of service on the mainframe.",
+              "type": "number",
+              "group": "Base Connection Options"
+            },
+            {
+              "name": "reject-unauthorized",
+              "aliases": [
+                "ru"
+              ],
+              "description": "Reject self-signed certificates.",
+              "type": "boolean",
+              "defaultValue": true,
+              "group": "Base Connection Options"
+            },
+            {
+              "name": "token-type",
+              "aliases": [
+                "tt"
+              ],
+              "description": "The type of token to get and use for the API. Omit this option to use the default token type, which is provided by 'zowe auth login'.",
+              "type": "string",
+              "group": "Base Connection Options"
+            },
+            {
+              "name": "token-value",
+              "aliases": [
+                "tv"
+              ],
+              "description": "The value of the token to pass to the API.",
+              "type": "string",
+              "group": "Base Connection Options"
+            },
+            {
+              "name": "cert-file",
+              "description": "The file path to a certificate file to use for authentication",
+              "type": "existingLocalFile",
+              "group": "Base Connection Options",
+              "aliases": []
+            },
+            {
+              "name": "cert-key-file",
+              "description": "The file path to a certificate key file to use for authentication",
+              "type": "existingLocalFile",
+              "group": "Base Connection Options",
+              "aliases": []
+            }
+          ],
+          "aliases": [],
+          "positionals": [],
+          "passOn": [],
+          "children": []
+        },
+        {
+          "name": "install",
+          "description": "Install a new Service",
+          "type": "command",
+          "handler": "",
+          "positionals": [
+            {
+              "name": "file",
+              "type": "string",
+              "description": "The SAR file to install",
+              "required": true
+            }
+          ],
+          "profile": {
+            "required": [
+              "zosconnect"
+            ],
+            "optional": [
+              "base"
+            ]
+          },
+          "options": [
+            {
+              "name": "address",
+              "description": "URI of the z/OS Connect EE server",
+              "type": "string",
+              "aliases": [
+                "a"
+              ],
+              "required": true,
+              "group": "z/OS Connect EE Connection Options"
+            },
+            {
+              "name": "user",
+              "description": "User ID for accessing the server",
+              "type": "string",
+              "aliases": [
+                "u"
+              ],
+              "required": false,
+              "group": "z/OS Connect EE Connection Options"
+            },
+            {
+              "name": "password",
+              "description": "Password for the User",
+              "type": "string",
+              "aliases": [
+                "p"
+              ],
+              "required": false,
+              "group": "z/OS Connect EE Connection Options"
+            },
+            {
+              "name": "rejectUnauthorized",
+              "description": "Reject self-signed certificates",
+              "type": "boolean",
+              "aliases": [
+                "ru"
+              ],
+              "required": false,
+              "defaultValue": true,
+              "group": "Options"
+            },
+            {
+              "name": "response-format-json",
+              "aliases": [
+                "rfj"
+              ],
+              "group": "Global options",
+              "description": "Produce JSON formatted data from a command",
+              "type": "boolean"
+            },
+            {
+              "name": "help",
+              "aliases": [
+                "h"
+              ],
+              "group": "Global options",
+              "description": "Display help text",
+              "type": "boolean"
+            },
+            {
+              "name": "help-examples",
+              "group": "Global options",
+              "description": "Display examples for all the commands in a group",
+              "type": "boolean",
+              "aliases": []
+            },
+            {
+              "name": "help-web",
+              "aliases": [
+                "hw"
+              ],
+              "group": "Global options",
+              "description": "Display HTML help in browser",
+              "type": "boolean"
+            },
+            {
+              "name": "zosconnect-profile",
+              "aliases": [
+                "zosconnect-p"
+              ],
+              "group": "Profile Options",
+              "description": "The name of a (zosconnect) profile to load for this command execution.",
+              "type": "string"
+            },
+            {
+              "name": "base-profile",
+              "aliases": [
+                "base-p"
+              ],
+              "group": "Profile Options",
+              "description": "The name of a (base) profile to load for this command execution.",
+              "type": "string"
+            },
+            {
+              "name": "host",
+              "aliases": [
+                "H"
+              ],
+              "description": "Host name of service on the mainframe.",
+              "type": "string",
+              "group": "Base Connection Options"
+            },
+            {
+              "name": "port",
+              "aliases": [
+                "P"
+              ],
+              "description": "Port number of service on the mainframe.",
+              "type": "number",
+              "group": "Base Connection Options"
+            },
+            {
+              "name": "reject-unauthorized",
+              "aliases": [
+                "ru"
+              ],
+              "description": "Reject self-signed certificates.",
+              "type": "boolean",
+              "defaultValue": true,
+              "group": "Base Connection Options"
+            },
+            {
+              "name": "token-type",
+              "aliases": [
+                "tt"
+              ],
+              "description": "The type of token to get and use for the API. Omit this option to use the default token type, which is provided by 'zowe auth login'.",
+              "type": "string",
+              "group": "Base Connection Options"
+            },
+            {
+              "name": "token-value",
+              "aliases": [
+                "tv"
+              ],
+              "description": "The value of the token to pass to the API.",
+              "type": "string",
+              "group": "Base Connection Options"
+            },
+            {
+              "name": "cert-file",
+              "description": "The file path to a certificate file to use for authentication",
+              "type": "existingLocalFile",
+              "group": "Base Connection Options",
+              "aliases": []
+            },
+            {
+              "name": "cert-key-file",
+              "description": "The file path to a certificate key file to use for authentication",
+              "type": "existingLocalFile",
+              "group": "Base Connection Options",
+              "aliases": []
+            }
+          ],
+          "aliases": [],
+          "passOn": [],
+          "children": []
+        },
+        {
+          "name": "delete",
+          "description": "Delete a Service",
+          "type": "command",
+          "handler": "",
+          "positionals": [
+            {
+              "name": "serviceName",
+              "description": "The name of the Service to delete",
+              "type": "string",
+              "required": true
+            }
+          ],
+          "options": [
+            {
+              "name": "force",
+              "type": "boolean",
+              "description": "Delete the Service regardless of status.",
+              "aliases": [
+                "f"
+              ],
+              "group": "Options"
+            },
+            {
+              "name": "address",
+              "description": "URI of the z/OS Connect EE server",
+              "type": "string",
+              "aliases": [
+                "a"
+              ],
+              "required": true,
+              "group": "z/OS Connect EE Connection Options"
+            },
+            {
+              "name": "user",
+              "description": "User ID for accessing the server",
+              "type": "string",
+              "aliases": [
+                "u"
+              ],
+              "required": false,
+              "group": "z/OS Connect EE Connection Options"
+            },
+            {
+              "name": "password",
+              "description": "Password for the User",
+              "type": "string",
+              "aliases": [
+                "p"
+              ],
+              "required": false,
+              "group": "z/OS Connect EE Connection Options"
+            },
+            {
+              "name": "rejectUnauthorized",
+              "description": "Reject self-signed certificates",
+              "type": "boolean",
+              "aliases": [
+                "ru"
+              ],
+              "required": false,
+              "defaultValue": true,
+              "group": "Options"
+            },
+            {
+              "name": "response-format-json",
+              "aliases": [
+                "rfj"
+              ],
+              "group": "Global options",
+              "description": "Produce JSON formatted data from a command",
+              "type": "boolean"
+            },
+            {
+              "name": "help",
+              "aliases": [
+                "h"
+              ],
+              "group": "Global options",
+              "description": "Display help text",
+              "type": "boolean"
+            },
+            {
+              "name": "help-examples",
+              "group": "Global options",
+              "description": "Display examples for all the commands in a group",
+              "type": "boolean",
+              "aliases": []
+            },
+            {
+              "name": "help-web",
+              "aliases": [
+                "hw"
+              ],
+              "group": "Global options",
+              "description": "Display HTML help in browser",
+              "type": "boolean"
+            },
+            {
+              "name": "zosconnect-profile",
+              "aliases": [
+                "zosconnect-p"
+              ],
+              "group": "Profile Options",
+              "description": "The name of a (zosconnect) profile to load for this command execution.",
+              "type": "string"
+            },
+            {
+              "name": "base-profile",
+              "aliases": [
+                "base-p"
+              ],
+              "group": "Profile Options",
+              "description": "The name of a (base) profile to load for this command execution.",
+              "type": "string"
+            },
+            {
+              "name": "host",
+              "aliases": [
+                "H"
+              ],
+              "description": "Host name of service on the mainframe.",
+              "type": "string",
+              "group": "Base Connection Options"
+            },
+            {
+              "name": "port",
+              "aliases": [
+                "P"
+              ],
+              "description": "Port number of service on the mainframe.",
+              "type": "number",
+              "group": "Base Connection Options"
+            },
+            {
+              "name": "reject-unauthorized",
+              "aliases": [
+                "ru"
+              ],
+              "description": "Reject self-signed certificates.",
+              "type": "boolean",
+              "defaultValue": true,
+              "group": "Base Connection Options"
+            },
+            {
+              "name": "token-type",
+              "aliases": [
+                "tt"
+              ],
+              "description": "The type of token to get and use for the API. Omit this option to use the default token type, which is provided by 'zowe auth login'.",
+              "type": "string",
+              "group": "Base Connection Options"
+            },
+            {
+              "name": "token-value",
+              "aliases": [
+                "tv"
+              ],
+              "description": "The value of the token to pass to the API.",
+              "type": "string",
+              "group": "Base Connection Options"
+            },
+            {
+              "name": "cert-file",
+              "description": "The file path to a certificate file to use for authentication",
+              "type": "existingLocalFile",
+              "group": "Base Connection Options",
+              "aliases": []
+            },
+            {
+              "name": "cert-key-file",
+              "description": "The file path to a certificate key file to use for authentication",
+              "type": "existingLocalFile",
+              "group": "Base Connection Options",
+              "aliases": []
+            }
+          ],
+          "profile": {
+            "required": [
+              "zosconnect"
+            ],
+            "optional": [
+              "base"
+            ]
+          },
+          "aliases": [],
+          "passOn": [],
+          "children": []
+        },
+        {
+          "name": "update",
+          "description": "Update an exisiting Service",
+          "type": "command",
+          "handler": "",
+          "positionals": [
+            {
+              "name": "serviceName",
+              "description": "The name of the Service to update.",
+              "type": "string",
+              "required": true
+            },
+            {
+              "name": "file",
+              "description": "The new SAR file for the Service",
+              "type": "string",
+              "required": true
+            }
+          ],
+          "profile": {
+            "required": [
+              "zosconnect"
+            ],
+            "optional": [
+              "base"
+            ]
+          },
+          "options": [
+            {
+              "name": "address",
+              "description": "URI of the z/OS Connect EE server",
+              "type": "string",
+              "aliases": [
+                "a"
+              ],
+              "required": true,
+              "group": "z/OS Connect EE Connection Options"
+            },
+            {
+              "name": "user",
+              "description": "User ID for accessing the server",
+              "type": "string",
+              "aliases": [
+                "u"
+              ],
+              "required": false,
+              "group": "z/OS Connect EE Connection Options"
+            },
+            {
+              "name": "password",
+              "description": "Password for the User",
+              "type": "string",
+              "aliases": [
+                "p"
+              ],
+              "required": false,
+              "group": "z/OS Connect EE Connection Options"
+            },
+            {
+              "name": "rejectUnauthorized",
+              "description": "Reject self-signed certificates",
+              "type": "boolean",
+              "aliases": [
+                "ru"
+              ],
+              "required": false,
+              "defaultValue": true,
+              "group": "Options"
+            },
+            {
+              "name": "response-format-json",
+              "aliases": [
+                "rfj"
+              ],
+              "group": "Global options",
+              "description": "Produce JSON formatted data from a command",
+              "type": "boolean"
+            },
+            {
+              "name": "help",
+              "aliases": [
+                "h"
+              ],
+              "group": "Global options",
+              "description": "Display help text",
+              "type": "boolean"
+            },
+            {
+              "name": "help-examples",
+              "group": "Global options",
+              "description": "Display examples for all the commands in a group",
+              "type": "boolean",
+              "aliases": []
+            },
+            {
+              "name": "help-web",
+              "aliases": [
+                "hw"
+              ],
+              "group": "Global options",
+              "description": "Display HTML help in browser",
+              "type": "boolean"
+            },
+            {
+              "name": "zosconnect-profile",
+              "aliases": [
+                "zosconnect-p"
+              ],
+              "group": "Profile Options",
+              "description": "The name of a (zosconnect) profile to load for this command execution.",
+              "type": "string"
+            },
+            {
+              "name": "base-profile",
+              "aliases": [
+                "base-p"
+              ],
+              "group": "Profile Options",
+              "description": "The name of a (base) profile to load for this command execution.",
+              "type": "string"
+            },
+            {
+              "name": "host",
+              "aliases": [
+                "H"
+              ],
+              "description": "Host name of service on the mainframe.",
+              "type": "string",
+              "group": "Base Connection Options"
+            },
+            {
+              "name": "port",
+              "aliases": [
+                "P"
+              ],
+              "description": "Port number of service on the mainframe.",
+              "type": "number",
+              "group": "Base Connection Options"
+            },
+            {
+              "name": "reject-unauthorized",
+              "aliases": [
+                "ru"
+              ],
+              "description": "Reject self-signed certificates.",
+              "type": "boolean",
+              "defaultValue": true,
+              "group": "Base Connection Options"
+            },
+            {
+              "name": "token-type",
+              "aliases": [
+                "tt"
+              ],
+              "description": "The type of token to get and use for the API. Omit this option to use the default token type, which is provided by 'zowe auth login'.",
+              "type": "string",
+              "group": "Base Connection Options"
+            },
+            {
+              "name": "token-value",
+              "aliases": [
+                "tv"
+              ],
+              "description": "The value of the token to pass to the API.",
+              "type": "string",
+              "group": "Base Connection Options"
+            },
+            {
+              "name": "cert-file",
+              "description": "The file path to a certificate file to use for authentication",
+              "type": "existingLocalFile",
+              "group": "Base Connection Options",
+              "aliases": []
+            },
+            {
+              "name": "cert-key-file",
+              "description": "The file path to a certificate key file to use for authentication",
+              "type": "existingLocalFile",
+              "group": "Base Connection Options",
+              "aliases": []
+            }
+          ],
+          "aliases": [],
+          "passOn": [],
+          "children": []
+        },
+        {
+          "name": "start",
+          "description": "Set a Services status to started",
+          "type": "command",
+          "handler": "",
+          "positionals": [
+            {
+              "name": "serviceName",
+              "description": "The name of the Service to start.",
+              "type": "string",
+              "required": true
+            }
+          ],
+          "profile": {
+            "required": [
+              "zosconnect"
+            ],
+            "optional": [
+              "base"
+            ]
+          },
+          "options": [
+            {
+              "name": "address",
+              "description": "URI of the z/OS Connect EE server",
+              "type": "string",
+              "aliases": [
+                "a"
+              ],
+              "required": true,
+              "group": "z/OS Connect EE Connection Options"
+            },
+            {
+              "name": "user",
+              "description": "User ID for accessing the server",
+              "type": "string",
+              "aliases": [
+                "u"
+              ],
+              "required": false,
+              "group": "z/OS Connect EE Connection Options"
+            },
+            {
+              "name": "password",
+              "description": "Password for the User",
+              "type": "string",
+              "aliases": [
+                "p"
+              ],
+              "required": false,
+              "group": "z/OS Connect EE Connection Options"
+            },
+            {
+              "name": "rejectUnauthorized",
+              "description": "Reject self-signed certificates",
+              "type": "boolean",
+              "aliases": [
+                "ru"
+              ],
+              "required": false,
+              "defaultValue": true,
+              "group": "Options"
+            },
+            {
+              "name": "response-format-json",
+              "aliases": [
+                "rfj"
+              ],
+              "group": "Global options",
+              "description": "Produce JSON formatted data from a command",
+              "type": "boolean"
+            },
+            {
+              "name": "help",
+              "aliases": [
+                "h"
+              ],
+              "group": "Global options",
+              "description": "Display help text",
+              "type": "boolean"
+            },
+            {
+              "name": "help-examples",
+              "group": "Global options",
+              "description": "Display examples for all the commands in a group",
+              "type": "boolean",
+              "aliases": []
+            },
+            {
+              "name": "help-web",
+              "aliases": [
+                "hw"
+              ],
+              "group": "Global options",
+              "description": "Display HTML help in browser",
+              "type": "boolean"
+            },
+            {
+              "name": "zosconnect-profile",
+              "aliases": [
+                "zosconnect-p"
+              ],
+              "group": "Profile Options",
+              "description": "The name of a (zosconnect) profile to load for this command execution.",
+              "type": "string"
+            },
+            {
+              "name": "base-profile",
+              "aliases": [
+                "base-p"
+              ],
+              "group": "Profile Options",
+              "description": "The name of a (base) profile to load for this command execution.",
+              "type": "string"
+            },
+            {
+              "name": "host",
+              "aliases": [
+                "H"
+              ],
+              "description": "Host name of service on the mainframe.",
+              "type": "string",
+              "group": "Base Connection Options"
+            },
+            {
+              "name": "port",
+              "aliases": [
+                "P"
+              ],
+              "description": "Port number of service on the mainframe.",
+              "type": "number",
+              "group": "Base Connection Options"
+            },
+            {
+              "name": "reject-unauthorized",
+              "aliases": [
+                "ru"
+              ],
+              "description": "Reject self-signed certificates.",
+              "type": "boolean",
+              "defaultValue": true,
+              "group": "Base Connection Options"
+            },
+            {
+              "name": "token-type",
+              "aliases": [
+                "tt"
+              ],
+              "description": "The type of token to get and use for the API. Omit this option to use the default token type, which is provided by 'zowe auth login'.",
+              "type": "string",
+              "group": "Base Connection Options"
+            },
+            {
+              "name": "token-value",
+              "aliases": [
+                "tv"
+              ],
+              "description": "The value of the token to pass to the API.",
+              "type": "string",
+              "group": "Base Connection Options"
+            },
+            {
+              "name": "cert-file",
+              "description": "The file path to a certificate file to use for authentication",
+              "type": "existingLocalFile",
+              "group": "Base Connection Options",
+              "aliases": []
+            },
+            {
+              "name": "cert-key-file",
+              "description": "The file path to a certificate key file to use for authentication",
+              "type": "existingLocalFile",
+              "group": "Base Connection Options",
+              "aliases": []
+            }
+          ],
+          "aliases": [],
+          "passOn": [],
+          "children": []
+        },
+        {
+          "name": "stop",
+          "description": "Set a Services status to stopped",
+          "type": "command",
+          "handler": "",
+          "positionals": [
+            {
+              "name": "serviceName",
+              "description": "The name of the Service to stop.",
+              "type": "string",
+              "required": true
+            }
+          ],
+          "profile": {
+            "required": [
+              "zosconnect"
+            ],
+            "optional": [
+              "base"
+            ]
+          },
+          "options": [
+            {
+              "name": "address",
+              "description": "URI of the z/OS Connect EE server",
+              "type": "string",
+              "aliases": [
+                "a"
+              ],
+              "required": true,
+              "group": "z/OS Connect EE Connection Options"
+            },
+            {
+              "name": "user",
+              "description": "User ID for accessing the server",
+              "type": "string",
+              "aliases": [
+                "u"
+              ],
+              "required": false,
+              "group": "z/OS Connect EE Connection Options"
+            },
+            {
+              "name": "password",
+              "description": "Password for the User",
+              "type": "string",
+              "aliases": [
+                "p"
+              ],
+              "required": false,
+              "group": "z/OS Connect EE Connection Options"
+            },
+            {
+              "name": "rejectUnauthorized",
+              "description": "Reject self-signed certificates",
+              "type": "boolean",
+              "aliases": [
+                "ru"
+              ],
+              "required": false,
+              "defaultValue": true,
+              "group": "Options"
+            },
+            {
+              "name": "response-format-json",
+              "aliases": [
+                "rfj"
+              ],
+              "group": "Global options",
+              "description": "Produce JSON formatted data from a command",
+              "type": "boolean"
+            },
+            {
+              "name": "help",
+              "aliases": [
+                "h"
+              ],
+              "group": "Global options",
+              "description": "Display help text",
+              "type": "boolean"
+            },
+            {
+              "name": "help-examples",
+              "group": "Global options",
+              "description": "Display examples for all the commands in a group",
+              "type": "boolean",
+              "aliases": []
+            },
+            {
+              "name": "help-web",
+              "aliases": [
+                "hw"
+              ],
+              "group": "Global options",
+              "description": "Display HTML help in browser",
+              "type": "boolean"
+            },
+            {
+              "name": "zosconnect-profile",
+              "aliases": [
+                "zosconnect-p"
+              ],
+              "group": "Profile Options",
+              "description": "The name of a (zosconnect) profile to load for this command execution.",
+              "type": "string"
+            },
+            {
+              "name": "base-profile",
+              "aliases": [
+                "base-p"
+              ],
+              "group": "Profile Options",
+              "description": "The name of a (base) profile to load for this command execution.",
+              "type": "string"
+            },
+            {
+              "name": "host",
+              "aliases": [
+                "H"
+              ],
+              "description": "Host name of service on the mainframe.",
+              "type": "string",
+              "group": "Base Connection Options"
+            },
+            {
+              "name": "port",
+              "aliases": [
+                "P"
+              ],
+              "description": "Port number of service on the mainframe.",
+              "type": "number",
+              "group": "Base Connection Options"
+            },
+            {
+              "name": "reject-unauthorized",
+              "aliases": [
+                "ru"
+              ],
+              "description": "Reject self-signed certificates.",
+              "type": "boolean",
+              "defaultValue": true,
+              "group": "Base Connection Options"
+            },
+            {
+              "name": "token-type",
+              "aliases": [
+                "tt"
+              ],
+              "description": "The type of token to get and use for the API. Omit this option to use the default token type, which is provided by 'zowe auth login'.",
+              "type": "string",
+              "group": "Base Connection Options"
+            },
+            {
+              "name": "token-value",
+              "aliases": [
+                "tv"
+              ],
+              "description": "The value of the token to pass to the API.",
+              "type": "string",
+              "group": "Base Connection Options"
+            },
+            {
+              "name": "cert-file",
+              "description": "The file path to a certificate file to use for authentication",
+              "type": "existingLocalFile",
+              "group": "Base Connection Options",
+              "aliases": []
+            },
+            {
+              "name": "cert-key-file",
+              "description": "The file path to a certificate key file to use for authentication",
+              "type": "existingLocalFile",
+              "group": "Base Connection Options",
+              "aliases": []
+            }
+          ],
+          "aliases": [],
+          "passOn": [],
+          "children": []
+        },
+        {
+          "name": "info",
+          "description": "Get detailed information about a Service",
+          "type": "command",
+          "handler": "",
+          "positionals": [
+            {
+              "name": "serviceName",
+              "description": "The name of the Service.",
+              "type": "string",
+              "required": true
+            }
+          ],
+          "profile": {
+            "required": [
+              "zosconnect"
+            ],
+            "optional": [
+              "base"
+            ]
+          },
+          "options": [
+            {
+              "name": "address",
+              "description": "URI of the z/OS Connect EE server",
+              "type": "string",
+              "aliases": [
+                "a"
+              ],
+              "required": true,
+              "group": "z/OS Connect EE Connection Options"
+            },
+            {
+              "name": "user",
+              "description": "User ID for accessing the server",
+              "type": "string",
+              "aliases": [
+                "u"
+              ],
+              "required": false,
+              "group": "z/OS Connect EE Connection Options"
+            },
+            {
+              "name": "password",
+              "description": "Password for the User",
+              "type": "string",
+              "aliases": [
+                "p"
+              ],
+              "required": false,
+              "group": "z/OS Connect EE Connection Options"
+            },
+            {
+              "name": "rejectUnauthorized",
+              "description": "Reject self-signed certificates",
+              "type": "boolean",
+              "aliases": [
+                "ru"
+              ],
+              "required": false,
+              "defaultValue": true,
+              "group": "Options"
+            },
+            {
+              "name": "response-format-json",
+              "aliases": [
+                "rfj"
+              ],
+              "group": "Global options",
+              "description": "Produce JSON formatted data from a command",
+              "type": "boolean"
+            },
+            {
+              "name": "help",
+              "aliases": [
+                "h"
+              ],
+              "group": "Global options",
+              "description": "Display help text",
+              "type": "boolean"
+            },
+            {
+              "name": "help-examples",
+              "group": "Global options",
+              "description": "Display examples for all the commands in a group",
+              "type": "boolean",
+              "aliases": []
+            },
+            {
+              "name": "help-web",
+              "aliases": [
+                "hw"
+              ],
+              "group": "Global options",
+              "description": "Display HTML help in browser",
+              "type": "boolean"
+            },
+            {
+              "name": "zosconnect-profile",
+              "aliases": [
+                "zosconnect-p"
+              ],
+              "group": "Profile Options",
+              "description": "The name of a (zosconnect) profile to load for this command execution.",
+              "type": "string"
+            },
+            {
+              "name": "base-profile",
+              "aliases": [
+                "base-p"
+              ],
+              "group": "Profile Options",
+              "description": "The name of a (base) profile to load for this command execution.",
+              "type": "string"
+            },
+            {
+              "name": "host",
+              "aliases": [
+                "H"
+              ],
+              "description": "Host name of service on the mainframe.",
+              "type": "string",
+              "group": "Base Connection Options"
+            },
+            {
+              "name": "port",
+              "aliases": [
+                "P"
+              ],
+              "description": "Port number of service on the mainframe.",
+              "type": "number",
+              "group": "Base Connection Options"
+            },
+            {
+              "name": "reject-unauthorized",
+              "aliases": [
+                "ru"
+              ],
+              "description": "Reject self-signed certificates.",
+              "type": "boolean",
+              "defaultValue": true,
+              "group": "Base Connection Options"
+            },
+            {
+              "name": "token-type",
+              "aliases": [
+                "tt"
+              ],
+              "description": "The type of token to get and use for the API. Omit this option to use the default token type, which is provided by 'zowe auth login'.",
+              "type": "string",
+              "group": "Base Connection Options"
+            },
+            {
+              "name": "token-value",
+              "aliases": [
+                "tv"
+              ],
+              "description": "The value of the token to pass to the API.",
+              "type": "string",
+              "group": "Base Connection Options"
+            },
+            {
+              "name": "cert-file",
+              "description": "The file path to a certificate file to use for authentication",
+              "type": "existingLocalFile",
+              "group": "Base Connection Options",
+              "aliases": []
+            },
+            {
+              "name": "cert-key-file",
+              "description": "The file path to a certificate key file to use for authentication",
+              "type": "existingLocalFile",
+              "group": "Base Connection Options",
+              "aliases": []
+            }
+          ],
+          "aliases": [],
+          "passOn": [],
+          "children": []
+        }
+      ],
+      "passOn": [
+        {
+          "property": "options",
+          "value": [
+            {
+              "name": "address",
+              "description": "URI of the z/OS Connect EE server",
+              "type": "string",
+              "aliases": [
+                "a"
+              ],
+              "required": true,
+              "group": "z/OS Connect EE Connection Options"
+            },
+            {
+              "name": "user",
+              "description": "User ID for accessing the server",
+              "type": "string",
+              "aliases": [
+                "u"
+              ],
+              "required": false,
+              "group": "z/OS Connect EE Connection Options"
+            },
+            {
+              "name": "password",
+              "description": "Password for the User",
+              "type": "string",
+              "aliases": [
+                "p"
+              ],
+              "required": false,
+              "group": "z/OS Connect EE Connection Options"
+            },
+            {
+              "name": "rejectUnauthorized",
+              "description": "Reject self-signed certificates",
+              "type": "boolean",
+              "aliases": [
+                "ru"
+              ],
+              "required": false,
+              "defaultValue": true
+            }
+          ],
+          "merge": true,
+          "ignoreNodes": [
+            {
+              "type": "group"
+            }
+          ]
+        }
+      ],
+      "options": [
+        {
+          "name": "response-format-json",
+          "aliases": [
+            "rfj"
+          ],
+          "group": "Global options",
+          "description": "Produce JSON formatted data from a command",
+          "type": "boolean"
+        },
+        {
+          "name": "help",
+          "aliases": [
+            "h"
+          ],
+          "group": "Global options",
+          "description": "Display help text",
+          "type": "boolean"
+        },
+        {
+          "name": "help-examples",
+          "group": "Global options",
+          "description": "Display examples for all the commands in a group",
+          "type": "boolean",
+          "aliases": []
+        },
+        {
+          "name": "help-web",
+          "aliases": [
+            "hw"
+          ],
+          "group": "Global options",
+          "description": "Display HTML help in browser",
+          "type": "boolean"
+        }
+      ],
+      "aliases": [],
+      "positionals": []
+    }
+  ],
+  "options": [
+    {
+      "name": "response-format-json",
+      "aliases": [
+        "rfj"
+      ],
+      "group": "Global options",
+      "description": "Produce JSON formatted data from a command",
+      "type": "boolean"
+    },
+    {
+      "name": "help",
+      "aliases": [
+        "h"
+      ],
+      "group": "Global options",
+      "description": "Display help text",
+      "type": "boolean"
+    },
+    {
+      "name": "help-examples",
+      "group": "Global options",
+      "description": "Display examples for all the commands in a group",
+      "type": "boolean",
+      "aliases": []
+    },
+    {
+      "name": "help-web",
+      "aliases": [
+        "hw"
+      ],
+      "group": "Global options",
+      "description": "Display HTML help in browser",
+      "type": "boolean"
+    }
+  ],
+  "aliases": [],
+  "positionals": [],
+  "passOn": []
+}
