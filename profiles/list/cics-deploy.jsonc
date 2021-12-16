@@ -1,0 +1,74 @@
+// The Program is owned by IBM or an IBM supplier, and is copyrighted and
+// licensed
+{
+  "name": "cics-deploy-profiles",
+  "aliases": [
+    "cics-deploy"
+  ],
+  "summary": "List profiles of the type cics-deploy.",
+  "description": "Specifies the target environment for the cics-deploy deploy and undeploy actions.",
+  "type": "command",
+  "handler": "",
+  "customize": {
+    "profileTypeIdentifier": "cics-deploy"
+  },
+  "options": [
+    {
+      "name": "show-contents",
+      "aliases": [
+        "sc"
+      ],
+      "description": "List cics-deploy  profiles  and their contents. All profile details will be printed as part of command output.",
+      "type": "boolean",
+      "required": false,
+      "group": "Options"
+    },
+    {
+      "name": "response-format-json",
+      "aliases": [
+        "rfj"
+      ],
+      "group": "Global options",
+      "description": "Produce JSON formatted data from a command",
+      "type": "boolean"
+    },
+    {
+      "name": "help",
+      "aliases": [
+        "h"
+      ],
+      "group": "Global options",
+      "description": "Display help text",
+      "type": "boolean"
+    },
+    {
+      "name": "help-examples",
+      "group": "Global options",
+      "description": "Display examples for all the commands in a group",
+      "type": "boolean",
+      "aliases": []
+    },
+    {
+      "name": "help-web",
+      "aliases": [
+        "hw"
+      ],
+      "group": "Global options",
+      "description": "Display HTML help in browser",
+      "type": "boolean"
+    }
+  ],
+  "examples": [
+    {
+      "options": "",
+      "description": "List profiles of type cics-deploy"
+    },
+    {
+      "options": "--sc",
+      "description": "List profiles of type cics-deploy and display their contents"
+    }
+  ],
+  "positionals": [],
+  "passOn": [],
+  "children": []
+}
