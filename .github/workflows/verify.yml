@@ -19,6 +19,6 @@ jobs:
     - run: |
         readarray -t all_files <<<"$(jq -r '.[]' <<<'${{ steps.files.outputs.all }}')"
         for file in ${all_files[@]}; do
-          [[ '${file}' == *.jsonc ]] || (echo "Not a JSON file: ${file}" && exit 1)
-          [[ '${file}' == commandGroups/* ]] || [[ '${file}' == profiles/* ]] || (echo "Wrong location: ${file}" && exit 1)
+          [[ ''${file}'' == *.jsonc ]] || (echo "Not a JSON file: ${file}" && exit 1)
+          [[ ''${file}'' == commandGroups/* ]] || [[ ''${file}'' == profiles/* ]] || (echo "Wrong location: ${file}" && exit 1)
         done
