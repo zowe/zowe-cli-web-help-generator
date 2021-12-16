@@ -1,0 +1,74 @@
+// Copyright (c) 2021 Broadcom.  All Rights Reserved.  The term
+// "Broadcom" refers to Broadcom Inc. and/or its subsidiaries.
+{
+  "name": "ca7-profiles",
+  "aliases": [
+    "ca7"
+  ],
+  "summary": "List profiles of the type ca7.",
+  "description": "A CA7 profile is required to issue commands in the CA7 command group. The CA7 profile contains your host and port for the CA7 instance of your choice.",
+  "type": "command",
+  "handler": "",
+  "customize": {
+    "profileTypeIdentifier": "ca7"
+  },
+  "options": [
+    {
+      "name": "show-contents",
+      "aliases": [
+        "sc"
+      ],
+      "description": "List ca7  profiles  and their contents. All profile details will be printed as part of command output.",
+      "type": "boolean",
+      "required": false,
+      "group": "Options"
+    },
+    {
+      "name": "response-format-json",
+      "aliases": [
+        "rfj"
+      ],
+      "group": "Global options",
+      "description": "Produce JSON formatted data from a command",
+      "type": "boolean"
+    },
+    {
+      "name": "help",
+      "aliases": [
+        "h"
+      ],
+      "group": "Global options",
+      "description": "Display help text",
+      "type": "boolean"
+    },
+    {
+      "name": "help-examples",
+      "group": "Global options",
+      "description": "Display examples for all the commands in a group",
+      "type": "boolean",
+      "aliases": []
+    },
+    {
+      "name": "help-web",
+      "aliases": [
+        "hw"
+      ],
+      "group": "Global options",
+      "description": "Display HTML help in browser",
+      "type": "boolean"
+    }
+  ],
+  "examples": [
+    {
+      "options": "",
+      "description": "List profiles of type ca7"
+    },
+    {
+      "options": "--sc",
+      "description": "List profiles of type ca7 and display their contents"
+    }
+  ],
+  "positionals": [],
+  "passOn": [],
+  "children": []
+}

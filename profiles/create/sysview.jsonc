@@ -1,0 +1,157 @@
+// Copyright (c) 2021 Broadcom.  All Rights Reserved.  The term
+// "Broadcom" refers to Broadcom Inc. and/or its subsidiaries.
+{
+  "name": "sysview-profile",
+  "aliases": [
+    "sysview"
+  ],
+  "summary": "Create a sysview profile",
+  "description": "The SYSVIEW session profile schema, where you specify your session information and credentials",
+  "type": "command",
+  "handler": "",
+  "customize": {
+    "profileTypeIdentifier": "sysview"
+  },
+  "positionals": [
+    {
+      "name": "profileName",
+      "description": "Specifies the name of the new sysview profile. You can load this profile by using the name on commands that support the \"--sysview-profile\" option.",
+      "type": "string",
+      "required": true
+    }
+  ],
+  "options": [
+    {
+      "description": "The hostname of the SYSVIEW REST API",
+      "type": "string",
+      "name": "host",
+      "aliases": [
+        "H"
+      ],
+      "group": "sysview connection options"
+    },
+    {
+      "description": "The port number of the SYSVIEW REST API",
+      "type": "number",
+      "name": "port",
+      "aliases": [
+        "P"
+      ],
+      "group": "sysview connection options"
+    },
+    {
+      "description": "Your z/OS username used to authenticate to the SYSVIEW REST API",
+      "type": "string",
+      "name": "user",
+      "aliases": [
+        "u"
+      ],
+      "group": "sysview connection options"
+    },
+    {
+      "description": "Your z/OS password used to authenticate to the SYSVIEW REST API",
+      "type": "string",
+      "name": "password",
+      "aliases": [
+        "pass",
+        "pw"
+      ],
+      "group": "sysview connection options"
+    },
+    {
+      "description": "If set, the server certificate is verified against the list of supplied CAs",
+      "type": "boolean",
+      "name": "reject-unauthorized",
+      "aliases": [
+        "ru"
+      ],
+      "group": "sysview connection options"
+    },
+    {
+      "description": "SSID of the SYSVIEW instance. Default value: GSVX",
+      "type": "string",
+      "name": "ssid",
+      "defaultValue": "GSVX",
+      "group": "sysview connection options",
+      "aliases": []
+    },
+    {
+      "description": "The base path for your API mediation layer instance. Do not specify this option if you are not using an API mediation layer.",
+      "type": "string",
+      "name": "base-path",
+      "aliases": [
+        "bp"
+      ],
+      "defaultValue": "/api/v1",
+      "group": "sysview connection options"
+    },
+    {
+      "name": "overwrite",
+      "aliases": [
+        "ow"
+      ],
+      "description": "Overwrite the sysview profile when a profile of the same name exists.",
+      "type": "boolean",
+      "group": "Options"
+    },
+    {
+      "name": "disable-defaults",
+      "aliases": [
+        "dd"
+      ],
+      "description": "Disable populating profile values of undefined properties with default values.",
+      "type": "boolean",
+      "group": "Options"
+    },
+    {
+      "name": "response-format-json",
+      "aliases": [
+        "rfj"
+      ],
+      "group": "Global options",
+      "description": "Produce JSON formatted data from a command",
+      "type": "boolean"
+    },
+    {
+      "name": "help",
+      "aliases": [
+        "h"
+      ],
+      "group": "Global options",
+      "description": "Display help text",
+      "type": "boolean"
+    },
+    {
+      "name": "help-examples",
+      "group": "Global options",
+      "description": "Display examples for all the commands in a group",
+      "type": "boolean",
+      "aliases": []
+    },
+    {
+      "name": "help-web",
+      "aliases": [
+        "hw"
+      ],
+      "group": "Global options",
+      "description": "Display HTML help in browser",
+      "type": "boolean"
+    }
+  ],
+  "examples": [
+    {
+      "description": "Create a SYSVIEW profile called 'myLPAR' to connect to the SYSVIEW REST API at host lpar123, port 8080, and ssid ABCD",
+      "options": "myLPAR --host lpar123 --port 8080 --user ibmuser --password !@#$^ --ssid ABCD"
+    },
+    {
+      "description": "You already have a base profile with username and password. Create a SYSVIEW profile to specify host lpar123 and port 8080, using the default ssid of GSVX",
+      "options": "myLPAR2 --host lpar123 --port 8080"
+    },
+    {
+      "description": "You already have a base profile to connect to an API Mediation Layer and use SSO tokens. Create a SYSVIEW profile to point to the SYSVIEW REST API by specifying the base path /my-sysview-instance/api/v1",
+      "options": "myLPAR3 --base-path /api/v1/my-sysview-instance"
+    }
+  ],
+  "passOn": [],
+  "children": []
+}
