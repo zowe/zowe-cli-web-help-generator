@@ -1,0 +1,3783 @@
+// Copyright (c) 2021 Broadcom.  All Rights Reserved.  The term
+// "Broadcom" refers to Broadcom Inc. and/or its subsidiaries.
+{
+  "name": "caview",
+  "description": "Access CA View data and perform related tasks.",
+  "type": "group",
+  "children": [
+    {
+      "name": "download",
+      "aliases": [
+        "dl"
+      ],
+      "summary": "Download CA View report data to local folder.",
+      "description": "Download CA View report data to local folder.",
+      "type": "group",
+      "children": [
+        {
+          "name": "report",
+          "aliases": [
+            "r"
+          ],
+          "summary": "Download report data.",
+          "description": "Download report data.\nOptionally convert text report to PDF.",
+          "type": "command",
+          "handler": "",
+          "positionals": [
+            {
+              "name": "repositoryId",
+              "type": "number",
+              "description": "Repository identifier.",
+              "required": true
+            },
+            {
+              "name": "reportHandle",
+              "type": "string",
+              "description": "Report handle.",
+              "required": true
+            },
+            {
+              "name": "fileTarget",
+              "type": "string",
+              "description": "Local file path.\nIf the path represents a directory location, the report will be downloaded into that directory using a default file name.\nIf the path does not represent a directory location, the report will be downloaded into the specified path.\nIf the path is not specified, the file will be saved to the current working directory using the default file name.\nAny missing directories will be created. If the target file already exists, the file will be overwritten.",
+              "required": false
+            }
+          ],
+          "options": [
+            {
+              "name": "convert-to-pdf",
+              "aliases": [
+                "to-pdf"
+              ],
+              "type": "boolean",
+              "description": "Converts text report to PDF.",
+              "defaultValue": false,
+              "group": "Options"
+            },
+            {
+              "name": "page-orientation",
+              "aliases": [
+                "orientation"
+              ],
+              "type": "string",
+              "description": "Page orientation for converted PDF.",
+              "allowableValues": {
+                "values": [
+                  "^PORTRAIT$",
+                  "^LANDSCAPE$"
+                ],
+                "caseSensitive": false
+              },
+              "defaultValue": "PORTRAIT",
+              "impliesOneOf": [
+                "convert-to-pdf"
+              ],
+              "group": "Options"
+            },
+            {
+              "name": "font-size",
+              "aliases": [
+                "font"
+              ],
+              "type": "number",
+              "description": "Font size for converted PDF.",
+              "numericValueRange": [
+                1,
+                1.7976931348623157e+308
+              ],
+              "defaultValue": 12,
+              "impliesOneOf": [
+                "convert-to-pdf"
+              ],
+              "group": "Options"
+            },
+            {
+              "name": "green-bar",
+              "type": "boolean",
+              "description": "Include green-bar background in converted PDF.",
+              "defaultValue": false,
+              "impliesOneOf": [
+                "convert-to-pdf"
+              ],
+              "group": "Options",
+              "aliases": []
+            },
+            {
+              "name": "pages",
+              "type": "string",
+              "description": "Include the specified page numbers (or page ranges). Separate page numbers (or page ranges) with commas.\nSeparate boundaries of a page range with a dash (-). If you do not specify this option, all the pages of the report are downloaded.",
+              "allowableValues": {
+                "values": [
+                  "^(\\d+(-\\d+)?)(,(\\d+(-\\d+)?))*$"
+                ],
+                "caseSensitive": false
+              },
+              "required": false,
+              "group": "Options",
+              "aliases": []
+            },
+            {
+              "name": "content-filter",
+              "aliases": [
+                "filter"
+              ],
+              "type": "string",
+              "description": "Filter text report content using a permanent filter definition.\nIf the product instance does not support this feature, this option is ignored.",
+              "stringLengthRange": [
+                1,
+                8
+              ],
+              "group": "Options"
+            },
+            {
+              "name": "response-format-json",
+              "aliases": [
+                "rfj"
+              ],
+              "group": "Global options",
+              "description": "Produce JSON formatted data from a command",
+              "type": "boolean"
+            },
+            {
+              "name": "help",
+              "aliases": [
+                "h"
+              ],
+              "group": "Global options",
+              "description": "Display help text",
+              "type": "boolean"
+            },
+            {
+              "name": "help-examples",
+              "group": "Global options",
+              "description": "Display examples for all the commands in a group",
+              "type": "boolean",
+              "aliases": []
+            },
+            {
+              "name": "help-web",
+              "aliases": [
+                "hw"
+              ],
+              "group": "Global options",
+              "description": "Display HTML help in browser",
+              "type": "boolean"
+            },
+            {
+              "name": "caview-profile",
+              "aliases": [
+                "caview-p"
+              ],
+              "group": "Profile Options",
+              "description": "The name of a (caview) profile to load for this command execution.",
+              "type": "string"
+            },
+            {
+              "name": "base-profile",
+              "aliases": [
+                "base-p"
+              ],
+              "group": "Profile Options",
+              "description": "The name of a (base) profile to load for this command execution.",
+              "type": "string"
+            },
+            {
+              "name": "host",
+              "aliases": [
+                "H"
+              ],
+              "description": "Host name of service on the mainframe.",
+              "type": "string",
+              "group": "Base Connection Options"
+            },
+            {
+              "name": "port",
+              "aliases": [
+                "P"
+              ],
+              "description": "Port number of service on the mainframe.",
+              "type": "number",
+              "group": "Base Connection Options"
+            },
+            {
+              "name": "user",
+              "aliases": [
+                "u"
+              ],
+              "description": "User name to authenticate to service on the mainframe.",
+              "type": "string",
+              "group": "Base Connection Options"
+            },
+            {
+              "name": "password",
+              "aliases": [
+                "pass",
+                "pw"
+              ],
+              "description": "Password to authenticate to service on the mainframe.",
+              "type": "string",
+              "group": "Base Connection Options"
+            },
+            {
+              "name": "reject-unauthorized",
+              "aliases": [
+                "ru"
+              ],
+              "description": "Reject self-signed certificates.",
+              "type": "boolean",
+              "defaultValue": true,
+              "group": "Base Connection Options"
+            },
+            {
+              "name": "token-type",
+              "aliases": [
+                "tt"
+              ],
+              "description": "The type of token to get and use for the API. Omit this option to use the default token type, which is provided by 'zowe auth login'.",
+              "type": "string",
+              "group": "Base Connection Options"
+            },
+            {
+              "name": "token-value",
+              "aliases": [
+                "tv"
+              ],
+              "description": "The value of the token to pass to the API.",
+              "type": "string",
+              "group": "Base Connection Options"
+            },
+            {
+              "name": "cert-file",
+              "description": "The file path to a certificate file to use for authentication",
+              "type": "existingLocalFile",
+              "group": "Base Connection Options",
+              "aliases": []
+            },
+            {
+              "name": "cert-key-file",
+              "description": "The file path to a certificate key file to use for authentication",
+              "type": "existingLocalFile",
+              "group": "Base Connection Options",
+              "aliases": []
+            }
+          ],
+          "profile": {
+            "required": [
+              "caview"
+            ],
+            "optional": [
+              "base"
+            ]
+          },
+          "passOn": [],
+          "children": []
+        }
+      ],
+      "options": [
+        {
+          "name": "response-format-json",
+          "aliases": [
+            "rfj"
+          ],
+          "group": "Global options",
+          "description": "Produce JSON formatted data from a command",
+          "type": "boolean"
+        },
+        {
+          "name": "help",
+          "aliases": [
+            "h"
+          ],
+          "group": "Global options",
+          "description": "Display help text",
+          "type": "boolean"
+        },
+        {
+          "name": "help-examples",
+          "group": "Global options",
+          "description": "Display examples for all the commands in a group",
+          "type": "boolean",
+          "aliases": []
+        },
+        {
+          "name": "help-web",
+          "aliases": [
+            "hw"
+          ],
+          "group": "Global options",
+          "description": "Display HTML help in browser",
+          "type": "boolean"
+        }
+      ],
+      "positionals": [],
+      "passOn": []
+    },
+    {
+      "name": "export",
+      "aliases": [
+        "exp"
+      ],
+      "summary": "Export CA View text report file to local folder.",
+      "description": "Export CA View text report file to local folder.",
+      "type": "group",
+      "children": [
+        {
+          "name": "report",
+          "aliases": [
+            "r"
+          ],
+          "summary": "Export text report to spreadsheet.",
+          "description": "Export text report to spreadsheet using a predefined export rule.",
+          "type": "command",
+          "handler": "",
+          "positionals": [
+            {
+              "name": "repositoryId",
+              "type": "number",
+              "description": "Repository identifier.",
+              "required": true
+            },
+            {
+              "name": "reportHandle",
+              "type": "string",
+              "description": "Report handle.",
+              "required": true
+            },
+            {
+              "name": "ruleId",
+              "type": "number",
+              "description": "Export rule identifier.",
+              "required": true
+            },
+            {
+              "name": "fileTarget",
+              "type": "string",
+              "description": "Local file path.\nIf the path represents a directory location, the report will be exported into that directory using a default file name.\nIf the path does not represent a directory location, the report will be exported into the specified path.\nIf the path is not specified, the file will be saved to the current working directory using the default file name.\nAny missing directories will be created. If the target file already exists, the file will be overwritten.",
+              "required": false
+            }
+          ],
+          "options": [
+            {
+              "name": "pages",
+              "type": "string",
+              "description": "Include the specified page numbers (or page ranges). Separate page numbers (or page ranges) with commas.\nSeparate boundaries of a page range with a dash (-). If you do not specify this option, all the pages of the report are exported.",
+              "allowableValues": {
+                "values": [
+                  "^(\\d+(-\\d+)?)(,(\\d+(-\\d+)?))*$"
+                ],
+                "caseSensitive": false
+              },
+              "required": false,
+              "group": "Options",
+              "aliases": []
+            },
+            {
+              "name": "response-format-json",
+              "aliases": [
+                "rfj"
+              ],
+              "group": "Global options",
+              "description": "Produce JSON formatted data from a command",
+              "type": "boolean"
+            },
+            {
+              "name": "help",
+              "aliases": [
+                "h"
+              ],
+              "group": "Global options",
+              "description": "Display help text",
+              "type": "boolean"
+            },
+            {
+              "name": "help-examples",
+              "group": "Global options",
+              "description": "Display examples for all the commands in a group",
+              "type": "boolean",
+              "aliases": []
+            },
+            {
+              "name": "help-web",
+              "aliases": [
+                "hw"
+              ],
+              "group": "Global options",
+              "description": "Display HTML help in browser",
+              "type": "boolean"
+            },
+            {
+              "name": "caview-profile",
+              "aliases": [
+                "caview-p"
+              ],
+              "group": "Profile Options",
+              "description": "The name of a (caview) profile to load for this command execution.",
+              "type": "string"
+            },
+            {
+              "name": "base-profile",
+              "aliases": [
+                "base-p"
+              ],
+              "group": "Profile Options",
+              "description": "The name of a (base) profile to load for this command execution.",
+              "type": "string"
+            },
+            {
+              "name": "host",
+              "aliases": [
+                "H"
+              ],
+              "description": "Host name of service on the mainframe.",
+              "type": "string",
+              "group": "Base Connection Options"
+            },
+            {
+              "name": "port",
+              "aliases": [
+                "P"
+              ],
+              "description": "Port number of service on the mainframe.",
+              "type": "number",
+              "group": "Base Connection Options"
+            },
+            {
+              "name": "user",
+              "aliases": [
+                "u"
+              ],
+              "description": "User name to authenticate to service on the mainframe.",
+              "type": "string",
+              "group": "Base Connection Options"
+            },
+            {
+              "name": "password",
+              "aliases": [
+                "pass",
+                "pw"
+              ],
+              "description": "Password to authenticate to service on the mainframe.",
+              "type": "string",
+              "group": "Base Connection Options"
+            },
+            {
+              "name": "reject-unauthorized",
+              "aliases": [
+                "ru"
+              ],
+              "description": "Reject self-signed certificates.",
+              "type": "boolean",
+              "defaultValue": true,
+              "group": "Base Connection Options"
+            },
+            {
+              "name": "token-type",
+              "aliases": [
+                "tt"
+              ],
+              "description": "The type of token to get and use for the API. Omit this option to use the default token type, which is provided by 'zowe auth login'.",
+              "type": "string",
+              "group": "Base Connection Options"
+            },
+            {
+              "name": "token-value",
+              "aliases": [
+                "tv"
+              ],
+              "description": "The value of the token to pass to the API.",
+              "type": "string",
+              "group": "Base Connection Options"
+            },
+            {
+              "name": "cert-file",
+              "description": "The file path to a certificate file to use for authentication",
+              "type": "existingLocalFile",
+              "group": "Base Connection Options",
+              "aliases": []
+            },
+            {
+              "name": "cert-key-file",
+              "description": "The file path to a certificate key file to use for authentication",
+              "type": "existingLocalFile",
+              "group": "Base Connection Options",
+              "aliases": []
+            }
+          ],
+          "profile": {
+            "required": [
+              "caview"
+            ],
+            "optional": [
+              "base"
+            ]
+          },
+          "passOn": [],
+          "children": []
+        }
+      ],
+      "options": [
+        {
+          "name": "response-format-json",
+          "aliases": [
+            "rfj"
+          ],
+          "group": "Global options",
+          "description": "Produce JSON formatted data from a command",
+          "type": "boolean"
+        },
+        {
+          "name": "help",
+          "aliases": [
+            "h"
+          ],
+          "group": "Global options",
+          "description": "Display help text",
+          "type": "boolean"
+        },
+        {
+          "name": "help-examples",
+          "group": "Global options",
+          "description": "Display examples for all the commands in a group",
+          "type": "boolean",
+          "aliases": []
+        },
+        {
+          "name": "help-web",
+          "aliases": [
+            "hw"
+          ],
+          "group": "Global options",
+          "description": "Display HTML help in browser",
+          "type": "boolean"
+        }
+      ],
+      "positionals": [],
+      "passOn": []
+    },
+    {
+      "name": "get",
+      "summary": "Get information from CA View repository.",
+      "description": "Get information from CA View repository.",
+      "type": "group",
+      "children": [
+        {
+          "name": "user",
+          "summary": "Get user information from repository.",
+          "description": "Get user information from repository.",
+          "type": "group",
+          "children": [
+            {
+              "name": "settings",
+              "summary": "Get current user settings from repository.",
+              "description": "Get current user settings from repository.",
+              "type": "command",
+              "handler": "",
+              "positionals": [
+                {
+                  "name": "repositoryId",
+                  "type": "number",
+                  "description": "Repository identifier.",
+                  "required": true
+                }
+              ],
+              "options": [
+                {
+                  "name": "output-format",
+                  "aliases": [
+                    "output"
+                  ],
+                  "type": "string",
+                  "description": "Output format. This option is ignored if '--response-format-json' is specified.",
+                  "allowableValues": {
+                    "values": [
+                      "^tabular$",
+                      "^csv$",
+                      "^json$",
+                      "^xml$"
+                    ],
+                    "caseSensitive": false
+                  },
+                  "defaultValue": "tabular",
+                  "group": "Options"
+                },
+                {
+                  "name": "output-header",
+                  "aliases": [
+                    "header"
+                  ],
+                  "type": "boolean",
+                  "description": "Include header with field names in the output when you specify 'tabular' or 'csv' for the output format.\nThis option is ignored when you specify any other output format.",
+                  "defaultValue": true,
+                  "group": "Options"
+                },
+                {
+                  "name": "output-field",
+                  "aliases": [
+                    "f"
+                  ],
+                  "type": "array",
+                  "description": "Field to include in the output. Multiple fields can be specified.\nFields appear in the order you specify.\n\nAllowed values: Mode,DistId,ModeAccess,DistMask,Banner,Language,MasterAuthority,Printer,UserId",
+                  "defaultValue": [
+                    "Mode",
+                    "DistId",
+                    "ModeAccess",
+                    "DistMask"
+                  ],
+                  "group": "Options"
+                },
+                {
+                  "name": "response-format-json",
+                  "aliases": [
+                    "rfj"
+                  ],
+                  "group": "Global options",
+                  "description": "Produce JSON formatted data from a command",
+                  "type": "boolean"
+                },
+                {
+                  "name": "help",
+                  "aliases": [
+                    "h"
+                  ],
+                  "group": "Global options",
+                  "description": "Display help text",
+                  "type": "boolean"
+                },
+                {
+                  "name": "help-examples",
+                  "group": "Global options",
+                  "description": "Display examples for all the commands in a group",
+                  "type": "boolean",
+                  "aliases": []
+                },
+                {
+                  "name": "help-web",
+                  "aliases": [
+                    "hw"
+                  ],
+                  "group": "Global options",
+                  "description": "Display HTML help in browser",
+                  "type": "boolean"
+                },
+                {
+                  "name": "caview-profile",
+                  "aliases": [
+                    "caview-p"
+                  ],
+                  "group": "Profile Options",
+                  "description": "The name of a (caview) profile to load for this command execution.",
+                  "type": "string"
+                },
+                {
+                  "name": "base-profile",
+                  "aliases": [
+                    "base-p"
+                  ],
+                  "group": "Profile Options",
+                  "description": "The name of a (base) profile to load for this command execution.",
+                  "type": "string"
+                },
+                {
+                  "name": "host",
+                  "aliases": [
+                    "H"
+                  ],
+                  "description": "Host name of service on the mainframe.",
+                  "type": "string",
+                  "group": "Base Connection Options"
+                },
+                {
+                  "name": "port",
+                  "aliases": [
+                    "P"
+                  ],
+                  "description": "Port number of service on the mainframe.",
+                  "type": "number",
+                  "group": "Base Connection Options"
+                },
+                {
+                  "name": "user",
+                  "aliases": [
+                    "u"
+                  ],
+                  "description": "User name to authenticate to service on the mainframe.",
+                  "type": "string",
+                  "group": "Base Connection Options"
+                },
+                {
+                  "name": "password",
+                  "aliases": [
+                    "pass",
+                    "pw"
+                  ],
+                  "description": "Password to authenticate to service on the mainframe.",
+                  "type": "string",
+                  "group": "Base Connection Options"
+                },
+                {
+                  "name": "reject-unauthorized",
+                  "aliases": [
+                    "ru"
+                  ],
+                  "description": "Reject self-signed certificates.",
+                  "type": "boolean",
+                  "defaultValue": true,
+                  "group": "Base Connection Options"
+                },
+                {
+                  "name": "token-type",
+                  "aliases": [
+                    "tt"
+                  ],
+                  "description": "The type of token to get and use for the API. Omit this option to use the default token type, which is provided by 'zowe auth login'.",
+                  "type": "string",
+                  "group": "Base Connection Options"
+                },
+                {
+                  "name": "token-value",
+                  "aliases": [
+                    "tv"
+                  ],
+                  "description": "The value of the token to pass to the API.",
+                  "type": "string",
+                  "group": "Base Connection Options"
+                },
+                {
+                  "name": "cert-file",
+                  "description": "The file path to a certificate file to use for authentication",
+                  "type": "existingLocalFile",
+                  "group": "Base Connection Options",
+                  "aliases": []
+                },
+                {
+                  "name": "cert-key-file",
+                  "description": "The file path to a certificate key file to use for authentication",
+                  "type": "existingLocalFile",
+                  "group": "Base Connection Options",
+                  "aliases": []
+                }
+              ],
+              "profile": {
+                "required": [
+                  "caview"
+                ],
+                "optional": [
+                  "base"
+                ]
+              },
+              "aliases": [],
+              "passOn": [],
+              "children": []
+            }
+          ],
+          "options": [
+            {
+              "name": "response-format-json",
+              "aliases": [
+                "rfj"
+              ],
+              "group": "Global options",
+              "description": "Produce JSON formatted data from a command",
+              "type": "boolean"
+            },
+            {
+              "name": "help",
+              "aliases": [
+                "h"
+              ],
+              "group": "Global options",
+              "description": "Display help text",
+              "type": "boolean"
+            },
+            {
+              "name": "help-examples",
+              "group": "Global options",
+              "description": "Display examples for all the commands in a group",
+              "type": "boolean",
+              "aliases": []
+            },
+            {
+              "name": "help-web",
+              "aliases": [
+                "hw"
+              ],
+              "group": "Global options",
+              "description": "Display HTML help in browser",
+              "type": "boolean"
+            }
+          ],
+          "aliases": [],
+          "positionals": [],
+          "passOn": []
+        }
+      ],
+      "options": [
+        {
+          "name": "response-format-json",
+          "aliases": [
+            "rfj"
+          ],
+          "group": "Global options",
+          "description": "Produce JSON formatted data from a command",
+          "type": "boolean"
+        },
+        {
+          "name": "help",
+          "aliases": [
+            "h"
+          ],
+          "group": "Global options",
+          "description": "Display help text",
+          "type": "boolean"
+        },
+        {
+          "name": "help-examples",
+          "group": "Global options",
+          "description": "Display examples for all the commands in a group",
+          "type": "boolean",
+          "aliases": []
+        },
+        {
+          "name": "help-web",
+          "aliases": [
+            "hw"
+          ],
+          "group": "Global options",
+          "description": "Display HTML help in browser",
+          "type": "boolean"
+        }
+      ],
+      "aliases": [],
+      "positionals": [],
+      "passOn": []
+    },
+    {
+      "name": "list",
+      "aliases": [
+        "ls"
+      ],
+      "summary": "List CA View repository, report, and user information.",
+      "description": "List CA View repository, report, and user information.",
+      "type": "group",
+      "children": [
+        {
+          "name": "repositories",
+          "aliases": [
+            "repos"
+          ],
+          "summary": "List repositories.",
+          "description": "List repositories.\nUse the returned 'Identifier' to reference a repository in other commands.\nFor example, use the 'Identifier' in the list reports' command to list reports in that repository.",
+          "type": "command",
+          "handler": "",
+          "options": [
+            {
+              "name": "filter-name",
+              "aliases": [
+                "n"
+              ],
+              "type": "string",
+              "description": "Filter (include) based on repository name. Use the percent sign (%) as a wildcard to represent a single character. Use the asterisk (*) as a wildcard to represent any number of characters.",
+              "defaultValue": null,
+              "group": "Options"
+            },
+            {
+              "name": "filter-path",
+              "aliases": [
+                "p"
+              ],
+              "type": "string",
+              "description": "Filter (include) based on repository path. Use the percent sign (%) as a wildcard to represent a single character. Use the asterisk (*) as a wildcard to represent any number of characters.",
+              "defaultValue": "*",
+              "group": "Options"
+            },
+            {
+              "name": "output-format",
+              "aliases": [
+                "output"
+              ],
+              "type": "string",
+              "description": "Output format. This option is ignored if '--response-format-json' is specified.",
+              "allowableValues": {
+                "values": [
+                  "^tabular$",
+                  "^csv$",
+                  "^json$",
+                  "^xml$"
+                ],
+                "caseSensitive": false
+              },
+              "defaultValue": "tabular",
+              "group": "Options"
+            },
+            {
+              "name": "output-header",
+              "aliases": [
+                "header"
+              ],
+              "type": "boolean",
+              "description": "Include header with field names in the output when you specify 'tabular' or 'csv' for the output format.\nThis option is ignored when you specify any other output format.",
+              "defaultValue": true,
+              "group": "Options"
+            },
+            {
+              "name": "output-field",
+              "aliases": [
+                "f"
+              ],
+              "type": "array",
+              "description": "Field to include in the output. Multiple fields can be specified.\nFields appear in the order you specify.\n\nAllowed values: Identifier,Name,Description,Path,CharacterSet,ReportAccess,CreatedBy,DateCreated,ModifiedBy,ModifiedDate",
+              "defaultValue": [
+                "Identifier",
+                "Name",
+                "Description",
+                "Path",
+                "CharacterSet"
+              ],
+              "group": "Options"
+            },
+            {
+              "name": "response-format-json",
+              "aliases": [
+                "rfj"
+              ],
+              "group": "Global options",
+              "description": "Produce JSON formatted data from a command",
+              "type": "boolean"
+            },
+            {
+              "name": "help",
+              "aliases": [
+                "h"
+              ],
+              "group": "Global options",
+              "description": "Display help text",
+              "type": "boolean"
+            },
+            {
+              "name": "help-examples",
+              "group": "Global options",
+              "description": "Display examples for all the commands in a group",
+              "type": "boolean",
+              "aliases": []
+            },
+            {
+              "name": "help-web",
+              "aliases": [
+                "hw"
+              ],
+              "group": "Global options",
+              "description": "Display HTML help in browser",
+              "type": "boolean"
+            },
+            {
+              "name": "caview-profile",
+              "aliases": [
+                "caview-p"
+              ],
+              "group": "Profile Options",
+              "description": "The name of a (caview) profile to load for this command execution.",
+              "type": "string"
+            },
+            {
+              "name": "base-profile",
+              "aliases": [
+                "base-p"
+              ],
+              "group": "Profile Options",
+              "description": "The name of a (base) profile to load for this command execution.",
+              "type": "string"
+            },
+            {
+              "name": "host",
+              "aliases": [
+                "H"
+              ],
+              "description": "Host name of service on the mainframe.",
+              "type": "string",
+              "group": "Base Connection Options"
+            },
+            {
+              "name": "port",
+              "aliases": [
+                "P"
+              ],
+              "description": "Port number of service on the mainframe.",
+              "type": "number",
+              "group": "Base Connection Options"
+            },
+            {
+              "name": "user",
+              "aliases": [
+                "u"
+              ],
+              "description": "User name to authenticate to service on the mainframe.",
+              "type": "string",
+              "group": "Base Connection Options"
+            },
+            {
+              "name": "password",
+              "aliases": [
+                "pass",
+                "pw"
+              ],
+              "description": "Password to authenticate to service on the mainframe.",
+              "type": "string",
+              "group": "Base Connection Options"
+            },
+            {
+              "name": "reject-unauthorized",
+              "aliases": [
+                "ru"
+              ],
+              "description": "Reject self-signed certificates.",
+              "type": "boolean",
+              "defaultValue": true,
+              "group": "Base Connection Options"
+            },
+            {
+              "name": "token-type",
+              "aliases": [
+                "tt"
+              ],
+              "description": "The type of token to get and use for the API. Omit this option to use the default token type, which is provided by 'zowe auth login'.",
+              "type": "string",
+              "group": "Base Connection Options"
+            },
+            {
+              "name": "token-value",
+              "aliases": [
+                "tv"
+              ],
+              "description": "The value of the token to pass to the API.",
+              "type": "string",
+              "group": "Base Connection Options"
+            },
+            {
+              "name": "cert-file",
+              "description": "The file path to a certificate file to use for authentication",
+              "type": "existingLocalFile",
+              "group": "Base Connection Options",
+              "aliases": []
+            },
+            {
+              "name": "cert-key-file",
+              "description": "The file path to a certificate key file to use for authentication",
+              "type": "existingLocalFile",
+              "group": "Base Connection Options",
+              "aliases": []
+            }
+          ],
+          "profile": {
+            "required": [
+              "caview"
+            ],
+            "optional": [
+              "base"
+            ]
+          },
+          "positionals": [],
+          "passOn": [],
+          "children": []
+        },
+        {
+          "name": "reports",
+          "summary": "List reports in a repository.",
+          "description": "List reports in a repository.\nUse the returned 'ReportHandle' to reference a report in other commands.\nFor example, use the 'ReportHandle' in the 'download report' command to download that report.",
+          "type": "command",
+          "handler": "",
+          "positionals": [
+            {
+              "name": "repositoryId",
+              "type": "number",
+              "description": "Repository identifier.",
+              "required": true
+            }
+          ],
+          "options": [
+            {
+              "name": "filter-name",
+              "aliases": [
+                "n"
+              ],
+              "type": "string",
+              "description": "Filter (include) based on report name. Use the asterisk (*) as a wildcard to represent any number of characters.",
+              "defaultValue": "*",
+              "group": "Options"
+            },
+            {
+              "name": "limit",
+              "aliases": [
+                "l"
+              ],
+              "type": "number",
+              "description": "Limit (maximum number) of retrieved records.",
+              "defaultValue": 1000,
+              "group": "Options"
+            },
+            {
+              "name": "latest-versions",
+              "aliases": [
+                "latest-version",
+                "lv"
+              ],
+              "type": "number",
+              "numericValueRange": [
+                0,
+                32767
+              ],
+              "description": "Number of latest versions (of reports) to include. If not specified, all versions of reports are included.",
+              "defaultValue": 0,
+              "group": "Options"
+            },
+            {
+              "name": "archival-since",
+              "aliases": [
+                "since",
+                "archival-from",
+                "from"
+              ],
+              "type": "string",
+              "description": "Date of earliest archived reports to include based on archival date. Specify a value in the ISO-8601 format.",
+              "defaultValue": null,
+              "group": "Options"
+            },
+            {
+              "name": "archival-until",
+              "aliases": [
+                "until",
+                "archival-to",
+                "to"
+              ],
+              "type": "string",
+              "description": "Date of latest archived reports to include based on archival date. Specify a value in the ISO-8601 format.",
+              "defaultValue": null,
+              "group": "Options"
+            },
+            {
+              "name": "output-header",
+              "aliases": [
+                "header"
+              ],
+              "type": "boolean",
+              "description": "Include header with field names in the output when you specify 'tabular' or 'csv' for the output format.\nThis option is ignored when you specify any other output format.",
+              "defaultValue": true,
+              "group": "Options"
+            },
+            {
+              "name": "output-format",
+              "aliases": [
+                "output"
+              ],
+              "type": "string",
+              "description": "Output format. This option is ignored if '--response-format-json' is specified.",
+              "allowableValues": {
+                "values": [
+                  "^tabular$",
+                  "^csv$",
+                  "^json$",
+                  "^xml$"
+                ],
+                "caseSensitive": false
+              },
+              "defaultValue": "tabular",
+              "group": "Options"
+            },
+            {
+              "name": "output-field",
+              "aliases": [
+                "f"
+              ],
+              "type": "array",
+              "description": "Field to include in the output. Multiple fields can be specified.\nFields appear in the order you specify.\n\nAllowed values: ReportName,Lines,Pages,Type,ArchivalDate,Description,UserComments,ReportHandle,TotalPages,OriginalType,Destination,JobName,Origin,Generation,SequenceNumber,SysoutClass,Status,JobID,Forms,XCode,UserID,ReadDate,PrintDate,OnDisk,OnTape,OnOptical,IndexOnDisk,Location,TapeSequence,TapePosition,TapeCount,ExtendedRetentionOptionID,RemainingDays,RemainingGenerations,RemainingCopy,RemainingDiskDays,RemainingDiskGeneration,RemainingDiskCopy,RemainingDisk2days",
+              "defaultValue": [
+                "ReportName",
+                "Lines",
+                "Pages",
+                "Type",
+                "ArchivalDate",
+                "Description",
+                "UserComments",
+                "ReportHandle"
+              ],
+              "group": "Options"
+            },
+            {
+              "name": "response-format-json",
+              "aliases": [
+                "rfj"
+              ],
+              "group": "Global options",
+              "description": "Produce JSON formatted data from a command",
+              "type": "boolean"
+            },
+            {
+              "name": "help",
+              "aliases": [
+                "h"
+              ],
+              "group": "Global options",
+              "description": "Display help text",
+              "type": "boolean"
+            },
+            {
+              "name": "help-examples",
+              "group": "Global options",
+              "description": "Display examples for all the commands in a group",
+              "type": "boolean",
+              "aliases": []
+            },
+            {
+              "name": "help-web",
+              "aliases": [
+                "hw"
+              ],
+              "group": "Global options",
+              "description": "Display HTML help in browser",
+              "type": "boolean"
+            },
+            {
+              "name": "caview-profile",
+              "aliases": [
+                "caview-p"
+              ],
+              "group": "Profile Options",
+              "description": "The name of a (caview) profile to load for this command execution.",
+              "type": "string"
+            },
+            {
+              "name": "base-profile",
+              "aliases": [
+                "base-p"
+              ],
+              "group": "Profile Options",
+              "description": "The name of a (base) profile to load for this command execution.",
+              "type": "string"
+            },
+            {
+              "name": "host",
+              "aliases": [
+                "H"
+              ],
+              "description": "Host name of service on the mainframe.",
+              "type": "string",
+              "group": "Base Connection Options"
+            },
+            {
+              "name": "port",
+              "aliases": [
+                "P"
+              ],
+              "description": "Port number of service on the mainframe.",
+              "type": "number",
+              "group": "Base Connection Options"
+            },
+            {
+              "name": "user",
+              "aliases": [
+                "u"
+              ],
+              "description": "User name to authenticate to service on the mainframe.",
+              "type": "string",
+              "group": "Base Connection Options"
+            },
+            {
+              "name": "password",
+              "aliases": [
+                "pass",
+                "pw"
+              ],
+              "description": "Password to authenticate to service on the mainframe.",
+              "type": "string",
+              "group": "Base Connection Options"
+            },
+            {
+              "name": "reject-unauthorized",
+              "aliases": [
+                "ru"
+              ],
+              "description": "Reject self-signed certificates.",
+              "type": "boolean",
+              "defaultValue": true,
+              "group": "Base Connection Options"
+            },
+            {
+              "name": "token-type",
+              "aliases": [
+                "tt"
+              ],
+              "description": "The type of token to get and use for the API. Omit this option to use the default token type, which is provided by 'zowe auth login'.",
+              "type": "string",
+              "group": "Base Connection Options"
+            },
+            {
+              "name": "token-value",
+              "aliases": [
+                "tv"
+              ],
+              "description": "The value of the token to pass to the API.",
+              "type": "string",
+              "group": "Base Connection Options"
+            },
+            {
+              "name": "cert-file",
+              "description": "The file path to a certificate file to use for authentication",
+              "type": "existingLocalFile",
+              "group": "Base Connection Options",
+              "aliases": []
+            },
+            {
+              "name": "cert-key-file",
+              "description": "The file path to a certificate key file to use for authentication",
+              "type": "existingLocalFile",
+              "group": "Base Connection Options",
+              "aliases": []
+            }
+          ],
+          "profile": {
+            "required": [
+              "caview"
+            ],
+            "optional": [
+              "base"
+            ]
+          },
+          "aliases": [],
+          "passOn": [],
+          "children": []
+        },
+        {
+          "name": "report",
+          "aliases": [
+            "repo"
+          ],
+          "summary": "List information about a specific report.",
+          "description": "List information about a specific report.",
+          "type": "group",
+          "children": [
+            {
+              "name": "logical-views",
+              "aliases": [
+                "views"
+              ],
+              "summary": "List logical views available for a specific report.",
+              "description": "List logical views available for a specific report.\nUse the returned 'ReportHandle' to reference a logical view in other commands.\nFor example, use 'ReportHandle' in the 'download report' command to download the logical view of that report.\nUse the returned 'IndexNameHandle' in the 'list report index-values' command to retrieve the list of associated index values (if defined) for that index.",
+              "type": "command",
+              "handler": "",
+              "positionals": [
+                {
+                  "name": "repositoryId",
+                  "type": "number",
+                  "description": "Repository identifier.",
+                  "required": true
+                },
+                {
+                  "name": "reportHandle",
+                  "type": "string",
+                  "description": "Report handle.",
+                  "required": true
+                }
+              ],
+              "options": [
+                {
+                  "name": "output-format",
+                  "aliases": [
+                    "output"
+                  ],
+                  "type": "string",
+                  "description": "Output format. This option is ignored if '--response-format-json' is specified.",
+                  "allowableValues": {
+                    "values": [
+                      "^tabular$",
+                      "^csv$",
+                      "^json$",
+                      "^xml$"
+                    ],
+                    "caseSensitive": false
+                  },
+                  "defaultValue": "tabular",
+                  "group": "Options"
+                },
+                {
+                  "name": "output-header",
+                  "aliases": [
+                    "header"
+                  ],
+                  "type": "boolean",
+                  "description": "Include header with field names in the output when you specify 'tabular' or 'csv' for the output format.\nThis option is ignored when you specify any other output format.",
+                  "defaultValue": true,
+                  "group": "Options"
+                },
+                {
+                  "name": "output-field",
+                  "aliases": [
+                    "f"
+                  ],
+                  "type": "array",
+                  "description": "Field to include in the output. Multiple fields can be specified.\nFields appear in the order you specify.\n\nAllowed values: Description,Index,SubIndexNames,ReportHandle,IndexNameHandle,Number,ViewId,Default",
+                  "defaultValue": [
+                    "Description",
+                    "Index",
+                    "SubIndexNames",
+                    "ReportHandle",
+                    "IndexNameHandle"
+                  ],
+                  "group": "Options"
+                },
+                {
+                  "name": "response-format-json",
+                  "aliases": [
+                    "rfj"
+                  ],
+                  "group": "Global options",
+                  "description": "Produce JSON formatted data from a command",
+                  "type": "boolean"
+                },
+                {
+                  "name": "help",
+                  "aliases": [
+                    "h"
+                  ],
+                  "group": "Global options",
+                  "description": "Display help text",
+                  "type": "boolean"
+                },
+                {
+                  "name": "help-examples",
+                  "group": "Global options",
+                  "description": "Display examples for all the commands in a group",
+                  "type": "boolean",
+                  "aliases": []
+                },
+                {
+                  "name": "help-web",
+                  "aliases": [
+                    "hw"
+                  ],
+                  "group": "Global options",
+                  "description": "Display HTML help in browser",
+                  "type": "boolean"
+                },
+                {
+                  "name": "caview-profile",
+                  "aliases": [
+                    "caview-p"
+                  ],
+                  "group": "Profile Options",
+                  "description": "The name of a (caview) profile to load for this command execution.",
+                  "type": "string"
+                },
+                {
+                  "name": "base-profile",
+                  "aliases": [
+                    "base-p"
+                  ],
+                  "group": "Profile Options",
+                  "description": "The name of a (base) profile to load for this command execution.",
+                  "type": "string"
+                },
+                {
+                  "name": "host",
+                  "aliases": [
+                    "H"
+                  ],
+                  "description": "Host name of service on the mainframe.",
+                  "type": "string",
+                  "group": "Base Connection Options"
+                },
+                {
+                  "name": "port",
+                  "aliases": [
+                    "P"
+                  ],
+                  "description": "Port number of service on the mainframe.",
+                  "type": "number",
+                  "group": "Base Connection Options"
+                },
+                {
+                  "name": "user",
+                  "aliases": [
+                    "u"
+                  ],
+                  "description": "User name to authenticate to service on the mainframe.",
+                  "type": "string",
+                  "group": "Base Connection Options"
+                },
+                {
+                  "name": "password",
+                  "aliases": [
+                    "pass",
+                    "pw"
+                  ],
+                  "description": "Password to authenticate to service on the mainframe.",
+                  "type": "string",
+                  "group": "Base Connection Options"
+                },
+                {
+                  "name": "reject-unauthorized",
+                  "aliases": [
+                    "ru"
+                  ],
+                  "description": "Reject self-signed certificates.",
+                  "type": "boolean",
+                  "defaultValue": true,
+                  "group": "Base Connection Options"
+                },
+                {
+                  "name": "token-type",
+                  "aliases": [
+                    "tt"
+                  ],
+                  "description": "The type of token to get and use for the API. Omit this option to use the default token type, which is provided by 'zowe auth login'.",
+                  "type": "string",
+                  "group": "Base Connection Options"
+                },
+                {
+                  "name": "token-value",
+                  "aliases": [
+                    "tv"
+                  ],
+                  "description": "The value of the token to pass to the API.",
+                  "type": "string",
+                  "group": "Base Connection Options"
+                },
+                {
+                  "name": "cert-file",
+                  "description": "The file path to a certificate file to use for authentication",
+                  "type": "existingLocalFile",
+                  "group": "Base Connection Options",
+                  "aliases": []
+                },
+                {
+                  "name": "cert-key-file",
+                  "description": "The file path to a certificate key file to use for authentication",
+                  "type": "existingLocalFile",
+                  "group": "Base Connection Options",
+                  "aliases": []
+                }
+              ],
+              "profile": {
+                "required": [
+                  "caview"
+                ],
+                "optional": [
+                  "base"
+                ]
+              },
+              "passOn": [],
+              "children": []
+            },
+            {
+              "name": "index-names",
+              "aliases": [
+                "indexes"
+              ],
+              "summary": "List indexes for a a specific report.",
+              "description": "List indexes for a a specific report.\nUse the returned 'IndexNameHandle' to reference a report index.\nUse the returned 'IndexNameHandle' in the 'list report index-values' command to retrieve the list of associated index values for that index.",
+              "type": "command",
+              "handler": "",
+              "positionals": [
+                {
+                  "name": "repositoryId",
+                  "type": "number",
+                  "description": "Repository identifier.",
+                  "required": true
+                },
+                {
+                  "name": "reportHandle",
+                  "type": "string",
+                  "description": "Report handle.",
+                  "required": true
+                }
+              ],
+              "options": [
+                {
+                  "name": "filter-names",
+                  "aliases": [
+                    "names"
+                  ],
+                  "type": "string",
+                  "description": "Filter (include) based on index name. Separate multiple index names with commas. Use the asterisk (*) as a wildcard to represent any number of characters.",
+                  "defaultValue": "*,*,*,*,*,*,*,*",
+                  "group": "Options"
+                },
+                {
+                  "name": "output-format",
+                  "aliases": [
+                    "output"
+                  ],
+                  "type": "string",
+                  "description": "Output format. This option is ignored if '--response-format-json' is specified.",
+                  "allowableValues": {
+                    "values": [
+                      "^tabular$",
+                      "^csv$",
+                      "^json$",
+                      "^xml$"
+                    ],
+                    "caseSensitive": false
+                  },
+                  "defaultValue": "tabular",
+                  "group": "Options"
+                },
+                {
+                  "name": "output-header",
+                  "aliases": [
+                    "header"
+                  ],
+                  "type": "boolean",
+                  "description": "Include header with field names in the output when you specify 'tabular' or 'csv' for the output format.\nThis option is ignored when you specify any other output format.",
+                  "defaultValue": true,
+                  "group": "Options"
+                },
+                {
+                  "name": "output-field",
+                  "aliases": [
+                    "f"
+                  ],
+                  "type": "array",
+                  "description": "Field to include in the output. Multiple fields can be specified.\nFields appear in the order you specify.\n\nAllowed values: Index,SubIndexNames,IndexNameHandle",
+                  "defaultValue": [
+                    "Index",
+                    "SubIndexNames",
+                    "IndexNameHandle"
+                  ],
+                  "group": "Options"
+                },
+                {
+                  "name": "response-format-json",
+                  "aliases": [
+                    "rfj"
+                  ],
+                  "group": "Global options",
+                  "description": "Produce JSON formatted data from a command",
+                  "type": "boolean"
+                },
+                {
+                  "name": "help",
+                  "aliases": [
+                    "h"
+                  ],
+                  "group": "Global options",
+                  "description": "Display help text",
+                  "type": "boolean"
+                },
+                {
+                  "name": "help-examples",
+                  "group": "Global options",
+                  "description": "Display examples for all the commands in a group",
+                  "type": "boolean",
+                  "aliases": []
+                },
+                {
+                  "name": "help-web",
+                  "aliases": [
+                    "hw"
+                  ],
+                  "group": "Global options",
+                  "description": "Display HTML help in browser",
+                  "type": "boolean"
+                },
+                {
+                  "name": "caview-profile",
+                  "aliases": [
+                    "caview-p"
+                  ],
+                  "group": "Profile Options",
+                  "description": "The name of a (caview) profile to load for this command execution.",
+                  "type": "string"
+                },
+                {
+                  "name": "base-profile",
+                  "aliases": [
+                    "base-p"
+                  ],
+                  "group": "Profile Options",
+                  "description": "The name of a (base) profile to load for this command execution.",
+                  "type": "string"
+                },
+                {
+                  "name": "host",
+                  "aliases": [
+                    "H"
+                  ],
+                  "description": "Host name of service on the mainframe.",
+                  "type": "string",
+                  "group": "Base Connection Options"
+                },
+                {
+                  "name": "port",
+                  "aliases": [
+                    "P"
+                  ],
+                  "description": "Port number of service on the mainframe.",
+                  "type": "number",
+                  "group": "Base Connection Options"
+                },
+                {
+                  "name": "user",
+                  "aliases": [
+                    "u"
+                  ],
+                  "description": "User name to authenticate to service on the mainframe.",
+                  "type": "string",
+                  "group": "Base Connection Options"
+                },
+                {
+                  "name": "password",
+                  "aliases": [
+                    "pass",
+                    "pw"
+                  ],
+                  "description": "Password to authenticate to service on the mainframe.",
+                  "type": "string",
+                  "group": "Base Connection Options"
+                },
+                {
+                  "name": "reject-unauthorized",
+                  "aliases": [
+                    "ru"
+                  ],
+                  "description": "Reject self-signed certificates.",
+                  "type": "boolean",
+                  "defaultValue": true,
+                  "group": "Base Connection Options"
+                },
+                {
+                  "name": "token-type",
+                  "aliases": [
+                    "tt"
+                  ],
+                  "description": "The type of token to get and use for the API. Omit this option to use the default token type, which is provided by 'zowe auth login'.",
+                  "type": "string",
+                  "group": "Base Connection Options"
+                },
+                {
+                  "name": "token-value",
+                  "aliases": [
+                    "tv"
+                  ],
+                  "description": "The value of the token to pass to the API.",
+                  "type": "string",
+                  "group": "Base Connection Options"
+                },
+                {
+                  "name": "cert-file",
+                  "description": "The file path to a certificate file to use for authentication",
+                  "type": "existingLocalFile",
+                  "group": "Base Connection Options",
+                  "aliases": []
+                },
+                {
+                  "name": "cert-key-file",
+                  "description": "The file path to a certificate key file to use for authentication",
+                  "type": "existingLocalFile",
+                  "group": "Base Connection Options",
+                  "aliases": []
+                }
+              ],
+              "profile": {
+                "required": [
+                  "caview"
+                ],
+                "optional": [
+                  "base"
+                ]
+              },
+              "passOn": [],
+              "children": []
+            },
+            {
+              "name": "index-values",
+              "summary": "List index values for a report index.",
+              "description": "List index values for a report index.\nUse the returned 'ReportHandle' to reference an index value in other commands.\nFor example, use 'ReportHandle' in the 'download report' command to download that corresponding view of the report.",
+              "type": "command",
+              "handler": "",
+              "positionals": [
+                {
+                  "name": "repositoryId",
+                  "type": "number",
+                  "description": "Repository identifier.",
+                  "required": true
+                },
+                {
+                  "name": "reportHandle",
+                  "type": "string",
+                  "description": "Report handle.",
+                  "required": true
+                },
+                {
+                  "name": "indexNameHandle",
+                  "type": "string",
+                  "description": "Index name handle.",
+                  "required": true
+                }
+              ],
+              "options": [
+                {
+                  "name": "filter-values",
+                  "aliases": [
+                    "values"
+                  ],
+                  "type": "string",
+                  "description": "Filter (include) based on index values. Separate index values with commas. Use the asterisk (*) as a wildcard to represent any number of characters.",
+                  "defaultValue": "*,*,*,*,*,*,*,*",
+                  "group": "Options"
+                },
+                {
+                  "name": "output-format",
+                  "aliases": [
+                    "output"
+                  ],
+                  "type": "string",
+                  "description": "Output format. This option is ignored if '--response-format-json' is specified.",
+                  "allowableValues": {
+                    "values": [
+                      "^tabular$",
+                      "^csv$",
+                      "^json$",
+                      "^xml$"
+                    ],
+                    "caseSensitive": false
+                  },
+                  "defaultValue": "tabular",
+                  "group": "Options"
+                },
+                {
+                  "name": "output-header",
+                  "aliases": [
+                    "header"
+                  ],
+                  "type": "boolean",
+                  "description": "Include header with field names in the output when you specify 'tabular' or 'csv' for the output format.\nThis option is ignored when you specify any other output format.",
+                  "defaultValue": true,
+                  "group": "Options"
+                },
+                {
+                  "name": "output-field",
+                  "aliases": [
+                    "f"
+                  ],
+                  "type": "array",
+                  "description": "Field to include in the output. Multiple fields can be specified.\nFields appear in the order you specify.\n\nAllowed values: Value,SubValues,ReportHandle",
+                  "defaultValue": [
+                    "Value",
+                    "SubValues",
+                    "ReportHandle"
+                  ],
+                  "group": "Options"
+                },
+                {
+                  "name": "response-format-json",
+                  "aliases": [
+                    "rfj"
+                  ],
+                  "group": "Global options",
+                  "description": "Produce JSON formatted data from a command",
+                  "type": "boolean"
+                },
+                {
+                  "name": "help",
+                  "aliases": [
+                    "h"
+                  ],
+                  "group": "Global options",
+                  "description": "Display help text",
+                  "type": "boolean"
+                },
+                {
+                  "name": "help-examples",
+                  "group": "Global options",
+                  "description": "Display examples for all the commands in a group",
+                  "type": "boolean",
+                  "aliases": []
+                },
+                {
+                  "name": "help-web",
+                  "aliases": [
+                    "hw"
+                  ],
+                  "group": "Global options",
+                  "description": "Display HTML help in browser",
+                  "type": "boolean"
+                },
+                {
+                  "name": "caview-profile",
+                  "aliases": [
+                    "caview-p"
+                  ],
+                  "group": "Profile Options",
+                  "description": "The name of a (caview) profile to load for this command execution.",
+                  "type": "string"
+                },
+                {
+                  "name": "base-profile",
+                  "aliases": [
+                    "base-p"
+                  ],
+                  "group": "Profile Options",
+                  "description": "The name of a (base) profile to load for this command execution.",
+                  "type": "string"
+                },
+                {
+                  "name": "host",
+                  "aliases": [
+                    "H"
+                  ],
+                  "description": "Host name of service on the mainframe.",
+                  "type": "string",
+                  "group": "Base Connection Options"
+                },
+                {
+                  "name": "port",
+                  "aliases": [
+                    "P"
+                  ],
+                  "description": "Port number of service on the mainframe.",
+                  "type": "number",
+                  "group": "Base Connection Options"
+                },
+                {
+                  "name": "user",
+                  "aliases": [
+                    "u"
+                  ],
+                  "description": "User name to authenticate to service on the mainframe.",
+                  "type": "string",
+                  "group": "Base Connection Options"
+                },
+                {
+                  "name": "password",
+                  "aliases": [
+                    "pass",
+                    "pw"
+                  ],
+                  "description": "Password to authenticate to service on the mainframe.",
+                  "type": "string",
+                  "group": "Base Connection Options"
+                },
+                {
+                  "name": "reject-unauthorized",
+                  "aliases": [
+                    "ru"
+                  ],
+                  "description": "Reject self-signed certificates.",
+                  "type": "boolean",
+                  "defaultValue": true,
+                  "group": "Base Connection Options"
+                },
+                {
+                  "name": "token-type",
+                  "aliases": [
+                    "tt"
+                  ],
+                  "description": "The type of token to get and use for the API. Omit this option to use the default token type, which is provided by 'zowe auth login'.",
+                  "type": "string",
+                  "group": "Base Connection Options"
+                },
+                {
+                  "name": "token-value",
+                  "aliases": [
+                    "tv"
+                  ],
+                  "description": "The value of the token to pass to the API.",
+                  "type": "string",
+                  "group": "Base Connection Options"
+                },
+                {
+                  "name": "cert-file",
+                  "description": "The file path to a certificate file to use for authentication",
+                  "type": "existingLocalFile",
+                  "group": "Base Connection Options",
+                  "aliases": []
+                },
+                {
+                  "name": "cert-key-file",
+                  "description": "The file path to a certificate key file to use for authentication",
+                  "type": "existingLocalFile",
+                  "group": "Base Connection Options",
+                  "aliases": []
+                }
+              ],
+              "profile": {
+                "required": [
+                  "caview"
+                ],
+                "optional": [
+                  "base"
+                ]
+              },
+              "aliases": [],
+              "passOn": [],
+              "children": []
+            }
+          ],
+          "options": [
+            {
+              "name": "response-format-json",
+              "aliases": [
+                "rfj"
+              ],
+              "group": "Global options",
+              "description": "Produce JSON formatted data from a command",
+              "type": "boolean"
+            },
+            {
+              "name": "help",
+              "aliases": [
+                "h"
+              ],
+              "group": "Global options",
+              "description": "Display help text",
+              "type": "boolean"
+            },
+            {
+              "name": "help-examples",
+              "group": "Global options",
+              "description": "Display examples for all the commands in a group",
+              "type": "boolean",
+              "aliases": []
+            },
+            {
+              "name": "help-web",
+              "aliases": [
+                "hw"
+              ],
+              "group": "Global options",
+              "description": "Display HTML help in browser",
+              "type": "boolean"
+            }
+          ],
+          "positionals": [],
+          "passOn": []
+        },
+        {
+          "name": "export-rules",
+          "aliases": [
+            "rules"
+          ],
+          "summary": "List export rules defined for a report.",
+          "description": "List export rules defined for a report.\nUse the returned 'Identifier' in the 'export report' command to reference that rule.",
+          "type": "command",
+          "handler": "",
+          "positionals": [
+            {
+              "name": "reportId",
+              "type": "string",
+              "description": "Report ID (Name).",
+              "stringLengthRange": [
+                1,
+                32
+              ],
+              "required": true
+            }
+          ],
+          "options": [
+            {
+              "name": "output-format",
+              "aliases": [
+                "output"
+              ],
+              "type": "string",
+              "description": "Output format. This option is ignored if '--response-format-json' is specified.",
+              "allowableValues": {
+                "values": [
+                  "^tabular$",
+                  "^csv$",
+                  "^json$",
+                  "^xml$"
+                ],
+                "caseSensitive": false
+              },
+              "defaultValue": "tabular",
+              "group": "Options"
+            },
+            {
+              "name": "output-header",
+              "aliases": [
+                "header"
+              ],
+              "type": "boolean",
+              "description": "Include header with field names in the output when you specify 'tabular' or 'csv' for the output format.\nThis option is ignored when you specify any other output format.",
+              "defaultValue": true,
+              "group": "Options"
+            },
+            {
+              "name": "output-field",
+              "aliases": [
+                "f"
+              ],
+              "type": "array",
+              "description": "Field to include in the output. Multiple fields can be specified.\nFields appear in the order you specify.\n\nAllowed values: Identifier,Name,Description,Owner,Public",
+              "defaultValue": [
+                "Identifier",
+                "Name",
+                "Description"
+              ],
+              "group": "Options"
+            },
+            {
+              "name": "response-format-json",
+              "aliases": [
+                "rfj"
+              ],
+              "group": "Global options",
+              "description": "Produce JSON formatted data from a command",
+              "type": "boolean"
+            },
+            {
+              "name": "help",
+              "aliases": [
+                "h"
+              ],
+              "group": "Global options",
+              "description": "Display help text",
+              "type": "boolean"
+            },
+            {
+              "name": "help-examples",
+              "group": "Global options",
+              "description": "Display examples for all the commands in a group",
+              "type": "boolean",
+              "aliases": []
+            },
+            {
+              "name": "help-web",
+              "aliases": [
+                "hw"
+              ],
+              "group": "Global options",
+              "description": "Display HTML help in browser",
+              "type": "boolean"
+            },
+            {
+              "name": "caview-profile",
+              "aliases": [
+                "caview-p"
+              ],
+              "group": "Profile Options",
+              "description": "The name of a (caview) profile to load for this command execution.",
+              "type": "string"
+            },
+            {
+              "name": "base-profile",
+              "aliases": [
+                "base-p"
+              ],
+              "group": "Profile Options",
+              "description": "The name of a (base) profile to load for this command execution.",
+              "type": "string"
+            },
+            {
+              "name": "host",
+              "aliases": [
+                "H"
+              ],
+              "description": "Host name of service on the mainframe.",
+              "type": "string",
+              "group": "Base Connection Options"
+            },
+            {
+              "name": "port",
+              "aliases": [
+                "P"
+              ],
+              "description": "Port number of service on the mainframe.",
+              "type": "number",
+              "group": "Base Connection Options"
+            },
+            {
+              "name": "user",
+              "aliases": [
+                "u"
+              ],
+              "description": "User name to authenticate to service on the mainframe.",
+              "type": "string",
+              "group": "Base Connection Options"
+            },
+            {
+              "name": "password",
+              "aliases": [
+                "pass",
+                "pw"
+              ],
+              "description": "Password to authenticate to service on the mainframe.",
+              "type": "string",
+              "group": "Base Connection Options"
+            },
+            {
+              "name": "reject-unauthorized",
+              "aliases": [
+                "ru"
+              ],
+              "description": "Reject self-signed certificates.",
+              "type": "boolean",
+              "defaultValue": true,
+              "group": "Base Connection Options"
+            },
+            {
+              "name": "token-type",
+              "aliases": [
+                "tt"
+              ],
+              "description": "The type of token to get and use for the API. Omit this option to use the default token type, which is provided by 'zowe auth login'.",
+              "type": "string",
+              "group": "Base Connection Options"
+            },
+            {
+              "name": "token-value",
+              "aliases": [
+                "tv"
+              ],
+              "description": "The value of the token to pass to the API.",
+              "type": "string",
+              "group": "Base Connection Options"
+            },
+            {
+              "name": "cert-file",
+              "description": "The file path to a certificate file to use for authentication",
+              "type": "existingLocalFile",
+              "group": "Base Connection Options",
+              "aliases": []
+            },
+            {
+              "name": "cert-key-file",
+              "description": "The file path to a certificate key file to use for authentication",
+              "type": "existingLocalFile",
+              "group": "Base Connection Options",
+              "aliases": []
+            }
+          ],
+          "profile": {
+            "required": [
+              "caview"
+            ],
+            "optional": [
+              "base"
+            ]
+          },
+          "passOn": [],
+          "children": []
+        }
+      ],
+      "options": [
+        {
+          "name": "response-format-json",
+          "aliases": [
+            "rfj"
+          ],
+          "group": "Global options",
+          "description": "Produce JSON formatted data from a command",
+          "type": "boolean"
+        },
+        {
+          "name": "help",
+          "aliases": [
+            "h"
+          ],
+          "group": "Global options",
+          "description": "Display help text",
+          "type": "boolean"
+        },
+        {
+          "name": "help-examples",
+          "group": "Global options",
+          "description": "Display examples for all the commands in a group",
+          "type": "boolean",
+          "aliases": []
+        },
+        {
+          "name": "help-web",
+          "aliases": [
+            "hw"
+          ],
+          "group": "Global options",
+          "description": "Display HTML help in browser",
+          "type": "boolean"
+        }
+      ],
+      "positionals": [],
+      "passOn": []
+    },
+    {
+      "name": "search",
+      "aliases": [
+        "find"
+      ],
+      "summary": "Search data in a CA View repository.",
+      "description": "Search data in a CA View repository.",
+      "type": "group",
+      "children": [
+        {
+          "name": "index",
+          "summary": "Search cross-report index data in a repository.",
+          "description": "Search cross-report index data in a repository.",
+          "type": "group",
+          "children": [
+            {
+              "name": "names",
+              "summary": "Search cross-report index names in a repository.",
+              "description": "Search cross-report index names in a repository.\nUse the returned 'IndexNameHandle' to reference a cross-report index name.\nFor example, use the 'IndexNameHandle' in the 'search index values' command to retrieve the list of index values for that cross-report index.",
+              "type": "command",
+              "handler": "",
+              "positionals": [
+                {
+                  "name": "repositoryId",
+                  "type": "number",
+                  "description": "Repository identifier.",
+                  "required": true
+                }
+              ],
+              "options": [
+                {
+                  "name": "filter-reports",
+                  "aliases": [
+                    "reports"
+                  ],
+                  "type": "string",
+                  "description": "Filter (include) based on report names (IDs). Use the asterisk (*) as a wildcard to represent any number of characters.",
+                  "defaultValue": "*",
+                  "group": "Options"
+                },
+                {
+                  "name": "filter-names",
+                  "aliases": [
+                    "names"
+                  ],
+                  "type": "string",
+                  "description": "Filter (include) based on index name. Separate multiple index names with commas. Use the asterisk (*) as a wildcard to represent any number of characters.",
+                  "defaultValue": "*,*,*,*,*,*,*,*",
+                  "group": "Options"
+                },
+                {
+                  "name": "latest-versions",
+                  "aliases": [
+                    "latest-version",
+                    "lv"
+                  ],
+                  "type": "number",
+                  "numericValueRange": [
+                    0,
+                    32767
+                  ],
+                  "description": "Number of latest versions (of reports) to include. If not specified, all versions of reports are included.",
+                  "defaultValue": 0,
+                  "group": "Options"
+                },
+                {
+                  "name": "archival-since",
+                  "aliases": [
+                    "since",
+                    "archival-from",
+                    "from"
+                  ],
+                  "type": "string",
+                  "description": "Date of earliest archived reports to include based on archival date. Specify a value in the ISO-8601 format.",
+                  "defaultValue": null,
+                  "group": "Options"
+                },
+                {
+                  "name": "archival-until",
+                  "aliases": [
+                    "until",
+                    "archival-to",
+                    "to"
+                  ],
+                  "type": "string",
+                  "description": "Date of latest archived reports to include based on archival date. Specify a value in the ISO-8601 format.",
+                  "defaultValue": null,
+                  "group": "Options"
+                },
+                {
+                  "name": "online-only",
+                  "aliases": [
+                    "online"
+                  ],
+                  "type": "boolean",
+                  "description": "Include only those reports that are available online.",
+                  "defaultValue": true,
+                  "group": "Options"
+                },
+                {
+                  "name": "output-format",
+                  "aliases": [
+                    "output"
+                  ],
+                  "type": "string",
+                  "description": "Output format. This option is ignored if '--response-format-json' is specified.",
+                  "allowableValues": {
+                    "values": [
+                      "^tabular$",
+                      "^csv$",
+                      "^json$",
+                      "^xml$"
+                    ],
+                    "caseSensitive": false
+                  },
+                  "defaultValue": "tabular",
+                  "group": "Options"
+                },
+                {
+                  "name": "output-header",
+                  "aliases": [
+                    "header"
+                  ],
+                  "type": "boolean",
+                  "description": "Include header with field names in the output when you specify 'tabular' or 'csv' for the output format.\nThis option is ignored when you specify any other output format.",
+                  "defaultValue": true,
+                  "group": "Options"
+                },
+                {
+                  "name": "output-field",
+                  "aliases": [
+                    "f"
+                  ],
+                  "type": "array",
+                  "description": "Field to include in the output. Multiple fields can be specified.\nFields appear in the order you specify.\n\nAllowed values: Index,SubIndexNames,IndexNameHandle",
+                  "defaultValue": [
+                    "Index",
+                    "SubIndexNames",
+                    "IndexNameHandle"
+                  ],
+                  "group": "Options"
+                },
+                {
+                  "name": "response-format-json",
+                  "aliases": [
+                    "rfj"
+                  ],
+                  "group": "Global options",
+                  "description": "Produce JSON formatted data from a command",
+                  "type": "boolean"
+                },
+                {
+                  "name": "help",
+                  "aliases": [
+                    "h"
+                  ],
+                  "group": "Global options",
+                  "description": "Display help text",
+                  "type": "boolean"
+                },
+                {
+                  "name": "help-examples",
+                  "group": "Global options",
+                  "description": "Display examples for all the commands in a group",
+                  "type": "boolean",
+                  "aliases": []
+                },
+                {
+                  "name": "help-web",
+                  "aliases": [
+                    "hw"
+                  ],
+                  "group": "Global options",
+                  "description": "Display HTML help in browser",
+                  "type": "boolean"
+                },
+                {
+                  "name": "caview-profile",
+                  "aliases": [
+                    "caview-p"
+                  ],
+                  "group": "Profile Options",
+                  "description": "The name of a (caview) profile to load for this command execution.",
+                  "type": "string"
+                },
+                {
+                  "name": "base-profile",
+                  "aliases": [
+                    "base-p"
+                  ],
+                  "group": "Profile Options",
+                  "description": "The name of a (base) profile to load for this command execution.",
+                  "type": "string"
+                },
+                {
+                  "name": "host",
+                  "aliases": [
+                    "H"
+                  ],
+                  "description": "Host name of service on the mainframe.",
+                  "type": "string",
+                  "group": "Base Connection Options"
+                },
+                {
+                  "name": "port",
+                  "aliases": [
+                    "P"
+                  ],
+                  "description": "Port number of service on the mainframe.",
+                  "type": "number",
+                  "group": "Base Connection Options"
+                },
+                {
+                  "name": "user",
+                  "aliases": [
+                    "u"
+                  ],
+                  "description": "User name to authenticate to service on the mainframe.",
+                  "type": "string",
+                  "group": "Base Connection Options"
+                },
+                {
+                  "name": "password",
+                  "aliases": [
+                    "pass",
+                    "pw"
+                  ],
+                  "description": "Password to authenticate to service on the mainframe.",
+                  "type": "string",
+                  "group": "Base Connection Options"
+                },
+                {
+                  "name": "reject-unauthorized",
+                  "aliases": [
+                    "ru"
+                  ],
+                  "description": "Reject self-signed certificates.",
+                  "type": "boolean",
+                  "defaultValue": true,
+                  "group": "Base Connection Options"
+                },
+                {
+                  "name": "token-type",
+                  "aliases": [
+                    "tt"
+                  ],
+                  "description": "The type of token to get and use for the API. Omit this option to use the default token type, which is provided by 'zowe auth login'.",
+                  "type": "string",
+                  "group": "Base Connection Options"
+                },
+                {
+                  "name": "token-value",
+                  "aliases": [
+                    "tv"
+                  ],
+                  "description": "The value of the token to pass to the API.",
+                  "type": "string",
+                  "group": "Base Connection Options"
+                },
+                {
+                  "name": "cert-file",
+                  "description": "The file path to a certificate file to use for authentication",
+                  "type": "existingLocalFile",
+                  "group": "Base Connection Options",
+                  "aliases": []
+                },
+                {
+                  "name": "cert-key-file",
+                  "description": "The file path to a certificate key file to use for authentication",
+                  "type": "existingLocalFile",
+                  "group": "Base Connection Options",
+                  "aliases": []
+                }
+              ],
+              "profile": {
+                "required": [
+                  "caview"
+                ],
+                "optional": [
+                  "base"
+                ]
+              },
+              "aliases": [],
+              "passOn": [],
+              "children": []
+            },
+            {
+              "name": "values",
+              "summary": "Search cross-report index values in a repository.",
+              "description": "Search cross-report index values in a repository.\nUse the returned 'IndexValueHandle' in the 'search index reports' command to retrieve the list of reports containing that index value.",
+              "type": "command",
+              "handler": "",
+              "positionals": [
+                {
+                  "name": "repositoryId",
+                  "type": "number",
+                  "description": "Repository identifier.",
+                  "required": true
+                },
+                {
+                  "name": "indexNameHandle",
+                  "type": "string",
+                  "description": "Index name handle.",
+                  "required": true
+                }
+              ],
+              "options": [
+                {
+                  "name": "filter-reports",
+                  "aliases": [
+                    "reports"
+                  ],
+                  "type": "string",
+                  "description": "Filter (include) based on report names (IDs). Use the asterisk (*) as a wildcard to represent any number of characters.",
+                  "defaultValue": "*",
+                  "group": "Options"
+                },
+                {
+                  "name": "filter-values",
+                  "aliases": [
+                    "values"
+                  ],
+                  "type": "string",
+                  "description": "Filter (include) based on index values. Separate index values with commas. Use the asterisk (*) as a wildcard to represent any number of characters.",
+                  "defaultValue": "*,*,*,*,*,*,*,*",
+                  "group": "Options"
+                },
+                {
+                  "name": "latest-versions",
+                  "aliases": [
+                    "latest-version",
+                    "lv"
+                  ],
+                  "type": "number",
+                  "numericValueRange": [
+                    0,
+                    32767
+                  ],
+                  "description": "Number of latest versions (of reports) to include. If not specified, all versions of reports are included.",
+                  "defaultValue": 0,
+                  "group": "Options"
+                },
+                {
+                  "name": "archival-since",
+                  "aliases": [
+                    "since",
+                    "archival-from",
+                    "from"
+                  ],
+                  "type": "string",
+                  "description": "Date of earliest archived reports to include based on archival date. Specify a value in the ISO-8601 format.",
+                  "defaultValue": null,
+                  "group": "Options"
+                },
+                {
+                  "name": "archival-until",
+                  "aliases": [
+                    "until",
+                    "archival-to",
+                    "to"
+                  ],
+                  "type": "string",
+                  "description": "Date of latest archived reports to include based on archival date. Specify a value in the ISO-8601 format.",
+                  "defaultValue": null,
+                  "group": "Options"
+                },
+                {
+                  "name": "online-only",
+                  "aliases": [
+                    "online"
+                  ],
+                  "type": "boolean",
+                  "description": "Include only those reports that are available online.",
+                  "defaultValue": true,
+                  "group": "Options"
+                },
+                {
+                  "name": "output-format",
+                  "aliases": [
+                    "output"
+                  ],
+                  "type": "string",
+                  "description": "Output format. This option is ignored if '--response-format-json' is specified.",
+                  "allowableValues": {
+                    "values": [
+                      "^tabular$",
+                      "^csv$",
+                      "^json$",
+                      "^xml$"
+                    ],
+                    "caseSensitive": false
+                  },
+                  "defaultValue": "tabular",
+                  "group": "Options"
+                },
+                {
+                  "name": "output-header",
+                  "aliases": [
+                    "header"
+                  ],
+                  "type": "boolean",
+                  "description": "Include header with field names in the output when you specify 'tabular' or 'csv' for the output format.\nThis option is ignored when you specify any other output format.",
+                  "defaultValue": true,
+                  "group": "Options"
+                },
+                {
+                  "name": "output-field",
+                  "aliases": [
+                    "f"
+                  ],
+                  "type": "array",
+                  "description": "Field to include in the output. Multiple fields can be specified.\nFields appear in the order you specify.\n\nAllowed values: Value,SubValues,IndexValueHandle",
+                  "defaultValue": [
+                    "Value",
+                    "SubValues",
+                    "IndexValueHandle"
+                  ],
+                  "group": "Options"
+                },
+                {
+                  "name": "response-format-json",
+                  "aliases": [
+                    "rfj"
+                  ],
+                  "group": "Global options",
+                  "description": "Produce JSON formatted data from a command",
+                  "type": "boolean"
+                },
+                {
+                  "name": "help",
+                  "aliases": [
+                    "h"
+                  ],
+                  "group": "Global options",
+                  "description": "Display help text",
+                  "type": "boolean"
+                },
+                {
+                  "name": "help-examples",
+                  "group": "Global options",
+                  "description": "Display examples for all the commands in a group",
+                  "type": "boolean",
+                  "aliases": []
+                },
+                {
+                  "name": "help-web",
+                  "aliases": [
+                    "hw"
+                  ],
+                  "group": "Global options",
+                  "description": "Display HTML help in browser",
+                  "type": "boolean"
+                },
+                {
+                  "name": "caview-profile",
+                  "aliases": [
+                    "caview-p"
+                  ],
+                  "group": "Profile Options",
+                  "description": "The name of a (caview) profile to load for this command execution.",
+                  "type": "string"
+                },
+                {
+                  "name": "base-profile",
+                  "aliases": [
+                    "base-p"
+                  ],
+                  "group": "Profile Options",
+                  "description": "The name of a (base) profile to load for this command execution.",
+                  "type": "string"
+                },
+                {
+                  "name": "host",
+                  "aliases": [
+                    "H"
+                  ],
+                  "description": "Host name of service on the mainframe.",
+                  "type": "string",
+                  "group": "Base Connection Options"
+                },
+                {
+                  "name": "port",
+                  "aliases": [
+                    "P"
+                  ],
+                  "description": "Port number of service on the mainframe.",
+                  "type": "number",
+                  "group": "Base Connection Options"
+                },
+                {
+                  "name": "user",
+                  "aliases": [
+                    "u"
+                  ],
+                  "description": "User name to authenticate to service on the mainframe.",
+                  "type": "string",
+                  "group": "Base Connection Options"
+                },
+                {
+                  "name": "password",
+                  "aliases": [
+                    "pass",
+                    "pw"
+                  ],
+                  "description": "Password to authenticate to service on the mainframe.",
+                  "type": "string",
+                  "group": "Base Connection Options"
+                },
+                {
+                  "name": "reject-unauthorized",
+                  "aliases": [
+                    "ru"
+                  ],
+                  "description": "Reject self-signed certificates.",
+                  "type": "boolean",
+                  "defaultValue": true,
+                  "group": "Base Connection Options"
+                },
+                {
+                  "name": "token-type",
+                  "aliases": [
+                    "tt"
+                  ],
+                  "description": "The type of token to get and use for the API. Omit this option to use the default token type, which is provided by 'zowe auth login'.",
+                  "type": "string",
+                  "group": "Base Connection Options"
+                },
+                {
+                  "name": "token-value",
+                  "aliases": [
+                    "tv"
+                  ],
+                  "description": "The value of the token to pass to the API.",
+                  "type": "string",
+                  "group": "Base Connection Options"
+                },
+                {
+                  "name": "cert-file",
+                  "description": "The file path to a certificate file to use for authentication",
+                  "type": "existingLocalFile",
+                  "group": "Base Connection Options",
+                  "aliases": []
+                },
+                {
+                  "name": "cert-key-file",
+                  "description": "The file path to a certificate key file to use for authentication",
+                  "type": "existingLocalFile",
+                  "group": "Base Connection Options",
+                  "aliases": []
+                }
+              ],
+              "profile": {
+                "required": [
+                  "caview"
+                ],
+                "optional": [
+                  "base"
+                ]
+              },
+              "aliases": [],
+              "passOn": [],
+              "children": []
+            },
+            {
+              "name": "reports",
+              "summary": "Search reports containing a cross-report index value in a repository.",
+              "description": "Search reports containing a cross-report index value in a repository.\nUse the returned 'ReportHandle' to reference a view of the report.\nFor example, use the 'ReportHandle' in the 'download report' command to download that view of the report.",
+              "type": "command",
+              "handler": "",
+              "positionals": [
+                {
+                  "name": "repositoryId",
+                  "type": "number",
+                  "description": "Repository identifier.",
+                  "required": true
+                },
+                {
+                  "name": "indexNameHandle",
+                  "type": "string",
+                  "description": "Index name handle.",
+                  "required": true
+                },
+                {
+                  "name": "valueHandle",
+                  "type": "string",
+                  "description": "Index value handle.",
+                  "required": true
+                }
+              ],
+              "options": [
+                {
+                  "name": "filter-reports",
+                  "aliases": [
+                    "reports"
+                  ],
+                  "type": "string",
+                  "description": "Filter (include) based on report names (IDs). Use the asterisk (*) as a wildcard to represent any number of characters.",
+                  "defaultValue": "*",
+                  "group": "Options"
+                },
+                {
+                  "name": "latest-versions",
+                  "aliases": [
+                    "latest-version",
+                    "lv"
+                  ],
+                  "type": "number",
+                  "numericValueRange": [
+                    0,
+                    32767
+                  ],
+                  "description": "Number of latest versions (of reports) to include. If not specified, all versions of reports are included.",
+                  "defaultValue": 0,
+                  "group": "Options"
+                },
+                {
+                  "name": "archival-since",
+                  "aliases": [
+                    "since",
+                    "archival-from",
+                    "from"
+                  ],
+                  "type": "string",
+                  "description": "Date of earliest archived reports to include based on archival date. Specify a value in the ISO-8601 format.",
+                  "defaultValue": null,
+                  "group": "Options"
+                },
+                {
+                  "name": "archival-until",
+                  "aliases": [
+                    "until",
+                    "archival-to",
+                    "to"
+                  ],
+                  "type": "string",
+                  "description": "Date of latest archived reports to include based on archival date. Specify a value in the ISO-8601 format.",
+                  "defaultValue": null,
+                  "group": "Options"
+                },
+                {
+                  "name": "online-only",
+                  "aliases": [
+                    "online"
+                  ],
+                  "type": "boolean",
+                  "description": "Include only those reports that are available online.",
+                  "defaultValue": true,
+                  "group": "Options"
+                },
+                {
+                  "name": "output-format",
+                  "aliases": [
+                    "output"
+                  ],
+                  "type": "string",
+                  "description": "Output format. This option is ignored if '--response-format-json' is specified.",
+                  "allowableValues": {
+                    "values": [
+                      "^tabular$",
+                      "^csv$",
+                      "^json$",
+                      "^xml$"
+                    ],
+                    "caseSensitive": false
+                  },
+                  "defaultValue": "tabular",
+                  "group": "Options"
+                },
+                {
+                  "name": "output-header",
+                  "aliases": [
+                    "header"
+                  ],
+                  "type": "boolean",
+                  "description": "Include header with field names in the output when you specify 'tabular' or 'csv' for the output format.\nThis option is ignored when you specify any other output format.",
+                  "defaultValue": true,
+                  "group": "Options"
+                },
+                {
+                  "name": "output-field",
+                  "aliases": [
+                    "f"
+                  ],
+                  "type": "array",
+                  "description": "Field to include in the output. Multiple fields can be specified.\nFields appear in the order you specify.\n\nAllowed values: ReportName,Lines,Pages,Type,ArchivalDate,Description,UserComments,ReportHandle,TotalPages,OriginalType,Destination,JobName,Origin,Generation,SequenceNumber,SysoutClass,Status,JobID,Forms,XCode,UserID,ReadDate,PrintDate,OnDisk,OnTape,OnOptical,IndexOnDisk,Location,TapeSequence,TapePosition,TapeCount,ExtendedRetentionOptionID,RemainingDays,RemainingGenerations,RemainingCopy,RemainingDiskDays,RemainingDiskGeneration,RemainingDiskCopy,RemainingDisk2days",
+                  "defaultValue": [
+                    "ReportName",
+                    "Lines",
+                    "Pages",
+                    "Type",
+                    "ArchivalDate",
+                    "Description",
+                    "UserComments",
+                    "ReportHandle"
+                  ],
+                  "group": "Options"
+                },
+                {
+                  "name": "response-format-json",
+                  "aliases": [
+                    "rfj"
+                  ],
+                  "group": "Global options",
+                  "description": "Produce JSON formatted data from a command",
+                  "type": "boolean"
+                },
+                {
+                  "name": "help",
+                  "aliases": [
+                    "h"
+                  ],
+                  "group": "Global options",
+                  "description": "Display help text",
+                  "type": "boolean"
+                },
+                {
+                  "name": "help-examples",
+                  "group": "Global options",
+                  "description": "Display examples for all the commands in a group",
+                  "type": "boolean",
+                  "aliases": []
+                },
+                {
+                  "name": "help-web",
+                  "aliases": [
+                    "hw"
+                  ],
+                  "group": "Global options",
+                  "description": "Display HTML help in browser",
+                  "type": "boolean"
+                },
+                {
+                  "name": "caview-profile",
+                  "aliases": [
+                    "caview-p"
+                  ],
+                  "group": "Profile Options",
+                  "description": "The name of a (caview) profile to load for this command execution.",
+                  "type": "string"
+                },
+                {
+                  "name": "base-profile",
+                  "aliases": [
+                    "base-p"
+                  ],
+                  "group": "Profile Options",
+                  "description": "The name of a (base) profile to load for this command execution.",
+                  "type": "string"
+                },
+                {
+                  "name": "host",
+                  "aliases": [
+                    "H"
+                  ],
+                  "description": "Host name of service on the mainframe.",
+                  "type": "string",
+                  "group": "Base Connection Options"
+                },
+                {
+                  "name": "port",
+                  "aliases": [
+                    "P"
+                  ],
+                  "description": "Port number of service on the mainframe.",
+                  "type": "number",
+                  "group": "Base Connection Options"
+                },
+                {
+                  "name": "user",
+                  "aliases": [
+                    "u"
+                  ],
+                  "description": "User name to authenticate to service on the mainframe.",
+                  "type": "string",
+                  "group": "Base Connection Options"
+                },
+                {
+                  "name": "password",
+                  "aliases": [
+                    "pass",
+                    "pw"
+                  ],
+                  "description": "Password to authenticate to service on the mainframe.",
+                  "type": "string",
+                  "group": "Base Connection Options"
+                },
+                {
+                  "name": "reject-unauthorized",
+                  "aliases": [
+                    "ru"
+                  ],
+                  "description": "Reject self-signed certificates.",
+                  "type": "boolean",
+                  "defaultValue": true,
+                  "group": "Base Connection Options"
+                },
+                {
+                  "name": "token-type",
+                  "aliases": [
+                    "tt"
+                  ],
+                  "description": "The type of token to get and use for the API. Omit this option to use the default token type, which is provided by 'zowe auth login'.",
+                  "type": "string",
+                  "group": "Base Connection Options"
+                },
+                {
+                  "name": "token-value",
+                  "aliases": [
+                    "tv"
+                  ],
+                  "description": "The value of the token to pass to the API.",
+                  "type": "string",
+                  "group": "Base Connection Options"
+                },
+                {
+                  "name": "cert-file",
+                  "description": "The file path to a certificate file to use for authentication",
+                  "type": "existingLocalFile",
+                  "group": "Base Connection Options",
+                  "aliases": []
+                },
+                {
+                  "name": "cert-key-file",
+                  "description": "The file path to a certificate key file to use for authentication",
+                  "type": "existingLocalFile",
+                  "group": "Base Connection Options",
+                  "aliases": []
+                }
+              ],
+              "profile": {
+                "required": [
+                  "caview"
+                ],
+                "optional": [
+                  "base"
+                ]
+              },
+              "aliases": [],
+              "passOn": [],
+              "children": []
+            }
+          ],
+          "options": [
+            {
+              "name": "response-format-json",
+              "aliases": [
+                "rfj"
+              ],
+              "group": "Global options",
+              "description": "Produce JSON formatted data from a command",
+              "type": "boolean"
+            },
+            {
+              "name": "help",
+              "aliases": [
+                "h"
+              ],
+              "group": "Global options",
+              "description": "Display help text",
+              "type": "boolean"
+            },
+            {
+              "name": "help-examples",
+              "group": "Global options",
+              "description": "Display examples for all the commands in a group",
+              "type": "boolean",
+              "aliases": []
+            },
+            {
+              "name": "help-web",
+              "aliases": [
+                "hw"
+              ],
+              "group": "Global options",
+              "description": "Display HTML help in browser",
+              "type": "boolean"
+            }
+          ],
+          "aliases": [],
+          "positionals": [],
+          "passOn": []
+        }
+      ],
+      "options": [
+        {
+          "name": "response-format-json",
+          "aliases": [
+            "rfj"
+          ],
+          "group": "Global options",
+          "description": "Produce JSON formatted data from a command",
+          "type": "boolean"
+        },
+        {
+          "name": "help",
+          "aliases": [
+            "h"
+          ],
+          "group": "Global options",
+          "description": "Display help text",
+          "type": "boolean"
+        },
+        {
+          "name": "help-examples",
+          "group": "Global options",
+          "description": "Display examples for all the commands in a group",
+          "type": "boolean",
+          "aliases": []
+        },
+        {
+          "name": "help-web",
+          "aliases": [
+            "hw"
+          ],
+          "group": "Global options",
+          "description": "Display HTML help in browser",
+          "type": "boolean"
+        }
+      ],
+      "positionals": [],
+      "passOn": []
+    },
+    {
+      "name": "set",
+      "summary": "Set information in CA View repository.",
+      "description": "Set information in CA View repository.",
+      "type": "group",
+      "children": [
+        {
+          "name": "user",
+          "summary": "Set configuration for current user in repository.",
+          "description": "Set configuration for current user in repository.",
+          "type": "group",
+          "children": [
+            {
+              "name": "mode",
+              "summary": "Set mode for current user in repository.",
+              "description": "Set mode for current user in repository.",
+              "type": "command",
+              "handler": "",
+              "positionals": [
+                {
+                  "name": "repositoryId",
+                  "type": "number",
+                  "description": "Repository identifier.",
+                  "required": true
+                },
+                {
+                  "name": "mode",
+                  "type": "string",
+                  "description": "User mode.\n",
+                  "regex": "^(ALL|SAR|SARO|EXP|EXPO)$",
+                  "required": true
+                }
+              ],
+              "options": [
+                {
+                  "name": "output-format",
+                  "aliases": [
+                    "output"
+                  ],
+                  "type": "string",
+                  "description": "Output format. This option is ignored if '--response-format-json' is specified.",
+                  "allowableValues": {
+                    "values": [
+                      "^tabular$",
+                      "^csv$",
+                      "^json$",
+                      "^xml$"
+                    ],
+                    "caseSensitive": false
+                  },
+                  "defaultValue": "tabular",
+                  "group": "Options"
+                },
+                {
+                  "name": "output-header",
+                  "aliases": [
+                    "header"
+                  ],
+                  "type": "boolean",
+                  "description": "Include header with field names in the output when you specify 'tabular' or 'csv' for the output format.\nThis option is ignored when you specify any other output format.",
+                  "defaultValue": true,
+                  "group": "Options"
+                },
+                {
+                  "name": "output-field",
+                  "aliases": [
+                    "f"
+                  ],
+                  "type": "array",
+                  "description": "Field to include in the output. Multiple fields can be specified.\nFields appear in the order you specify.\n\nAllowed values: Mode,DistId,ModeAccess,DistMask,Banner,Language,MasterAuthority,Printer,UserId",
+                  "defaultValue": [
+                    "Mode",
+                    "DistId",
+                    "ModeAccess",
+                    "DistMask"
+                  ],
+                  "group": "Options"
+                },
+                {
+                  "name": "response-format-json",
+                  "aliases": [
+                    "rfj"
+                  ],
+                  "group": "Global options",
+                  "description": "Produce JSON formatted data from a command",
+                  "type": "boolean"
+                },
+                {
+                  "name": "help",
+                  "aliases": [
+                    "h"
+                  ],
+                  "group": "Global options",
+                  "description": "Display help text",
+                  "type": "boolean"
+                },
+                {
+                  "name": "help-examples",
+                  "group": "Global options",
+                  "description": "Display examples for all the commands in a group",
+                  "type": "boolean",
+                  "aliases": []
+                },
+                {
+                  "name": "help-web",
+                  "aliases": [
+                    "hw"
+                  ],
+                  "group": "Global options",
+                  "description": "Display HTML help in browser",
+                  "type": "boolean"
+                },
+                {
+                  "name": "caview-profile",
+                  "aliases": [
+                    "caview-p"
+                  ],
+                  "group": "Profile Options",
+                  "description": "The name of a (caview) profile to load for this command execution.",
+                  "type": "string"
+                },
+                {
+                  "name": "base-profile",
+                  "aliases": [
+                    "base-p"
+                  ],
+                  "group": "Profile Options",
+                  "description": "The name of a (base) profile to load for this command execution.",
+                  "type": "string"
+                },
+                {
+                  "name": "host",
+                  "aliases": [
+                    "H"
+                  ],
+                  "description": "Host name of service on the mainframe.",
+                  "type": "string",
+                  "group": "Base Connection Options"
+                },
+                {
+                  "name": "port",
+                  "aliases": [
+                    "P"
+                  ],
+                  "description": "Port number of service on the mainframe.",
+                  "type": "number",
+                  "group": "Base Connection Options"
+                },
+                {
+                  "name": "user",
+                  "aliases": [
+                    "u"
+                  ],
+                  "description": "User name to authenticate to service on the mainframe.",
+                  "type": "string",
+                  "group": "Base Connection Options"
+                },
+                {
+                  "name": "password",
+                  "aliases": [
+                    "pass",
+                    "pw"
+                  ],
+                  "description": "Password to authenticate to service on the mainframe.",
+                  "type": "string",
+                  "group": "Base Connection Options"
+                },
+                {
+                  "name": "reject-unauthorized",
+                  "aliases": [
+                    "ru"
+                  ],
+                  "description": "Reject self-signed certificates.",
+                  "type": "boolean",
+                  "defaultValue": true,
+                  "group": "Base Connection Options"
+                },
+                {
+                  "name": "token-type",
+                  "aliases": [
+                    "tt"
+                  ],
+                  "description": "The type of token to get and use for the API. Omit this option to use the default token type, which is provided by 'zowe auth login'.",
+                  "type": "string",
+                  "group": "Base Connection Options"
+                },
+                {
+                  "name": "token-value",
+                  "aliases": [
+                    "tv"
+                  ],
+                  "description": "The value of the token to pass to the API.",
+                  "type": "string",
+                  "group": "Base Connection Options"
+                },
+                {
+                  "name": "cert-file",
+                  "description": "The file path to a certificate file to use for authentication",
+                  "type": "existingLocalFile",
+                  "group": "Base Connection Options",
+                  "aliases": []
+                },
+                {
+                  "name": "cert-key-file",
+                  "description": "The file path to a certificate key file to use for authentication",
+                  "type": "existingLocalFile",
+                  "group": "Base Connection Options",
+                  "aliases": []
+                }
+              ],
+              "profile": {
+                "required": [
+                  "caview"
+                ],
+                "optional": [
+                  "base"
+                ]
+              },
+              "aliases": [],
+              "passOn": [],
+              "children": []
+            },
+            {
+              "name": "distribution",
+              "summary": "Set distribution id for current user in repository.",
+              "description": "Set distribution id for current user in repository.",
+              "type": "command",
+              "handler": "",
+              "positionals": [
+                {
+                  "name": "repositoryId",
+                  "type": "number",
+                  "description": "Repository identifier.",
+                  "required": true
+                },
+                {
+                  "name": "distributionId",
+                  "type": "string",
+                  "description": "Distribution ID.",
+                  "stringLengthRange": [
+                    1,
+                    32
+                  ],
+                  "required": true
+                }
+              ],
+              "options": [
+                {
+                  "name": "output-format",
+                  "aliases": [
+                    "output"
+                  ],
+                  "type": "string",
+                  "description": "Output format. This option is ignored if '--response-format-json' is specified.",
+                  "allowableValues": {
+                    "values": [
+                      "^tabular$",
+                      "^csv$",
+                      "^json$",
+                      "^xml$"
+                    ],
+                    "caseSensitive": false
+                  },
+                  "defaultValue": "tabular",
+                  "group": "Options"
+                },
+                {
+                  "name": "output-header",
+                  "aliases": [
+                    "header"
+                  ],
+                  "type": "boolean",
+                  "description": "Include header with field names in the output when you specify 'tabular' or 'csv' for the output format.\nThis option is ignored when you specify any other output format.",
+                  "defaultValue": true,
+                  "group": "Options"
+                },
+                {
+                  "name": "output-field",
+                  "aliases": [
+                    "f"
+                  ],
+                  "type": "array",
+                  "description": "Field to include in the output. Multiple fields can be specified.\nFields appear in the order you specify.\n\nAllowed values: Mode,DistId,ModeAccess,DistMask,Banner,Language,MasterAuthority,Printer,UserId",
+                  "defaultValue": [
+                    "Mode",
+                    "DistId",
+                    "ModeAccess",
+                    "DistMask"
+                  ],
+                  "group": "Options"
+                },
+                {
+                  "name": "response-format-json",
+                  "aliases": [
+                    "rfj"
+                  ],
+                  "group": "Global options",
+                  "description": "Produce JSON formatted data from a command",
+                  "type": "boolean"
+                },
+                {
+                  "name": "help",
+                  "aliases": [
+                    "h"
+                  ],
+                  "group": "Global options",
+                  "description": "Display help text",
+                  "type": "boolean"
+                },
+                {
+                  "name": "help-examples",
+                  "group": "Global options",
+                  "description": "Display examples for all the commands in a group",
+                  "type": "boolean",
+                  "aliases": []
+                },
+                {
+                  "name": "help-web",
+                  "aliases": [
+                    "hw"
+                  ],
+                  "group": "Global options",
+                  "description": "Display HTML help in browser",
+                  "type": "boolean"
+                },
+                {
+                  "name": "caview-profile",
+                  "aliases": [
+                    "caview-p"
+                  ],
+                  "group": "Profile Options",
+                  "description": "The name of a (caview) profile to load for this command execution.",
+                  "type": "string"
+                },
+                {
+                  "name": "base-profile",
+                  "aliases": [
+                    "base-p"
+                  ],
+                  "group": "Profile Options",
+                  "description": "The name of a (base) profile to load for this command execution.",
+                  "type": "string"
+                },
+                {
+                  "name": "host",
+                  "aliases": [
+                    "H"
+                  ],
+                  "description": "Host name of service on the mainframe.",
+                  "type": "string",
+                  "group": "Base Connection Options"
+                },
+                {
+                  "name": "port",
+                  "aliases": [
+                    "P"
+                  ],
+                  "description": "Port number of service on the mainframe.",
+                  "type": "number",
+                  "group": "Base Connection Options"
+                },
+                {
+                  "name": "user",
+                  "aliases": [
+                    "u"
+                  ],
+                  "description": "User name to authenticate to service on the mainframe.",
+                  "type": "string",
+                  "group": "Base Connection Options"
+                },
+                {
+                  "name": "password",
+                  "aliases": [
+                    "pass",
+                    "pw"
+                  ],
+                  "description": "Password to authenticate to service on the mainframe.",
+                  "type": "string",
+                  "group": "Base Connection Options"
+                },
+                {
+                  "name": "reject-unauthorized",
+                  "aliases": [
+                    "ru"
+                  ],
+                  "description": "Reject self-signed certificates.",
+                  "type": "boolean",
+                  "defaultValue": true,
+                  "group": "Base Connection Options"
+                },
+                {
+                  "name": "token-type",
+                  "aliases": [
+                    "tt"
+                  ],
+                  "description": "The type of token to get and use for the API. Omit this option to use the default token type, which is provided by 'zowe auth login'.",
+                  "type": "string",
+                  "group": "Base Connection Options"
+                },
+                {
+                  "name": "token-value",
+                  "aliases": [
+                    "tv"
+                  ],
+                  "description": "The value of the token to pass to the API.",
+                  "type": "string",
+                  "group": "Base Connection Options"
+                },
+                {
+                  "name": "cert-file",
+                  "description": "The file path to a certificate file to use for authentication",
+                  "type": "existingLocalFile",
+                  "group": "Base Connection Options",
+                  "aliases": []
+                },
+                {
+                  "name": "cert-key-file",
+                  "description": "The file path to a certificate key file to use for authentication",
+                  "type": "existingLocalFile",
+                  "group": "Base Connection Options",
+                  "aliases": []
+                }
+              ],
+              "profile": {
+                "required": [
+                  "caview"
+                ],
+                "optional": [
+                  "base"
+                ]
+              },
+              "aliases": [],
+              "passOn": [],
+              "children": []
+            }
+          ],
+          "options": [
+            {
+              "name": "response-format-json",
+              "aliases": [
+                "rfj"
+              ],
+              "group": "Global options",
+              "description": "Produce JSON formatted data from a command",
+              "type": "boolean"
+            },
+            {
+              "name": "help",
+              "aliases": [
+                "h"
+              ],
+              "group": "Global options",
+              "description": "Display help text",
+              "type": "boolean"
+            },
+            {
+              "name": "help-examples",
+              "group": "Global options",
+              "description": "Display examples for all the commands in a group",
+              "type": "boolean",
+              "aliases": []
+            },
+            {
+              "name": "help-web",
+              "aliases": [
+                "hw"
+              ],
+              "group": "Global options",
+              "description": "Display HTML help in browser",
+              "type": "boolean"
+            }
+          ],
+          "aliases": [],
+          "positionals": [],
+          "passOn": []
+        }
+      ],
+      "options": [
+        {
+          "name": "response-format-json",
+          "aliases": [
+            "rfj"
+          ],
+          "group": "Global options",
+          "description": "Produce JSON formatted data from a command",
+          "type": "boolean"
+        },
+        {
+          "name": "help",
+          "aliases": [
+            "h"
+          ],
+          "group": "Global options",
+          "description": "Display help text",
+          "type": "boolean"
+        },
+        {
+          "name": "help-examples",
+          "group": "Global options",
+          "description": "Display examples for all the commands in a group",
+          "type": "boolean",
+          "aliases": []
+        },
+        {
+          "name": "help-web",
+          "aliases": [
+            "hw"
+          ],
+          "group": "Global options",
+          "description": "Display HTML help in browser",
+          "type": "boolean"
+        }
+      ],
+      "aliases": [],
+      "positionals": [],
+      "passOn": []
+    }
+  ],
+  "summary": "Access CA View data and perform related tasks.",
+  "aliases": [
+    "cv"
+  ],
+  "options": [
+    {
+      "name": "response-format-json",
+      "aliases": [
+        "rfj"
+      ],
+      "group": "Global options",
+      "description": "Produce JSON formatted data from a command",
+      "type": "boolean"
+    },
+    {
+      "name": "help",
+      "aliases": [
+        "h"
+      ],
+      "group": "Global options",
+      "description": "Display help text",
+      "type": "boolean"
+    },
+    {
+      "name": "help-examples",
+      "group": "Global options",
+      "description": "Display examples for all the commands in a group",
+      "type": "boolean",
+      "aliases": []
+    },
+    {
+      "name": "help-web",
+      "aliases": [
+        "hw"
+      ],
+      "group": "Global options",
+      "description": "Display HTML help in browser",
+      "type": "boolean"
+    }
+  ],
+  "positionals": [],
+  "passOn": []
+}

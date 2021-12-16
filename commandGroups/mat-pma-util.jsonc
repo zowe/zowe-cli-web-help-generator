@@ -1,0 +1,2400 @@
+// Copyright (c) 2021 Broadcom.  All Rights Reserved.  The term
+// "Broadcom" refers to Broadcom Inc. and/or its subsidiaries.
+{
+  "name": "mat-pma-util",
+  "description": "The CA MAT Detect plug-in for Zowe CLI enables you to detect performance issues and access performance data supplied by the Performance Management Assistant component (PMA) of CA Mainframe Application Tuner.",
+  "type": "group",
+  "children": [
+    {
+      "name": "get",
+      "aliases": [
+        "gt"
+      ],
+      "type": "group",
+      "summary": "Get performance information using PMA utilities.",
+      "description": "Get performance information using PMA utilities. You can get the current performance data of your jobs and check for the daily performance alerts.",
+      "children": [
+        {
+          "name": "alert",
+          "aliases": [
+            "at"
+          ],
+          "type": "command",
+          "summary": "Get daily performance alert information.",
+          "description": "Check for alerts created in PMA and detect whether any of your jobs exceeds the average daily performance. If the threshold is exceeded, a PMA alert is triggered. We recommend that you include this command in your end-of-day build to trace all jobs that might cause performance degradation by code changes during the day. ",
+          "handler": "",
+          "profile": {
+            "required": [
+              "zosmf"
+            ],
+            "optional": [
+              "pma",
+              "base"
+            ]
+          },
+          "examples": [
+            {
+              "description": "Check whether any of your jobs exceeds the average daily performance using the default profile",
+              "options": ""
+            },
+            {
+              "description": "Check whether any of your jobs exceeds the average daily performance using specific PMA profile details",
+              "options": "--ja 123456789 --jc A --jmc A --jl HLQ.CEETLOAD --jph PMAHLQ"
+            }
+          ],
+          "options": [
+            {
+              "name": "job_acct",
+              "aliases": [
+                "ja"
+              ],
+              "description": "Specifies z/OS TSO/E accounting information. Values: numeric characters (0-9)",
+              "type": "string",
+              "required": true,
+              "group": "PMA Connection Options"
+            },
+            {
+              "name": "job_class",
+              "aliases": [
+                "jc"
+              ],
+              "description": "Your z/OS class information. Values: alphanumeric characters (A-Z, 0-9) ",
+              "type": "string",
+              "required": true,
+              "stringLengthRange": [
+                1,
+                1
+              ],
+              "group": "PMA Connection Options"
+            },
+            {
+              "name": "job_mclass",
+              "aliases": [
+                "jmc"
+              ],
+              "description": "Specifies the MSGCLASS parameter value and assigns the job log to the specified output class. The specified MSGCLASS value is used in all JCLs that PMA runs while you execute the commands. If you do not provide the job_mclass parameter, the default MSGCLASS value is used. Values: alphanumeric characters (A-Z, 0-9) ",
+              "type": "string",
+              "defaultValue": "A",
+              "required": false,
+              "stringLengthRange": [
+                1,
+                1
+              ],
+              "group": "PMA Connection Options"
+            },
+            {
+              "name": "job_load",
+              "aliases": [
+                "jl"
+              ],
+              "description": "Specifies the PMA loadlib data set name that you defined during the PMA customization (&HLQ.CEETLOAD) ",
+              "type": "string",
+              "required": true,
+              "group": "PMA Connection Options"
+            },
+            {
+              "name": "job_pmahlq",
+              "aliases": [
+                "jph"
+              ],
+              "description": "Specifies your PMA HLQ to access the KSDSALT, KSDSJOB, and KSDSEXC VSAM files to collect the necessary data",
+              "type": "string",
+              "required": true,
+              "group": "PMA Connection Options"
+            },
+            {
+              "name": "response-format-json",
+              "aliases": [
+                "rfj"
+              ],
+              "group": "Global options",
+              "description": "Produce JSON formatted data from a command",
+              "type": "boolean"
+            },
+            {
+              "name": "help",
+              "aliases": [
+                "h"
+              ],
+              "group": "Global options",
+              "description": "Display help text",
+              "type": "boolean"
+            },
+            {
+              "name": "help-examples",
+              "group": "Global options",
+              "description": "Display examples for all the commands in a group",
+              "type": "boolean",
+              "aliases": []
+            },
+            {
+              "name": "help-web",
+              "aliases": [
+                "hw"
+              ],
+              "group": "Global options",
+              "description": "Display HTML help in browser",
+              "type": "boolean"
+            },
+            {
+              "name": "zosmf-profile",
+              "aliases": [
+                "zosmf-p"
+              ],
+              "group": "Profile Options",
+              "description": "The name of a (zosmf) profile to load for this command execution.",
+              "type": "string"
+            },
+            {
+              "name": "pma-profile",
+              "aliases": [
+                "pma-p"
+              ],
+              "group": "Profile Options",
+              "description": "The name of a (pma) profile to load for this command execution.",
+              "type": "string"
+            },
+            {
+              "name": "base-profile",
+              "aliases": [
+                "base-p"
+              ],
+              "group": "Profile Options",
+              "description": "The name of a (base) profile to load for this command execution.",
+              "type": "string"
+            },
+            {
+              "name": "host",
+              "aliases": [
+                "H"
+              ],
+              "description": "Host name of service on the mainframe.",
+              "type": "string",
+              "group": "Base Connection Options"
+            },
+            {
+              "name": "port",
+              "aliases": [
+                "P"
+              ],
+              "description": "Port number of service on the mainframe.",
+              "type": "number",
+              "group": "Base Connection Options"
+            },
+            {
+              "name": "user",
+              "aliases": [
+                "u"
+              ],
+              "description": "User name to authenticate to service on the mainframe.",
+              "type": "string",
+              "group": "Base Connection Options"
+            },
+            {
+              "name": "password",
+              "aliases": [
+                "pass",
+                "pw"
+              ],
+              "description": "Password to authenticate to service on the mainframe.",
+              "type": "string",
+              "group": "Base Connection Options"
+            },
+            {
+              "name": "reject-unauthorized",
+              "aliases": [
+                "ru"
+              ],
+              "description": "Reject self-signed certificates.",
+              "type": "boolean",
+              "defaultValue": true,
+              "group": "Base Connection Options"
+            },
+            {
+              "name": "token-type",
+              "aliases": [
+                "tt"
+              ],
+              "description": "The type of token to get and use for the API. Omit this option to use the default token type, which is provided by 'zowe auth login'.",
+              "type": "string",
+              "group": "Base Connection Options"
+            },
+            {
+              "name": "token-value",
+              "aliases": [
+                "tv"
+              ],
+              "description": "The value of the token to pass to the API.",
+              "type": "string",
+              "group": "Base Connection Options"
+            },
+            {
+              "name": "cert-file",
+              "description": "The file path to a certificate file to use for authentication",
+              "type": "existingLocalFile",
+              "group": "Base Connection Options",
+              "aliases": []
+            },
+            {
+              "name": "cert-key-file",
+              "description": "The file path to a certificate key file to use for authentication",
+              "type": "existingLocalFile",
+              "group": "Base Connection Options",
+              "aliases": []
+            }
+          ],
+          "positionals": [],
+          "passOn": [],
+          "children": []
+        },
+        {
+          "name": "alert-by-job",
+          "aliases": [
+            "abyj"
+          ],
+          "type": "command",
+          "summary": "Get daily performance status of a specific job.",
+          "description": "Check whether the specified job exceeds the average daily performance. No record returned indicates that no performance degradation was detected for this job.",
+          "handler": "",
+          "profile": {
+            "required": [
+              "zosmf"
+            ],
+            "optional": [
+              "pma",
+              "base"
+            ]
+          },
+          "positionals": [
+            {
+              "name": "jobname",
+              "description": "Specifies the name of the job that is being tested (e.g. TESTPMA8).",
+              "type": "string",
+              "stringLengthRange": [
+                1,
+                8
+              ],
+              "required": true
+            }
+          ],
+          "examples": [
+            {
+              "description": "Check whether your job TESTPMA8 exceeds the average daily performance using the default profile",
+              "options": "TESTPMA8"
+            },
+            {
+              "description": "Check whether your job TESTPMA8 exceeds the average daily performance using specific PMA profile details",
+              "options": "TESTPMA8 --ja 123456789 --jc A --jmc A --jl HLQ.CEETLOAD --jph PMAHLQ"
+            }
+          ],
+          "options": [
+            {
+              "name": "job_acct",
+              "aliases": [
+                "ja"
+              ],
+              "description": "Specifies z/OS TSO/E accounting information. Values: numeric characters (0-9)",
+              "type": "string",
+              "required": true,
+              "group": "PMA Connection Options"
+            },
+            {
+              "name": "job_class",
+              "aliases": [
+                "jc"
+              ],
+              "description": "Your z/OS class information. Values: alphanumeric characters (A-Z, 0-9) ",
+              "type": "string",
+              "required": true,
+              "stringLengthRange": [
+                1,
+                1
+              ],
+              "group": "PMA Connection Options"
+            },
+            {
+              "name": "job_mclass",
+              "aliases": [
+                "jmc"
+              ],
+              "description": "Specifies the MSGCLASS parameter value and assigns the job log to the specified output class. The specified MSGCLASS value is used in all JCLs that PMA runs while you execute the commands. If you do not provide the job_mclass parameter, the default MSGCLASS value is used. Values: alphanumeric characters (A-Z, 0-9) ",
+              "type": "string",
+              "defaultValue": "A",
+              "required": false,
+              "stringLengthRange": [
+                1,
+                1
+              ],
+              "group": "PMA Connection Options"
+            },
+            {
+              "name": "job_load",
+              "aliases": [
+                "jl"
+              ],
+              "description": "Specifies the PMA loadlib data set name that you defined during the PMA customization (&HLQ.CEETLOAD) ",
+              "type": "string",
+              "required": true,
+              "group": "PMA Connection Options"
+            },
+            {
+              "name": "job_pmahlq",
+              "aliases": [
+                "jph"
+              ],
+              "description": "Specifies your PMA HLQ to access the KSDSALT, KSDSJOB, and KSDSEXC VSAM files to collect the necessary data",
+              "type": "string",
+              "required": true,
+              "group": "PMA Connection Options"
+            },
+            {
+              "name": "response-format-json",
+              "aliases": [
+                "rfj"
+              ],
+              "group": "Global options",
+              "description": "Produce JSON formatted data from a command",
+              "type": "boolean"
+            },
+            {
+              "name": "help",
+              "aliases": [
+                "h"
+              ],
+              "group": "Global options",
+              "description": "Display help text",
+              "type": "boolean"
+            },
+            {
+              "name": "help-examples",
+              "group": "Global options",
+              "description": "Display examples for all the commands in a group",
+              "type": "boolean",
+              "aliases": []
+            },
+            {
+              "name": "help-web",
+              "aliases": [
+                "hw"
+              ],
+              "group": "Global options",
+              "description": "Display HTML help in browser",
+              "type": "boolean"
+            },
+            {
+              "name": "zosmf-profile",
+              "aliases": [
+                "zosmf-p"
+              ],
+              "group": "Profile Options",
+              "description": "The name of a (zosmf) profile to load for this command execution.",
+              "type": "string"
+            },
+            {
+              "name": "pma-profile",
+              "aliases": [
+                "pma-p"
+              ],
+              "group": "Profile Options",
+              "description": "The name of a (pma) profile to load for this command execution.",
+              "type": "string"
+            },
+            {
+              "name": "base-profile",
+              "aliases": [
+                "base-p"
+              ],
+              "group": "Profile Options",
+              "description": "The name of a (base) profile to load for this command execution.",
+              "type": "string"
+            },
+            {
+              "name": "host",
+              "aliases": [
+                "H"
+              ],
+              "description": "Host name of service on the mainframe.",
+              "type": "string",
+              "group": "Base Connection Options"
+            },
+            {
+              "name": "port",
+              "aliases": [
+                "P"
+              ],
+              "description": "Port number of service on the mainframe.",
+              "type": "number",
+              "group": "Base Connection Options"
+            },
+            {
+              "name": "user",
+              "aliases": [
+                "u"
+              ],
+              "description": "User name to authenticate to service on the mainframe.",
+              "type": "string",
+              "group": "Base Connection Options"
+            },
+            {
+              "name": "password",
+              "aliases": [
+                "pass",
+                "pw"
+              ],
+              "description": "Password to authenticate to service on the mainframe.",
+              "type": "string",
+              "group": "Base Connection Options"
+            },
+            {
+              "name": "reject-unauthorized",
+              "aliases": [
+                "ru"
+              ],
+              "description": "Reject self-signed certificates.",
+              "type": "boolean",
+              "defaultValue": true,
+              "group": "Base Connection Options"
+            },
+            {
+              "name": "token-type",
+              "aliases": [
+                "tt"
+              ],
+              "description": "The type of token to get and use for the API. Omit this option to use the default token type, which is provided by 'zowe auth login'.",
+              "type": "string",
+              "group": "Base Connection Options"
+            },
+            {
+              "name": "token-value",
+              "aliases": [
+                "tv"
+              ],
+              "description": "The value of the token to pass to the API.",
+              "type": "string",
+              "group": "Base Connection Options"
+            },
+            {
+              "name": "cert-file",
+              "description": "The file path to a certificate file to use for authentication",
+              "type": "existingLocalFile",
+              "group": "Base Connection Options",
+              "aliases": []
+            },
+            {
+              "name": "cert-key-file",
+              "description": "The file path to a certificate key file to use for authentication",
+              "type": "existingLocalFile",
+              "group": "Base Connection Options",
+              "aliases": []
+            }
+          ],
+          "passOn": [],
+          "children": []
+        },
+        {
+          "name": "perf",
+          "aliases": [
+            "pf"
+          ],
+          "type": "command",
+          "summary": "Get the performance test result for a specific job",
+          "description": "Get the current performance data of a specific job using PMA. If the current measurement results for any of the measured parameters are higher than average values, an alert message is displayed.",
+          "handler": "",
+          "profile": {
+            "required": [
+              "zosmf"
+            ],
+            "optional": [
+              "pma",
+              "base"
+            ]
+          },
+          "positionals": [
+            {
+              "name": "jobname",
+              "description": "Specifies the name of the job that is being tested (e.g. TESTPMA8).",
+              "type": "string",
+              "stringLengthRange": [
+                1,
+                8
+              ],
+              "required": true
+            }
+          ],
+          "examples": [
+            {
+              "description": "Get the current performance data of the TESTPMA8 job using the default profile",
+              "options": "TESTPMA8"
+            },
+            {
+              "description": "Get the current performance data of the TESTPMA8 job using specific PMA profile details",
+              "options": "TESTPMA8 --ja 123456789 --jc A --jmc A --jl HLQ.CEETLOAD --jph PMAHLQ"
+            }
+          ],
+          "options": [
+            {
+              "name": "job_acct",
+              "aliases": [
+                "ja"
+              ],
+              "description": "Specifies z/OS TSO/E accounting information. Values: numeric characters (0-9)",
+              "type": "string",
+              "required": true,
+              "group": "PMA Connection Options"
+            },
+            {
+              "name": "job_class",
+              "aliases": [
+                "jc"
+              ],
+              "description": "Your z/OS class information. Values: alphanumeric characters (A-Z, 0-9) ",
+              "type": "string",
+              "required": true,
+              "stringLengthRange": [
+                1,
+                1
+              ],
+              "group": "PMA Connection Options"
+            },
+            {
+              "name": "job_mclass",
+              "aliases": [
+                "jmc"
+              ],
+              "description": "Specifies the MSGCLASS parameter value and assigns the job log to the specified output class. The specified MSGCLASS value is used in all JCLs that PMA runs while you execute the commands. If you do not provide the job_mclass parameter, the default MSGCLASS value is used. Values: alphanumeric characters (A-Z, 0-9) ",
+              "type": "string",
+              "defaultValue": "A",
+              "required": false,
+              "stringLengthRange": [
+                1,
+                1
+              ],
+              "group": "PMA Connection Options"
+            },
+            {
+              "name": "job_load",
+              "aliases": [
+                "jl"
+              ],
+              "description": "Specifies the PMA loadlib data set name that you defined during the PMA customization (&HLQ.CEETLOAD) ",
+              "type": "string",
+              "required": true,
+              "group": "PMA Connection Options"
+            },
+            {
+              "name": "job_pmahlq",
+              "aliases": [
+                "jph"
+              ],
+              "description": "Specifies your PMA HLQ to access the KSDSALT, KSDSJOB, and KSDSEXC VSAM files to collect the necessary data",
+              "type": "string",
+              "required": true,
+              "group": "PMA Connection Options"
+            },
+            {
+              "name": "response-format-json",
+              "aliases": [
+                "rfj"
+              ],
+              "group": "Global options",
+              "description": "Produce JSON formatted data from a command",
+              "type": "boolean"
+            },
+            {
+              "name": "help",
+              "aliases": [
+                "h"
+              ],
+              "group": "Global options",
+              "description": "Display help text",
+              "type": "boolean"
+            },
+            {
+              "name": "help-examples",
+              "group": "Global options",
+              "description": "Display examples for all the commands in a group",
+              "type": "boolean",
+              "aliases": []
+            },
+            {
+              "name": "help-web",
+              "aliases": [
+                "hw"
+              ],
+              "group": "Global options",
+              "description": "Display HTML help in browser",
+              "type": "boolean"
+            },
+            {
+              "name": "zosmf-profile",
+              "aliases": [
+                "zosmf-p"
+              ],
+              "group": "Profile Options",
+              "description": "The name of a (zosmf) profile to load for this command execution.",
+              "type": "string"
+            },
+            {
+              "name": "pma-profile",
+              "aliases": [
+                "pma-p"
+              ],
+              "group": "Profile Options",
+              "description": "The name of a (pma) profile to load for this command execution.",
+              "type": "string"
+            },
+            {
+              "name": "base-profile",
+              "aliases": [
+                "base-p"
+              ],
+              "group": "Profile Options",
+              "description": "The name of a (base) profile to load for this command execution.",
+              "type": "string"
+            },
+            {
+              "name": "host",
+              "aliases": [
+                "H"
+              ],
+              "description": "Host name of service on the mainframe.",
+              "type": "string",
+              "group": "Base Connection Options"
+            },
+            {
+              "name": "port",
+              "aliases": [
+                "P"
+              ],
+              "description": "Port number of service on the mainframe.",
+              "type": "number",
+              "group": "Base Connection Options"
+            },
+            {
+              "name": "user",
+              "aliases": [
+                "u"
+              ],
+              "description": "User name to authenticate to service on the mainframe.",
+              "type": "string",
+              "group": "Base Connection Options"
+            },
+            {
+              "name": "password",
+              "aliases": [
+                "pass",
+                "pw"
+              ],
+              "description": "Password to authenticate to service on the mainframe.",
+              "type": "string",
+              "group": "Base Connection Options"
+            },
+            {
+              "name": "reject-unauthorized",
+              "aliases": [
+                "ru"
+              ],
+              "description": "Reject self-signed certificates.",
+              "type": "boolean",
+              "defaultValue": true,
+              "group": "Base Connection Options"
+            },
+            {
+              "name": "token-type",
+              "aliases": [
+                "tt"
+              ],
+              "description": "The type of token to get and use for the API. Omit this option to use the default token type, which is provided by 'zowe auth login'.",
+              "type": "string",
+              "group": "Base Connection Options"
+            },
+            {
+              "name": "token-value",
+              "aliases": [
+                "tv"
+              ],
+              "description": "The value of the token to pass to the API.",
+              "type": "string",
+              "group": "Base Connection Options"
+            },
+            {
+              "name": "cert-file",
+              "description": "The file path to a certificate file to use for authentication",
+              "type": "existingLocalFile",
+              "group": "Base Connection Options",
+              "aliases": []
+            },
+            {
+              "name": "cert-key-file",
+              "description": "The file path to a certificate key file to use for authentication",
+              "type": "existingLocalFile",
+              "group": "Base Connection Options",
+              "aliases": []
+            }
+          ],
+          "passOn": [],
+          "children": []
+        }
+      ],
+      "options": [
+        {
+          "name": "response-format-json",
+          "aliases": [
+            "rfj"
+          ],
+          "group": "Global options",
+          "description": "Produce JSON formatted data from a command",
+          "type": "boolean"
+        },
+        {
+          "name": "help",
+          "aliases": [
+            "h"
+          ],
+          "group": "Global options",
+          "description": "Display help text",
+          "type": "boolean"
+        },
+        {
+          "name": "help-examples",
+          "group": "Global options",
+          "description": "Display examples for all the commands in a group",
+          "type": "boolean",
+          "aliases": []
+        },
+        {
+          "name": "help-web",
+          "aliases": [
+            "hw"
+          ],
+          "group": "Global options",
+          "description": "Display HTML help in browser",
+          "type": "boolean"
+        }
+      ],
+      "positionals": [],
+      "passOn": []
+    },
+    {
+      "name": "scope",
+      "aliases": [
+        "scp"
+      ],
+      "type": "group",
+      "summary": "Get and define the PMA scope information.",
+      "description": "Get and define the PMA scope information. You can create and update the list of jobs that you want to include, or the list of programs to be excluded from the PMA scope of work.",
+      "children": [
+        {
+          "name": "exl-pgm",
+          "aliases": [
+            "exlp"
+          ],
+          "type": "command",
+          "summary": "Exclude a program from the PMA scope of work.",
+          "description": "Exclude a program from the PMA scope of work.",
+          "handler": "",
+          "profile": {
+            "required": [
+              "zosmf"
+            ],
+            "optional": [
+              "pma",
+              "base"
+            ]
+          },
+          "positionals": [
+            {
+              "name": "pgmname",
+              "description": "Specifies the name of the program that you want to add to the list of exclusions from the PMA scope (e.g. TESTPMA8).",
+              "type": "string",
+              "stringLengthRange": [
+                1,
+                8
+              ],
+              "required": true
+            }
+          ],
+          "options": [
+            {
+              "name": "description",
+              "aliases": [
+                "dc"
+              ],
+              "description": "Specifies the description of the program that you want to exclude from the PMA scope.",
+              "type": "string",
+              "stringLengthRange": [
+                1,
+                45
+              ],
+              "required": false,
+              "group": "Options"
+            },
+            {
+              "name": "job_acct",
+              "aliases": [
+                "ja"
+              ],
+              "description": "Specifies z/OS TSO/E accounting information. Values: numeric characters (0-9)",
+              "type": "string",
+              "required": true,
+              "group": "PMA Connection Options"
+            },
+            {
+              "name": "job_class",
+              "aliases": [
+                "jc"
+              ],
+              "description": "Your z/OS class information. Values: alphanumeric characters (A-Z, 0-9) ",
+              "type": "string",
+              "required": true,
+              "stringLengthRange": [
+                1,
+                1
+              ],
+              "group": "PMA Connection Options"
+            },
+            {
+              "name": "job_mclass",
+              "aliases": [
+                "jmc"
+              ],
+              "description": "Specifies the MSGCLASS parameter value and assigns the job log to the specified output class. The specified MSGCLASS value is used in all JCLs that PMA runs while you execute the commands. If you do not provide the job_mclass parameter, the default MSGCLASS value is used. Values: alphanumeric characters (A-Z, 0-9) ",
+              "type": "string",
+              "defaultValue": "A",
+              "required": false,
+              "stringLengthRange": [
+                1,
+                1
+              ],
+              "group": "PMA Connection Options"
+            },
+            {
+              "name": "job_load",
+              "aliases": [
+                "jl"
+              ],
+              "description": "Specifies the PMA loadlib data set name that you defined during the PMA customization (&HLQ.CEETLOAD) ",
+              "type": "string",
+              "required": true,
+              "group": "PMA Connection Options"
+            },
+            {
+              "name": "job_pmahlq",
+              "aliases": [
+                "jph"
+              ],
+              "description": "Specifies your PMA HLQ to access the KSDSALT, KSDSJOB, and KSDSEXC VSAM files to collect the necessary data",
+              "type": "string",
+              "required": true,
+              "group": "PMA Connection Options"
+            },
+            {
+              "name": "response-format-json",
+              "aliases": [
+                "rfj"
+              ],
+              "group": "Global options",
+              "description": "Produce JSON formatted data from a command",
+              "type": "boolean"
+            },
+            {
+              "name": "help",
+              "aliases": [
+                "h"
+              ],
+              "group": "Global options",
+              "description": "Display help text",
+              "type": "boolean"
+            },
+            {
+              "name": "help-examples",
+              "group": "Global options",
+              "description": "Display examples for all the commands in a group",
+              "type": "boolean",
+              "aliases": []
+            },
+            {
+              "name": "help-web",
+              "aliases": [
+                "hw"
+              ],
+              "group": "Global options",
+              "description": "Display HTML help in browser",
+              "type": "boolean"
+            },
+            {
+              "name": "zosmf-profile",
+              "aliases": [
+                "zosmf-p"
+              ],
+              "group": "Profile Options",
+              "description": "The name of a (zosmf) profile to load for this command execution.",
+              "type": "string"
+            },
+            {
+              "name": "pma-profile",
+              "aliases": [
+                "pma-p"
+              ],
+              "group": "Profile Options",
+              "description": "The name of a (pma) profile to load for this command execution.",
+              "type": "string"
+            },
+            {
+              "name": "base-profile",
+              "aliases": [
+                "base-p"
+              ],
+              "group": "Profile Options",
+              "description": "The name of a (base) profile to load for this command execution.",
+              "type": "string"
+            },
+            {
+              "name": "host",
+              "aliases": [
+                "H"
+              ],
+              "description": "Host name of service on the mainframe.",
+              "type": "string",
+              "group": "Base Connection Options"
+            },
+            {
+              "name": "port",
+              "aliases": [
+                "P"
+              ],
+              "description": "Port number of service on the mainframe.",
+              "type": "number",
+              "group": "Base Connection Options"
+            },
+            {
+              "name": "user",
+              "aliases": [
+                "u"
+              ],
+              "description": "User name to authenticate to service on the mainframe.",
+              "type": "string",
+              "group": "Base Connection Options"
+            },
+            {
+              "name": "password",
+              "aliases": [
+                "pass",
+                "pw"
+              ],
+              "description": "Password to authenticate to service on the mainframe.",
+              "type": "string",
+              "group": "Base Connection Options"
+            },
+            {
+              "name": "reject-unauthorized",
+              "aliases": [
+                "ru"
+              ],
+              "description": "Reject self-signed certificates.",
+              "type": "boolean",
+              "defaultValue": true,
+              "group": "Base Connection Options"
+            },
+            {
+              "name": "token-type",
+              "aliases": [
+                "tt"
+              ],
+              "description": "The type of token to get and use for the API. Omit this option to use the default token type, which is provided by 'zowe auth login'.",
+              "type": "string",
+              "group": "Base Connection Options"
+            },
+            {
+              "name": "token-value",
+              "aliases": [
+                "tv"
+              ],
+              "description": "The value of the token to pass to the API.",
+              "type": "string",
+              "group": "Base Connection Options"
+            },
+            {
+              "name": "cert-file",
+              "description": "The file path to a certificate file to use for authentication",
+              "type": "existingLocalFile",
+              "group": "Base Connection Options",
+              "aliases": []
+            },
+            {
+              "name": "cert-key-file",
+              "description": "The file path to a certificate key file to use for authentication",
+              "type": "existingLocalFile",
+              "group": "Base Connection Options",
+              "aliases": []
+            }
+          ],
+          "examples": [
+            {
+              "description": "Exclude the TESTPMA8 program from the PMA scope",
+              "options": "TESTPMA8"
+            },
+            {
+              "description": "Exclude the TESTPMA8 program from the PMA scope and add a description to the excluded program",
+              "options": "TESTPMA8 --dc \"EXCLUDE FROM THE CURRENT SCOPE\" "
+            },
+            {
+              "description": "Exclude the TESTPMA8 program from the PMA scope and add a description to the excluded program using specific PMA profile details",
+              "options": "TESTPMA8 --dc \"EXCLUDE FROM THE CURRENT SCOPE\" --ja 123456789 --jc A --jmc A --jl HLQ.CEETLOAD --jph PMAHLQ"
+            }
+          ],
+          "passOn": [],
+          "children": []
+        },
+        {
+          "name": "inc-job",
+          "aliases": [
+            "incj"
+          ],
+          "type": "command",
+          "summary": "Include a job in the PMA scope of work.",
+          "description": "Include a job in the PMA scope of work.",
+          "handler": "",
+          "profile": {
+            "required": [
+              "zosmf"
+            ],
+            "optional": [
+              "pma",
+              "base"
+            ]
+          },
+          "positionals": [
+            {
+              "name": "jobname",
+              "description": "Specifies the name of the job that you want to add to the list of inclusions in the PMA scope (e.g. TESTPMA8).",
+              "type": "string",
+              "stringLengthRange": [
+                1,
+                8
+              ],
+              "required": true
+            }
+          ],
+          "options": [
+            {
+              "name": "stepname",
+              "aliases": [
+                "st"
+              ],
+              "description": "Specifies the name of the job step that you want to include in the PMA scope.",
+              "type": "string",
+              "stringLengthRange": [
+                1,
+                8
+              ],
+              "required": false,
+              "group": "Options"
+            },
+            {
+              "name": "procstep",
+              "aliases": [
+                "ps"
+              ],
+              "description": "Specifies the procname of the job that you want to include in the PMA scope.",
+              "type": "string",
+              "stringLengthRange": [
+                1,
+                8
+              ],
+              "required": false,
+              "group": "Options"
+            },
+            {
+              "name": "description",
+              "aliases": [
+                "dc"
+              ],
+              "description": "Specifies the description of the job that you want to include in the PMA scope.",
+              "type": "string",
+              "stringLengthRange": [
+                1,
+                45
+              ],
+              "required": false,
+              "group": "Options"
+            },
+            {
+              "name": "job_acct",
+              "aliases": [
+                "ja"
+              ],
+              "description": "Specifies z/OS TSO/E accounting information. Values: numeric characters (0-9)",
+              "type": "string",
+              "required": true,
+              "group": "PMA Connection Options"
+            },
+            {
+              "name": "job_class",
+              "aliases": [
+                "jc"
+              ],
+              "description": "Your z/OS class information. Values: alphanumeric characters (A-Z, 0-9) ",
+              "type": "string",
+              "required": true,
+              "stringLengthRange": [
+                1,
+                1
+              ],
+              "group": "PMA Connection Options"
+            },
+            {
+              "name": "job_mclass",
+              "aliases": [
+                "jmc"
+              ],
+              "description": "Specifies the MSGCLASS parameter value and assigns the job log to the specified output class. The specified MSGCLASS value is used in all JCLs that PMA runs while you execute the commands. If you do not provide the job_mclass parameter, the default MSGCLASS value is used. Values: alphanumeric characters (A-Z, 0-9) ",
+              "type": "string",
+              "defaultValue": "A",
+              "required": false,
+              "stringLengthRange": [
+                1,
+                1
+              ],
+              "group": "PMA Connection Options"
+            },
+            {
+              "name": "job_load",
+              "aliases": [
+                "jl"
+              ],
+              "description": "Specifies the PMA loadlib data set name that you defined during the PMA customization (&HLQ.CEETLOAD) ",
+              "type": "string",
+              "required": true,
+              "group": "PMA Connection Options"
+            },
+            {
+              "name": "job_pmahlq",
+              "aliases": [
+                "jph"
+              ],
+              "description": "Specifies your PMA HLQ to access the KSDSALT, KSDSJOB, and KSDSEXC VSAM files to collect the necessary data",
+              "type": "string",
+              "required": true,
+              "group": "PMA Connection Options"
+            },
+            {
+              "name": "response-format-json",
+              "aliases": [
+                "rfj"
+              ],
+              "group": "Global options",
+              "description": "Produce JSON formatted data from a command",
+              "type": "boolean"
+            },
+            {
+              "name": "help",
+              "aliases": [
+                "h"
+              ],
+              "group": "Global options",
+              "description": "Display help text",
+              "type": "boolean"
+            },
+            {
+              "name": "help-examples",
+              "group": "Global options",
+              "description": "Display examples for all the commands in a group",
+              "type": "boolean",
+              "aliases": []
+            },
+            {
+              "name": "help-web",
+              "aliases": [
+                "hw"
+              ],
+              "group": "Global options",
+              "description": "Display HTML help in browser",
+              "type": "boolean"
+            },
+            {
+              "name": "zosmf-profile",
+              "aliases": [
+                "zosmf-p"
+              ],
+              "group": "Profile Options",
+              "description": "The name of a (zosmf) profile to load for this command execution.",
+              "type": "string"
+            },
+            {
+              "name": "pma-profile",
+              "aliases": [
+                "pma-p"
+              ],
+              "group": "Profile Options",
+              "description": "The name of a (pma) profile to load for this command execution.",
+              "type": "string"
+            },
+            {
+              "name": "base-profile",
+              "aliases": [
+                "base-p"
+              ],
+              "group": "Profile Options",
+              "description": "The name of a (base) profile to load for this command execution.",
+              "type": "string"
+            },
+            {
+              "name": "host",
+              "aliases": [
+                "H"
+              ],
+              "description": "Host name of service on the mainframe.",
+              "type": "string",
+              "group": "Base Connection Options"
+            },
+            {
+              "name": "port",
+              "aliases": [
+                "P"
+              ],
+              "description": "Port number of service on the mainframe.",
+              "type": "number",
+              "group": "Base Connection Options"
+            },
+            {
+              "name": "user",
+              "aliases": [
+                "u"
+              ],
+              "description": "User name to authenticate to service on the mainframe.",
+              "type": "string",
+              "group": "Base Connection Options"
+            },
+            {
+              "name": "password",
+              "aliases": [
+                "pass",
+                "pw"
+              ],
+              "description": "Password to authenticate to service on the mainframe.",
+              "type": "string",
+              "group": "Base Connection Options"
+            },
+            {
+              "name": "reject-unauthorized",
+              "aliases": [
+                "ru"
+              ],
+              "description": "Reject self-signed certificates.",
+              "type": "boolean",
+              "defaultValue": true,
+              "group": "Base Connection Options"
+            },
+            {
+              "name": "token-type",
+              "aliases": [
+                "tt"
+              ],
+              "description": "The type of token to get and use for the API. Omit this option to use the default token type, which is provided by 'zowe auth login'.",
+              "type": "string",
+              "group": "Base Connection Options"
+            },
+            {
+              "name": "token-value",
+              "aliases": [
+                "tv"
+              ],
+              "description": "The value of the token to pass to the API.",
+              "type": "string",
+              "group": "Base Connection Options"
+            },
+            {
+              "name": "cert-file",
+              "description": "The file path to a certificate file to use for authentication",
+              "type": "existingLocalFile",
+              "group": "Base Connection Options",
+              "aliases": []
+            },
+            {
+              "name": "cert-key-file",
+              "description": "The file path to a certificate key file to use for authentication",
+              "type": "existingLocalFile",
+              "group": "Base Connection Options",
+              "aliases": []
+            }
+          ],
+          "examples": [
+            {
+              "description": "Include the TESTPMA8 job in the PMA scope",
+              "options": "TESTPMA8"
+            },
+            {
+              "description": "Include the specific procname and step name of the TESTPMA8 job in the PMA scope and add a description to the included job",
+              "options": "TESTPMA8 --ps TESTCALL --st TESTDO --dc \"INCLUDE IN THE CURRENT SCOPE\""
+            },
+            {
+              "description": "Include the specific procname and step name of the TESTPMA8 job in the PMA scope and add a description to the included job using specific PMA profile details",
+              "options": "TESTPMA8 --ps TESTCALL --st TESTDO --dc \"INCLUDE IN THE CURRENT SCOPE\" --ja 123456789 --jc A --jmc A --jl HLQ.CEETLOAD --jph PMAHLQ"
+            }
+          ],
+          "passOn": [],
+          "children": []
+        },
+        {
+          "name": "get-listj",
+          "aliases": [
+            "getlj"
+          ],
+          "type": "command",
+          "summary": "Get the list of jobs included in the PMA scope.",
+          "description": "Get the list of jobs included in the PMA scope.",
+          "handler": "",
+          "profile": {
+            "required": [
+              "zosmf"
+            ],
+            "optional": [
+              "pma",
+              "base"
+            ]
+          },
+          "examples": [
+            {
+              "description": "Get the list of jobs included in the PMA scope",
+              "options": ""
+            },
+            {
+              "description": "Get the list of jobs included in the PMA scope using specific PMA profile details",
+              "options": "--ja 123456789 --jc A --jmc A --jl HLQ.CEETLOAD --jph PMAHLQ"
+            }
+          ],
+          "options": [
+            {
+              "name": "job_acct",
+              "aliases": [
+                "ja"
+              ],
+              "description": "Specifies z/OS TSO/E accounting information. Values: numeric characters (0-9)",
+              "type": "string",
+              "required": true,
+              "group": "PMA Connection Options"
+            },
+            {
+              "name": "job_class",
+              "aliases": [
+                "jc"
+              ],
+              "description": "Your z/OS class information. Values: alphanumeric characters (A-Z, 0-9) ",
+              "type": "string",
+              "required": true,
+              "stringLengthRange": [
+                1,
+                1
+              ],
+              "group": "PMA Connection Options"
+            },
+            {
+              "name": "job_mclass",
+              "aliases": [
+                "jmc"
+              ],
+              "description": "Specifies the MSGCLASS parameter value and assigns the job log to the specified output class. The specified MSGCLASS value is used in all JCLs that PMA runs while you execute the commands. If you do not provide the job_mclass parameter, the default MSGCLASS value is used. Values: alphanumeric characters (A-Z, 0-9) ",
+              "type": "string",
+              "defaultValue": "A",
+              "required": false,
+              "stringLengthRange": [
+                1,
+                1
+              ],
+              "group": "PMA Connection Options"
+            },
+            {
+              "name": "job_load",
+              "aliases": [
+                "jl"
+              ],
+              "description": "Specifies the PMA loadlib data set name that you defined during the PMA customization (&HLQ.CEETLOAD) ",
+              "type": "string",
+              "required": true,
+              "group": "PMA Connection Options"
+            },
+            {
+              "name": "job_pmahlq",
+              "aliases": [
+                "jph"
+              ],
+              "description": "Specifies your PMA HLQ to access the KSDSALT, KSDSJOB, and KSDSEXC VSAM files to collect the necessary data",
+              "type": "string",
+              "required": true,
+              "group": "PMA Connection Options"
+            },
+            {
+              "name": "response-format-json",
+              "aliases": [
+                "rfj"
+              ],
+              "group": "Global options",
+              "description": "Produce JSON formatted data from a command",
+              "type": "boolean"
+            },
+            {
+              "name": "help",
+              "aliases": [
+                "h"
+              ],
+              "group": "Global options",
+              "description": "Display help text",
+              "type": "boolean"
+            },
+            {
+              "name": "help-examples",
+              "group": "Global options",
+              "description": "Display examples for all the commands in a group",
+              "type": "boolean",
+              "aliases": []
+            },
+            {
+              "name": "help-web",
+              "aliases": [
+                "hw"
+              ],
+              "group": "Global options",
+              "description": "Display HTML help in browser",
+              "type": "boolean"
+            },
+            {
+              "name": "zosmf-profile",
+              "aliases": [
+                "zosmf-p"
+              ],
+              "group": "Profile Options",
+              "description": "The name of a (zosmf) profile to load for this command execution.",
+              "type": "string"
+            },
+            {
+              "name": "pma-profile",
+              "aliases": [
+                "pma-p"
+              ],
+              "group": "Profile Options",
+              "description": "The name of a (pma) profile to load for this command execution.",
+              "type": "string"
+            },
+            {
+              "name": "base-profile",
+              "aliases": [
+                "base-p"
+              ],
+              "group": "Profile Options",
+              "description": "The name of a (base) profile to load for this command execution.",
+              "type": "string"
+            },
+            {
+              "name": "host",
+              "aliases": [
+                "H"
+              ],
+              "description": "Host name of service on the mainframe.",
+              "type": "string",
+              "group": "Base Connection Options"
+            },
+            {
+              "name": "port",
+              "aliases": [
+                "P"
+              ],
+              "description": "Port number of service on the mainframe.",
+              "type": "number",
+              "group": "Base Connection Options"
+            },
+            {
+              "name": "user",
+              "aliases": [
+                "u"
+              ],
+              "description": "User name to authenticate to service on the mainframe.",
+              "type": "string",
+              "group": "Base Connection Options"
+            },
+            {
+              "name": "password",
+              "aliases": [
+                "pass",
+                "pw"
+              ],
+              "description": "Password to authenticate to service on the mainframe.",
+              "type": "string",
+              "group": "Base Connection Options"
+            },
+            {
+              "name": "reject-unauthorized",
+              "aliases": [
+                "ru"
+              ],
+              "description": "Reject self-signed certificates.",
+              "type": "boolean",
+              "defaultValue": true,
+              "group": "Base Connection Options"
+            },
+            {
+              "name": "token-type",
+              "aliases": [
+                "tt"
+              ],
+              "description": "The type of token to get and use for the API. Omit this option to use the default token type, which is provided by 'zowe auth login'.",
+              "type": "string",
+              "group": "Base Connection Options"
+            },
+            {
+              "name": "token-value",
+              "aliases": [
+                "tv"
+              ],
+              "description": "The value of the token to pass to the API.",
+              "type": "string",
+              "group": "Base Connection Options"
+            },
+            {
+              "name": "cert-file",
+              "description": "The file path to a certificate file to use for authentication",
+              "type": "existingLocalFile",
+              "group": "Base Connection Options",
+              "aliases": []
+            },
+            {
+              "name": "cert-key-file",
+              "description": "The file path to a certificate key file to use for authentication",
+              "type": "existingLocalFile",
+              "group": "Base Connection Options",
+              "aliases": []
+            }
+          ],
+          "positionals": [],
+          "passOn": [],
+          "children": []
+        },
+        {
+          "name": "get-listp",
+          "aliases": [
+            "getlp"
+          ],
+          "type": "command",
+          "summary": "Get the list of programs excluded from the PMA scope.",
+          "description": "Get the list of programs excluded from the PMA scope.",
+          "handler": "",
+          "profile": {
+            "required": [
+              "zosmf"
+            ],
+            "optional": [
+              "pma",
+              "base"
+            ]
+          },
+          "examples": [
+            {
+              "description": "Get the list of programs excluded from the PMA scope",
+              "options": ""
+            },
+            {
+              "description": "Get the list of programs excluded from the PMA scope using specific PMA profile details",
+              "options": "--ja 123456789 --jc A --jmc A --jl HLQ.CEETLOAD --jph PMAHLQ"
+            }
+          ],
+          "options": [
+            {
+              "name": "job_acct",
+              "aliases": [
+                "ja"
+              ],
+              "description": "Specifies z/OS TSO/E accounting information. Values: numeric characters (0-9)",
+              "type": "string",
+              "required": true,
+              "group": "PMA Connection Options"
+            },
+            {
+              "name": "job_class",
+              "aliases": [
+                "jc"
+              ],
+              "description": "Your z/OS class information. Values: alphanumeric characters (A-Z, 0-9) ",
+              "type": "string",
+              "required": true,
+              "stringLengthRange": [
+                1,
+                1
+              ],
+              "group": "PMA Connection Options"
+            },
+            {
+              "name": "job_mclass",
+              "aliases": [
+                "jmc"
+              ],
+              "description": "Specifies the MSGCLASS parameter value and assigns the job log to the specified output class. The specified MSGCLASS value is used in all JCLs that PMA runs while you execute the commands. If you do not provide the job_mclass parameter, the default MSGCLASS value is used. Values: alphanumeric characters (A-Z, 0-9) ",
+              "type": "string",
+              "defaultValue": "A",
+              "required": false,
+              "stringLengthRange": [
+                1,
+                1
+              ],
+              "group": "PMA Connection Options"
+            },
+            {
+              "name": "job_load",
+              "aliases": [
+                "jl"
+              ],
+              "description": "Specifies the PMA loadlib data set name that you defined during the PMA customization (&HLQ.CEETLOAD) ",
+              "type": "string",
+              "required": true,
+              "group": "PMA Connection Options"
+            },
+            {
+              "name": "job_pmahlq",
+              "aliases": [
+                "jph"
+              ],
+              "description": "Specifies your PMA HLQ to access the KSDSALT, KSDSJOB, and KSDSEXC VSAM files to collect the necessary data",
+              "type": "string",
+              "required": true,
+              "group": "PMA Connection Options"
+            },
+            {
+              "name": "response-format-json",
+              "aliases": [
+                "rfj"
+              ],
+              "group": "Global options",
+              "description": "Produce JSON formatted data from a command",
+              "type": "boolean"
+            },
+            {
+              "name": "help",
+              "aliases": [
+                "h"
+              ],
+              "group": "Global options",
+              "description": "Display help text",
+              "type": "boolean"
+            },
+            {
+              "name": "help-examples",
+              "group": "Global options",
+              "description": "Display examples for all the commands in a group",
+              "type": "boolean",
+              "aliases": []
+            },
+            {
+              "name": "help-web",
+              "aliases": [
+                "hw"
+              ],
+              "group": "Global options",
+              "description": "Display HTML help in browser",
+              "type": "boolean"
+            },
+            {
+              "name": "zosmf-profile",
+              "aliases": [
+                "zosmf-p"
+              ],
+              "group": "Profile Options",
+              "description": "The name of a (zosmf) profile to load for this command execution.",
+              "type": "string"
+            },
+            {
+              "name": "pma-profile",
+              "aliases": [
+                "pma-p"
+              ],
+              "group": "Profile Options",
+              "description": "The name of a (pma) profile to load for this command execution.",
+              "type": "string"
+            },
+            {
+              "name": "base-profile",
+              "aliases": [
+                "base-p"
+              ],
+              "group": "Profile Options",
+              "description": "The name of a (base) profile to load for this command execution.",
+              "type": "string"
+            },
+            {
+              "name": "host",
+              "aliases": [
+                "H"
+              ],
+              "description": "Host name of service on the mainframe.",
+              "type": "string",
+              "group": "Base Connection Options"
+            },
+            {
+              "name": "port",
+              "aliases": [
+                "P"
+              ],
+              "description": "Port number of service on the mainframe.",
+              "type": "number",
+              "group": "Base Connection Options"
+            },
+            {
+              "name": "user",
+              "aliases": [
+                "u"
+              ],
+              "description": "User name to authenticate to service on the mainframe.",
+              "type": "string",
+              "group": "Base Connection Options"
+            },
+            {
+              "name": "password",
+              "aliases": [
+                "pass",
+                "pw"
+              ],
+              "description": "Password to authenticate to service on the mainframe.",
+              "type": "string",
+              "group": "Base Connection Options"
+            },
+            {
+              "name": "reject-unauthorized",
+              "aliases": [
+                "ru"
+              ],
+              "description": "Reject self-signed certificates.",
+              "type": "boolean",
+              "defaultValue": true,
+              "group": "Base Connection Options"
+            },
+            {
+              "name": "token-type",
+              "aliases": [
+                "tt"
+              ],
+              "description": "The type of token to get and use for the API. Omit this option to use the default token type, which is provided by 'zowe auth login'.",
+              "type": "string",
+              "group": "Base Connection Options"
+            },
+            {
+              "name": "token-value",
+              "aliases": [
+                "tv"
+              ],
+              "description": "The value of the token to pass to the API.",
+              "type": "string",
+              "group": "Base Connection Options"
+            },
+            {
+              "name": "cert-file",
+              "description": "The file path to a certificate file to use for authentication",
+              "type": "existingLocalFile",
+              "group": "Base Connection Options",
+              "aliases": []
+            },
+            {
+              "name": "cert-key-file",
+              "description": "The file path to a certificate key file to use for authentication",
+              "type": "existingLocalFile",
+              "group": "Base Connection Options",
+              "aliases": []
+            }
+          ],
+          "positionals": [],
+          "passOn": [],
+          "children": []
+        },
+        {
+          "name": "del-job",
+          "aliases": [
+            "delj"
+          ],
+          "type": "command",
+          "summary": "Delete a job from the list of inclusions in the PMA scope.",
+          "description": "Delete a job from the list of inclusions in the PMA scope.",
+          "handler": "",
+          "profile": {
+            "required": [
+              "zosmf"
+            ],
+            "optional": [
+              "pma",
+              "base"
+            ]
+          },
+          "positionals": [
+            {
+              "name": "jobname",
+              "description": "Specifies the name of the job that you want to delete from the list of inclusions in the PMA scope (e.g. TESTPMA8).",
+              "type": "string",
+              "required": true
+            }
+          ],
+          "options": [
+            {
+              "name": "stepname",
+              "aliases": [
+                "st"
+              ],
+              "description": "Specifies the name of the job step that you want to delete from the list of inclusions in the PMA scope.",
+              "type": "string",
+              "stringLengthRange": [
+                1,
+                8
+              ],
+              "required": false,
+              "group": "Options"
+            },
+            {
+              "name": "procstep",
+              "aliases": [
+                "ps"
+              ],
+              "description": "Specifies the procname of the job that you want to delete from the list of inclusions in the PMA scope.",
+              "type": "string",
+              "stringLengthRange": [
+                1,
+                8
+              ],
+              "required": false,
+              "group": "Options"
+            },
+            {
+              "name": "job_acct",
+              "aliases": [
+                "ja"
+              ],
+              "description": "Specifies z/OS TSO/E accounting information. Values: numeric characters (0-9)",
+              "type": "string",
+              "required": true,
+              "group": "PMA Connection Options"
+            },
+            {
+              "name": "job_class",
+              "aliases": [
+                "jc"
+              ],
+              "description": "Your z/OS class information. Values: alphanumeric characters (A-Z, 0-9) ",
+              "type": "string",
+              "required": true,
+              "stringLengthRange": [
+                1,
+                1
+              ],
+              "group": "PMA Connection Options"
+            },
+            {
+              "name": "job_mclass",
+              "aliases": [
+                "jmc"
+              ],
+              "description": "Specifies the MSGCLASS parameter value and assigns the job log to the specified output class. The specified MSGCLASS value is used in all JCLs that PMA runs while you execute the commands. If you do not provide the job_mclass parameter, the default MSGCLASS value is used. Values: alphanumeric characters (A-Z, 0-9) ",
+              "type": "string",
+              "defaultValue": "A",
+              "required": false,
+              "stringLengthRange": [
+                1,
+                1
+              ],
+              "group": "PMA Connection Options"
+            },
+            {
+              "name": "job_load",
+              "aliases": [
+                "jl"
+              ],
+              "description": "Specifies the PMA loadlib data set name that you defined during the PMA customization (&HLQ.CEETLOAD) ",
+              "type": "string",
+              "required": true,
+              "group": "PMA Connection Options"
+            },
+            {
+              "name": "job_pmahlq",
+              "aliases": [
+                "jph"
+              ],
+              "description": "Specifies your PMA HLQ to access the KSDSALT, KSDSJOB, and KSDSEXC VSAM files to collect the necessary data",
+              "type": "string",
+              "required": true,
+              "group": "PMA Connection Options"
+            },
+            {
+              "name": "response-format-json",
+              "aliases": [
+                "rfj"
+              ],
+              "group": "Global options",
+              "description": "Produce JSON formatted data from a command",
+              "type": "boolean"
+            },
+            {
+              "name": "help",
+              "aliases": [
+                "h"
+              ],
+              "group": "Global options",
+              "description": "Display help text",
+              "type": "boolean"
+            },
+            {
+              "name": "help-examples",
+              "group": "Global options",
+              "description": "Display examples for all the commands in a group",
+              "type": "boolean",
+              "aliases": []
+            },
+            {
+              "name": "help-web",
+              "aliases": [
+                "hw"
+              ],
+              "group": "Global options",
+              "description": "Display HTML help in browser",
+              "type": "boolean"
+            },
+            {
+              "name": "zosmf-profile",
+              "aliases": [
+                "zosmf-p"
+              ],
+              "group": "Profile Options",
+              "description": "The name of a (zosmf) profile to load for this command execution.",
+              "type": "string"
+            },
+            {
+              "name": "pma-profile",
+              "aliases": [
+                "pma-p"
+              ],
+              "group": "Profile Options",
+              "description": "The name of a (pma) profile to load for this command execution.",
+              "type": "string"
+            },
+            {
+              "name": "base-profile",
+              "aliases": [
+                "base-p"
+              ],
+              "group": "Profile Options",
+              "description": "The name of a (base) profile to load for this command execution.",
+              "type": "string"
+            },
+            {
+              "name": "host",
+              "aliases": [
+                "H"
+              ],
+              "description": "Host name of service on the mainframe.",
+              "type": "string",
+              "group": "Base Connection Options"
+            },
+            {
+              "name": "port",
+              "aliases": [
+                "P"
+              ],
+              "description": "Port number of service on the mainframe.",
+              "type": "number",
+              "group": "Base Connection Options"
+            },
+            {
+              "name": "user",
+              "aliases": [
+                "u"
+              ],
+              "description": "User name to authenticate to service on the mainframe.",
+              "type": "string",
+              "group": "Base Connection Options"
+            },
+            {
+              "name": "password",
+              "aliases": [
+                "pass",
+                "pw"
+              ],
+              "description": "Password to authenticate to service on the mainframe.",
+              "type": "string",
+              "group": "Base Connection Options"
+            },
+            {
+              "name": "reject-unauthorized",
+              "aliases": [
+                "ru"
+              ],
+              "description": "Reject self-signed certificates.",
+              "type": "boolean",
+              "defaultValue": true,
+              "group": "Base Connection Options"
+            },
+            {
+              "name": "token-type",
+              "aliases": [
+                "tt"
+              ],
+              "description": "The type of token to get and use for the API. Omit this option to use the default token type, which is provided by 'zowe auth login'.",
+              "type": "string",
+              "group": "Base Connection Options"
+            },
+            {
+              "name": "token-value",
+              "aliases": [
+                "tv"
+              ],
+              "description": "The value of the token to pass to the API.",
+              "type": "string",
+              "group": "Base Connection Options"
+            },
+            {
+              "name": "cert-file",
+              "description": "The file path to a certificate file to use for authentication",
+              "type": "existingLocalFile",
+              "group": "Base Connection Options",
+              "aliases": []
+            },
+            {
+              "name": "cert-key-file",
+              "description": "The file path to a certificate key file to use for authentication",
+              "type": "existingLocalFile",
+              "group": "Base Connection Options",
+              "aliases": []
+            }
+          ],
+          "examples": [
+            {
+              "description": "Delete the TESTPMA8 job from the list of inclusions in the PMA scope",
+              "options": "TESTPMA8"
+            },
+            {
+              "description": "Delete the specific procname and step name of the TESTPMA8 job from the list of inclusions in the PMA scope",
+              "options": "TESTPMA8  --ps TESTCALL --st TESTDO"
+            },
+            {
+              "description": "Delete the specific procname and step name of the TESTPMA8 job from the list of inclusions in the PMA scope using specific PMA profile details",
+              "options": "TESTPMA8  --ps TESTCALL --st TESTDO --ja 123456789 --jc A --jmc A --jl HLQ.CEETLOAD --jph PMAHLQ"
+            }
+          ],
+          "passOn": [],
+          "children": []
+        },
+        {
+          "name": "del-pgm",
+          "aliases": [
+            "delp"
+          ],
+          "type": "command",
+          "summary": "Delete a program from the list of exclusions from the PMA scope.",
+          "description": "Delete a program from the list of exclusions from the PMA scope.",
+          "handler": "",
+          "profile": {
+            "required": [
+              "zosmf"
+            ],
+            "optional": [
+              "pma",
+              "base"
+            ]
+          },
+          "positionals": [
+            {
+              "name": "pgmname",
+              "description": "Specifies the name of the program that you want to delete from the list of exclusions from the PMA scope (e.g. TESTPMA8).",
+              "type": "string",
+              "required": true
+            }
+          ],
+          "examples": [
+            {
+              "description": "Delete the TESTPMA8 program from the exclusions list from the PMA scope",
+              "options": "TESTPMA8"
+            },
+            {
+              "description": "Delete the TESTPMA8 program from the exclusions list from the PMA scope using specific PMA profile details",
+              "options": "TESTPMA8 --ja 123456789 --jc A --jmc A --jl HLQ.CEETLOAD --jph PMAHLQ"
+            }
+          ],
+          "options": [
+            {
+              "name": "job_acct",
+              "aliases": [
+                "ja"
+              ],
+              "description": "Specifies z/OS TSO/E accounting information. Values: numeric characters (0-9)",
+              "type": "string",
+              "required": true,
+              "group": "PMA Connection Options"
+            },
+            {
+              "name": "job_class",
+              "aliases": [
+                "jc"
+              ],
+              "description": "Your z/OS class information. Values: alphanumeric characters (A-Z, 0-9) ",
+              "type": "string",
+              "required": true,
+              "stringLengthRange": [
+                1,
+                1
+              ],
+              "group": "PMA Connection Options"
+            },
+            {
+              "name": "job_mclass",
+              "aliases": [
+                "jmc"
+              ],
+              "description": "Specifies the MSGCLASS parameter value and assigns the job log to the specified output class. The specified MSGCLASS value is used in all JCLs that PMA runs while you execute the commands. If you do not provide the job_mclass parameter, the default MSGCLASS value is used. Values: alphanumeric characters (A-Z, 0-9) ",
+              "type": "string",
+              "defaultValue": "A",
+              "required": false,
+              "stringLengthRange": [
+                1,
+                1
+              ],
+              "group": "PMA Connection Options"
+            },
+            {
+              "name": "job_load",
+              "aliases": [
+                "jl"
+              ],
+              "description": "Specifies the PMA loadlib data set name that you defined during the PMA customization (&HLQ.CEETLOAD) ",
+              "type": "string",
+              "required": true,
+              "group": "PMA Connection Options"
+            },
+            {
+              "name": "job_pmahlq",
+              "aliases": [
+                "jph"
+              ],
+              "description": "Specifies your PMA HLQ to access the KSDSALT, KSDSJOB, and KSDSEXC VSAM files to collect the necessary data",
+              "type": "string",
+              "required": true,
+              "group": "PMA Connection Options"
+            },
+            {
+              "name": "response-format-json",
+              "aliases": [
+                "rfj"
+              ],
+              "group": "Global options",
+              "description": "Produce JSON formatted data from a command",
+              "type": "boolean"
+            },
+            {
+              "name": "help",
+              "aliases": [
+                "h"
+              ],
+              "group": "Global options",
+              "description": "Display help text",
+              "type": "boolean"
+            },
+            {
+              "name": "help-examples",
+              "group": "Global options",
+              "description": "Display examples for all the commands in a group",
+              "type": "boolean",
+              "aliases": []
+            },
+            {
+              "name": "help-web",
+              "aliases": [
+                "hw"
+              ],
+              "group": "Global options",
+              "description": "Display HTML help in browser",
+              "type": "boolean"
+            },
+            {
+              "name": "zosmf-profile",
+              "aliases": [
+                "zosmf-p"
+              ],
+              "group": "Profile Options",
+              "description": "The name of a (zosmf) profile to load for this command execution.",
+              "type": "string"
+            },
+            {
+              "name": "pma-profile",
+              "aliases": [
+                "pma-p"
+              ],
+              "group": "Profile Options",
+              "description": "The name of a (pma) profile to load for this command execution.",
+              "type": "string"
+            },
+            {
+              "name": "base-profile",
+              "aliases": [
+                "base-p"
+              ],
+              "group": "Profile Options",
+              "description": "The name of a (base) profile to load for this command execution.",
+              "type": "string"
+            },
+            {
+              "name": "host",
+              "aliases": [
+                "H"
+              ],
+              "description": "Host name of service on the mainframe.",
+              "type": "string",
+              "group": "Base Connection Options"
+            },
+            {
+              "name": "port",
+              "aliases": [
+                "P"
+              ],
+              "description": "Port number of service on the mainframe.",
+              "type": "number",
+              "group": "Base Connection Options"
+            },
+            {
+              "name": "user",
+              "aliases": [
+                "u"
+              ],
+              "description": "User name to authenticate to service on the mainframe.",
+              "type": "string",
+              "group": "Base Connection Options"
+            },
+            {
+              "name": "password",
+              "aliases": [
+                "pass",
+                "pw"
+              ],
+              "description": "Password to authenticate to service on the mainframe.",
+              "type": "string",
+              "group": "Base Connection Options"
+            },
+            {
+              "name": "reject-unauthorized",
+              "aliases": [
+                "ru"
+              ],
+              "description": "Reject self-signed certificates.",
+              "type": "boolean",
+              "defaultValue": true,
+              "group": "Base Connection Options"
+            },
+            {
+              "name": "token-type",
+              "aliases": [
+                "tt"
+              ],
+              "description": "The type of token to get and use for the API. Omit this option to use the default token type, which is provided by 'zowe auth login'.",
+              "type": "string",
+              "group": "Base Connection Options"
+            },
+            {
+              "name": "token-value",
+              "aliases": [
+                "tv"
+              ],
+              "description": "The value of the token to pass to the API.",
+              "type": "string",
+              "group": "Base Connection Options"
+            },
+            {
+              "name": "cert-file",
+              "description": "The file path to a certificate file to use for authentication",
+              "type": "existingLocalFile",
+              "group": "Base Connection Options",
+              "aliases": []
+            },
+            {
+              "name": "cert-key-file",
+              "description": "The file path to a certificate key file to use for authentication",
+              "type": "existingLocalFile",
+              "group": "Base Connection Options",
+              "aliases": []
+            }
+          ],
+          "passOn": [],
+          "children": []
+        }
+      ],
+      "options": [
+        {
+          "name": "response-format-json",
+          "aliases": [
+            "rfj"
+          ],
+          "group": "Global options",
+          "description": "Produce JSON formatted data from a command",
+          "type": "boolean"
+        },
+        {
+          "name": "help",
+          "aliases": [
+            "h"
+          ],
+          "group": "Global options",
+          "description": "Display help text",
+          "type": "boolean"
+        },
+        {
+          "name": "help-examples",
+          "group": "Global options",
+          "description": "Display examples for all the commands in a group",
+          "type": "boolean",
+          "aliases": []
+        },
+        {
+          "name": "help-web",
+          "aliases": [
+            "hw"
+          ],
+          "group": "Global options",
+          "description": "Display HTML help in browser",
+          "type": "boolean"
+        }
+      ],
+      "positionals": [],
+      "passOn": []
+    }
+  ],
+  "summary": "The CA MAT Detect plug-in for Zowe CLI enables you to detect performance issues and access performance data supplied by the Performance Management Assistant component (PMA) of CA Mainframe Application Tuner.",
+  "aliases": [
+    "pma"
+  ],
+  "options": [
+    {
+      "name": "response-format-json",
+      "aliases": [
+        "rfj"
+      ],
+      "group": "Global options",
+      "description": "Produce JSON formatted data from a command",
+      "type": "boolean"
+    },
+    {
+      "name": "help",
+      "aliases": [
+        "h"
+      ],
+      "group": "Global options",
+      "description": "Display help text",
+      "type": "boolean"
+    },
+    {
+      "name": "help-examples",
+      "group": "Global options",
+      "description": "Display examples for all the commands in a group",
+      "type": "boolean",
+      "aliases": []
+    },
+    {
+      "name": "help-web",
+      "aliases": [
+        "hw"
+      ],
+      "group": "Global options",
+      "description": "Display HTML help in browser",
+      "type": "boolean"
+    }
+  ],
+  "positionals": [],
+  "passOn": []
+}

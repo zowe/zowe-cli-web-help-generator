@@ -1,0 +1,210 @@
+// Copyright (c) 2021 Broadcom.  All Rights Reserved.  The term
+// "Broadcom" refers to Broadcom Inc. and/or its subsidiaries.
+{
+  "name": "endevor-location-profile",
+  "aliases": [
+    "endevor-location"
+  ],
+  "summary": "Create a endevor-location profile",
+  "description": "The CA Endevor SCM element location, where you specify your working environment, system and subsystem",
+  "type": "command",
+  "handler": "",
+  "customize": {
+    "profileTypeIdentifier": "endevor-location"
+  },
+  "positionals": [
+    {
+      "name": "profileName",
+      "description": "Specifies the name of the new endevor-location profile. You can load this profile by using the name on commands that support the \"--endevor-location-profile\" option.",
+      "type": "string",
+      "required": true
+    }
+  ],
+  "options": [
+    {
+      "description": "The STC/datasource of the session",
+      "type": "string",
+      "name": "instance",
+      "aliases": [
+        "i"
+      ],
+      "group": "Options"
+    },
+    {
+      "description": "The CA Endevor SCM environment where your project resides",
+      "type": "string",
+      "name": "environment",
+      "aliases": [
+        "env"
+      ],
+      "defaultValue": "DEV",
+      "stringLengthRange": [
+        1,
+        8
+      ],
+      "group": "Options"
+    },
+    {
+      "description": "The CA Endevor SCM system where the element resides",
+      "type": "string",
+      "name": "system",
+      "aliases": [
+        "sys"
+      ],
+      "stringLengthRange": [
+        1,
+        8
+      ],
+      "group": "Options"
+    },
+    {
+      "description": "The CA Endevor SCM subsystem where your element resides",
+      "type": "string",
+      "name": "subsystem",
+      "aliases": [
+        "sub"
+      ],
+      "stringLengthRange": [
+        1,
+        8
+      ],
+      "group": "Options"
+    },
+    {
+      "description": "Name of the CA Endevor SCM element's type",
+      "type": "string",
+      "name": "type",
+      "aliases": [
+        "typ"
+      ],
+      "stringLengthRange": [
+        1,
+        8
+      ],
+      "group": "Options"
+    },
+    {
+      "description": "The CA Endevor SCM stage where your project resides",
+      "type": "string",
+      "name": "stage-number",
+      "aliases": [
+        "sn"
+      ],
+      "allowableValues": {
+        "values": [
+          "1",
+          "2"
+        ]
+      },
+      "group": "Options"
+    },
+    {
+      "description": "The CA Endevor SCM comment you want to use when performing an action",
+      "type": "string",
+      "name": "comment",
+      "aliases": [
+        "com"
+      ],
+      "stringLengthRange": [
+        1,
+        40
+      ],
+      "group": "Options"
+    },
+    {
+      "description": "The CA Endevor SCM CCID you want to use when performing an action",
+      "type": "string",
+      "name": "ccid",
+      "aliases": [
+        "cci"
+      ],
+      "stringLengthRange": [
+        1,
+        12
+      ],
+      "group": "Options"
+    },
+    {
+      "description": "The return code of CA Endevor SCM that defines a failed action",
+      "type": "number",
+      "name": "maxrc",
+      "defaultValue": 8,
+      "group": "Options",
+      "aliases": []
+    },
+    {
+      "description": "Always override element signout, without having to specify the override signout option on each command",
+      "type": "boolean",
+      "name": "override-signout",
+      "aliases": [
+        "os"
+      ],
+      "defaultValue": false,
+      "group": "Options"
+    },
+    {
+      "name": "overwrite",
+      "aliases": [
+        "ow"
+      ],
+      "description": "Overwrite the endevor-location profile when a profile of the same name exists.",
+      "type": "boolean",
+      "group": "Options"
+    },
+    {
+      "name": "disable-defaults",
+      "aliases": [
+        "dd"
+      ],
+      "description": "Disable populating profile values of undefined properties with default values.",
+      "type": "boolean",
+      "group": "Options"
+    },
+    {
+      "name": "response-format-json",
+      "aliases": [
+        "rfj"
+      ],
+      "group": "Global options",
+      "description": "Produce JSON formatted data from a command",
+      "type": "boolean"
+    },
+    {
+      "name": "help",
+      "aliases": [
+        "h"
+      ],
+      "group": "Global options",
+      "description": "Display help text",
+      "type": "boolean"
+    },
+    {
+      "name": "help-examples",
+      "group": "Global options",
+      "description": "Display examples for all the commands in a group",
+      "type": "boolean",
+      "aliases": []
+    },
+    {
+      "name": "help-web",
+      "aliases": [
+        "hw"
+      ],
+      "group": "Global options",
+      "description": "Display HTML help in browser",
+      "type": "boolean"
+    }
+  ],
+  "examples": [
+    {
+      "options": "ndvrLoc --env ENV --sys SYS --sub SUBSYS --typ COBOL --sn 1 -i ENDEVOR",
+      "description": "Create a location profile called 'ndvrLoc' to work at CA Endevor SCM location ENV/1/SYS/SUBSYS, with elements of type COBOL, using CA Endevor SCM web services configuration ENDEVOR"
+    },
+    {
+      "options": "ndvrLoc2 --env ENV --sys SYS --sub SUBSYS --sn 1 --com 'sample comment' --cci 'CCID'",
+      "description": "Create a location profile called 'ndvrLoc2' to work at CA Endevor SCM location ENV/1/SYS/SUBSYS, using CCID 'CCID' and comment 'sample comment'"
+    }
+  ],
+  "passOn": [],
+  "children": []
+}

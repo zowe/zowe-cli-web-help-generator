@@ -1,0 +1,74 @@
+// Copyright (c) 2021 Broadcom.  All Rights Reserved.  The term
+// "Broadcom" refers to Broadcom Inc. and/or its subsidiaries.
+{
+  "name": "caspool-profiles",
+  "aliases": [
+    "caspool"
+  ],
+  "summary": "List profiles of the type caspool.",
+  "description": "Configuration profile for CA Spool, where you specify information about your CA Spool instance",
+  "type": "command",
+  "handler": "",
+  "customize": {
+    "profileTypeIdentifier": "caspool"
+  },
+  "options": [
+    {
+      "name": "show-contents",
+      "aliases": [
+        "sc"
+      ],
+      "description": "List caspool  profiles  and their contents. All profile details will be printed as part of command output.",
+      "type": "boolean",
+      "required": false,
+      "group": "Options"
+    },
+    {
+      "name": "response-format-json",
+      "aliases": [
+        "rfj"
+      ],
+      "group": "Global options",
+      "description": "Produce JSON formatted data from a command",
+      "type": "boolean"
+    },
+    {
+      "name": "help",
+      "aliases": [
+        "h"
+      ],
+      "group": "Global options",
+      "description": "Display help text",
+      "type": "boolean"
+    },
+    {
+      "name": "help-examples",
+      "group": "Global options",
+      "description": "Display examples for all the commands in a group",
+      "type": "boolean",
+      "aliases": []
+    },
+    {
+      "name": "help-web",
+      "aliases": [
+        "hw"
+      ],
+      "group": "Global options",
+      "description": "Display HTML help in browser",
+      "type": "boolean"
+    }
+  ],
+  "examples": [
+    {
+      "options": "",
+      "description": "List profiles of type caspool"
+    },
+    {
+      "options": "--sc",
+      "description": "List profiles of type caspool and display their contents"
+    }
+  ],
+  "positionals": [],
+  "passOn": [],
+  "children": []
+}

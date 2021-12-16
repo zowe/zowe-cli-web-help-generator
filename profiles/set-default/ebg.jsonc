@@ -1,0 +1,67 @@
+// Copyright (c) 2021 Broadcom.  All Rights Reserved.  The term
+// "Broadcom" refers to Broadcom Inc. and/or its subsidiaries.
+{
+  "name": "ebg-profile",
+  "aliases": [
+    "ebg"
+  ],
+  "summary": "Set the default\n profiles for the ebg group",
+  "description": "The ebg set default-profiles command allows you to set the default profiles for this command group. When a ebg command is issued and no profile override options are specified, the default profiles for the command group are automatically loaded for the command based on the commands profile requirements.",
+  "type": "command",
+  "handler": "",
+  "options": [
+    {
+      "name": "response-format-json",
+      "aliases": [
+        "rfj"
+      ],
+      "group": "Global options",
+      "description": "Produce JSON formatted data from a command",
+      "type": "boolean"
+    },
+    {
+      "name": "help",
+      "aliases": [
+        "h"
+      ],
+      "group": "Global options",
+      "description": "Display help text",
+      "type": "boolean"
+    },
+    {
+      "name": "help-examples",
+      "group": "Global options",
+      "description": "Display examples for all the commands in a group",
+      "type": "boolean",
+      "aliases": []
+    },
+    {
+      "name": "help-web",
+      "aliases": [
+        "hw"
+      ],
+      "group": "Global options",
+      "description": "Display HTML help in browser",
+      "type": "boolean"
+    }
+  ],
+  "positionals": [
+    {
+      "name": "profileName",
+      "description": "Specify a\n profile for default usage within the ebg group. When you issue commands within the ebg group without a profile specified as part of the command, the default will be loaded instead.",
+      "type": "string",
+      "required": true
+    }
+  ],
+  "customize": {
+    "profileTypeIdentifier": "ebg"
+  },
+  "examples": [
+    {
+      "options": "profilename",
+      "description": "Set the default profile for type ebg to the profile named 'profilename'"
+    }
+  ],
+  "passOn": [],
+  "children": []
+}
