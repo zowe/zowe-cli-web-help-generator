@@ -1,4 +1,5 @@
-// Copyright Contributors to the Zowe Project.
+// Copyright (c) 2021 Broadcom.  All Rights Reserved.  The term
+// "Broadcom" refers to Broadcom Inc. and/or its subsidiaries.
 {
   "name": "ops-profile",
   "aliases": [
