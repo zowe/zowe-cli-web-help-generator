@@ -1,0 +1,165 @@
+// Copyright (c) 2021 Broadcom.  All Rights Reserved.  The term
+// "Broadcom" refers to Broadcom Inc. and/or its subsidiaries.
+{
+  "name": "jclcheck-profile",
+  "aliases": [
+    "jclcheck"
+  ],
+  "summary": "Update a jclcheck profile. You can update any property present within the profile configuration. The updated profile will be printed so that you can review the result of the updates.",
+  "description": "A JCLCheck profile is required to issue commands in the jcl command group that interact with JCLCheck. The JCLCheck profile contains your host and port for the JCLCheck instance of your choice.",
+  "type": "command",
+  "handler": "",
+  "customize": {
+    "profileTypeIdentifier": "jclcheck"
+  },
+  "positionals": [
+    {
+      "name": "profileName",
+      "description": "Specifies the name of the new jclcheck profile. You can load this profile by using the name on commands that support the \"--jclcheck-profile\" option.",
+      "type": "string",
+      "required": true
+    }
+  ],
+  "options": [
+    {
+      "name": "host",
+      "aliases": [
+        "H"
+      ],
+      "type": "string",
+      "description": "Host name of the JCLCheck API service that is running on the mainframe system.",
+      "required": false,
+      "group": "JCLCheck Connection Options",
+      "absenceImplications": null,
+      "implies": null
+    },
+    {
+      "name": "port",
+      "aliases": [
+        "P"
+      ],
+      "type": "number",
+      "description": "Port for the JCLCheck API service that is running on the mainframe system.",
+      "required": false,
+      "group": "JCLCheck Connection Options",
+      "absenceImplications": null,
+      "implies": null
+    },
+    {
+      "name": "user",
+      "aliases": [
+        "u"
+      ],
+      "type": "string",
+      "description": "User name for authenticating connections to the JCLCheck API service that is running on the mainframe system.",
+      "required": false,
+      "group": "JCLCheck Connection Options",
+      "absenceImplications": null,
+      "implies": null
+    },
+    {
+      "name": "password",
+      "aliases": [
+        "pass",
+        "pw"
+      ],
+      "type": "string",
+      "description": "Password for authenticating connections to the JCLCheck API service that is running on the mainframe system.",
+      "required": false,
+      "group": "JCLCheck Connection Options",
+      "absenceImplications": null,
+      "implies": null
+    },
+    {
+      "name": "base-path",
+      "aliases": [
+        "bp"
+      ],
+      "description": "The base path for your API mediation layer instance. Specify this option to prepend the base path to all resources when making REST requests. Do not specify this option if you are not using an API mediation layer.",
+      "type": "string",
+      "group": "JCLCheck Connection Options",
+      "required": false,
+      "absenceImplications": null,
+      "implies": null
+    },
+    {
+      "name": "reject-unauthorized",
+      "aliases": [
+        "ru"
+      ],
+      "description": "Reject self-signed certificates.",
+      "type": "boolean",
+      "required": false,
+      "group": "JCLCheck Connection Options",
+      "absenceImplications": null,
+      "implies": null
+    },
+    {
+      "name": "protocol",
+      "aliases": [
+        "o"
+      ],
+      "description": "Specifies protocol to use for JCLCheck connection (http or https).",
+      "type": "string",
+      "required": false,
+      "allowableValues": {
+        "values": [
+          "http",
+          "https"
+        ],
+        "caseSensitive": false
+      },
+      "group": "JCLCheck Connection Options",
+      "absenceImplications": null,
+      "implies": null
+    },
+    {
+      "name": "jclcheck-options",
+      "aliases": [
+        "jo"
+      ],
+      "description": "The desired set of JCLCheck runtime options. Specify the options exactly as you would on the PARM= or OPTIONS DD on a batch run of JCLCheck. See the JCLCheck runtime options documentation for details on available runtime options. If you specify options that change the format of the JCLCheck reports, you should request '--raw-output'. Changing the format of the report will affect the ability to produce a structured API response.",
+      "type": "stringOrEmpty",
+      "required": false,
+      "group": "JCLCheck Connection Options",
+      "absenceImplications": null,
+      "implies": null
+    },
+    {
+      "name": "response-format-json",
+      "aliases": [
+        "rfj"
+      ],
+      "group": "Global options",
+      "description": "Produce JSON formatted data from a command",
+      "type": "boolean"
+    },
+    {
+      "name": "help",
+      "aliases": [
+        "h"
+      ],
+      "group": "Global options",
+      "description": "Display help text",
+      "type": "boolean"
+    },
+    {
+      "name": "help-examples",
+      "group": "Global options",
+      "description": "Display examples for all the commands in a group",
+      "type": "boolean",
+      "aliases": []
+    },
+    {
+      "name": "help-web",
+      "aliases": [
+        "hw"
+      ],
+      "group": "Global options",
+      "description": "Display HTML help in browser",
+      "type": "boolean"
+    }
+  ],
+  "passOn": [],
+  "children": []
+}

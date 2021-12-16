@@ -1,0 +1,661 @@
+// Copyright (c) 2021 Broadcom.  All Rights Reserved.  The term
+// "Broadcom" refers to Broadcom Inc. and/or its subsidiaries.
+{
+  "name": "jclcheck",
+  "description": "Validates the accuracy of job control language (JCL) and also helps identify execution-time errors, such as security violations and missing data sets that could cause jobs to fail.",
+  "type": "group",
+  "children": [
+    {
+      "name": "check",
+      "aliases": [
+        "ck"
+      ],
+      "summary": "Perform a check on JCL that is contained in an MVS data set or a local file",
+      "description": "Perform a check on JCL that is contained in an MVS data set or a local file.",
+      "type": "group",
+      "children": [
+        {
+          "name": "data-set",
+          "aliases": [
+            "ds"
+          ],
+          "summary": "Check JCL contained in an MVS data set",
+          "description": "Reads the specified input data set and invokes the JCLCheck service with the data set contents.",
+          "type": "command",
+          "handler": "",
+          "positionals": [
+            {
+              "name": "dataSet",
+              "type": "string",
+              "description": "The MVS data set containing the JCL contents. The data set can be a physical sequential (PS) or partitioned data set (PDS) member. The data set attributes must be recfm fixed-block (FB) and lrecl 80. The data set must be catalogued.",
+              "required": true
+            }
+          ],
+          "options": [
+            {
+              "name": "max-return-code",
+              "aliases": [
+                "mrc"
+              ],
+              "type": "number",
+              "description": "Specifies the maximum acceptable return code from the JCLCheck service. If the JCLCheck overall return code exceeds the value specified on this option, the command will exit with a failure status code of 1.",
+              "group": "Options"
+            },
+            {
+              "name": "raw-output",
+              "aliases": [
+                "ro"
+              ],
+              "type": "boolean",
+              "description": "Causes the command to print the unformatted JCLCheck report (raw report) instead of the formatted error table. Use this option if you intend to change the format of the JCLCheck report via runtime options. Changing the format may affect the ability to produce a structured API response.",
+              "defaultValue": false,
+              "group": "Options"
+            },
+            {
+              "name": "host",
+              "aliases": [
+                "H"
+              ],
+              "type": "string",
+              "description": "Host name of the JCLCheck API service that is running on the mainframe system.",
+              "required": false,
+              "group": "JCLCheck Connection Options"
+            },
+            {
+              "name": "port",
+              "aliases": [
+                "P"
+              ],
+              "type": "number",
+              "description": "Port for the JCLCheck API service that is running on the mainframe system.",
+              "required": false,
+              "group": "JCLCheck Connection Options"
+            },
+            {
+              "name": "user",
+              "aliases": [
+                "u"
+              ],
+              "type": "string",
+              "description": "User name for authenticating connections to the JCLCheck API service that is running on the mainframe system.",
+              "required": false,
+              "group": "JCLCheck Connection Options"
+            },
+            {
+              "name": "password",
+              "aliases": [
+                "pass",
+                "pw"
+              ],
+              "type": "string",
+              "description": "Password for authenticating connections to the JCLCheck API service that is running on the mainframe system.",
+              "required": false,
+              "group": "JCLCheck Connection Options"
+            },
+            {
+              "name": "base-path",
+              "aliases": [
+                "bp"
+              ],
+              "description": "The base path for your API mediation layer instance. Specify this option to prepend the base path to all resources when making REST requests. Do not specify this option if you are not using an API mediation layer.",
+              "type": "string",
+              "group": "JCLCheck Connection Options"
+            },
+            {
+              "name": "reject-unauthorized",
+              "aliases": [
+                "ru"
+              ],
+              "description": "Reject self-signed certificates.",
+              "type": "boolean",
+              "defaultValue": true,
+              "required": false,
+              "group": "JCLCheck Connection Options"
+            },
+            {
+              "name": "protocol",
+              "aliases": [
+                "o"
+              ],
+              "description": "Specifies protocol to use for JCLCheck connection (http or https).",
+              "type": "string",
+              "defaultValue": "https",
+              "required": false,
+              "allowableValues": {
+                "values": [
+                  "http",
+                  "https"
+                ],
+                "caseSensitive": false
+              },
+              "group": "JCLCheck Connection Options"
+            },
+            {
+              "name": "jclcheck-options",
+              "aliases": [
+                "jo"
+              ],
+              "description": "The desired set of JCLCheck runtime options. Specify the options exactly as you would on the PARM= or OPTIONS DD on a batch run of JCLCheck. See the JCLCheck runtime options documentation for details on available runtime options. If you specify options that change the format of the JCLCheck reports, you should request '--raw-output'. Changing the format of the report will affect the ability to produce a structured API response.",
+              "type": "stringOrEmpty",
+              "required": false,
+              "group": "JCLCheck Connection Options"
+            },
+            {
+              "name": "response-format-json",
+              "aliases": [
+                "rfj"
+              ],
+              "group": "Global options",
+              "description": "Produce JSON formatted data from a command",
+              "type": "boolean"
+            },
+            {
+              "name": "help",
+              "aliases": [
+                "h"
+              ],
+              "group": "Global options",
+              "description": "Display help text",
+              "type": "boolean"
+            },
+            {
+              "name": "help-examples",
+              "group": "Global options",
+              "description": "Display examples for all the commands in a group",
+              "type": "boolean",
+              "aliases": []
+            },
+            {
+              "name": "help-web",
+              "aliases": [
+                "hw"
+              ],
+              "group": "Global options",
+              "description": "Display HTML help in browser",
+              "type": "boolean"
+            },
+            {
+              "name": "jclcheck-profile",
+              "aliases": [
+                "jclcheck-p"
+              ],
+              "group": "Profile Options",
+              "description": "The name of a (jclcheck) profile to load for this command execution.",
+              "type": "string"
+            },
+            {
+              "name": "base-profile",
+              "aliases": [
+                "base-p"
+              ],
+              "group": "Profile Options",
+              "description": "The name of a (base) profile to load for this command execution.",
+              "type": "string"
+            },
+            {
+              "name": "token-type",
+              "aliases": [
+                "tt"
+              ],
+              "description": "The type of token to get and use for the API. Omit this option to use the default token type, which is provided by 'zowe auth login'.",
+              "type": "string",
+              "group": "Base Connection Options"
+            },
+            {
+              "name": "token-value",
+              "aliases": [
+                "tv"
+              ],
+              "description": "The value of the token to pass to the API.",
+              "type": "string",
+              "group": "Base Connection Options"
+            },
+            {
+              "name": "cert-file",
+              "description": "The file path to a certificate file to use for authentication",
+              "type": "existingLocalFile",
+              "group": "Base Connection Options",
+              "aliases": []
+            },
+            {
+              "name": "cert-key-file",
+              "description": "The file path to a certificate key file to use for authentication",
+              "type": "existingLocalFile",
+              "group": "Base Connection Options",
+              "aliases": []
+            }
+          ],
+          "profile": {
+            "optional": [
+              "jclcheck",
+              "base"
+            ]
+          },
+          "examples": [
+            {
+              "options": "\"MY.DATASET(JCL)\" --host hostname --port 1234 --jclcheck-options \"NOAS NOAU NOHCD NOJCL NORES NOSIGN\"",
+              "description": "Check the JCL contained in \"MY.DATASET(JCL)\" and print a table of statements in error"
+            },
+            {
+              "options": "\"MY.DATASET(JCL)\" --host hostname --port 1234 --jclcheck-options \"NOAS NOAU NOHCD NOJCL NORES NOSIGN\" --raw-output",
+              "description": "Check the JCL contained in \"MY.DATASET(JCL)\" and print the raw JCLCheck report"
+            }
+          ],
+          "passOn": [],
+          "children": []
+        },
+        {
+          "name": "local-file",
+          "aliases": [
+            "lf"
+          ],
+          "summary": "Check JCL contained in a local file",
+          "description": "Reads the contents of the local file specified and invokes the JCLCheck service with the JCL contents.",
+          "type": "command",
+          "handler": "",
+          "positionals": [
+            {
+              "name": "localFile",
+              "type": "string",
+              "description": "The local file containing the JCL to check. The local JCL file can contain a single job or multiple jobs (specified one after another without blank lines or line breaks). The JCL lines in the file must not exceed 80 characters.",
+              "required": true
+            }
+          ],
+          "options": [
+            {
+              "name": "max-return-code",
+              "aliases": [
+                "mrc"
+              ],
+              "type": "number",
+              "description": "Specifies the maximum acceptable return code from the JCLCheck service. If the JCLCheck overall return code exceeds the value specified on this option, the command will exit with a failure status code of 1.",
+              "group": "Options"
+            },
+            {
+              "name": "raw-output",
+              "aliases": [
+                "ro"
+              ],
+              "type": "boolean",
+              "description": "Causes the command to print the unformatted JCLCheck report (raw report) instead of the formatted error table. Use this option if you intend to change the format of the JCLCheck report via runtime options. Changing the format may affect the ability to produce a structured API response.",
+              "defaultValue": false,
+              "group": "Options"
+            },
+            {
+              "name": "host",
+              "aliases": [
+                "H"
+              ],
+              "type": "string",
+              "description": "Host name of the JCLCheck API service that is running on the mainframe system.",
+              "required": false,
+              "group": "JCLCheck Connection Options"
+            },
+            {
+              "name": "port",
+              "aliases": [
+                "P"
+              ],
+              "type": "number",
+              "description": "Port for the JCLCheck API service that is running on the mainframe system.",
+              "required": false,
+              "group": "JCLCheck Connection Options"
+            },
+            {
+              "name": "user",
+              "aliases": [
+                "u"
+              ],
+              "type": "string",
+              "description": "User name for authenticating connections to the JCLCheck API service that is running on the mainframe system.",
+              "required": false,
+              "group": "JCLCheck Connection Options"
+            },
+            {
+              "name": "password",
+              "aliases": [
+                "pass",
+                "pw"
+              ],
+              "type": "string",
+              "description": "Password for authenticating connections to the JCLCheck API service that is running on the mainframe system.",
+              "required": false,
+              "group": "JCLCheck Connection Options"
+            },
+            {
+              "name": "base-path",
+              "aliases": [
+                "bp"
+              ],
+              "description": "The base path for your API mediation layer instance. Specify this option to prepend the base path to all resources when making REST requests. Do not specify this option if you are not using an API mediation layer.",
+              "type": "string",
+              "group": "JCLCheck Connection Options"
+            },
+            {
+              "name": "reject-unauthorized",
+              "aliases": [
+                "ru"
+              ],
+              "description": "Reject self-signed certificates.",
+              "type": "boolean",
+              "defaultValue": true,
+              "required": false,
+              "group": "JCLCheck Connection Options"
+            },
+            {
+              "name": "protocol",
+              "aliases": [
+                "o"
+              ],
+              "description": "Specifies protocol to use for JCLCheck connection (http or https).",
+              "type": "string",
+              "defaultValue": "https",
+              "required": false,
+              "allowableValues": {
+                "values": [
+                  "http",
+                  "https"
+                ],
+                "caseSensitive": false
+              },
+              "group": "JCLCheck Connection Options"
+            },
+            {
+              "name": "jclcheck-options",
+              "aliases": [
+                "jo"
+              ],
+              "description": "The desired set of JCLCheck runtime options. Specify the options exactly as you would on the PARM= or OPTIONS DD on a batch run of JCLCheck. See the JCLCheck runtime options documentation for details on available runtime options. If you specify options that change the format of the JCLCheck reports, you should request '--raw-output'. Changing the format of the report will affect the ability to produce a structured API response.",
+              "type": "stringOrEmpty",
+              "required": false,
+              "group": "JCLCheck Connection Options"
+            },
+            {
+              "name": "response-format-json",
+              "aliases": [
+                "rfj"
+              ],
+              "group": "Global options",
+              "description": "Produce JSON formatted data from a command",
+              "type": "boolean"
+            },
+            {
+              "name": "help",
+              "aliases": [
+                "h"
+              ],
+              "group": "Global options",
+              "description": "Display help text",
+              "type": "boolean"
+            },
+            {
+              "name": "help-examples",
+              "group": "Global options",
+              "description": "Display examples for all the commands in a group",
+              "type": "boolean",
+              "aliases": []
+            },
+            {
+              "name": "help-web",
+              "aliases": [
+                "hw"
+              ],
+              "group": "Global options",
+              "description": "Display HTML help in browser",
+              "type": "boolean"
+            },
+            {
+              "name": "jclcheck-profile",
+              "aliases": [
+                "jclcheck-p"
+              ],
+              "group": "Profile Options",
+              "description": "The name of a (jclcheck) profile to load for this command execution.",
+              "type": "string"
+            },
+            {
+              "name": "base-profile",
+              "aliases": [
+                "base-p"
+              ],
+              "group": "Profile Options",
+              "description": "The name of a (base) profile to load for this command execution.",
+              "type": "string"
+            },
+            {
+              "name": "token-type",
+              "aliases": [
+                "tt"
+              ],
+              "description": "The type of token to get and use for the API. Omit this option to use the default token type, which is provided by 'zowe auth login'.",
+              "type": "string",
+              "group": "Base Connection Options"
+            },
+            {
+              "name": "token-value",
+              "aliases": [
+                "tv"
+              ],
+              "description": "The value of the token to pass to the API.",
+              "type": "string",
+              "group": "Base Connection Options"
+            },
+            {
+              "name": "cert-file",
+              "description": "The file path to a certificate file to use for authentication",
+              "type": "existingLocalFile",
+              "group": "Base Connection Options",
+              "aliases": []
+            },
+            {
+              "name": "cert-key-file",
+              "description": "The file path to a certificate key file to use for authentication",
+              "type": "existingLocalFile",
+              "group": "Base Connection Options",
+              "aliases": []
+            }
+          ],
+          "profile": {
+            "optional": [
+              "jclcheck",
+              "base"
+            ]
+          },
+          "examples": [
+            {
+              "options": "jcl.txt --host hostname --port 1234 --jclcheck-options \"NOAS NOAU NOHCD NOJCL NORES NOSIGN\"",
+              "description": "Check the JCL contained in the file \"jcl.txt\" and print a table of statements in error"
+            },
+            {
+              "options": "jcl.txt --host hostname --port 1234 --jclcheck-options \"NOAS NOAU NOHCD NOJCL NORES NOSIGN\" --raw-output",
+              "description": "Check the JCL contained in the file \"jcl.txt\" and print the raw JCLCheck report"
+            }
+          ],
+          "passOn": [],
+          "children": []
+        }
+      ],
+      "passOn": [
+        {
+          "property": "options",
+          "value": [
+            {
+              "name": "host",
+              "aliases": [
+                "H"
+              ],
+              "type": "string",
+              "description": "Host name of the JCLCheck API service that is running on the mainframe system.",
+              "required": false,
+              "group": "JCLCheck Connection Options"
+            },
+            {
+              "name": "port",
+              "aliases": [
+                "P"
+              ],
+              "type": "number",
+              "description": "Port for the JCLCheck API service that is running on the mainframe system.",
+              "required": false,
+              "group": "JCLCheck Connection Options"
+            },
+            {
+              "name": "user",
+              "aliases": [
+                "u"
+              ],
+              "type": "string",
+              "description": "User name for authenticating connections to the JCLCheck API service that is running on the mainframe system.",
+              "required": false,
+              "group": "JCLCheck Connection Options"
+            },
+            {
+              "name": "password",
+              "aliases": [
+                "pass",
+                "pw"
+              ],
+              "type": "string",
+              "description": "Password for authenticating connections to the JCLCheck API service that is running on the mainframe system.",
+              "required": false,
+              "group": "JCLCheck Connection Options"
+            },
+            {
+              "name": "base-path",
+              "aliases": [
+                "bp"
+              ],
+              "description": "The base path for your API mediation layer instance. Specify this option to prepend the base path to all resources when making REST requests. Do not specify this option if you are not using an API mediation layer.",
+              "type": "string",
+              "group": "JCLCheck Connection Options"
+            },
+            {
+              "name": "reject-unauthorized",
+              "aliases": [
+                "ru"
+              ],
+              "description": "Reject self-signed certificates.",
+              "type": "boolean",
+              "defaultValue": true,
+              "required": false,
+              "group": "JCLCheck Connection Options"
+            },
+            {
+              "name": "protocol",
+              "aliases": [
+                "o"
+              ],
+              "description": "Specifies protocol to use for JCLCheck connection (http or https).",
+              "type": "string",
+              "defaultValue": "https",
+              "required": false,
+              "allowableValues": {
+                "values": [
+                  "http",
+                  "https"
+                ],
+                "caseSensitive": false
+              },
+              "group": "JCLCheck Connection Options"
+            },
+            {
+              "name": "jclcheck-options",
+              "aliases": [
+                "jo"
+              ],
+              "description": "The desired set of JCLCheck runtime options. Specify the options exactly as you would on the PARM= or OPTIONS DD on a batch run of JCLCheck. See the JCLCheck runtime options documentation for details on available runtime options. If you specify options that change the format of the JCLCheck reports, you should request '--raw-output'. Changing the format of the report will affect the ability to produce a structured API response.",
+              "type": "stringOrEmpty",
+              "required": false,
+              "group": "JCLCheck Connection Options"
+            }
+          ],
+          "merge": true,
+          "ignoreNodes": [
+            {
+              "type": "group"
+            }
+          ]
+        }
+      ],
+      "options": [
+        {
+          "name": "response-format-json",
+          "aliases": [
+            "rfj"
+          ],
+          "group": "Global options",
+          "description": "Produce JSON formatted data from a command",
+          "type": "boolean"
+        },
+        {
+          "name": "help",
+          "aliases": [
+            "h"
+          ],
+          "group": "Global options",
+          "description": "Display help text",
+          "type": "boolean"
+        },
+        {
+          "name": "help-examples",
+          "group": "Global options",
+          "description": "Display examples for all the commands in a group",
+          "type": "boolean",
+          "aliases": []
+        },
+        {
+          "name": "help-web",
+          "aliases": [
+            "hw"
+          ],
+          "group": "Global options",
+          "description": "Display HTML help in browser",
+          "type": "boolean"
+        }
+      ],
+      "positionals": []
+    }
+  ],
+  "summary": "JCLCheck plugin",
+  "aliases": [
+    "jck"
+  ],
+  "options": [
+    {
+      "name": "response-format-json",
+      "aliases": [
+        "rfj"
+      ],
+      "group": "Global options",
+      "description": "Produce JSON formatted data from a command",
+      "type": "boolean"
+    },
+    {
+      "name": "help",
+      "aliases": [
+        "h"
+      ],
+      "group": "Global options",
+      "description": "Display help text",
+      "type": "boolean"
+    },
+    {
+      "name": "help-examples",
+      "group": "Global options",
+      "description": "Display examples for all the commands in a group",
+      "type": "boolean",
+      "aliases": []
+    },
+    {
+      "name": "help-web",
+      "aliases": [
+        "hw"
+      ],
+      "group": "Global options",
+      "description": "Display HTML help in browser",
+      "type": "boolean"
+    }
+  ],
+  "positionals": [],
+  "passOn": []
+}
