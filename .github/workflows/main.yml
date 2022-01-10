@@ -54,14 +54,6 @@ jobs:
         zowe plugins install @zowe/zos-ftp-for-zowe-cli@$(yq '."zowe-plugins"."zos-ftp"' __zowe__version__ | tr -d '"')
         rm __zowe__version__
 
-    - name: Get Zowe version
-      id: get-version
-      if: ${{ steps.get-version-from-workflow.outcome == 'skipped' }}
-      run: |
-        curl -s https://raw.githubusercontent.com/zowe/zowe-cli-standalone-package/master/zowe-versions.yaml > __zowe__version__
-        echo "::set-output name=number::$([[ $(cat __zowe__version__ | grep zowe:) != "" ]] && (cat __zowe__version__ | grep zowe: | cut -d ':' -f 2) || echo 'CLI_v'$(npx zowe --version))"
-        rm __zowe__version__
-    
     - name: Set Up Zowe
       id: setup-zowe
       if: ${{ steps.get-version-from-workflow.outcome == 'skipped' }}
@@ -73,6 +65,11 @@ jobs:
         zowe plugins install @zowe/mq-for-zowe-cli@zowe-v1-lts
         zowe plugins install @zowe/secure-credential-store-for-zowe-cli@zowe-v1-lts
         zowe plugins install @zowe/zos-ftp-for-zowe-cli@zowe-v1-lts
+    
+    - name: Get Zowe version
+      id: get-version
+      if: ${{ steps.get-version-from-workflow.outcome == 'skipped' }}
+      run: echo "::set-output name=number::$(echo 'CLI_v'$(npx zowe --version))"
 
     - name: Build Web Help
       id: build
