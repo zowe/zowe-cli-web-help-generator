@@ -1,0 +1,129 @@
+// The Program is owned by IBM or an IBM supplier, and is copyrighted
+{
+  "name": "sa-profile",
+  "aliases": [
+    "sa"
+  ],
+  "summary": "Create a sa profile",
+  "description": "Profile for System Automation Plug-in",
+  "type": "command",
+  "handler": "",
+  "customize": {
+    "profileTypeIdentifier": "sa"
+  },
+  "positionals": [
+    {
+      "name": "profileName",
+      "description": "Specifies the name of the new sa profile. You can load this profile by using the name on commands that support the \"--sa-profile\" option.",
+      "type": "string",
+      "required": true
+    }
+  ],
+  "options": [
+    {
+      "type": "string",
+      "name": "host",
+      "aliases": [
+        "H"
+      ],
+      "group": "SA CONNECTTION OPTIONS",
+      "required": true,
+      "description": "Host name of the SA Operations REST API server"
+    },
+    {
+      "type": "number",
+      "name": "port",
+      "aliases": [
+        "P"
+      ],
+      "group": "SA CONNECTTION OPTIONS",
+      "required": true,
+      "description": "Port number of the SA Operations REST API server"
+    },
+    {
+      "type": "boolean",
+      "name": "encrypted",
+      "aliases": [
+        "E"
+      ],
+      "group": "SA CONNECTTION OPTIONS",
+      "required": false,
+      "defaultValue": true,
+      "description": "Encrypted (HTTPS) communication with the SA Operations REST API server"
+    },
+    {
+      "type": "string",
+      "name": "user",
+      "aliases": [
+        "u"
+      ],
+      "group": "SA CONNECTTION OPTIONS",
+      "required": true,
+      "description": "User name to authenticate to the SA Operations REST API server"
+    },
+    {
+      "type": "string",
+      "name": "password",
+      "aliases": [
+        "p"
+      ],
+      "group": "SA CONNECTTION OPTIONS",
+      "required": true,
+      "description": "Password to authenticate to the SA Operations REST API server"
+    },
+    {
+      "name": "overwrite",
+      "aliases": [
+        "ow"
+      ],
+      "description": "Overwrite the sa profile when a profile of the same name exists.",
+      "type": "boolean",
+      "group": "Options"
+    },
+    {
+      "name": "disable-defaults",
+      "aliases": [
+        "dd"
+      ],
+      "description": "Disable populating profile values of undefined properties with default values.",
+      "type": "boolean",
+      "group": "Options"
+    },
+    {
+      "name": "response-format-json",
+      "aliases": [
+        "rfj"
+      ],
+      "group": "Global options",
+      "description": "Produce JSON formatted data from a command",
+      "type": "boolean"
+    },
+    {
+      "name": "help",
+      "aliases": [
+        "h"
+      ],
+      "group": "Global options",
+      "description": "Display help text",
+      "type": "boolean"
+    },
+    {
+      "name": "help-examples",
+      "group": "Global options",
+      "description": "Display examples for all the commands in a group",
+      "type": "boolean",
+      "aliases": []
+    },
+    {
+      "name": "help-web",
+      "aliases": [
+        "hw"
+      ],
+      "group": "Global options",
+      "description": "Display HTML help in browser",
+      "type": "boolean"
+    }
+  ],
+  "passOn": [],
+  "children": []
+}

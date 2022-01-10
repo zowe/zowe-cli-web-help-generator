@@ -1,0 +1,74 @@
+// The Program is owned by IBM or an IBM supplier, and is copyrighted
+{
+  "name": "sa-profile",
+  "aliases": [
+    "sa"
+  ],
+  "summary": "Delete a sa profile.",
+  "description": "Delete a sa profile. You must specify a profile name to be deleted. To find a list of available profiles for deletion, issue the profiles list command. By default, you will be prompted to confirm the profile removal.",
+  "type": "command",
+  "handler": "",
+  "customize": {
+    "profileTypeIdentifier": "sa"
+  },
+  "options": [
+    {
+      "name": "force",
+      "aliases": [],
+      "description": "Force deletion of profile, and dependent profiles if specified. No prompt will be displayed before  deletion occurs.",
+      "type": "boolean",
+      "required": false,
+      "group": "Options"
+    },
+    {
+      "name": "response-format-json",
+      "aliases": [
+        "rfj"
+      ],
+      "group": "Global options",
+      "description": "Produce JSON formatted data from a command",
+      "type": "boolean"
+    },
+    {
+      "name": "help",
+      "aliases": [
+        "h"
+      ],
+      "group": "Global options",
+      "description": "Display help text",
+      "type": "boolean"
+    },
+    {
+      "name": "help-examples",
+      "group": "Global options",
+      "description": "Display examples for all the commands in a group",
+      "type": "boolean",
+      "aliases": []
+    },
+    {
+      "name": "help-web",
+      "aliases": [
+        "hw"
+      ],
+      "group": "Global options",
+      "description": "Display HTML help in browser",
+      "type": "boolean"
+    }
+  ],
+  "positionals": [
+    {
+      "name": "profileName",
+      "description": "Specifies the name of the sa  profile to be deleted. You can also load this profile by using the name on commands that support the \"--sa-profile\" option.",
+      "type": "string",
+      "required": true
+    }
+  ],
+  "examples": [
+    {
+      "options": "profilename",
+      "description": "Delete a sa profile named profilename"
+    }
+  ],
+  "passOn": [],
+  "children": []
+}
