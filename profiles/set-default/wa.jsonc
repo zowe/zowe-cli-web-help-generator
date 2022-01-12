@@ -1,25 +1,14 @@
 // The Program is owned by IBM or an IBM supplier, and is copyrighted
 {
-  "name": "znetview-profile",
+  "name": "wa-profile",
   "aliases": [
-    "znetview"
+    "wa"
   ],
-  "summary": "Delete a znetview profile.",
-  "description": "Delete a znetview profile. You must specify a profile name to be deleted. To find a list of available profiles for deletion, issue the profiles list command. By default, you will be prompted to confirm the profile removal.",
+  "summary": "Set the default\n profiles for the wa group",
+  "description": "The wa set default-profiles command allows you to set the default profiles for this command group. When a wa command is issued and no profile override options are specified, the default profiles for the command group are automatically loaded for the command based on the commands profile requirements.",
   "type": "command",
   "handler": "",
-  "customize": {
-    "profileTypeIdentifier": "znetview"
-  },
   "options": [
-    {
-      "name": "force",
-      "aliases": [],
-      "description": "Force deletion of profile, and dependent profiles if specified. No prompt will be displayed before  deletion occurs.",
-      "type": "boolean",
-      "required": false,
-      "group": "Options"
-    },
     {
       "name": "response-format-json",
       "aliases": [
@@ -58,15 +47,18 @@
   "positionals": [
     {
       "name": "profileName",
-      "description": "Specifies the name of the znetview  profile to be deleted. You can also load this profile by using the name on commands that support the \"--znetview-profile\" option.",
+      "description": "Specify a\n profile for default usage within the wa group. When you issue commands within the wa group without a profile specified as part of the command, the default will be loaded instead.",
       "type": "string",
       "required": true
     }
   ],
+  "customize": {
+    "profileTypeIdentifier": "wa"
+  },
   "examples": [
     {
       "options": "profilename",
-      "description": "Delete a znetview profile named profilename"
+      "description": "Set the default profile for type wa to the profile named 'profilename'"
     }
   ],
   "passOn": [],

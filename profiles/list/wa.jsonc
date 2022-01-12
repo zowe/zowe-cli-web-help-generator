@@ -1,15 +1,15 @@
 // The Program is owned by IBM or an IBM supplier, and is copyrighted
 {
-  "name": "znetview-profiles",
+  "name": "wa-profiles",
   "aliases": [
-    "znetview"
+    "wa"
   ],
-  "summary": "List profiles of the type znetview.",
-  "description": "The NetView profile is the profile that you created to communicate with the NetView REST Server. It is required to use Z NetView Plug-ins, including Z NetView Base Plug-in, Z NetView Automation Plug-in and Z NetView Network Plug-in. ",
+  "summary": "List profiles of the type wa.",
+  "description": "A profile for interaction with WA REST Services",
   "type": "command",
   "handler": "",
   "customize": {
-    "profileTypeIdentifier": "znetview"
+    "profileTypeIdentifier": "wa"
   },
   "options": [
     {
@@ -17,7 +17,7 @@
       "aliases": [
         "sc"
       ],
-      "description": "List znetview  profiles  and their contents. All profile details will be printed as part of command output.",
+      "description": "List wa  profiles  and their contents. All profile details will be printed as part of command output.",
       "type": "boolean",
       "required": false,
       "group": "Options"
@@ -60,11 +60,11 @@
   "examples": [
     {
       "options": "",
-      "description": "List profiles of type znetview"
+      "description": "List profiles of type wa"
     },
     {
       "options": "--sc",
-      "description": "List profiles of type znetview and display their contents"
+      "description": "List profiles of type wa and display their contents"
     }
   ],
   "positionals": [],

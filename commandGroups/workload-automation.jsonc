@@ -1,0 +1,4109 @@
+// The Program is owned by IBM or an IBM supplier, and is copyrighted
+{
+  "name": "workload-automation",
+  "description": "Interact with IBM Z Workload Scheduler",
+  "type": "group",
+  "children": [
+    {
+      "name": "execute",
+      "aliases": [
+        "exec"
+      ],
+      "type": "group",
+      "summary": "Execute WAPL commands",
+      "description": "Execute WAPL commands. Enclose the commands in double quotes and escape any symbols that have a special meaning to the shell.",
+      "children": [
+        {
+          "name": "wapl",
+          "type": "command",
+          "summary": "Execute WAPL commands",
+          "description": "Execute one or multiple WAPL statements from a command line.",
+          "handler": "",
+          "profile": {
+            "optional": [
+              "wa",
+              "base"
+            ]
+          },
+          "options": [
+            {
+              "name": "command",
+              "aliases": [
+                "cmd"
+              ],
+              "type": "string",
+              "description": "Execute one or multiple WAPL statements from a command line using semicolon (;) as command separator",
+              "conflictsWith": [
+                "file"
+              ],
+              "group": "Options"
+            },
+            {
+              "name": "file",
+              "aliases": [
+                "f"
+              ],
+              "type": "string",
+              "description": "A local file containing WAPL statements to be executed",
+              "conflictsWith": [
+                "command"
+              ],
+              "group": "Options"
+            },
+            {
+              "name": "host",
+              "aliases": [
+                "H"
+              ],
+              "description": "The Z connector server host name or API ML server host name",
+              "type": "string",
+              "required": false,
+              "group": "workload-automation Connection Options"
+            },
+            {
+              "name": "port",
+              "aliases": [
+                "P"
+              ],
+              "description": "The Z connector server port or API ML server port",
+              "type": "number",
+              "required": false,
+              "group": "workload-automation Connection Options"
+            },
+            {
+              "name": "user",
+              "aliases": [
+                "u"
+              ],
+              "description": "The Z connector user ID",
+              "type": "string",
+              "required": false,
+              "group": "workload-automation Connection Options"
+            },
+            {
+              "name": "password",
+              "aliases": [
+                "pwd"
+              ],
+              "description": "The Z connector password",
+              "type": "string",
+              "group": "workload-automation Connection Options",
+              "required": false
+            },
+            {
+              "name": "engine",
+              "aliases": [
+                "eng"
+              ],
+              "description": "Name of the engine, as defined on the Z connector",
+              "type": "string",
+              "group": "workload-automation Connection Options",
+              "required": true
+            },
+            {
+              "name": "base-path",
+              "aliases": [
+                "bp"
+              ],
+              "description": "Base path of your API mediation layer instance. If a base path is specified, the plug-in connects to API ML. Specify this value according to the yaml static file added to API ML",
+              "type": "string",
+              "group": "workload-automation Connection Options",
+              "required": false
+            },
+            {
+              "name": "reject-unauthorized",
+              "aliases": [
+                "ru"
+              ],
+              "description": "Reject self-signed certificates",
+              "type": "boolean",
+              "defaultValue": true,
+              "required": false,
+              "group": "workload-automation Connection Options"
+            },
+            {
+              "name": "response-format-json",
+              "aliases": [
+                "rfj"
+              ],
+              "group": "Global options",
+              "description": "Produce JSON formatted data from a command",
+              "type": "boolean"
+            },
+            {
+              "name": "help",
+              "aliases": [
+                "h"
+              ],
+              "group": "Global options",
+              "description": "Display help text",
+              "type": "boolean"
+            },
+            {
+              "name": "help-examples",
+              "group": "Global options",
+              "description": "Display examples for all the commands in a group",
+              "type": "boolean",
+              "aliases": []
+            },
+            {
+              "name": "help-web",
+              "aliases": [
+                "hw"
+              ],
+              "group": "Global options",
+              "description": "Display HTML help in browser",
+              "type": "boolean"
+            },
+            {
+              "name": "wa-profile",
+              "aliases": [
+                "wa-p"
+              ],
+              "group": "Profile Options",
+              "description": "The name of a (wa) profile to load for this command execution.",
+              "type": "string"
+            },
+            {
+              "name": "base-profile",
+              "aliases": [
+                "base-p"
+              ],
+              "group": "Profile Options",
+              "description": "The name of a (base) profile to load for this command execution.",
+              "type": "string"
+            },
+            {
+              "name": "token-type",
+              "aliases": [
+                "tt"
+              ],
+              "description": "The type of token to get and use for the API. Omit this option to use the default token type, which is provided by 'zowe auth login'.",
+              "type": "string",
+              "group": "Base Connection Options"
+            },
+            {
+              "name": "token-value",
+              "aliases": [
+                "tv"
+              ],
+              "description": "The value of the token to pass to the API.",
+              "type": "string",
+              "group": "Base Connection Options"
+            },
+            {
+              "name": "cert-file",
+              "description": "The file path to a certificate file to use for authentication",
+              "type": "existingLocalFile",
+              "group": "Base Connection Options",
+              "aliases": []
+            },
+            {
+              "name": "cert-key-file",
+              "description": "The file path to a certificate key file to use for authentication",
+              "type": "existingLocalFile",
+              "group": "Base Connection Options",
+              "aliases": []
+            }
+          ],
+          "examples": [
+            {
+              "description": "List all applications named MYAD",
+              "options": "--command  \"LOADDEF AD* DATA(-) LOADER(*);OPTIONS STRIP(Y) EXPAND(N) SELECT(Y) SERVER(Y);LIST AD ADID(MYAD)\""
+            },
+            {
+              "description": "Execute a file with WAPL statements",
+              "options": "--file  waplfile.txt"
+            }
+          ],
+          "mustSpecifyOne": [
+            "command",
+            "file"
+          ],
+          "aliases": [],
+          "positionals": [],
+          "passOn": [],
+          "children": []
+        }
+      ],
+      "passOn": [
+        {
+          "property": "options",
+          "value": [
+            {
+              "name": "host",
+              "aliases": [
+                "H"
+              ],
+              "description": "The Z connector server host name or API ML server host name",
+              "type": "string",
+              "required": false,
+              "group": "workload-automation Connection Options"
+            },
+            {
+              "name": "port",
+              "aliases": [
+                "P"
+              ],
+              "description": "The Z connector server port or API ML server port",
+              "type": "number",
+              "required": false,
+              "group": "workload-automation Connection Options"
+            },
+            {
+              "name": "user",
+              "aliases": [
+                "u"
+              ],
+              "description": "The Z connector user ID",
+              "type": "string",
+              "required": false,
+              "group": "workload-automation Connection Options"
+            },
+            {
+              "name": "password",
+              "aliases": [
+                "pwd"
+              ],
+              "description": "The Z connector password",
+              "type": "string",
+              "group": "workload-automation Connection Options",
+              "required": false
+            },
+            {
+              "name": "engine",
+              "aliases": [
+                "eng"
+              ],
+              "description": "Name of the engine, as defined on the Z connector",
+              "type": "string",
+              "group": "workload-automation Connection Options",
+              "required": true
+            },
+            {
+              "name": "base-path",
+              "aliases": [
+                "bp"
+              ],
+              "description": "Base path of your API mediation layer instance. If a base path is specified, the plug-in connects to API ML. Specify this value according to the yaml static file added to API ML",
+              "type": "string",
+              "group": "workload-automation Connection Options",
+              "required": false
+            },
+            {
+              "name": "reject-unauthorized",
+              "aliases": [
+                "ru"
+              ],
+              "description": "Reject self-signed certificates",
+              "type": "boolean",
+              "defaultValue": true,
+              "required": false,
+              "group": "workload-automation Connection Options"
+            }
+          ],
+          "merge": true,
+          "ignoreNodes": [
+            {
+              "type": "group"
+            }
+          ]
+        }
+      ],
+      "options": [
+        {
+          "name": "response-format-json",
+          "aliases": [
+            "rfj"
+          ],
+          "group": "Global options",
+          "description": "Produce JSON formatted data from a command",
+          "type": "boolean"
+        },
+        {
+          "name": "help",
+          "aliases": [
+            "h"
+          ],
+          "group": "Global options",
+          "description": "Display help text",
+          "type": "boolean"
+        },
+        {
+          "name": "help-examples",
+          "group": "Global options",
+          "description": "Display examples for all the commands in a group",
+          "type": "boolean",
+          "aliases": []
+        },
+        {
+          "name": "help-web",
+          "aliases": [
+            "hw"
+          ],
+          "group": "Global options",
+          "description": "Display HTML help in browser",
+          "type": "boolean"
+        }
+      ],
+      "positionals": []
+    },
+    {
+      "name": "get",
+      "type": "group",
+      "summary": "Get resources or jobs in plan.",
+      "description": "Get resources or jobs in plan.",
+      "children": [
+        {
+          "name": "resourceinplan",
+          "type": "command",
+          "aliases": [
+            "resp",
+            "rp"
+          ],
+          "summary": "Get the resource in plan",
+          "description": "Get the resource in plan.",
+          "handler": "",
+          "outputFormatOptions": true,
+          "profile": {
+            "optional": [
+              "wa",
+              "base"
+            ]
+          },
+          "options": [
+            {
+              "name": "id",
+              "type": "string",
+              "description": "ID of the resource to get. Take the ID from the list resourceinplan command",
+              "required": true,
+              "group": "Required Options",
+              "aliases": []
+            },
+            {
+              "name": "host",
+              "aliases": [
+                "H"
+              ],
+              "description": "The Z connector server host name or API ML server host name",
+              "type": "string",
+              "required": false,
+              "group": "workload-automation Connection Options"
+            },
+            {
+              "name": "port",
+              "aliases": [
+                "P"
+              ],
+              "description": "The Z connector server port or API ML server port",
+              "type": "number",
+              "required": false,
+              "group": "workload-automation Connection Options"
+            },
+            {
+              "name": "user",
+              "aliases": [
+                "u"
+              ],
+              "description": "The Z connector user ID",
+              "type": "string",
+              "required": false,
+              "group": "workload-automation Connection Options"
+            },
+            {
+              "name": "password",
+              "aliases": [
+                "pwd"
+              ],
+              "description": "The Z connector password",
+              "type": "string",
+              "group": "workload-automation Connection Options",
+              "required": false
+            },
+            {
+              "name": "engine",
+              "aliases": [
+                "eng"
+              ],
+              "description": "Name of the engine, as defined on the Z connector",
+              "type": "string",
+              "group": "workload-automation Connection Options",
+              "required": true
+            },
+            {
+              "name": "base-path",
+              "aliases": [
+                "bp"
+              ],
+              "description": "Base path of your API mediation layer instance. If a base path is specified, the plug-in connects to API ML. Specify this value according to the yaml static file added to API ML",
+              "type": "string",
+              "group": "workload-automation Connection Options",
+              "required": false
+            },
+            {
+              "name": "reject-unauthorized",
+              "aliases": [
+                "ru"
+              ],
+              "description": "Reject self-signed certificates",
+              "type": "boolean",
+              "defaultValue": true,
+              "required": false,
+              "group": "workload-automation Connection Options"
+            },
+            {
+              "name": "response-format-json",
+              "aliases": [
+                "rfj"
+              ],
+              "group": "Global options",
+              "description": "Produce JSON formatted data from a command",
+              "type": "boolean"
+            },
+            {
+              "name": "help",
+              "aliases": [
+                "h"
+              ],
+              "group": "Global options",
+              "description": "Display help text",
+              "type": "boolean"
+            },
+            {
+              "name": "help-examples",
+              "group": "Global options",
+              "description": "Display examples for all the commands in a group",
+              "type": "boolean",
+              "aliases": []
+            },
+            {
+              "name": "help-web",
+              "aliases": [
+                "hw"
+              ],
+              "group": "Global options",
+              "description": "Display HTML help in browser",
+              "type": "boolean"
+            },
+            {
+              "name": "wa-profile",
+              "aliases": [
+                "wa-p"
+              ],
+              "group": "Profile Options",
+              "description": "The name of a (wa) profile to load for this command execution.",
+              "type": "string"
+            },
+            {
+              "name": "base-profile",
+              "aliases": [
+                "base-p"
+              ],
+              "group": "Profile Options",
+              "description": "The name of a (base) profile to load for this command execution.",
+              "type": "string"
+            },
+            {
+              "name": "token-type",
+              "aliases": [
+                "tt"
+              ],
+              "description": "The type of token to get and use for the API. Omit this option to use the default token type, which is provided by 'zowe auth login'.",
+              "type": "string",
+              "group": "Base Connection Options"
+            },
+            {
+              "name": "token-value",
+              "aliases": [
+                "tv"
+              ],
+              "description": "The value of the token to pass to the API.",
+              "type": "string",
+              "group": "Base Connection Options"
+            },
+            {
+              "name": "cert-file",
+              "description": "The file path to a certificate file to use for authentication",
+              "type": "existingLocalFile",
+              "group": "Base Connection Options",
+              "aliases": []
+            },
+            {
+              "name": "cert-key-file",
+              "description": "The file path to a certificate key file to use for authentication",
+              "type": "existingLocalFile",
+              "group": "Base Connection Options",
+              "aliases": []
+            },
+            {
+              "name": "response-format-filter",
+              "aliases": [
+                "rff"
+              ],
+              "description": "Filter (include) fields in the response. Accepts an array of field/property names to include in the output response. You can filter JSON objects properties OR table columns/fields. In addition, you can use this option in conjunction with '--response-format-type' to reduce the output of a command to a single field/property or a list of a single field/property.",
+              "type": "array",
+              "group": "Response Format Options"
+            },
+            {
+              "name": "response-format-type",
+              "aliases": [
+                "rft"
+              ],
+              "description": "The command response output format type. Must be one of the following:\n\ntable: Formats output data as a table. Use this option when the output data is an array of homogeneous JSON objects. Each property of the object will become a column in the table.\n\nlist: Formats output data as a list of strings. Can be used on any data type (JSON objects/arrays) are stringified and a new line is added after each entry in an array.\n\nobject: Formats output data as a list of prettified objects (or single object). Can be used in place of \"table\" to change from tabular output to a list of prettified objects.\n\nstring: Formats output data as a string. JSON objects/arrays are stringified.",
+              "type": "string",
+              "allowableValues": {
+                "values": [
+                  "table",
+                  "list",
+                  "object",
+                  "string"
+                ],
+                "caseSensitive": false
+              },
+              "group": "Response Format Options"
+            },
+            {
+              "name": "response-format-header",
+              "aliases": [
+                "rfh"
+              ],
+              "description": "If \"--response-format-type table\" is specified, include the column headers in the output.",
+              "type": "boolean",
+              "group": "Response Format Options",
+              "defaultValue": null
+            }
+          ],
+          "examples": [
+            {
+              "description": "Get the resource using the specified ID. Take the ID from the list resourceinplan command",
+              "options": "--id resourceId"
+            },
+            {
+              "description": "Get the resource using the specified ID with response in JSON format. Take the ID from the list resourceinplan command",
+              "options": "--id resourceId --rfj"
+            }
+          ],
+          "positionals": [],
+          "passOn": [],
+          "children": []
+        },
+        {
+          "name": "jobinplan",
+          "type": "command",
+          "aliases": [
+            "jip",
+            "jp"
+          ],
+          "summary": "Get the job in plan",
+          "description": "Get the job in plan.",
+          "handler": "",
+          "outputFormatOptions": true,
+          "profile": {
+            "optional": [
+              "wa",
+              "base"
+            ]
+          },
+          "options": [
+            {
+              "name": "id",
+              "type": "string",
+              "description": "ID of the job to get. Take the ID from the list jobinplan command.",
+              "required": true,
+              "group": "Required Options",
+              "aliases": []
+            },
+            {
+              "name": "host",
+              "aliases": [
+                "H"
+              ],
+              "description": "The Z connector server host name or API ML server host name",
+              "type": "string",
+              "required": false,
+              "group": "workload-automation Connection Options"
+            },
+            {
+              "name": "port",
+              "aliases": [
+                "P"
+              ],
+              "description": "The Z connector server port or API ML server port",
+              "type": "number",
+              "required": false,
+              "group": "workload-automation Connection Options"
+            },
+            {
+              "name": "user",
+              "aliases": [
+                "u"
+              ],
+              "description": "The Z connector user ID",
+              "type": "string",
+              "required": false,
+              "group": "workload-automation Connection Options"
+            },
+            {
+              "name": "password",
+              "aliases": [
+                "pwd"
+              ],
+              "description": "The Z connector password",
+              "type": "string",
+              "group": "workload-automation Connection Options",
+              "required": false
+            },
+            {
+              "name": "engine",
+              "aliases": [
+                "eng"
+              ],
+              "description": "Name of the engine, as defined on the Z connector",
+              "type": "string",
+              "group": "workload-automation Connection Options",
+              "required": true
+            },
+            {
+              "name": "base-path",
+              "aliases": [
+                "bp"
+              ],
+              "description": "Base path of your API mediation layer instance. If a base path is specified, the plug-in connects to API ML. Specify this value according to the yaml static file added to API ML",
+              "type": "string",
+              "group": "workload-automation Connection Options",
+              "required": false
+            },
+            {
+              "name": "reject-unauthorized",
+              "aliases": [
+                "ru"
+              ],
+              "description": "Reject self-signed certificates",
+              "type": "boolean",
+              "defaultValue": true,
+              "required": false,
+              "group": "workload-automation Connection Options"
+            },
+            {
+              "name": "response-format-json",
+              "aliases": [
+                "rfj"
+              ],
+              "group": "Global options",
+              "description": "Produce JSON formatted data from a command",
+              "type": "boolean"
+            },
+            {
+              "name": "help",
+              "aliases": [
+                "h"
+              ],
+              "group": "Global options",
+              "description": "Display help text",
+              "type": "boolean"
+            },
+            {
+              "name": "help-examples",
+              "group": "Global options",
+              "description": "Display examples for all the commands in a group",
+              "type": "boolean",
+              "aliases": []
+            },
+            {
+              "name": "help-web",
+              "aliases": [
+                "hw"
+              ],
+              "group": "Global options",
+              "description": "Display HTML help in browser",
+              "type": "boolean"
+            },
+            {
+              "name": "wa-profile",
+              "aliases": [
+                "wa-p"
+              ],
+              "group": "Profile Options",
+              "description": "The name of a (wa) profile to load for this command execution.",
+              "type": "string"
+            },
+            {
+              "name": "base-profile",
+              "aliases": [
+                "base-p"
+              ],
+              "group": "Profile Options",
+              "description": "The name of a (base) profile to load for this command execution.",
+              "type": "string"
+            },
+            {
+              "name": "token-type",
+              "aliases": [
+                "tt"
+              ],
+              "description": "The type of token to get and use for the API. Omit this option to use the default token type, which is provided by 'zowe auth login'.",
+              "type": "string",
+              "group": "Base Connection Options"
+            },
+            {
+              "name": "token-value",
+              "aliases": [
+                "tv"
+              ],
+              "description": "The value of the token to pass to the API.",
+              "type": "string",
+              "group": "Base Connection Options"
+            },
+            {
+              "name": "cert-file",
+              "description": "The file path to a certificate file to use for authentication",
+              "type": "existingLocalFile",
+              "group": "Base Connection Options",
+              "aliases": []
+            },
+            {
+              "name": "cert-key-file",
+              "description": "The file path to a certificate key file to use for authentication",
+              "type": "existingLocalFile",
+              "group": "Base Connection Options",
+              "aliases": []
+            },
+            {
+              "name": "response-format-filter",
+              "aliases": [
+                "rff"
+              ],
+              "description": "Filter (include) fields in the response. Accepts an array of field/property names to include in the output response. You can filter JSON objects properties OR table columns/fields. In addition, you can use this option in conjunction with '--response-format-type' to reduce the output of a command to a single field/property or a list of a single field/property.",
+              "type": "array",
+              "group": "Response Format Options"
+            },
+            {
+              "name": "response-format-type",
+              "aliases": [
+                "rft"
+              ],
+              "description": "The command response output format type. Must be one of the following:\n\ntable: Formats output data as a table. Use this option when the output data is an array of homogeneous JSON objects. Each property of the object will become a column in the table.\n\nlist: Formats output data as a list of strings. Can be used on any data type (JSON objects/arrays) are stringified and a new line is added after each entry in an array.\n\nobject: Formats output data as a list of prettified objects (or single object). Can be used in place of \"table\" to change from tabular output to a list of prettified objects.\n\nstring: Formats output data as a string. JSON objects/arrays are stringified.",
+              "type": "string",
+              "allowableValues": {
+                "values": [
+                  "table",
+                  "list",
+                  "object",
+                  "string"
+                ],
+                "caseSensitive": false
+              },
+              "group": "Response Format Options"
+            },
+            {
+              "name": "response-format-header",
+              "aliases": [
+                "rfh"
+              ],
+              "description": "If \"--response-format-type table\" is specified, include the column headers in the output.",
+              "type": "boolean",
+              "group": "Response Format Options",
+              "defaultValue": null
+            }
+          ],
+          "examples": [
+            {
+              "description": "Get the job using the specified ID. Take the ID from the list jobinplan command",
+              "options": "--id resourceId"
+            },
+            {
+              "description": "Get the job using the specified ID with response in JSON format. Take the ID from the list jobinplan command",
+              "options": "--id resourceId --rfj"
+            }
+          ],
+          "positionals": [],
+          "passOn": [],
+          "children": []
+        }
+      ],
+      "passOn": [
+        {
+          "property": "options",
+          "value": [
+            {
+              "name": "host",
+              "aliases": [
+                "H"
+              ],
+              "description": "The Z connector server host name or API ML server host name",
+              "type": "string",
+              "required": false,
+              "group": "workload-automation Connection Options"
+            },
+            {
+              "name": "port",
+              "aliases": [
+                "P"
+              ],
+              "description": "The Z connector server port or API ML server port",
+              "type": "number",
+              "required": false,
+              "group": "workload-automation Connection Options"
+            },
+            {
+              "name": "user",
+              "aliases": [
+                "u"
+              ],
+              "description": "The Z connector user ID",
+              "type": "string",
+              "required": false,
+              "group": "workload-automation Connection Options"
+            },
+            {
+              "name": "password",
+              "aliases": [
+                "pwd"
+              ],
+              "description": "The Z connector password",
+              "type": "string",
+              "group": "workload-automation Connection Options",
+              "required": false
+            },
+            {
+              "name": "engine",
+              "aliases": [
+                "eng"
+              ],
+              "description": "Name of the engine, as defined on the Z connector",
+              "type": "string",
+              "group": "workload-automation Connection Options",
+              "required": true
+            },
+            {
+              "name": "base-path",
+              "aliases": [
+                "bp"
+              ],
+              "description": "Base path of your API mediation layer instance. If a base path is specified, the plug-in connects to API ML. Specify this value according to the yaml static file added to API ML",
+              "type": "string",
+              "group": "workload-automation Connection Options",
+              "required": false
+            },
+            {
+              "name": "reject-unauthorized",
+              "aliases": [
+                "ru"
+              ],
+              "description": "Reject self-signed certificates",
+              "type": "boolean",
+              "defaultValue": true,
+              "required": false,
+              "group": "workload-automation Connection Options"
+            }
+          ],
+          "merge": true,
+          "ignoreNodes": [
+            {
+              "type": "group"
+            }
+          ]
+        }
+      ],
+      "options": [
+        {
+          "name": "response-format-json",
+          "aliases": [
+            "rfj"
+          ],
+          "group": "Global options",
+          "description": "Produce JSON formatted data from a command",
+          "type": "boolean"
+        },
+        {
+          "name": "help",
+          "aliases": [
+            "h"
+          ],
+          "group": "Global options",
+          "description": "Display help text",
+          "type": "boolean"
+        },
+        {
+          "name": "help-examples",
+          "group": "Global options",
+          "description": "Display examples for all the commands in a group",
+          "type": "boolean",
+          "aliases": []
+        },
+        {
+          "name": "help-web",
+          "aliases": [
+            "hw"
+          ],
+          "group": "Global options",
+          "description": "Display HTML help in browser",
+          "type": "boolean"
+        }
+      ],
+      "aliases": [],
+      "positionals": []
+    },
+    {
+      "name": "list",
+      "aliases": [
+        "ls"
+      ],
+      "type": "group",
+      "summary": "List jobs, jobstreams, and resources in plan, list jobstreams in model(database)",
+      "description": "List jobs, jobstreams, and resources in plan, list jobstreams in model(database). ",
+      "children": [
+        {
+          "name": "jobinplan",
+          "type": "command",
+          "aliases": [
+            "jip",
+            "jp"
+          ],
+          "summary": "List the jobs in plan",
+          "description": "List the jobs in plan.",
+          "handler": "",
+          "outputFormatOptions": true,
+          "profile": {
+            "optional": [
+              "wa",
+              "base"
+            ]
+          },
+          "options": [
+            {
+              "name": "jobname",
+              "aliases": [
+                "jn"
+              ],
+              "type": "stringOrEmpty",
+              "description": "Name of the jobs to be listed, you can use the wildcard character asterisk (*)",
+              "required": false,
+              "group": "Options"
+            },
+            {
+              "name": "statuslist",
+              "aliases": [
+                "sl"
+              ],
+              "type": "array",
+              "description": "Status of the jobs",
+              "required": false,
+              "allowableValues": {
+                "values": [
+                  "WAITING",
+                  "READY",
+                  "RUNNING",
+                  "SUCCESSFUL",
+                  "ERROR",
+                  "CANCELED",
+                  "HELD",
+                  "UNDECIDED",
+                  "SUPPRESS"
+                ],
+                "caseSensitive": true
+              },
+              "group": "Options"
+            },
+            {
+              "name": "jobstreamname",
+              "aliases": [
+                "jsn"
+              ],
+              "type": "stringOrEmpty",
+              "description": "Name of the jobstream where the jobs are located, you can use the wildcard character asterisk (*).",
+              "required": false,
+              "group": "Options"
+            },
+            {
+              "name": "timerange",
+              "aliases": [
+                "tr"
+              ],
+              "type": "array",
+              "description": "Time range, in the format YYYY-MM-DDTHH:MM:SS",
+              "required": false,
+              "group": "Options"
+            },
+            {
+              "name": "howmany",
+              "aliases": [
+                "hm"
+              ],
+              "type": "number",
+              "description": "Number of jobs that the query is to return.",
+              "required": false,
+              "defaultValue": 1000,
+              "group": "Options"
+            },
+            {
+              "name": "host",
+              "aliases": [
+                "H"
+              ],
+              "description": "The Z connector server host name or API ML server host name",
+              "type": "string",
+              "required": false,
+              "group": "workload-automation Connection Options"
+            },
+            {
+              "name": "port",
+              "aliases": [
+                "P"
+              ],
+              "description": "The Z connector server port or API ML server port",
+              "type": "number",
+              "required": false,
+              "group": "workload-automation Connection Options"
+            },
+            {
+              "name": "user",
+              "aliases": [
+                "u"
+              ],
+              "description": "The Z connector user ID",
+              "type": "string",
+              "required": false,
+              "group": "workload-automation Connection Options"
+            },
+            {
+              "name": "password",
+              "aliases": [
+                "pwd"
+              ],
+              "description": "The Z connector password",
+              "type": "string",
+              "group": "workload-automation Connection Options",
+              "required": false
+            },
+            {
+              "name": "engine",
+              "aliases": [
+                "eng"
+              ],
+              "description": "Name of the engine, as defined on the Z connector",
+              "type": "string",
+              "group": "workload-automation Connection Options",
+              "required": true
+            },
+            {
+              "name": "base-path",
+              "aliases": [
+                "bp"
+              ],
+              "description": "Base path of your API mediation layer instance. If a base path is specified, the plug-in connects to API ML. Specify this value according to the yaml static file added to API ML",
+              "type": "string",
+              "group": "workload-automation Connection Options",
+              "required": false
+            },
+            {
+              "name": "reject-unauthorized",
+              "aliases": [
+                "ru"
+              ],
+              "description": "Reject self-signed certificates",
+              "type": "boolean",
+              "defaultValue": true,
+              "required": false,
+              "group": "workload-automation Connection Options"
+            },
+            {
+              "name": "response-format-json",
+              "aliases": [
+                "rfj"
+              ],
+              "group": "Global options",
+              "description": "Produce JSON formatted data from a command",
+              "type": "boolean"
+            },
+            {
+              "name": "help",
+              "aliases": [
+                "h"
+              ],
+              "group": "Global options",
+              "description": "Display help text",
+              "type": "boolean"
+            },
+            {
+              "name": "help-examples",
+              "group": "Global options",
+              "description": "Display examples for all the commands in a group",
+              "type": "boolean",
+              "aliases": []
+            },
+            {
+              "name": "help-web",
+              "aliases": [
+                "hw"
+              ],
+              "group": "Global options",
+              "description": "Display HTML help in browser",
+              "type": "boolean"
+            },
+            {
+              "name": "wa-profile",
+              "aliases": [
+                "wa-p"
+              ],
+              "group": "Profile Options",
+              "description": "The name of a (wa) profile to load for this command execution.",
+              "type": "string"
+            },
+            {
+              "name": "base-profile",
+              "aliases": [
+                "base-p"
+              ],
+              "group": "Profile Options",
+              "description": "The name of a (base) profile to load for this command execution.",
+              "type": "string"
+            },
+            {
+              "name": "token-type",
+              "aliases": [
+                "tt"
+              ],
+              "description": "The type of token to get and use for the API. Omit this option to use the default token type, which is provided by 'zowe auth login'.",
+              "type": "string",
+              "group": "Base Connection Options"
+            },
+            {
+              "name": "token-value",
+              "aliases": [
+                "tv"
+              ],
+              "description": "The value of the token to pass to the API.",
+              "type": "string",
+              "group": "Base Connection Options"
+            },
+            {
+              "name": "cert-file",
+              "description": "The file path to a certificate file to use for authentication",
+              "type": "existingLocalFile",
+              "group": "Base Connection Options",
+              "aliases": []
+            },
+            {
+              "name": "cert-key-file",
+              "description": "The file path to a certificate key file to use for authentication",
+              "type": "existingLocalFile",
+              "group": "Base Connection Options",
+              "aliases": []
+            },
+            {
+              "name": "response-format-filter",
+              "aliases": [
+                "rff"
+              ],
+              "description": "Filter (include) fields in the response. Accepts an array of field/property names to include in the output response. You can filter JSON objects properties OR table columns/fields. In addition, you can use this option in conjunction with '--response-format-type' to reduce the output of a command to a single field/property or a list of a single field/property.",
+              "type": "array",
+              "group": "Response Format Options"
+            },
+            {
+              "name": "response-format-type",
+              "aliases": [
+                "rft"
+              ],
+              "description": "The command response output format type. Must be one of the following:\n\ntable: Formats output data as a table. Use this option when the output data is an array of homogeneous JSON objects. Each property of the object will become a column in the table.\n\nlist: Formats output data as a list of strings. Can be used on any data type (JSON objects/arrays) are stringified and a new line is added after each entry in an array.\n\nobject: Formats output data as a list of prettified objects (or single object). Can be used in place of \"table\" to change from tabular output to a list of prettified objects.\n\nstring: Formats output data as a string. JSON objects/arrays are stringified.",
+              "type": "string",
+              "allowableValues": {
+                "values": [
+                  "table",
+                  "list",
+                  "object",
+                  "string"
+                ],
+                "caseSensitive": false
+              },
+              "group": "Response Format Options"
+            },
+            {
+              "name": "response-format-header",
+              "aliases": [
+                "rfh"
+              ],
+              "description": "If \"--response-format-type table\" is specified, include the column headers in the output.",
+              "type": "boolean",
+              "group": "Response Format Options",
+              "defaultValue": null
+            }
+          ],
+          "examples": [
+            {
+              "description": "List all jobs in current plan whose name starts with A and are in SUCCESSFUL or WAITING status",
+              "options": "--jobname \"A*\" --statuslist SUCCESSFUL WAITING "
+            },
+            {
+              "description": "List all jobs located in the jobstream named MYJOBSTREAM, limiting the response to 50 jobs",
+              "options": "--jobstreamname \"MYJOBSTREAM\" --howmany 50"
+            },
+            {
+              "description": "List all jobs within a specified range",
+              "options": "--timerange 2019-11-10T00:00:00 2019-11-10T23:59:00"
+            },
+            {
+              "description": "List all jobs by displaying only the job name and status in table format",
+              "options": "--rff jobDefinition[jclName] status[commonStatus] --rft table"
+            }
+          ],
+          "positionals": [],
+          "passOn": [],
+          "children": []
+        },
+        {
+          "name": "jobstreaminplan",
+          "type": "command",
+          "aliases": [
+            "jsip",
+            "jsp"
+          ],
+          "summary": "List the jobstreams in plan",
+          "description": "List the jobstreams in plan.",
+          "handler": "",
+          "outputFormatOptions": true,
+          "profile": {
+            "optional": [
+              "wa",
+              "base"
+            ]
+          },
+          "options": [
+            {
+              "name": "name",
+              "aliases": [
+                "n"
+              ],
+              "type": "stringOrEmpty",
+              "description": "Name of the jobstream to list, you can use the wildcard character asterisk (*).",
+              "required": false,
+              "group": "Options"
+            },
+            {
+              "name": "statuslist",
+              "aliases": [
+                "sl"
+              ],
+              "type": "array",
+              "description": "Status of the jobstream.",
+              "required": false,
+              "allowableValues": {
+                "values": [
+                  "SUCCESSFUL",
+                  "CANCELED",
+                  "ERROR",
+                  "RUNNING",
+                  "UNDECIDED",
+                  "WAITING"
+                ],
+                "caseSensitive": true
+              },
+              "group": "Options"
+            },
+            {
+              "name": "owner",
+              "aliases": [
+                "ow"
+              ],
+              "type": "stringOrEmpty",
+              "description": "Owner of the jobstream.",
+              "required": false,
+              "group": "Options"
+            },
+            {
+              "name": "timerange",
+              "aliases": [
+                "tr"
+              ],
+              "type": "array",
+              "description": "Time range, in the format YYYY-MM-DDTHH:MM:SS",
+              "required": false,
+              "group": "Options"
+            },
+            {
+              "name": "howmany",
+              "aliases": [
+                "hm"
+              ],
+              "type": "number",
+              "description": "Number of jobstreams that the query is to return.",
+              "required": false,
+              "defaultValue": 1000,
+              "group": "Options"
+            },
+            {
+              "name": "host",
+              "aliases": [
+                "H"
+              ],
+              "description": "The Z connector server host name or API ML server host name",
+              "type": "string",
+              "required": false,
+              "group": "workload-automation Connection Options"
+            },
+            {
+              "name": "port",
+              "aliases": [
+                "P"
+              ],
+              "description": "The Z connector server port or API ML server port",
+              "type": "number",
+              "required": false,
+              "group": "workload-automation Connection Options"
+            },
+            {
+              "name": "user",
+              "aliases": [
+                "u"
+              ],
+              "description": "The Z connector user ID",
+              "type": "string",
+              "required": false,
+              "group": "workload-automation Connection Options"
+            },
+            {
+              "name": "password",
+              "aliases": [
+                "pwd"
+              ],
+              "description": "The Z connector password",
+              "type": "string",
+              "group": "workload-automation Connection Options",
+              "required": false
+            },
+            {
+              "name": "engine",
+              "aliases": [
+                "eng"
+              ],
+              "description": "Name of the engine, as defined on the Z connector",
+              "type": "string",
+              "group": "workload-automation Connection Options",
+              "required": true
+            },
+            {
+              "name": "base-path",
+              "aliases": [
+                "bp"
+              ],
+              "description": "Base path of your API mediation layer instance. If a base path is specified, the plug-in connects to API ML. Specify this value according to the yaml static file added to API ML",
+              "type": "string",
+              "group": "workload-automation Connection Options",
+              "required": false
+            },
+            {
+              "name": "reject-unauthorized",
+              "aliases": [
+                "ru"
+              ],
+              "description": "Reject self-signed certificates",
+              "type": "boolean",
+              "defaultValue": true,
+              "required": false,
+              "group": "workload-automation Connection Options"
+            },
+            {
+              "name": "response-format-json",
+              "aliases": [
+                "rfj"
+              ],
+              "group": "Global options",
+              "description": "Produce JSON formatted data from a command",
+              "type": "boolean"
+            },
+            {
+              "name": "help",
+              "aliases": [
+                "h"
+              ],
+              "group": "Global options",
+              "description": "Display help text",
+              "type": "boolean"
+            },
+            {
+              "name": "help-examples",
+              "group": "Global options",
+              "description": "Display examples for all the commands in a group",
+              "type": "boolean",
+              "aliases": []
+            },
+            {
+              "name": "help-web",
+              "aliases": [
+                "hw"
+              ],
+              "group": "Global options",
+              "description": "Display HTML help in browser",
+              "type": "boolean"
+            },
+            {
+              "name": "wa-profile",
+              "aliases": [
+                "wa-p"
+              ],
+              "group": "Profile Options",
+              "description": "The name of a (wa) profile to load for this command execution.",
+              "type": "string"
+            },
+            {
+              "name": "base-profile",
+              "aliases": [
+                "base-p"
+              ],
+              "group": "Profile Options",
+              "description": "The name of a (base) profile to load for this command execution.",
+              "type": "string"
+            },
+            {
+              "name": "token-type",
+              "aliases": [
+                "tt"
+              ],
+              "description": "The type of token to get and use for the API. Omit this option to use the default token type, which is provided by 'zowe auth login'.",
+              "type": "string",
+              "group": "Base Connection Options"
+            },
+            {
+              "name": "token-value",
+              "aliases": [
+                "tv"
+              ],
+              "description": "The value of the token to pass to the API.",
+              "type": "string",
+              "group": "Base Connection Options"
+            },
+            {
+              "name": "cert-file",
+              "description": "The file path to a certificate file to use for authentication",
+              "type": "existingLocalFile",
+              "group": "Base Connection Options",
+              "aliases": []
+            },
+            {
+              "name": "cert-key-file",
+              "description": "The file path to a certificate key file to use for authentication",
+              "type": "existingLocalFile",
+              "group": "Base Connection Options",
+              "aliases": []
+            },
+            {
+              "name": "response-format-filter",
+              "aliases": [
+                "rff"
+              ],
+              "description": "Filter (include) fields in the response. Accepts an array of field/property names to include in the output response. You can filter JSON objects properties OR table columns/fields. In addition, you can use this option in conjunction with '--response-format-type' to reduce the output of a command to a single field/property or a list of a single field/property.",
+              "type": "array",
+              "group": "Response Format Options"
+            },
+            {
+              "name": "response-format-type",
+              "aliases": [
+                "rft"
+              ],
+              "description": "The command response output format type. Must be one of the following:\n\ntable: Formats output data as a table. Use this option when the output data is an array of homogeneous JSON objects. Each property of the object will become a column in the table.\n\nlist: Formats output data as a list of strings. Can be used on any data type (JSON objects/arrays) are stringified and a new line is added after each entry in an array.\n\nobject: Formats output data as a list of prettified objects (or single object). Can be used in place of \"table\" to change from tabular output to a list of prettified objects.\n\nstring: Formats output data as a string. JSON objects/arrays are stringified.",
+              "type": "string",
+              "allowableValues": {
+                "values": [
+                  "table",
+                  "list",
+                  "object",
+                  "string"
+                ],
+                "caseSensitive": false
+              },
+              "group": "Response Format Options"
+            },
+            {
+              "name": "response-format-header",
+              "aliases": [
+                "rfh"
+              ],
+              "description": "If \"--response-format-type table\" is specified, include the column headers in the output.",
+              "type": "boolean",
+              "group": "Response Format Options",
+              "defaultValue": null
+            }
+          ],
+          "examples": [
+            {
+              "description": "List all jobstreams in current plan whose name starts with A and are in SUCCESSFUL or ERROR status",
+              "options": "--name \"A*\" --statuslist SUCCESSFUL ERROR"
+            },
+            {
+              "description": "List all jobstreams in WAITING, limiting response to 50 jobstreams",
+              "options": "--statuslist WAITING --howmany 50"
+            },
+            {
+              "description": "List all jobstreams within a specified range",
+              "options": "--timerange 2019-11-10T00:00:00 2019-11-10T23:59:00"
+            },
+            {
+              "description": "List all jobstreams by displaying only jobstream name and status in table format",
+              "options": " --rff key[name] status[commonStatus] --rft table"
+            }
+          ],
+          "positionals": [],
+          "passOn": [],
+          "children": []
+        },
+        {
+          "name": "jobstreaminmodel",
+          "type": "command",
+          "aliases": [
+            "jsim",
+            "jsm"
+          ],
+          "summary": "List the jobstreams in model",
+          "description": "List the jobstreams in model.",
+          "handler": "",
+          "outputFormatOptions": true,
+          "profile": {
+            "optional": [
+              "wa",
+              "base"
+            ]
+          },
+          "options": [
+            {
+              "name": "name",
+              "aliases": [
+                "n"
+              ],
+              "type": "stringOrEmpty",
+              "description": "Name of the jobstreams to be listed, you can use the wildcard character asterisk (*).",
+              "required": false,
+              "group": "Options"
+            },
+            {
+              "name": "owner",
+              "aliases": [
+                "ow"
+              ],
+              "type": "stringOrEmpty",
+              "description": "Owner of the jobstream.",
+              "required": false,
+              "group": "Options"
+            },
+            {
+              "name": "timerange",
+              "aliases": [
+                "tr"
+              ],
+              "type": "array",
+              "description": "Validity time range, in the format YYYY-MM-DDTHH:MM:SS",
+              "required": false,
+              "group": "Options"
+            },
+            {
+              "name": "isgroup",
+              "aliases": [
+                "igr"
+              ],
+              "type": "boolean",
+              "description": "Indicator that shows if the jobstream is a group.",
+              "required": false,
+              "group": "Options"
+            },
+            {
+              "name": "groupname",
+              "aliases": [
+                "grn"
+              ],
+              "type": "string",
+              "description": "Name of the group that contains the jobstream.",
+              "required": false,
+              "conflictsWith": [
+                "isgrou"
+              ],
+              "group": "Options"
+            },
+            {
+              "name": "howmany",
+              "aliases": [
+                "hm"
+              ],
+              "type": "number",
+              "description": "Number of jobstreams that the query is to return.",
+              "required": false,
+              "defaultValue": 1000,
+              "group": "Options"
+            },
+            {
+              "name": "host",
+              "aliases": [
+                "H"
+              ],
+              "description": "The Z connector server host name or API ML server host name",
+              "type": "string",
+              "required": false,
+              "group": "workload-automation Connection Options"
+            },
+            {
+              "name": "port",
+              "aliases": [
+                "P"
+              ],
+              "description": "The Z connector server port or API ML server port",
+              "type": "number",
+              "required": false,
+              "group": "workload-automation Connection Options"
+            },
+            {
+              "name": "user",
+              "aliases": [
+                "u"
+              ],
+              "description": "The Z connector user ID",
+              "type": "string",
+              "required": false,
+              "group": "workload-automation Connection Options"
+            },
+            {
+              "name": "password",
+              "aliases": [
+                "pwd"
+              ],
+              "description": "The Z connector password",
+              "type": "string",
+              "group": "workload-automation Connection Options",
+              "required": false
+            },
+            {
+              "name": "engine",
+              "aliases": [
+                "eng"
+              ],
+              "description": "Name of the engine, as defined on the Z connector",
+              "type": "string",
+              "group": "workload-automation Connection Options",
+              "required": true
+            },
+            {
+              "name": "base-path",
+              "aliases": [
+                "bp"
+              ],
+              "description": "Base path of your API mediation layer instance. If a base path is specified, the plug-in connects to API ML. Specify this value according to the yaml static file added to API ML",
+              "type": "string",
+              "group": "workload-automation Connection Options",
+              "required": false
+            },
+            {
+              "name": "reject-unauthorized",
+              "aliases": [
+                "ru"
+              ],
+              "description": "Reject self-signed certificates",
+              "type": "boolean",
+              "defaultValue": true,
+              "required": false,
+              "group": "workload-automation Connection Options"
+            },
+            {
+              "name": "response-format-json",
+              "aliases": [
+                "rfj"
+              ],
+              "group": "Global options",
+              "description": "Produce JSON formatted data from a command",
+              "type": "boolean"
+            },
+            {
+              "name": "help",
+              "aliases": [
+                "h"
+              ],
+              "group": "Global options",
+              "description": "Display help text",
+              "type": "boolean"
+            },
+            {
+              "name": "help-examples",
+              "group": "Global options",
+              "description": "Display examples for all the commands in a group",
+              "type": "boolean",
+              "aliases": []
+            },
+            {
+              "name": "help-web",
+              "aliases": [
+                "hw"
+              ],
+              "group": "Global options",
+              "description": "Display HTML help in browser",
+              "type": "boolean"
+            },
+            {
+              "name": "wa-profile",
+              "aliases": [
+                "wa-p"
+              ],
+              "group": "Profile Options",
+              "description": "The name of a (wa) profile to load for this command execution.",
+              "type": "string"
+            },
+            {
+              "name": "base-profile",
+              "aliases": [
+                "base-p"
+              ],
+              "group": "Profile Options",
+              "description": "The name of a (base) profile to load for this command execution.",
+              "type": "string"
+            },
+            {
+              "name": "token-type",
+              "aliases": [
+                "tt"
+              ],
+              "description": "The type of token to get and use for the API. Omit this option to use the default token type, which is provided by 'zowe auth login'.",
+              "type": "string",
+              "group": "Base Connection Options"
+            },
+            {
+              "name": "token-value",
+              "aliases": [
+                "tv"
+              ],
+              "description": "The value of the token to pass to the API.",
+              "type": "string",
+              "group": "Base Connection Options"
+            },
+            {
+              "name": "cert-file",
+              "description": "The file path to a certificate file to use for authentication",
+              "type": "existingLocalFile",
+              "group": "Base Connection Options",
+              "aliases": []
+            },
+            {
+              "name": "cert-key-file",
+              "description": "The file path to a certificate key file to use for authentication",
+              "type": "existingLocalFile",
+              "group": "Base Connection Options",
+              "aliases": []
+            },
+            {
+              "name": "response-format-filter",
+              "aliases": [
+                "rff"
+              ],
+              "description": "Filter (include) fields in the response. Accepts an array of field/property names to include in the output response. You can filter JSON objects properties OR table columns/fields. In addition, you can use this option in conjunction with '--response-format-type' to reduce the output of a command to a single field/property or a list of a single field/property.",
+              "type": "array",
+              "group": "Response Format Options"
+            },
+            {
+              "name": "response-format-type",
+              "aliases": [
+                "rft"
+              ],
+              "description": "The command response output format type. Must be one of the following:\n\ntable: Formats output data as a table. Use this option when the output data is an array of homogeneous JSON objects. Each property of the object will become a column in the table.\n\nlist: Formats output data as a list of strings. Can be used on any data type (JSON objects/arrays) are stringified and a new line is added after each entry in an array.\n\nobject: Formats output data as a list of prettified objects (or single object). Can be used in place of \"table\" to change from tabular output to a list of prettified objects.\n\nstring: Formats output data as a string. JSON objects/arrays are stringified.",
+              "type": "string",
+              "allowableValues": {
+                "values": [
+                  "table",
+                  "list",
+                  "object",
+                  "string"
+                ],
+                "caseSensitive": false
+              },
+              "group": "Response Format Options"
+            },
+            {
+              "name": "response-format-header",
+              "aliases": [
+                "rfh"
+              ],
+              "description": "If \"--response-format-type table\" is specified, include the column headers in the output.",
+              "type": "boolean",
+              "group": "Response Format Options",
+              "defaultValue": null
+            }
+          ],
+          "examples": [
+            {
+              "description": "List all jobstreams whose name starts with A and have owner \"JSOWNER\" ",
+              "options": "--name \"A*\" --owner \"JSOWNER\" "
+            },
+            {
+              "description": "List all jobstreams valid within a specified range",
+              "options": "--timerange 2019-11-10T00:00:00 2019-11-10T23:59:00"
+            },
+            {
+              "description": "List all jobstreams present in a group by returning only the first 10 occurrences",
+              "options": "--isgroup true --howmany 10"
+            },
+            {
+              "description": "List all jobstreams by displaying only the jobstream name and owner in table format",
+              "options": " --rff key[name] ownerName --rft table"
+            }
+          ],
+          "positionals": [],
+          "passOn": [],
+          "children": []
+        },
+        {
+          "name": "resourceinplan",
+          "type": "command",
+          "aliases": [
+            "resp",
+            "rp"
+          ],
+          "summary": "List the resources in plan",
+          "description": "List the resources in plan.",
+          "handler": "",
+          "outputFormatOptions": true,
+          "profile": {
+            "optional": [
+              "wa",
+              "base"
+            ]
+          },
+          "options": [
+            {
+              "name": "name",
+              "aliases": [
+                "n"
+              ],
+              "type": "stringOrEmpty",
+              "description": "Name of the resources to list, you can use the wildcard character asterisk (*).",
+              "required": false,
+              "group": "Options"
+            },
+            {
+              "name": "isavailable",
+              "aliases": [
+                "isa",
+                "ia"
+              ],
+              "type": "boolean",
+              "description": "Specify true to select only the resources that are available.Specify false to select only resources that are unavailable.",
+              "required": false,
+              "group": "Options"
+            },
+            {
+              "name": "iswaiting",
+              "aliases": [
+                "isw",
+                "iw"
+              ],
+              "type": "boolean",
+              "description": "Specify true to select only the resources for which the operations are waiting.Specify false to select only resources that no operations are waiting for",
+              "required": false,
+              "group": "Options"
+            },
+            {
+              "name": "howmany",
+              "aliases": [
+                "hm"
+              ],
+              "type": "number",
+              "description": "Number of resources that the query is to return.",
+              "required": false,
+              "defaultValue": 1000,
+              "group": "Options"
+            },
+            {
+              "name": "host",
+              "aliases": [
+                "H"
+              ],
+              "description": "The Z connector server host name or API ML server host name",
+              "type": "string",
+              "required": false,
+              "group": "workload-automation Connection Options"
+            },
+            {
+              "name": "port",
+              "aliases": [
+                "P"
+              ],
+              "description": "The Z connector server port or API ML server port",
+              "type": "number",
+              "required": false,
+              "group": "workload-automation Connection Options"
+            },
+            {
+              "name": "user",
+              "aliases": [
+                "u"
+              ],
+              "description": "The Z connector user ID",
+              "type": "string",
+              "required": false,
+              "group": "workload-automation Connection Options"
+            },
+            {
+              "name": "password",
+              "aliases": [
+                "pwd"
+              ],
+              "description": "The Z connector password",
+              "type": "string",
+              "group": "workload-automation Connection Options",
+              "required": false
+            },
+            {
+              "name": "engine",
+              "aliases": [
+                "eng"
+              ],
+              "description": "Name of the engine, as defined on the Z connector",
+              "type": "string",
+              "group": "workload-automation Connection Options",
+              "required": true
+            },
+            {
+              "name": "base-path",
+              "aliases": [
+                "bp"
+              ],
+              "description": "Base path of your API mediation layer instance. If a base path is specified, the plug-in connects to API ML. Specify this value according to the yaml static file added to API ML",
+              "type": "string",
+              "group": "workload-automation Connection Options",
+              "required": false
+            },
+            {
+              "name": "reject-unauthorized",
+              "aliases": [
+                "ru"
+              ],
+              "description": "Reject self-signed certificates",
+              "type": "boolean",
+              "defaultValue": true,
+              "required": false,
+              "group": "workload-automation Connection Options"
+            },
+            {
+              "name": "response-format-json",
+              "aliases": [
+                "rfj"
+              ],
+              "group": "Global options",
+              "description": "Produce JSON formatted data from a command",
+              "type": "boolean"
+            },
+            {
+              "name": "help",
+              "aliases": [
+                "h"
+              ],
+              "group": "Global options",
+              "description": "Display help text",
+              "type": "boolean"
+            },
+            {
+              "name": "help-examples",
+              "group": "Global options",
+              "description": "Display examples for all the commands in a group",
+              "type": "boolean",
+              "aliases": []
+            },
+            {
+              "name": "help-web",
+              "aliases": [
+                "hw"
+              ],
+              "group": "Global options",
+              "description": "Display HTML help in browser",
+              "type": "boolean"
+            },
+            {
+              "name": "wa-profile",
+              "aliases": [
+                "wa-p"
+              ],
+              "group": "Profile Options",
+              "description": "The name of a (wa) profile to load for this command execution.",
+              "type": "string"
+            },
+            {
+              "name": "base-profile",
+              "aliases": [
+                "base-p"
+              ],
+              "group": "Profile Options",
+              "description": "The name of a (base) profile to load for this command execution.",
+              "type": "string"
+            },
+            {
+              "name": "token-type",
+              "aliases": [
+                "tt"
+              ],
+              "description": "The type of token to get and use for the API. Omit this option to use the default token type, which is provided by 'zowe auth login'.",
+              "type": "string",
+              "group": "Base Connection Options"
+            },
+            {
+              "name": "token-value",
+              "aliases": [
+                "tv"
+              ],
+              "description": "The value of the token to pass to the API.",
+              "type": "string",
+              "group": "Base Connection Options"
+            },
+            {
+              "name": "cert-file",
+              "description": "The file path to a certificate file to use for authentication",
+              "type": "existingLocalFile",
+              "group": "Base Connection Options",
+              "aliases": []
+            },
+            {
+              "name": "cert-key-file",
+              "description": "The file path to a certificate key file to use for authentication",
+              "type": "existingLocalFile",
+              "group": "Base Connection Options",
+              "aliases": []
+            },
+            {
+              "name": "response-format-filter",
+              "aliases": [
+                "rff"
+              ],
+              "description": "Filter (include) fields in the response. Accepts an array of field/property names to include in the output response. You can filter JSON objects properties OR table columns/fields. In addition, you can use this option in conjunction with '--response-format-type' to reduce the output of a command to a single field/property or a list of a single field/property.",
+              "type": "array",
+              "group": "Response Format Options"
+            },
+            {
+              "name": "response-format-type",
+              "aliases": [
+                "rft"
+              ],
+              "description": "The command response output format type. Must be one of the following:\n\ntable: Formats output data as a table. Use this option when the output data is an array of homogeneous JSON objects. Each property of the object will become a column in the table.\n\nlist: Formats output data as a list of strings. Can be used on any data type (JSON objects/arrays) are stringified and a new line is added after each entry in an array.\n\nobject: Formats output data as a list of prettified objects (or single object). Can be used in place of \"table\" to change from tabular output to a list of prettified objects.\n\nstring: Formats output data as a string. JSON objects/arrays are stringified.",
+              "type": "string",
+              "allowableValues": {
+                "values": [
+                  "table",
+                  "list",
+                  "object",
+                  "string"
+                ],
+                "caseSensitive": false
+              },
+              "group": "Response Format Options"
+            },
+            {
+              "name": "response-format-header",
+              "aliases": [
+                "rfh"
+              ],
+              "description": "If \"--response-format-type table\" is specified, include the column headers in the output.",
+              "type": "boolean",
+              "group": "Response Format Options",
+              "defaultValue": null
+            }
+          ],
+          "examples": [
+            {
+              "description": "List all resources in current plan whose name starts with A and are available",
+              "options": "--name \"A*\" --isavailable true"
+            },
+            {
+              "description": "List all resources for which no operations are waiting",
+              "options": "--iswaiting false"
+            }
+          ],
+          "positionals": [],
+          "passOn": [],
+          "children": []
+        }
+      ],
+      "passOn": [
+        {
+          "property": "options",
+          "value": [
+            {
+              "name": "host",
+              "aliases": [
+                "H"
+              ],
+              "description": "The Z connector server host name or API ML server host name",
+              "type": "string",
+              "required": false,
+              "group": "workload-automation Connection Options"
+            },
+            {
+              "name": "port",
+              "aliases": [
+                "P"
+              ],
+              "description": "The Z connector server port or API ML server port",
+              "type": "number",
+              "required": false,
+              "group": "workload-automation Connection Options"
+            },
+            {
+              "name": "user",
+              "aliases": [
+                "u"
+              ],
+              "description": "The Z connector user ID",
+              "type": "string",
+              "required": false,
+              "group": "workload-automation Connection Options"
+            },
+            {
+              "name": "password",
+              "aliases": [
+                "pwd"
+              ],
+              "description": "The Z connector password",
+              "type": "string",
+              "group": "workload-automation Connection Options",
+              "required": false
+            },
+            {
+              "name": "engine",
+              "aliases": [
+                "eng"
+              ],
+              "description": "Name of the engine, as defined on the Z connector",
+              "type": "string",
+              "group": "workload-automation Connection Options",
+              "required": true
+            },
+            {
+              "name": "base-path",
+              "aliases": [
+                "bp"
+              ],
+              "description": "Base path of your API mediation layer instance. If a base path is specified, the plug-in connects to API ML. Specify this value according to the yaml static file added to API ML",
+              "type": "string",
+              "group": "workload-automation Connection Options",
+              "required": false
+            },
+            {
+              "name": "reject-unauthorized",
+              "aliases": [
+                "ru"
+              ],
+              "description": "Reject self-signed certificates",
+              "type": "boolean",
+              "defaultValue": true,
+              "required": false,
+              "group": "workload-automation Connection Options"
+            }
+          ],
+          "merge": true,
+          "ignoreNodes": [
+            {
+              "type": "group"
+            }
+          ]
+        }
+      ],
+      "options": [
+        {
+          "name": "response-format-json",
+          "aliases": [
+            "rfj"
+          ],
+          "group": "Global options",
+          "description": "Produce JSON formatted data from a command",
+          "type": "boolean"
+        },
+        {
+          "name": "help",
+          "aliases": [
+            "h"
+          ],
+          "group": "Global options",
+          "description": "Display help text",
+          "type": "boolean"
+        },
+        {
+          "name": "help-examples",
+          "group": "Global options",
+          "description": "Display examples for all the commands in a group",
+          "type": "boolean",
+          "aliases": []
+        },
+        {
+          "name": "help-web",
+          "aliases": [
+            "hw"
+          ],
+          "group": "Global options",
+          "description": "Display HTML help in browser",
+          "type": "boolean"
+        }
+      ],
+      "positionals": []
+    },
+    {
+      "name": "set-status",
+      "aliases": [
+        "sets"
+      ],
+      "type": "group",
+      "summary": "Set the status of a job in plan",
+      "description": "Set the status of a job in plan. ",
+      "children": [
+        {
+          "name": "jobinplan",
+          "type": "command",
+          "aliases": [
+            "jip",
+            "jp"
+          ],
+          "summary": "Set the status of a job in plan",
+          "description": "Set the status of a job in plan.",
+          "handler": "",
+          "outputFormatOptions": true,
+          "profile": {
+            "optional": [
+              "wa",
+              "base"
+            ]
+          },
+          "options": [
+            {
+              "name": "id",
+              "type": "string",
+              "description": "ID of the job. Take the ID from the list jobinplan command.",
+              "required": true,
+              "group": "Required Options",
+              "aliases": []
+            },
+            {
+              "name": "status",
+              "aliases": [
+                "st"
+              ],
+              "type": "string",
+              "description": "Status that you want to set for the job.",
+              "required": true,
+              "allowableValues": {
+                "values": [
+                  "started",
+                  "zosready",
+                  "interrupted",
+                  "zoserror",
+                  "complete"
+                ]
+              },
+              "valueImplications": {
+                "zoserror": {
+                  "impliedOptionNames": [
+                    "errorcode"
+                  ],
+                  "isCaseSensitive": false
+                }
+              },
+              "group": "Required Options"
+            },
+            {
+              "name": "errorcode",
+              "aliases": [
+                "erc"
+              ],
+              "type": "string",
+              "description": "Error code that is associated with the zoserror status",
+              "required": false,
+              "group": "Options"
+            },
+            {
+              "name": "host",
+              "aliases": [
+                "H"
+              ],
+              "description": "The Z connector server host name or API ML server host name",
+              "type": "string",
+              "required": false,
+              "group": "workload-automation Connection Options"
+            },
+            {
+              "name": "port",
+              "aliases": [
+                "P"
+              ],
+              "description": "The Z connector server port or API ML server port",
+              "type": "number",
+              "required": false,
+              "group": "workload-automation Connection Options"
+            },
+            {
+              "name": "user",
+              "aliases": [
+                "u"
+              ],
+              "description": "The Z connector user ID",
+              "type": "string",
+              "required": false,
+              "group": "workload-automation Connection Options"
+            },
+            {
+              "name": "password",
+              "aliases": [
+                "pwd"
+              ],
+              "description": "The Z connector password",
+              "type": "string",
+              "group": "workload-automation Connection Options",
+              "required": false
+            },
+            {
+              "name": "engine",
+              "aliases": [
+                "eng"
+              ],
+              "description": "Name of the engine, as defined on the Z connector",
+              "type": "string",
+              "group": "workload-automation Connection Options",
+              "required": true
+            },
+            {
+              "name": "base-path",
+              "aliases": [
+                "bp"
+              ],
+              "description": "Base path of your API mediation layer instance. If a base path is specified, the plug-in connects to API ML. Specify this value according to the yaml static file added to API ML",
+              "type": "string",
+              "group": "workload-automation Connection Options",
+              "required": false
+            },
+            {
+              "name": "reject-unauthorized",
+              "aliases": [
+                "ru"
+              ],
+              "description": "Reject self-signed certificates",
+              "type": "boolean",
+              "defaultValue": true,
+              "required": false,
+              "group": "workload-automation Connection Options"
+            },
+            {
+              "name": "response-format-json",
+              "aliases": [
+                "rfj"
+              ],
+              "group": "Global options",
+              "description": "Produce JSON formatted data from a command",
+              "type": "boolean"
+            },
+            {
+              "name": "help",
+              "aliases": [
+                "h"
+              ],
+              "group": "Global options",
+              "description": "Display help text",
+              "type": "boolean"
+            },
+            {
+              "name": "help-examples",
+              "group": "Global options",
+              "description": "Display examples for all the commands in a group",
+              "type": "boolean",
+              "aliases": []
+            },
+            {
+              "name": "help-web",
+              "aliases": [
+                "hw"
+              ],
+              "group": "Global options",
+              "description": "Display HTML help in browser",
+              "type": "boolean"
+            },
+            {
+              "name": "wa-profile",
+              "aliases": [
+                "wa-p"
+              ],
+              "group": "Profile Options",
+              "description": "The name of a (wa) profile to load for this command execution.",
+              "type": "string"
+            },
+            {
+              "name": "base-profile",
+              "aliases": [
+                "base-p"
+              ],
+              "group": "Profile Options",
+              "description": "The name of a (base) profile to load for this command execution.",
+              "type": "string"
+            },
+            {
+              "name": "token-type",
+              "aliases": [
+                "tt"
+              ],
+              "description": "The type of token to get and use for the API. Omit this option to use the default token type, which is provided by 'zowe auth login'.",
+              "type": "string",
+              "group": "Base Connection Options"
+            },
+            {
+              "name": "token-value",
+              "aliases": [
+                "tv"
+              ],
+              "description": "The value of the token to pass to the API.",
+              "type": "string",
+              "group": "Base Connection Options"
+            },
+            {
+              "name": "cert-file",
+              "description": "The file path to a certificate file to use for authentication",
+              "type": "existingLocalFile",
+              "group": "Base Connection Options",
+              "aliases": []
+            },
+            {
+              "name": "cert-key-file",
+              "description": "The file path to a certificate key file to use for authentication",
+              "type": "existingLocalFile",
+              "group": "Base Connection Options",
+              "aliases": []
+            },
+            {
+              "name": "response-format-filter",
+              "aliases": [
+                "rff"
+              ],
+              "description": "Filter (include) fields in the response. Accepts an array of field/property names to include in the output response. You can filter JSON objects properties OR table columns/fields. In addition, you can use this option in conjunction with '--response-format-type' to reduce the output of a command to a single field/property or a list of a single field/property.",
+              "type": "array",
+              "group": "Response Format Options"
+            },
+            {
+              "name": "response-format-type",
+              "aliases": [
+                "rft"
+              ],
+              "description": "The command response output format type. Must be one of the following:\n\ntable: Formats output data as a table. Use this option when the output data is an array of homogeneous JSON objects. Each property of the object will become a column in the table.\n\nlist: Formats output data as a list of strings. Can be used on any data type (JSON objects/arrays) are stringified and a new line is added after each entry in an array.\n\nobject: Formats output data as a list of prettified objects (or single object). Can be used in place of \"table\" to change from tabular output to a list of prettified objects.\n\nstring: Formats output data as a string. JSON objects/arrays are stringified.",
+              "type": "string",
+              "allowableValues": {
+                "values": [
+                  "table",
+                  "list",
+                  "object",
+                  "string"
+                ],
+                "caseSensitive": false
+              },
+              "group": "Response Format Options"
+            },
+            {
+              "name": "response-format-header",
+              "aliases": [
+                "rfh"
+              ],
+              "description": "If \"--response-format-type table\" is specified, include the column headers in the output.",
+              "type": "boolean",
+              "group": "Response Format Options",
+              "defaultValue": null
+            }
+          ],
+          "examples": [
+            {
+              "description": "Setting the status of a job to complete ",
+              "options": "--id myjobuniqueidentifier --status complete"
+            },
+            {
+              "description": "Setting the status of a job to error with the error code s451",
+              "options": "--id myjobuniqueidentifier --status zoserror --errorcode s451"
+            }
+          ],
+          "positionals": [],
+          "passOn": [],
+          "children": []
+        }
+      ],
+      "passOn": [
+        {
+          "property": "options",
+          "value": [
+            {
+              "name": "host",
+              "aliases": [
+                "H"
+              ],
+              "description": "The Z connector server host name or API ML server host name",
+              "type": "string",
+              "required": false,
+              "group": "workload-automation Connection Options"
+            },
+            {
+              "name": "port",
+              "aliases": [
+                "P"
+              ],
+              "description": "The Z connector server port or API ML server port",
+              "type": "number",
+              "required": false,
+              "group": "workload-automation Connection Options"
+            },
+            {
+              "name": "user",
+              "aliases": [
+                "u"
+              ],
+              "description": "The Z connector user ID",
+              "type": "string",
+              "required": false,
+              "group": "workload-automation Connection Options"
+            },
+            {
+              "name": "password",
+              "aliases": [
+                "pwd"
+              ],
+              "description": "The Z connector password",
+              "type": "string",
+              "group": "workload-automation Connection Options",
+              "required": false
+            },
+            {
+              "name": "engine",
+              "aliases": [
+                "eng"
+              ],
+              "description": "Name of the engine, as defined on the Z connector",
+              "type": "string",
+              "group": "workload-automation Connection Options",
+              "required": true
+            },
+            {
+              "name": "base-path",
+              "aliases": [
+                "bp"
+              ],
+              "description": "Base path of your API mediation layer instance. If a base path is specified, the plug-in connects to API ML. Specify this value according to the yaml static file added to API ML",
+              "type": "string",
+              "group": "workload-automation Connection Options",
+              "required": false
+            },
+            {
+              "name": "reject-unauthorized",
+              "aliases": [
+                "ru"
+              ],
+              "description": "Reject self-signed certificates",
+              "type": "boolean",
+              "defaultValue": true,
+              "required": false,
+              "group": "workload-automation Connection Options"
+            }
+          ],
+          "merge": true,
+          "ignoreNodes": [
+            {
+              "type": "group"
+            }
+          ]
+        }
+      ],
+      "options": [
+        {
+          "name": "response-format-json",
+          "aliases": [
+            "rfj"
+          ],
+          "group": "Global options",
+          "description": "Produce JSON formatted data from a command",
+          "type": "boolean"
+        },
+        {
+          "name": "help",
+          "aliases": [
+            "h"
+          ],
+          "group": "Global options",
+          "description": "Display help text",
+          "type": "boolean"
+        },
+        {
+          "name": "help-examples",
+          "group": "Global options",
+          "description": "Display examples for all the commands in a group",
+          "type": "boolean",
+          "aliases": []
+        },
+        {
+          "name": "help-web",
+          "aliases": [
+            "hw"
+          ],
+          "group": "Global options",
+          "description": "Display HTML help in browser",
+          "type": "boolean"
+        }
+      ],
+      "positionals": []
+    },
+    {
+      "name": "submit",
+      "aliases": [
+        "sub"
+      ],
+      "type": "group",
+      "summary": "Submit a jobstream into the plan",
+      "description": "Submit a jobstream into the plan.",
+      "children": [
+        {
+          "name": "jobstreaminplan",
+          "type": "command",
+          "aliases": [
+            "jsip",
+            "jsp"
+          ],
+          "summary": "Submit a jobstream to the plan",
+          "description": "Submit a  jobstream to the plan.",
+          "handler": "",
+          "profile": {
+            "optional": [
+              "wa",
+              "base"
+            ]
+          },
+          "options": [
+            {
+              "name": "name",
+              "aliases": [
+                "n"
+              ],
+              "type": "string",
+              "description": "Name of the jobstream.",
+              "required": true,
+              "group": "Required Options"
+            },
+            {
+              "name": "starttime",
+              "aliases": [
+                "st"
+              ],
+              "type": "string",
+              "description": "Start time of the jobstream.",
+              "required": false,
+              "group": "Options"
+            },
+            {
+              "name": "holdall",
+              "aliases": [
+                "ha"
+              ],
+              "type": "boolean",
+              "description": "Hold all jobs in jobstream submitted into the plan.",
+              "required": false,
+              "group": "Options"
+            },
+            {
+              "name": "variabletable",
+              "aliases": [
+                "vt"
+              ],
+              "type": "stringOrEmpty",
+              "description": "Variable table associated to the jobstream submitted into the plan.",
+              "required": false,
+              "group": "Options"
+            },
+            {
+              "name": "jclvariables",
+              "aliases": [
+                "jv"
+              ],
+              "type": "array",
+              "description": "A pair composed by variable name and value to be replaced in the JCL. Must be a promptable variable.",
+              "required": false,
+              "group": "Options"
+            },
+            {
+              "name": "host",
+              "aliases": [
+                "H"
+              ],
+              "description": "The Z connector server host name or API ML server host name",
+              "type": "string",
+              "required": false,
+              "group": "workload-automation Connection Options"
+            },
+            {
+              "name": "port",
+              "aliases": [
+                "P"
+              ],
+              "description": "The Z connector server port or API ML server port",
+              "type": "number",
+              "required": false,
+              "group": "workload-automation Connection Options"
+            },
+            {
+              "name": "user",
+              "aliases": [
+                "u"
+              ],
+              "description": "The Z connector user ID",
+              "type": "string",
+              "required": false,
+              "group": "workload-automation Connection Options"
+            },
+            {
+              "name": "password",
+              "aliases": [
+                "pwd"
+              ],
+              "description": "The Z connector password",
+              "type": "string",
+              "group": "workload-automation Connection Options",
+              "required": false
+            },
+            {
+              "name": "engine",
+              "aliases": [
+                "eng"
+              ],
+              "description": "Name of the engine, as defined on the Z connector",
+              "type": "string",
+              "group": "workload-automation Connection Options",
+              "required": true
+            },
+            {
+              "name": "base-path",
+              "aliases": [
+                "bp"
+              ],
+              "description": "Base path of your API mediation layer instance. If a base path is specified, the plug-in connects to API ML. Specify this value according to the yaml static file added to API ML",
+              "type": "string",
+              "group": "workload-automation Connection Options",
+              "required": false
+            },
+            {
+              "name": "reject-unauthorized",
+              "aliases": [
+                "ru"
+              ],
+              "description": "Reject self-signed certificates",
+              "type": "boolean",
+              "defaultValue": true,
+              "required": false,
+              "group": "workload-automation Connection Options"
+            },
+            {
+              "name": "response-format-json",
+              "aliases": [
+                "rfj"
+              ],
+              "group": "Global options",
+              "description": "Produce JSON formatted data from a command",
+              "type": "boolean"
+            },
+            {
+              "name": "help",
+              "aliases": [
+                "h"
+              ],
+              "group": "Global options",
+              "description": "Display help text",
+              "type": "boolean"
+            },
+            {
+              "name": "help-examples",
+              "group": "Global options",
+              "description": "Display examples for all the commands in a group",
+              "type": "boolean",
+              "aliases": []
+            },
+            {
+              "name": "help-web",
+              "aliases": [
+                "hw"
+              ],
+              "group": "Global options",
+              "description": "Display HTML help in browser",
+              "type": "boolean"
+            },
+            {
+              "name": "wa-profile",
+              "aliases": [
+                "wa-p"
+              ],
+              "group": "Profile Options",
+              "description": "The name of a (wa) profile to load for this command execution.",
+              "type": "string"
+            },
+            {
+              "name": "base-profile",
+              "aliases": [
+                "base-p"
+              ],
+              "group": "Profile Options",
+              "description": "The name of a (base) profile to load for this command execution.",
+              "type": "string"
+            },
+            {
+              "name": "token-type",
+              "aliases": [
+                "tt"
+              ],
+              "description": "The type of token to get and use for the API. Omit this option to use the default token type, which is provided by 'zowe auth login'.",
+              "type": "string",
+              "group": "Base Connection Options"
+            },
+            {
+              "name": "token-value",
+              "aliases": [
+                "tv"
+              ],
+              "description": "The value of the token to pass to the API.",
+              "type": "string",
+              "group": "Base Connection Options"
+            },
+            {
+              "name": "cert-file",
+              "description": "The file path to a certificate file to use for authentication",
+              "type": "existingLocalFile",
+              "group": "Base Connection Options",
+              "aliases": []
+            },
+            {
+              "name": "cert-key-file",
+              "description": "The file path to a certificate key file to use for authentication",
+              "type": "existingLocalFile",
+              "group": "Base Connection Options",
+              "aliases": []
+            }
+          ],
+          "examples": [
+            {
+              "description": "Submit a jobstream in the current plan whose name is 'myjobstream' with the specified start time",
+              "options": "--name myjobstream --starttime 2018-10-17T19:00:00"
+            },
+            {
+              "description": "Submit a jobstream in the current plan whose name is 'myjobstream' with all jobs on hold",
+              "options": "--name myjobstream --holdall"
+            },
+            {
+              "description": "Submit a jobstream in the current plan whose name is 'myjobstream' resolving promptable variables in the JCL",
+              "options": "--name myjobstream --jclvariables key1 value1 key2 value2"
+            }
+          ],
+          "positionals": [],
+          "passOn": [],
+          "children": []
+        }
+      ],
+      "passOn": [
+        {
+          "property": "options",
+          "value": [
+            {
+              "name": "host",
+              "aliases": [
+                "H"
+              ],
+              "description": "The Z connector server host name or API ML server host name",
+              "type": "string",
+              "required": false,
+              "group": "workload-automation Connection Options"
+            },
+            {
+              "name": "port",
+              "aliases": [
+                "P"
+              ],
+              "description": "The Z connector server port or API ML server port",
+              "type": "number",
+              "required": false,
+              "group": "workload-automation Connection Options"
+            },
+            {
+              "name": "user",
+              "aliases": [
+                "u"
+              ],
+              "description": "The Z connector user ID",
+              "type": "string",
+              "required": false,
+              "group": "workload-automation Connection Options"
+            },
+            {
+              "name": "password",
+              "aliases": [
+                "pwd"
+              ],
+              "description": "The Z connector password",
+              "type": "string",
+              "group": "workload-automation Connection Options",
+              "required": false
+            },
+            {
+              "name": "engine",
+              "aliases": [
+                "eng"
+              ],
+              "description": "Name of the engine, as defined on the Z connector",
+              "type": "string",
+              "group": "workload-automation Connection Options",
+              "required": true
+            },
+            {
+              "name": "base-path",
+              "aliases": [
+                "bp"
+              ],
+              "description": "Base path of your API mediation layer instance. If a base path is specified, the plug-in connects to API ML. Specify this value according to the yaml static file added to API ML",
+              "type": "string",
+              "group": "workload-automation Connection Options",
+              "required": false
+            },
+            {
+              "name": "reject-unauthorized",
+              "aliases": [
+                "ru"
+              ],
+              "description": "Reject self-signed certificates",
+              "type": "boolean",
+              "defaultValue": true,
+              "required": false,
+              "group": "workload-automation Connection Options"
+            }
+          ],
+          "merge": true,
+          "ignoreNodes": [
+            {
+              "type": "group"
+            }
+          ]
+        }
+      ],
+      "options": [
+        {
+          "name": "response-format-json",
+          "aliases": [
+            "rfj"
+          ],
+          "group": "Global options",
+          "description": "Produce JSON formatted data from a command",
+          "type": "boolean"
+        },
+        {
+          "name": "help",
+          "aliases": [
+            "h"
+          ],
+          "group": "Global options",
+          "description": "Display help text",
+          "type": "boolean"
+        },
+        {
+          "name": "help-examples",
+          "group": "Global options",
+          "description": "Display examples for all the commands in a group",
+          "type": "boolean",
+          "aliases": []
+        },
+        {
+          "name": "help-web",
+          "aliases": [
+            "hw"
+          ],
+          "group": "Global options",
+          "description": "Display HTML help in browser",
+          "type": "boolean"
+        }
+      ],
+      "positionals": []
+    },
+    {
+      "name": "update",
+      "aliases": [
+        "upd"
+      ],
+      "type": "group",
+      "summary": "Update resources or jobs in plan.",
+      "description": "Update resources or jobs in plan.",
+      "children": [
+        {
+          "name": "resourceinplan",
+          "type": "command",
+          "aliases": [
+            "resp",
+            "rp"
+          ],
+          "summary": "Update the resource in plan",
+          "description": "Update the resource in plan.",
+          "handler": "",
+          "outputFormatOptions": true,
+          "profile": {
+            "optional": [
+              "wa",
+              "base"
+            ]
+          },
+          "options": [
+            {
+              "name": "id",
+              "type": "string",
+              "description": "Id of the resource to update. Take id from get response body",
+              "required": true,
+              "group": "Required Options",
+              "aliases": []
+            },
+            {
+              "name": "file",
+              "aliases": [
+                "f"
+              ],
+              "type": "string",
+              "description": "A local file containing resource JSON body to be updated.",
+              "required": true,
+              "group": "Required Options"
+            },
+            {
+              "name": "host",
+              "aliases": [
+                "H"
+              ],
+              "description": "The Z connector server host name or API ML server host name",
+              "type": "string",
+              "required": false,
+              "group": "workload-automation Connection Options"
+            },
+            {
+              "name": "port",
+              "aliases": [
+                "P"
+              ],
+              "description": "The Z connector server port or API ML server port",
+              "type": "number",
+              "required": false,
+              "group": "workload-automation Connection Options"
+            },
+            {
+              "name": "user",
+              "aliases": [
+                "u"
+              ],
+              "description": "The Z connector user ID",
+              "type": "string",
+              "required": false,
+              "group": "workload-automation Connection Options"
+            },
+            {
+              "name": "password",
+              "aliases": [
+                "pwd"
+              ],
+              "description": "The Z connector password",
+              "type": "string",
+              "group": "workload-automation Connection Options",
+              "required": false
+            },
+            {
+              "name": "engine",
+              "aliases": [
+                "eng"
+              ],
+              "description": "Name of the engine, as defined on the Z connector",
+              "type": "string",
+              "group": "workload-automation Connection Options",
+              "required": true
+            },
+            {
+              "name": "base-path",
+              "aliases": [
+                "bp"
+              ],
+              "description": "Base path of your API mediation layer instance. If a base path is specified, the plug-in connects to API ML. Specify this value according to the yaml static file added to API ML",
+              "type": "string",
+              "group": "workload-automation Connection Options",
+              "required": false
+            },
+            {
+              "name": "reject-unauthorized",
+              "aliases": [
+                "ru"
+              ],
+              "description": "Reject self-signed certificates",
+              "type": "boolean",
+              "defaultValue": true,
+              "required": false,
+              "group": "workload-automation Connection Options"
+            },
+            {
+              "name": "response-format-json",
+              "aliases": [
+                "rfj"
+              ],
+              "group": "Global options",
+              "description": "Produce JSON formatted data from a command",
+              "type": "boolean"
+            },
+            {
+              "name": "help",
+              "aliases": [
+                "h"
+              ],
+              "group": "Global options",
+              "description": "Display help text",
+              "type": "boolean"
+            },
+            {
+              "name": "help-examples",
+              "group": "Global options",
+              "description": "Display examples for all the commands in a group",
+              "type": "boolean",
+              "aliases": []
+            },
+            {
+              "name": "help-web",
+              "aliases": [
+                "hw"
+              ],
+              "group": "Global options",
+              "description": "Display HTML help in browser",
+              "type": "boolean"
+            },
+            {
+              "name": "wa-profile",
+              "aliases": [
+                "wa-p"
+              ],
+              "group": "Profile Options",
+              "description": "The name of a (wa) profile to load for this command execution.",
+              "type": "string"
+            },
+            {
+              "name": "base-profile",
+              "aliases": [
+                "base-p"
+              ],
+              "group": "Profile Options",
+              "description": "The name of a (base) profile to load for this command execution.",
+              "type": "string"
+            },
+            {
+              "name": "token-type",
+              "aliases": [
+                "tt"
+              ],
+              "description": "The type of token to get and use for the API. Omit this option to use the default token type, which is provided by 'zowe auth login'.",
+              "type": "string",
+              "group": "Base Connection Options"
+            },
+            {
+              "name": "token-value",
+              "aliases": [
+                "tv"
+              ],
+              "description": "The value of the token to pass to the API.",
+              "type": "string",
+              "group": "Base Connection Options"
+            },
+            {
+              "name": "cert-file",
+              "description": "The file path to a certificate file to use for authentication",
+              "type": "existingLocalFile",
+              "group": "Base Connection Options",
+              "aliases": []
+            },
+            {
+              "name": "cert-key-file",
+              "description": "The file path to a certificate key file to use for authentication",
+              "type": "existingLocalFile",
+              "group": "Base Connection Options",
+              "aliases": []
+            },
+            {
+              "name": "response-format-filter",
+              "aliases": [
+                "rff"
+              ],
+              "description": "Filter (include) fields in the response. Accepts an array of field/property names to include in the output response. You can filter JSON objects properties OR table columns/fields. In addition, you can use this option in conjunction with '--response-format-type' to reduce the output of a command to a single field/property or a list of a single field/property.",
+              "type": "array",
+              "group": "Response Format Options"
+            },
+            {
+              "name": "response-format-type",
+              "aliases": [
+                "rft"
+              ],
+              "description": "The command response output format type. Must be one of the following:\n\ntable: Formats output data as a table. Use this option when the output data is an array of homogeneous JSON objects. Each property of the object will become a column in the table.\n\nlist: Formats output data as a list of strings. Can be used on any data type (JSON objects/arrays) are stringified and a new line is added after each entry in an array.\n\nobject: Formats output data as a list of prettified objects (or single object). Can be used in place of \"table\" to change from tabular output to a list of prettified objects.\n\nstring: Formats output data as a string. JSON objects/arrays are stringified.",
+              "type": "string",
+              "allowableValues": {
+                "values": [
+                  "table",
+                  "list",
+                  "object",
+                  "string"
+                ],
+                "caseSensitive": false
+              },
+              "group": "Response Format Options"
+            },
+            {
+              "name": "response-format-header",
+              "aliases": [
+                "rfh"
+              ],
+              "description": "If \"--response-format-type table\" is specified, include the column headers in the output.",
+              "type": "boolean",
+              "group": "Response Format Options",
+              "defaultValue": null
+            }
+          ],
+          "examples": [
+            {
+              "description": "Update the specified resource with JSON body provided in the file. You can take the JSON body from data field of the response of the get command using --rfj option",
+              "options": "--id resourceId --file resource.txt"
+            }
+          ],
+          "positionals": [],
+          "passOn": [],
+          "children": []
+        },
+        {
+          "name": "jobinplan",
+          "type": "command",
+          "aliases": [
+            "jip",
+            "jp"
+          ],
+          "summary": "Update the job in plan",
+          "description": "Update the job in plan.",
+          "handler": "",
+          "outputFormatOptions": true,
+          "profile": {
+            "optional": [
+              "wa",
+              "base"
+            ]
+          },
+          "options": [
+            {
+              "name": "id",
+              "type": "string",
+              "description": "ID of the job to update. Take the ID from get response body.",
+              "required": true,
+              "group": "Required Options",
+              "aliases": []
+            },
+            {
+              "name": "jobname",
+              "aliases": [
+                "jn"
+              ],
+              "type": "string",
+              "description": "Name of the job",
+              "stringLengthRange": [
+                1,
+                8
+              ],
+              "required": false,
+              "group": "Options"
+            },
+            {
+              "name": "description",
+              "aliases": [
+                "des"
+              ],
+              "type": "string",
+              "description": "Description of the job",
+              "required": false,
+              "group": "Options"
+            },
+            {
+              "name": "workstation",
+              "aliases": [
+                "ws"
+              ],
+              "type": "string",
+              "description": "Name of the workstation",
+              "required": false,
+              "group": "Options"
+            },
+            {
+              "name": "parallel-servers",
+              "aliases": [
+                "ps"
+              ],
+              "type": "number",
+              "description": "Number of parallel servers that can concurrently run the operation at the workstation",
+              "numericValueRange": [
+                1,
+                99
+              ],
+              "required": false,
+              "group": "Options"
+            },
+            {
+              "name": "r1-resources",
+              "aliases": [
+                "r1"
+              ],
+              "type": "number",
+              "description": "Maximum capacity of workstation resource 1",
+              "numericValueRange": [
+                0,
+                99
+              ],
+              "required": false,
+              "group": "Options"
+            },
+            {
+              "name": "r2-resources",
+              "aliases": [
+                "r2"
+              ],
+              "type": "number",
+              "description": "Maximum capacity of workstation resource 2",
+              "numericValueRange": [
+                0,
+                99
+              ],
+              "required": false,
+              "group": "Options"
+            },
+            {
+              "name": "form-number",
+              "aliases": [
+                "fn"
+              ],
+              "type": "string",
+              "description": "Form number or Sysout forms name of the job",
+              "required": false,
+              "group": "Options"
+            },
+            {
+              "name": "extended-name",
+              "aliases": [
+                "en"
+              ],
+              "type": "string",
+              "description": "Extended name of the job",
+              "required": false,
+              "group": "Options"
+            },
+            {
+              "name": "job-class",
+              "aliases": [
+                "jclass"
+              ],
+              "type": "string",
+              "description": "Job or sysout class of the job",
+              "stringLengthRange": [
+                1,
+                1
+              ],
+              "required": false,
+              "group": "Options"
+            },
+            {
+              "name": "scheduling-environment",
+              "aliases": [
+                "env"
+              ],
+              "type": "string",
+              "description": "Scheduling environmnent name of the job",
+              "required": false,
+              "group": "Options"
+            },
+            {
+              "name": "time-dependent",
+              "aliases": [
+                "td"
+              ],
+              "type": "boolean",
+              "description": "Jobs are to be submitted at a specific time or as soon as possible.\n\nTrue: job must NOT start before the input arrival time is reached.\n\nFalse: job can start as soon as predecessors are completed and resources are available.",
+              "required": false,
+              "group": "Options"
+            },
+            {
+              "name": "follow-job-stream-input-arrival",
+              "aliases": [
+                "fjs-ia",
+                "fjs"
+              ],
+              "type": "boolean",
+              "description": "Follow jobstream input arrival time. If not specified, current value is used.",
+              "required": false,
+              "group": "Options"
+            },
+            {
+              "name": "start-time",
+              "aliases": [
+                "st"
+              ],
+              "type": "string",
+              "description": "Start time date and time of the job, in the format YYYY-MM-DDTHH:MM:SS\n\nThe date and time cannot be earlier than the application input arrival, nor later than the application deadline.\n\nUse it in combination with the follow-job-stream-input-arrival option set to false.",
+              "required": false,
+              "group": "Options"
+            },
+            {
+              "name": "deadline",
+              "aliases": [
+                "dl"
+              ],
+              "type": "stringOrEmpty",
+              "description": "Deadline date and time of the job, in the format YYYY-MM-DDTHH:MM:SS\n\nThe date and time cannot be earlier than the application input arrival, nor later than the application deadline.\n\nTo clear existent deadline-time pass an empty \"\" value. Note that any correlated actions will be cleared.",
+              "required": false,
+              "group": "Options"
+            },
+            {
+              "name": "deadline-action",
+              "aliases": [
+                "dla"
+              ],
+              "type": "string",
+              "description": "Action to be taken if the operation is still not completed when deadline day and time are reached. If you specify an action, an alert message is issued. Optional.\n\n ALERT: Alert only.\n\n COMPLETE: Operation is completed if its status allows this kind of change, otherwise is NOPed.\n\n NOP: Operation and all its internal successors are NOPed.\n\n ERROR: Operation is set to error with error code ODEA if its status allows this kind of change.\n\n BLANK: No action.",
+              "allowableValues": {
+                "values": [
+                  "ALERT",
+                  "COMPLETE",
+                  "NOP",
+                  "ERROR",
+                  "BLANK"
+                ]
+              },
+              "valueImplications": {
+                "ALERT": {
+                  "impliedOptionNames": [
+                    "deadline"
+                  ],
+                  "isCaseSensitive": false
+                },
+                "COMPLETE": {
+                  "impliedOptionNames": [
+                    "deadline"
+                  ],
+                  "isCaseSensitive": false
+                },
+                "NOP": {
+                  "impliedOptionNames": [
+                    "deadline"
+                  ],
+                  "isCaseSensitive": false
+                },
+                "ERROR": {
+                  "impliedOptionNames": [
+                    "deadline"
+                  ],
+                  "isCaseSensitive": false
+                },
+                "BLANK": {
+                  "impliedOptionNames": [
+                    "deadline"
+                  ],
+                  "isCaseSensitive": false
+                }
+              },
+              "required": false,
+              "group": "Options"
+            },
+            {
+              "name": "not-started-alert-date",
+              "aliases": [
+                "nsald"
+              ],
+              "type": "stringOrEmpty",
+              "description": "Date and time, in the format YYYY-MM-DDTHH:MM:SS, to check if the operation has not yet started. If so, an alert is issued.\n\nTo clear existent not-started-alert-date pass an empty \"\" value.",
+              "required": false,
+              "group": "Options"
+            },
+            {
+              "name": "not-started-action-date",
+              "aliases": [
+                "nsacd"
+              ],
+              "type": "stringOrEmpty",
+              "description": "Date and time, in the format YYYY-MM-DDTHH:MM:SS, to check if the operation has not yet started.This check is applied only to ready operations. If you specify date and time, an action is required.\n\nTo clear existent not-started-action-date pass an empty \"\" value. Note that any correlated actions will be cleared.",
+              "required": false,
+              "group": "Options"
+            },
+            {
+              "name": "not-started-action",
+              "aliases": [
+                "nsa"
+              ],
+              "type": "string",
+              "description": "Action to be taken if the operation has not yet started when the specified time is reached. If you specify an action, day and time are required.\n\n ALERT: Alert only.\n\n COMPLETE: Operation is completed if its status allows this kind of change, otherwise is NOPed.\n\n NOP: Operation and all its internal successors are NOPed.\n\n ERROR: Operation is set to error with error code OLAT if its status allows this kind of change.",
+              "allowableValues": {
+                "values": [
+                  "ALERT",
+                  "COMPLETE",
+                  "NOP",
+                  "ERROR"
+                ]
+              },
+              "required": false,
+              "group": "Options"
+            },
+            {
+              "name": "duration",
+              "aliases": [
+                "dur"
+              ],
+              "type": "number",
+              "description": "Estimated duration of the job, expressed in milliseconds.",
+              "required": false,
+              "group": "Options"
+            },
+            {
+              "name": "critical",
+              "aliases": [
+                "crit"
+              ],
+              "type": "string",
+              "description": "If the job is to be considered a Critical Path target, eligible for WLM assistance, or Not eligible for WLM assistance.",
+              "allowableValues": {
+                "values": [
+                  "NO",
+                  "PATH",
+                  "WLM"
+                ]
+              },
+              "required": false,
+              "group": "Options"
+            },
+            {
+              "name": "wlm-policy",
+              "aliases": [
+                "wpol"
+              ],
+              "type": "string",
+              "description": "Policy to be used for WLM assistance, if the job has been defined as critical.\n\nLONGDURATION: job is assisted if it runs beyond its estimated duration\n\nDEADLINE: job is assisted if it has not finished when its deadline time is reached\n\nLATESTSTART: job is assisted if it is submitted after its latest start time\n\nCONDITIONAL: an algorithm calculates whether to apply the Deadline or Latest start policy\n\nDEFAULT: the policy specified in OPCOPTS is applied",
+              "allowableValues": {
+                "values": [
+                  "CONDITIONAL",
+                  "DEADLINE",
+                  "LATESTSTART",
+                  "LONGDURATION",
+                  "DEFAULT"
+                ]
+              },
+              "required": false,
+              "group": "Options"
+            },
+            {
+              "name": "wlm-class",
+              "aliases": [
+                "wcla"
+              ],
+              "type": "string",
+              "description": "WLM Service Class",
+              "stringLengthRange": [
+                1,
+                8
+              ],
+              "required": false,
+              "group": "Options"
+            },
+            {
+              "name": "monitored",
+              "aliases": [
+                "mon"
+              ],
+              "type": "boolean",
+              "description": "Job or operation must be monitored by an external product.\n\nTrue: monitored\n\nFalse: not monitored",
+              "required": false,
+              "group": "Options"
+            },
+            {
+              "name": "auto-release",
+              "aliases": [
+                "ar"
+              ],
+              "type": "boolean",
+              "description": "Jobs submitted by other than the product must be automatically released at their appropriate time, if placed in HOLD status at job submission time.\n\nTrue: release jobs at their appropriate time.\n\nFalse: release jobs immediately.",
+              "required": false,
+              "group": "Options"
+            },
+            {
+              "name": "cancel-if-late",
+              "aliases": [
+                "clate"
+              ],
+              "type": "boolean",
+              "description": "Job must be submitted, regardless of the fact that its assigned start time has passed.\n\nTrue: suppress the submit or release of a time-dependent job, if it is late.\n\nFalse: submit or release a job when ready, even if the specified time has passed.",
+              "required": false,
+              "group": "Options"
+            },
+            {
+              "name": "auto-submit",
+              "aliases": [
+                "asub"
+              ],
+              "type": "boolean",
+              "description": "Job is to be automatically started.\n\nTrue: job is automatically started.\n\nFalse: job is NOT automatically started.",
+              "required": false,
+              "group": "Options"
+            },
+            {
+              "name": "auto-error-completion",
+              "aliases": [
+                "aerc"
+              ],
+              "type": "boolean",
+              "description": "How error conditions are to be managed for the job.\n\nTrue: error conditions are automatically tracked and the job is assigned an ended-in-error status if it fails.\n\nFalse: ignore error conditions and give the job a completed status when it ends.",
+              "required": false,
+              "group": "Options"
+            },
+            {
+              "name": "highest-return-code",
+              "aliases": [
+                "hrc"
+              ],
+              "type": "number",
+              "description": "Highest accepted return code for a job  NOT to be reported as ended-in-error. For FT workstations, this value can be only 0.",
+              "numericValueRange": [
+                0,
+                4095
+              ],
+              "required": false,
+              "group": "Options"
+            },
+            {
+              "name": "user-data",
+              "aliases": [
+                "udata"
+              ],
+              "type": "string",
+              "description": "User descriptive text to be associated with the job or operation.",
+              "stringLengthRange": [
+                0,
+                16
+              ],
+              "required": false,
+              "group": "Options"
+            },
+            {
+              "name": "cleanup-option",
+              "aliases": [
+                "clean"
+              ],
+              "type": "string",
+              "description": "Cleanup action to be taken on computer workstations for operations that end in error or are rerun.",
+              "allowableValues": {
+                "values": [
+                  "AUTOMATIC",
+                  "IMMEDIATE",
+                  "MANUAL",
+                  "NONE"
+                ]
+              },
+              "required": false,
+              "group": "Options"
+            },
+            {
+              "name": "user-sysout",
+              "aliases": [
+                "usys"
+              ],
+              "type": "boolean",
+              "description": "If User sysout support is needed.\n\nTrue: data store logs User sysout.\n\nFalse: data store does not log User sysout.",
+              "required": false,
+              "group": "Options"
+            },
+            {
+              "name": "restartable",
+              "aliases": [
+                "rest"
+              ],
+              "type": "string",
+              "description": "The operation can be restarted when its primary workstation becomes inactive. Ignored for Fault-Tolerant workstations. Use installation default action.\n\nYES: the operation can be restarted.\n\nNO: the operation CANNOT be restarted.\n\nDEFAULT: use installation default action.",
+              "allowableValues": {
+                "values": [
+                  "YES",
+                  "NO",
+                  "DEFAULT"
+                ]
+              },
+              "required": false,
+              "group": "Options"
+            },
+            {
+              "name": "reroutable",
+              "aliases": [
+                "rero"
+              ],
+              "type": "string",
+              "description": "The operation can be rerouted if its primary workstation is rerouted. Ignored for Fault Tolerance Workstation.\n\nYES: operation can be rerouted.\n\nNO: operation CANNOT be rerouted.\n\nDEFAULT: use installation default action.",
+              "allowableValues": {
+                "values": [
+                  "YES",
+                  "NO",
+                  "DEFAULT"
+                ]
+              },
+              "required": false,
+              "group": "Options"
+            },
+            {
+              "name": "host",
+              "aliases": [
+                "H"
+              ],
+              "description": "The Z connector server host name or API ML server host name",
+              "type": "string",
+              "required": false,
+              "group": "workload-automation Connection Options"
+            },
+            {
+              "name": "port",
+              "aliases": [
+                "P"
+              ],
+              "description": "The Z connector server port or API ML server port",
+              "type": "number",
+              "required": false,
+              "group": "workload-automation Connection Options"
+            },
+            {
+              "name": "user",
+              "aliases": [
+                "u"
+              ],
+              "description": "The Z connector user ID",
+              "type": "string",
+              "required": false,
+              "group": "workload-automation Connection Options"
+            },
+            {
+              "name": "password",
+              "aliases": [
+                "pwd"
+              ],
+              "description": "The Z connector password",
+              "type": "string",
+              "group": "workload-automation Connection Options",
+              "required": false
+            },
+            {
+              "name": "engine",
+              "aliases": [
+                "eng"
+              ],
+              "description": "Name of the engine, as defined on the Z connector",
+              "type": "string",
+              "group": "workload-automation Connection Options",
+              "required": true
+            },
+            {
+              "name": "base-path",
+              "aliases": [
+                "bp"
+              ],
+              "description": "Base path of your API mediation layer instance. If a base path is specified, the plug-in connects to API ML. Specify this value according to the yaml static file added to API ML",
+              "type": "string",
+              "group": "workload-automation Connection Options",
+              "required": false
+            },
+            {
+              "name": "reject-unauthorized",
+              "aliases": [
+                "ru"
+              ],
+              "description": "Reject self-signed certificates",
+              "type": "boolean",
+              "defaultValue": true,
+              "required": false,
+              "group": "workload-automation Connection Options"
+            },
+            {
+              "name": "response-format-json",
+              "aliases": [
+                "rfj"
+              ],
+              "group": "Global options",
+              "description": "Produce JSON formatted data from a command",
+              "type": "boolean"
+            },
+            {
+              "name": "help",
+              "aliases": [
+                "h"
+              ],
+              "group": "Global options",
+              "description": "Display help text",
+              "type": "boolean"
+            },
+            {
+              "name": "help-examples",
+              "group": "Global options",
+              "description": "Display examples for all the commands in a group",
+              "type": "boolean",
+              "aliases": []
+            },
+            {
+              "name": "help-web",
+              "aliases": [
+                "hw"
+              ],
+              "group": "Global options",
+              "description": "Display HTML help in browser",
+              "type": "boolean"
+            },
+            {
+              "name": "wa-profile",
+              "aliases": [
+                "wa-p"
+              ],
+              "group": "Profile Options",
+              "description": "The name of a (wa) profile to load for this command execution.",
+              "type": "string"
+            },
+            {
+              "name": "base-profile",
+              "aliases": [
+                "base-p"
+              ],
+              "group": "Profile Options",
+              "description": "The name of a (base) profile to load for this command execution.",
+              "type": "string"
+            },
+            {
+              "name": "token-type",
+              "aliases": [
+                "tt"
+              ],
+              "description": "The type of token to get and use for the API. Omit this option to use the default token type, which is provided by 'zowe auth login'.",
+              "type": "string",
+              "group": "Base Connection Options"
+            },
+            {
+              "name": "token-value",
+              "aliases": [
+                "tv"
+              ],
+              "description": "The value of the token to pass to the API.",
+              "type": "string",
+              "group": "Base Connection Options"
+            },
+            {
+              "name": "cert-file",
+              "description": "The file path to a certificate file to use for authentication",
+              "type": "existingLocalFile",
+              "group": "Base Connection Options",
+              "aliases": []
+            },
+            {
+              "name": "cert-key-file",
+              "description": "The file path to a certificate key file to use for authentication",
+              "type": "existingLocalFile",
+              "group": "Base Connection Options",
+              "aliases": []
+            },
+            {
+              "name": "response-format-filter",
+              "aliases": [
+                "rff"
+              ],
+              "description": "Filter (include) fields in the response. Accepts an array of field/property names to include in the output response. You can filter JSON objects properties OR table columns/fields. In addition, you can use this option in conjunction with '--response-format-type' to reduce the output of a command to a single field/property or a list of a single field/property.",
+              "type": "array",
+              "group": "Response Format Options"
+            },
+            {
+              "name": "response-format-type",
+              "aliases": [
+                "rft"
+              ],
+              "description": "The command response output format type. Must be one of the following:\n\ntable: Formats output data as a table. Use this option when the output data is an array of homogeneous JSON objects. Each property of the object will become a column in the table.\n\nlist: Formats output data as a list of strings. Can be used on any data type (JSON objects/arrays) are stringified and a new line is added after each entry in an array.\n\nobject: Formats output data as a list of prettified objects (or single object). Can be used in place of \"table\" to change from tabular output to a list of prettified objects.\n\nstring: Formats output data as a string. JSON objects/arrays are stringified.",
+              "type": "string",
+              "allowableValues": {
+                "values": [
+                  "table",
+                  "list",
+                  "object",
+                  "string"
+                ],
+                "caseSensitive": false
+              },
+              "group": "Response Format Options"
+            },
+            {
+              "name": "response-format-header",
+              "aliases": [
+                "rfh"
+              ],
+              "description": "If \"--response-format-type table\" is specified, include the column headers in the output.",
+              "type": "boolean",
+              "group": "Response Format Options",
+              "defaultValue": null
+            }
+          ],
+          "examples": [
+            {
+              "description": "Update the jobname and workstation of the specified job",
+              "options": "--jobname myjclname --workstation myws"
+            },
+            {
+              "description": "Update options start-time, monitored, and duration of the specified job",
+              "options": "--start-time 2020-10-26T10:00:00 --monitored false --duration 180000"
+            }
+          ],
+          "positionals": [],
+          "passOn": [],
+          "children": []
+        }
+      ],
+      "passOn": [
+        {
+          "property": "options",
+          "value": [
+            {
+              "name": "host",
+              "aliases": [
+                "H"
+              ],
+              "description": "The Z connector server host name or API ML server host name",
+              "type": "string",
+              "required": false,
+              "group": "workload-automation Connection Options"
+            },
+            {
+              "name": "port",
+              "aliases": [
+                "P"
+              ],
+              "description": "The Z connector server port or API ML server port",
+              "type": "number",
+              "required": false,
+              "group": "workload-automation Connection Options"
+            },
+            {
+              "name": "user",
+              "aliases": [
+                "u"
+              ],
+              "description": "The Z connector user ID",
+              "type": "string",
+              "required": false,
+              "group": "workload-automation Connection Options"
+            },
+            {
+              "name": "password",
+              "aliases": [
+                "pwd"
+              ],
+              "description": "The Z connector password",
+              "type": "string",
+              "group": "workload-automation Connection Options",
+              "required": false
+            },
+            {
+              "name": "engine",
+              "aliases": [
+                "eng"
+              ],
+              "description": "Name of the engine, as defined on the Z connector",
+              "type": "string",
+              "group": "workload-automation Connection Options",
+              "required": true
+            },
+            {
+              "name": "base-path",
+              "aliases": [
+                "bp"
+              ],
+              "description": "Base path of your API mediation layer instance. If a base path is specified, the plug-in connects to API ML. Specify this value according to the yaml static file added to API ML",
+              "type": "string",
+              "group": "workload-automation Connection Options",
+              "required": false
+            },
+            {
+              "name": "reject-unauthorized",
+              "aliases": [
+                "ru"
+              ],
+              "description": "Reject self-signed certificates",
+              "type": "boolean",
+              "defaultValue": true,
+              "required": false,
+              "group": "workload-automation Connection Options"
+            }
+          ],
+          "merge": true,
+          "ignoreNodes": [
+            {
+              "type": "group"
+            }
+          ]
+        }
+      ],
+      "options": [
+        {
+          "name": "response-format-json",
+          "aliases": [
+            "rfj"
+          ],
+          "group": "Global options",
+          "description": "Produce JSON formatted data from a command",
+          "type": "boolean"
+        },
+        {
+          "name": "help",
+          "aliases": [
+            "h"
+          ],
+          "group": "Global options",
+          "description": "Display help text",
+          "type": "boolean"
+        },
+        {
+          "name": "help-examples",
+          "group": "Global options",
+          "description": "Display examples for all the commands in a group",
+          "type": "boolean",
+          "aliases": []
+        },
+        {
+          "name": "help-web",
+          "aliases": [
+            "hw"
+          ],
+          "group": "Global options",
+          "description": "Display HTML help in browser",
+          "type": "boolean"
+        }
+      ],
+      "positionals": []
+    }
+  ],
+  "summary": "Interact with IBM Z Workload Scheduler",
+  "aliases": [
+    "wa"
+  ],
+  "options": [
+    {
+      "name": "response-format-json",
+      "aliases": [
+        "rfj"
+      ],
+      "group": "Global options",
+      "description": "Produce JSON formatted data from a command",
+      "type": "boolean"
+    },
+    {
+      "name": "help",
+      "aliases": [
+        "h"
+      ],
+      "group": "Global options",
+      "description": "Display help text",
+      "type": "boolean"
+    },
+    {
+      "name": "help-examples",
+      "group": "Global options",
+      "description": "Display examples for all the commands in a group",
+      "type": "boolean",
+      "aliases": []
+    },
+    {
+      "name": "help-web",
+      "aliases": [
+        "hw"
+      ],
+      "group": "Global options",
+      "description": "Display HTML help in browser",
+      "type": "boolean"
+    }
+  ],
+  "positionals": [],
+  "passOn": []
+}

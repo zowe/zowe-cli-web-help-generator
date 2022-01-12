@@ -1,14 +1,25 @@
 // The Program is owned by IBM or an IBM supplier, and is copyrighted
 {
-  "name": "znetview-profile",
+  "name": "wa-profile",
   "aliases": [
-    "znetview"
+    "wa"
   ],
-  "summary": "Set the default\n profiles for the znetview group",
-  "description": "The znetview set default-profiles command allows you to set the default profiles for this command group. When a znetview command is issued and no profile override options are specified, the default profiles for the command group are automatically loaded for the command based on the commands profile requirements.",
+  "summary": "Delete a wa profile.",
+  "description": "Delete a wa profile. You must specify a profile name to be deleted. To find a list of available profiles for deletion, issue the profiles list command. By default, you will be prompted to confirm the profile removal.",
   "type": "command",
   "handler": "",
+  "customize": {
+    "profileTypeIdentifier": "wa"
+  },
   "options": [
+    {
+      "name": "force",
+      "aliases": [],
+      "description": "Force deletion of profile, and dependent profiles if specified. No prompt will be displayed before  deletion occurs.",
+      "type": "boolean",
+      "required": false,
+      "group": "Options"
+    },
     {
       "name": "response-format-json",
       "aliases": [
@@ -47,18 +58,15 @@
   "positionals": [
     {
       "name": "profileName",
-      "description": "Specify a\n profile for default usage within the znetview group. When you issue commands within the znetview group without a profile specified as part of the command, the default will be loaded instead.",
+      "description": "Specifies the name of the wa  profile to be deleted. You can also load this profile by using the name on commands that support the \"--wa-profile\" option.",
       "type": "string",
       "required": true
     }
   ],
-  "customize": {
-    "profileTypeIdentifier": "znetview"
-  },
   "examples": [
     {
       "options": "profilename",
-      "description": "Set the default profile for type znetview to the profile named 'profilename'"
+      "description": "Delete a wa profile named profilename"
     }
   ],
   "passOn": [],

@@ -1,0 +1,144 @@
+// The Program is owned by IBM or an IBM supplier, and is copyrighted
+{
+  "name": "wa-profile",
+  "aliases": [
+    "wa"
+  ],
+  "summary": "Update a wa profile. You can update any property present within the profile configuration. The updated profile will be printed so that you can review the result of the updates.",
+  "description": "A profile for interaction with WA REST Services",
+  "type": "command",
+  "handler": "",
+  "customize": {
+    "profileTypeIdentifier": "wa"
+  },
+  "positionals": [
+    {
+      "name": "profileName",
+      "description": "Specifies the name of the new wa profile. You can load this profile by using the name on commands that support the \"--wa-profile\" option.",
+      "type": "string",
+      "required": true
+    }
+  ],
+  "options": [
+    {
+      "name": "host",
+      "aliases": [
+        "H"
+      ],
+      "description": "The Z connector server host name or API ML server host name",
+      "type": "string",
+      "required": false,
+      "group": "workload-automation Connection Options",
+      "absenceImplications": null,
+      "implies": null
+    },
+    {
+      "name": "port",
+      "aliases": [
+        "P"
+      ],
+      "description": "The Z connector server port or API ML server port",
+      "type": "number",
+      "required": false,
+      "group": "workload-automation Connection Options",
+      "absenceImplications": null,
+      "implies": null
+    },
+    {
+      "name": "user",
+      "aliases": [
+        "u"
+      ],
+      "description": "The Z connector user ID",
+      "type": "string",
+      "required": false,
+      "group": "workload-automation Connection Options",
+      "absenceImplications": null,
+      "implies": null
+    },
+    {
+      "name": "password",
+      "aliases": [
+        "pwd"
+      ],
+      "description": "The Z connector password",
+      "type": "string",
+      "group": "workload-automation Connection Options",
+      "required": false,
+      "absenceImplications": null,
+      "implies": null
+    },
+    {
+      "name": "engine",
+      "aliases": [
+        "eng"
+      ],
+      "description": "Name of the engine, as defined on the Z connector",
+      "type": "string",
+      "group": "workload-automation Connection Options",
+      "required": false,
+      "absenceImplications": null,
+      "implies": null
+    },
+    {
+      "name": "base-path",
+      "aliases": [
+        "bp"
+      ],
+      "description": "Base path of your API mediation layer instance. If a base path is specified, the plug-in connects to API ML. Specify this value according to the yaml static file added to API ML",
+      "type": "string",
+      "group": "workload-automation Connection Options",
+      "required": false,
+      "absenceImplications": null,
+      "implies": null
+    },
+    {
+      "name": "reject-unauthorized",
+      "aliases": [
+        "ru"
+      ],
+      "description": "Reject self-signed certificates",
+      "type": "boolean",
+      "required": false,
+      "group": "workload-automation Connection Options",
+      "absenceImplications": null,
+      "implies": null
+    },
+    {
+      "name": "response-format-json",
+      "aliases": [
+        "rfj"
+      ],
+      "group": "Global options",
+      "description": "Produce JSON formatted data from a command",
+      "type": "boolean"
+    },
+    {
+      "name": "help",
+      "aliases": [
+        "h"
+      ],
+      "group": "Global options",
+      "description": "Display help text",
+      "type": "boolean"
+    },
+    {
+      "name": "help-examples",
+      "group": "Global options",
+      "description": "Display examples for all the commands in a group",
+      "type": "boolean",
+      "aliases": []
+    },
+    {
+      "name": "help-web",
+      "aliases": [
+        "hw"
+      ],
+      "group": "Global options",
+      "description": "Display HTML help in browser",
+      "type": "boolean"
+    }
+  ],
+  "passOn": [],
+  "children": []
+}
