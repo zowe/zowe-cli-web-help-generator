@@ -11,7 +11,8 @@
 
 import { readFileSync, writeFileSync } from "fs";
 import { join } from "path";
-import { WebHelpGenerator, Imperative, ImperativeConfig, IHandlerResponseApi, HandlerResponse, CommandResponse } from "@zowe/imperative";
+import { WebHelpGenerator, Imperative, ImperativeConfig, IHandlerResponseApi,
+    HandlerResponse, CommandResponse, IImperativeConfig } from "@zowe/imperative";
 import { getImperativeConfig } from "@zowe/cli";
 import { argv } from "process";
 import { jsonc as JSONC } from 'jsonc';
@@ -23,7 +24,7 @@ import { jsonc as JSONC } from 'jsonc';
     const localWebHelpDir = join(__dirname, "../", "generatedWebHelp");
     const fullCommandTree = readFileSync(filePath).toString();
     const fullCommandTreeJson = JSONC.parse(fullCommandTree).data;
-    const CLIImperativeConfig = getImperativeConfig();
+    const CLIImperativeConfig = getImperativeConfig() as IImperativeConfig;
     const fakeHandlerResponse: IHandlerResponseApi = new HandlerResponse(new CommandResponse({silent: true, responseFormat: "default"}));
 
     // Initialize Imperative and build the web help generator
