@@ -50,13 +50,13 @@ jobs:
       if: ${{ github.event.inputs.zowe-version && github.event.inputs.zowe-version != '' }}
       run: |
         curl -s https://raw.githubusercontent.com/zowe/zowe-cli-standalone-package/${{ github.event.inputs.zowe-version }}/master/zowe-versions.yaml > __zowe__version__
-        npm install -g @zowe/cli@$(yq '."zowe-cli".cli' __zowe__version__ | tr -d '"')
-        zowe plugins install @zowe/cics-for-zowe-cli@$(yq '."zowe-plugins".cics' __zowe__version__ | tr -d '"')
-        zowe plugins install @zowe/db2-for-zowe-cli@$(yq '."zowe-plugins".db2' __zowe__version__ | tr -d '"')
-        zowe plugins install @zowe/ims-for-zowe-cli@$(yq '."zowe-plugins".ims' __zowe__version__ | tr -d '"')
-        zowe plugins install @zowe/mq-for-zowe-cli@$(yq '."zowe-plugins".mq' __zowe__version__ | tr -d '"')
-        zowe plugins install @zowe/secure-credential-store-for-zowe-cli@$(yq '."zowe-plugins"."secure-credential-store"' __zowe__version__ | tr -d '"')
-        zowe plugins install @zowe/zos-ftp-for-zowe-cli@$(yq '."zowe-plugins"."zos-ftp"' __zowe__version__ | tr -d '"')
+        npm install -g @zowe/cli@$(yq '.packages.cli."zowe-v1-lts"' __zowe__version__ | tr -d '"')
+        zowe plugins install @zowe/cics-for-zowe-cli@$(yq '.packages."cics-for-zowe-cli"."zowe-v1-lts"' __zowe__version__ | tr -d '"')
+        zowe plugins install @zowe/db2-for-zowe-cli@$(yq '.packages."db2-for-zowe-cli"."zowe-v1-lts"' __zowe__version__ | tr -d '"')
+        zowe plugins install @zowe/ims-for-zowe-cli@$(yq '.packages."ims-for-zowe-cli"."zowe-v1-lts"' __zowe__version__ | tr -d '"')
+        zowe plugins install @zowe/mq-for-zowe-cli@$(yq '.packages."mq-for-zowe-cli"."zowe-v1-lts"' __zowe__version__ | tr -d '"')
+        zowe plugins install @zowe/secure-credential-store-for-zowe-cli@$(yq '.packages."secure-credential-store-for-zowe-cli"."zowe-v1-lts"' __zowe__version__ | tr -d '"')
+        zowe plugins install @zowe/zos-ftp-for-zowe-cli@$(yq '.packages."zos-ftp-for-zowe-cli"."zowe-v1-lts"' __zowe__version__ | tr -d '"')
         rm __zowe__version__
 
     - name: Set Up Zowe
