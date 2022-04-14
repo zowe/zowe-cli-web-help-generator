@@ -1,0 +1,39 @@
+name: Cron Workflows
+on:
+  schedule:
+  - cron: '0 0 * * *'
+
+jobs:
+  v1-lts:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Test Scripts
+        uses: benc-uk/workflow-dispatch@v1
+        with:
+          workflow: Test Scripts
+          token: ${{ secrets.ZOWE_ROBOT_TOKEN }}
+          ref: zowe-v1-lts
+      - name: WebHelp CI
+        uses: benc-uk/workflow-dispatch@v1
+        with:
+          workflow: CI for WebHelp Contribution
+          token: ${{ secrets.ZOWE_ROBOT_TOKEN }}
+          inputs: '{ "release": false }'
+          ref: zowe-v1-lts
+  v2-lts:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Test Scripts
+        uses: benc-uk/workflow-dispatch@v1
+        with:
+          workflow: Test Scripts
+          token: ${{ secrets.ZOWE_ROBOT_TOKEN }}
+          ref: master
+      - name: WebHelp CI
+        uses: benc-uk/workflow-dispatch@v1
+        with:
+          workflow: CI for WebHelp Contribution
+          token: ${{ secrets.ZOWE_ROBOT_TOKEN }}
+          inputs: '{ "release": false }'
+          ref: master
+        
