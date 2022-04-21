@@ -34,13 +34,12 @@ jobs:
     - name: Set Up Zowe
       id: setup-zowe
       run: |
-        npm install -g @zowe/cli@zowe-v1-lts
-        zowe plugins install @zowe/cics-for-zowe-cli@zowe-v1-lts
-        zowe plugins install @zowe/db2-for-zowe-cli@zowe-v1-lts
-        zowe plugins install @zowe/ims-for-zowe-cli@zowe-v1-lts
-        zowe plugins install @zowe/mq-for-zowe-cli@zowe-v1-lts
-        zowe plugins install @zowe/secure-credential-store-for-zowe-cli@zowe-v1-lts
-        zowe plugins install @zowe/zos-ftp-for-zowe-cli@zowe-v1-lts
+        npm install -g @zowe/cli@zowe-v2-lts
+        zowe plugins install @zowe/cics-for-zowe-cli@zowe-v2-lts
+        zowe plugins install @zowe/db2-for-zowe-cli@zowe-v2-lts
+        zowe plugins install @zowe/ims-for-zowe-cli@zowe-v2-lts
+        zowe plugins install @zowe/mq-for-zowe-cli@zowe-v2-lts
+        zowe plugins install @zowe/zos-ftp-for-zowe-cli@zowe-v2-lts
 
     - name: Get Zowe version
       id: get-version
@@ -51,7 +50,7 @@ jobs:
     - name: Setup zowe.json file
       id: setup
       run: |
-        jq '.commandGroups=["cics","db2","ims","mq","secure-credential-store","zos-ftp"]' zowe.template.json > zowe.json
+        jq '.commandGroups=["cics","db2","ims","mq","zos-ftp"]' zowe.template.json > zowe.json
         echo "$(jq '.profiles=["cics", "db2","ims","mq","zftp"]' zowe.json)" > zowe.json
         npm run contribute
     
@@ -62,7 +61,6 @@ jobs:
         zowe plugins uninstall @zowe/db2-for-zowe-cli
         zowe plugins uninstall @zowe/ims-for-zowe-cli
         zowe plugins uninstall @zowe/mq-for-zowe-cli
-        zowe plugins uninstall @zowe/secure-credential-store-for-zowe-cli
         zowe plugins uninstall @zowe/zos-ftp-for-zowe-cli
 
     - name: Build Web Help

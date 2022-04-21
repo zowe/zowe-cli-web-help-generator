@@ -6,3 +6,6 @@ zowe.json
 tsconfig.tsbuildinfo
 package-lock.json
 .copyright
+zowe.config.json
+zowe.schema.json
+zowe.config.user.json
