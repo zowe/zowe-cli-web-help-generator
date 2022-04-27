@@ -18,6 +18,7 @@ jobs:
         with:
           workflow: CI for WebHelp Contribution
           token: ${{ secrets.ZOWE_ROBOT_TOKEN }}
+          inputs: '{ "release": "false" }'
           ref: zowe-v1-lts
   v2-lts:
     runs-on: ubuntu-latest
@@ -33,5 +34,6 @@ jobs:
         with:
           workflow: CI for WebHelp Contribution
           token: ${{ secrets.ZOWE_ROBOT_TOKEN }}
+          inputs: '{ "release": "false" }'
           ref: master
         
