@@ -93,7 +93,7 @@ jobs:
     
     - name: Create Release
       id: release-create
-      if: ${{ github.ref == 'refs/heads/master' && steps.build.outcome == 'success' && github.event_name == 'workflow_dispatch' && github.event.inputs.zowe-version && github.event.inputs.zowe-version != '' && github.event.inputs.release == 'true' }}
+      if: ${{ (github.ref == 'refs/heads/master' || github.ref == 'refs/heads/zowe-v1-lts') && steps.build.outcome == 'success' && github.event_name == 'workflow_dispatch' && github.event.inputs.zowe-version && github.event.inputs.zowe-version != '' && github.event.inputs.release == 'true' }}
       uses: actions/create-release@v1
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
