@@ -1,0 +1,159 @@
+// Copyright (c) 2022 Broadcom.  All Rights Reserved.  The term
+// "Broadcom" refers to Broadcom Inc. and/or its subsidiaries.
+{
+  "name": "ops-profile",
+  "aliases": [
+    "ops"
+  ],
+  "summary": "Create a ops profile",
+  "description": "The OPS Web Services session profile schema, where you specify your session information and credentials",
+  "type": "command",
+  "handler": "",
+  "deprecatedReplacement": "The 'config init' command",
+  "customize": {
+    "profileTypeIdentifier": "ops"
+  },
+  "positionals": [
+    {
+      "name": "profileName",
+      "description": "Specifies the name of the new ops profile. You can load this profile by using the name on commands that support the \"--ops-profile\" option.",
+      "type": "string",
+      "required": true
+    }
+  ],
+  "options": [
+    {
+      "description": "The hostname of the server where OPS Web Services is running.",
+      "type": "string",
+      "name": "host",
+      "required": false,
+      "group": "OPS WEB SERVICES CONNECTION OPTIONS",
+      "aliases": []
+    },
+    {
+      "description": "The port number for OPS Web Services.",
+      "type": "number",
+      "name": "port",
+      "aliases": [
+        "p"
+      ],
+      "required": false,
+      "group": "OPS WEB SERVICES CONNECTION OPTIONS"
+    },
+    {
+      "description": "Your z/OS user name used to authenticate to OPS Web Services",
+      "type": "string",
+      "name": "user",
+      "required": false,
+      "group": "OPS WEB SERVICES CONNECTION OPTIONS",
+      "aliases": []
+    },
+    {
+      "description": "Your z/OS password used to authenticate to OPS Web Services",
+      "type": "string",
+      "name": "password",
+      "aliases": [
+        "pass"
+      ],
+      "required": false,
+      "group": "OPS WEB SERVICES CONNECTION OPTIONS"
+    },
+    {
+      "description": "The protocol used for connecting to OPS Web Services",
+      "type": "string",
+      "name": "protocol",
+      "aliases": [
+        "prot"
+      ],
+      "defaultValue": "https",
+      "allowableValues": {
+        "values": [
+          "http",
+          "https"
+        ],
+        "caseSensitive": false
+      },
+      "required": true,
+      "group": "OPS WEB SERVICES CONNECTION OPTIONS"
+    },
+    {
+      "description": "If set to true, the server certificate is verified against the list of supplied CAs. If set to false, certificate verification is not performed.",
+      "type": "boolean",
+      "name": "reject-unauthorized",
+      "aliases": [
+        "ru"
+      ],
+      "defaultValue": true,
+      "group": "OPS WEB SERVICES CONNECTION OPTIONS"
+    },
+    {
+      "description": "Specifies the subsystem id of the OPS/MVS instance to which commands will be directed.",
+      "type": "string",
+      "name": "subsystem",
+      "aliases": [
+        "subs"
+      ],
+      "group": "OPS WEB SERVICES CONNECTION OPTIONS"
+    },
+    {
+      "name": "overwrite",
+      "aliases": [
+        "ow"
+      ],
+      "description": "Overwrite the ops profile when a profile of the same name exists.",
+      "type": "boolean",
+      "group": "Options"
+    },
+    {
+      "name": "disable-defaults",
+      "aliases": [
+        "dd"
+      ],
+      "description": "Disable populating profile values of undefined properties with default values.",
+      "type": "boolean",
+      "group": "Options"
+    },
+    {
+      "name": "response-format-json",
+      "aliases": [
+        "rfj"
+      ],
+      "group": "Global options",
+      "description": "Produce JSON formatted data from a command",
+      "type": "boolean"
+    },
+    {
+      "name": "help",
+      "aliases": [
+        "h"
+      ],
+      "group": "Global options",
+      "description": "Display help text",
+      "type": "boolean"
+    },
+    {
+      "name": "help-examples",
+      "group": "Global options",
+      "description": "Display examples for all the commands in a group",
+      "type": "boolean",
+      "aliases": []
+    },
+    {
+      "name": "help-web",
+      "aliases": [
+        "hw"
+      ],
+      "group": "Global options",
+      "description": "Display HTML help in browser",
+      "type": "boolean"
+    }
+  ],
+  "examples": [
+    {
+      "options": "myLPAR --host lpar123 --port 8080 --user ibmuser --password !@#$^ --prot http --reject-unauthorized false",
+      "description": "Create an OPS profile called 'myLPAR' to connect to OPS Web Services at host lpar123 and port 8080, using http protocol, allowing self-signed certificates"
+    }
+  ],
+  "passOn": [],
+  "children": []
+}
