@@ -1,0 +1,160 @@
+// Copyright (c) 2022 Broadcom.  All Rights Reserved.  The term
+// "Broadcom" refers to Broadcom Inc. and/or its subsidiaries.
+{
+  "name": "omspool-profile",
+  "aliases": [
+    "omspool"
+  ],
+  "summary": "Update a omspool profile. You can update any property present within the profile configuration. The updated profile will be printed so that you can review the result of the updates.",
+  "description": "Configuration profile for Spool, where you specify information about your Spool instance",
+  "type": "command",
+  "handler": "",
+  "deprecatedReplacement": "The 'config set' command",
+  "customize": {
+    "profileTypeIdentifier": "omspool"
+  },
+  "positionals": [
+    {
+      "name": "profileName",
+      "description": "Specifies the name of the new omspool profile. You can load this profile by using the name on commands that support the \"--omspool-profile\" option.",
+      "type": "string",
+      "required": true
+    }
+  ],
+  "options": [
+    {
+      "description": "z/OS TSO/E accounting information.",
+      "type": "string",
+      "name": "account",
+      "aliases": [
+        "a"
+      ],
+      "required": false,
+      "group": "SPOOL OPTIONS",
+      "absenceImplications": null,
+      "implies": null
+    },
+    {
+      "description": "High level qualifier of Spool installation.",
+      "type": "string",
+      "name": "spoolhlq",
+      "aliases": [
+        "hlq"
+      ],
+      "stringLengthRange": [
+        1,
+        35
+      ],
+      "required": false,
+      "group": "SPOOL OPTIONS",
+      "absenceImplications": null,
+      "implies": null
+    },
+    {
+      "description": "Spool subsystem name.",
+      "type": "string",
+      "name": "subsys",
+      "aliases": [
+        "sub"
+      ],
+      "stringLengthRange": [
+        1,
+        4
+      ],
+      "group": "SPOOL OPTIONS",
+      "required": false,
+      "absenceImplications": null,
+      "implies": null
+    },
+    {
+      "description": "The SYSTSPRT data set allocated by CAI.CBQ4JCL(BQ4JZOWE). It must be unique for each Zowe CLI user interacting with Spool.",
+      "type": "string",
+      "name": "outds",
+      "aliases": [
+        "out"
+      ],
+      "stringLengthRange": [
+        1,
+        44
+      ],
+      "required": false,
+      "group": "SPOOL OPTIONS",
+      "absenceImplications": null,
+      "implies": null
+    },
+    {
+      "description": "The data set containing ESFZOWE REXX exec.",
+      "type": "string",
+      "name": "clist",
+      "aliases": [
+        "cl"
+      ],
+      "stringLengthRange": [
+        1,
+        44
+      ],
+      "required": false,
+      "group": "SPOOL OPTIONS",
+      "absenceImplications": null,
+      "implies": null
+    },
+    {
+      "name": "response-format-json",
+      "aliases": [
+        "rfj"
+      ],
+      "group": "Global options",
+      "description": "Produce JSON formatted data from a command",
+      "type": "boolean"
+    },
+    {
+      "name": "help",
+      "aliases": [
+        "h"
+      ],
+      "group": "Global options",
+      "description": "Display help text",
+      "type": "boolean"
+    },
+    {
+      "name": "help-examples",
+      "group": "Global options",
+      "description": "Display examples for all the commands in a group",
+      "type": "boolean",
+      "aliases": []
+    },
+    {
+      "name": "help-web",
+      "aliases": [
+        "hw"
+      ],
+      "group": "Global options",
+      "description": "Display HTML help in browser",
+      "type": "boolean"
+    }
+  ],
+  "examples": [
+    {
+      "options": "myProfile --account 3213213210",
+      "description": "Update the TSO account information to '3213213210' for Spool profile named 'myProfile'"
+    },
+    {
+      "options": "myProfile --spoolhlq SPOOL.HLQ",
+      "description": "Update high level qualifier of the Spool installation to 'SPOOL.HLQ' for Spool profile named 'myProfile'"
+    },
+    {
+      "options": "myProfile --subsys ESF2",
+      "description": "Update the Spool subsystem name to 'ESF2' for Spool profile named 'myProfile'"
+    },
+    {
+      "options": "myProfile --outds OUTPUT.RESPONSE.DS.NEW",
+      "description": "Update the output response data set to 'OUTPUT.RESPONSE.DS.NEW' for Spool profile named 'myProfile'"
+    },
+    {
+      "options": "myProfile --clist USER.CLIST",
+      "description": "Update the data set containing ESFZOWE REXX exec to 'USER.CLIST' for Spool profile named 'myProfile'"
+    }
+  ],
+  "passOn": [],
+  "children": []
+}

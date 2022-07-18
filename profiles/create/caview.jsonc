@@ -1,0 +1,152 @@
+// Copyright (c) 2022 Broadcom.  All Rights Reserved.  The term
+// "Broadcom" refers to Broadcom Inc. and/or its subsidiaries.
+{
+  "name": "caview-profile",
+  "aliases": [
+    "caview"
+  ],
+  "summary": "Create a caview profile",
+  "description": "Configuration profile for View",
+  "type": "command",
+  "handler": "",
+  "deprecatedReplacement": "The 'config init' command",
+  "customize": {
+    "profileTypeIdentifier": "caview"
+  },
+  "positionals": [
+    {
+      "name": "profileName",
+      "description": "Specifies the name of the new caview profile. You can load this profile by using the name on commands that support the \"--caview-profile\" option.",
+      "type": "string",
+      "required": true
+    }
+  ],
+  "options": [
+    {
+      "type": "string",
+      "name": "protocol",
+      "description": "Protocol of the target View REST API instance.",
+      "required": false,
+      "allowableValues": {
+        "values": [
+          "http",
+          "https"
+        ],
+        "caseSensitive": false
+      },
+      "defaultValue": "https",
+      "group": "Options",
+      "aliases": []
+    },
+    {
+      "type": "string",
+      "name": "host",
+      "aliases": [
+        "hostname"
+      ],
+      "description": "Hostname or ip address of the target View REST API instance.",
+      "required": false,
+      "group": "Options"
+    },
+    {
+      "type": "number",
+      "name": "port",
+      "description": "Port of the target View REST API instance.",
+      "numericValueRange": [
+        0,
+        65535
+      ],
+      "required": false,
+      "defaultValue": 443,
+      "group": "Options",
+      "aliases": []
+    },
+    {
+      "type": "string",
+      "name": "base-path",
+      "description": "Context name of the target View REST API instance.",
+      "required": false,
+      "defaultValue": "web-viewer",
+      "group": "Options",
+      "aliases": []
+    },
+    {
+      "type": "string",
+      "name": "user",
+      "aliases": [
+        "username"
+      ],
+      "description": "User name used to authenticate against the target View REST API instance.",
+      "required": false,
+      "group": "Options"
+    },
+    {
+      "type": "string",
+      "name": "password",
+      "description": "Password used to authenticate against the target View REST API instance.",
+      "required": false,
+      "group": "Options",
+      "aliases": []
+    },
+    {
+      "name": "overwrite",
+      "aliases": [
+        "ow"
+      ],
+      "description": "Overwrite the caview profile when a profile of the same name exists.",
+      "type": "boolean",
+      "group": "Options"
+    },
+    {
+      "name": "disable-defaults",
+      "aliases": [
+        "dd"
+      ],
+      "description": "Disable populating profile values of undefined properties with default values.",
+      "type": "boolean",
+      "group": "Options"
+    },
+    {
+      "name": "response-format-json",
+      "aliases": [
+        "rfj"
+      ],
+      "group": "Global options",
+      "description": "Produce JSON formatted data from a command",
+      "type": "boolean"
+    },
+    {
+      "name": "help",
+      "aliases": [
+        "h"
+      ],
+      "group": "Global options",
+      "description": "Display help text",
+      "type": "boolean"
+    },
+    {
+      "name": "help-examples",
+      "group": "Global options",
+      "description": "Display examples for all the commands in a group",
+      "type": "boolean",
+      "aliases": []
+    },
+    {
+      "name": "help-web",
+      "aliases": [
+        "hw"
+      ],
+      "group": "Global options",
+      "description": "Display HTML help in browser",
+      "type": "boolean"
+    }
+  ],
+  "examples": [
+    {
+      "options": "myProfile --hostname mf.company.org --protocol http --port 80 --username johndoe --password secret",
+      "description": "Create a profile for View™ Plug-in for Zowe CLI named 'myProfile' to connect to 'mf.company.org' over HTTP on port 80 using the 'johndoe' account."
+    }
+  ],
+  "passOn": [],
+  "children": []
+}
