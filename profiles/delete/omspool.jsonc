@@ -1,0 +1,76 @@
+// Copyright (c) 2022 Broadcom.  All Rights Reserved.  The term
+// "Broadcom" refers to Broadcom Inc. and/or its subsidiaries.
+{
+  "name": "omspool-profile",
+  "aliases": [
+    "omspool"
+  ],
+  "summary": "Delete a omspool profile.",
+  "description": "Delete a omspool profile. You must specify a profile name to be deleted. To find a list of available profiles for deletion, issue the profiles list command. By default, you will be prompted to confirm the profile removal.",
+  "type": "command",
+  "handler": "",
+  "deprecatedReplacement": "Edit your Zowe V2 configuration\n    zowe.config.json",
+  "customize": {
+    "profileTypeIdentifier": "omspool"
+  },
+  "options": [
+    {
+      "name": "force",
+      "aliases": [],
+      "description": "Force deletion of profile, and dependent profiles if specified. No prompt will be displayed before  deletion occurs.",
+      "type": "boolean",
+      "required": false,
+      "group": "Options"
+    },
+    {
+      "name": "response-format-json",
+      "aliases": [
+        "rfj"
+      ],
+      "group": "Global options",
+      "description": "Produce JSON formatted data from a command",
+      "type": "boolean"
+    },
+    {
+      "name": "help",
+      "aliases": [
+        "h"
+      ],
+      "group": "Global options",
+      "description": "Display help text",
+      "type": "boolean"
+    },
+    {
+      "name": "help-examples",
+      "group": "Global options",
+      "description": "Display examples for all the commands in a group",
+      "type": "boolean",
+      "aliases": []
+    },
+    {
+      "name": "help-web",
+      "aliases": [
+        "hw"
+      ],
+      "group": "Global options",
+      "description": "Display HTML help in browser",
+      "type": "boolean"
+    }
+  ],
+  "positionals": [
+    {
+      "name": "profileName",
+      "description": "Specifies the name of the omspool  profile to be deleted. You can also load this profile by using the name on commands that support the \"--omspool-profile\" option.",
+      "type": "string",
+      "required": true
+    }
+  ],
+  "examples": [
+    {
+      "options": "profilename",
+      "description": "Delete a omspool profile named profilename"
+    }
+  ],
+  "passOn": [],
+  "children": []
+}
