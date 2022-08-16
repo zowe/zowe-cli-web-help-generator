@@ -1,8 +1,8 @@
-// Copyright (c) 2021 Broadcom.  All Rights Reserved.  The term
+// Copyright (c) 2022 Broadcom.  All Rights Reserved.  The term
 // "Broadcom" refers to Broadcom Inc. and/or its subsidiaries.
 {
   "name": "idms",
-  "description": "CA IDMS plug-in for listing real-time monitor statistics and information, viewing DC log messages, and issuing DCMT and DCUF commands",
+  "description": "IDMS plug-in for listing real-time monitor statistics and information, viewing DC log messages, and issuing DCMT and DCUF commands",
   "type": "group",
   "children": [
     {
@@ -103,7 +103,7 @@
               "aliases": [
                 "d"
               ],
-              "description": "Identifies the CA IDMS system where the API request will be sent and is defined in the data sources definition file for the IDMS REST API",
+              "description": "Identifies the IDMS system where the API request will be sent and is defined in the data sources definition file for the IDMS REST API",
               "type": "string",
               "required": true,
               "group": "IDMS Connection Options"
@@ -231,10 +231,8 @@
             }
           ],
           "profile": {
-            "required": [
-              "idms"
-            ],
             "optional": [
+              "idms",
               "base"
             ]
           },
@@ -342,7 +340,7 @@
               "aliases": [
                 "d"
               ],
-              "description": "Identifies the CA IDMS system where the API request will be sent and is defined in the data sources definition file for the IDMS REST API",
+              "description": "Identifies the IDMS system where the API request will be sent and is defined in the data sources definition file for the IDMS REST API",
               "type": "string",
               "required": true,
               "group": "IDMS Connection Options"
@@ -470,10 +468,8 @@
             }
           ],
           "profile": {
-            "required": [
-              "idms"
-            ],
             "optional": [
+              "idms",
               "base"
             ]
           },
@@ -580,7 +576,7 @@
               "aliases": [
                 "d"
               ],
-              "description": "Identifies the CA IDMS system where the API request will be sent and is defined in the data sources definition file for the IDMS REST API",
+              "description": "Identifies the IDMS system where the API request will be sent and is defined in the data sources definition file for the IDMS REST API",
               "type": "string",
               "required": true,
               "group": "IDMS Connection Options"
@@ -708,10 +704,8 @@
             }
           ],
           "profile": {
-            "required": [
-              "idms"
-            ],
             "optional": [
+              "idms",
               "base"
             ]
           },
@@ -810,7 +804,7 @@
               "aliases": [
                 "d"
               ],
-              "description": "Identifies the CA IDMS system where the API request will be sent and is defined in the data sources definition file for the IDMS REST API",
+              "description": "Identifies the IDMS system where the API request will be sent and is defined in the data sources definition file for the IDMS REST API",
               "type": "string",
               "required": true,
               "group": "IDMS Connection Options"
@@ -938,10 +932,8 @@
             }
           ],
           "profile": {
-            "required": [
-              "idms"
-            ],
             "optional": [
+              "idms",
               "base"
             ]
           },
@@ -1040,7 +1032,7 @@
               "aliases": [
                 "d"
               ],
-              "description": "Identifies the CA IDMS system where the API request will be sent and is defined in the data sources definition file for the IDMS REST API",
+              "description": "Identifies the IDMS system where the API request will be sent and is defined in the data sources definition file for the IDMS REST API",
               "type": "string",
               "required": true,
               "group": "IDMS Connection Options"
@@ -1168,10 +1160,8 @@
             }
           ],
           "profile": {
-            "required": [
-              "idms"
-            ],
             "optional": [
+              "idms",
               "base"
             ]
           },
@@ -1278,7 +1268,7 @@
               "aliases": [
                 "d"
               ],
-              "description": "Identifies the CA IDMS system where the API request will be sent and is defined in the data sources definition file for the IDMS REST API",
+              "description": "Identifies the IDMS system where the API request will be sent and is defined in the data sources definition file for the IDMS REST API",
               "type": "string",
               "required": true,
               "group": "IDMS Connection Options"
@@ -1406,10 +1396,8 @@
             }
           ],
           "profile": {
-            "required": [
-              "idms"
-            ],
             "optional": [
+              "idms",
               "base"
             ]
           },
@@ -1430,7 +1418,7 @@
             "dt"
           ],
           "summary": "DCMT TEST commands",
-          "description": "Execute a DCMT TEST command. Obtains diagnostic information for Broadcom technical support personnel.\n\n The DCMT TEST command is used for debugging and diagnostic purposes only. Use it only when told to do so by CA IDMS technical support personnel. It is enabled only if certain CSA test flags are turned on",
+          "description": "Execute a DCMT TEST command. Obtains diagnostic information for Broadcom technical support personnel.\n\n The DCMT TEST command is used for debugging and diagnostic purposes only. Use it only when told to do so by IDMS technical support personnel. It is enabled only if certain CSA test flags are turned on",
           "type": "command",
           "handler": "",
           "options": [
@@ -1513,7 +1501,7 @@
               "aliases": [
                 "d"
               ],
-              "description": "Identifies the CA IDMS system where the API request will be sent and is defined in the data sources definition file for the IDMS REST API",
+              "description": "Identifies the IDMS system where the API request will be sent and is defined in the data sources definition file for the IDMS REST API",
               "type": "string",
               "required": true,
               "group": "IDMS Connection Options"
@@ -1641,10 +1629,8 @@
             }
           ],
           "profile": {
-            "required": [
-              "idms"
-            ],
             "optional": [
+              "idms",
               "base"
             ]
           },
@@ -1652,7 +1638,7 @@
           "examples": [
             {
               "options": "--args \"debug options\"",
-              "description": "Issues a 'dcmt test debug options' command, with 'debug options' being the options provided by CA IDMS technical support"
+              "description": "Issues a 'dcmt test debug options' command, with 'debug options' being the options provided by IDMS technical support"
             }
           ],
           "positionals": [],
@@ -1731,7 +1717,7 @@
               "aliases": [
                 "d"
               ],
-              "description": "Identifies the CA IDMS system where the API request will be sent and is defined in the data sources definition file for the IDMS REST API",
+              "description": "Identifies the IDMS system where the API request will be sent and is defined in the data sources definition file for the IDMS REST API",
               "type": "string",
               "required": true,
               "group": "IDMS Connection Options"
@@ -1859,10 +1845,8 @@
             }
           ],
           "profile": {
-            "required": [
-              "idms"
-            ],
             "optional": [
+              "idms",
               "base"
             ]
           },
@@ -1966,7 +1950,7 @@
               "aliases": [
                 "d"
               ],
-              "description": "Identifies the CA IDMS system where the API request will be sent and is defined in the data sources definition file for the IDMS REST API",
+              "description": "Identifies the IDMS system where the API request will be sent and is defined in the data sources definition file for the IDMS REST API",
               "type": "string",
               "required": true,
               "group": "IDMS Connection Options"
@@ -2094,10 +2078,8 @@
             }
           ],
           "profile": {
-            "required": [
-              "idms"
-            ],
             "optional": [
+              "idms",
               "base"
             ]
           },
@@ -2126,7 +2108,7 @@
               "aliases": [
                 "d"
               ],
-              "description": "Identifies the CA IDMS system where the API request will be sent and is defined in the data sources definition file for the IDMS REST API",
+              "description": "Identifies the IDMS system where the API request will be sent and is defined in the data sources definition file for the IDMS REST API",
               "type": "string",
               "required": true,
               "group": "IDMS Connection Options"
@@ -2183,10 +2165,239 @@
       "aliases": [
         "ls"
       ],
-      "summary": "List active IDMS systems, log messages, user tasks, and transaction details",
-      "description": "Lists real-time monitor statistics information, log messages, active user tasks, and transaction details",
+      "summary": "List available datasources, active IDMS systems, log messages, user tasks, and transaction details",
+      "description": "Lists available datasources, real-time monitor statistics information, log messages, active user tasks, and transaction details",
       "type": "group",
       "children": [
+        {
+          "name": "datasources",
+          "aliases": [
+            "ds"
+          ],
+          "summary": "Lists defined data sources",
+          "description": "Lists data sources defined to the IDMS REST API",
+          "type": "command",
+          "handler": "",
+          "options": [
+            {
+              "name": "host",
+              "aliases": [
+                "H"
+              ],
+              "description": "Host name of the IDMS REST API service",
+              "type": "string",
+              "required": true,
+              "group": "IDMS Connection Options"
+            },
+            {
+              "name": "port",
+              "aliases": [
+                "P"
+              ],
+              "description": "Port for the IDMS REST API service",
+              "type": "number",
+              "group": "IDMS Connection Options"
+            },
+            {
+              "name": "user",
+              "aliases": [
+                "u"
+              ],
+              "description": "Mainframe user name, which can be the same as your TSO login ID",
+              "type": "string",
+              "group": "IDMS Connection Options"
+            },
+            {
+              "name": "password",
+              "aliases": [
+                "pass",
+                "pw"
+              ],
+              "description": "Mainframe password, which can be the same as your TSO password",
+              "type": "string",
+              "group": "IDMS Connection Options"
+            },
+            {
+              "name": "reject-unauthorized",
+              "aliases": [
+                "ru"
+              ],
+              "description": "Reject self-signed certificates",
+              "type": "boolean",
+              "defaultValue": true,
+              "group": "IDMS Connection Options"
+            },
+            {
+              "name": "base-path",
+              "aliases": [
+                "bp"
+              ],
+              "description": "The base path for your API Mediation Layer instance. Specify this option to prepend the base path to all resources when making REST requests. Only specify this option if you are using an API Mediation Layer",
+              "type": "string",
+              "group": "IDMS Connection Options"
+            },
+            {
+              "name": "datasourcename",
+              "aliases": [
+                "dsn"
+              ],
+              "description": "Specifies a specific datasource to view the definition of",
+              "type": "string",
+              "group": "Options"
+            },
+            {
+              "name": "all",
+              "aliases": [
+                "a"
+              ],
+              "description": "Lists each datasource defined to the IDMS REST API",
+              "type": "boolean",
+              "defaultValue": null,
+              "group": "Options"
+            },
+            {
+              "name": "response-format-json",
+              "aliases": [
+                "rfj"
+              ],
+              "group": "Global options",
+              "description": "Produce JSON formatted data from a command",
+              "type": "boolean"
+            },
+            {
+              "name": "help",
+              "aliases": [
+                "h"
+              ],
+              "group": "Global options",
+              "description": "Display help text",
+              "type": "boolean"
+            },
+            {
+              "name": "help-examples",
+              "group": "Global options",
+              "description": "Display examples for all the commands in a group",
+              "type": "boolean",
+              "aliases": []
+            },
+            {
+              "name": "help-web",
+              "aliases": [
+                "hw"
+              ],
+              "group": "Global options",
+              "description": "Display HTML help in browser",
+              "type": "boolean"
+            },
+            {
+              "name": "idms-profile",
+              "aliases": [
+                "idms-p"
+              ],
+              "group": "Profile Options",
+              "description": "The name of a (idms) profile to load for this command execution.",
+              "type": "string"
+            },
+            {
+              "name": "base-profile",
+              "aliases": [
+                "base-p"
+              ],
+              "group": "Profile Options",
+              "description": "The name of a (base) profile to load for this command execution.",
+              "type": "string"
+            },
+            {
+              "name": "token-type",
+              "aliases": [
+                "tt"
+              ],
+              "description": "The type of token to get and use for the API. Omit this option to use the default token type, which is provided by 'zowe auth login'.",
+              "type": "string",
+              "group": "Base Connection Options"
+            },
+            {
+              "name": "token-value",
+              "aliases": [
+                "tv"
+              ],
+              "description": "The value of the token to pass to the API.",
+              "type": "string",
+              "group": "Base Connection Options"
+            },
+            {
+              "name": "cert-file",
+              "description": "The file path to a certificate file to use for authentication",
+              "type": "existingLocalFile",
+              "group": "Base Connection Options",
+              "aliases": []
+            },
+            {
+              "name": "cert-key-file",
+              "description": "The file path to a certificate key file to use for authentication",
+              "type": "existingLocalFile",
+              "group": "Base Connection Options",
+              "aliases": []
+            },
+            {
+              "name": "response-format-filter",
+              "aliases": [
+                "rff"
+              ],
+              "description": "Filter (include) fields in the response. Accepts an array of field/property names to include in the output response. You can filter JSON objects properties OR table columns/fields. In addition, you can use this option in conjunction with '--response-format-type' to reduce the output of a command to a single field/property or a list of a single field/property.",
+              "type": "array",
+              "group": "Response Format Options"
+            },
+            {
+              "name": "response-format-type",
+              "aliases": [
+                "rft"
+              ],
+              "description": "The command response output format type. Must be one of the following:\n\ntable: Formats output data as a table. Use this option when the output data is an array of homogeneous JSON objects. Each property of the object will become a column in the table.\n\nlist: Formats output data as a list of strings. Can be used on any data type (JSON objects/arrays) are stringified and a new line is added after each entry in an array.\n\nobject: Formats output data as a list of prettified objects (or single object). Can be used in place of \"table\" to change from tabular output to a list of prettified objects.\n\nstring: Formats output data as a string. JSON objects/arrays are stringified.",
+              "type": "string",
+              "allowableValues": {
+                "values": [
+                  "table",
+                  "list",
+                  "object",
+                  "string"
+                ],
+                "caseSensitive": false
+              },
+              "group": "Response Format Options"
+            },
+            {
+              "name": "response-format-header",
+              "aliases": [
+                "rfh"
+              ],
+              "description": "If \"--response-format-type table\" is specified, include the column headers in the output.",
+              "type": "boolean",
+              "group": "Response Format Options",
+              "defaultValue": null
+            }
+          ],
+          "profile": {
+            "optional": [
+              "idms",
+              "base"
+            ]
+          },
+          "outputFormatOptions": true,
+          "examples": [
+            {
+              "options": "--all",
+              "description": "Lists all data sources defined to the IDMS Rest API"
+            },
+            {
+              "options": "--dsn SYSDEMO",
+              "description": "Lists a single IDMS data source identified by the data source name"
+            }
+          ],
+          "positionals": [],
+          "passOn": [],
+          "children": []
+        },
         {
           "name": "systems",
           "aliases": [
@@ -2396,10 +2607,8 @@
             }
           ],
           "profile": {
-            "required": [
-              "idms"
-            ],
             "optional": [
+              "idms",
               "base"
             ]
           },
@@ -2487,7 +2696,7 @@
               "aliases": [
                 "d"
               ],
-              "description": "Identifies the CA IDMS system where the API request will be sent and is defined in the data sources definition file for the IDMS REST API",
+              "description": "Identifies the IDMS system where the API request will be sent and is defined in the data sources definition file for the IDMS REST API",
               "type": "string",
               "group": "IDMS Connection Options",
               "required": true
@@ -2662,10 +2871,8 @@
             }
           ],
           "profile": {
-            "required": [
-              "idms"
-            ],
             "optional": [
+              "idms",
               "base"
             ]
           },
@@ -2767,223 +2974,11 @@
               "group": "Required Options"
             },
             {
-              "name": "response-format-json",
+              "name": "datasourcename",
               "aliases": [
-                "rfj"
+                "dsn"
               ],
-              "group": "Global options",
-              "description": "Produce JSON formatted data from a command",
-              "type": "boolean"
-            },
-            {
-              "name": "help",
-              "aliases": [
-                "h"
-              ],
-              "group": "Global options",
-              "description": "Display help text",
-              "type": "boolean"
-            },
-            {
-              "name": "help-examples",
-              "group": "Global options",
-              "description": "Display examples for all the commands in a group",
-              "type": "boolean",
-              "aliases": []
-            },
-            {
-              "name": "help-web",
-              "aliases": [
-                "hw"
-              ],
-              "group": "Global options",
-              "description": "Display HTML help in browser",
-              "type": "boolean"
-            },
-            {
-              "name": "idms-profile",
-              "aliases": [
-                "idms-p"
-              ],
-              "group": "Profile Options",
-              "description": "The name of a (idms) profile to load for this command execution.",
-              "type": "string"
-            },
-            {
-              "name": "base-profile",
-              "aliases": [
-                "base-p"
-              ],
-              "group": "Profile Options",
-              "description": "The name of a (base) profile to load for this command execution.",
-              "type": "string"
-            },
-            {
-              "name": "token-type",
-              "aliases": [
-                "tt"
-              ],
-              "description": "The type of token to get and use for the API. Omit this option to use the default token type, which is provided by 'zowe auth login'.",
-              "type": "string",
-              "group": "Base Connection Options"
-            },
-            {
-              "name": "token-value",
-              "aliases": [
-                "tv"
-              ],
-              "description": "The value of the token to pass to the API.",
-              "type": "string",
-              "group": "Base Connection Options"
-            },
-            {
-              "name": "cert-file",
-              "description": "The file path to a certificate file to use for authentication",
-              "type": "existingLocalFile",
-              "group": "Base Connection Options",
-              "aliases": []
-            },
-            {
-              "name": "cert-key-file",
-              "description": "The file path to a certificate key file to use for authentication",
-              "type": "existingLocalFile",
-              "group": "Base Connection Options",
-              "aliases": []
-            },
-            {
-              "name": "response-format-filter",
-              "aliases": [
-                "rff"
-              ],
-              "description": "Filter (include) fields in the response. Accepts an array of field/property names to include in the output response. You can filter JSON objects properties OR table columns/fields. In addition, you can use this option in conjunction with '--response-format-type' to reduce the output of a command to a single field/property or a list of a single field/property.",
-              "type": "array",
-              "group": "Response Format Options"
-            },
-            {
-              "name": "response-format-type",
-              "aliases": [
-                "rft"
-              ],
-              "description": "The command response output format type. Must be one of the following:\n\ntable: Formats output data as a table. Use this option when the output data is an array of homogeneous JSON objects. Each property of the object will become a column in the table.\n\nlist: Formats output data as a list of strings. Can be used on any data type (JSON objects/arrays) are stringified and a new line is added after each entry in an array.\n\nobject: Formats output data as a list of prettified objects (or single object). Can be used in place of \"table\" to change from tabular output to a list of prettified objects.\n\nstring: Formats output data as a string. JSON objects/arrays are stringified.",
-              "type": "string",
-              "allowableValues": {
-                "values": [
-                  "table",
-                  "list",
-                  "object",
-                  "string"
-                ],
-                "caseSensitive": false
-              },
-              "group": "Response Format Options"
-            },
-            {
-              "name": "response-format-header",
-              "aliases": [
-                "rfh"
-              ],
-              "description": "If \"--response-format-type table\" is specified, include the column headers in the output.",
-              "type": "boolean",
-              "group": "Response Format Options",
-              "defaultValue": null
-            }
-          ],
-          "profile": {
-            "required": [
-              "idms"
-            ],
-            "optional": [
-              "base"
-            ]
-          },
-          "outputFormatOptions": true,
-          "examples": [
-            {
-              "options": "--jobname SYSDEMO",
-              "description": "Lists the transaction details of the IDMS system identified by the IDMS system job name"
-            },
-            {
-              "options": "--jobname SYSDEMO --rfj",
-              "description": "Lists the transaction details of the IDMS system identified by the IDMS system job name as JSON formatted data"
-            }
-          ],
-          "positionals": [],
-          "passOn": [],
-          "children": []
-        },
-        {
-          "name": "user-tasks",
-          "aliases": [
-            "ut"
-          ],
-          "summary": "Lists active IDMS user tasks",
-          "description": "Lists all active user tasks on a specific IDMS system",
-          "type": "command",
-          "handler": "",
-          "options": [
-            {
-              "name": "host",
-              "aliases": [
-                "H"
-              ],
-              "description": "Host name of the IDMS REST API service",
-              "type": "string",
-              "required": true,
-              "group": "IDMS Connection Options"
-            },
-            {
-              "name": "port",
-              "aliases": [
-                "P"
-              ],
-              "description": "Port for the IDMS REST API service",
-              "type": "number",
-              "group": "IDMS Connection Options"
-            },
-            {
-              "name": "user",
-              "aliases": [
-                "u"
-              ],
-              "description": "Mainframe user name, which can be the same as your TSO login ID",
-              "type": "string",
-              "group": "IDMS Connection Options"
-            },
-            {
-              "name": "password",
-              "aliases": [
-                "pass",
-                "pw"
-              ],
-              "description": "Mainframe password, which can be the same as your TSO password",
-              "type": "string",
-              "group": "IDMS Connection Options"
-            },
-            {
-              "name": "reject-unauthorized",
-              "aliases": [
-                "ru"
-              ],
-              "description": "Reject self-signed certificates",
-              "type": "boolean",
-              "defaultValue": true,
-              "group": "IDMS Connection Options"
-            },
-            {
-              "name": "base-path",
-              "aliases": [
-                "bp"
-              ],
-              "description": "The base path for your API Mediation Layer instance. Specify this option to prepend the base path to all resources when making REST requests. Only specify this option if you are using an API Mediation Layer",
-              "type": "string",
-              "group": "IDMS Connection Options"
-            },
-            {
-              "name": "jobname",
-              "aliases": [
-                "j"
-              ],
-              "description": "The job name of the active IDMS system",
+              "description": "The data source name of the specified IDMS system",
               "type": "string",
               "required": true,
               "group": "Required Options"
@@ -3111,10 +3106,238 @@
             }
           ],
           "profile": {
-            "required": [
-              "idms"
-            ],
             "optional": [
+              "idms",
+              "base"
+            ]
+          },
+          "outputFormatOptions": true,
+          "examples": [
+            {
+              "options": "--jobname SYSDEMO",
+              "description": "Lists the transaction details of the IDMS system identified by the IDMS system job name"
+            },
+            {
+              "options": "--jobname SYSDEMO --rfj",
+              "description": "Lists the transaction details of the IDMS system identified by the IDMS system job name as JSON formatted data"
+            }
+          ],
+          "positionals": [],
+          "passOn": [],
+          "children": []
+        },
+        {
+          "name": "user-tasks",
+          "aliases": [
+            "ut"
+          ],
+          "summary": "Lists active IDMS user tasks",
+          "description": "Lists all active user tasks on a specific IDMS system",
+          "type": "command",
+          "handler": "",
+          "options": [
+            {
+              "name": "host",
+              "aliases": [
+                "H"
+              ],
+              "description": "Host name of the IDMS REST API service",
+              "type": "string",
+              "required": true,
+              "group": "IDMS Connection Options"
+            },
+            {
+              "name": "port",
+              "aliases": [
+                "P"
+              ],
+              "description": "Port for the IDMS REST API service",
+              "type": "number",
+              "group": "IDMS Connection Options"
+            },
+            {
+              "name": "user",
+              "aliases": [
+                "u"
+              ],
+              "description": "Mainframe user name, which can be the same as your TSO login ID",
+              "type": "string",
+              "group": "IDMS Connection Options"
+            },
+            {
+              "name": "password",
+              "aliases": [
+                "pass",
+                "pw"
+              ],
+              "description": "Mainframe password, which can be the same as your TSO password",
+              "type": "string",
+              "group": "IDMS Connection Options"
+            },
+            {
+              "name": "reject-unauthorized",
+              "aliases": [
+                "ru"
+              ],
+              "description": "Reject self-signed certificates",
+              "type": "boolean",
+              "defaultValue": true,
+              "group": "IDMS Connection Options"
+            },
+            {
+              "name": "base-path",
+              "aliases": [
+                "bp"
+              ],
+              "description": "The base path for your API Mediation Layer instance. Specify this option to prepend the base path to all resources when making REST requests. Only specify this option if you are using an API Mediation Layer",
+              "type": "string",
+              "group": "IDMS Connection Options"
+            },
+            {
+              "name": "jobname",
+              "aliases": [
+                "j"
+              ],
+              "description": "The job name of the active IDMS system",
+              "type": "string",
+              "required": true,
+              "group": "Required Options"
+            },
+            {
+              "name": "datasourcename",
+              "aliases": [
+                "dsn"
+              ],
+              "description": "The data source name of the specified IDMS system",
+              "type": "string",
+              "required": true,
+              "group": "Required Options"
+            },
+            {
+              "name": "response-format-json",
+              "aliases": [
+                "rfj"
+              ],
+              "group": "Global options",
+              "description": "Produce JSON formatted data from a command",
+              "type": "boolean"
+            },
+            {
+              "name": "help",
+              "aliases": [
+                "h"
+              ],
+              "group": "Global options",
+              "description": "Display help text",
+              "type": "boolean"
+            },
+            {
+              "name": "help-examples",
+              "group": "Global options",
+              "description": "Display examples for all the commands in a group",
+              "type": "boolean",
+              "aliases": []
+            },
+            {
+              "name": "help-web",
+              "aliases": [
+                "hw"
+              ],
+              "group": "Global options",
+              "description": "Display HTML help in browser",
+              "type": "boolean"
+            },
+            {
+              "name": "idms-profile",
+              "aliases": [
+                "idms-p"
+              ],
+              "group": "Profile Options",
+              "description": "The name of a (idms) profile to load for this command execution.",
+              "type": "string"
+            },
+            {
+              "name": "base-profile",
+              "aliases": [
+                "base-p"
+              ],
+              "group": "Profile Options",
+              "description": "The name of a (base) profile to load for this command execution.",
+              "type": "string"
+            },
+            {
+              "name": "token-type",
+              "aliases": [
+                "tt"
+              ],
+              "description": "The type of token to get and use for the API. Omit this option to use the default token type, which is provided by 'zowe auth login'.",
+              "type": "string",
+              "group": "Base Connection Options"
+            },
+            {
+              "name": "token-value",
+              "aliases": [
+                "tv"
+              ],
+              "description": "The value of the token to pass to the API.",
+              "type": "string",
+              "group": "Base Connection Options"
+            },
+            {
+              "name": "cert-file",
+              "description": "The file path to a certificate file to use for authentication",
+              "type": "existingLocalFile",
+              "group": "Base Connection Options",
+              "aliases": []
+            },
+            {
+              "name": "cert-key-file",
+              "description": "The file path to a certificate key file to use for authentication",
+              "type": "existingLocalFile",
+              "group": "Base Connection Options",
+              "aliases": []
+            },
+            {
+              "name": "response-format-filter",
+              "aliases": [
+                "rff"
+              ],
+              "description": "Filter (include) fields in the response. Accepts an array of field/property names to include in the output response. You can filter JSON objects properties OR table columns/fields. In addition, you can use this option in conjunction with '--response-format-type' to reduce the output of a command to a single field/property or a list of a single field/property.",
+              "type": "array",
+              "group": "Response Format Options"
+            },
+            {
+              "name": "response-format-type",
+              "aliases": [
+                "rft"
+              ],
+              "description": "The command response output format type. Must be one of the following:\n\ntable: Formats output data as a table. Use this option when the output data is an array of homogeneous JSON objects. Each property of the object will become a column in the table.\n\nlist: Formats output data as a list of strings. Can be used on any data type (JSON objects/arrays) are stringified and a new line is added after each entry in an array.\n\nobject: Formats output data as a list of prettified objects (or single object). Can be used in place of \"table\" to change from tabular output to a list of prettified objects.\n\nstring: Formats output data as a string. JSON objects/arrays are stringified.",
+              "type": "string",
+              "allowableValues": {
+                "values": [
+                  "table",
+                  "list",
+                  "object",
+                  "string"
+                ],
+                "caseSensitive": false
+              },
+              "group": "Response Format Options"
+            },
+            {
+              "name": "response-format-header",
+              "aliases": [
+                "rfh"
+              ],
+              "description": "If \"--response-format-type table\" is specified, include the column headers in the output.",
+              "type": "boolean",
+              "group": "Response Format Options",
+              "defaultValue": null
+            }
+          ],
+          "profile": {
+            "optional": [
+              "idms",
               "base"
             ]
           },
@@ -3146,12 +3369,24 @@
               "description": "The job name of the active IDMS system",
               "type": "string",
               "required": true
+            },
+            {
+              "name": "datasourcename",
+              "aliases": [
+                "dsn"
+              ],
+              "description": "The data source name of the specified IDMS system",
+              "type": "string",
+              "required": true
             }
           ],
           "merge": true,
           "ignoreNodes": [
             {
               "type": "group"
+            },
+            {
+              "name": "datasources"
             },
             {
               "name": "systems"
@@ -3201,7 +3436,7 @@
       "positionals": []
     }
   ],
-  "summary": "Interact with CA IDMS",
+  "summary": "Interact with IDMS",
   "options": [
     {
       "name": "response-format-json",

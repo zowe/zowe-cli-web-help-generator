@@ -1,4 +1,4 @@
-// Copyright (c) 2021 Broadcom.  All Rights Reserved.  The term
+// Copyright (c) 2022 Broadcom.  All Rights Reserved.  The term
 // "Broadcom" refers to Broadcom Inc. and/or its subsidiaries.
 {
   "name": "fmp-profile",
@@ -6,7 +6,7 @@
     "fmp"
   ],
   "summary": "Create a fmp profile",
-  "description": "CA File Master Plus profile schema.",
+  "description": "File Master Plus profile schema.",
   "type": "command",
   "handler": "",
   "customize": {
@@ -26,7 +26,7 @@
       "aliases": [
         "H"
       ],
-      "description": "Specifies CA File Master Plus server host name.",
+      "description": "Specifies File Master Plus server host name.",
       "type": "string",
       "required": false,
       "group": "FMP Connection Options"
@@ -36,7 +36,7 @@
       "aliases": [
         "P"
       ],
-      "description": "Specifies CA File Master Plus server port.",
+      "description": "Specifies File Master Plus server port.",
       "type": "number",
       "required": false,
       "group": "FMP Connection Options"
@@ -67,7 +67,7 @@
       "aliases": [
         "o"
       ],
-      "description": "Specifies CA File Master Plus REST API protocol.",
+      "description": "Specifies File Master Plus REST API protocol.",
       "type": "string",
       "defaultValue": "https",
       "required": false,

@@ -1,4 +1,4 @@
-// Copyright (c) 2021 Broadcom.  All Rights Reserved.  The term
+// Copyright (c) 2022 Broadcom.  All Rights Reserved.  The term
 // "Broadcom" refers to Broadcom Inc. and/or its subsidiaries.
 {
   "name": "fmp-profiles",
@@ -6,7 +6,7 @@
     "fmp"
   ],
   "summary": "List profiles of the type fmp.",
-  "description": "CA File Master Plus profile schema.",
+  "description": "File Master Plus profile schema.",
   "type": "command",
   "handler": "",
   "customize": {

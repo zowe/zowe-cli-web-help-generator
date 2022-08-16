@@ -1,4 +1,4 @@
-// Copyright (c) 2021 Broadcom.  All Rights Reserved.  The term
+// Copyright (c) 2022 Broadcom.  All Rights Reserved.  The term
 // "Broadcom" refers to Broadcom Inc. and/or its subsidiaries.
 {
   "name": "ops-profile",
@@ -25,7 +25,7 @@
       "description": "The hostname of the server where OPS Web Services is running.",
       "type": "string",
       "name": "host",
-      "required": false,
+      "required": true,
       "group": "OPS WEB SERVICES CONNECTION OPTIONS",
       "aliases": []
     },
@@ -36,14 +36,14 @@
       "aliases": [
         "p"
       ],
-      "required": false,
+      "required": true,
       "group": "OPS WEB SERVICES CONNECTION OPTIONS"
     },
     {
       "description": "Your z/OS user name used to authenticate to OPS Web Services",
       "type": "string",
       "name": "user",
-      "required": false,
+      "required": true,
       "group": "OPS WEB SERVICES CONNECTION OPTIONS",
       "aliases": []
     },
@@ -54,7 +54,7 @@
       "aliases": [
         "pass"
       ],
-      "required": false,
+      "required": true,
       "group": "OPS WEB SERVICES CONNECTION OPTIONS"
     },
     {

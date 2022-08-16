@@ -1,0 +1,236 @@
+// Copyright (c) 2022 Broadcom.  All Rights Reserved.  The term
+// "Broadcom" refers to Broadcom Inc. and/or its subsidiaries.
+{
+  "name": "dbm-db2-profile",
+  "aliases": [
+    "dbm-db2"
+  ],
+  "summary": "Update a dbm-db2 profile. You can update any property present within the profile configuration. The updated profile will be printed so that you can review the result of the updates.",
+  "description": "The dbm-db2 profile is a named set of DBM Data Service parameters that are implicitly used with the zowe dbm-db2 commands. The profile includes server connection, z/OS execution, and user-dependent details.",
+  "type": "command",
+  "handler": "",
+  "customize": {
+    "profileTypeIdentifier": "dbm-db2"
+  },
+  "positionals": [
+    {
+      "name": "profileName",
+      "description": "Specifies the name of the new dbm-db2 profile. You can load this profile by using the name on commands that support the \"--dbm-db2-profile\" option.",
+      "type": "string",
+      "required": true
+    }
+  ],
+  "options": [
+    {
+      "name": "job-cards",
+      "aliases": [
+        "jc"
+      ],
+      "description": "Specifies a newline delimited string of z/OS JCL JOB statements.",
+      "type": "string",
+      "required": false,
+      "group": "dbm-db2 Common Options",
+      "absenceImplications": null,
+      "implies": null
+    },
+    {
+      "name": "work-dataset-prefix",
+      "aliases": [
+        "wdp"
+      ],
+      "description": "Specifies the prefix that is used as the high level qualifier in z/OS work data set names.",
+      "type": "string",
+      "required": false,
+      "group": "dbm-db2 Common Options",
+      "absenceImplications": null,
+      "implies": null
+    },
+    {
+      "name": "authid",
+      "aliases": [
+        "a"
+      ],
+      "description": "Specifies the primary Db2 authorization ID (user ID) that is used to establish a connection between Db2 and a process.",
+      "type": "string",
+      "required": false,
+      "group": "dbm-db2 Common Options",
+      "absenceImplications": null,
+      "implies": null
+    },
+    {
+      "name": "sqlid",
+      "aliases": [
+        "s"
+      ],
+      "description": "Specifies the authorization ID that is used as the value in generated SET CURRENT SQLID statements most of the time.",
+      "type": "string",
+      "required": false,
+      "group": "dbm-db2 Common Options",
+      "absenceImplications": null,
+      "implies": null
+    },
+    {
+      "name": "termination-character",
+      "aliases": [
+        "tc"
+      ],
+      "description": "Specifies the SQL termination character that you want to use to terminate object DDL for triggers, XML indexes, functions, and procedures that contain embedded semicolon-terminated SQL statements.\n \n You cannot use a comma, an underscore, a single quote, double quotes, left parentheses, or right parentheses for this value.",
+      "type": "string",
+      "required": false,
+      "stringLengthRange": [
+        1,
+        1
+      ],
+      "group": "dbm-db2 Common Options",
+      "absenceImplications": null,
+      "implies": null
+    },
+    {
+      "name": "overwrite-output-files",
+      "aliases": [
+        "oof"
+      ],
+      "description": "Specifies whether to overwrite output files when they already exist.\n    \n \u001b[90m Default value: false \u001b[0m",
+      "type": "boolean",
+      "required": false,
+      "group": "dbm-db2 Common Options",
+      "absenceImplications": null,
+      "implies": null
+    },
+    {
+      "name": "host",
+      "aliases": [
+        "H"
+      ],
+      "description": "Specifies the DBM Data Service REST API server host name or TCP/IP address to use.",
+      "type": "string",
+      "required": false,
+      "group": "dbm-db2 Connection Options",
+      "absenceImplications": null,
+      "implies": null
+    },
+    {
+      "name": "port",
+      "aliases": [
+        "P"
+      ],
+      "description": "Specifies the DBM Data Service REST API server TCP/IP port number.",
+      "type": "number",
+      "required": false,
+      "group": "dbm-db2 Connection Options",
+      "absenceImplications": null,
+      "implies": null
+    },
+    {
+      "name": "user",
+      "aliases": [
+        "u"
+      ],
+      "description": "Specifies the mainframe user name that you want to use to connect to the mainframe systems during execution of the Zowe CLI commands. This user name can be the same as your TSO login ID.",
+      "type": "string",
+      "required": false,
+      "group": "dbm-db2 Connection Options",
+      "absenceImplications": null,
+      "implies": null
+    },
+    {
+      "name": "password",
+      "aliases": [
+        "pass",
+        "pw"
+      ],
+      "description": "Specifies the mainframe password for the user name that is used to connect to the mainframe systems during execution of the CLI commands. This password can be the same as your TSO password.",
+      "type": "string",
+      "required": false,
+      "group": "dbm-db2 Connection Options",
+      "absenceImplications": null,
+      "implies": null
+    },
+    {
+      "name": "reject-unauthorized",
+      "aliases": [
+        "ru"
+      ],
+      "description": "Determines whether the dbm-db2 command is accepted or rejected when a self-signed certificate is returned by the DBM Data Service.",
+      "type": "boolean",
+      "required": false,
+      "group": "dbm-db2 Connection Options",
+      "absenceImplications": null,
+      "implies": null
+    },
+    {
+      "name": "protocol",
+      "description": "Specifies the communication protocol to use between the zowe dbm-db2 client and the DBM Data Service.",
+      "type": "string",
+      "required": false,
+      "allowableValues": {
+        "values": [
+          "http",
+          "https"
+        ]
+      },
+      "group": "dbm-db2 Connection Options",
+      "absenceImplications": null,
+      "implies": null,
+      "aliases": []
+    },
+    {
+      "name": "environment-list",
+      "aliases": [
+        "el"
+      ],
+      "description": "Specifies a string of one or more paired values consisting of a Db2 subsystem ID and a DBM Data Service environment pair. The paired entry identifies the DBM Data Service environment to use for a subsystem that is accessible through multiple DBM Data Service environments.\n\n  \u001b[90m Format:\n\n  <ssid1>:<env1>, <ssid2>:<env2>, …\n\n  <ssid> is the subsystem ID. <env> is an entry that is configured in the DBM Data Service environments.yaml file. For more information about configuring the DBM Data Service, see the Database Management Solutions for Db2 for z/OS documentation at https://techdocs.broadcom.com/db2mgmt.\n\n  Example: ssid:prod@host1.net:7300,ssid2:test@host2.net:7300 \u001b[0m",
+      "type": "string",
+      "required": false,
+      "group": "dbm-db2 Connection Options",
+      "absenceImplications": null,
+      "implies": null
+    },
+    {
+      "name": "response-format-json",
+      "aliases": [
+        "rfj"
+      ],
+      "group": "Global options",
+      "description": "Produce JSON formatted data from a command",
+      "type": "boolean"
+    },
+    {
+      "name": "help",
+      "aliases": [
+        "h"
+      ],
+      "group": "Global options",
+      "description": "Display help text",
+      "type": "boolean"
+    },
+    {
+      "name": "help-examples",
+      "group": "Global options",
+      "description": "Display examples for all the commands in a group",
+      "type": "boolean",
+      "aliases": []
+    },
+    {
+      "name": "help-web",
+      "aliases": [
+        "hw"
+      ],
+      "group": "Global options",
+      "description": "Display HTML help in browser",
+      "type": "boolean"
+    }
+  ],
+  "examples": [
+    {
+      "options": "dbm123 --user newuser --password newp4ss",
+      "description": "Update a dbm-db2 profile named dbm123 with a new username and password"
+    },
+    {
+      "options": "profile_name1 --work-dataset-prefix NEWPREFX.DDL",
+      "description": "Update a dbm-db2 profile named profile_name1 with a new work data set prefix"
+    }
+  ],
+  "passOn": [],
+  "children": []
+}

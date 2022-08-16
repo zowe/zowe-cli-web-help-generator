@@ -1,8 +1,8 @@
-// Copyright (c) 2021 Broadcom.  All Rights Reserved.  The term
+// Copyright (c) 2022 Broadcom.  All Rights Reserved.  The term
 // "Broadcom" refers to Broadcom Inc. and/or its subsidiaries.
 {
   "name": "sysview",
-  "description": "Zowe CLI plugin for CA SYSVIEW",
+  "description": "Zowe CLI plugin for SYSVIEW",
   "type": "group",
   "children": [
     {
@@ -10,7 +10,7 @@
       "aliases": [
         "cap"
       ],
-      "summary": "Display a captured CA SYSVIEW primary command",
+      "summary": "Display a captured SYSVIEW primary command",
       "description": "Display output from a primary command stored in a SYSVIEW capture data set",
       "type": "command",
       "handler": "",
@@ -582,8 +582,8 @@
       "aliases": [
         "dsp"
       ],
-      "summary": "Display a real-time CA SYSVIEW primary command",
-      "description": "Issue a CA SYSVIEW primary command and display output, including any messages",
+      "summary": "Display a real-time SYSVIEW primary command",
+      "description": "Issue a SYSVIEW primary command and display output, including any messages",
       "type": "command",
       "handler": "",
       "profile": {
@@ -895,8 +895,8 @@
       "aliases": [
         "exe"
       ],
-      "summary": "Execute a real-time CA SYSVIEW function command",
-      "description": "Issue a CA SYSVIEW function command and display any messages",
+      "summary": "Execute a real-time SYSVIEW function command",
+      "description": "Issue a SYSVIEW function command and display any messages",
       "type": "command",
       "handler": "",
       "profile": {
@@ -1096,7 +1096,7 @@
       "children": []
     }
   ],
-  "summary": "Integration with CA SYSVIEW",
+  "summary": "Integration with SYSVIEW",
   "aliases": [
     "sv"
   ],

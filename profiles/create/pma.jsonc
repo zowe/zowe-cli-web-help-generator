@@ -1,4 +1,4 @@
-// Copyright (c) 2021 Broadcom.  All Rights Reserved.  The term
+// Copyright (c) 2022 Broadcom.  All Rights Reserved.  The term
 // "Broadcom" refers to Broadcom Inc. and/or its subsidiaries.
 {
   "name": "pma-profile",
@@ -6,7 +6,7 @@
     "pma"
   ],
   "summary": "Create a pma profile",
-  "description": "CA MAT Detect CLI profile schema.",
+  "description": "MAT Detect CLI profile schema.",
   "type": "command",
   "handler": "",
   "customize": {

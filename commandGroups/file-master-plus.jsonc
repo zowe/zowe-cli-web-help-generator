@@ -1,8 +1,8 @@
-// Copyright (c) 2021 Broadcom.  All Rights Reserved.  The term
+// Copyright (c) 2022 Broadcom.  All Rights Reserved.  The term
 // "Broadcom" refers to Broadcom Inc. and/or its subsidiaries.
 {
   "name": "file-master-plus",
-  "description": "CA File Master Plus command line interface is a file management and data manipulation tool.\nIt speeds up file creation and manipulates virtual storage access method (VSAM), sequential and partitioned data sets.\nIt also supports symbolic access to data via layouts and data manipulation like selection of records in data sets.",
+  "description": "File Master Plus command line interface is a file management and data manipulation tool.\nIt speeds up file creation and manipulates virtual storage access method (VSAM), sequential and partitioned data sets.\nIt also supports symbolic access to data via layouts and data manipulation like selection of records in data sets.",
   "type": "group",
   "children": [
     {
@@ -19,7 +19,7 @@
           "aliases": [
             "ds"
           ],
-          "description": "Copy from a data set to another data set.\nIf the <to> data set does not exist, CA File Master Plus automatically creates a new data set using the attributes of <from> data set.\nIt supports all data set types that are supported by CA File Master Plus.",
+          "description": "Copy from a data set to another data set.\nIf the <to> data set does not exist, File Master Plus automatically creates a new data set using the attributes of <from> data set.\nIt supports all data set types that are supported by File Master Plus.",
           "summary": "Copy a data set",
           "type": "command",
           "handler": "",
@@ -81,7 +81,7 @@
               "aliases": [
                 "ssc"
               ],
-              "description": "Specifies the name of pre-defined CA File Master Plus selection criteria. The name refers to a member in the defaultselection criteria data set as defined in the FMM_CLIST parameter in CA File Master Plus server.\nExample: --ssc testcri",
+              "description": "Specifies the name of pre-defined File Master Plus selection criteria. The name refers to a member in the defaultselection criteria data set as defined in the FMM_CLIST parameter in File Master Plus server.\nExample: --ssc testcri",
               "type": "string",
               "conflictsWith": [
                 "dynamic-selection-criteria"
@@ -94,7 +94,7 @@
               "aliases": [
                 "dsc"
               ],
-              "description": "Specifies path of the .txt file where the dynamic selection criteria exist. Ensure the format of the file is identical to the static selection criteria created by CA File Master Plus. If the selection criteria refer to field names in a Cobol or PL/I copybook, use the --layout-member and --layout-data-set parameters to name the copybook location.\nExample: --dsc ../selcri/testcri.txt ",
+              "description": "Specifies path of the .txt file where the dynamic selection criteria exist. Ensure the format of the file is identical to the static selection criteria created by File Master Plus. If the selection criteria refer to field names in a Cobol or PL/I copybook, use the --layout-member and --layout-data-set parameters to name the copybook location.\nExample: --dsc ../selcri/testcri.txt ",
               "type": "string",
               "conflictsWith": [
                 "static-selection-criteria"
@@ -135,7 +135,7 @@
               "aliases": [
                 "H"
               ],
-              "description": "Specifies CA File Master Plus server host name.",
+              "description": "Specifies File Master Plus server host name.",
               "type": "string",
               "required": false,
               "group": "FMP Connection Options"
@@ -145,7 +145,7 @@
               "aliases": [
                 "P"
               ],
-              "description": "Specifies CA File Master Plus server port.",
+              "description": "Specifies File Master Plus server port.",
               "type": "number",
               "required": false,
               "group": "FMP Connection Options"
@@ -176,7 +176,7 @@
               "aliases": [
                 "o"
               ],
-              "description": "Specifies CA File Master Plus REST API protocol.",
+              "description": "Specifies File Master Plus REST API protocol.",
               "type": "string",
               "defaultValue": "https",
               "required": false,
@@ -327,7 +327,7 @@
               "aliases": [
                 "H"
               ],
-              "description": "Specifies CA File Master Plus server host name.",
+              "description": "Specifies File Master Plus server host name.",
               "type": "string",
               "required": false,
               "group": "FMP Connection Options"
@@ -337,7 +337,7 @@
               "aliases": [
                 "P"
               ],
-              "description": "Specifies CA File Master Plus server port.",
+              "description": "Specifies File Master Plus server port.",
               "type": "number",
               "required": false,
               "group": "FMP Connection Options"
@@ -368,7 +368,7 @@
               "aliases": [
                 "o"
               ],
-              "description": "Specifies CA File Master Plus REST API protocol.",
+              "description": "Specifies File Master Plus REST API protocol.",
               "type": "string",
               "defaultValue": "https",
               "required": false,
@@ -676,7 +676,7 @@
               "aliases": [
                 "H"
               ],
-              "description": "Specifies CA File Master Plus server host name.",
+              "description": "Specifies File Master Plus server host name.",
               "type": "string",
               "required": false,
               "group": "FMP Connection Options"
@@ -686,7 +686,7 @@
               "aliases": [
                 "P"
               ],
-              "description": "Specifies CA File Master Plus server port.",
+              "description": "Specifies File Master Plus server port.",
               "type": "number",
               "required": false,
               "group": "FMP Connection Options"
@@ -717,7 +717,7 @@
               "aliases": [
                 "o"
               ],
-              "description": "Specifies CA File Master Plus REST API protocol.",
+              "description": "Specifies File Master Plus REST API protocol.",
               "type": "string",
               "defaultValue": "https",
               "required": false,
@@ -1081,7 +1081,7 @@
               "aliases": [
                 "H"
               ],
-              "description": "Specifies CA File Master Plus server host name.",
+              "description": "Specifies File Master Plus server host name.",
               "type": "string",
               "required": false,
               "group": "FMP Connection Options"
@@ -1091,7 +1091,7 @@
               "aliases": [
                 "P"
               ],
-              "description": "Specifies CA File Master Plus server port.",
+              "description": "Specifies File Master Plus server port.",
               "type": "number",
               "required": false,
               "group": "FMP Connection Options"
@@ -1122,7 +1122,7 @@
               "aliases": [
                 "o"
               ],
-              "description": "Specifies CA File Master Plus REST API protocol.",
+              "description": "Specifies File Master Plus REST API protocol.",
               "type": "string",
               "defaultValue": "https",
               "required": false,
@@ -1500,7 +1500,7 @@
               "aliases": [
                 "H"
               ],
-              "description": "Specifies CA File Master Plus server host name.",
+              "description": "Specifies File Master Plus server host name.",
               "type": "string",
               "required": false,
               "group": "FMP Connection Options"
@@ -1510,7 +1510,7 @@
               "aliases": [
                 "P"
               ],
-              "description": "Specifies CA File Master Plus server port.",
+              "description": "Specifies File Master Plus server port.",
               "type": "number",
               "required": false,
               "group": "FMP Connection Options"
@@ -1541,7 +1541,7 @@
               "aliases": [
                 "o"
               ],
-              "description": "Specifies CA File Master Plus REST API protocol.",
+              "description": "Specifies File Master Plus REST API protocol.",
               "type": "string",
               "defaultValue": "https",
               "required": false,
@@ -1933,7 +1933,7 @@
               "aliases": [
                 "H"
               ],
-              "description": "Specifies CA File Master Plus server host name.",
+              "description": "Specifies File Master Plus server host name.",
               "type": "string",
               "required": false,
               "group": "FMP Connection Options"
@@ -1943,7 +1943,7 @@
               "aliases": [
                 "P"
               ],
-              "description": "Specifies CA File Master Plus server port.",
+              "description": "Specifies File Master Plus server port.",
               "type": "number",
               "required": false,
               "group": "FMP Connection Options"
@@ -1974,7 +1974,7 @@
               "aliases": [
                 "o"
               ],
-              "description": "Specifies CA File Master Plus REST API protocol.",
+              "description": "Specifies File Master Plus REST API protocol.",
               "type": "string",
               "defaultValue": "https",
               "required": false,
@@ -2633,7 +2633,7 @@
               "aliases": [
                 "H"
               ],
-              "description": "Specifies CA File Master Plus server host name.",
+              "description": "Specifies File Master Plus server host name.",
               "type": "string",
               "required": false,
               "group": "FMP Connection Options"
@@ -2643,7 +2643,7 @@
               "aliases": [
                 "P"
               ],
-              "description": "Specifies CA File Master Plus server port.",
+              "description": "Specifies File Master Plus server port.",
               "type": "number",
               "required": false,
               "group": "FMP Connection Options"
@@ -2674,7 +2674,7 @@
               "aliases": [
                 "o"
               ],
-              "description": "Specifies CA File Master Plus REST API protocol.",
+              "description": "Specifies File Master Plus REST API protocol.",
               "type": "string",
               "defaultValue": "https",
               "required": false,
@@ -3239,7 +3239,7 @@
               "aliases": [
                 "H"
               ],
-              "description": "Specifies CA File Master Plus server host name.",
+              "description": "Specifies File Master Plus server host name.",
               "type": "string",
               "required": false,
               "group": "FMP Connection Options"
@@ -3249,7 +3249,7 @@
               "aliases": [
                 "P"
               ],
-              "description": "Specifies CA File Master Plus server port.",
+              "description": "Specifies File Master Plus server port.",
               "type": "number",
               "required": false,
               "group": "FMP Connection Options"
@@ -3280,7 +3280,7 @@
               "aliases": [
                 "o"
               ],
-              "description": "Specifies CA File Master Plus REST API protocol.",
+              "description": "Specifies File Master Plus REST API protocol.",
               "type": "string",
               "defaultValue": "https",
               "required": false,
@@ -3722,7 +3722,7 @@
               "aliases": [
                 "H"
               ],
-              "description": "Specifies CA File Master Plus server host name.",
+              "description": "Specifies File Master Plus server host name.",
               "type": "string",
               "required": false,
               "group": "FMP Connection Options"
@@ -3732,7 +3732,7 @@
               "aliases": [
                 "P"
               ],
-              "description": "Specifies CA File Master Plus server port.",
+              "description": "Specifies File Master Plus server port.",
               "type": "number",
               "required": false,
               "group": "FMP Connection Options"
@@ -3763,7 +3763,7 @@
               "aliases": [
                 "o"
               ],
-              "description": "Specifies CA File Master Plus REST API protocol.",
+              "description": "Specifies File Master Plus REST API protocol.",
               "type": "string",
               "defaultValue": "https",
               "required": false,
@@ -4297,7 +4297,7 @@
               "aliases": [
                 "H"
               ],
-              "description": "Specifies CA File Master Plus server host name.",
+              "description": "Specifies File Master Plus server host name.",
               "type": "string",
               "required": false,
               "group": "FMP Connection Options"
@@ -4307,7 +4307,7 @@
               "aliases": [
                 "P"
               ],
-              "description": "Specifies CA File Master Plus server port.",
+              "description": "Specifies File Master Plus server port.",
               "type": "number",
               "required": false,
               "group": "FMP Connection Options"
@@ -4338,7 +4338,7 @@
               "aliases": [
                 "o"
               ],
-              "description": "Specifies CA File Master Plus REST API protocol.",
+              "description": "Specifies File Master Plus REST API protocol.",
               "type": "string",
               "defaultValue": "https",
               "required": false,
@@ -4964,7 +4964,7 @@
               "aliases": [
                 "H"
               ],
-              "description": "Specifies CA File Master Plus server host name.",
+              "description": "Specifies File Master Plus server host name.",
               "type": "string",
               "required": false,
               "group": "FMP Connection Options"
@@ -4974,7 +4974,7 @@
               "aliases": [
                 "P"
               ],
-              "description": "Specifies CA File Master Plus server port.",
+              "description": "Specifies File Master Plus server port.",
               "type": "number",
               "required": false,
               "group": "FMP Connection Options"
@@ -5005,7 +5005,7 @@
               "aliases": [
                 "o"
               ],
-              "description": "Specifies CA File Master Plus REST API protocol.",
+              "description": "Specifies File Master Plus REST API protocol.",
               "type": "string",
               "defaultValue": "https",
               "required": false,
@@ -5196,7 +5196,7 @@
               "aliases": [
                 "H"
               ],
-              "description": "Specifies CA File Master Plus server host name.",
+              "description": "Specifies File Master Plus server host name.",
               "type": "string",
               "required": false,
               "group": "FMP Connection Options"
@@ -5206,7 +5206,7 @@
               "aliases": [
                 "P"
               ],
-              "description": "Specifies CA File Master Plus server port.",
+              "description": "Specifies File Master Plus server port.",
               "type": "number",
               "required": false,
               "group": "FMP Connection Options"
@@ -5237,7 +5237,7 @@
               "aliases": [
                 "o"
               ],
-              "description": "Specifies CA File Master Plus REST API protocol.",
+              "description": "Specifies File Master Plus REST API protocol.",
               "type": "string",
               "defaultValue": "https",
               "required": false,
@@ -5368,7 +5368,7 @@
               "aliases": [
                 "H"
               ],
-              "description": "Specifies CA File Master Plus server host name.",
+              "description": "Specifies File Master Plus server host name.",
               "type": "string",
               "required": false,
               "group": "FMP Connection Options"
@@ -5378,7 +5378,7 @@
               "aliases": [
                 "P"
               ],
-              "description": "Specifies CA File Master Plus server port.",
+              "description": "Specifies File Master Plus server port.",
               "type": "number",
               "required": false,
               "group": "FMP Connection Options"
@@ -5409,7 +5409,7 @@
               "aliases": [
                 "o"
               ],
-              "description": "Specifies CA File Master Plus REST API protocol.",
+              "description": "Specifies File Master Plus REST API protocol.",
               "type": "string",
               "defaultValue": "https",
               "required": false,
@@ -5505,7 +5505,7 @@
           ],
           "summary": "Permanently deletes a data set",
           "type": "command",
-          "description": "Permanently deletes a data set.\nIt supports all data set types that are supported by CA File Master Plus.",
+          "description": "Permanently deletes a data set.\nIt supports all data set types that are supported by File Master Plus.",
           "handler": "",
           "positionals": [
             {
@@ -5533,7 +5533,7 @@
               "aliases": [
                 "H"
               ],
-              "description": "Specifies CA File Master Plus server host name.",
+              "description": "Specifies File Master Plus server host name.",
               "type": "string",
               "required": false,
               "group": "FMP Connection Options"
@@ -5543,7 +5543,7 @@
               "aliases": [
                 "P"
               ],
-              "description": "Specifies CA File Master Plus server port.",
+              "description": "Specifies File Master Plus server port.",
               "type": "number",
               "required": false,
               "group": "FMP Connection Options"
@@ -5574,7 +5574,7 @@
               "aliases": [
                 "o"
               ],
-              "description": "Specifies CA File Master Plus REST API protocol.",
+              "description": "Specifies File Master Plus REST API protocol.",
               "type": "string",
               "defaultValue": "https",
               "required": false,
@@ -5705,7 +5705,7 @@
               "aliases": [
                 "H"
               ],
-              "description": "Specifies CA File Master Plus server host name.",
+              "description": "Specifies File Master Plus server host name.",
               "type": "string",
               "required": false,
               "group": "FMP Connection Options"
@@ -5715,7 +5715,7 @@
               "aliases": [
                 "P"
               ],
-              "description": "Specifies CA File Master Plus server port.",
+              "description": "Specifies File Master Plus server port.",
               "type": "number",
               "required": false,
               "group": "FMP Connection Options"
@@ -5746,7 +5746,7 @@
               "aliases": [
                 "o"
               ],
-              "description": "Specifies CA File Master Plus REST API protocol.",
+              "description": "Specifies File Master Plus REST API protocol.",
               "type": "string",
               "defaultValue": "https",
               "required": false,
@@ -5833,7 +5833,7 @@
       ],
       "type": "group",
       "summary": "Add records in a data set",
-      "description": "Populate the specified data set with records.\nIt supports all data set types that are supported by CA File Master Plus.",
+      "description": "Populate the specified data set with records.\nIt supports all data set types that are supported by File Master Plus.",
       "children": [
         {
           "name": "data-set",
@@ -5901,7 +5901,7 @@
               "aliases": [
                 "H"
               ],
-              "description": "Specifies CA File Master Plus server host name.",
+              "description": "Specifies File Master Plus server host name.",
               "type": "string",
               "required": false,
               "group": "FMP Connection Options"
@@ -5911,7 +5911,7 @@
               "aliases": [
                 "P"
               ],
-              "description": "Specifies CA File Master Plus server port.",
+              "description": "Specifies File Master Plus server port.",
               "type": "number",
               "required": false,
               "group": "FMP Connection Options"
@@ -5942,7 +5942,7 @@
               "aliases": [
                 "o"
               ],
-              "description": "Specifies CA File Master Plus REST API protocol.",
+              "description": "Specifies File Master Plus REST API protocol.",
               "type": "string",
               "defaultValue": "https",
               "required": false,
@@ -6085,7 +6085,7 @@
               "aliases": [
                 "H"
               ],
-              "description": "Specifies CA File Master Plus server host name.",
+              "description": "Specifies File Master Plus server host name.",
               "type": "string",
               "required": false,
               "group": "FMP Connection Options"
@@ -6095,7 +6095,7 @@
               "aliases": [
                 "P"
               ],
-              "description": "Specifies CA File Master Plus server port.",
+              "description": "Specifies File Master Plus server port.",
               "type": "number",
               "required": false,
               "group": "FMP Connection Options"
@@ -6126,7 +6126,7 @@
               "aliases": [
                 "o"
               ],
-              "description": "Specifies CA File Master Plus REST API protocol.",
+              "description": "Specifies File Master Plus REST API protocol.",
               "type": "string",
               "defaultValue": "https",
               "required": false,
@@ -6220,7 +6220,7 @@
           "aliases": [
             "ds"
           ],
-          "description": "Rename a data set.\nIt supports all data set types that are supported by CA File Master Plus.",
+          "description": "Rename a data set.\nIt supports all data set types that are supported by File Master Plus.",
           "summary": "Rename a data set",
           "type": "command",
           "handler": "",
@@ -6262,7 +6262,7 @@
               "aliases": [
                 "H"
               ],
-              "description": "Specifies CA File Master Plus server host name.",
+              "description": "Specifies File Master Plus server host name.",
               "type": "string",
               "required": false,
               "group": "FMP Connection Options"
@@ -6272,7 +6272,7 @@
               "aliases": [
                 "P"
               ],
-              "description": "Specifies CA File Master Plus server port.",
+              "description": "Specifies File Master Plus server port.",
               "type": "number",
               "required": false,
               "group": "FMP Connection Options"
@@ -6303,7 +6303,7 @@
               "aliases": [
                 "o"
               ],
-              "description": "Specifies CA File Master Plus REST API protocol.",
+              "description": "Specifies File Master Plus REST API protocol.",
               "type": "string",
               "defaultValue": "https",
               "required": false,
@@ -6450,7 +6450,7 @@
               "aliases": [
                 "H"
               ],
-              "description": "Specifies CA File Master Plus server host name.",
+              "description": "Specifies File Master Plus server host name.",
               "type": "string",
               "required": false,
               "group": "FMP Connection Options"
@@ -6460,7 +6460,7 @@
               "aliases": [
                 "P"
               ],
-              "description": "Specifies CA File Master Plus server port.",
+              "description": "Specifies File Master Plus server port.",
               "type": "number",
               "required": false,
               "group": "FMP Connection Options"
@@ -6491,7 +6491,7 @@
               "aliases": [
                 "o"
               ],
-              "description": "Specifies CA File Master Plus REST API protocol.",
+              "description": "Specifies File Master Plus REST API protocol.",
               "type": "string",
               "defaultValue": "https",
               "required": false,

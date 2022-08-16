@@ -1,8 +1,8 @@
-// Copyright (c) 2021 Broadcom.  All Rights Reserved.  The term
+// Copyright (c) 2022 Broadcom.  All Rights Reserved.  The term
 // "Broadcom" refers to Broadcom Inc. and/or its subsidiaries.
 {
   "name": "caview",
-  "description": "Access CA View data and perform related tasks.",
+  "description": "Access View data and perform related tasks.",
   "type": "group",
   "children": [
     {
@@ -10,8 +10,8 @@
       "aliases": [
         "dl"
       ],
-      "summary": "Download CA View report data to local folder.",
-      "description": "Download CA View report data to local folder.",
+      "summary": "Download View report data to local folder.",
+      "description": "Download View report data to local folder.",
       "type": "group",
       "children": [
         {
@@ -130,6 +130,73 @@
               "group": "Options"
             },
             {
+              "type": "string",
+              "name": "hostname",
+              "description": "Hostname or ip address of the target View REST API instance.",
+              "required": false,
+              "group": "View Connection Options",
+              "aliases": []
+            },
+            {
+              "type": "number",
+              "name": "port",
+              "aliases": [
+                "P"
+              ],
+              "description": "Port of the target View REST API instance.",
+              "numericValueRange": [
+                0,
+                65535
+              ],
+              "required": false,
+              "defaultValue": 443,
+              "group": "View Connection Options"
+            },
+            {
+              "type": "string",
+              "name": "username",
+              "description": "User name used to authenticate against the target View REST API instance.",
+              "required": false,
+              "group": "View Connection Options",
+              "aliases": []
+            },
+            {
+              "type": "string",
+              "name": "password",
+              "aliases": [
+                "pass",
+                "pw"
+              ],
+              "description": "Password used to authenticate against the target View REST API instance.",
+              "required": false,
+              "group": "View Connection Options"
+            },
+            {
+              "type": "string",
+              "name": "base-path",
+              "description": "Context name of the target View REST API instance.",
+              "required": false,
+              "defaultValue": "web-viewer",
+              "group": "View Connection Options",
+              "aliases": []
+            },
+            {
+              "type": "string",
+              "name": "protocol",
+              "description": "Protocol of the target View REST API instance.",
+              "required": false,
+              "allowableValues": {
+                "values": [
+                  "http",
+                  "https"
+                ],
+                "caseSensitive": false
+              },
+              "defaultValue": "https",
+              "group": "View Connection Options",
+              "aliases": []
+            },
+            {
               "name": "response-format-json",
               "aliases": [
                 "rfj"
@@ -191,30 +258,11 @@
               "group": "Base Connection Options"
             },
             {
-              "name": "port",
-              "aliases": [
-                "P"
-              ],
-              "description": "Port number of service on the mainframe.",
-              "type": "number",
-              "group": "Base Connection Options"
-            },
-            {
               "name": "user",
               "aliases": [
                 "u"
               ],
               "description": "User name to authenticate to service on the mainframe.",
-              "type": "string",
-              "group": "Base Connection Options"
-            },
-            {
-              "name": "password",
-              "aliases": [
-                "pass",
-                "pw"
-              ],
-              "description": "Password to authenticate to service on the mainframe.",
               "type": "string",
               "group": "Base Connection Options"
             },
@@ -262,15 +310,89 @@
             }
           ],
           "profile": {
-            "required": [
-              "caview"
-            ],
             "optional": [
+              "caview",
               "base"
             ]
           },
           "passOn": [],
           "children": []
+        }
+      ],
+      "passOn": [
+        {
+          "property": "options",
+          "value": [
+            {
+              "type": "string",
+              "name": "hostname",
+              "description": "Hostname or ip address of the target View REST API instance.",
+              "required": false,
+              "group": "View Connection Options"
+            },
+            {
+              "type": "number",
+              "name": "port",
+              "aliases": [
+                "P"
+              ],
+              "description": "Port of the target View REST API instance.",
+              "numericValueRange": [
+                0,
+                65535
+              ],
+              "required": false,
+              "defaultValue": 443,
+              "group": "View Connection Options"
+            },
+            {
+              "type": "string",
+              "name": "username",
+              "description": "User name used to authenticate against the target View REST API instance.",
+              "required": false,
+              "group": "View Connection Options"
+            },
+            {
+              "type": "string",
+              "name": "password",
+              "aliases": [
+                "pass",
+                "pw"
+              ],
+              "description": "Password used to authenticate against the target View REST API instance.",
+              "required": false,
+              "group": "View Connection Options"
+            },
+            {
+              "type": "string",
+              "name": "base-path",
+              "description": "Context name of the target View REST API instance.",
+              "required": false,
+              "defaultValue": "web-viewer",
+              "group": "View Connection Options"
+            },
+            {
+              "type": "string",
+              "name": "protocol",
+              "description": "Protocol of the target View REST API instance.",
+              "required": false,
+              "allowableValues": {
+                "values": [
+                  "http",
+                  "https"
+                ],
+                "caseSensitive": false
+              },
+              "defaultValue": "https",
+              "group": "View Connection Options"
+            }
+          ],
+          "merge": true,
+          "ignoreNodes": [
+            {
+              "type": "group"
+            }
+          ]
         }
       ],
       "options": [
@@ -309,16 +431,15 @@
           "type": "boolean"
         }
       ],
-      "positionals": [],
-      "passOn": []
+      "positionals": []
     },
     {
       "name": "export",
       "aliases": [
         "exp"
       ],
-      "summary": "Export CA View text report file to local folder.",
-      "description": "Export CA View text report file to local folder.",
+      "summary": "Export View text report file to local folder.",
+      "description": "Export View text report file to local folder.",
       "type": "group",
       "children": [
         {
@@ -372,6 +493,73 @@
               "aliases": []
             },
             {
+              "type": "string",
+              "name": "hostname",
+              "description": "Hostname or ip address of the target View REST API instance.",
+              "required": false,
+              "group": "View Connection Options",
+              "aliases": []
+            },
+            {
+              "type": "number",
+              "name": "port",
+              "aliases": [
+                "P"
+              ],
+              "description": "Port of the target View REST API instance.",
+              "numericValueRange": [
+                0,
+                65535
+              ],
+              "required": false,
+              "defaultValue": 443,
+              "group": "View Connection Options"
+            },
+            {
+              "type": "string",
+              "name": "username",
+              "description": "User name used to authenticate against the target View REST API instance.",
+              "required": false,
+              "group": "View Connection Options",
+              "aliases": []
+            },
+            {
+              "type": "string",
+              "name": "password",
+              "aliases": [
+                "pass",
+                "pw"
+              ],
+              "description": "Password used to authenticate against the target View REST API instance.",
+              "required": false,
+              "group": "View Connection Options"
+            },
+            {
+              "type": "string",
+              "name": "base-path",
+              "description": "Context name of the target View REST API instance.",
+              "required": false,
+              "defaultValue": "web-viewer",
+              "group": "View Connection Options",
+              "aliases": []
+            },
+            {
+              "type": "string",
+              "name": "protocol",
+              "description": "Protocol of the target View REST API instance.",
+              "required": false,
+              "allowableValues": {
+                "values": [
+                  "http",
+                  "https"
+                ],
+                "caseSensitive": false
+              },
+              "defaultValue": "https",
+              "group": "View Connection Options",
+              "aliases": []
+            },
+            {
               "name": "response-format-json",
               "aliases": [
                 "rfj"
@@ -433,30 +621,11 @@
               "group": "Base Connection Options"
             },
             {
-              "name": "port",
-              "aliases": [
-                "P"
-              ],
-              "description": "Port number of service on the mainframe.",
-              "type": "number",
-              "group": "Base Connection Options"
-            },
-            {
               "name": "user",
               "aliases": [
                 "u"
               ],
               "description": "User name to authenticate to service on the mainframe.",
-              "type": "string",
-              "group": "Base Connection Options"
-            },
-            {
-              "name": "password",
-              "aliases": [
-                "pass",
-                "pw"
-              ],
-              "description": "Password to authenticate to service on the mainframe.",
               "type": "string",
               "group": "Base Connection Options"
             },
@@ -504,15 +673,89 @@
             }
           ],
           "profile": {
-            "required": [
-              "caview"
-            ],
             "optional": [
+              "caview",
               "base"
             ]
           },
           "passOn": [],
           "children": []
+        }
+      ],
+      "passOn": [
+        {
+          "property": "options",
+          "value": [
+            {
+              "type": "string",
+              "name": "hostname",
+              "description": "Hostname or ip address of the target View REST API instance.",
+              "required": false,
+              "group": "View Connection Options"
+            },
+            {
+              "type": "number",
+              "name": "port",
+              "aliases": [
+                "P"
+              ],
+              "description": "Port of the target View REST API instance.",
+              "numericValueRange": [
+                0,
+                65535
+              ],
+              "required": false,
+              "defaultValue": 443,
+              "group": "View Connection Options"
+            },
+            {
+              "type": "string",
+              "name": "username",
+              "description": "User name used to authenticate against the target View REST API instance.",
+              "required": false,
+              "group": "View Connection Options"
+            },
+            {
+              "type": "string",
+              "name": "password",
+              "aliases": [
+                "pass",
+                "pw"
+              ],
+              "description": "Password used to authenticate against the target View REST API instance.",
+              "required": false,
+              "group": "View Connection Options"
+            },
+            {
+              "type": "string",
+              "name": "base-path",
+              "description": "Context name of the target View REST API instance.",
+              "required": false,
+              "defaultValue": "web-viewer",
+              "group": "View Connection Options"
+            },
+            {
+              "type": "string",
+              "name": "protocol",
+              "description": "Protocol of the target View REST API instance.",
+              "required": false,
+              "allowableValues": {
+                "values": [
+                  "http",
+                  "https"
+                ],
+                "caseSensitive": false
+              },
+              "defaultValue": "https",
+              "group": "View Connection Options"
+            }
+          ],
+          "merge": true,
+          "ignoreNodes": [
+            {
+              "type": "group"
+            }
+          ]
         }
       ],
       "options": [
@@ -551,13 +794,12 @@
           "type": "boolean"
         }
       ],
-      "positionals": [],
-      "passOn": []
+      "positionals": []
     },
     {
       "name": "get",
-      "summary": "Get information from CA View repository.",
-      "description": "Get information from CA View repository.",
+      "summary": "Get information from View repository.",
+      "description": "Get information from View repository.",
       "type": "group",
       "children": [
         {
@@ -626,6 +868,73 @@
                   "group": "Options"
                 },
                 {
+                  "type": "string",
+                  "name": "hostname",
+                  "description": "Hostname or ip address of the target View REST API instance.",
+                  "required": false,
+                  "group": "View Connection Options",
+                  "aliases": []
+                },
+                {
+                  "type": "number",
+                  "name": "port",
+                  "aliases": [
+                    "P"
+                  ],
+                  "description": "Port of the target View REST API instance.",
+                  "numericValueRange": [
+                    0,
+                    65535
+                  ],
+                  "required": false,
+                  "defaultValue": 443,
+                  "group": "View Connection Options"
+                },
+                {
+                  "type": "string",
+                  "name": "username",
+                  "description": "User name used to authenticate against the target View REST API instance.",
+                  "required": false,
+                  "group": "View Connection Options",
+                  "aliases": []
+                },
+                {
+                  "type": "string",
+                  "name": "password",
+                  "aliases": [
+                    "pass",
+                    "pw"
+                  ],
+                  "description": "Password used to authenticate against the target View REST API instance.",
+                  "required": false,
+                  "group": "View Connection Options"
+                },
+                {
+                  "type": "string",
+                  "name": "base-path",
+                  "description": "Context name of the target View REST API instance.",
+                  "required": false,
+                  "defaultValue": "web-viewer",
+                  "group": "View Connection Options",
+                  "aliases": []
+                },
+                {
+                  "type": "string",
+                  "name": "protocol",
+                  "description": "Protocol of the target View REST API instance.",
+                  "required": false,
+                  "allowableValues": {
+                    "values": [
+                      "http",
+                      "https"
+                    ],
+                    "caseSensitive": false
+                  },
+                  "defaultValue": "https",
+                  "group": "View Connection Options",
+                  "aliases": []
+                },
+                {
                   "name": "response-format-json",
                   "aliases": [
                     "rfj"
@@ -687,30 +996,11 @@
                   "group": "Base Connection Options"
                 },
                 {
-                  "name": "port",
-                  "aliases": [
-                    "P"
-                  ],
-                  "description": "Port number of service on the mainframe.",
-                  "type": "number",
-                  "group": "Base Connection Options"
-                },
-                {
                   "name": "user",
                   "aliases": [
                     "u"
                   ],
                   "description": "User name to authenticate to service on the mainframe.",
-                  "type": "string",
-                  "group": "Base Connection Options"
-                },
-                {
-                  "name": "password",
-                  "aliases": [
-                    "pass",
-                    "pw"
-                  ],
-                  "description": "Password to authenticate to service on the mainframe.",
                   "type": "string",
                   "group": "Base Connection Options"
                 },
@@ -758,10 +1048,8 @@
                 }
               ],
               "profile": {
-                "required": [
-                  "caview"
-                ],
                 "optional": [
+                  "caview",
                   "base"
                 ]
               },
@@ -811,6 +1099,82 @@
           "passOn": []
         }
       ],
+      "passOn": [
+        {
+          "property": "options",
+          "value": [
+            {
+              "type": "string",
+              "name": "hostname",
+              "description": "Hostname or ip address of the target View REST API instance.",
+              "required": false,
+              "group": "View Connection Options"
+            },
+            {
+              "type": "number",
+              "name": "port",
+              "aliases": [
+                "P"
+              ],
+              "description": "Port of the target View REST API instance.",
+              "numericValueRange": [
+                0,
+                65535
+              ],
+              "required": false,
+              "defaultValue": 443,
+              "group": "View Connection Options"
+            },
+            {
+              "type": "string",
+              "name": "username",
+              "description": "User name used to authenticate against the target View REST API instance.",
+              "required": false,
+              "group": "View Connection Options"
+            },
+            {
+              "type": "string",
+              "name": "password",
+              "aliases": [
+                "pass",
+                "pw"
+              ],
+              "description": "Password used to authenticate against the target View REST API instance.",
+              "required": false,
+              "group": "View Connection Options"
+            },
+            {
+              "type": "string",
+              "name": "base-path",
+              "description": "Context name of the target View REST API instance.",
+              "required": false,
+              "defaultValue": "web-viewer",
+              "group": "View Connection Options"
+            },
+            {
+              "type": "string",
+              "name": "protocol",
+              "description": "Protocol of the target View REST API instance.",
+              "required": false,
+              "allowableValues": {
+                "values": [
+                  "http",
+                  "https"
+                ],
+                "caseSensitive": false
+              },
+              "defaultValue": "https",
+              "group": "View Connection Options"
+            }
+          ],
+          "merge": true,
+          "ignoreNodes": [
+            {
+              "type": "group"
+            }
+          ]
+        }
+      ],
       "options": [
         {
           "name": "response-format-json",
@@ -848,16 +1212,15 @@
         }
       ],
       "aliases": [],
-      "positionals": [],
-      "passOn": []
+      "positionals": []
     },
     {
       "name": "list",
       "aliases": [
         "ls"
       ],
-      "summary": "List CA View repository, report, and user information.",
-      "description": "List CA View repository, report, and user information.",
+      "summary": "List View repository, report, and user information.",
+      "description": "List View repository, report, and user information.",
       "type": "group",
       "children": [
         {
@@ -936,6 +1299,73 @@
               "group": "Options"
             },
             {
+              "type": "string",
+              "name": "hostname",
+              "description": "Hostname or ip address of the target View REST API instance.",
+              "required": false,
+              "group": "View Connection Options",
+              "aliases": []
+            },
+            {
+              "type": "number",
+              "name": "port",
+              "aliases": [
+                "P"
+              ],
+              "description": "Port of the target View REST API instance.",
+              "numericValueRange": [
+                0,
+                65535
+              ],
+              "required": false,
+              "defaultValue": 443,
+              "group": "View Connection Options"
+            },
+            {
+              "type": "string",
+              "name": "username",
+              "description": "User name used to authenticate against the target View REST API instance.",
+              "required": false,
+              "group": "View Connection Options",
+              "aliases": []
+            },
+            {
+              "type": "string",
+              "name": "password",
+              "aliases": [
+                "pass",
+                "pw"
+              ],
+              "description": "Password used to authenticate against the target View REST API instance.",
+              "required": false,
+              "group": "View Connection Options"
+            },
+            {
+              "type": "string",
+              "name": "base-path",
+              "description": "Context name of the target View REST API instance.",
+              "required": false,
+              "defaultValue": "web-viewer",
+              "group": "View Connection Options",
+              "aliases": []
+            },
+            {
+              "type": "string",
+              "name": "protocol",
+              "description": "Protocol of the target View REST API instance.",
+              "required": false,
+              "allowableValues": {
+                "values": [
+                  "http",
+                  "https"
+                ],
+                "caseSensitive": false
+              },
+              "defaultValue": "https",
+              "group": "View Connection Options",
+              "aliases": []
+            },
+            {
               "name": "response-format-json",
               "aliases": [
                 "rfj"
@@ -997,30 +1427,11 @@
               "group": "Base Connection Options"
             },
             {
-              "name": "port",
-              "aliases": [
-                "P"
-              ],
-              "description": "Port number of service on the mainframe.",
-              "type": "number",
-              "group": "Base Connection Options"
-            },
-            {
               "name": "user",
               "aliases": [
                 "u"
               ],
               "description": "User name to authenticate to service on the mainframe.",
-              "type": "string",
-              "group": "Base Connection Options"
-            },
-            {
-              "name": "password",
-              "aliases": [
-                "pass",
-                "pw"
-              ],
-              "description": "Password to authenticate to service on the mainframe.",
               "type": "string",
               "group": "Base Connection Options"
             },
@@ -1068,10 +1479,8 @@
             }
           ],
           "profile": {
-            "required": [
-              "caview"
-            ],
             "optional": [
+              "caview",
               "base"
             ]
           },
@@ -1202,6 +1611,73 @@
               "group": "Options"
             },
             {
+              "type": "string",
+              "name": "hostname",
+              "description": "Hostname or ip address of the target View REST API instance.",
+              "required": false,
+              "group": "View Connection Options",
+              "aliases": []
+            },
+            {
+              "type": "number",
+              "name": "port",
+              "aliases": [
+                "P"
+              ],
+              "description": "Port of the target View REST API instance.",
+              "numericValueRange": [
+                0,
+                65535
+              ],
+              "required": false,
+              "defaultValue": 443,
+              "group": "View Connection Options"
+            },
+            {
+              "type": "string",
+              "name": "username",
+              "description": "User name used to authenticate against the target View REST API instance.",
+              "required": false,
+              "group": "View Connection Options",
+              "aliases": []
+            },
+            {
+              "type": "string",
+              "name": "password",
+              "aliases": [
+                "pass",
+                "pw"
+              ],
+              "description": "Password used to authenticate against the target View REST API instance.",
+              "required": false,
+              "group": "View Connection Options"
+            },
+            {
+              "type": "string",
+              "name": "base-path",
+              "description": "Context name of the target View REST API instance.",
+              "required": false,
+              "defaultValue": "web-viewer",
+              "group": "View Connection Options",
+              "aliases": []
+            },
+            {
+              "type": "string",
+              "name": "protocol",
+              "description": "Protocol of the target View REST API instance.",
+              "required": false,
+              "allowableValues": {
+                "values": [
+                  "http",
+                  "https"
+                ],
+                "caseSensitive": false
+              },
+              "defaultValue": "https",
+              "group": "View Connection Options",
+              "aliases": []
+            },
+            {
               "name": "response-format-json",
               "aliases": [
                 "rfj"
@@ -1263,30 +1739,11 @@
               "group": "Base Connection Options"
             },
             {
-              "name": "port",
-              "aliases": [
-                "P"
-              ],
-              "description": "Port number of service on the mainframe.",
-              "type": "number",
-              "group": "Base Connection Options"
-            },
-            {
               "name": "user",
               "aliases": [
                 "u"
               ],
               "description": "User name to authenticate to service on the mainframe.",
-              "type": "string",
-              "group": "Base Connection Options"
-            },
-            {
-              "name": "password",
-              "aliases": [
-                "pass",
-                "pw"
-              ],
-              "description": "Password to authenticate to service on the mainframe.",
               "type": "string",
               "group": "Base Connection Options"
             },
@@ -1334,10 +1791,8 @@
             }
           ],
           "profile": {
-            "required": [
-              "caview"
-            ],
             "optional": [
+              "caview",
               "base"
             ]
           },
@@ -1424,6 +1879,73 @@
                   "group": "Options"
                 },
                 {
+                  "type": "string",
+                  "name": "hostname",
+                  "description": "Hostname or ip address of the target View REST API instance.",
+                  "required": false,
+                  "group": "View Connection Options",
+                  "aliases": []
+                },
+                {
+                  "type": "number",
+                  "name": "port",
+                  "aliases": [
+                    "P"
+                  ],
+                  "description": "Port of the target View REST API instance.",
+                  "numericValueRange": [
+                    0,
+                    65535
+                  ],
+                  "required": false,
+                  "defaultValue": 443,
+                  "group": "View Connection Options"
+                },
+                {
+                  "type": "string",
+                  "name": "username",
+                  "description": "User name used to authenticate against the target View REST API instance.",
+                  "required": false,
+                  "group": "View Connection Options",
+                  "aliases": []
+                },
+                {
+                  "type": "string",
+                  "name": "password",
+                  "aliases": [
+                    "pass",
+                    "pw"
+                  ],
+                  "description": "Password used to authenticate against the target View REST API instance.",
+                  "required": false,
+                  "group": "View Connection Options"
+                },
+                {
+                  "type": "string",
+                  "name": "base-path",
+                  "description": "Context name of the target View REST API instance.",
+                  "required": false,
+                  "defaultValue": "web-viewer",
+                  "group": "View Connection Options",
+                  "aliases": []
+                },
+                {
+                  "type": "string",
+                  "name": "protocol",
+                  "description": "Protocol of the target View REST API instance.",
+                  "required": false,
+                  "allowableValues": {
+                    "values": [
+                      "http",
+                      "https"
+                    ],
+                    "caseSensitive": false
+                  },
+                  "defaultValue": "https",
+                  "group": "View Connection Options",
+                  "aliases": []
+                },
+                {
                   "name": "response-format-json",
                   "aliases": [
                     "rfj"
@@ -1485,30 +2007,11 @@
                   "group": "Base Connection Options"
                 },
                 {
-                  "name": "port",
-                  "aliases": [
-                    "P"
-                  ],
-                  "description": "Port number of service on the mainframe.",
-                  "type": "number",
-                  "group": "Base Connection Options"
-                },
-                {
                   "name": "user",
                   "aliases": [
                     "u"
                   ],
                   "description": "User name to authenticate to service on the mainframe.",
-                  "type": "string",
-                  "group": "Base Connection Options"
-                },
-                {
-                  "name": "password",
-                  "aliases": [
-                    "pass",
-                    "pw"
-                  ],
-                  "description": "Password to authenticate to service on the mainframe.",
                   "type": "string",
                   "group": "Base Connection Options"
                 },
@@ -1556,10 +2059,8 @@
                 }
               ],
               "profile": {
-                "required": [
-                  "caview"
-                ],
                 "optional": [
+                  "caview",
                   "base"
                 ]
               },
@@ -1644,6 +2145,73 @@
                   "group": "Options"
                 },
                 {
+                  "type": "string",
+                  "name": "hostname",
+                  "description": "Hostname or ip address of the target View REST API instance.",
+                  "required": false,
+                  "group": "View Connection Options",
+                  "aliases": []
+                },
+                {
+                  "type": "number",
+                  "name": "port",
+                  "aliases": [
+                    "P"
+                  ],
+                  "description": "Port of the target View REST API instance.",
+                  "numericValueRange": [
+                    0,
+                    65535
+                  ],
+                  "required": false,
+                  "defaultValue": 443,
+                  "group": "View Connection Options"
+                },
+                {
+                  "type": "string",
+                  "name": "username",
+                  "description": "User name used to authenticate against the target View REST API instance.",
+                  "required": false,
+                  "group": "View Connection Options",
+                  "aliases": []
+                },
+                {
+                  "type": "string",
+                  "name": "password",
+                  "aliases": [
+                    "pass",
+                    "pw"
+                  ],
+                  "description": "Password used to authenticate against the target View REST API instance.",
+                  "required": false,
+                  "group": "View Connection Options"
+                },
+                {
+                  "type": "string",
+                  "name": "base-path",
+                  "description": "Context name of the target View REST API instance.",
+                  "required": false,
+                  "defaultValue": "web-viewer",
+                  "group": "View Connection Options",
+                  "aliases": []
+                },
+                {
+                  "type": "string",
+                  "name": "protocol",
+                  "description": "Protocol of the target View REST API instance.",
+                  "required": false,
+                  "allowableValues": {
+                    "values": [
+                      "http",
+                      "https"
+                    ],
+                    "caseSensitive": false
+                  },
+                  "defaultValue": "https",
+                  "group": "View Connection Options",
+                  "aliases": []
+                },
+                {
                   "name": "response-format-json",
                   "aliases": [
                     "rfj"
@@ -1705,30 +2273,11 @@
                   "group": "Base Connection Options"
                 },
                 {
-                  "name": "port",
-                  "aliases": [
-                    "P"
-                  ],
-                  "description": "Port number of service on the mainframe.",
-                  "type": "number",
-                  "group": "Base Connection Options"
-                },
-                {
                   "name": "user",
                   "aliases": [
                     "u"
                   ],
                   "description": "User name to authenticate to service on the mainframe.",
-                  "type": "string",
-                  "group": "Base Connection Options"
-                },
-                {
-                  "name": "password",
-                  "aliases": [
-                    "pass",
-                    "pw"
-                  ],
-                  "description": "Password to authenticate to service on the mainframe.",
                   "type": "string",
                   "group": "Base Connection Options"
                 },
@@ -1776,10 +2325,8 @@
                 }
               ],
               "profile": {
-                "required": [
-                  "caview"
-                ],
                 "optional": [
+                  "caview",
                   "base"
                 ]
               },
@@ -1867,6 +2414,73 @@
                   "group": "Options"
                 },
                 {
+                  "type": "string",
+                  "name": "hostname",
+                  "description": "Hostname or ip address of the target View REST API instance.",
+                  "required": false,
+                  "group": "View Connection Options",
+                  "aliases": []
+                },
+                {
+                  "type": "number",
+                  "name": "port",
+                  "aliases": [
+                    "P"
+                  ],
+                  "description": "Port of the target View REST API instance.",
+                  "numericValueRange": [
+                    0,
+                    65535
+                  ],
+                  "required": false,
+                  "defaultValue": 443,
+                  "group": "View Connection Options"
+                },
+                {
+                  "type": "string",
+                  "name": "username",
+                  "description": "User name used to authenticate against the target View REST API instance.",
+                  "required": false,
+                  "group": "View Connection Options",
+                  "aliases": []
+                },
+                {
+                  "type": "string",
+                  "name": "password",
+                  "aliases": [
+                    "pass",
+                    "pw"
+                  ],
+                  "description": "Password used to authenticate against the target View REST API instance.",
+                  "required": false,
+                  "group": "View Connection Options"
+                },
+                {
+                  "type": "string",
+                  "name": "base-path",
+                  "description": "Context name of the target View REST API instance.",
+                  "required": false,
+                  "defaultValue": "web-viewer",
+                  "group": "View Connection Options",
+                  "aliases": []
+                },
+                {
+                  "type": "string",
+                  "name": "protocol",
+                  "description": "Protocol of the target View REST API instance.",
+                  "required": false,
+                  "allowableValues": {
+                    "values": [
+                      "http",
+                      "https"
+                    ],
+                    "caseSensitive": false
+                  },
+                  "defaultValue": "https",
+                  "group": "View Connection Options",
+                  "aliases": []
+                },
+                {
                   "name": "response-format-json",
                   "aliases": [
                     "rfj"
@@ -1928,30 +2542,11 @@
                   "group": "Base Connection Options"
                 },
                 {
-                  "name": "port",
-                  "aliases": [
-                    "P"
-                  ],
-                  "description": "Port number of service on the mainframe.",
-                  "type": "number",
-                  "group": "Base Connection Options"
-                },
-                {
                   "name": "user",
                   "aliases": [
                     "u"
                   ],
                   "description": "User name to authenticate to service on the mainframe.",
-                  "type": "string",
-                  "group": "Base Connection Options"
-                },
-                {
-                  "name": "password",
-                  "aliases": [
-                    "pass",
-                    "pw"
-                  ],
-                  "description": "Password to authenticate to service on the mainframe.",
                   "type": "string",
                   "group": "Base Connection Options"
                 },
@@ -1999,10 +2594,8 @@
                 }
               ],
               "profile": {
-                "required": [
-                  "caview"
-                ],
                 "optional": [
+                  "caview",
                   "base"
                 ]
               },
@@ -2116,6 +2709,73 @@
               "group": "Options"
             },
             {
+              "type": "string",
+              "name": "hostname",
+              "description": "Hostname or ip address of the target View REST API instance.",
+              "required": false,
+              "group": "View Connection Options",
+              "aliases": []
+            },
+            {
+              "type": "number",
+              "name": "port",
+              "aliases": [
+                "P"
+              ],
+              "description": "Port of the target View REST API instance.",
+              "numericValueRange": [
+                0,
+                65535
+              ],
+              "required": false,
+              "defaultValue": 443,
+              "group": "View Connection Options"
+            },
+            {
+              "type": "string",
+              "name": "username",
+              "description": "User name used to authenticate against the target View REST API instance.",
+              "required": false,
+              "group": "View Connection Options",
+              "aliases": []
+            },
+            {
+              "type": "string",
+              "name": "password",
+              "aliases": [
+                "pass",
+                "pw"
+              ],
+              "description": "Password used to authenticate against the target View REST API instance.",
+              "required": false,
+              "group": "View Connection Options"
+            },
+            {
+              "type": "string",
+              "name": "base-path",
+              "description": "Context name of the target View REST API instance.",
+              "required": false,
+              "defaultValue": "web-viewer",
+              "group": "View Connection Options",
+              "aliases": []
+            },
+            {
+              "type": "string",
+              "name": "protocol",
+              "description": "Protocol of the target View REST API instance.",
+              "required": false,
+              "allowableValues": {
+                "values": [
+                  "http",
+                  "https"
+                ],
+                "caseSensitive": false
+              },
+              "defaultValue": "https",
+              "group": "View Connection Options",
+              "aliases": []
+            },
+            {
               "name": "response-format-json",
               "aliases": [
                 "rfj"
@@ -2177,30 +2837,11 @@
               "group": "Base Connection Options"
             },
             {
-              "name": "port",
-              "aliases": [
-                "P"
-              ],
-              "description": "Port number of service on the mainframe.",
-              "type": "number",
-              "group": "Base Connection Options"
-            },
-            {
               "name": "user",
               "aliases": [
                 "u"
               ],
               "description": "User name to authenticate to service on the mainframe.",
-              "type": "string",
-              "group": "Base Connection Options"
-            },
-            {
-              "name": "password",
-              "aliases": [
-                "pass",
-                "pw"
-              ],
-              "description": "Password to authenticate to service on the mainframe.",
               "type": "string",
               "group": "Base Connection Options"
             },
@@ -2248,15 +2889,89 @@
             }
           ],
           "profile": {
-            "required": [
-              "caview"
-            ],
             "optional": [
+              "caview",
               "base"
             ]
           },
           "passOn": [],
           "children": []
+        }
+      ],
+      "passOn": [
+        {
+          "property": "options",
+          "value": [
+            {
+              "type": "string",
+              "name": "hostname",
+              "description": "Hostname or ip address of the target View REST API instance.",
+              "required": false,
+              "group": "View Connection Options"
+            },
+            {
+              "type": "number",
+              "name": "port",
+              "aliases": [
+                "P"
+              ],
+              "description": "Port of the target View REST API instance.",
+              "numericValueRange": [
+                0,
+                65535
+              ],
+              "required": false,
+              "defaultValue": 443,
+              "group": "View Connection Options"
+            },
+            {
+              "type": "string",
+              "name": "username",
+              "description": "User name used to authenticate against the target View REST API instance.",
+              "required": false,
+              "group": "View Connection Options"
+            },
+            {
+              "type": "string",
+              "name": "password",
+              "aliases": [
+                "pass",
+                "pw"
+              ],
+              "description": "Password used to authenticate against the target View REST API instance.",
+              "required": false,
+              "group": "View Connection Options"
+            },
+            {
+              "type": "string",
+              "name": "base-path",
+              "description": "Context name of the target View REST API instance.",
+              "required": false,
+              "defaultValue": "web-viewer",
+              "group": "View Connection Options"
+            },
+            {
+              "type": "string",
+              "name": "protocol",
+              "description": "Protocol of the target View REST API instance.",
+              "required": false,
+              "allowableValues": {
+                "values": [
+                  "http",
+                  "https"
+                ],
+                "caseSensitive": false
+              },
+              "defaultValue": "https",
+              "group": "View Connection Options"
+            }
+          ],
+          "merge": true,
+          "ignoreNodes": [
+            {
+              "type": "group"
+            }
+          ]
         }
       ],
       "options": [
@@ -2295,16 +3010,15 @@
           "type": "boolean"
         }
       ],
-      "positionals": [],
-      "passOn": []
+      "positionals": []
     },
     {
       "name": "search",
       "aliases": [
         "find"
       ],
-      "summary": "Search data in a CA View repository.",
-      "description": "Search data in a CA View repository.",
+      "summary": "Search data in a View repository.",
+      "description": "Search data in a View repository.",
       "type": "group",
       "children": [
         {
@@ -2441,6 +3155,73 @@
                   "group": "Options"
                 },
                 {
+                  "type": "string",
+                  "name": "hostname",
+                  "description": "Hostname or ip address of the target View REST API instance.",
+                  "required": false,
+                  "group": "View Connection Options",
+                  "aliases": []
+                },
+                {
+                  "type": "number",
+                  "name": "port",
+                  "aliases": [
+                    "P"
+                  ],
+                  "description": "Port of the target View REST API instance.",
+                  "numericValueRange": [
+                    0,
+                    65535
+                  ],
+                  "required": false,
+                  "defaultValue": 443,
+                  "group": "View Connection Options"
+                },
+                {
+                  "type": "string",
+                  "name": "username",
+                  "description": "User name used to authenticate against the target View REST API instance.",
+                  "required": false,
+                  "group": "View Connection Options",
+                  "aliases": []
+                },
+                {
+                  "type": "string",
+                  "name": "password",
+                  "aliases": [
+                    "pass",
+                    "pw"
+                  ],
+                  "description": "Password used to authenticate against the target View REST API instance.",
+                  "required": false,
+                  "group": "View Connection Options"
+                },
+                {
+                  "type": "string",
+                  "name": "base-path",
+                  "description": "Context name of the target View REST API instance.",
+                  "required": false,
+                  "defaultValue": "web-viewer",
+                  "group": "View Connection Options",
+                  "aliases": []
+                },
+                {
+                  "type": "string",
+                  "name": "protocol",
+                  "description": "Protocol of the target View REST API instance.",
+                  "required": false,
+                  "allowableValues": {
+                    "values": [
+                      "http",
+                      "https"
+                    ],
+                    "caseSensitive": false
+                  },
+                  "defaultValue": "https",
+                  "group": "View Connection Options",
+                  "aliases": []
+                },
+                {
                   "name": "response-format-json",
                   "aliases": [
                     "rfj"
@@ -2502,30 +3283,11 @@
                   "group": "Base Connection Options"
                 },
                 {
-                  "name": "port",
-                  "aliases": [
-                    "P"
-                  ],
-                  "description": "Port number of service on the mainframe.",
-                  "type": "number",
-                  "group": "Base Connection Options"
-                },
-                {
                   "name": "user",
                   "aliases": [
                     "u"
                   ],
                   "description": "User name to authenticate to service on the mainframe.",
-                  "type": "string",
-                  "group": "Base Connection Options"
-                },
-                {
-                  "name": "password",
-                  "aliases": [
-                    "pass",
-                    "pw"
-                  ],
-                  "description": "Password to authenticate to service on the mainframe.",
                   "type": "string",
                   "group": "Base Connection Options"
                 },
@@ -2573,10 +3335,8 @@
                 }
               ],
               "profile": {
-                "required": [
-                  "caview"
-                ],
                 "optional": [
+                  "caview",
                   "base"
                 ]
               },
@@ -2718,6 +3478,73 @@
                   "group": "Options"
                 },
                 {
+                  "type": "string",
+                  "name": "hostname",
+                  "description": "Hostname or ip address of the target View REST API instance.",
+                  "required": false,
+                  "group": "View Connection Options",
+                  "aliases": []
+                },
+                {
+                  "type": "number",
+                  "name": "port",
+                  "aliases": [
+                    "P"
+                  ],
+                  "description": "Port of the target View REST API instance.",
+                  "numericValueRange": [
+                    0,
+                    65535
+                  ],
+                  "required": false,
+                  "defaultValue": 443,
+                  "group": "View Connection Options"
+                },
+                {
+                  "type": "string",
+                  "name": "username",
+                  "description": "User name used to authenticate against the target View REST API instance.",
+                  "required": false,
+                  "group": "View Connection Options",
+                  "aliases": []
+                },
+                {
+                  "type": "string",
+                  "name": "password",
+                  "aliases": [
+                    "pass",
+                    "pw"
+                  ],
+                  "description": "Password used to authenticate against the target View REST API instance.",
+                  "required": false,
+                  "group": "View Connection Options"
+                },
+                {
+                  "type": "string",
+                  "name": "base-path",
+                  "description": "Context name of the target View REST API instance.",
+                  "required": false,
+                  "defaultValue": "web-viewer",
+                  "group": "View Connection Options",
+                  "aliases": []
+                },
+                {
+                  "type": "string",
+                  "name": "protocol",
+                  "description": "Protocol of the target View REST API instance.",
+                  "required": false,
+                  "allowableValues": {
+                    "values": [
+                      "http",
+                      "https"
+                    ],
+                    "caseSensitive": false
+                  },
+                  "defaultValue": "https",
+                  "group": "View Connection Options",
+                  "aliases": []
+                },
+                {
                   "name": "response-format-json",
                   "aliases": [
                     "rfj"
@@ -2779,30 +3606,11 @@
                   "group": "Base Connection Options"
                 },
                 {
-                  "name": "port",
-                  "aliases": [
-                    "P"
-                  ],
-                  "description": "Port number of service on the mainframe.",
-                  "type": "number",
-                  "group": "Base Connection Options"
-                },
-                {
                   "name": "user",
                   "aliases": [
                     "u"
                   ],
                   "description": "User name to authenticate to service on the mainframe.",
-                  "type": "string",
-                  "group": "Base Connection Options"
-                },
-                {
-                  "name": "password",
-                  "aliases": [
-                    "pass",
-                    "pw"
-                  ],
-                  "description": "Password to authenticate to service on the mainframe.",
                   "type": "string",
                   "group": "Base Connection Options"
                 },
@@ -2850,10 +3658,8 @@
                 }
               ],
               "profile": {
-                "required": [
-                  "caview"
-                ],
                 "optional": [
+                  "caview",
                   "base"
                 ]
               },
@@ -2996,6 +3802,73 @@
                   "group": "Options"
                 },
                 {
+                  "type": "string",
+                  "name": "hostname",
+                  "description": "Hostname or ip address of the target View REST API instance.",
+                  "required": false,
+                  "group": "View Connection Options",
+                  "aliases": []
+                },
+                {
+                  "type": "number",
+                  "name": "port",
+                  "aliases": [
+                    "P"
+                  ],
+                  "description": "Port of the target View REST API instance.",
+                  "numericValueRange": [
+                    0,
+                    65535
+                  ],
+                  "required": false,
+                  "defaultValue": 443,
+                  "group": "View Connection Options"
+                },
+                {
+                  "type": "string",
+                  "name": "username",
+                  "description": "User name used to authenticate against the target View REST API instance.",
+                  "required": false,
+                  "group": "View Connection Options",
+                  "aliases": []
+                },
+                {
+                  "type": "string",
+                  "name": "password",
+                  "aliases": [
+                    "pass",
+                    "pw"
+                  ],
+                  "description": "Password used to authenticate against the target View REST API instance.",
+                  "required": false,
+                  "group": "View Connection Options"
+                },
+                {
+                  "type": "string",
+                  "name": "base-path",
+                  "description": "Context name of the target View REST API instance.",
+                  "required": false,
+                  "defaultValue": "web-viewer",
+                  "group": "View Connection Options",
+                  "aliases": []
+                },
+                {
+                  "type": "string",
+                  "name": "protocol",
+                  "description": "Protocol of the target View REST API instance.",
+                  "required": false,
+                  "allowableValues": {
+                    "values": [
+                      "http",
+                      "https"
+                    ],
+                    "caseSensitive": false
+                  },
+                  "defaultValue": "https",
+                  "group": "View Connection Options",
+                  "aliases": []
+                },
+                {
                   "name": "response-format-json",
                   "aliases": [
                     "rfj"
@@ -3057,30 +3930,11 @@
                   "group": "Base Connection Options"
                 },
                 {
-                  "name": "port",
-                  "aliases": [
-                    "P"
-                  ],
-                  "description": "Port number of service on the mainframe.",
-                  "type": "number",
-                  "group": "Base Connection Options"
-                },
-                {
                   "name": "user",
                   "aliases": [
                     "u"
                   ],
                   "description": "User name to authenticate to service on the mainframe.",
-                  "type": "string",
-                  "group": "Base Connection Options"
-                },
-                {
-                  "name": "password",
-                  "aliases": [
-                    "pass",
-                    "pw"
-                  ],
-                  "description": "Password to authenticate to service on the mainframe.",
                   "type": "string",
                   "group": "Base Connection Options"
                 },
@@ -3128,10 +3982,8 @@
                 }
               ],
               "profile": {
-                "required": [
-                  "caview"
-                ],
                 "optional": [
+                  "caview",
                   "base"
                 ]
               },
@@ -3181,6 +4033,82 @@
           "passOn": []
         }
       ],
+      "passOn": [
+        {
+          "property": "options",
+          "value": [
+            {
+              "type": "string",
+              "name": "hostname",
+              "description": "Hostname or ip address of the target View REST API instance.",
+              "required": false,
+              "group": "View Connection Options"
+            },
+            {
+              "type": "number",
+              "name": "port",
+              "aliases": [
+                "P"
+              ],
+              "description": "Port of the target View REST API instance.",
+              "numericValueRange": [
+                0,
+                65535
+              ],
+              "required": false,
+              "defaultValue": 443,
+              "group": "View Connection Options"
+            },
+            {
+              "type": "string",
+              "name": "username",
+              "description": "User name used to authenticate against the target View REST API instance.",
+              "required": false,
+              "group": "View Connection Options"
+            },
+            {
+              "type": "string",
+              "name": "password",
+              "aliases": [
+                "pass",
+                "pw"
+              ],
+              "description": "Password used to authenticate against the target View REST API instance.",
+              "required": false,
+              "group": "View Connection Options"
+            },
+            {
+              "type": "string",
+              "name": "base-path",
+              "description": "Context name of the target View REST API instance.",
+              "required": false,
+              "defaultValue": "web-viewer",
+              "group": "View Connection Options"
+            },
+            {
+              "type": "string",
+              "name": "protocol",
+              "description": "Protocol of the target View REST API instance.",
+              "required": false,
+              "allowableValues": {
+                "values": [
+                  "http",
+                  "https"
+                ],
+                "caseSensitive": false
+              },
+              "defaultValue": "https",
+              "group": "View Connection Options"
+            }
+          ],
+          "merge": true,
+          "ignoreNodes": [
+            {
+              "type": "group"
+            }
+          ]
+        }
+      ],
       "options": [
         {
           "name": "response-format-json",
@@ -3217,13 +4145,12 @@
           "type": "boolean"
         }
       ],
-      "positionals": [],
-      "passOn": []
+      "positionals": []
     },
     {
       "name": "set",
-      "summary": "Set information in CA View repository.",
-      "description": "Set information in CA View repository.",
+      "summary": "Set information in View repository.",
+      "description": "Set information in View repository.",
       "type": "group",
       "children": [
         {
@@ -3299,6 +4226,73 @@
                   "group": "Options"
                 },
                 {
+                  "type": "string",
+                  "name": "hostname",
+                  "description": "Hostname or ip address of the target View REST API instance.",
+                  "required": false,
+                  "group": "View Connection Options",
+                  "aliases": []
+                },
+                {
+                  "type": "number",
+                  "name": "port",
+                  "aliases": [
+                    "P"
+                  ],
+                  "description": "Port of the target View REST API instance.",
+                  "numericValueRange": [
+                    0,
+                    65535
+                  ],
+                  "required": false,
+                  "defaultValue": 443,
+                  "group": "View Connection Options"
+                },
+                {
+                  "type": "string",
+                  "name": "username",
+                  "description": "User name used to authenticate against the target View REST API instance.",
+                  "required": false,
+                  "group": "View Connection Options",
+                  "aliases": []
+                },
+                {
+                  "type": "string",
+                  "name": "password",
+                  "aliases": [
+                    "pass",
+                    "pw"
+                  ],
+                  "description": "Password used to authenticate against the target View REST API instance.",
+                  "required": false,
+                  "group": "View Connection Options"
+                },
+                {
+                  "type": "string",
+                  "name": "base-path",
+                  "description": "Context name of the target View REST API instance.",
+                  "required": false,
+                  "defaultValue": "web-viewer",
+                  "group": "View Connection Options",
+                  "aliases": []
+                },
+                {
+                  "type": "string",
+                  "name": "protocol",
+                  "description": "Protocol of the target View REST API instance.",
+                  "required": false,
+                  "allowableValues": {
+                    "values": [
+                      "http",
+                      "https"
+                    ],
+                    "caseSensitive": false
+                  },
+                  "defaultValue": "https",
+                  "group": "View Connection Options",
+                  "aliases": []
+                },
+                {
                   "name": "response-format-json",
                   "aliases": [
                     "rfj"
@@ -3360,30 +4354,11 @@
                   "group": "Base Connection Options"
                 },
                 {
-                  "name": "port",
-                  "aliases": [
-                    "P"
-                  ],
-                  "description": "Port number of service on the mainframe.",
-                  "type": "number",
-                  "group": "Base Connection Options"
-                },
-                {
                   "name": "user",
                   "aliases": [
                     "u"
                   ],
                   "description": "User name to authenticate to service on the mainframe.",
-                  "type": "string",
-                  "group": "Base Connection Options"
-                },
-                {
-                  "name": "password",
-                  "aliases": [
-                    "pass",
-                    "pw"
-                  ],
-                  "description": "Password to authenticate to service on the mainframe.",
                   "type": "string",
                   "group": "Base Connection Options"
                 },
@@ -3431,10 +4406,8 @@
                 }
               ],
               "profile": {
-                "required": [
-                  "caview"
-                ],
                 "optional": [
+                  "caview",
                   "base"
                 ]
               },
@@ -3512,6 +4485,73 @@
                   "group": "Options"
                 },
                 {
+                  "type": "string",
+                  "name": "hostname",
+                  "description": "Hostname or ip address of the target View REST API instance.",
+                  "required": false,
+                  "group": "View Connection Options",
+                  "aliases": []
+                },
+                {
+                  "type": "number",
+                  "name": "port",
+                  "aliases": [
+                    "P"
+                  ],
+                  "description": "Port of the target View REST API instance.",
+                  "numericValueRange": [
+                    0,
+                    65535
+                  ],
+                  "required": false,
+                  "defaultValue": 443,
+                  "group": "View Connection Options"
+                },
+                {
+                  "type": "string",
+                  "name": "username",
+                  "description": "User name used to authenticate against the target View REST API instance.",
+                  "required": false,
+                  "group": "View Connection Options",
+                  "aliases": []
+                },
+                {
+                  "type": "string",
+                  "name": "password",
+                  "aliases": [
+                    "pass",
+                    "pw"
+                  ],
+                  "description": "Password used to authenticate against the target View REST API instance.",
+                  "required": false,
+                  "group": "View Connection Options"
+                },
+                {
+                  "type": "string",
+                  "name": "base-path",
+                  "description": "Context name of the target View REST API instance.",
+                  "required": false,
+                  "defaultValue": "web-viewer",
+                  "group": "View Connection Options",
+                  "aliases": []
+                },
+                {
+                  "type": "string",
+                  "name": "protocol",
+                  "description": "Protocol of the target View REST API instance.",
+                  "required": false,
+                  "allowableValues": {
+                    "values": [
+                      "http",
+                      "https"
+                    ],
+                    "caseSensitive": false
+                  },
+                  "defaultValue": "https",
+                  "group": "View Connection Options",
+                  "aliases": []
+                },
+                {
                   "name": "response-format-json",
                   "aliases": [
                     "rfj"
@@ -3573,30 +4613,11 @@
                   "group": "Base Connection Options"
                 },
                 {
-                  "name": "port",
-                  "aliases": [
-                    "P"
-                  ],
-                  "description": "Port number of service on the mainframe.",
-                  "type": "number",
-                  "group": "Base Connection Options"
-                },
-                {
                   "name": "user",
                   "aliases": [
                     "u"
                   ],
                   "description": "User name to authenticate to service on the mainframe.",
-                  "type": "string",
-                  "group": "Base Connection Options"
-                },
-                {
-                  "name": "password",
-                  "aliases": [
-                    "pass",
-                    "pw"
-                  ],
-                  "description": "Password to authenticate to service on the mainframe.",
                   "type": "string",
                   "group": "Base Connection Options"
                 },
@@ -3644,10 +4665,8 @@
                 }
               ],
               "profile": {
-                "required": [
-                  "caview"
-                ],
                 "optional": [
+                  "caview",
                   "base"
                 ]
               },
@@ -3697,6 +4716,82 @@
           "passOn": []
         }
       ],
+      "passOn": [
+        {
+          "property": "options",
+          "value": [
+            {
+              "type": "string",
+              "name": "hostname",
+              "description": "Hostname or ip address of the target View REST API instance.",
+              "required": false,
+              "group": "View Connection Options"
+            },
+            {
+              "type": "number",
+              "name": "port",
+              "aliases": [
+                "P"
+              ],
+              "description": "Port of the target View REST API instance.",
+              "numericValueRange": [
+                0,
+                65535
+              ],
+              "required": false,
+              "defaultValue": 443,
+              "group": "View Connection Options"
+            },
+            {
+              "type": "string",
+              "name": "username",
+              "description": "User name used to authenticate against the target View REST API instance.",
+              "required": false,
+              "group": "View Connection Options"
+            },
+            {
+              "type": "string",
+              "name": "password",
+              "aliases": [
+                "pass",
+                "pw"
+              ],
+              "description": "Password used to authenticate against the target View REST API instance.",
+              "required": false,
+              "group": "View Connection Options"
+            },
+            {
+              "type": "string",
+              "name": "base-path",
+              "description": "Context name of the target View REST API instance.",
+              "required": false,
+              "defaultValue": "web-viewer",
+              "group": "View Connection Options"
+            },
+            {
+              "type": "string",
+              "name": "protocol",
+              "description": "Protocol of the target View REST API instance.",
+              "required": false,
+              "allowableValues": {
+                "values": [
+                  "http",
+                  "https"
+                ],
+                "caseSensitive": false
+              },
+              "defaultValue": "https",
+              "group": "View Connection Options"
+            }
+          ],
+          "merge": true,
+          "ignoreNodes": [
+            {
+              "type": "group"
+            }
+          ]
+        }
+      ],
       "options": [
         {
           "name": "response-format-json",
@@ -3734,11 +4829,10 @@
         }
       ],
       "aliases": [],
-      "positionals": [],
-      "passOn": []
+      "positionals": []
     }
   ],
-  "summary": "Access CA View data and perform related tasks.",
+  "summary": "Access View data and perform related tasks.",
   "aliases": [
     "cv"
   ],

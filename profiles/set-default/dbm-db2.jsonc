@@ -1,28 +1,15 @@
 // Copyright (c) 2022 Broadcom.  All Rights Reserved.  The term
 // "Broadcom" refers to Broadcom Inc. and/or its subsidiaries.
 {
-  "name": "idms-profiles",
+  "name": "dbm-db2-profile",
   "aliases": [
-    "idms"
+    "dbm-db2"
   ],
-  "summary": "List profiles of the type idms.",
-  "description": "An IDMS profile is required to issue IDMS CLI commands. The IDMS profile contains your host and port information",
+  "summary": "Set the default\n profiles for the dbm-db2 group",
+  "description": "The dbm-db2 set default-profiles command allows you to set the default profiles for this command group. When a dbm-db2 command is issued and no profile override options are specified, the default profiles for the command group are automatically loaded for the command based on the commands profile requirements.",
   "type": "command",
   "handler": "",
-  "customize": {
-    "profileTypeIdentifier": "idms"
-  },
   "options": [
-    {
-      "name": "show-contents",
-      "aliases": [
-        "sc"
-      ],
-      "description": "List idms  profiles  and their contents. All profile details will be printed as part of command output.",
-      "type": "boolean",
-      "required": false,
-      "group": "Options"
-    },
     {
       "name": "response-format-json",
       "aliases": [
@@ -58,17 +45,23 @@
       "type": "boolean"
     }
   ],
-  "examples": [
+  "positionals": [
     {
-      "options": "",
-      "description": "List profiles of type idms"
-    },
-    {
-      "options": "--sc",
-      "description": "List profiles of type idms and display their contents"
+      "name": "profileName",
+      "description": "Specify a\n profile for default usage within the dbm-db2 group. When you issue commands within the dbm-db2 group without a profile specified as part of the command, the default will be loaded instead.",
+      "type": "string",
+      "required": true
     }
   ],
-  "positionals": [],
+  "customize": {
+    "profileTypeIdentifier": "dbm-db2"
+  },
+  "examples": [
+    {
+      "options": "profilename",
+      "description": "Set the default profile for type dbm-db2 to the profile named 'profilename'"
+    }
+  ],
   "passOn": [],
   "children": []
 }

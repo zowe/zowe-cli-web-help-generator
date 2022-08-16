@@ -1,8 +1,8 @@
-// Copyright (c) 2021 Broadcom.  All Rights Reserved.  The term
+// Copyright (c) 2022 Broadcom.  All Rights Reserved.  The term
 // "Broadcom" refers to Broadcom Inc. and/or its subsidiaries.
 {
   "name": "caspool",
-  "description": "Interact with CA Spool™",
+  "description": "Interact with Spool™",
   "type": "group",
   "children": [
     {
@@ -10,8 +10,8 @@
       "aliases": [
         "is"
       ],
-      "summary": "Issue CA Spool commands.",
-      "description": "Issue CA Spool commands.",
+      "summary": "Issue Spool commands.",
+      "description": "Issue Spool commands.",
       "type": "group",
       "children": [
         {
@@ -19,8 +19,8 @@
           "aliases": [
             "cmd"
           ],
-          "summary": "Issue commands to work with CA Spool.",
-          "description": "Issue commands to work with CA Spool.",
+          "summary": "Issue commands to work with Spool.",
+          "description": "Issue commands to work with Spool.",
           "type": "command",
           "handler": "",
           "profile": {
@@ -34,13 +34,13 @@
             {
               "name": "commandText",
               "type": "string",
-              "description": "The CA Spool command to issue.",
+              "description": "The Spool command to issue.",
               "required": true
             }
           ],
           "examples": [
             {
-              "description": "Issue the CA Spool command 'DS' to display the status of the ESF system",
+              "description": "Issue the Spool command 'DS' to display the status of the ESF system",
               "options": "\"DS\""
             }
           ],
@@ -53,10 +53,10 @@
                 "a"
               ],
               "required": true,
-              "group": "CA SPOOL OPTIONS"
+              "group": "SPOOL OPTIONS"
             },
             {
-              "description": "High level qualifier of CA Spool installation.",
+              "description": "High level qualifier of Spool installation.",
               "type": "string",
               "name": "spoolhlq",
               "aliases": [
@@ -67,10 +67,10 @@
                 35
               ],
               "required": true,
-              "group": "CA SPOOL OPTIONS"
+              "group": "SPOOL OPTIONS"
             },
             {
-              "description": "CA Spool subsystem name.",
+              "description": "Spool subsystem name.",
               "type": "string",
               "name": "subsys",
               "aliases": [
@@ -81,10 +81,10 @@
                 4
               ],
               "defaultValue": "ESF",
-              "group": "CA SPOOL OPTIONS"
+              "group": "SPOOL OPTIONS"
             },
             {
-              "description": "The SYSTSPRT data set allocated by CAI.CBQ4JCL(BQ4JZOWE). It must be unique for each Zowe CLI user interacting with CA Spool.",
+              "description": "The SYSTSPRT data set allocated by CAI.CBQ4JCL(BQ4JZOWE). It must be unique for each Zowe CLI user interacting with Spool.",
               "type": "string",
               "name": "outds",
               "aliases": [
@@ -95,7 +95,7 @@
                 44
               ],
               "required": true,
-              "group": "CA SPOOL OPTIONS"
+              "group": "SPOOL OPTIONS"
             },
             {
               "description": "The data set containing ESFZOWE REXX exec.",
@@ -109,7 +109,7 @@
                 44
               ],
               "required": true,
-              "group": "CA SPOOL OPTIONS"
+              "group": "SPOOL OPTIONS"
             },
             {
               "name": "host",
@@ -296,10 +296,10 @@
                 "a"
               ],
               "required": true,
-              "group": "CA SPOOL OPTIONS"
+              "group": "SPOOL OPTIONS"
             },
             {
-              "description": "High level qualifier of CA Spool installation.",
+              "description": "High level qualifier of Spool installation.",
               "type": "string",
               "name": "spoolhlq",
               "aliases": [
@@ -310,10 +310,10 @@
                 35
               ],
               "required": true,
-              "group": "CA SPOOL OPTIONS"
+              "group": "SPOOL OPTIONS"
             },
             {
-              "description": "CA Spool subsystem name.",
+              "description": "Spool subsystem name.",
               "type": "string",
               "name": "subsys",
               "aliases": [
@@ -324,10 +324,10 @@
                 4
               ],
               "defaultValue": "ESF",
-              "group": "CA SPOOL OPTIONS"
+              "group": "SPOOL OPTIONS"
             },
             {
-              "description": "The SYSTSPRT data set allocated by CAI.CBQ4JCL(BQ4JZOWE). It must be unique for each Zowe CLI user interacting with CA Spool.",
+              "description": "The SYSTSPRT data set allocated by CAI.CBQ4JCL(BQ4JZOWE). It must be unique for each Zowe CLI user interacting with Spool.",
               "type": "string",
               "name": "outds",
               "aliases": [
@@ -338,7 +338,7 @@
                 44
               ],
               "required": true,
-              "group": "CA SPOOL OPTIONS"
+              "group": "SPOOL OPTIONS"
             },
             {
               "description": "The data set containing ESFZOWE REXX exec.",
@@ -352,7 +352,7 @@
                 44
               ],
               "required": true,
-              "group": "CA SPOOL OPTIONS"
+              "group": "SPOOL OPTIONS"
             }
           ],
           "merge": true,
@@ -499,7 +499,7 @@
       "positionals": []
     }
   ],
-  "summary": "CA Spool™ Plug-in for Zowe™ CLI",
+  "summary": "Spool™ Plug-in for Zowe™ CLI",
   "aliases": [
     "esf"
   ],

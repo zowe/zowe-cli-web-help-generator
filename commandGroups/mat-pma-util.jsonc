@@ -1,8 +1,8 @@
-// Copyright (c) 2021 Broadcom.  All Rights Reserved.  The term
+// Copyright (c) 2022 Broadcom.  All Rights Reserved.  The term
 // "Broadcom" refers to Broadcom Inc. and/or its subsidiaries.
 {
   "name": "mat-pma-util",
-  "description": "The CA MAT Detect plug-in for Zowe CLI enables you to detect performance issues and access performance data supplied by the Performance Management Assistant component (PMA) of CA Mainframe Application Tuner.",
+  "description": "The MAT Detect plug-in for Zowe CLI enables you to detect performance issues and access performance data supplied by the Performance Management Assistant component (PMA) of Mainframe Application Tuner.",
   "type": "group",
   "children": [
     {
@@ -2355,7 +2355,7 @@
       "passOn": []
     }
   ],
-  "summary": "The CA MAT Detect plug-in for Zowe CLI enables you to detect performance issues and access performance data supplied by the Performance Management Assistant component (PMA) of CA Mainframe Application Tuner.",
+  "summary": "The MAT Detect plug-in for Zowe CLI enables you to detect performance issues and access performance data supplied by the Performance Management Assistant component (PMA) of Mainframe Application Tuner.",
   "aliases": [
     "pma"
   ],

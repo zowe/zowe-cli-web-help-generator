@@ -1,4 +1,4 @@
-// Copyright (c) 2021 Broadcom.  All Rights Reserved.  The term
+// Copyright (c) 2022 Broadcom.  All Rights Reserved.  The term
 // "Broadcom" refers to Broadcom Inc. and/or its subsidiaries.
 {
   "name": "endevor-location-profiles",
@@ -6,7 +6,7 @@
     "endevor-location"
   ],
   "summary": "List profiles of the type endevor-location.",
-  "description": "The CA Endevor SCM element location, where you specify your working environment, system and subsystem",
+  "description": "The Endevor element location, where you specify your working environment, system and subsystem",
   "type": "command",
   "handler": "",
   "customize": {
