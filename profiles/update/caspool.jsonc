@@ -1,4 +1,4 @@
-// Copyright (c) 2021 Broadcom.  All Rights Reserved.  The term
+// Copyright (c) 2022 Broadcom.  All Rights Reserved.  The term
 // "Broadcom" refers to Broadcom Inc. and/or its subsidiaries.
 {
   "name": "caspool-profile",
@@ -6,7 +6,7 @@
     "caspool"
   ],
   "summary": "Update a caspool profile. You can update any property present within the profile configuration. The updated profile will be printed so that you can review the result of the updates.",
-  "description": "Configuration profile for CA Spool, where you specify information about your CA Spool instance",
+  "description": "Configuration profile for Spool, where you specify information about your Spool instance",
   "type": "command",
   "handler": "",
   "customize": {
@@ -29,12 +29,12 @@
         "a"
       ],
       "required": false,
-      "group": "CA SPOOL OPTIONS",
+      "group": "SPOOL OPTIONS",
       "absenceImplications": null,
       "implies": null
     },
     {
-      "description": "High level qualifier of CA Spool installation.",
+      "description": "High level qualifier of Spool installation.",
       "type": "string",
       "name": "spoolhlq",
       "aliases": [
@@ -45,12 +45,12 @@
         35
       ],
       "required": false,
-      "group": "CA SPOOL OPTIONS",
+      "group": "SPOOL OPTIONS",
       "absenceImplications": null,
       "implies": null
     },
     {
-      "description": "CA Spool subsystem name.",
+      "description": "Spool subsystem name.",
       "type": "string",
       "name": "subsys",
       "aliases": [
@@ -60,13 +60,13 @@
         1,
         4
       ],
-      "group": "CA SPOOL OPTIONS",
+      "group": "SPOOL OPTIONS",
       "required": false,
       "absenceImplications": null,
       "implies": null
     },
     {
-      "description": "The SYSTSPRT data set allocated by CAI.CBQ4JCL(BQ4JZOWE). It must be unique for each Zowe CLI user interacting with CA Spool.",
+      "description": "The SYSTSPRT data set allocated by CAI.CBQ4JCL(BQ4JZOWE). It must be unique for each Zowe CLI user interacting with Spool.",
       "type": "string",
       "name": "outds",
       "aliases": [
@@ -77,7 +77,7 @@
         44
       ],
       "required": false,
-      "group": "CA SPOOL OPTIONS",
+      "group": "SPOOL OPTIONS",
       "absenceImplications": null,
       "implies": null
     },
@@ -93,7 +93,7 @@
         44
       ],
       "required": false,
-      "group": "CA SPOOL OPTIONS",
+      "group": "SPOOL OPTIONS",
       "absenceImplications": null,
       "implies": null
     },
@@ -135,23 +135,23 @@
   "examples": [
     {
       "options": "myProfile --account 3213213210",
-      "description": "Update the TSO account information to '3213213210' for CA Spool profile named 'myProfile'"
+      "description": "Update the TSO account information to '3213213210' for Spool profile named 'myProfile'"
     },
     {
       "options": "myProfile --spoolhlq CASPOOL.HLQ",
-      "description": "Update high level qualifier of the CA Spool installation to 'CASPOOL.HLQ' for CA Spool profile named 'myProfile'"
+      "description": "Update high level qualifier of the Spool installation to 'CASPOOL.HLQ' for Spool profile named 'myProfile'"
     },
     {
       "options": "myProfile --subsys ESF2",
-      "description": "Update the CA Spool subsystem name to 'ESF2' for CA Spool profile named 'myProfile'"
+      "description": "Update the Spool subsystem name to 'ESF2' for Spool profile named 'myProfile'"
     },
     {
       "options": "myProfile --outds OUTPUT.RESPONSE.DS.NEW",
-      "description": "Update the output response data set to 'OUTPUT.RESPONSE.DS.NEW' for CA Spool profile named 'myProfile'"
+      "description": "Update the output response data set to 'OUTPUT.RESPONSE.DS.NEW' for Spool profile named 'myProfile'"
     },
     {
       "options": "myProfile --clist USER.CLIST",
-      "description": "Update the data set containing ESFZOWE REXX exec to 'USER.CLIST' for CA Spool profile named 'myProfile'"
+      "description": "Update the data set containing ESFZOWE REXX exec to 'USER.CLIST' for Spool profile named 'myProfile'"
     }
   ],
   "passOn": [],

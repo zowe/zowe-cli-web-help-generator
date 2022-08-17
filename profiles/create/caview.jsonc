@@ -1,4 +1,4 @@
-// Copyright (c) 2021 Broadcom.  All Rights Reserved.  The term
+// Copyright (c) 2022 Broadcom.  All Rights Reserved.  The term
 // "Broadcom" refers to Broadcom Inc. and/or its subsidiaries.
 {
   "name": "caview-profile",
@@ -6,7 +6,7 @@
     "caview"
   ],
   "summary": "Create a caview profile",
-  "description": "Configuration profile for CA View",
+  "description": "Configuration profile for View",
   "type": "command",
   "handler": "",
   "customize": {
@@ -24,7 +24,7 @@
     {
       "type": "string",
       "name": "protocol",
-      "description": "Protocol of the target CA View REST API instance.",
+      "description": "Protocol of the target View REST API instance.",
       "required": false,
       "allowableValues": {
         "values": [
@@ -40,28 +40,30 @@
     {
       "type": "string",
       "name": "hostname",
-      "description": "Hostname or ip address of the target CA View REST API instance.",
-      "required": true,
-      "group": "Required Options",
+      "description": "Hostname or ip address of the target View REST API instance.",
+      "required": false,
+      "group": "Options",
       "aliases": []
     },
     {
       "type": "number",
       "name": "port",
-      "description": "Port of the target CA View REST API instance.",
+      "aliases": [
+        "P"
+      ],
+      "description": "Port of the target View REST API instance.",
       "numericValueRange": [
         0,
         65535
       ],
       "required": false,
       "defaultValue": 443,
-      "group": "Options",
-      "aliases": []
+      "group": "Options"
     },
     {
       "type": "string",
       "name": "base-path",
-      "description": "Context name of the target CA View REST API instance.",
+      "description": "Context name of the target View REST API instance.",
       "required": false,
       "defaultValue": "web-viewer",
       "group": "Options",
@@ -70,18 +72,21 @@
     {
       "type": "string",
       "name": "username",
-      "description": "User name used to authenticate against the target CA View REST API instance.",
-      "required": true,
-      "group": "Required Options",
+      "description": "User name used to authenticate against the target View REST API instance.",
+      "required": false,
+      "group": "Options",
       "aliases": []
     },
     {
       "type": "string",
       "name": "password",
-      "description": "Password used to authenticate against the target CA View REST API instance.",
-      "required": true,
-      "group": "Required Options",
-      "aliases": []
+      "aliases": [
+        "pass",
+        "pw"
+      ],
+      "description": "Password used to authenticate against the target View REST API instance.",
+      "required": false,
+      "group": "Options"
     },
     {
       "name": "overwrite",
@@ -139,7 +144,7 @@
   "examples": [
     {
       "options": "myProfile --hostname mf.company.org --protocol http --port 80 --username johndoe --password secret",
-      "description": "Create a profile for CA View® Plug-in for Zowe CLI named 'myProfile' to connect to 'mf.company.org' over HTTP on port 80 using the 'johndoe' account."
+      "description": "Create a profile for View™ Plug-in for Zowe CLI named 'myProfile' to connect to 'mf.company.org' over HTTP on port 80 using the 'johndoe' account."
     }
   ],
   "passOn": [],

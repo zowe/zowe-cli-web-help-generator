@@ -1,14 +1,14 @@
-// Copyright (c) 2021 Broadcom.  All Rights Reserved.  The term
+// Copyright (c) 2022 Broadcom.  All Rights Reserved.  The term
 // "Broadcom" refers to Broadcom Inc. and/or its subsidiaries.
 {
   "name": "mat",
-  "description": "The CA MAT Analyze plug-in for ZOWE CLI enables you to manage monitor profiles and get the measurement analysis data using CA Mainframe Application Tuner (CA MAT)",
+  "description": "The MAT Analyze plug-in for ZOWE CLI enables you to manage monitor profiles and get the measurement analysis data using Mainframe Application Tuner (MAT)",
   "type": "group",
   "children": [
     {
       "name": "monitor",
       "summary": "Get monitor data",
-      "description": "Get monitor history and measurement analysis data from CA MAT.",
+      "description": "Get monitor history and measurement analysis data from MAT.",
       "type": "group",
       "children": [
         {
@@ -791,21 +791,21 @@
                 },
                 {
                   "name": "group",
-                  "description": "Specifies the histogram group size parameter that defines the resolution of the histogram (e.g., --group 32). If you do not specify the group parameter, the group size value defaults to 4 bytes. If the source program listing is registered with CA MAT, the group size parameter is ignored. The --group parameter is optional. Lower values of the --group parameter result in more granular representation of the histogram data. Values: numbers between 2 and 999999.",
+                  "description": "Specifies the histogram group size parameter that defines the resolution of the histogram (e.g., --group 32). If you do not specify the group parameter, the group size value defaults to 4 bytes. If the source program listing is registered with MAT, the group size parameter is ignored. The --group parameter is optional. Lower values of the --group parameter result in more granular representation of the histogram data. Values: numbers between 2 and 999999.",
                   "type": "stringOrEmpty",
                   "group": "Options",
                   "aliases": []
                 },
                 {
                   "name": "top",
-                  "description": "Specifies the maximum number of the top consuming CSECT activity locations that you want to obtain in the response (e.g., --top 5). If you specify --top 0, you get the list of all CSECT activity locations that CA MAT has detected during the measurement.The --top parameter is optional. Values: numbers between 0 and 300.",
+                  "description": "Specifies the maximum number of the top consuming CSECT activity locations that you want to obtain in the response (e.g., --top 5). If you specify --top 0, you get the list of all CSECT activity locations that MAT has detected during the measurement.The --top parameter is optional. Values: numbers between 0 and 300.",
                   "type": "number",
                   "group": "Options",
                   "aliases": []
                 },
                 {
                   "name": "listing",
-                  "description": "Enables you to retrieve program listing details that pertain to the specific CSECT and statement. To use the listing retrieval option, you must install and configure the CA Endevor® Web Services and have the program listing for the specific measurement registered with CA MAT. The source code listing is retrieved through CA Endevor® footprints for Cobol, C/C++, and Assembler programs. The program listing file is downloaded to your local directory that you specified with the 'listingDir' parameter in your MAT configuration profile. When you request the histogram details with the '--listing' option, the 'histogram' command returns the additional 'listing' column that contains a reference to the program listing with the specific CSECT name, program type, line and column number that pertain to the requested CSECT and statement, for example, c:listingsSA420LE.asm:382:51. If you use Visual Studio Code (VS Code) IDE, you can click on the reference in the command responce in your VS Code terminal to navigate directly to the indicated source program location.The --listing parameter is optional.",
+                  "description": "Enables you to retrieve program listing details that pertain to the specific CSECT and statement. To use the listing retrieval option, you must install and configure the Endevor® Web Services and have the program listing for the specific measurement registered with MAT. The source code listing is retrieved through Endevor® footprints for Cobol, C/C++, and Assembler programs. The program listing file is downloaded to your local directory that you specified with the 'listingDir' parameter in your MAT configuration profile. When you request the histogram details with the '--listing' option, the 'histogram' command returns the additional 'listing' column that contains a reference to the program listing with the specific CSECT name, program type, line and column number that pertain to the requested CSECT and statement, for example, c:listingsSA420LE.asm:382:51. If you use Visual Studio Code (VS Code) IDE, you can click on the reference in the command responce in your VS Code terminal to navigate directly to the indicated source program location.The --listing parameter is optional.",
                   "type": "boolean",
                   "group": "Options",
                   "aliases": []
@@ -1625,7 +1625,7 @@
                 },
                 {
                   "name": "top",
-                  "description": "Specifies the maximum number of the top consuming DB2 statements that you want to obtain in the response (e.g., --top 5). If you specify --top 0, you get the list of all DB2 statements that CA MAT has detected during the measurement.The --top parameter is optional. Values: numbers between 0 and 300.",
+                  "description": "Specifies the maximum number of the top consuming DB2 statements that you want to obtain in the response (e.g., --top 5). If you specify --top 0, you get the list of all DB2 statements that MAT has detected during the measurement.The --top parameter is optional. Values: numbers between 0 and 300.",
                   "type": "number",
                   "group": "Options",
                   "aliases": []
@@ -2060,7 +2060,7 @@
     {
       "name": "profile",
       "summary": "Manage monitor profiles",
-      "description": "Create, invoke, and list CA MAT monitor profiles.",
+      "description": "Create, invoke, and list MAT monitor profiles.",
       "type": "group",
       "children": [
         {
@@ -2068,8 +2068,8 @@
           "aliases": [
             "ivk"
           ],
-          "summary": "Invoke a CA MAT monitor profile",
-          "description": "Invoke a CA MAT monitor profile to start measurement.",
+          "summary": "Invoke a MAT monitor profile",
+          "description": "Invoke a MAT monitor profile to start measurement.",
           "handler": "",
           "type": "command",
           "profile": {
@@ -2083,7 +2083,7 @@
           "options": [
             {
               "name": "profile",
-              "description": "Specifies the name of the profile in CA MAT that you invoke (e.g. PROFILE1). Values: 1 to 8 characters, a combination of alphanumeric and national characters (A-Z, 0-9, and @), the first character must be an alphabetic or @. The profile name must not contain characters # and $.",
+              "description": "Specifies the name of the profile in MAT that you invoke (e.g. PROFILE1). Values: 1 to 8 characters, a combination of alphanumeric and national characters (A-Z, 0-9, and @), the first character must be an alphabetic or @. The profile name must not contain characters # and $.",
               "type": "string",
               "required": true,
               "group": "Required Options",
@@ -2099,7 +2099,7 @@
             },
             {
               "name": "mondsn",
-              "description": "Specifies the monitor data set name where CA MAT saves the measurement (e.g. DEMO.MAT.MONITOR). Values: data set name pattern, maximum 46 characters. If not specified, your default CA MAT monitor DSN pattern is applied.",
+              "description": "Specifies the monitor data set name where MAT saves the measurement (e.g. DEMO.MAT.MONITOR). Values: data set name pattern, maximum 46 characters. If not specified, your default MAT monitor DSN pattern is applied.",
               "type": "string",
               "required": false,
               "group": "Options",
@@ -2131,7 +2131,7 @@
             },
             {
               "name": "listing",
-              "description": "Activates automated registration of Cobol, C/C++, and Assembler program listings through CA Endevor® footprints. After completion of the measurement that you invoke with the --listing parameter, the CA MAT Analyze plug-in for Zowe CLI automatically retrieves the program listing that is associated with the monitored job and registers the listing with CA MAT. A registered program listing enhances the analysis possibilities of the 'codeview histogram' command  the 'codeview histogram' command and enables you to inspect the source code statements that are associated with specific modules and CSECTs.",
+              "description": "Activates automated registration of Cobol, C/C++, and Assembler program listings through Endevor® footprints. After completion of the measurement that you invoke with the --listing parameter, the MAT Analyze plug-in for Zowe CLI automatically retrieves the program listing that is associated with the monitored job and registers the listing with MAT. A registered program listing enhances the analysis possibilities of the 'codeview histogram' command  the 'codeview histogram' command and enables you to inspect the source code statements that are associated with specific modules and CSECTs.",
               "type": "boolean",
               "required": false,
               "group": "Options",
@@ -2271,7 +2271,7 @@
           ],
           "examples": [
             {
-              "description": "Invoke the PROFILE1 monitor profile to measure job JOB1 that runs on the AA31 system",
+              "description": "Invoke the PROFILE1 monitor profile to measure job JOB1 that runs on the AA31 system ",
               "options": "--profile PROFILE1 --jobname JOB1 --targsys AA31"
             },
             {
@@ -2292,8 +2292,8 @@
           "aliases": [
             "cr"
           ],
-          "summary": "Create a CA MAT monitor profile",
-          "description": "Create a CA MAT monitor profile.",
+          "summary": "Create a MAT monitor profile",
+          "description": "Create a MAT monitor profile.",
           "type": "command",
           "handler": "",
           "profile": {
@@ -2307,7 +2307,7 @@
           "options": [
             {
               "name": "profile",
-              "description": "Specifies the name of the profile that you create in CA MAT (e.g. PROFILE1). Values: 1 to 8 characters, a combination of alphanumeric and national characters (A-Z, 0-9, and @), the first character must be an alphabetic or @. The profile name must not contain characters # and $.",
+              "description": "Specifies the name of the profile that you create in MAT (e.g. PROFILE1). Values: 1 to 8 characters, a combination of alphanumeric and national characters (A-Z, 0-9, and @), the first character must be an alphabetic or @. The profile name must not contain characters # and $.",
               "type": "string",
               "required": true,
               "group": "Required Options",
@@ -2315,7 +2315,7 @@
             },
             {
               "name": "jobname",
-              "description": "Specifies the name of the job that you want to measure (e.g. JOB1). Values: 1 to 8 characters, alphanumeric (A-Z capitals only and 0-9), national (#, $, @), and wildcards (* or %).",
+              "description": "Specifies the name of the job that you want to measure (e.g. JOB1). Values: 1 to 8 characters, alphanumeric (A-Z capitals only and 0-9), national (#, $, @), and wildcards (* or %).",
               "type": "string",
               "required": true,
               "group": "Required Options",
@@ -2354,7 +2354,7 @@
             },
             {
               "name": "mondsn",
-              "description": "Specifies the monitor data set name where CA MAT saves the measurement (e.g. DEMO.MAT.MONITOR). Values: data set name pattern, maximum 46 characters. If not specified, your default CA MAT monitor DSN pattern is applied.",
+              "description": "Specifies the monitor data set name where MAT saves the measurement (e.g. DEMO.MAT.MONITOR). Values: data set name pattern, maximum 46 characters. If not specified, your default MAT monitor DSN pattern is applied.",
               "type": "string",
               "required": false,
               "group": "Options",
@@ -2362,7 +2362,7 @@
             },
             {
               "name": "stepname",
-              "description": "Specifies the name of the job step to monitor. Values: maximum 8 characters, alphanumeric (A-Z capitals only and 0-9), national (#, $, @), and wildcards (* or %).",
+              "description": "Specifies the name of the job step to monitor. Values: maximum 8 characters, alphanumeric (A-Z capitals only and 0-9), national (#, $, @), and wildcards (* or %).",
               "type": "string",
               "required": false,
               "group": "Options",
@@ -2385,7 +2385,7 @@
             },
             {
               "name": "procstep",
-              "description": "Specifies the name of the procedure step. Values: maximum 8 characters, alphanumeric (A-Z capitals only and 0-9), national (#, $, @), and wildcards (* or %).",
+              "description": "Specifies the name of the procedure step. Values: maximum 8 characters, alphanumeric (A-Z capitals only and 0-9), national (#, $, @), and wildcards (* or %).",
               "type": "string",
               "required": false,
               "group": "Options",
@@ -2393,7 +2393,7 @@
             },
             {
               "name": "program",
-              "description": "Specifies the name of the program to monitor. Values: maximum 8 characters, alphanumeric (A-Z capitals only and 0-9), national (#, $, @), and wildcards (* or %).",
+              "description": "Specifies the name of the program to monitor. Values: maximum 8 characters, alphanumeric (A-Z capitals only and 0-9), national (#, $, @), and wildcards (* or %).",
               "type": "string",
               "required": false,
               "group": "Options",
@@ -2425,7 +2425,7 @@
             },
             {
               "name": "tasklib",
-              "description": "Specifies an additional DD name for load modules. Values: maximum 8 characters, alphanumeric (A-Z capitals only and 0-9), national (#, $, @), and wildcards (* or %).",
+              "description": "Specifies an additional DD name for load modules. Values: maximum 8 characters, alphanumeric (A-Z capitals only and 0-9), national (#, $, @), and wildcards (* or %).",
               "type": "string",
               "required": false,
               "group": "Options",
@@ -2433,7 +2433,7 @@
             },
             {
               "name": "samplecnt",
-              "description": "Specifies the number of observations requested. Values: maximum 6 characters, numbers between 10 and 999999.",
+              "description": "Specifies the number of observations requested. Values: maximum 6 characters, numbers between 10 and 999999.",
               "type": "string",
               "required": false,
               "defaultValue": "6000",
@@ -2442,7 +2442,7 @@
             },
             {
               "name": "succnt",
-              "description": "Specifies the maximum number of monitors to run per job execution. Values: maximum 4 characters, numbers between 1 and 9999.",
+              "description": "Specifies the maximum number of monitors to run per job execution. Values: maximum 4 characters, numbers between 1 and 9999.",
               "type": "string",
               "required": false,
               "defaultValue": "1",
@@ -2451,7 +2451,7 @@
             },
             {
               "name": "reccnt",
-              "description": "Specifies the number of times this job step will be monitored. Values: maximum 4 characters, numbers between 1 and 9999.",
+              "description": "Specifies the number of times this job step will be monitored. Values: maximum 4 characters, numbers between 1 and 9999.",
               "type": "string",
               "required": false,
               "defaultValue": "1",
@@ -2460,7 +2460,7 @@
             },
             {
               "name": "sampdelay",
-              "description": "Specifies the delay monitoring time in seconds after the step start. Values: maximum 4 characters, numbers between 0 and 9999.",
+              "description": "Specifies the delay monitoring time in seconds after the step start. Values: maximum 4 characters, numbers between 0 and 9999.",
               "type": "string",
               "required": false,
               "defaultValue": "0",
@@ -2469,7 +2469,7 @@
             },
             {
               "name": "userexit1",
-              "description": "Specifies the name for the call user written Data Base. Values: maximum 8 characters, alphanumeric (A-Z capitals only and 0-9), national (#, $, @), and wildcards (* or %) (e.g. DBEXIT1).",
+              "description": "Specifies the name for the call user written Data Base. Values: maximum 8 characters, alphanumeric (A-Z capitals only and 0-9), national (#, $, @), and wildcards (* or %) (e.g. DBEXIT1).",
               "type": "string",
               "required": false,
               "group": "Options",
@@ -2477,7 +2477,7 @@
             },
             {
               "name": "userexit2",
-              "description": "Specifies the name 1 for the call user written 4GL exit programs for this monitor . Values: maximum 8 characters, alphanumeric (A-Z capitals only and 0-9), national (#, $, @), and wildcards (* or %) (e.g. UEXIT1).",
+              "description": "Specifies the name 1 for the call user written 4GL exit programs for this monitor . Values: maximum 8 characters, alphanumeric (A-Z capitals only and 0-9), national (#, $, @), and wildcards (* or %) (e.g. UEXIT1).",
               "type": "string",
               "required": false,
               "group": "Options",
@@ -2485,7 +2485,7 @@
             },
             {
               "name": "userexit3",
-              "description": "Specifies the name 2 for the call user written 4GL exit programs for this monitor . Values: maximum 8 characters, alphanumeric (A-Z capitals only and 0-9), national (#, $, @), and wildcards (* or %) (e.g. UEXIT2).",
+              "description": "Specifies the name 2 for the call user written 4GL exit programs for this monitor . Values: maximum 8 characters, alphanumeric (A-Z capitals only and 0-9), national (#, $, @), and wildcards (* or %) (e.g. UEXIT2).",
               "type": "string",
               "required": false,
               "group": "Options",
@@ -2493,7 +2493,7 @@
             },
             {
               "name": "inctask",
-              "description": "Specifies the task name to define the tasks that you want to sample in a multitasking environment and restrict monitoring to the specific subtask within the address space. Values: a comma separated list of up to 4 values is allowed, maximum 8 characters each, alphanumeric (A-Z capitals only and 0-9), national (#, $, @), and wildcards (* or %) (e.g. INC31,INC32).",
+              "description": "Specifies the task name to define the tasks that you want to sample in a multitasking environment and restrict monitoring to the specific subtask within the address space. Values: a comma separated list of up to 4 values is allowed, maximum 8 characters each, alphanumeric (A-Z capitals only and 0-9), national (#, $, @), and wildcards (* or %) (e.g. INC31,INC32).",
               "type": "string",
               "required": false,
               "group": "Options",
@@ -2501,7 +2501,7 @@
             },
             {
               "name": "exctask",
-              "description": "Specifies the task name to omit from sampling in a multitasking environment Values: a comma separated list of up to 4 values is allowed, max. 8 characters each, alphanumeric (A-Z capitals only and 0-9), national (#, $, @), and wildcards (* or %) (e.g. EXC31,EXC32).",
+              "description": "Specifies the task name to omit from sampling in a multitasking environment Values: a comma separated list of up to 4 values is allowed, max. 8 characters each, alphanumeric (A-Z capitals only and 0-9), national (#, $, @), and wildcards (* or %) (e.g. EXC31,EXC32).",
               "type": "string",
               "required": false,
               "group": "Options",
@@ -2509,7 +2509,7 @@
             },
             {
               "name": "tran",
-              "description": "Specifies the CICS transaction code name to monitor .Values: a comma separated list of up to 4 values is allowed, maximum 8 characters each, alphanumeric (A-Z capitals only and 0-9), national (#, $, @), and wildcards (* or +) (e.g. TRAN1,TRAN2).",
+              "description": "Specifies the CICS transaction code name to monitor .Values: a comma separated list of up to 4 values is allowed, maximum 8 characters each, alphanumeric (A-Z capitals only and 0-9), national (#, $, @), and wildcards (* or +) (e.g. TRAN1,TRAN2).",
               "type": "string",
               "required": false,
               "group": "Options",
@@ -2517,7 +2517,7 @@
             },
             {
               "name": "term",
-              "description": "Specifies the CICS terminal IDs to monitor. Values: a comma separated list of up to 4 values is allowed, maximum 8 characters each, alphanumeric (A-Z capitals only and 0-9), national (#, $, @), and wildcards (* or +) (e.g. TERM1,TERM2).",
+              "description": "Specifies the CICS terminal IDs to monitor. Values: a comma separated list of up to 4 values is allowed, maximum 8 characters each, alphanumeric (A-Z capitals only and 0-9), national (#, $, @), and wildcards (* or +) (e.g. TERM1,TERM2).",
               "type": "string",
               "required": false,
               "group": "Options",
@@ -2525,7 +2525,7 @@
             },
             {
               "name": "userid",
-              "description": "Specifies the CICS user IDs to monitor. Values:  Values: a comma separated list of up to 4 values is allowed, maximum 8 characters each, alphanumeric (A-Z capitals only and 0-9), national (#, $, @), and wildcards (* or +) (e.g. USER1,USER2).",
+              "description": "Specifies the CICS user IDs to monitor. Values:  Values: a comma separated list of up to 4 values is allowed, maximum 8 characters each, alphanumeric (A-Z capitals only and 0-9), national (#, $, @), and wildcards (* or +) (e.g. USER1,USER2).",
               "type": "string",
               "required": false,
               "group": "Options",
@@ -2548,7 +2548,7 @@
             },
             {
               "name": "db2ctsql",
-              "description": "Indicates whether the Collect SQL from Catalog option is enabled for DB2 SQL statements.If you specify db2expl=yes, then db2ctsql must be also set to yes.",
+              "description": "Indicates whether the Collect SQL from Catalog option is enabled for DB2 SQL statements.If you specify db2expl=yes, then db2ctsql must be also set to yes.",
               "type": "string",
               "required": false,
               "allowableValues": {
@@ -2563,7 +2563,7 @@
             },
             {
               "name": "db2hvloc",
-              "description": "Indicates whether the Requestor Location option is enabled for DB2 measurements.",
+              "description": "Indicates whether the Requestor Location option is enabled for DB2 measurements.",
               "type": "string",
               "required": false,
               "allowableValues": {
@@ -2578,7 +2578,7 @@
             },
             {
               "name": "db2hvcor",
-              "description": "Indicates whether the Correlation ID option for SQL statements is enabled for DB2 measurements.",
+              "description": "Indicates whether the Correlation ID option for SQL statements is enabled for DB2 measurements.",
               "type": "string",
               "required": false,
               "allowableValues": {
@@ -2593,7 +2593,7 @@
             },
             {
               "name": "db2hviid",
-              "description": "Indicates whether the Operator ID option for SQL statements is enabled for DB2 measurements.",
+              "description": "Indicates whether the Operator ID option for SQL statements is enabled for DB2 measurements.",
               "type": "string",
               "required": false,
               "allowableValues": {
@@ -2608,7 +2608,7 @@
             },
             {
               "name": "db2hvthd",
-              "description": "Indicates whether the Thread Address option for SQL statements is enabled for DB2 measurements.",
+              "description": "Indicates whether the Thread Address option for SQL statements is enabled for DB2 measurements.",
               "type": "string",
               "required": false,
               "allowableValues": {
@@ -2654,7 +2654,7 @@
             },
             {
               "name": "schedule",
-              "description": "Specifies the name of the schedule that you want to apply to the monitor profile (maximum 8 characters).",
+              "description": "Specifies the name of the schedule that you want to apply to the monitor profile (maximum 8 characters).",
               "type": "string",
               "required": false,
               "group": "Options",
@@ -3002,7 +3002,7 @@
       "passOn": []
     }
   ],
-  "summary": "Manage monitor profiles and analyze the measurement data using CA MAT",
+  "summary": "Manage monitor profiles and analyze the measurement data using MAT",
   "aliases": [
     "mat"
   ],

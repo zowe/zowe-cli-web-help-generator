@@ -1,4 +1,4 @@
-// Copyright (c) 2021 Broadcom.  All Rights Reserved.  The term
+// Copyright (c) 2022 Broadcom.  All Rights Reserved.  The term
 // "Broadcom" refers to Broadcom Inc. and/or its subsidiaries.
 {
   "name": "idms-profile",
@@ -64,7 +64,7 @@
       "aliases": [
         "d"
       ],
-      "description": "Identifies the CA IDMS system where the API request will be sent and is defined in the data sources definition file for the IDMS REST API",
+      "description": "Identifies the IDMS system where the API request will be sent and is defined in the data sources definition file for the IDMS REST API",
       "type": "string",
       "group": "IDMS Connection Options"
     },

@@ -1,4 +1,4 @@
-// Copyright (c) 2021 Broadcom.  All Rights Reserved.  The term
+// Copyright (c) 2022 Broadcom.  All Rights Reserved.  The term
 // "Broadcom" refers to Broadcom Inc. and/or its subsidiaries.
 {
   "name": "caspool-profile",
@@ -6,7 +6,7 @@
     "caspool"
   ],
   "summary": "Create a caspool profile",
-  "description": "Configuration profile for CA Spool, where you specify information about your CA Spool instance",
+  "description": "Configuration profile for Spool, where you specify information about your Spool instance",
   "type": "command",
   "handler": "",
   "customize": {
@@ -29,10 +29,10 @@
         "a"
       ],
       "required": true,
-      "group": "CA SPOOL OPTIONS"
+      "group": "SPOOL OPTIONS"
     },
     {
-      "description": "High level qualifier of CA Spool installation.",
+      "description": "High level qualifier of Spool installation.",
       "type": "string",
       "name": "spoolhlq",
       "aliases": [
@@ -43,10 +43,10 @@
         35
       ],
       "required": true,
-      "group": "CA SPOOL OPTIONS"
+      "group": "SPOOL OPTIONS"
     },
     {
-      "description": "CA Spool subsystem name.",
+      "description": "Spool subsystem name.",
       "type": "string",
       "name": "subsys",
       "aliases": [
@@ -57,10 +57,10 @@
         4
       ],
       "defaultValue": "ESF",
-      "group": "CA SPOOL OPTIONS"
+      "group": "SPOOL OPTIONS"
     },
     {
-      "description": "The SYSTSPRT data set allocated by CAI.CBQ4JCL(BQ4JZOWE). It must be unique for each Zowe CLI user interacting with CA Spool.",
+      "description": "The SYSTSPRT data set allocated by CAI.CBQ4JCL(BQ4JZOWE). It must be unique for each Zowe CLI user interacting with Spool.",
       "type": "string",
       "name": "outds",
       "aliases": [
@@ -71,7 +71,7 @@
         44
       ],
       "required": true,
-      "group": "CA SPOOL OPTIONS"
+      "group": "SPOOL OPTIONS"
     },
     {
       "description": "The data set containing ESFZOWE REXX exec.",
@@ -85,7 +85,7 @@
         44
       ],
       "required": true,
-      "group": "CA SPOOL OPTIONS"
+      "group": "SPOOL OPTIONS"
     },
     {
       "name": "overwrite",
@@ -143,7 +143,7 @@
   "examples": [
     {
       "options": "myProfile --account 1234567890 --spoolhlq CASPOOL.HLQ --subsys ESF1 --outds OUTPUT.RESPONSE.DS --clist USER.CLIST",
-      "description": "Create a profile for CA Spool named 'myProfile' with TSO account information '1234567890', CA Spool installation high level qualifier of 'CASPOOL.HLQ', subsystem name 'ESF1', output response data set 'OUTPUT.RESPONSE.DS', and data set 'USER.CLIST', containing ESFZOWE REXX exec"
+      "description": "Create a profile for Spool named 'myProfile' with TSO account information '1234567890', Spool installation high level qualifier of 'CASPOOL.HLQ', subsystem name 'ESF1', output response data set 'OUTPUT.RESPONSE.DS', and data set 'USER.CLIST', containing ESFZOWE REXX exec"
     }
   ],
   "passOn": [],

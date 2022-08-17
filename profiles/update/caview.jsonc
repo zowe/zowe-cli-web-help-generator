@@ -1,4 +1,4 @@
-// Copyright (c) 2021 Broadcom.  All Rights Reserved.  The term
+// Copyright (c) 2022 Broadcom.  All Rights Reserved.  The term
 // "Broadcom" refers to Broadcom Inc. and/or its subsidiaries.
 {
   "name": "caview-profile",
@@ -6,7 +6,7 @@
     "caview"
   ],
   "summary": "Update a caview profile. You can update any property present within the profile configuration. The updated profile will be printed so that you can review the result of the updates.",
-  "description": "Configuration profile for CA View",
+  "description": "Configuration profile for View",
   "type": "command",
   "handler": "",
   "customize": {
@@ -24,7 +24,7 @@
     {
       "type": "string",
       "name": "protocol",
-      "description": "Protocol of the target CA View REST API instance.",
+      "description": "Protocol of the target View REST API instance.",
       "required": false,
       "allowableValues": {
         "values": [
@@ -41,7 +41,7 @@
     {
       "type": "string",
       "name": "hostname",
-      "description": "Hostname or ip address of the target CA View REST API instance.",
+      "description": "Hostname or ip address of the target View REST API instance.",
       "required": false,
       "absenceImplications": null,
       "implies": null,
@@ -51,7 +51,10 @@
     {
       "type": "number",
       "name": "port",
-      "description": "Port of the target CA View REST API instance.",
+      "aliases": [
+        "P"
+      ],
+      "description": "Port of the target View REST API instance.",
       "numericValueRange": [
         0,
         65535
@@ -59,13 +62,12 @@
       "required": false,
       "absenceImplications": null,
       "implies": null,
-      "group": "Options",
-      "aliases": []
+      "group": "Options"
     },
     {
       "type": "string",
       "name": "base-path",
-      "description": "Context name of the target CA View REST API instance.",
+      "description": "Context name of the target View REST API instance.",
       "required": false,
       "absenceImplications": null,
       "implies": null,
@@ -75,7 +77,7 @@
     {
       "type": "string",
       "name": "username",
-      "description": "User name used to authenticate against the target CA View REST API instance.",
+      "description": "User name used to authenticate against the target View REST API instance.",
       "required": false,
       "absenceImplications": null,
       "implies": null,
@@ -85,12 +87,15 @@
     {
       "type": "string",
       "name": "password",
-      "description": "Password used to authenticate against the target CA View REST API instance.",
+      "aliases": [
+        "pass",
+        "pw"
+      ],
+      "description": "Password used to authenticate against the target View REST API instance.",
       "required": false,
       "absenceImplications": null,
       "implies": null,
-      "group": "Options",
-      "aliases": []
+      "group": "Options"
     },
     {
       "name": "response-format-json",

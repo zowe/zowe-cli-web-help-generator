@@ -1,16 +1,16 @@
 // Copyright (c) 2022 Broadcom.  All Rights Reserved.  The term
 // "Broadcom" refers to Broadcom Inc. and/or its subsidiaries.
 {
-  "name": "idms-profiles",
+  "name": "dbm-db2-profiles",
   "aliases": [
-    "idms"
+    "dbm-db2"
   ],
-  "summary": "List profiles of the type idms.",
-  "description": "An IDMS profile is required to issue IDMS CLI commands. The IDMS profile contains your host and port information",
+  "summary": "List profiles of the type dbm-db2.",
+  "description": "The dbm-db2 profile is a named set of DBM Data Service parameters that are implicitly used with the zowe dbm-db2 commands. The profile includes server connection, z/OS execution, and user-dependent details.",
   "type": "command",
   "handler": "",
   "customize": {
-    "profileTypeIdentifier": "idms"
+    "profileTypeIdentifier": "dbm-db2"
   },
   "options": [
     {
@@ -18,7 +18,7 @@
       "aliases": [
         "sc"
       ],
-      "description": "List idms  profiles  and their contents. All profile details will be printed as part of command output.",
+      "description": "List dbm-db2  profiles  and their contents. All profile details will be printed as part of command output.",
       "type": "boolean",
       "required": false,
       "group": "Options"
@@ -61,11 +61,11 @@
   "examples": [
     {
       "options": "",
-      "description": "List profiles of type idms"
+      "description": "List profiles of type dbm-db2"
     },
     {
       "options": "--sc",
-      "description": "List profiles of type idms and display their contents"
+      "description": "List profiles of type dbm-db2 and display their contents"
     }
   ],
   "positionals": [],

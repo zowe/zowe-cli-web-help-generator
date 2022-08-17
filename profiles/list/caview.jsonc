@@ -1,4 +1,4 @@
-// Copyright (c) 2021 Broadcom.  All Rights Reserved.  The term
+// Copyright (c) 2022 Broadcom.  All Rights Reserved.  The term
 // "Broadcom" refers to Broadcom Inc. and/or its subsidiaries.
 {
   "name": "caview-profiles",
@@ -6,7 +6,7 @@
     "caview"
   ],
   "summary": "List profiles of the type caview.",
-  "description": "Configuration profile for CA View",
+  "description": "Configuration profile for View",
   "type": "command",
   "handler": "",
   "customize": {

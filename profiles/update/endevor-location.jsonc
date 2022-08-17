@@ -1,4 +1,4 @@
-// Copyright (c) 2021 Broadcom.  All Rights Reserved.  The term
+// Copyright (c) 2022 Broadcom.  All Rights Reserved.  The term
 // "Broadcom" refers to Broadcom Inc. and/or its subsidiaries.
 {
   "name": "endevor-location-profile",
@@ -6,7 +6,7 @@
     "endevor-location"
   ],
   "summary": "Update a endevor-location profile. You can update any property present within the profile configuration. The updated profile will be printed so that you can review the result of the updates.",
-  "description": "The CA Endevor SCM element location, where you specify your working environment, system and subsystem",
+  "description": "The Endevor element location, where you specify your working environment, system and subsystem",
   "type": "command",
   "handler": "",
   "customize": {
@@ -34,7 +34,7 @@
       "group": "Options"
     },
     {
-      "description": "The CA Endevor SCM environment where your project resides",
+      "description": "The Endevor environment where your project resides",
       "type": "string",
       "name": "environment",
       "aliases": [
@@ -50,7 +50,7 @@
       "group": "Options"
     },
     {
-      "description": "The CA Endevor SCM system where the element resides",
+      "description": "The Endevor system where the element resides",
       "type": "string",
       "name": "system",
       "aliases": [
@@ -66,7 +66,7 @@
       "group": "Options"
     },
     {
-      "description": "The CA Endevor SCM subsystem where your element resides",
+      "description": "The Endevor subsystem where your element resides",
       "type": "string",
       "name": "subsystem",
       "aliases": [
@@ -82,7 +82,7 @@
       "group": "Options"
     },
     {
-      "description": "Name of the CA Endevor SCM element's type",
+      "description": "Name of the Endevor element's type",
       "type": "string",
       "name": "type",
       "aliases": [
@@ -98,7 +98,7 @@
       "group": "Options"
     },
     {
-      "description": "The CA Endevor SCM stage where your project resides",
+      "description": "The Endevor stage where your project resides",
       "type": "string",
       "name": "stage-number",
       "aliases": [
@@ -116,7 +116,7 @@
       "group": "Options"
     },
     {
-      "description": "The CA Endevor SCM comment you want to use when performing an action",
+      "description": "The Endevor comment you want to use when performing an action",
       "type": "string",
       "name": "comment",
       "aliases": [
@@ -132,7 +132,7 @@
       "group": "Options"
     },
     {
-      "description": "The CA Endevor SCM CCID you want to use when performing an action",
+      "description": "The Endevor CCID you want to use when performing an action",
       "type": "string",
       "name": "ccid",
       "aliases": [
@@ -148,7 +148,7 @@
       "group": "Options"
     },
     {
-      "description": "The return code of CA Endevor SCM that defines a failed action",
+      "description": "The return code of Endevor that defines a failed action",
       "type": "number",
       "name": "maxrc",
       "required": false,
@@ -156,18 +156,6 @@
       "implies": null,
       "group": "Options",
       "aliases": []
-    },
-    {
-      "description": "Always override element signout, without having to specify the override signout option on each command",
-      "type": "boolean",
-      "name": "override-signout",
-      "aliases": [
-        "os"
-      ],
-      "required": false,
-      "absenceImplications": null,
-      "implies": null,
-      "group": "Options"
     },
     {
       "name": "response-format-json",

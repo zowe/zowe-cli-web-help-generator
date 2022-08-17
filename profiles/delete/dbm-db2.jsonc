@@ -1,24 +1,22 @@
 // Copyright (c) 2022 Broadcom.  All Rights Reserved.  The term
 // "Broadcom" refers to Broadcom Inc. and/or its subsidiaries.
 {
-  "name": "idms-profiles",
+  "name": "dbm-db2-profile",
   "aliases": [
-    "idms"
+    "dbm-db2"
   ],
-  "summary": "List profiles of the type idms.",
-  "description": "An IDMS profile is required to issue IDMS CLI commands. The IDMS profile contains your host and port information",
+  "summary": "Delete a dbm-db2 profile.",
+  "description": "Delete a dbm-db2 profile. You must specify a profile name to be deleted. To find a list of available profiles for deletion, issue the profiles list command. By default, you will be prompted to confirm the profile removal.",
   "type": "command",
   "handler": "",
   "customize": {
-    "profileTypeIdentifier": "idms"
+    "profileTypeIdentifier": "dbm-db2"
   },
   "options": [
     {
-      "name": "show-contents",
-      "aliases": [
-        "sc"
-      ],
-      "description": "List idms  profiles  and their contents. All profile details will be printed as part of command output.",
+      "name": "force",
+      "aliases": [],
+      "description": "Force deletion of profile, and dependent profiles if specified. No prompt will be displayed before  deletion occurs.",
       "type": "boolean",
       "required": false,
       "group": "Options"
@@ -58,17 +56,20 @@
       "type": "boolean"
     }
   ],
-  "examples": [
+  "positionals": [
     {
-      "options": "",
-      "description": "List profiles of type idms"
-    },
-    {
-      "options": "--sc",
-      "description": "List profiles of type idms and display their contents"
+      "name": "profileName",
+      "description": "Specifies the name of the dbm-db2  profile to be deleted. You can also load this profile by using the name on commands that support the \"--dbm-db2-profile\" option.",
+      "type": "string",
+      "required": true
     }
   ],
-  "positionals": [],
+  "examples": [
+    {
+      "options": "profilename",
+      "description": "Delete a dbm-db2 profile named profilename"
+    }
+  ],
   "passOn": [],
   "children": []
 }

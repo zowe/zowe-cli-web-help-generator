@@ -1,4 +1,4 @@
-// Copyright (c) 2021 Broadcom.  All Rights Reserved.  The term
+// Copyright (c) 2022 Broadcom.  All Rights Reserved.  The term
 // "Broadcom" refers to Broadcom Inc. and/or its subsidiaries.
 {
   "name": "mat-profile",
@@ -6,7 +6,7 @@
     "mat"
   ],
   "summary": "Update a mat profile. You can update any property present within the profile configuration. The updated profile will be printed so that you can review the result of the updates.",
-  "description": "CA MAT Analyze CLI profile schema.",
+  "description": "MAT Analyze CLI profile schema.",
   "type": "command",
   "handler": "",
   "customize": {
@@ -26,7 +26,7 @@
       "aliases": [
         "prt"
       ],
-      "description": "Specifies the protocol defined for the CA MAT REST API server (http or https).",
+      "description": "Specifies the protocol defined for the MAT REST API server (http or https).",
       "type": "string",
       "required": false,
       "allowableValues": {
@@ -44,7 +44,7 @@
       "aliases": [
         "hn"
       ],
-      "description": "Specifies the hostname or IP address defined for the CA MAT REST API server (e.g. 127.0.0.0 or localhost).",
+      "description": "Specifies the hostname or IP address defined for the MAT REST API server (e.g. 127.0.0.0 or localhost).",
       "type": "string",
       "required": false,
       "group": "MAT Profile Options",
@@ -92,7 +92,7 @@
       "aliases": [
         "zdis"
       ],
-      "description": "Specifies whether you want to use Zowe API Mediation Layer to process the commands for this profile. Set '--zowediscoverable true' only if you have configured the Zowe API Mediation Layer properties in your CA MAT REST API server settings.",
+      "description": "Specifies whether you want to use Zowe API Mediation Layer to process the commands for this profile. Set '--zowediscoverable true' only if you have configured the Zowe API Mediation Layer properties in your MAT REST API server settings.",
       "type": "boolean",
       "required": false,
       "allowableValues": {
@@ -110,7 +110,7 @@
       "aliases": [
         "ldir"
       ],
-      "description": "Specifies the directory where you want to store the registered program listings (e.g. 'c:\\listings') for your immediate source code inspection. You can use the advantage of automated listing registration with CA MAT and listing retrieval through CA Endevor® footprints for Cobol, C/C++, and Assembler programs. When a source program listing is registered with CA MAT, you can enhance the histogram analysis data with the program listing details that pertain to the specific CSECT and program statement. The listing is transfered to the specified directory, which enables you to navigate directly to the line of the source code in you VS Code IDE and inspect the program statement. To use the listing retrieval option through CA Endevor® footprints, you need to have the CA Endevor® Web Services installed and configured and specify the CA Endevor® web server details in the CA MAT database configuration.",
+      "description": "Specifies the directory where you want to store the registered program listings (e.g. 'c:\\listings') for your immediate source code inspection. You can use the advantage of automated listing registration with MAT and listing retrieval through Endevor® footprints for Cobol, C/C++, and Assembler programs. When a source program listing is registered with MAT, you can enhance the histogram analysis data with the program listing details that pertain to the specific CSECT and program statement. The listing is transfered to the specified directory, which enables you to navigate directly to the line of the source code in you VS Code IDE and inspect the program statement. To use the listing retrieval option through Endevor® footprints, you need to have the Endevor® Web Services installed and configured and specify the Endevor® web server details in the MAT database configuration.",
       "type": "string",
       "required": false,
       "group": "MAT Profile Options",
