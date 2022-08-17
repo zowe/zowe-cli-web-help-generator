@@ -1,0 +1,93 @@
+// Copyright (c) 2022 Broadcom.  All Rights Reserved.  The term
+// "Broadcom" refers to Broadcom Inc. and/or its subsidiaries.
+
+// This software and all information contained therein is
+// confidential and proprietary and shall not be duplicated,
+// used, disclosed, or disseminated in any way except as
+// authorized by the applicable license agreement, without the
+// express written permission of Broadcom.  All authorized
+// reproductions must be marked with this language.
+
+// EXCEPT AS SET FORTH IN THE APPLICABLE LICENSE AGREEMENT, TO
+// THE EXTENT PERMITTED BY APPLICABLE LAW, BROADCOM PROVIDES THIS
+// SOFTWARE WITHOUT WARRANTY OF ANY KIND, INCLUDING WITHOUT
+// LIMITATION, ANY IMPLIED WARRANTIES OF MERCHANTABILITY OR
+// FITNESS FOR A PARTICULAR PURPOSE.  IN NO EVENT WILL BROADCOM
+// BE LIABLE TO THE END USER OR ANY THIRD PARTY FOR ANY LOSS OR
+// DAMAGE, DIRECT OR INDIRECT, FROM THE USE OF THIS SOFTWARE,
+// INCLUDING WITHOUT LIMITATION, LOST PROFITS, BUSINESS
+// INTERRUPTION, GOODWILL, OR LOST DATA, EVEN IF BROADCOM IS
+// EXPRESSLY ADVISED OF SUCH LOSS OR DAMAGE.
+{
+  "name": "dbm-db2-profile",
+  "aliases": [
+    "dbm-db2"
+  ],
+  "summary": "Set the default\n profiles for the dbm-db2 group",
+  "description": "The dbm-db2 set default-profiles command allows you to set the default profiles for this command group. When a dbm-db2 command is issued and no profile override options are specified, the default profiles for the command group are automatically loaded for the command based on the commands profile requirements.",
+  "type": "command",
+  "handler": "",
+  "deprecatedReplacement": "The 'config set' command",
+  "options": [
+    {
+      "name": "show-inputs-only",
+      "group": "Global options",
+      "description": "Show command inputs and do not run the command",
+      "type": "boolean",
+      "aliases": []
+    },
+    {
+      "name": "response-format-json",
+      "aliases": [
+        "rfj"
+      ],
+      "group": "Global options",
+      "description": "Produce JSON formatted data from a command",
+      "type": "boolean"
+    },
+    {
+      "name": "help",
+      "aliases": [
+        "h"
+      ],
+      "group": "Global options",
+      "description": "Display help text",
+      "type": "boolean"
+    },
+    {
+      "name": "help-examples",
+      "group": "Global options",
+      "description": "Display examples for all the commands in a group",
+      "type": "boolean",
+      "aliases": []
+    },
+    {
+      "name": "help-web",
+      "aliases": [
+        "hw"
+      ],
+      "group": "Global options",
+      "description": "Display HTML help in browser",
+      "type": "boolean"
+    }
+  ],
+  "positionals": [
+    {
+      "name": "profileName",
+      "description": "Specify a\n profile for default usage within the dbm-db2 group. When you issue commands within the dbm-db2 group without a profile specified as part of the command, the default will be loaded instead.",
+      "type": "string",
+      "required": true
+    }
+  ],
+  "customize": {
+    "profileTypeIdentifier": "dbm-db2"
+  },
+  "examples": [
+    {
+      "options": "profilename",
+      "description": "Set the default profile for type dbm-db2 to the profile named 'profilename'"
+    }
+  ],
+  "passOn": [],
+  "children": []
+}
