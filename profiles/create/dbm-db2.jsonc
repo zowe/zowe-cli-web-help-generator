@@ -1,0 +1,257 @@
+// Copyright (c) 2022 Broadcom.  All Rights Reserved.  The term
+// "Broadcom" refers to Broadcom Inc. and/or its subsidiaries.
+{
+  "name": "dbm-db2-profile",
+  "aliases": [
+    "dbm-db2"
+  ],
+  "summary": "Create a dbm-db2 profile",
+  "description": "The dbm-db2 profile is a named set of DBM Data Service parameters that are implicitly used with the zowe dbm-db2 commands. The profile includes server connection, z/OS execution, and user-dependent details.",
+  "type": "command",
+  "handler": "",
+  "deprecatedReplacement": "The 'config init' command",
+  "customize": {
+    "profileTypeIdentifier": "dbm-db2"
+  },
+  "positionals": [
+    {
+      "name": "profileName",
+      "description": "Specifies the name of the new dbm-db2 profile. You can load this profile by using the name on commands that support the \"--dbm-db2-profile\" option.",
+      "type": "string",
+      "required": true
+    }
+  ],
+  "options": [
+    {
+      "name": "job-cards",
+      "aliases": [
+        "jc"
+      ],
+      "description": "Specifies a string array of z/OS JCL JOB statements.",
+      "required": false,
+      "type": "array",
+      "defaultValue": [
+        "//DB2DVOPS CLASS=A,",
+        "//         MSGCLASS=X"
+      ],
+      "group": "dbm-db2 Common Options"
+    },
+    {
+      "name": "work-dataset-prefix",
+      "aliases": [
+        "wdp"
+      ],
+      "description": "Specifies the prefix that is used as the high level qualifier in z/OS work data set names.",
+      "required": false,
+      "type": "string",
+      "defaultValue": "${user}.dbmdb2",
+      "group": "dbm-db2 Common Options"
+    },
+    {
+      "name": "authid",
+      "aliases": [
+        "a"
+      ],
+      "description": "Specifies the primary Db2 authorization ID (user ID) that is used to establish a connection between Db2 and a process.",
+      "required": false,
+      "type": "string",
+      "defaultValue": "${user}",
+      "group": "dbm-db2 Common Options"
+    },
+    {
+      "name": "sqlid",
+      "aliases": [
+        "s"
+      ],
+      "description": "Specifies the authorization ID that is used as the value in generated SET CURRENT SQLID statements most of the time.",
+      "required": false,
+      "type": "string",
+      "defaultValue": "${user}",
+      "group": "dbm-db2 Common Options"
+    },
+    {
+      "name": "termination-character",
+      "aliases": [
+        "tc"
+      ],
+      "description": "Specifies the SQL termination character that you want to use to terminate object DDL for triggers, XML indexes, functions, and procedures that contain embedded semicolon-terminated SQL statements. You cannot use a comma, an underscore, a single quote, double quotes, left parentheses, or right parentheses for this value.",
+      "required": false,
+      "type": "string",
+      "defaultValue": ";",
+      "stringLengthRange": [
+        1,
+        1
+      ],
+      "group": "dbm-db2 Common Options"
+    },
+    {
+      "name": "overwrite-output-files",
+      "aliases": [
+        "oof"
+      ],
+      "description": "Specifies whether to overwrite output files when they already exist.",
+      "required": false,
+      "type": "boolean",
+      "defaultValue": false,
+      "group": "dbm-db2 Common Options"
+    },
+    {
+      "name": "host",
+      "aliases": [
+        "H"
+      ],
+      "description": "Specifies the DBM Data Service REST API server host name or TCP/IP address to use.",
+      "required": false,
+      "type": "string",
+      "group": "dbm-db2 Connection Options"
+    },
+    {
+      "name": "port",
+      "aliases": [
+        "P"
+      ],
+      "description": "Specifies the DBM Data Service REST API server TCP/IP port number.",
+      "required": false,
+      "type": "number",
+      "defaultValue": 7300,
+      "group": "dbm-db2 Connection Options"
+    },
+    {
+      "name": "user",
+      "aliases": [
+        "u"
+      ],
+      "description": "Specifies the mainframe user name that you want to use to connect to the mainframe systems during execution of the Zowe CLI commands. This user name can be the same as your TSO login ID.",
+      "required": false,
+      "type": "string",
+      "group": "dbm-db2 Connection Options"
+    },
+    {
+      "name": "password",
+      "aliases": [
+        "pass",
+        "pw"
+      ],
+      "description": "Specifies the mainframe password for the user name that is used to connect to the mainframe systems during execution of the CLI commands. This password can be the same as your TSO password.",
+      "required": false,
+      "type": "string",
+      "group": "dbm-db2 Connection Options"
+    },
+    {
+      "name": "reject-unauthorized",
+      "aliases": [
+        "ru"
+      ],
+      "description": "Determines whether the dbm-db2 command is accepted or rejected when a self-signed certificate is returned by the DBM Data Service.",
+      "required": false,
+      "type": "boolean",
+      "defaultValue": true,
+      "group": "dbm-db2 Connection Options"
+    },
+    {
+      "name": "protocol",
+      "description": "Specifies the communication protocol to use between the zowe dbm-db2 client and the DBM Data Service.",
+      "required": false,
+      "type": "string",
+      "defaultValue": "https",
+      "allowableValues": {
+        "values": [
+          "http",
+          "https"
+        ]
+      },
+      "group": "dbm-db2 Connection Options",
+      "aliases": []
+    },
+    {
+      "name": "environment-list",
+      "aliases": [
+        "el"
+      ],
+      "description": "Specifies an object of one or more values consisting of a Db2 subsystem ID and a DBM Data Service environment pair. The paired entry identifies the DBM Data Service environment to use for a subsystem that is accessible through multiple DBM Data Service environments. For more information about configuring the DBM Data Service, see the Database Management Solutions for Db2 for z/OS documentation at https://techdocs.broadcom.com/db2mgmt.",
+      "required": false,
+      "type": "string",
+      "defaultValue": {
+        "ssid1": "env1@host1:port1",
+        "ssid2": "env2@host2:port2"
+      },
+      "group": "dbm-db2 Connection Options"
+    },
+    {
+      "name": "overwrite",
+      "aliases": [
+        "ow"
+      ],
+      "description": "Overwrite the dbm-db2 profile when a profile of the same name exists.",
+      "type": "boolean",
+      "group": "Options"
+    },
+    {
+      "name": "disable-defaults",
+      "aliases": [
+        "dd"
+      ],
+      "description": "Disable populating profile values of undefined properties with default values.",
+      "type": "boolean",
+      "group": "Options"
+    },
+    {
+      "name": "response-format-json",
+      "aliases": [
+        "rfj"
+      ],
+      "group": "Global options",
+      "description": "Produce JSON formatted data from a command",
+      "type": "boolean"
+    },
+    {
+      "name": "help",
+      "aliases": [
+        "h"
+      ],
+      "group": "Global options",
+      "description": "Display help text",
+      "type": "boolean"
+    },
+    {
+      "name": "help-examples",
+      "group": "Global options",
+      "description": "Display examples for all the commands in a group",
+      "type": "boolean",
+      "aliases": []
+    },
+    {
+      "name": "help-web",
+      "aliases": [
+        "hw"
+      ],
+      "group": "Global options",
+      "description": "Display HTML help in browser",
+      "type": "boolean"
+    }
+  ],
+  "examples": [
+    {
+      "options": "profile_name1",
+      "description": "Create a dbm-db2 profile named profile_name1 and default values for all the dbm-db2-profile options"
+    },
+    {
+      "options": "dbm123 --host dbm123 --port 1443 --user db2user --password myp4ss",
+      "description": "Create a dbm-db2 profile named dbm123 that connects to the DBM Data Service at host dbm123 and port 1443 as user db2user and password myp4ss"
+    },
+    {
+      "options": "dbm124 --host dbm124 --user db2user --password myp4ss --reject-unauthorized false",
+      "description": "Create a dbm-db2 profile named dbm124 that connects to the DBM Data Service at host dbm124 and the default port as user db2user and password myp4ss, and allow self-signed certificates"
+    },
+    {
+      "options": "dbm125 --host dbm125 --port 1443 --environment-list \"SUBA:prod@host1.com:322,SUBB:test@host2.net:522\"",
+      "description": "Create a dbm-db2 profile named dbm125 that connects to the DBM Data Service at host dbm125 and port 1443 and requires a user and password to be specified on every dbm-db2 command. DBM Data Service access to Db2 subsystems SUBA and SUBB uses prod@host1.com:322 and test@host2.com:522, respectively"
+    },
+    {
+      "options": "dbm126 --job-cards \"//DB2DVOPS JOB (123456789),'DB2 PROVISIONING',NOTIFY=&SYSUID,\" \"//     CLASS=A,MSGCLASS=X,MSGLEVEL=(1,1),\" \"//     REGION=0M,TIME=NOLIMIT\"",
+      "description": "Create a dbm-db2 profile named dbm126 that uses specified job cards for every mainframe job"
+    }
+  ],
+  "passOn": [],
+  "children": []
+}

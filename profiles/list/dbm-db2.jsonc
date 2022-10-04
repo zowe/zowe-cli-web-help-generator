@@ -1,0 +1,75 @@
+// Copyright (c) 2022 Broadcom.  All Rights Reserved.  The term
+// "Broadcom" refers to Broadcom Inc. and/or its subsidiaries.
+{
+  "name": "dbm-db2-profiles",
+  "aliases": [
+    "dbm-db2"
+  ],
+  "summary": "List profiles of the type dbm-db2.",
+  "description": "The dbm-db2 profile is a named set of DBM Data Service parameters that are implicitly used with the zowe dbm-db2 commands. The profile includes server connection, z/OS execution, and user-dependent details.",
+  "type": "command",
+  "handler": "",
+  "deprecatedReplacement": "The 'config list' command",
+  "customize": {
+    "profileTypeIdentifier": "dbm-db2"
+  },
+  "options": [
+    {
+      "name": "show-contents",
+      "aliases": [
+        "sc"
+      ],
+      "description": "List dbm-db2  profiles  and their contents. All profile details will be printed as part of command output.",
+      "type": "boolean",
+      "required": false,
+      "group": "Options"
+    },
+    {
+      "name": "response-format-json",
+      "aliases": [
+        "rfj"
+      ],
+      "group": "Global options",
+      "description": "Produce JSON formatted data from a command",
+      "type": "boolean"
+    },
+    {
+      "name": "help",
+      "aliases": [
+        "h"
+      ],
+      "group": "Global options",
+      "description": "Display help text",
+      "type": "boolean"
+    },
+    {
+      "name": "help-examples",
+      "group": "Global options",
+      "description": "Display examples for all the commands in a group",
+      "type": "boolean",
+      "aliases": []
+    },
+    {
+      "name": "help-web",
+      "aliases": [
+        "hw"
+      ],
+      "group": "Global options",
+      "description": "Display HTML help in browser",
+      "type": "boolean"
+    }
+  ],
+  "examples": [
+    {
+      "options": "",
+      "description": "List profiles of type dbm-db2"
+    },
+    {
+      "options": "--sc",
+      "description": "List profiles of type dbm-db2 and display their contents"
+    }
+  ],
+  "positionals": [],
+  "passOn": [],
+  "children": []
+}
