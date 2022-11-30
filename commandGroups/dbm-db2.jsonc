@@ -63,13 +63,20 @@
             },
             {
               "name": "error-file",
-              "description": "Specifies the local output error file in YAML format that contains errors that occurred during execution of the command.\n \n \u001b[90m Default value: error.log \u001b[0m",
+              "description": "Specifies the local output error file in YAML format that contains basic execution information, connection details, dbm-db2 profile parameters, used arguments, and errors that occurred during execution of the command.\n \n \u001b[90m Default value: error.log \u001b[0m",
               "type": "string",
               "aliases": [
                 "ef"
               ],
               "required": false,
               "group": "Options"
+            },
+            {
+              "name": "show-inputs-only",
+              "group": "Global options",
+              "description": "Show command inputs and do not run the command",
+              "type": "boolean",
+              "aliases": []
             },
             {
               "name": "response-format-json",
@@ -399,13 +406,20 @@
             },
             {
               "name": "error-file",
-              "description": "Specifies the local output error file in YAML format that contains errors that occurred during execution of the command.\n \n\u001b[90m Default value: error.log \u001b[0m",
+              "description": "Specifies the local output error file in YAML format that contains basic execution information, connection details, dbm-db2 profile parameters, used arguments, and errors that occurred during execution of the command.\n \n\u001b[90m Default value: error.log \u001b[0m",
               "type": "string",
               "aliases": [
                 "ef"
               ],
               "required": false,
               "group": "Options"
+            },
+            {
+              "name": "show-inputs-only",
+              "group": "Global options",
+              "description": "Show command inputs and do not run the command",
+              "type": "boolean",
+              "aliases": []
             },
             {
               "name": "response-format-json",
@@ -701,13 +715,20 @@
             },
             {
               "name": "error-file",
-              "description": "Specifies the local output error file in YAML format that contains errors that occurred during execution of the command.\n \n\u001b[90m Default value: error.log \u001b[0m",
+              "description": "Specifies the local output error file in YAML format that contains basic execution information, connection details, dbm-db2 profile parameters, used arguments, and errors that occurred during execution of the command.\n \n\u001b[90m Default value: error.log \u001b[0m",
               "type": "string",
               "aliases": [
                 "ef"
               ],
               "required": false,
               "group": "Options"
+            },
+            {
+              "name": "show-inputs-only",
+              "group": "Global options",
+              "description": "Show command inputs and do not run the command",
+              "type": "boolean",
+              "aliases": []
             },
             {
               "name": "response-format-json",
@@ -960,13 +981,20 @@
             },
             {
               "name": "error-file",
-              "description": "Specifies the local output error file in YAML format that contains errors that occurred during execution of the command.\n \n\u001b[90m Default value: error.log \u001b[0m",
+              "description": "Specifies the local output error file in YAML format that contains basic execution information, connection details, dbm-db2 profile parameters, used arguments, and errors that occurred during execution of the command.\n \n\u001b[90m Default value: error.log \u001b[0m",
               "type": "string",
               "aliases": [
                 "ef"
               ],
               "required": false,
               "group": "Options"
+            },
+            {
+              "name": "show-inputs-only",
+              "group": "Global options",
+              "description": "Show command inputs and do not run the command",
+              "type": "boolean",
+              "aliases": []
             },
             {
               "name": "response-format-json",
@@ -1186,13 +1214,20 @@
             },
             {
               "name": "error-file",
-              "description": "Specifies the local output error file in YAML format that contains errors that occurred during execution of the command.\n      \n\u001b[90m Default value: error.log \u001b[0m",
+              "description": "Specifies the local output error file in YAML format that contains basic execution information, connection details, dbm-db2 profile parameters, used arguments, and errors that occurred during execution of the command.\n      \n\u001b[90m Default value: error.log \u001b[0m",
               "type": "string",
               "aliases": [
                 "ef"
               ],
               "required": false,
               "group": "Options"
+            },
+            {
+              "name": "show-inputs-only",
+              "group": "Global options",
+              "description": "Show command inputs and do not run the command",
+              "type": "boolean",
+              "aliases": []
             },
             {
               "name": "response-format-json",
@@ -1409,13 +1444,20 @@
             },
             {
               "name": "error-file",
-              "description": "Specifies the local output error file in YAML format that contains errors that occurred during execution of the command.\n \n\u001b[90m Default value: error.log \u001b[0m",
+              "description": "Specifies the local output error file in YAML format that contains basic execution information, connection details, dbm-db2 profile parameters, used arguments, and errors that occurred during execution of the command.\n \n\u001b[90m Default value: error.log \u001b[0m",
               "type": "string",
               "aliases": [
                 "ef"
               ],
               "required": false,
               "group": "Options"
+            },
+            {
+              "name": "show-inputs-only",
+              "group": "Global options",
+              "description": "Show command inputs and do not run the command",
+              "type": "boolean",
+              "aliases": []
             },
             {
               "name": "response-format-json",
@@ -1726,13 +1768,20 @@
             },
             {
               "name": "error-file",
-              "description": "Specifies the local output error file in YAML format that contains errors that occurred during execution of the command.\n       \n\u001b[90m Default value: error.log \u001b[0m",
+              "description": "Specifies the local output error file in YAML format that contains basic execution information, connection details, dbm-db2 profile parameters, used arguments, and errors that occurred during execution of the command.\n       \n\u001b[90m Default value: error.log \u001b[0m",
               "type": "string",
               "aliases": [
                 "ef"
               ],
               "required": false,
               "group": "Options"
+            },
+            {
+              "name": "show-inputs-only",
+              "group": "Global options",
+              "description": "Show command inputs and do not run the command",
+              "type": "boolean",
+              "aliases": []
             },
             {
               "name": "response-format-json",
@@ -2043,13 +2092,20 @@
             },
             {
               "name": "error-file",
-              "description": "Specifies the local output error file in YAML format that contains errors that occurred during execution of the command.\n      \n\u001b[90m Default value: error.log \u001b[0m",
+              "description": "Specifies the local output error file in YAML format that contains basic execution information, connection details, dbm-db2 profile parameters, used arguments, and errors that occurred during execution of the command.\n      \n\u001b[90m Default value: error.log \u001b[0m",
               "type": "string",
               "aliases": [
                 "ef"
               ],
               "required": false,
               "group": "Options"
+            },
+            {
+              "name": "show-inputs-only",
+              "group": "Global options",
+              "description": "Show command inputs and do not run the command",
+              "type": "boolean",
+              "aliases": []
             },
             {
               "name": "response-format-json",

@@ -31,7 +31,7 @@
       "required": false,
       "type": "array",
       "defaultValue": [
-        "//DB2DVOPS CLASS=A,",
+        "//DB2DVOPS JOB CLASS=A,",
         "//         MSGCLASS=X"
       ],
       "group": "dbm-db2 Common Options"
@@ -194,6 +194,13 @@
       "description": "Disable populating profile values of undefined properties with default values.",
       "type": "boolean",
       "group": "Options"
+    },
+    {
+      "name": "show-inputs-only",
+      "group": "Global options",
+      "description": "Show command inputs and do not run the command",
+      "type": "boolean",
+      "aliases": []
     },
     {
       "name": "response-format-json",

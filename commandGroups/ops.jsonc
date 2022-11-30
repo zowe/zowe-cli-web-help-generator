@@ -127,6 +127,13 @@
               "group": "OPS WEB SERVICES CONNECTION OPTIONS"
             },
             {
+              "name": "show-inputs-only",
+              "group": "Global options",
+              "description": "Show command inputs and do not run the command",
+              "type": "boolean",
+              "aliases": []
+            },
+            {
               "name": "response-format-json",
               "aliases": [
                 "rfj"
@@ -458,6 +465,13 @@
                 "subs"
               ],
               "group": "OPS WEB SERVICES CONNECTION OPTIONS"
+            },
+            {
+              "name": "show-inputs-only",
+              "group": "Global options",
+              "description": "Show command inputs and do not run the command",
+              "type": "boolean",
+              "aliases": []
             },
             {
               "name": "response-format-json",
@@ -797,6 +811,13 @@
               "group": "OPS WEB SERVICES CONNECTION OPTIONS"
             },
             {
+              "name": "show-inputs-only",
+              "group": "Global options",
+              "description": "Show command inputs and do not run the command",
+              "type": "boolean",
+              "aliases": []
+            },
+            {
               "name": "response-format-json",
               "aliases": [
                 "rfj"
@@ -998,6 +1019,13 @@
                 "subs"
               ],
               "group": "OPS WEB SERVICES CONNECTION OPTIONS"
+            },
+            {
+              "name": "show-inputs-only",
+              "group": "Global options",
+              "description": "Show command inputs and do not run the command",
+              "type": "boolean",
+              "aliases": []
             },
             {
               "name": "response-format-json",
@@ -1355,6 +1383,13 @@
               "group": "OPS WEB SERVICES CONNECTION OPTIONS"
             },
             {
+              "name": "show-inputs-only",
+              "group": "Global options",
+              "description": "Show command inputs and do not run the command",
+              "type": "boolean",
+              "aliases": []
+            },
+            {
               "name": "response-format-json",
               "aliases": [
                 "rfj"
@@ -1708,6 +1743,13 @@
                 "subs"
               ],
               "group": "OPS WEB SERVICES CONNECTION OPTIONS"
+            },
+            {
+              "name": "show-inputs-only",
+              "group": "Global options",
+              "description": "Show command inputs and do not run the command",
+              "type": "boolean",
+              "aliases": []
             },
             {
               "name": "response-format-json",
