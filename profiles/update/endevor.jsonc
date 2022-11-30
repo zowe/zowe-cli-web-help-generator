@@ -126,6 +126,13 @@
       "group": "Options"
     },
     {
+      "name": "show-inputs-only",
+      "group": "Global options",
+      "description": "Show command inputs and do not run the command",
+      "type": "boolean",
+      "aliases": []
+    },
+    {
       "name": "response-format-json",
       "aliases": [
         "rfj"

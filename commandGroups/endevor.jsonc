@@ -419,6 +419,13 @@
               "aliases": []
             },
             {
+              "name": "show-inputs-only",
+              "group": "Global options",
+              "description": "Show command inputs and do not run the command",
+              "type": "boolean",
+              "aliases": []
+            },
+            {
               "name": "response-format-json",
               "aliases": [
                 "rfj"
@@ -880,6 +887,13 @@
               "aliases": []
             },
             {
+              "name": "show-inputs-only",
+              "group": "Global options",
+              "description": "Show command inputs and do not run the command",
+              "type": "boolean",
+              "aliases": []
+            },
+            {
               "name": "response-format-json",
               "aliases": [
                 "rfj"
@@ -1324,6 +1338,13 @@
               "description": "Write the endevor reports to a file. By default, when return code is 0, no report will be written, unless this option is specified. When return code is bigger than 0, reports will be written to a file, unless this option is specifed to be false",
               "type": "boolean",
               "group": "output customization options",
+              "aliases": []
+            },
+            {
+              "name": "show-inputs-only",
+              "group": "Global options",
+              "description": "Show command inputs and do not run the command",
+              "type": "boolean",
               "aliases": []
             },
             {
@@ -1772,6 +1793,13 @@
               "description": "Write the endevor reports to a file. By default, when return code is 0, no report will be written, unless this option is specified. When return code is bigger than 0, reports will be written to a file, unless this option is specifed to be false",
               "type": "boolean",
               "group": "output customization options",
+              "aliases": []
+            },
+            {
+              "name": "show-inputs-only",
+              "group": "Global options",
+              "description": "Show command inputs and do not run the command",
+              "type": "boolean",
               "aliases": []
             },
             {
@@ -2248,6 +2276,13 @@
               "aliases": []
             },
             {
+              "name": "show-inputs-only",
+              "group": "Global options",
+              "description": "Show command inputs and do not run the command",
+              "type": "boolean",
+              "aliases": []
+            },
+            {
               "name": "response-format-json",
               "aliases": [
                 "rfj"
@@ -2696,6 +2731,13 @@
               "aliases": []
             },
             {
+              "name": "show-inputs-only",
+              "group": "Global options",
+              "description": "Show command inputs and do not run the command",
+              "type": "boolean",
+              "aliases": []
+            },
+            {
               "name": "response-format-json",
               "aliases": [
                 "rfj"
@@ -3003,6 +3045,13 @@
             ]
           },
           "options": [
+            {
+              "name": "show-inputs-only",
+              "group": "Global options",
+              "description": "Show command inputs and do not run the command",
+              "type": "boolean",
+              "aliases": []
+            },
             {
               "name": "response-format-json",
               "aliases": [
@@ -3543,6 +3592,13 @@
               "description": "Write the endevor reports to a file. By default, when return code is 0, no report will be written, unless this option is specified. When return code is bigger than 0, reports will be written to a file, unless this option is specifed to be false",
               "type": "boolean",
               "group": "output customization options",
+              "aliases": []
+            },
+            {
+              "name": "show-inputs-only",
+              "group": "Global options",
+              "description": "Show command inputs and do not run the command",
+              "type": "boolean",
               "aliases": []
             },
             {
@@ -4153,6 +4209,13 @@
               "aliases": []
             },
             {
+              "name": "show-inputs-only",
+              "group": "Global options",
+              "description": "Show command inputs and do not run the command",
+              "type": "boolean",
+              "aliases": []
+            },
+            {
               "name": "response-format-json",
               "aliases": [
                 "rfj"
@@ -4433,6 +4496,13 @@
               "description": "Write the endevor reports to a file. By default, when return code is 0, no report will be written, unless this option is specified. When return code is bigger than 0, reports will be written to a file, unless this option is specifed to be false",
               "type": "boolean",
               "group": "output customization options",
+              "aliases": []
+            },
+            {
+              "name": "show-inputs-only",
+              "group": "Global options",
+              "description": "Show command inputs and do not run the command",
+              "type": "boolean",
               "aliases": []
             },
             {
@@ -4890,6 +4960,13 @@
               "description": "Write the endevor reports to a file. By default, when return code is 0, no report will be written, unless this option is specified. When return code is bigger than 0, reports will be written to a file, unless this option is specifed to be false",
               "type": "boolean",
               "group": "output customization options",
+              "aliases": []
+            },
+            {
+              "name": "show-inputs-only",
+              "group": "Global options",
+              "description": "Show command inputs and do not run the command",
+              "type": "boolean",
               "aliases": []
             },
             {
@@ -5361,6 +5438,13 @@
               "description": "Write the endevor reports to a file. By default, when return code is 0, no report will be written, unless this option is specified. When return code is bigger than 0, reports will be written to a file, unless this option is specifed to be false",
               "type": "boolean",
               "group": "output customization options",
+              "aliases": []
+            },
+            {
+              "name": "show-inputs-only",
+              "group": "Global options",
+              "description": "Show command inputs and do not run the command",
+              "type": "boolean",
               "aliases": []
             },
             {
@@ -5995,6 +6079,13 @@
               "aliases": []
             },
             {
+              "name": "show-inputs-only",
+              "group": "Global options",
+              "description": "Show command inputs and do not run the command",
+              "type": "boolean",
+              "aliases": []
+            },
+            {
               "name": "response-format-json",
               "aliases": [
                 "rfj"
@@ -6306,6 +6397,13 @@
           ],
           "options": [
             {
+              "name": "show-inputs-only",
+              "group": "Global options",
+              "description": "Show command inputs and do not run the command",
+              "type": "boolean",
+              "aliases": []
+            },
+            {
               "name": "response-format-json",
               "aliases": [
                 "rfj"
@@ -6587,6 +6685,13 @@
               "description": "Specify this option if you want a full output of list action.",
               "type": "boolean",
               "group": "output customization options"
+            },
+            {
+              "name": "show-inputs-only",
+              "group": "Global options",
+              "description": "Show command inputs and do not run the command",
+              "type": "boolean",
+              "aliases": []
             },
             {
               "name": "response-format-json",
@@ -6940,6 +7045,13 @@
               "group": "output customization options"
             },
             {
+              "name": "show-inputs-only",
+              "group": "Global options",
+              "description": "Show command inputs and do not run the command",
+              "type": "boolean",
+              "aliases": []
+            },
+            {
               "name": "response-format-json",
               "aliases": [
                 "rfj"
@@ -7291,6 +7403,13 @@
               "description": "Specify this option if you want a full output of list action.",
               "type": "boolean",
               "group": "output customization options"
+            },
+            {
+              "name": "show-inputs-only",
+              "group": "Global options",
+              "description": "Show command inputs and do not run the command",
+              "type": "boolean",
+              "aliases": []
             },
             {
               "name": "response-format-json",
@@ -7662,6 +7781,13 @@
               "description": "Specify this option if you want a full output of list action.",
               "type": "boolean",
               "group": "output customization options"
+            },
+            {
+              "name": "show-inputs-only",
+              "group": "Global options",
+              "description": "Show command inputs and do not run the command",
+              "type": "boolean",
+              "aliases": []
             },
             {
               "name": "response-format-json",
@@ -8048,6 +8174,13 @@
               "group": "output customization options"
             },
             {
+              "name": "show-inputs-only",
+              "group": "Global options",
+              "description": "Show command inputs and do not run the command",
+              "type": "boolean",
+              "aliases": []
+            },
+            {
               "name": "response-format-json",
               "aliases": [
                 "rfj"
@@ -8429,6 +8562,13 @@
               "description": "Specify this option if you want a full output of list action.",
               "type": "boolean",
               "group": "output customization options"
+            },
+            {
+              "name": "show-inputs-only",
+              "group": "Global options",
+              "description": "Show command inputs and do not run the command",
+              "type": "boolean",
+              "aliases": []
             },
             {
               "name": "response-format-json",
@@ -8832,6 +8972,13 @@
               "group": "output customization options"
             },
             {
+              "name": "show-inputs-only",
+              "group": "Global options",
+              "description": "Show command inputs and do not run the command",
+              "type": "boolean",
+              "aliases": []
+            },
+            {
               "name": "response-format-json",
               "aliases": [
                 "rfj"
@@ -9124,9 +9271,8 @@
               "aliases": [
                 "dat"
               ],
-              "description": "Allows to select the type of summary data returned in the element list (defaults to all).",
+              "description": "Allows to select the type of summary data returned in the element list:\nALL - Full element information\nBAS - Basic element information\nELE - Element change level summary\nCOMP - Component change level summary\n\nWhen data=ALL --fo (full-output) always takes place unless there is a --rff (response-format-filter). \nIn all other cases default set of columns will be shown.",
               "type": "string",
-              "defaultValue": "all",
               "allowableValues": {
                 "values": [
                   "all",
@@ -9422,6 +9568,13 @@
               "description": "Specify this option if you want a full output of list action.",
               "type": "boolean",
               "group": "output customization options"
+            },
+            {
+              "name": "show-inputs-only",
+              "group": "Global options",
+              "description": "Show command inputs and do not run the command",
+              "type": "boolean",
+              "aliases": []
             },
             {
               "name": "response-format-json",
@@ -10100,6 +10253,13 @@
               "group": "endevor session definition options"
             },
             {
+              "name": "show-inputs-only",
+              "group": "Global options",
+              "description": "Show command inputs and do not run the command",
+              "type": "boolean",
+              "aliases": []
+            },
+            {
               "name": "response-format-json",
               "aliases": [
                 "rfj"
@@ -10704,6 +10864,13 @@
               "description": "Write the endevor reports to a file. By default, when return code is 0, no report will be written, unless this option is specified. When return code is bigger than 0, reports will be written to a file, unless this option is specifed to be false",
               "type": "boolean",
               "group": "output customization options",
+              "aliases": []
+            },
+            {
+              "name": "show-inputs-only",
+              "group": "Global options",
+              "description": "Show command inputs and do not run the command",
+              "type": "boolean",
               "aliases": []
             },
             {
@@ -11360,6 +11527,13 @@
               "aliases": []
             },
             {
+              "name": "show-inputs-only",
+              "group": "Global options",
+              "description": "Show command inputs and do not run the command",
+              "type": "boolean",
+              "aliases": []
+            },
+            {
               "name": "response-format-json",
               "aliases": [
                 "rfj"
@@ -11812,6 +11986,13 @@
               "description": "Write the endevor reports to a file. By default, when return code is 0, no report will be written, unless this option is specified. When return code is bigger than 0, reports will be written to a file, unless this option is specifed to be false",
               "type": "boolean",
               "group": "output customization options",
+              "aliases": []
+            },
+            {
+              "name": "show-inputs-only",
+              "group": "Global options",
+              "description": "Show command inputs and do not run the command",
+              "type": "boolean",
               "aliases": []
             },
             {
@@ -12349,6 +12530,13 @@
               "aliases": []
             },
             {
+              "name": "show-inputs-only",
+              "group": "Global options",
+              "description": "Show command inputs and do not run the command",
+              "type": "boolean",
+              "aliases": []
+            },
+            {
               "name": "response-format-json",
               "aliases": [
                 "rfj"
@@ -12814,6 +13002,13 @@
               "description": "Write the endevor reports to a file. By default, when return code is 0, no report will be written, unless this option is specified. When return code is bigger than 0, reports will be written to a file, unless this option is specifed to be false",
               "type": "boolean",
               "group": "output customization options",
+              "aliases": []
+            },
+            {
+              "name": "show-inputs-only",
+              "group": "Global options",
+              "description": "Show command inputs and do not run the command",
+              "type": "boolean",
               "aliases": []
             },
             {
@@ -13684,6 +13879,13 @@
               "aliases": []
             },
             {
+              "name": "show-inputs-only",
+              "group": "Global options",
+              "description": "Show command inputs and do not run the command",
+              "type": "boolean",
+              "aliases": []
+            },
+            {
               "name": "response-format-json",
               "aliases": [
                 "rfj"
@@ -14340,6 +14542,13 @@
               "aliases": []
             },
             {
+              "name": "show-inputs-only",
+              "group": "Global options",
+              "description": "Show command inputs and do not run the command",
+              "type": "boolean",
+              "aliases": []
+            },
+            {
               "name": "response-format-json",
               "aliases": [
                 "rfj"
@@ -14907,6 +15116,13 @@
               "aliases": []
             },
             {
+              "name": "show-inputs-only",
+              "group": "Global options",
+              "description": "Show command inputs and do not run the command",
+              "type": "boolean",
+              "aliases": []
+            },
+            {
               "name": "response-format-json",
               "aliases": [
                 "rfj"
@@ -15189,6 +15405,13 @@
               "description": "Write the endevor reports to a file. By default, when return code is 0, no report will be written, unless this option is specified. When return code is bigger than 0, reports will be written to a file, unless this option is specifed to be false",
               "type": "boolean",
               "group": "output customization options",
+              "aliases": []
+            },
+            {
+              "name": "show-inputs-only",
+              "group": "Global options",
+              "description": "Show command inputs and do not run the command",
+              "type": "boolean",
               "aliases": []
             },
             {
@@ -15770,6 +15993,13 @@
               "description": "Specifies the base path used for connecting to Endevor Rest API",
               "type": "string",
               "group": "endevor session definition options"
+            },
+            {
+              "name": "show-inputs-only",
+              "group": "Global options",
+              "description": "Show command inputs and do not run the command",
+              "type": "boolean",
+              "aliases": []
             },
             {
               "name": "response-format-json",
@@ -16529,6 +16759,13 @@
               "aliases": []
             },
             {
+              "name": "show-inputs-only",
+              "group": "Global options",
+              "description": "Show command inputs and do not run the command",
+              "type": "boolean",
+              "aliases": []
+            },
+            {
               "name": "response-format-json",
               "aliases": [
                 "rfj"
@@ -17019,6 +17256,13 @@
               "description": "Specifies the base path used for connecting to Endevor Rest API",
               "type": "string",
               "group": "endevor session definition options"
+            },
+            {
+              "name": "show-inputs-only",
+              "group": "Global options",
+              "description": "Show command inputs and do not run the command",
+              "type": "boolean",
+              "aliases": []
             },
             {
               "name": "response-format-json",
@@ -17616,6 +17860,13 @@
               "aliases": []
             },
             {
+              "name": "show-inputs-only",
+              "group": "Global options",
+              "description": "Show command inputs and do not run the command",
+              "type": "boolean",
+              "aliases": []
+            },
+            {
               "name": "response-format-json",
               "aliases": [
                 "rfj"
@@ -18105,6 +18356,13 @@
               "description": "Write the endevor reports to a file. By default, when return code is 0, no report will be written, unless this option is specified. When return code is bigger than 0, reports will be written to a file, unless this option is specifed to be false",
               "type": "boolean",
               "group": "output customization options",
+              "aliases": []
+            },
+            {
+              "name": "show-inputs-only",
+              "group": "Global options",
+              "description": "Show command inputs and do not run the command",
+              "type": "boolean",
               "aliases": []
             },
             {
@@ -18730,6 +18988,13 @@
               "aliases": []
             },
             {
+              "name": "show-inputs-only",
+              "group": "Global options",
+              "description": "Show command inputs and do not run the command",
+              "type": "boolean",
+              "aliases": []
+            },
+            {
               "name": "response-format-json",
               "aliases": [
                 "rfj"
@@ -18987,6 +19252,13 @@
               "description": "Write the endevor reports to a file. By default, when return code is 0, no report will be written, unless this option is specified. When return code is bigger than 0, reports will be written to a file, unless this option is specifed to be false",
               "type": "boolean",
               "group": "output customization options",
+              "aliases": []
+            },
+            {
+              "name": "show-inputs-only",
+              "group": "Global options",
+              "description": "Show command inputs and do not run the command",
+              "type": "boolean",
               "aliases": []
             },
             {

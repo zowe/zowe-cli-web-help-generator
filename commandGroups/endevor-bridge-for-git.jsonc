@@ -306,6 +306,13 @@
               "group": "Endevor Bridge for Git connection options (alternatively use an 'ebg' profile)"
             },
             {
+              "name": "show-inputs-only",
+              "group": "Global options",
+              "description": "Show command inputs and do not run the command",
+              "type": "boolean",
+              "aliases": []
+            },
+            {
               "name": "response-format-json",
               "aliases": [
                 "rfj"
@@ -532,6 +539,13 @@
               "group": "Endevor Bridge for Git connection options (alternatively use an 'ebg' profile)"
             },
             {
+              "name": "show-inputs-only",
+              "group": "Global options",
+              "description": "Show command inputs and do not run the command",
+              "type": "boolean",
+              "aliases": []
+            },
+            {
               "name": "response-format-json",
               "aliases": [
                 "rfj"
@@ -730,6 +744,13 @@
               "description": "Reject self-signed certificates. \n\nDefault value: false",
               "type": "boolean",
               "group": "Endevor Bridge for Git connection options (alternatively use an 'ebg' profile)"
+            },
+            {
+              "name": "show-inputs-only",
+              "group": "Global options",
+              "description": "Show command inputs and do not run the command",
+              "type": "boolean",
+              "aliases": []
             },
             {
               "name": "response-format-json",
@@ -1161,6 +1182,13 @@
               "type": "string",
               "required": false,
               "group": "Endevor options (alternatively use an 'endevor' profile)"
+            },
+            {
+              "name": "show-inputs-only",
+              "group": "Global options",
+              "description": "Show command inputs and do not run the command",
+              "type": "boolean",
+              "aliases": []
             },
             {
               "name": "response-format-json",
@@ -1627,6 +1655,13 @@
               "group": "z/OSMF connection options (alternatively use a 'zosmf' profile)"
             },
             {
+              "name": "show-inputs-only",
+              "group": "Global options",
+              "description": "Show command inputs and do not run the command",
+              "type": "boolean",
+              "aliases": []
+            },
+            {
               "name": "response-format-json",
               "aliases": [
                 "rfj"
@@ -2010,6 +2045,13 @@
               "type": "string",
               "required": false,
               "group": "z/OSMF connection options (alternatively use a 'zosmf' profile)"
+            },
+            {
+              "name": "show-inputs-only",
+              "group": "Global options",
+              "description": "Show command inputs and do not run the command",
+              "type": "boolean",
+              "aliases": []
             },
             {
               "name": "response-format-json",
@@ -2491,6 +2533,13 @@
               "group": "Endevor Bridge for Git connection options (alternatively use an 'ebg' profile)"
             },
             {
+              "name": "show-inputs-only",
+              "group": "Global options",
+              "description": "Show command inputs and do not run the command",
+              "type": "boolean",
+              "aliases": []
+            },
+            {
               "name": "response-format-json",
               "aliases": [
                 "rfj"
@@ -2818,6 +2867,13 @@
               "group": "Endevor Bridge for Git connection options (alternatively use an 'ebg' profile)"
             },
             {
+              "name": "show-inputs-only",
+              "group": "Global options",
+              "description": "Show command inputs and do not run the command",
+              "type": "boolean",
+              "aliases": []
+            },
+            {
               "name": "response-format-json",
               "aliases": [
                 "rfj"
@@ -3036,6 +3092,13 @@
               "group": "Endevor Bridge for Git connection options (alternatively use an 'ebg' profile)"
             },
             {
+              "name": "show-inputs-only",
+              "group": "Global options",
+              "description": "Show command inputs and do not run the command",
+              "type": "boolean",
+              "aliases": []
+            },
+            {
               "name": "response-format-json",
               "aliases": [
                 "rfj"
@@ -3233,6 +3296,13 @@
               "description": "Reject self-signed certificates. \n\nDefault value: false",
               "type": "boolean",
               "group": "Endevor Bridge for Git connection options (alternatively use an 'ebg' profile)"
+            },
+            {
+              "name": "show-inputs-only",
+              "group": "Global options",
+              "description": "Show command inputs and do not run the command",
+              "type": "boolean",
+              "aliases": []
             },
             {
               "name": "response-format-json",
@@ -3453,6 +3523,13 @@
               "description": "Reject self-signed certificates. \n\nDefault value: false",
               "type": "boolean",
               "group": "Endevor Bridge for Git connection options (alternatively use an 'ebg' profile)"
+            },
+            {
+              "name": "show-inputs-only",
+              "group": "Global options",
+              "description": "Show command inputs and do not run the command",
+              "type": "boolean",
+              "aliases": []
             },
             {
               "name": "response-format-json",
@@ -3813,6 +3890,13 @@
               "group": "Endevor Bridge for Git connection options (alternatively use an 'ebg' profile)"
             },
             {
+              "name": "show-inputs-only",
+              "group": "Global options",
+              "description": "Show command inputs and do not run the command",
+              "type": "boolean",
+              "aliases": []
+            },
+            {
               "name": "response-format-json",
               "aliases": [
                 "rfj"
@@ -3926,6 +4010,722 @@
               "options": "MY-CONTEXT MY-MAPPING --endevor-user my-user --endevor-password my-password"
             }
           ],
+          "passOn": [],
+          "children": []
+        }
+      ],
+      "passOn": [
+        {
+          "property": "options",
+          "value": [
+            {
+              "name": "protocol",
+              "aliases": [
+                "prot"
+              ],
+              "description": "The Endevor Bridge for Git SCM protocol. \n\nDefault value: https",
+              "type": "string",
+              "required": true,
+              "group": "Endevor Bridge for Git connection options (alternatively use an 'ebg' profile)",
+              "defaultValue": "https",
+              "allowableValues": {
+                "values": [
+                  "http",
+                  "https"
+                ],
+                "caseSensitive": false
+              }
+            },
+            {
+              "name": "host",
+              "aliases": [
+                "H"
+              ],
+              "description": "The Endevor Bridge for Git hostname.",
+              "type": "string",
+              "required": true,
+              "group": "Endevor Bridge for Git connection options (alternatively use an 'ebg' profile)"
+            },
+            {
+              "name": "port",
+              "aliases": [
+                "P"
+              ],
+              "description": "The Endevor Bridge for Git port.",
+              "type": "number",
+              "required": true,
+              "group": "Endevor Bridge for Git connection options (alternatively use an 'ebg' profile)"
+            },
+            {
+              "name": "user",
+              "aliases": [
+                "u"
+              ],
+              "description": "Endevor Bridge for Git username (your git username).",
+              "type": "string",
+              "required": true,
+              "group": "Endevor Bridge for Git connection options (alternatively use an 'ebg' profile)"
+            },
+            {
+              "name": "token",
+              "aliases": [
+                "t"
+              ],
+              "description": "Git personal access token (it can be obtained from your Git Enterprise Server).",
+              "type": "string",
+              "required": true,
+              "group": "Endevor Bridge for Git connection options (alternatively use an 'ebg' profile)"
+            },
+            {
+              "name": "reject-unauthorized",
+              "aliases": [
+                "ru"
+              ],
+              "description": "Reject self-signed certificates. \n\nDefault value: false",
+              "type": "boolean",
+              "group": "Endevor Bridge for Git connection options (alternatively use an 'ebg' profile)"
+            }
+          ],
+          "merge": true
+        }
+      ],
+      "options": [
+        {
+          "name": "response-format-json",
+          "aliases": [
+            "rfj"
+          ],
+          "group": "Global options",
+          "description": "Produce JSON formatted data from a command",
+          "type": "boolean"
+        },
+        {
+          "name": "help",
+          "aliases": [
+            "h"
+          ],
+          "group": "Global options",
+          "description": "Display help text",
+          "type": "boolean"
+        },
+        {
+          "name": "help-examples",
+          "group": "Global options",
+          "description": "Display examples for all the commands in a group",
+          "type": "boolean",
+          "aliases": []
+        },
+        {
+          "name": "help-web",
+          "aliases": [
+            "hw"
+          ],
+          "group": "Global options",
+          "description": "Display HTML help in browser",
+          "type": "boolean"
+        }
+      ],
+      "positionals": []
+    },
+    {
+      "name": "local-hook-token",
+      "aliases": [
+        "token"
+      ],
+      "summary": "Manage your stored local hook token",
+      "description": "Manage the token you use for secure communication with BridgeForGit when using the local hook validation.",
+      "type": "group",
+      "children": [
+        {
+          "name": "generate",
+          "aliases": [
+            "g"
+          ],
+          "type": "command",
+          "handler": "",
+          "description": "Generate a new local hook token for Endevor Bridge for Git.",
+          "summary": "Generate a new token",
+          "profile": {
+            "optional": [
+              "ebg",
+              "base"
+            ]
+          },
+          "options": [
+            {
+              "name": "overwrite",
+              "description": "If specified, your previous token will be overwritten.",
+              "type": "boolean",
+              "defaultValue": false,
+              "group": "Options",
+              "aliases": []
+            },
+            {
+              "name": "protocol",
+              "aliases": [
+                "prot"
+              ],
+              "description": "The Endevor Bridge for Git SCM protocol. \n\nDefault value: https",
+              "type": "string",
+              "required": true,
+              "group": "Endevor Bridge for Git connection options (alternatively use an 'ebg' profile)",
+              "defaultValue": "https",
+              "allowableValues": {
+                "values": [
+                  "http",
+                  "https"
+                ],
+                "caseSensitive": false
+              }
+            },
+            {
+              "name": "host",
+              "aliases": [
+                "H"
+              ],
+              "description": "The Endevor Bridge for Git hostname.",
+              "type": "string",
+              "required": true,
+              "group": "Endevor Bridge for Git connection options (alternatively use an 'ebg' profile)"
+            },
+            {
+              "name": "port",
+              "aliases": [
+                "P"
+              ],
+              "description": "The Endevor Bridge for Git port.",
+              "type": "number",
+              "required": true,
+              "group": "Endevor Bridge for Git connection options (alternatively use an 'ebg' profile)"
+            },
+            {
+              "name": "user",
+              "aliases": [
+                "u"
+              ],
+              "description": "Endevor Bridge for Git username (your git username).",
+              "type": "string",
+              "required": true,
+              "group": "Endevor Bridge for Git connection options (alternatively use an 'ebg' profile)"
+            },
+            {
+              "name": "token",
+              "aliases": [
+                "t"
+              ],
+              "description": "Git personal access token (it can be obtained from your Git Enterprise Server).",
+              "type": "string",
+              "required": true,
+              "group": "Endevor Bridge for Git connection options (alternatively use an 'ebg' profile)"
+            },
+            {
+              "name": "reject-unauthorized",
+              "aliases": [
+                "ru"
+              ],
+              "description": "Reject self-signed certificates. \n\nDefault value: false",
+              "type": "boolean",
+              "group": "Endevor Bridge for Git connection options (alternatively use an 'ebg' profile)"
+            },
+            {
+              "name": "show-inputs-only",
+              "group": "Global options",
+              "description": "Show command inputs and do not run the command",
+              "type": "boolean",
+              "aliases": []
+            },
+            {
+              "name": "response-format-json",
+              "aliases": [
+                "rfj"
+              ],
+              "group": "Global options",
+              "description": "Produce JSON formatted data from a command",
+              "type": "boolean"
+            },
+            {
+              "name": "help",
+              "aliases": [
+                "h"
+              ],
+              "group": "Global options",
+              "description": "Display help text",
+              "type": "boolean"
+            },
+            {
+              "name": "help-examples",
+              "group": "Global options",
+              "description": "Display examples for all the commands in a group",
+              "type": "boolean",
+              "aliases": []
+            },
+            {
+              "name": "help-web",
+              "aliases": [
+                "hw"
+              ],
+              "group": "Global options",
+              "description": "Display HTML help in browser",
+              "type": "boolean"
+            },
+            {
+              "name": "ebg-profile",
+              "aliases": [
+                "ebg-p"
+              ],
+              "group": "Profile Options",
+              "description": "The name of a (ebg) profile to load for this command execution.",
+              "type": "string"
+            },
+            {
+              "name": "base-profile",
+              "aliases": [
+                "base-p"
+              ],
+              "group": "Profile Options",
+              "description": "The name of a (base) profile to load for this command execution.",
+              "type": "string"
+            },
+            {
+              "name": "password",
+              "aliases": [
+                "pass",
+                "pw"
+              ],
+              "description": "Password to authenticate to service on the mainframe.",
+              "type": "string",
+              "group": "Base Connection Options"
+            },
+            {
+              "name": "token-type",
+              "aliases": [
+                "tt"
+              ],
+              "description": "The type of token to get and use for the API. Omit this option to use the default token type, which is provided by 'zowe auth login'.",
+              "type": "string",
+              "group": "Base Connection Options"
+            },
+            {
+              "name": "token-value",
+              "aliases": [
+                "tv"
+              ],
+              "description": "The value of the token to pass to the API.",
+              "type": "string",
+              "group": "Base Connection Options"
+            },
+            {
+              "name": "cert-file",
+              "description": "The file path to a certificate file to use for authentication",
+              "type": "existingLocalFile",
+              "group": "Base Connection Options",
+              "aliases": []
+            },
+            {
+              "name": "cert-key-file",
+              "description": "The file path to a certificate key file to use for authentication",
+              "type": "existingLocalFile",
+              "group": "Base Connection Options",
+              "aliases": []
+            }
+          ],
+          "examples": [
+            {
+              "description": "Generate a token using the default EBG profile",
+              "options": ""
+            }
+          ],
+          "positionals": [],
+          "passOn": [],
+          "children": []
+        },
+        {
+          "name": "revoke",
+          "aliases": [
+            "r"
+          ],
+          "type": "command",
+          "handler": "",
+          "description": "Revoke your local hook token.",
+          "summary": "Revoke your local hook token.",
+          "profile": {
+            "optional": [
+              "ebg",
+              "base"
+            ]
+          },
+          "examples": [
+            {
+              "description": "Revoke your token using the default EBG profile",
+              "options": ""
+            }
+          ],
+          "options": [
+            {
+              "name": "protocol",
+              "aliases": [
+                "prot"
+              ],
+              "description": "The Endevor Bridge for Git SCM protocol. \n\nDefault value: https",
+              "type": "string",
+              "required": true,
+              "group": "Endevor Bridge for Git connection options (alternatively use an 'ebg' profile)",
+              "defaultValue": "https",
+              "allowableValues": {
+                "values": [
+                  "http",
+                  "https"
+                ],
+                "caseSensitive": false
+              }
+            },
+            {
+              "name": "host",
+              "aliases": [
+                "H"
+              ],
+              "description": "The Endevor Bridge for Git hostname.",
+              "type": "string",
+              "required": true,
+              "group": "Endevor Bridge for Git connection options (alternatively use an 'ebg' profile)"
+            },
+            {
+              "name": "port",
+              "aliases": [
+                "P"
+              ],
+              "description": "The Endevor Bridge for Git port.",
+              "type": "number",
+              "required": true,
+              "group": "Endevor Bridge for Git connection options (alternatively use an 'ebg' profile)"
+            },
+            {
+              "name": "user",
+              "aliases": [
+                "u"
+              ],
+              "description": "Endevor Bridge for Git username (your git username).",
+              "type": "string",
+              "required": true,
+              "group": "Endevor Bridge for Git connection options (alternatively use an 'ebg' profile)"
+            },
+            {
+              "name": "token",
+              "aliases": [
+                "t"
+              ],
+              "description": "Git personal access token (it can be obtained from your Git Enterprise Server).",
+              "type": "string",
+              "required": true,
+              "group": "Endevor Bridge for Git connection options (alternatively use an 'ebg' profile)"
+            },
+            {
+              "name": "reject-unauthorized",
+              "aliases": [
+                "ru"
+              ],
+              "description": "Reject self-signed certificates. \n\nDefault value: false",
+              "type": "boolean",
+              "group": "Endevor Bridge for Git connection options (alternatively use an 'ebg' profile)"
+            },
+            {
+              "name": "show-inputs-only",
+              "group": "Global options",
+              "description": "Show command inputs and do not run the command",
+              "type": "boolean",
+              "aliases": []
+            },
+            {
+              "name": "response-format-json",
+              "aliases": [
+                "rfj"
+              ],
+              "group": "Global options",
+              "description": "Produce JSON formatted data from a command",
+              "type": "boolean"
+            },
+            {
+              "name": "help",
+              "aliases": [
+                "h"
+              ],
+              "group": "Global options",
+              "description": "Display help text",
+              "type": "boolean"
+            },
+            {
+              "name": "help-examples",
+              "group": "Global options",
+              "description": "Display examples for all the commands in a group",
+              "type": "boolean",
+              "aliases": []
+            },
+            {
+              "name": "help-web",
+              "aliases": [
+                "hw"
+              ],
+              "group": "Global options",
+              "description": "Display HTML help in browser",
+              "type": "boolean"
+            },
+            {
+              "name": "ebg-profile",
+              "aliases": [
+                "ebg-p"
+              ],
+              "group": "Profile Options",
+              "description": "The name of a (ebg) profile to load for this command execution.",
+              "type": "string"
+            },
+            {
+              "name": "base-profile",
+              "aliases": [
+                "base-p"
+              ],
+              "group": "Profile Options",
+              "description": "The name of a (base) profile to load for this command execution.",
+              "type": "string"
+            },
+            {
+              "name": "password",
+              "aliases": [
+                "pass",
+                "pw"
+              ],
+              "description": "Password to authenticate to service on the mainframe.",
+              "type": "string",
+              "group": "Base Connection Options"
+            },
+            {
+              "name": "token-type",
+              "aliases": [
+                "tt"
+              ],
+              "description": "The type of token to get and use for the API. Omit this option to use the default token type, which is provided by 'zowe auth login'.",
+              "type": "string",
+              "group": "Base Connection Options"
+            },
+            {
+              "name": "token-value",
+              "aliases": [
+                "tv"
+              ],
+              "description": "The value of the token to pass to the API.",
+              "type": "string",
+              "group": "Base Connection Options"
+            },
+            {
+              "name": "cert-file",
+              "description": "The file path to a certificate file to use for authentication",
+              "type": "existingLocalFile",
+              "group": "Base Connection Options",
+              "aliases": []
+            },
+            {
+              "name": "cert-key-file",
+              "description": "The file path to a certificate key file to use for authentication",
+              "type": "existingLocalFile",
+              "group": "Base Connection Options",
+              "aliases": []
+            }
+          ],
+          "positionals": [],
+          "passOn": [],
+          "children": []
+        },
+        {
+          "name": "list",
+          "aliases": [
+            "ls"
+          ],
+          "type": "command",
+          "handler": "",
+          "description": "List your local hook token.",
+          "summary": "List your local hook token.",
+          "profile": {
+            "optional": [
+              "ebg",
+              "base"
+            ]
+          },
+          "examples": [
+            {
+              "description": "List your token using the default EBG profile",
+              "options": ""
+            }
+          ],
+          "options": [
+            {
+              "name": "protocol",
+              "aliases": [
+                "prot"
+              ],
+              "description": "The Endevor Bridge for Git SCM protocol. \n\nDefault value: https",
+              "type": "string",
+              "required": true,
+              "group": "Endevor Bridge for Git connection options (alternatively use an 'ebg' profile)",
+              "defaultValue": "https",
+              "allowableValues": {
+                "values": [
+                  "http",
+                  "https"
+                ],
+                "caseSensitive": false
+              }
+            },
+            {
+              "name": "host",
+              "aliases": [
+                "H"
+              ],
+              "description": "The Endevor Bridge for Git hostname.",
+              "type": "string",
+              "required": true,
+              "group": "Endevor Bridge for Git connection options (alternatively use an 'ebg' profile)"
+            },
+            {
+              "name": "port",
+              "aliases": [
+                "P"
+              ],
+              "description": "The Endevor Bridge for Git port.",
+              "type": "number",
+              "required": true,
+              "group": "Endevor Bridge for Git connection options (alternatively use an 'ebg' profile)"
+            },
+            {
+              "name": "user",
+              "aliases": [
+                "u"
+              ],
+              "description": "Endevor Bridge for Git username (your git username).",
+              "type": "string",
+              "required": true,
+              "group": "Endevor Bridge for Git connection options (alternatively use an 'ebg' profile)"
+            },
+            {
+              "name": "token",
+              "aliases": [
+                "t"
+              ],
+              "description": "Git personal access token (it can be obtained from your Git Enterprise Server).",
+              "type": "string",
+              "required": true,
+              "group": "Endevor Bridge for Git connection options (alternatively use an 'ebg' profile)"
+            },
+            {
+              "name": "reject-unauthorized",
+              "aliases": [
+                "ru"
+              ],
+              "description": "Reject self-signed certificates. \n\nDefault value: false",
+              "type": "boolean",
+              "group": "Endevor Bridge for Git connection options (alternatively use an 'ebg' profile)"
+            },
+            {
+              "name": "show-inputs-only",
+              "group": "Global options",
+              "description": "Show command inputs and do not run the command",
+              "type": "boolean",
+              "aliases": []
+            },
+            {
+              "name": "response-format-json",
+              "aliases": [
+                "rfj"
+              ],
+              "group": "Global options",
+              "description": "Produce JSON formatted data from a command",
+              "type": "boolean"
+            },
+            {
+              "name": "help",
+              "aliases": [
+                "h"
+              ],
+              "group": "Global options",
+              "description": "Display help text",
+              "type": "boolean"
+            },
+            {
+              "name": "help-examples",
+              "group": "Global options",
+              "description": "Display examples for all the commands in a group",
+              "type": "boolean",
+              "aliases": []
+            },
+            {
+              "name": "help-web",
+              "aliases": [
+                "hw"
+              ],
+              "group": "Global options",
+              "description": "Display HTML help in browser",
+              "type": "boolean"
+            },
+            {
+              "name": "ebg-profile",
+              "aliases": [
+                "ebg-p"
+              ],
+              "group": "Profile Options",
+              "description": "The name of a (ebg) profile to load for this command execution.",
+              "type": "string"
+            },
+            {
+              "name": "base-profile",
+              "aliases": [
+                "base-p"
+              ],
+              "group": "Profile Options",
+              "description": "The name of a (base) profile to load for this command execution.",
+              "type": "string"
+            },
+            {
+              "name": "password",
+              "aliases": [
+                "pass",
+                "pw"
+              ],
+              "description": "Password to authenticate to service on the mainframe.",
+              "type": "string",
+              "group": "Base Connection Options"
+            },
+            {
+              "name": "token-type",
+              "aliases": [
+                "tt"
+              ],
+              "description": "The type of token to get and use for the API. Omit this option to use the default token type, which is provided by 'zowe auth login'.",
+              "type": "string",
+              "group": "Base Connection Options"
+            },
+            {
+              "name": "token-value",
+              "aliases": [
+                "tv"
+              ],
+              "description": "The value of the token to pass to the API.",
+              "type": "string",
+              "group": "Base Connection Options"
+            },
+            {
+              "name": "cert-file",
+              "description": "The file path to a certificate file to use for authentication",
+              "type": "existingLocalFile",
+              "group": "Base Connection Options",
+              "aliases": []
+            },
+            {
+              "name": "cert-key-file",
+              "description": "The file path to a certificate key file to use for authentication",
+              "type": "existingLocalFile",
+              "group": "Base Connection Options",
+              "aliases": []
+            }
+          ],
+          "positionals": [],
           "passOn": [],
           "children": []
         }
@@ -4382,6 +5182,13 @@
               "group": "Endevor Bridge for Git connection options (alternatively use an 'ebg' profile)"
             },
             {
+              "name": "show-inputs-only",
+              "group": "Global options",
+              "description": "Show command inputs and do not run the command",
+              "type": "boolean",
+              "aliases": []
+            },
+            {
               "name": "response-format-json",
               "aliases": [
                 "rfj"
@@ -4610,6 +5417,13 @@
               "group": "Endevor Bridge for Git connection options (alternatively use an 'ebg' profile)"
             },
             {
+              "name": "show-inputs-only",
+              "group": "Global options",
+              "description": "Show command inputs and do not run the command",
+              "type": "boolean",
+              "aliases": []
+            },
+            {
               "name": "response-format-json",
               "aliases": [
                 "rfj"
@@ -4815,6 +5629,13 @@
               "description": "Reject self-signed certificates. \n\nDefault value: false",
               "type": "boolean",
               "group": "Endevor Bridge for Git connection options (alternatively use an 'ebg' profile)"
+            },
+            {
+              "name": "show-inputs-only",
+              "group": "Global options",
+              "description": "Show command inputs and do not run the command",
+              "type": "boolean",
+              "aliases": []
             },
             {
               "name": "response-format-json",
@@ -5250,6 +6071,13 @@
               "group": "Endevor Bridge for Git connection options (alternatively use an 'ebg' profile)"
             },
             {
+              "name": "show-inputs-only",
+              "group": "Global options",
+              "description": "Show command inputs and do not run the command",
+              "type": "boolean",
+              "aliases": []
+            },
+            {
               "name": "response-format-json",
               "aliases": [
                 "rfj"
@@ -5544,6 +6372,13 @@
               "group": "Options"
             },
             {
+              "name": "show-inputs-only",
+              "group": "Global options",
+              "description": "Show command inputs and do not run the command",
+              "type": "boolean",
+              "aliases": []
+            },
+            {
               "name": "response-format-json",
               "aliases": [
                 "rfj"
@@ -5706,6 +6541,13 @@
               "group": "Options"
             },
             {
+              "name": "show-inputs-only",
+              "group": "Global options",
+              "description": "Show command inputs and do not run the command",
+              "type": "boolean",
+              "aliases": []
+            },
+            {
               "name": "response-format-json",
               "aliases": [
                 "rfj"
@@ -5847,6 +6689,13 @@
               ],
               "required": false,
               "group": "Options"
+            },
+            {
+              "name": "show-inputs-only",
+              "group": "Global options",
+              "description": "Show command inputs and do not run the command",
+              "type": "boolean",
+              "aliases": []
             },
             {
               "name": "response-format-json",
@@ -5998,6 +6847,13 @@
               "type": "string",
               "defaultValue": "./",
               "group": "Options"
+            },
+            {
+              "name": "show-inputs-only",
+              "group": "Global options",
+              "description": "Show command inputs and do not run the command",
+              "type": "boolean",
+              "aliases": []
             },
             {
               "name": "response-format-json",
@@ -6205,6 +7061,13 @@
               "type": "string",
               "required": false,
               "group": "Endevor options (alternatively use an 'endevor' profile)"
+            },
+            {
+              "name": "show-inputs-only",
+              "group": "Global options",
+              "description": "Show command inputs and do not run the command",
+              "type": "boolean",
+              "aliases": []
             },
             {
               "name": "response-format-json",
@@ -6471,6 +7334,13 @@
               "type": "string",
               "required": false,
               "group": "Endevor options (alternatively use an 'endevor' profile)"
+            },
+            {
+              "name": "show-inputs-only",
+              "group": "Global options",
+              "description": "Show command inputs and do not run the command",
+              "type": "boolean",
+              "aliases": []
             },
             {
               "name": "response-format-json",
