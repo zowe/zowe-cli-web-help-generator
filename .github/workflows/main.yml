@@ -109,9 +109,15 @@ jobs:
       id: release-prepare
       if: ${{ steps.release-create.outcome == 'success' }}
       run: |
+        mkdir release
+        mv zowe.pdf release/.
+        mv generatedWebHelp release/.
+        cd release
         mv "generatedWebHelp" "zowe-${{ github.event.inputs.zowe-version }}-WebHelp"
         mv "zowe.pdf" "zowe-${{ github.event.inputs.zowe-version }}.pdf"
+        TZ=UTC find . -exec touch -t 197001010000.00 {} +
         zip -r "zowe-${{ github.event.inputs.zowe-version }}-WebHelp.zip" "zowe-${{ github.event.inputs.zowe-version }}-WebHelp"
+        TZ=UTC find . -name "*.zip" -type f -exec touch -t 197001010000.00 {} +
 
     - name: Upload Release Artifacts - PDF
       id: release-upload-pdf
@@ -121,7 +127,7 @@ jobs:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
         upload_url: ${{ steps.release-create.outputs.upload_url }}
-        asset_path: ./zowe-${{ github.event.inputs.zowe-version }}.pdf
+        asset_path: ./release/zowe-${{ github.event.inputs.zowe-version }}.pdf
         asset_name: zowe-${{ github.event.inputs.zowe-version }}.pdf
         asset_content_type: application/pdf
     
@@ -133,6 +139,6 @@ jobs:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
         upload_url: ${{ steps.release-create.outputs.upload_url }}
-        asset_path: ./zowe-${{ github.event.inputs.zowe-version }}-WebHelp.zip
+        asset_path: ./release/zowe-${{ github.event.inputs.zowe-version }}-WebHelp.zip
         asset_name: zowe-${{ github.event.inputs.zowe-version }}-WebHelp.zip
         asset_content_type: application/zip
