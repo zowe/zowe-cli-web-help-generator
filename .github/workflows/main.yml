@@ -116,8 +116,8 @@ jobs:
         mv "generatedWebHelp" "zowe-${{ github.event.inputs.zowe-version }}-WebHelp"
         mv "zowe.pdf" "zowe-${{ github.event.inputs.zowe-version }}.pdf"
         TZ=UTC find . -exec touch -t 197001010000.00 {} +
-        zip -r "zowe-${{ github.event.inputs.zowe-version }}-WebHelp.zip" "zowe-${{ github.event.inputs.zowe-version }}-WebHelp"
-        TZ=UTC find . -name "*.zip" -type f -exec touch -t 197001010000.00 {} +
+        zip -roX "zowe-${{ github.event.inputs.zowe-version }}-WebHelp.zip" "zowe-${{ github.event.inputs.zowe-version }}-WebHelp"
+        TZ=UTC touch -t 197001010000.00 zowe-${{ github.event.inputs.zowe-version }}-WebHelp.zip
 
     - name: Upload Release Artifacts - PDF
       id: release-upload-pdf
