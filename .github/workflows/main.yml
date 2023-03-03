@@ -70,7 +70,7 @@ jobs:
     - name: Get Zowe version
       id: get-version
       if: ${{ steps.get-version-from-workflow.outcome == 'skipped' }}
-      run: echo "::set-output name=number::$(echo 'CLI_v'$(npx zowe --version))"
+      run: echo "number=$(echo 'CLI_v'$(npx zowe --version))" >> $GITHUB_OUTPUT
 
     - name: Build Web Help
       id: build

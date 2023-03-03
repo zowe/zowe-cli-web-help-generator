@@ -45,7 +45,7 @@ jobs:
       id: get-version
       if: ${{ steps.get-version-from-workflow.outcome == 'skipped' }}
       run: |
-        echo "::set-output name=number::$(echo 'CLI_v'$(zowe --version))"
+        echo "number=$(echo 'CLI_v'$(npx zowe --version))" >> $GITHUB_OUTPUT
 
     - name: Setup zowe.json file
       id: setup
