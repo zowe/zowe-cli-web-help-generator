@@ -15,7 +15,7 @@ jobs:
       id: files
       uses: tj-actions/changed-files@v35
       with:
-        files: **.*.json
+        files: "**/*.json"
     - run: |
         readarray -t all_files <<<"$(jq -r '.[]' <<<'${{ steps.files.outputs.all_changed_files }}')"
         for file in ${all_files[@]}; do
