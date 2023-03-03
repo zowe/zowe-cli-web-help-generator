@@ -1,16 +1,27 @@
 // Copyright (c) 2023 Broadcom.  All Rights Reserved.  The term
 // "Broadcom" refers to Broadcom Inc. and/or its subsidiaries.
 {
-  "name": "ebg-profile",
+  "name": "idms-profile",
   "aliases": [
-    "ebg"
+    "idms"
   ],
-  "summary": "Set the default\n profiles for the ebg group",
-  "description": "The ebg set default-profiles command allows you to set the default profiles for this command group. When a ebg command is issued and no profile override options are specified, the default profiles for the command group are automatically loaded for the command based on the commands profile requirements.",
+  "summary": "Delete a idms profile.",
+  "description": "Delete a idms profile. You must specify a profile name to be deleted. To find a list of available profiles for deletion, issue the profiles list command. By default, you will be prompted to confirm the profile removal.",
   "type": "command",
   "handler": "",
-  "deprecatedReplacement": "The 'config set' command",
+  "deprecatedReplacement": "Edit your Zowe V2 configuration\n    zowe.config.json",
+  "customize": {
+    "profileTypeIdentifier": "idms"
+  },
   "options": [
+    {
+      "name": "force",
+      "aliases": [],
+      "description": "Force deletion of profile, and dependent profiles if specified. No prompt will be displayed before  deletion occurs.",
+      "type": "boolean",
+      "required": false,
+      "group": "Options"
+    },
     {
       "name": "show-inputs-only",
       "group": "Global Options",
@@ -49,18 +60,15 @@
   "positionals": [
     {
       "name": "profileName",
-      "description": "Specify a\n profile for default usage within the ebg group. When you issue commands within the ebg group without a profile specified as part of the command, the default will be loaded instead.",
+      "description": "Specifies the name of the idms  profile to be deleted. You can also load this profile by using the name on commands that support the \"--idms-profile\" option.",
       "type": "string",
       "required": true
     }
   ],
-  "customize": {
-    "profileTypeIdentifier": "ebg"
-  },
   "examples": [
     {
       "options": "profilename",
-      "description": "Set the default profile for type ebg to the profile named 'profilename'"
+      "description": "Delete a idms profile named profilename"
     }
   ],
   "passOn": [],

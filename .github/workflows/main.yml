@@ -21,10 +21,10 @@ jobs:
 
     steps:
     - name: Checkout
-      uses: actions/checkout@v2
+      uses: actions/checkout@v3
 
     - name: Use Node.js LTS
-      uses: actions/setup-node@v2
+      uses: actions/setup-node@v3
       with:
         node-version: lts/*
 
@@ -84,30 +84,16 @@ jobs:
     - name: Archive Results
       id: upload
       if: ${{ always() && steps.build.outcome == 'success' }}
-      uses: actions/upload-artifact@v2
+      uses: actions/upload-artifact@v3
       with:
         name: results
         path: |
           generatedWebHelp/
           zowe.pdf
     
-    - name: Create Release
-      id: release-create
-      if: ${{ (github.ref == 'refs/heads/master' || github.ref == 'refs/heads/zowe-v1-lts') && steps.build.outcome == 'success' && github.event_name == 'workflow_dispatch' && github.event.inputs.zowe-version && github.event.inputs.zowe-version != '' && github.event.inputs.release == 'true' }}
-      uses: actions/create-release@v1
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      with:
-        draft: false
-        prerelease: false
-        release_name: ${{ github.event.inputs.zowe-version }}
-        tag_name: ${{ github.event.inputs.zowe-version }}
-        body: |
-          Zowe CLI Web-Help for Zowe Release ${{ github.event.inputs.zowe-version }}
-    
     - name: Prepare Release Artifacts
       id: release-prepare
-      if: ${{ steps.release-create.outcome == 'success' }}
+      if: ${{ (github.ref == 'refs/heads/master' || github.ref == 'refs/heads/zowe-v1-lts') && steps.build.outcome == 'success' && github.event_name == 'workflow_dispatch' && github.event.inputs.zowe-version && github.event.inputs.zowe-version != '' && github.event.inputs.release == 'true' }}
       run: |
         mkdir release
         mv zowe.pdf release/.
@@ -119,26 +105,17 @@ jobs:
         zip -roX "zowe-${{ github.event.inputs.zowe-version }}-WebHelp.zip" "zowe-${{ github.event.inputs.zowe-version }}-WebHelp"
         TZ=UTC touch -t 197001010000.00 zowe-${{ github.event.inputs.zowe-version }}-WebHelp.zip
 
-    - name: Upload Release Artifacts - PDF
-      id: release-upload-pdf
+    - name: Create Release
+      id: release-create
       if: ${{ steps.release-prepare.outcome == 'success' }}
-      uses: actions/upload-release-asset@v1
+      uses: ncipollo/release-action@v1
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
-        upload_url: ${{ steps.release-create.outputs.upload_url }}
-        asset_path: ./release/zowe-${{ github.event.inputs.zowe-version }}.pdf
-        asset_name: zowe-${{ github.event.inputs.zowe-version }}.pdf
-        asset_content_type: application/pdf
-    
-    - name: Upload Release Artifacts - ZIP
-      id: release-upload-zip
-      if: ${{ steps.release-prepare.outcome == 'success' }}
-      uses: actions/upload-release-asset@v1
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      with:
-        upload_url: ${{ steps.release-create.outputs.upload_url }}
-        asset_path: ./release/zowe-${{ github.event.inputs.zowe-version }}-WebHelp.zip
-        asset_name: zowe-${{ github.event.inputs.zowe-version }}-WebHelp.zip
-        asset_content_type: application/zip
+        draft: false
+        prerelease: false
+        name: ${{ github.event.inputs.zowe-version }}
+        tag: ${{ github.event.inputs.zowe-version }}
+        body: |
+          Zowe CLI Web-Help for Zowe Release ${{ github.event.inputs.zowe-version }}
+        artifacts: "release/zowe-${{ github.event.inputs.zowe-version }}.pdf,release/zowe-${{ github.event.inputs.zowe-version }}-WebHelp.zip"
