@@ -1,25 +1,23 @@
 // Copyright (c) 2023 Broadcom.  All Rights Reserved.  The term
 // "Broadcom" refers to Broadcom Inc. and/or its subsidiaries.
 {
-  "name": "ca7-profiles",
+  "name": "sysview-profile",
   "aliases": [
-    "ca7"
+    "sysview"
   ],
-  "summary": "List profiles of the type ca7.",
-  "description": "A CA7 profile is required to issue commands in the CA7 command group. The CA7 profile contains your host and port for the CA7 instance of your choice.",
+  "summary": "Delete a sysview profile.",
+  "description": "Delete a sysview profile. You must specify a profile name to be deleted. To find a list of available profiles for deletion, issue the profiles list command. By default, you will be prompted to confirm the profile removal.",
   "type": "command",
   "handler": "",
-  "deprecatedReplacement": "The 'config list' command",
+  "deprecatedReplacement": "Edit your Zowe V2 configuration\n    zowe.config.json",
   "customize": {
-    "profileTypeIdentifier": "ca7"
+    "profileTypeIdentifier": "sysview"
   },
   "options": [
     {
-      "name": "show-contents",
-      "aliases": [
-        "sc"
-      ],
-      "description": "List ca7  profiles  and their contents. All profile details will be printed as part of command output.",
+      "name": "force",
+      "aliases": [],
+      "description": "Force deletion of profile, and dependent profiles if specified. No prompt will be displayed before  deletion occurs.",
       "type": "boolean",
       "required": false,
       "group": "Options"
@@ -59,17 +57,20 @@
       "type": "boolean"
     }
   ],
-  "examples": [
+  "positionals": [
     {
-      "options": "",
-      "description": "List profiles of type ca7"
-    },
-    {
-      "options": "--sc",
-      "description": "List profiles of type ca7 and display their contents"
+      "name": "profileName",
+      "description": "Specifies the name of the sysview  profile to be deleted. You can also load this profile by using the name on commands that support the \"--sysview-profile\" option.",
+      "type": "string",
+      "required": true
     }
   ],
-  "positionals": [],
+  "examples": [
+    {
+      "options": "profilename",
+      "description": "Delete a sysview profile named profilename"
+    }
+  ],
   "passOn": [],
   "children": []
 }
