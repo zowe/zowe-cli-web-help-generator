@@ -1,4 +1,4 @@
-// Copyright (c) 2022 Broadcom.  All Rights Reserved.  The term
+// Copyright (c) 2023 Broadcom.  All Rights Reserved.  The term
 // "Broadcom" refers to Broadcom Inc. and/or its subsidiaries.
 {
   "name": "endevor-location-profile",
@@ -13,7 +13,7 @@
   "options": [
     {
       "name": "show-inputs-only",
-      "group": "Global options",
+      "group": "Global Options",
       "description": "Show command inputs and do not run the command",
       "type": "boolean",
       "aliases": []
@@ -23,7 +23,7 @@
       "aliases": [
         "rfj"
       ],
-      "group": "Global options",
+      "group": "Global Options",
       "description": "Produce JSON formatted data from a command",
       "type": "boolean"
     },
@@ -32,23 +32,16 @@
       "aliases": [
         "h"
       ],
-      "group": "Global options",
+      "group": "Global Options",
       "description": "Display help text",
       "type": "boolean"
-    },
-    {
-      "name": "help-examples",
-      "group": "Global options",
-      "description": "Display examples for all the commands in a group",
-      "type": "boolean",
-      "aliases": []
     },
     {
       "name": "help-web",
       "aliases": [
         "hw"
       ],
-      "group": "Global options",
+      "group": "Global Options",
       "description": "Display HTML help in browser",
       "type": "boolean"
     }

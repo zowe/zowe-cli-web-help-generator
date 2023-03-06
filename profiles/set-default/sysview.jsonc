@@ -1,29 +1,16 @@
 // Copyright (c) 2023 Broadcom.  All Rights Reserved.  The term
 // "Broadcom" refers to Broadcom Inc. and/or its subsidiaries.
 {
-  "name": "ca7-profiles",
+  "name": "sysview-profile",
   "aliases": [
-    "ca7"
+    "sysview"
   ],
-  "summary": "List profiles of the type ca7.",
-  "description": "A CA7 profile is required to issue commands in the CA7 command group. The CA7 profile contains your host and port for the CA7 instance of your choice.",
+  "summary": "Set the default\n profiles for the sysview group",
+  "description": "The sysview set default-profiles command allows you to set the default profiles for this command group. When a sysview command is issued and no profile override options are specified, the default profiles for the command group are automatically loaded for the command based on the commands profile requirements.",
   "type": "command",
   "handler": "",
-  "deprecatedReplacement": "The 'config list' command",
-  "customize": {
-    "profileTypeIdentifier": "ca7"
-  },
+  "deprecatedReplacement": "The 'config set' command",
   "options": [
-    {
-      "name": "show-contents",
-      "aliases": [
-        "sc"
-      ],
-      "description": "List ca7  profiles  and their contents. All profile details will be printed as part of command output.",
-      "type": "boolean",
-      "required": false,
-      "group": "Options"
-    },
     {
       "name": "show-inputs-only",
       "group": "Global Options",
@@ -59,17 +46,23 @@
       "type": "boolean"
     }
   ],
-  "examples": [
+  "positionals": [
     {
-      "options": "",
-      "description": "List profiles of type ca7"
-    },
-    {
-      "options": "--sc",
-      "description": "List profiles of type ca7 and display their contents"
+      "name": "profileName",
+      "description": "Specify a\n profile for default usage within the sysview group. When you issue commands within the sysview group without a profile specified as part of the command, the default will be loaded instead.",
+      "type": "string",
+      "required": true
     }
   ],
-  "positionals": [],
+  "customize": {
+    "profileTypeIdentifier": "sysview"
+  },
+  "examples": [
+    {
+      "options": "profilename",
+      "description": "Set the default profile for type sysview to the profile named 'profilename'"
+    }
+  ],
   "passOn": [],
   "children": []
 }

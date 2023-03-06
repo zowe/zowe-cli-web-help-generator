@@ -1,17 +1,17 @@
 // Copyright (c) 2023 Broadcom.  All Rights Reserved.  The term
 // "Broadcom" refers to Broadcom Inc. and/or its subsidiaries.
 {
-  "name": "ca7-profiles",
+  "name": "sysview-format-profiles",
   "aliases": [
-    "ca7"
+    "sysview-format"
   ],
-  "summary": "List profiles of the type ca7.",
-  "description": "A CA7 profile is required to issue commands in the CA7 command group. The CA7 profile contains your host and port for the CA7 instance of your choice.",
+  "summary": "List profiles of the type sysview-format.",
+  "description": "The SYSVIEW format profile schema, where you specify display settings",
   "type": "command",
   "handler": "",
   "deprecatedReplacement": "The 'config list' command",
   "customize": {
-    "profileTypeIdentifier": "ca7"
+    "profileTypeIdentifier": "sysview-format"
   },
   "options": [
     {
@@ -19,7 +19,7 @@
       "aliases": [
         "sc"
       ],
-      "description": "List ca7  profiles  and their contents. All profile details will be printed as part of command output.",
+      "description": "List sysview-format  profiles  and their contents. All profile details will be printed as part of command output.",
       "type": "boolean",
       "required": false,
       "group": "Options"
@@ -62,11 +62,11 @@
   "examples": [
     {
       "options": "",
-      "description": "List profiles of type ca7"
+      "description": "List profiles of type sysview-format"
     },
     {
       "options": "--sc",
-      "description": "List profiles of type ca7 and display their contents"
+      "description": "List profiles of type sysview-format and display their contents"
     }
   ],
   "positionals": [],
