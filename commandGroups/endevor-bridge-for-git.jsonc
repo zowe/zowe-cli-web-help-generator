@@ -1,4 +1,4 @@
-// Copyright (c) 2022 Broadcom.  All Rights Reserved.  The term
+// Copyright (c) 2023 Broadcom.  All Rights Reserved.  The term
 // "Broadcom" refers to Broadcom Inc. and/or its subsidiaries.
 {
   "name": "endevor-bridge-for-git",
@@ -149,6 +149,22 @@
               "description": "If specified, only elements from the Endevor work environment will be synchronized.",
               "type": "boolean",
               "required": false,
+              "group": "Options",
+              "aliases": []
+            },
+            {
+              "name": "mapping-mode",
+              "description": "Mapping mode of the mapping ('FULL', 'WORK_ENV_ONLY' or 'MIRROR')",
+              "type": "string",
+              "required": false,
+              "allowableValues": {
+                "values": [
+                  "FULL",
+                  "WORK_ENV_ONLY",
+                  "MIRROR"
+                ],
+                "caseSensitive": true
+              },
               "group": "Options",
               "aliases": []
             },
@@ -307,7 +323,7 @@
             },
             {
               "name": "show-inputs-only",
-              "group": "Global options",
+              "group": "Global Options",
               "description": "Show command inputs and do not run the command",
               "type": "boolean",
               "aliases": []
@@ -317,7 +333,7 @@
               "aliases": [
                 "rfj"
               ],
-              "group": "Global options",
+              "group": "Global Options",
               "description": "Produce JSON formatted data from a command",
               "type": "boolean"
             },
@@ -326,23 +342,16 @@
               "aliases": [
                 "h"
               ],
-              "group": "Global options",
+              "group": "Global Options",
               "description": "Display help text",
               "type": "boolean"
-            },
-            {
-              "name": "help-examples",
-              "group": "Global options",
-              "description": "Display examples for all the commands in a group",
-              "type": "boolean",
-              "aliases": []
             },
             {
               "name": "help-web",
               "aliases": [
                 "hw"
               ],
-              "group": "Global options",
+              "group": "Global Options",
               "description": "Display HTML help in browser",
               "type": "boolean"
             },
@@ -540,7 +549,7 @@
             },
             {
               "name": "show-inputs-only",
-              "group": "Global options",
+              "group": "Global Options",
               "description": "Show command inputs and do not run the command",
               "type": "boolean",
               "aliases": []
@@ -550,7 +559,7 @@
               "aliases": [
                 "rfj"
               ],
-              "group": "Global options",
+              "group": "Global Options",
               "description": "Produce JSON formatted data from a command",
               "type": "boolean"
             },
@@ -559,23 +568,16 @@
               "aliases": [
                 "h"
               ],
-              "group": "Global options",
+              "group": "Global Options",
               "description": "Display help text",
               "type": "boolean"
-            },
-            {
-              "name": "help-examples",
-              "group": "Global options",
-              "description": "Display examples for all the commands in a group",
-              "type": "boolean",
-              "aliases": []
             },
             {
               "name": "help-web",
               "aliases": [
                 "hw"
               ],
-              "group": "Global options",
+              "group": "Global Options",
               "description": "Display HTML help in browser",
               "type": "boolean"
             },
@@ -747,7 +749,7 @@
             },
             {
               "name": "show-inputs-only",
-              "group": "Global options",
+              "group": "Global Options",
               "description": "Show command inputs and do not run the command",
               "type": "boolean",
               "aliases": []
@@ -757,7 +759,7 @@
               "aliases": [
                 "rfj"
               ],
-              "group": "Global options",
+              "group": "Global Options",
               "description": "Produce JSON formatted data from a command",
               "type": "boolean"
             },
@@ -766,23 +768,16 @@
               "aliases": [
                 "h"
               ],
-              "group": "Global options",
+              "group": "Global Options",
               "description": "Display help text",
               "type": "boolean"
-            },
-            {
-              "name": "help-examples",
-              "group": "Global options",
-              "description": "Display examples for all the commands in a group",
-              "type": "boolean",
-              "aliases": []
             },
             {
               "name": "help-web",
               "aliases": [
                 "hw"
               ],
-              "group": "Global options",
+              "group": "Global Options",
               "description": "Display HTML help in browser",
               "type": "boolean"
             },
@@ -934,11 +929,18 @@
       ],
       "options": [
         {
+          "name": "help-examples",
+          "group": "Global Options",
+          "description": "Display examples for all the commands in a group",
+          "type": "boolean",
+          "aliases": []
+        },
+        {
           "name": "response-format-json",
           "aliases": [
             "rfj"
           ],
-          "group": "Global options",
+          "group": "Global Options",
           "description": "Produce JSON formatted data from a command",
           "type": "boolean"
         },
@@ -947,23 +949,16 @@
           "aliases": [
             "h"
           ],
-          "group": "Global options",
+          "group": "Global Options",
           "description": "Display help text",
           "type": "boolean"
-        },
-        {
-          "name": "help-examples",
-          "group": "Global options",
-          "description": "Display examples for all the commands in a group",
-          "type": "boolean",
-          "aliases": []
         },
         {
           "name": "help-web",
           "aliases": [
             "hw"
           ],
-          "group": "Global options",
+          "group": "Global Options",
           "description": "Display HTML help in browser",
           "type": "boolean"
         }
@@ -1185,7 +1180,7 @@
             },
             {
               "name": "show-inputs-only",
-              "group": "Global options",
+              "group": "Global Options",
               "description": "Show command inputs and do not run the command",
               "type": "boolean",
               "aliases": []
@@ -1195,7 +1190,7 @@
               "aliases": [
                 "rfj"
               ],
-              "group": "Global options",
+              "group": "Global Options",
               "description": "Produce JSON formatted data from a command",
               "type": "boolean"
             },
@@ -1204,23 +1199,16 @@
               "aliases": [
                 "h"
               ],
-              "group": "Global options",
+              "group": "Global Options",
               "description": "Display help text",
               "type": "boolean"
-            },
-            {
-              "name": "help-examples",
-              "group": "Global options",
-              "description": "Display examples for all the commands in a group",
-              "type": "boolean",
-              "aliases": []
             },
             {
               "name": "help-web",
               "aliases": [
                 "hw"
               ],
-              "group": "Global options",
+              "group": "Global Options",
               "description": "Display HTML help in browser",
               "type": "boolean"
             },
@@ -1656,7 +1644,7 @@
             },
             {
               "name": "show-inputs-only",
-              "group": "Global options",
+              "group": "Global Options",
               "description": "Show command inputs and do not run the command",
               "type": "boolean",
               "aliases": []
@@ -1666,7 +1654,7 @@
               "aliases": [
                 "rfj"
               ],
-              "group": "Global options",
+              "group": "Global Options",
               "description": "Produce JSON formatted data from a command",
               "type": "boolean"
             },
@@ -1675,23 +1663,16 @@
               "aliases": [
                 "h"
               ],
-              "group": "Global options",
+              "group": "Global Options",
               "description": "Display help text",
               "type": "boolean"
-            },
-            {
-              "name": "help-examples",
-              "group": "Global options",
-              "description": "Display examples for all the commands in a group",
-              "type": "boolean",
-              "aliases": []
             },
             {
               "name": "help-web",
               "aliases": [
                 "hw"
               ],
-              "group": "Global options",
+              "group": "Global Options",
               "description": "Display HTML help in browser",
               "type": "boolean"
             },
@@ -2048,7 +2029,7 @@
             },
             {
               "name": "show-inputs-only",
-              "group": "Global options",
+              "group": "Global Options",
               "description": "Show command inputs and do not run the command",
               "type": "boolean",
               "aliases": []
@@ -2058,7 +2039,7 @@
               "aliases": [
                 "rfj"
               ],
-              "group": "Global options",
+              "group": "Global Options",
               "description": "Produce JSON formatted data from a command",
               "type": "boolean"
             },
@@ -2067,23 +2048,16 @@
               "aliases": [
                 "h"
               ],
-              "group": "Global options",
+              "group": "Global Options",
               "description": "Display help text",
               "type": "boolean"
-            },
-            {
-              "name": "help-examples",
-              "group": "Global options",
-              "description": "Display examples for all the commands in a group",
-              "type": "boolean",
-              "aliases": []
             },
             {
               "name": "help-web",
               "aliases": [
                 "hw"
               ],
-              "group": "Global options",
+              "group": "Global Options",
               "description": "Display HTML help in browser",
               "type": "boolean"
             },
@@ -2404,11 +2378,18 @@
       ],
       "options": [
         {
+          "name": "help-examples",
+          "group": "Global Options",
+          "description": "Display examples for all the commands in a group",
+          "type": "boolean",
+          "aliases": []
+        },
+        {
           "name": "response-format-json",
           "aliases": [
             "rfj"
           ],
-          "group": "Global options",
+          "group": "Global Options",
           "description": "Produce JSON formatted data from a command",
           "type": "boolean"
         },
@@ -2417,23 +2398,16 @@
           "aliases": [
             "h"
           ],
-          "group": "Global options",
+          "group": "Global Options",
           "description": "Display help text",
           "type": "boolean"
-        },
-        {
-          "name": "help-examples",
-          "group": "Global options",
-          "description": "Display examples for all the commands in a group",
-          "type": "boolean",
-          "aliases": []
         },
         {
           "name": "help-web",
           "aliases": [
             "hw"
           ],
-          "group": "Global options",
+          "group": "Global Options",
           "description": "Display HTML help in browser",
           "type": "boolean"
         }
@@ -2534,7 +2508,7 @@
             },
             {
               "name": "show-inputs-only",
-              "group": "Global options",
+              "group": "Global Options",
               "description": "Show command inputs and do not run the command",
               "type": "boolean",
               "aliases": []
@@ -2544,7 +2518,7 @@
               "aliases": [
                 "rfj"
               ],
-              "group": "Global options",
+              "group": "Global Options",
               "description": "Produce JSON formatted data from a command",
               "type": "boolean"
             },
@@ -2553,23 +2527,16 @@
               "aliases": [
                 "h"
               ],
-              "group": "Global options",
+              "group": "Global Options",
               "description": "Display help text",
               "type": "boolean"
-            },
-            {
-              "name": "help-examples",
-              "group": "Global options",
-              "description": "Display examples for all the commands in a group",
-              "type": "boolean",
-              "aliases": []
             },
             {
               "name": "help-web",
               "aliases": [
                 "hw"
               ],
-              "group": "Global options",
+              "group": "Global Options",
               "description": "Display HTML help in browser",
               "type": "boolean"
             },
@@ -2868,7 +2835,7 @@
             },
             {
               "name": "show-inputs-only",
-              "group": "Global options",
+              "group": "Global Options",
               "description": "Show command inputs and do not run the command",
               "type": "boolean",
               "aliases": []
@@ -2878,7 +2845,7 @@
               "aliases": [
                 "rfj"
               ],
-              "group": "Global options",
+              "group": "Global Options",
               "description": "Produce JSON formatted data from a command",
               "type": "boolean"
             },
@@ -2887,23 +2854,16 @@
               "aliases": [
                 "h"
               ],
-              "group": "Global options",
+              "group": "Global Options",
               "description": "Display help text",
               "type": "boolean"
-            },
-            {
-              "name": "help-examples",
-              "group": "Global options",
-              "description": "Display examples for all the commands in a group",
-              "type": "boolean",
-              "aliases": []
             },
             {
               "name": "help-web",
               "aliases": [
                 "hw"
               ],
-              "group": "Global options",
+              "group": "Global Options",
               "description": "Display HTML help in browser",
               "type": "boolean"
             },
@@ -3093,7 +3053,7 @@
             },
             {
               "name": "show-inputs-only",
-              "group": "Global options",
+              "group": "Global Options",
               "description": "Show command inputs and do not run the command",
               "type": "boolean",
               "aliases": []
@@ -3103,7 +3063,7 @@
               "aliases": [
                 "rfj"
               ],
-              "group": "Global options",
+              "group": "Global Options",
               "description": "Produce JSON formatted data from a command",
               "type": "boolean"
             },
@@ -3112,23 +3072,16 @@
               "aliases": [
                 "h"
               ],
-              "group": "Global options",
+              "group": "Global Options",
               "description": "Display help text",
               "type": "boolean"
-            },
-            {
-              "name": "help-examples",
-              "group": "Global options",
-              "description": "Display examples for all the commands in a group",
-              "type": "boolean",
-              "aliases": []
             },
             {
               "name": "help-web",
               "aliases": [
                 "hw"
               ],
-              "group": "Global options",
+              "group": "Global Options",
               "description": "Display HTML help in browser",
               "type": "boolean"
             },
@@ -3299,7 +3252,7 @@
             },
             {
               "name": "show-inputs-only",
-              "group": "Global options",
+              "group": "Global Options",
               "description": "Show command inputs and do not run the command",
               "type": "boolean",
               "aliases": []
@@ -3309,7 +3262,7 @@
               "aliases": [
                 "rfj"
               ],
-              "group": "Global options",
+              "group": "Global Options",
               "description": "Produce JSON formatted data from a command",
               "type": "boolean"
             },
@@ -3318,23 +3271,16 @@
               "aliases": [
                 "h"
               ],
-              "group": "Global options",
+              "group": "Global Options",
               "description": "Display help text",
               "type": "boolean"
-            },
-            {
-              "name": "help-examples",
-              "group": "Global options",
-              "description": "Display examples for all the commands in a group",
-              "type": "boolean",
-              "aliases": []
             },
             {
               "name": "help-web",
               "aliases": [
                 "hw"
               ],
-              "group": "Global options",
+              "group": "Global Options",
               "description": "Display HTML help in browser",
               "type": "boolean"
             },
@@ -3526,7 +3472,7 @@
             },
             {
               "name": "show-inputs-only",
-              "group": "Global options",
+              "group": "Global Options",
               "description": "Show command inputs and do not run the command",
               "type": "boolean",
               "aliases": []
@@ -3536,7 +3482,7 @@
               "aliases": [
                 "rfj"
               ],
-              "group": "Global options",
+              "group": "Global Options",
               "description": "Produce JSON formatted data from a command",
               "type": "boolean"
             },
@@ -3545,23 +3491,16 @@
               "aliases": [
                 "h"
               ],
-              "group": "Global options",
+              "group": "Global Options",
               "description": "Display help text",
               "type": "boolean"
-            },
-            {
-              "name": "help-examples",
-              "group": "Global options",
-              "description": "Display examples for all the commands in a group",
-              "type": "boolean",
-              "aliases": []
             },
             {
               "name": "help-web",
               "aliases": [
                 "hw"
               ],
-              "group": "Global options",
+              "group": "Global Options",
               "description": "Display HTML help in browser",
               "type": "boolean"
             },
@@ -3726,11 +3665,18 @@
       ],
       "options": [
         {
+          "name": "help-examples",
+          "group": "Global Options",
+          "description": "Display examples for all the commands in a group",
+          "type": "boolean",
+          "aliases": []
+        },
+        {
           "name": "response-format-json",
           "aliases": [
             "rfj"
           ],
-          "group": "Global options",
+          "group": "Global Options",
           "description": "Produce JSON formatted data from a command",
           "type": "boolean"
         },
@@ -3739,23 +3685,16 @@
           "aliases": [
             "h"
           ],
-          "group": "Global options",
+          "group": "Global Options",
           "description": "Display help text",
           "type": "boolean"
-        },
-        {
-          "name": "help-examples",
-          "group": "Global options",
-          "description": "Display examples for all the commands in a group",
-          "type": "boolean",
-          "aliases": []
         },
         {
           "name": "help-web",
           "aliases": [
             "hw"
           ],
-          "group": "Global options",
+          "group": "Global Options",
           "description": "Display HTML help in browser",
           "type": "boolean"
         }
@@ -3891,7 +3830,7 @@
             },
             {
               "name": "show-inputs-only",
-              "group": "Global options",
+              "group": "Global Options",
               "description": "Show command inputs and do not run the command",
               "type": "boolean",
               "aliases": []
@@ -3901,7 +3840,7 @@
               "aliases": [
                 "rfj"
               ],
-              "group": "Global options",
+              "group": "Global Options",
               "description": "Produce JSON formatted data from a command",
               "type": "boolean"
             },
@@ -3910,23 +3849,16 @@
               "aliases": [
                 "h"
               ],
-              "group": "Global options",
+              "group": "Global Options",
               "description": "Display help text",
               "type": "boolean"
-            },
-            {
-              "name": "help-examples",
-              "group": "Global options",
-              "description": "Display examples for all the commands in a group",
-              "type": "boolean",
-              "aliases": []
             },
             {
               "name": "help-web",
               "aliases": [
                 "hw"
               ],
-              "group": "Global options",
+              "group": "Global Options",
               "description": "Display HTML help in browser",
               "type": "boolean"
             },
@@ -4091,11 +4023,18 @@
       ],
       "options": [
         {
+          "name": "help-examples",
+          "group": "Global Options",
+          "description": "Display examples for all the commands in a group",
+          "type": "boolean",
+          "aliases": []
+        },
+        {
           "name": "response-format-json",
           "aliases": [
             "rfj"
           ],
-          "group": "Global options",
+          "group": "Global Options",
           "description": "Produce JSON formatted data from a command",
           "type": "boolean"
         },
@@ -4104,23 +4043,16 @@
           "aliases": [
             "h"
           ],
-          "group": "Global options",
+          "group": "Global Options",
           "description": "Display help text",
           "type": "boolean"
-        },
-        {
-          "name": "help-examples",
-          "group": "Global options",
-          "description": "Display examples for all the commands in a group",
-          "type": "boolean",
-          "aliases": []
         },
         {
           "name": "help-web",
           "aliases": [
             "hw"
           ],
-          "group": "Global options",
+          "group": "Global Options",
           "description": "Display HTML help in browser",
           "type": "boolean"
         }
@@ -4229,7 +4161,7 @@
             },
             {
               "name": "show-inputs-only",
-              "group": "Global options",
+              "group": "Global Options",
               "description": "Show command inputs and do not run the command",
               "type": "boolean",
               "aliases": []
@@ -4239,7 +4171,7 @@
               "aliases": [
                 "rfj"
               ],
-              "group": "Global options",
+              "group": "Global Options",
               "description": "Produce JSON formatted data from a command",
               "type": "boolean"
             },
@@ -4248,23 +4180,16 @@
               "aliases": [
                 "h"
               ],
-              "group": "Global options",
+              "group": "Global Options",
               "description": "Display help text",
               "type": "boolean"
-            },
-            {
-              "name": "help-examples",
-              "group": "Global options",
-              "description": "Display examples for all the commands in a group",
-              "type": "boolean",
-              "aliases": []
             },
             {
               "name": "help-web",
               "aliases": [
                 "hw"
               ],
-              "group": "Global options",
+              "group": "Global Options",
               "description": "Display HTML help in browser",
               "type": "boolean"
             },
@@ -4430,7 +4355,7 @@
             },
             {
               "name": "show-inputs-only",
-              "group": "Global options",
+              "group": "Global Options",
               "description": "Show command inputs and do not run the command",
               "type": "boolean",
               "aliases": []
@@ -4440,7 +4365,7 @@
               "aliases": [
                 "rfj"
               ],
-              "group": "Global options",
+              "group": "Global Options",
               "description": "Produce JSON formatted data from a command",
               "type": "boolean"
             },
@@ -4449,23 +4374,16 @@
               "aliases": [
                 "h"
               ],
-              "group": "Global options",
+              "group": "Global Options",
               "description": "Display help text",
               "type": "boolean"
-            },
-            {
-              "name": "help-examples",
-              "group": "Global options",
-              "description": "Display examples for all the commands in a group",
-              "type": "boolean",
-              "aliases": []
             },
             {
               "name": "help-web",
               "aliases": [
                 "hw"
               ],
-              "group": "Global options",
+              "group": "Global Options",
               "description": "Display HTML help in browser",
               "type": "boolean"
             },
@@ -4625,7 +4543,7 @@
             },
             {
               "name": "show-inputs-only",
-              "group": "Global options",
+              "group": "Global Options",
               "description": "Show command inputs and do not run the command",
               "type": "boolean",
               "aliases": []
@@ -4635,7 +4553,7 @@
               "aliases": [
                 "rfj"
               ],
-              "group": "Global options",
+              "group": "Global Options",
               "description": "Produce JSON formatted data from a command",
               "type": "boolean"
             },
@@ -4644,23 +4562,16 @@
               "aliases": [
                 "h"
               ],
-              "group": "Global options",
+              "group": "Global Options",
               "description": "Display help text",
               "type": "boolean"
-            },
-            {
-              "name": "help-examples",
-              "group": "Global options",
-              "description": "Display examples for all the commands in a group",
-              "type": "boolean",
-              "aliases": []
             },
             {
               "name": "help-web",
               "aliases": [
                 "hw"
               ],
-              "group": "Global options",
+              "group": "Global Options",
               "description": "Display HTML help in browser",
               "type": "boolean"
             },
@@ -4807,11 +4718,18 @@
       ],
       "options": [
         {
+          "name": "help-examples",
+          "group": "Global Options",
+          "description": "Display examples for all the commands in a group",
+          "type": "boolean",
+          "aliases": []
+        },
+        {
           "name": "response-format-json",
           "aliases": [
             "rfj"
           ],
-          "group": "Global options",
+          "group": "Global Options",
           "description": "Produce JSON formatted data from a command",
           "type": "boolean"
         },
@@ -4820,23 +4738,16 @@
           "aliases": [
             "h"
           ],
-          "group": "Global options",
+          "group": "Global Options",
           "description": "Display help text",
           "type": "boolean"
-        },
-        {
-          "name": "help-examples",
-          "group": "Global options",
-          "description": "Display examples for all the commands in a group",
-          "type": "boolean",
-          "aliases": []
         },
         {
           "name": "help-web",
           "aliases": [
             "hw"
           ],
-          "group": "Global options",
+          "group": "Global Options",
           "description": "Display HTML help in browser",
           "type": "boolean"
         }
@@ -5017,6 +4928,22 @@
               "aliases": []
             },
             {
+              "name": "mapping-mode",
+              "description": "Mapping mode of the mapping ('FULL', 'WORK_ENV_ONLY' or 'MIRROR')",
+              "type": "string",
+              "required": false,
+              "allowableValues": {
+                "values": [
+                  "FULL",
+                  "WORK_ENV_ONLY",
+                  "MIRROR"
+                ],
+                "caseSensitive": true
+              },
+              "group": "Options",
+              "aliases": []
+            },
+            {
               "name": "json-file",
               "aliases": [
                 "json"
@@ -5183,7 +5110,7 @@
             },
             {
               "name": "show-inputs-only",
-              "group": "Global options",
+              "group": "Global Options",
               "description": "Show command inputs and do not run the command",
               "type": "boolean",
               "aliases": []
@@ -5193,7 +5120,7 @@
               "aliases": [
                 "rfj"
               ],
-              "group": "Global options",
+              "group": "Global Options",
               "description": "Produce JSON formatted data from a command",
               "type": "boolean"
             },
@@ -5202,23 +5129,16 @@
               "aliases": [
                 "h"
               ],
-              "group": "Global options",
+              "group": "Global Options",
               "description": "Display help text",
               "type": "boolean"
-            },
-            {
-              "name": "help-examples",
-              "group": "Global options",
-              "description": "Display examples for all the commands in a group",
-              "type": "boolean",
-              "aliases": []
             },
             {
               "name": "help-web",
               "aliases": [
                 "hw"
               ],
-              "group": "Global options",
+              "group": "Global Options",
               "description": "Display HTML help in browser",
               "type": "boolean"
             },
@@ -5418,7 +5338,7 @@
             },
             {
               "name": "show-inputs-only",
-              "group": "Global options",
+              "group": "Global Options",
               "description": "Show command inputs and do not run the command",
               "type": "boolean",
               "aliases": []
@@ -5428,7 +5348,7 @@
               "aliases": [
                 "rfj"
               ],
-              "group": "Global options",
+              "group": "Global Options",
               "description": "Produce JSON formatted data from a command",
               "type": "boolean"
             },
@@ -5437,23 +5357,16 @@
               "aliases": [
                 "h"
               ],
-              "group": "Global options",
+              "group": "Global Options",
               "description": "Display help text",
               "type": "boolean"
-            },
-            {
-              "name": "help-examples",
-              "group": "Global options",
-              "description": "Display examples for all the commands in a group",
-              "type": "boolean",
-              "aliases": []
             },
             {
               "name": "help-web",
               "aliases": [
                 "hw"
               ],
-              "group": "Global options",
+              "group": "Global Options",
               "description": "Display HTML help in browser",
               "type": "boolean"
             },
@@ -5632,7 +5545,7 @@
             },
             {
               "name": "show-inputs-only",
-              "group": "Global options",
+              "group": "Global Options",
               "description": "Show command inputs and do not run the command",
               "type": "boolean",
               "aliases": []
@@ -5642,7 +5555,7 @@
               "aliases": [
                 "rfj"
               ],
-              "group": "Global options",
+              "group": "Global Options",
               "description": "Produce JSON formatted data from a command",
               "type": "boolean"
             },
@@ -5651,23 +5564,16 @@
               "aliases": [
                 "h"
               ],
-              "group": "Global options",
+              "group": "Global Options",
               "description": "Display help text",
               "type": "boolean"
-            },
-            {
-              "name": "help-examples",
-              "group": "Global options",
-              "description": "Display examples for all the commands in a group",
-              "type": "boolean",
-              "aliases": []
             },
             {
               "name": "help-web",
               "aliases": [
                 "hw"
               ],
-              "group": "Global options",
+              "group": "Global Options",
               "description": "Display HTML help in browser",
               "type": "boolean"
             },
@@ -6072,7 +5978,7 @@
             },
             {
               "name": "show-inputs-only",
-              "group": "Global options",
+              "group": "Global Options",
               "description": "Show command inputs and do not run the command",
               "type": "boolean",
               "aliases": []
@@ -6082,7 +5988,7 @@
               "aliases": [
                 "rfj"
               ],
-              "group": "Global options",
+              "group": "Global Options",
               "description": "Produce JSON formatted data from a command",
               "type": "boolean"
             },
@@ -6091,23 +5997,16 @@
               "aliases": [
                 "h"
               ],
-              "group": "Global options",
+              "group": "Global Options",
               "description": "Display help text",
               "type": "boolean"
-            },
-            {
-              "name": "help-examples",
-              "group": "Global options",
-              "description": "Display examples for all the commands in a group",
-              "type": "boolean",
-              "aliases": []
             },
             {
               "name": "help-web",
               "aliases": [
                 "hw"
               ],
-              "group": "Global options",
+              "group": "Global Options",
               "description": "Display HTML help in browser",
               "type": "boolean"
             },
@@ -6272,11 +6171,18 @@
       ],
       "options": [
         {
+          "name": "help-examples",
+          "group": "Global Options",
+          "description": "Display examples for all the commands in a group",
+          "type": "boolean",
+          "aliases": []
+        },
+        {
           "name": "response-format-json",
           "aliases": [
             "rfj"
           ],
-          "group": "Global options",
+          "group": "Global Options",
           "description": "Produce JSON formatted data from a command",
           "type": "boolean"
         },
@@ -6285,23 +6191,16 @@
           "aliases": [
             "h"
           ],
-          "group": "Global options",
+          "group": "Global Options",
           "description": "Display help text",
           "type": "boolean"
-        },
-        {
-          "name": "help-examples",
-          "group": "Global options",
-          "description": "Display examples for all the commands in a group",
-          "type": "boolean",
-          "aliases": []
         },
         {
           "name": "help-web",
           "aliases": [
             "hw"
           ],
-          "group": "Global options",
+          "group": "Global Options",
           "description": "Display HTML help in browser",
           "type": "boolean"
         }
@@ -6373,7 +6272,7 @@
             },
             {
               "name": "show-inputs-only",
-              "group": "Global options",
+              "group": "Global Options",
               "description": "Show command inputs and do not run the command",
               "type": "boolean",
               "aliases": []
@@ -6383,7 +6282,7 @@
               "aliases": [
                 "rfj"
               ],
-              "group": "Global options",
+              "group": "Global Options",
               "description": "Produce JSON formatted data from a command",
               "type": "boolean"
             },
@@ -6392,23 +6291,16 @@
               "aliases": [
                 "h"
               ],
-              "group": "Global options",
+              "group": "Global Options",
               "description": "Display help text",
               "type": "boolean"
-            },
-            {
-              "name": "help-examples",
-              "group": "Global options",
-              "description": "Display examples for all the commands in a group",
-              "type": "boolean",
-              "aliases": []
             },
             {
               "name": "help-web",
               "aliases": [
                 "hw"
               ],
-              "group": "Global options",
+              "group": "Global Options",
               "description": "Display HTML help in browser",
               "type": "boolean"
             },
@@ -6542,7 +6434,7 @@
             },
             {
               "name": "show-inputs-only",
-              "group": "Global options",
+              "group": "Global Options",
               "description": "Show command inputs and do not run the command",
               "type": "boolean",
               "aliases": []
@@ -6552,7 +6444,7 @@
               "aliases": [
                 "rfj"
               ],
-              "group": "Global options",
+              "group": "Global Options",
               "description": "Produce JSON formatted data from a command",
               "type": "boolean"
             },
@@ -6561,23 +6453,16 @@
               "aliases": [
                 "h"
               ],
-              "group": "Global options",
+              "group": "Global Options",
               "description": "Display help text",
               "type": "boolean"
-            },
-            {
-              "name": "help-examples",
-              "group": "Global options",
-              "description": "Display examples for all the commands in a group",
-              "type": "boolean",
-              "aliases": []
             },
             {
               "name": "help-web",
               "aliases": [
                 "hw"
               ],
-              "group": "Global options",
+              "group": "Global Options",
               "description": "Display HTML help in browser",
               "type": "boolean"
             },
@@ -6692,7 +6577,7 @@
             },
             {
               "name": "show-inputs-only",
-              "group": "Global options",
+              "group": "Global Options",
               "description": "Show command inputs and do not run the command",
               "type": "boolean",
               "aliases": []
@@ -6702,7 +6587,7 @@
               "aliases": [
                 "rfj"
               ],
-              "group": "Global options",
+              "group": "Global Options",
               "description": "Produce JSON formatted data from a command",
               "type": "boolean"
             },
@@ -6711,23 +6596,16 @@
               "aliases": [
                 "h"
               ],
-              "group": "Global options",
+              "group": "Global Options",
               "description": "Display help text",
               "type": "boolean"
-            },
-            {
-              "name": "help-examples",
-              "group": "Global options",
-              "description": "Display examples for all the commands in a group",
-              "type": "boolean",
-              "aliases": []
             },
             {
               "name": "help-web",
               "aliases": [
                 "hw"
               ],
-              "group": "Global options",
+              "group": "Global Options",
               "description": "Display HTML help in browser",
               "type": "boolean"
             },
@@ -6777,11 +6655,18 @@
       ],
       "options": [
         {
+          "name": "help-examples",
+          "group": "Global Options",
+          "description": "Display examples for all the commands in a group",
+          "type": "boolean",
+          "aliases": []
+        },
+        {
           "name": "response-format-json",
           "aliases": [
             "rfj"
           ],
-          "group": "Global options",
+          "group": "Global Options",
           "description": "Produce JSON formatted data from a command",
           "type": "boolean"
         },
@@ -6790,23 +6675,16 @@
           "aliases": [
             "h"
           ],
-          "group": "Global options",
+          "group": "Global Options",
           "description": "Display help text",
           "type": "boolean"
-        },
-        {
-          "name": "help-examples",
-          "group": "Global options",
-          "description": "Display examples for all the commands in a group",
-          "type": "boolean",
-          "aliases": []
         },
         {
           "name": "help-web",
           "aliases": [
             "hw"
           ],
-          "group": "Global options",
+          "group": "Global Options",
           "description": "Display HTML help in browser",
           "type": "boolean"
         }
@@ -6850,7 +6728,7 @@
             },
             {
               "name": "show-inputs-only",
-              "group": "Global options",
+              "group": "Global Options",
               "description": "Show command inputs and do not run the command",
               "type": "boolean",
               "aliases": []
@@ -6860,7 +6738,7 @@
               "aliases": [
                 "rfj"
               ],
-              "group": "Global options",
+              "group": "Global Options",
               "description": "Produce JSON formatted data from a command",
               "type": "boolean"
             },
@@ -6869,23 +6747,16 @@
               "aliases": [
                 "h"
               ],
-              "group": "Global options",
+              "group": "Global Options",
               "description": "Display help text",
               "type": "boolean"
-            },
-            {
-              "name": "help-examples",
-              "group": "Global options",
-              "description": "Display examples for all the commands in a group",
-              "type": "boolean",
-              "aliases": []
             },
             {
               "name": "help-web",
               "aliases": [
                 "hw"
               ],
-              "group": "Global options",
+              "group": "Global Options",
               "description": "Display HTML help in browser",
               "type": "boolean"
             },
@@ -7064,7 +6935,7 @@
             },
             {
               "name": "show-inputs-only",
-              "group": "Global options",
+              "group": "Global Options",
               "description": "Show command inputs and do not run the command",
               "type": "boolean",
               "aliases": []
@@ -7074,7 +6945,7 @@
               "aliases": [
                 "rfj"
               ],
-              "group": "Global options",
+              "group": "Global Options",
               "description": "Produce JSON formatted data from a command",
               "type": "boolean"
             },
@@ -7083,23 +6954,16 @@
               "aliases": [
                 "h"
               ],
-              "group": "Global options",
+              "group": "Global Options",
               "description": "Display help text",
               "type": "boolean"
-            },
-            {
-              "name": "help-examples",
-              "group": "Global options",
-              "description": "Display examples for all the commands in a group",
-              "type": "boolean",
-              "aliases": []
             },
             {
               "name": "help-web",
               "aliases": [
                 "hw"
               ],
-              "group": "Global options",
+              "group": "Global Options",
               "description": "Display HTML help in browser",
               "type": "boolean"
             },
@@ -7337,7 +7201,7 @@
             },
             {
               "name": "show-inputs-only",
-              "group": "Global options",
+              "group": "Global Options",
               "description": "Show command inputs and do not run the command",
               "type": "boolean",
               "aliases": []
@@ -7347,7 +7211,7 @@
               "aliases": [
                 "rfj"
               ],
-              "group": "Global options",
+              "group": "Global Options",
               "description": "Produce JSON formatted data from a command",
               "type": "boolean"
             },
@@ -7356,23 +7220,16 @@
               "aliases": [
                 "h"
               ],
-              "group": "Global options",
+              "group": "Global Options",
               "description": "Display help text",
               "type": "boolean"
-            },
-            {
-              "name": "help-examples",
-              "group": "Global options",
-              "description": "Display examples for all the commands in a group",
-              "type": "boolean",
-              "aliases": []
             },
             {
               "name": "help-web",
               "aliases": [
                 "hw"
               ],
-              "group": "Global options",
+              "group": "Global Options",
               "description": "Display HTML help in browser",
               "type": "boolean"
             },
@@ -7578,11 +7435,18 @@
       ],
       "options": [
         {
+          "name": "help-examples",
+          "group": "Global Options",
+          "description": "Display examples for all the commands in a group",
+          "type": "boolean",
+          "aliases": []
+        },
+        {
           "name": "response-format-json",
           "aliases": [
             "rfj"
           ],
-          "group": "Global options",
+          "group": "Global Options",
           "description": "Produce JSON formatted data from a command",
           "type": "boolean"
         },
@@ -7591,23 +7455,16 @@
           "aliases": [
             "h"
           ],
-          "group": "Global options",
+          "group": "Global Options",
           "description": "Display help text",
           "type": "boolean"
-        },
-        {
-          "name": "help-examples",
-          "group": "Global options",
-          "description": "Display examples for all the commands in a group",
-          "type": "boolean",
-          "aliases": []
         },
         {
           "name": "help-web",
           "aliases": [
             "hw"
           ],
-          "group": "Global options",
+          "group": "Global Options",
           "description": "Display HTML help in browser",
           "type": "boolean"
         }
@@ -7621,11 +7478,18 @@
   ],
   "options": [
     {
+      "name": "help-examples",
+      "group": "Global Options",
+      "description": "Display examples for all the commands in a group",
+      "type": "boolean",
+      "aliases": []
+    },
+    {
       "name": "response-format-json",
       "aliases": [
         "rfj"
       ],
-      "group": "Global options",
+      "group": "Global Options",
       "description": "Produce JSON formatted data from a command",
       "type": "boolean"
     },
@@ -7634,23 +7498,16 @@
       "aliases": [
         "h"
       ],
-      "group": "Global options",
+      "group": "Global Options",
       "description": "Display help text",
       "type": "boolean"
-    },
-    {
-      "name": "help-examples",
-      "group": "Global options",
-      "description": "Display examples for all the commands in a group",
-      "type": "boolean",
-      "aliases": []
     },
     {
       "name": "help-web",
       "aliases": [
         "hw"
       ],
-      "group": "Global options",
+      "group": "Global Options",
       "description": "Display HTML help in browser",
       "type": "boolean"
     }

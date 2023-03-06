@@ -1,4 +1,4 @@
-// Copyright (c) 2022 Broadcom.  All Rights Reserved.  The term
+// Copyright (c) 2023 Broadcom.  All Rights Reserved.  The term
 // "Broadcom" refers to Broadcom Inc. and/or its subsidiaries.
 {
   "name": "dbm-db2",
@@ -73,7 +73,7 @@
             },
             {
               "name": "show-inputs-only",
-              "group": "Global options",
+              "group": "Global Options",
               "description": "Show command inputs and do not run the command",
               "type": "boolean",
               "aliases": []
@@ -83,7 +83,7 @@
               "aliases": [
                 "rfj"
               ],
-              "group": "Global options",
+              "group": "Global Options",
               "description": "Produce JSON formatted data from a command",
               "type": "boolean"
             },
@@ -92,23 +92,16 @@
               "aliases": [
                 "h"
               ],
-              "group": "Global options",
+              "group": "Global Options",
               "description": "Display help text",
               "type": "boolean"
-            },
-            {
-              "name": "help-examples",
-              "group": "Global options",
-              "description": "Display examples for all the commands in a group",
-              "type": "boolean",
-              "aliases": []
             },
             {
               "name": "help-web",
               "aliases": [
                 "hw"
               ],
-              "group": "Global options",
+              "group": "Global Options",
               "description": "Display HTML help in browser",
               "type": "boolean"
             },
@@ -235,11 +228,18 @@
       ],
       "options": [
         {
+          "name": "help-examples",
+          "group": "Global Options",
+          "description": "Display examples for all the commands in a group",
+          "type": "boolean",
+          "aliases": []
+        },
+        {
           "name": "response-format-json",
           "aliases": [
             "rfj"
           ],
-          "group": "Global options",
+          "group": "Global Options",
           "description": "Produce JSON formatted data from a command",
           "type": "boolean"
         },
@@ -248,23 +248,16 @@
           "aliases": [
             "h"
           ],
-          "group": "Global options",
+          "group": "Global Options",
           "description": "Display help text",
           "type": "boolean"
-        },
-        {
-          "name": "help-examples",
-          "group": "Global options",
-          "description": "Display examples for all the commands in a group",
-          "type": "boolean",
-          "aliases": []
         },
         {
           "name": "help-web",
           "aliases": [
             "hw"
           ],
-          "group": "Global options",
+          "group": "Global Options",
           "description": "Display HTML help in browser",
           "type": "boolean"
         }
@@ -280,7 +273,7 @@
       "children": [
         {
           "name": "ddl",
-          "description": "Compare objects that are defined in a DDL file to objects that are defined on a Db2 subsystem and generate an update script to implement the necessary object changes. This command also generates a summary report that provides a high-level overview of the changes. You can execute the script that is generated from this command using the 'zowe dbm-db2 execute compare-script' command.",
+          "description": "Compare objects that are defined in a DDL file to objects that are defined on a Db2 subsystem and generate an update script to implement the necessary object changes. This command also generates a high-level change summary report and a parseable impact analysis report. You can execute the script that is generated from this command using the 'zowe dbm-db2 execute compare-script' command.",
           "type": "command",
           "handler": "",
           "profile": {
@@ -386,10 +379,20 @@
             },
             {
               "name": "output-summary-file",
-              "description": "Specifies the local output file name that provides a summary of the changes to be performed to the Db2 objects on the target Db2 subsystem. The file summarizes what the changes are, but not how the changes are made.\n      \n\u001b[90m Default value: summary.txt \u001b[0m",
+              "description": "Specifies the local output file name that contains the change summary report in textual format. This report provides an overview of the changes to be performed to the Db2 objects on the target Db2 subsystem, but it does not describe how the changes are made.\n      \n\u001b[90m Default value: summary.txt \u001b[0m",
               "type": "string",
               "aliases": [
                 "osf"
+              ],
+              "required": false,
+              "group": "Options"
+            },
+            {
+              "name": "output-impact-file",
+              "description": "Specifies the local output file name that contains the parseable impact analysis report in JSON or YAML format. This report helps identify significant DDL operations to be performed on Db2 objects. It provides the total number and type of DDL operations that are being performed on each object type, the list of DDL operations performed on each object instance, and the state of any pending changes.\n \nThe report format is determined by the supplied file name extension: .json for JSON and .yaml or .yml for YAML. If no extension is provided, JSON format is used.\n      \n\u001b[90m Default value: impact.json\n\nFor more information about the impact analysis report, see the RC/Migrator documentation at https://techdocs.broadcom.com/db2rcmig. \u001b[0m",
+              "type": "string",
+              "aliases": [
+                "oif"
               ],
               "required": false,
               "group": "Options"
@@ -416,7 +419,7 @@
             },
             {
               "name": "show-inputs-only",
-              "group": "Global options",
+              "group": "Global Options",
               "description": "Show command inputs and do not run the command",
               "type": "boolean",
               "aliases": []
@@ -426,7 +429,7 @@
               "aliases": [
                 "rfj"
               ],
-              "group": "Global options",
+              "group": "Global Options",
               "description": "Produce JSON formatted data from a command",
               "type": "boolean"
             },
@@ -435,23 +438,16 @@
               "aliases": [
                 "h"
               ],
-              "group": "Global options",
+              "group": "Global Options",
               "description": "Display help text",
               "type": "boolean"
-            },
-            {
-              "name": "help-examples",
-              "group": "Global options",
-              "description": "Display examples for all the commands in a group",
-              "type": "boolean",
-              "aliases": []
             },
             {
               "name": "help-web",
               "aliases": [
                 "hw"
               ],
-              "group": "Global options",
+              "group": "Global Options",
               "description": "Display HTML help in browser",
               "type": "boolean"
             },
@@ -568,11 +564,11 @@
             },
             {
               "options": "myddl.sql --target-db2 TEST --rule-set USER1.RULESET",
-              "description": "Generate a script to update objects and apply a rule-set for the matched objects"
+              "description": "Generate a script to update objects and apply a rule set for the matched objects"
             },
             {
               "options": "myddl.sql --target-db2 TEST --rule-set USER1.RULESET --match-set-file pair.txt",
-              "description": "Generate a script to update objects and apply a ruleset for the objects matched as determined by the local mask specifications in the pair.txt file"
+              "description": "Generate a script to update objects and apply a rule set for the objects matched as determined by the local mask specifications in the pair.txt file"
             }
           ],
           "aliases": [],
@@ -582,11 +578,18 @@
       ],
       "options": [
         {
+          "name": "help-examples",
+          "group": "Global Options",
+          "description": "Display examples for all the commands in a group",
+          "type": "boolean",
+          "aliases": []
+        },
+        {
           "name": "response-format-json",
           "aliases": [
             "rfj"
           ],
-          "group": "Global options",
+          "group": "Global Options",
           "description": "Produce JSON formatted data from a command",
           "type": "boolean"
         },
@@ -595,23 +598,16 @@
           "aliases": [
             "h"
           ],
-          "group": "Global options",
+          "group": "Global Options",
           "description": "Display help text",
           "type": "boolean"
-        },
-        {
-          "name": "help-examples",
-          "group": "Global options",
-          "description": "Display examples for all the commands in a group",
-          "type": "boolean",
-          "aliases": []
         },
         {
           "name": "help-web",
           "aliases": [
             "hw"
           ],
-          "group": "Global options",
+          "group": "Global Options",
           "description": "Display HTML help in browser",
           "type": "boolean"
         }
@@ -725,7 +721,7 @@
             },
             {
               "name": "show-inputs-only",
-              "group": "Global options",
+              "group": "Global Options",
               "description": "Show command inputs and do not run the command",
               "type": "boolean",
               "aliases": []
@@ -735,7 +731,7 @@
               "aliases": [
                 "rfj"
               ],
-              "group": "Global options",
+              "group": "Global Options",
               "description": "Produce JSON formatted data from a command",
               "type": "boolean"
             },
@@ -744,23 +740,16 @@
               "aliases": [
                 "h"
               ],
-              "group": "Global options",
+              "group": "Global Options",
               "description": "Display help text",
               "type": "boolean"
-            },
-            {
-              "name": "help-examples",
-              "group": "Global options",
-              "description": "Display examples for all the commands in a group",
-              "type": "boolean",
-              "aliases": []
             },
             {
               "name": "help-web",
               "aliases": [
                 "hw"
               ],
-              "group": "Global options",
+              "group": "Global Options",
               "description": "Display HTML help in browser",
               "type": "boolean"
             },
@@ -891,11 +880,18 @@
       ],
       "options": [
         {
+          "name": "help-examples",
+          "group": "Global Options",
+          "description": "Display examples for all the commands in a group",
+          "type": "boolean",
+          "aliases": []
+        },
+        {
           "name": "response-format-json",
           "aliases": [
             "rfj"
           ],
-          "group": "Global options",
+          "group": "Global Options",
           "description": "Produce JSON formatted data from a command",
           "type": "boolean"
         },
@@ -904,23 +900,16 @@
           "aliases": [
             "h"
           ],
-          "group": "Global options",
+          "group": "Global Options",
           "description": "Display help text",
           "type": "boolean"
-        },
-        {
-          "name": "help-examples",
-          "group": "Global options",
-          "description": "Display examples for all the commands in a group",
-          "type": "boolean",
-          "aliases": []
         },
         {
           "name": "help-web",
           "aliases": [
             "hw"
           ],
-          "group": "Global options",
+          "group": "Global Options",
           "description": "Display HTML help in browser",
           "type": "boolean"
         }
@@ -950,10 +939,12 @@
           },
           "options": [
             {
-              "name": "output-recovery-file",
-              "description": "Specifies the local output recovery file that contains the recovery script that is generated during execution of this command. Executing the recovery script using the 'zowe dbm-db2 execute script' command undoes the changes that were made by execution of the compare-script. \n      \n\u001b[90m Default value: recovery.txt \u001b[0m",
+              "name": "output-recovery-script",
+              "description": "Specifies the local output file name that contains the recovery script that is generated during execution of this command. Executing the recovery script using the 'zowe dbm-db2 execute script' command undoes the changes that were made by execution of the compare-script. \n      \n\u001b[90m Default value: recovery.txt \u001b[0m",
               "type": "string",
               "aliases": [
+                "ors",
+                "output-recovery-file",
                 "orf"
               ],
               "required": false,
@@ -991,7 +982,7 @@
             },
             {
               "name": "show-inputs-only",
-              "group": "Global options",
+              "group": "Global Options",
               "description": "Show command inputs and do not run the command",
               "type": "boolean",
               "aliases": []
@@ -1001,7 +992,7 @@
               "aliases": [
                 "rfj"
               ],
-              "group": "Global options",
+              "group": "Global Options",
               "description": "Produce JSON formatted data from a command",
               "type": "boolean"
             },
@@ -1010,23 +1001,16 @@
               "aliases": [
                 "h"
               ],
-              "group": "Global options",
+              "group": "Global Options",
               "description": "Display help text",
               "type": "boolean"
-            },
-            {
-              "name": "help-examples",
-              "group": "Global options",
-              "description": "Display examples for all the commands in a group",
-              "type": "boolean",
-              "aliases": []
             },
             {
               "name": "help-web",
               "aliases": [
                 "hw"
               ],
-              "group": "Global options",
+              "group": "Global Options",
               "description": "Display HTML help in browser",
               "type": "boolean"
             },
@@ -1224,7 +1208,7 @@
             },
             {
               "name": "show-inputs-only",
-              "group": "Global options",
+              "group": "Global Options",
               "description": "Show command inputs and do not run the command",
               "type": "boolean",
               "aliases": []
@@ -1234,7 +1218,7 @@
               "aliases": [
                 "rfj"
               ],
-              "group": "Global options",
+              "group": "Global Options",
               "description": "Produce JSON formatted data from a command",
               "type": "boolean"
             },
@@ -1243,23 +1227,16 @@
               "aliases": [
                 "h"
               ],
-              "group": "Global options",
+              "group": "Global Options",
               "description": "Display help text",
               "type": "boolean"
-            },
-            {
-              "name": "help-examples",
-              "group": "Global options",
-              "description": "Display examples for all the commands in a group",
-              "type": "boolean",
-              "aliases": []
             },
             {
               "name": "help-web",
               "aliases": [
                 "hw"
               ],
-              "group": "Global options",
+              "group": "Global Options",
               "description": "Display HTML help in browser",
               "type": "boolean"
             },
@@ -1454,7 +1431,7 @@
             },
             {
               "name": "show-inputs-only",
-              "group": "Global options",
+              "group": "Global Options",
               "description": "Show command inputs and do not run the command",
               "type": "boolean",
               "aliases": []
@@ -1464,7 +1441,7 @@
               "aliases": [
                 "rfj"
               ],
-              "group": "Global options",
+              "group": "Global Options",
               "description": "Produce JSON formatted data from a command",
               "type": "boolean"
             },
@@ -1473,23 +1450,16 @@
               "aliases": [
                 "h"
               ],
-              "group": "Global options",
+              "group": "Global Options",
               "description": "Display help text",
               "type": "boolean"
-            },
-            {
-              "name": "help-examples",
-              "group": "Global options",
-              "description": "Display examples for all the commands in a group",
-              "type": "boolean",
-              "aliases": []
             },
             {
               "name": "help-web",
               "aliases": [
                 "hw"
               ],
-              "group": "Global options",
+              "group": "Global Options",
               "description": "Display HTML help in browser",
               "type": "boolean"
             },
@@ -1620,11 +1590,18 @@
       ],
       "options": [
         {
+          "name": "help-examples",
+          "group": "Global Options",
+          "description": "Display examples for all the commands in a group",
+          "type": "boolean",
+          "aliases": []
+        },
+        {
           "name": "response-format-json",
           "aliases": [
             "rfj"
           ],
-          "group": "Global options",
+          "group": "Global Options",
           "description": "Produce JSON formatted data from a command",
           "type": "boolean"
         },
@@ -1633,23 +1610,16 @@
           "aliases": [
             "h"
           ],
-          "group": "Global options",
+          "group": "Global Options",
           "description": "Display help text",
           "type": "boolean"
-        },
-        {
-          "name": "help-examples",
-          "group": "Global options",
-          "description": "Display examples for all the commands in a group",
-          "type": "boolean",
-          "aliases": []
         },
         {
           "name": "help-web",
           "aliases": [
             "hw"
           ],
-          "group": "Global options",
+          "group": "Global Options",
           "description": "Display HTML help in browser",
           "type": "boolean"
         }
@@ -1778,7 +1748,7 @@
             },
             {
               "name": "show-inputs-only",
-              "group": "Global options",
+              "group": "Global Options",
               "description": "Show command inputs and do not run the command",
               "type": "boolean",
               "aliases": []
@@ -1788,7 +1758,7 @@
               "aliases": [
                 "rfj"
               ],
-              "group": "Global options",
+              "group": "Global Options",
               "description": "Produce JSON formatted data from a command",
               "type": "boolean"
             },
@@ -1797,23 +1767,16 @@
               "aliases": [
                 "h"
               ],
-              "group": "Global options",
+              "group": "Global Options",
               "description": "Display help text",
               "type": "boolean"
-            },
-            {
-              "name": "help-examples",
-              "group": "Global options",
-              "description": "Display examples for all the commands in a group",
-              "type": "boolean",
-              "aliases": []
             },
             {
               "name": "help-web",
               "aliases": [
                 "hw"
               ],
-              "group": "Global options",
+              "group": "Global Options",
               "description": "Display HTML help in browser",
               "type": "boolean"
             },
@@ -1941,11 +1904,18 @@
       ],
       "options": [
         {
+          "name": "help-examples",
+          "group": "Global Options",
+          "description": "Display examples for all the commands in a group",
+          "type": "boolean",
+          "aliases": []
+        },
+        {
           "name": "response-format-json",
           "aliases": [
             "rfj"
           ],
-          "group": "Global options",
+          "group": "Global Options",
           "description": "Produce JSON formatted data from a command",
           "type": "boolean"
         },
@@ -1954,23 +1924,16 @@
           "aliases": [
             "h"
           ],
-          "group": "Global options",
+          "group": "Global Options",
           "description": "Display help text",
           "type": "boolean"
-        },
-        {
-          "name": "help-examples",
-          "group": "Global options",
-          "description": "Display examples for all the commands in a group",
-          "type": "boolean",
-          "aliases": []
         },
         {
           "name": "help-web",
           "aliases": [
             "hw"
           ],
-          "group": "Global options",
+          "group": "Global Options",
           "description": "Display HTML help in browser",
           "type": "boolean"
         }
@@ -2102,7 +2065,7 @@
             },
             {
               "name": "show-inputs-only",
-              "group": "Global options",
+              "group": "Global Options",
               "description": "Show command inputs and do not run the command",
               "type": "boolean",
               "aliases": []
@@ -2112,7 +2075,7 @@
               "aliases": [
                 "rfj"
               ],
-              "group": "Global options",
+              "group": "Global Options",
               "description": "Produce JSON formatted data from a command",
               "type": "boolean"
             },
@@ -2121,23 +2084,16 @@
               "aliases": [
                 "h"
               ],
-              "group": "Global options",
+              "group": "Global Options",
               "description": "Display help text",
               "type": "boolean"
-            },
-            {
-              "name": "help-examples",
-              "group": "Global options",
-              "description": "Display examples for all the commands in a group",
-              "type": "boolean",
-              "aliases": []
             },
             {
               "name": "help-web",
               "aliases": [
                 "hw"
               ],
-              "group": "Global options",
+              "group": "Global Options",
               "description": "Display HTML help in browser",
               "type": "boolean"
             },
@@ -2261,11 +2217,18 @@
       ],
       "options": [
         {
+          "name": "help-examples",
+          "group": "Global Options",
+          "description": "Display examples for all the commands in a group",
+          "type": "boolean",
+          "aliases": []
+        },
+        {
           "name": "response-format-json",
           "aliases": [
             "rfj"
           ],
-          "group": "Global options",
+          "group": "Global Options",
           "description": "Produce JSON formatted data from a command",
           "type": "boolean"
         },
@@ -2274,23 +2237,16 @@
           "aliases": [
             "h"
           ],
-          "group": "Global options",
+          "group": "Global Options",
           "description": "Display help text",
           "type": "boolean"
-        },
-        {
-          "name": "help-examples",
-          "group": "Global options",
-          "description": "Display examples for all the commands in a group",
-          "type": "boolean",
-          "aliases": []
         },
         {
           "name": "help-web",
           "aliases": [
             "hw"
           ],
-          "group": "Global options",
+          "group": "Global Options",
           "description": "Display HTML help in browser",
           "type": "boolean"
         }
@@ -2306,11 +2262,18 @@
   ],
   "options": [
     {
+      "name": "help-examples",
+      "group": "Global Options",
+      "description": "Display examples for all the commands in a group",
+      "type": "boolean",
+      "aliases": []
+    },
+    {
       "name": "response-format-json",
       "aliases": [
         "rfj"
       ],
-      "group": "Global options",
+      "group": "Global Options",
       "description": "Produce JSON formatted data from a command",
       "type": "boolean"
     },
@@ -2319,23 +2282,16 @@
       "aliases": [
         "h"
       ],
-      "group": "Global options",
+      "group": "Global Options",
       "description": "Display help text",
       "type": "boolean"
-    },
-    {
-      "name": "help-examples",
-      "group": "Global options",
-      "description": "Display examples for all the commands in a group",
-      "type": "boolean",
-      "aliases": []
     },
     {
       "name": "help-web",
       "aliases": [
         "hw"
       ],
-      "group": "Global options",
+      "group": "Global Options",
       "description": "Display HTML help in browser",
       "type": "boolean"
     }
