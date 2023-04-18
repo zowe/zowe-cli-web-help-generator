@@ -13,7 +13,7 @@
         {
           "examples": [
             {
-              "options": "elementName --env ENV --sys SYS --sub SUB --typ TYPE --ff localfile.txt -i ENDEVOR",
+              "options": "elementName --env ENV --sys SYS --sub SUB --typ TYPE --ff localfile.txt -i ENDEVOR --ccid CCID --comment 'adding element'",
               "description": "Add element from local file with endevor profile set up"
             }
           ],
@@ -304,6 +304,16 @@
                 "from-uss-file"
               ],
               "required": false,
+              "group": "options"
+            },
+            {
+              "name": "charset",
+              "aliases": [
+                "char"
+              ],
+              "description": "Specifies the clients preferred character set when retrieving, printing or updating elements.",
+              "type": "string",
+              "defaultValue": false,
               "group": "options"
             },
             {
@@ -768,6 +778,15 @@
               "aliases": []
             },
             {
+              "name": "asynchronous",
+              "aliases": [
+                "async"
+              ],
+              "description": "Submit this command as an asynchronous Endevor Web Services task",
+              "type": "boolean",
+              "group": "asynchronous task options"
+            },
+            {
               "name": "host",
               "aliases": [
                 "hostname"
@@ -1213,6 +1232,15 @@
               "defaultValue": 8,
               "group": "endevor-location definition options",
               "aliases": []
+            },
+            {
+              "name": "asynchronous",
+              "aliases": [
+                "async"
+              ],
+              "description": "Submit this command as an asynchronous Endevor Web Services task",
+              "type": "boolean",
+              "group": "asynchronous task options"
             },
             {
               "name": "host",
@@ -1661,6 +1689,15 @@
               "defaultValue": 8,
               "group": "endevor-location definition options",
               "aliases": []
+            },
+            {
+              "name": "asynchronous",
+              "aliases": [
+                "async"
+              ],
+              "description": "Submit this command as an asynchronous Endevor Web Services task",
+              "type": "boolean",
+              "group": "asynchronous task options"
             },
             {
               "name": "host",
@@ -2136,6 +2173,15 @@
               "aliases": []
             },
             {
+              "name": "asynchronous",
+              "aliases": [
+                "async"
+              ],
+              "description": "Submit this command as an asynchronous Endevor Web Services task",
+              "type": "boolean",
+              "group": "asynchronous task options"
+            },
+            {
               "name": "host",
               "aliases": [
                 "hostname"
@@ -2519,6 +2565,421 @@
       "positionals": []
     },
     {
+      "name": "check",
+      "type": "group",
+      "description": "Endevor Web Services Health Check.",
+      "children": [
+        {
+          "examples": [
+            {
+              "options": "ENDEVOR",
+              "description": "Perform health check of Endevor Web Services instance ENDEVOR"
+            }
+          ],
+          "name": "instance",
+          "type": "command",
+          "handler": "",
+          "description": "The check instance command triggers the web services health check for a given instance.",
+          "positionals": [
+            {
+              "name": "instance",
+              "description": "Specifies Endevor Web Services dataSource name.",
+              "type": "string"
+            }
+          ],
+          "profile": {
+            "optional": [
+              "endevor",
+              "endevor-location",
+              "base"
+            ]
+          },
+          "options": [
+            {
+              "name": "host",
+              "aliases": [
+                "hostname"
+              ],
+              "description": "Specifies the base host name.",
+              "type": "string",
+              "group": "endevor session definition options"
+            },
+            {
+              "name": "port",
+              "aliases": [
+                "p"
+              ],
+              "description": "Specifies the port number.",
+              "type": "string",
+              "group": "endevor session definition options"
+            },
+            {
+              "name": "instance",
+              "aliases": [
+                "i"
+              ],
+              "description": "Specifies Endevor Web Services dataSource name.",
+              "type": "string",
+              "group": "endevor-location definition options"
+            },
+            {
+              "name": "protocol",
+              "aliases": [
+                "prot"
+              ],
+              "description": "Specifies the protocol used for connecting to Endevor Rest API",
+              "type": "string",
+              "defaultValue": "https",
+              "allowableValues": {
+                "values": [
+                  "http",
+                  "https"
+                ],
+                "caseSensitive": false
+              },
+              "group": "endevor session definition options"
+            },
+            {
+              "name": "user",
+              "aliases": [
+                "username"
+              ],
+              "description": "Specifies the user name.",
+              "type": "string",
+              "group": "endevor session definition options"
+            },
+            {
+              "name": "password",
+              "aliases": [
+                "pass"
+              ],
+              "description": "Specifies the user's password.",
+              "type": "string",
+              "group": "endevor session definition options"
+            },
+            {
+              "name": "reject-unauthorized",
+              "aliases": [
+                "ru"
+              ],
+              "description": "Specify this option to have the server certificate verified against the list of supplied CAs",
+              "type": "boolean",
+              "group": "endevor session definition options"
+            },
+            {
+              "name": "base-path",
+              "aliases": [
+                "bp"
+              ],
+              "description": "Specifies the base path used for connecting to Endevor Rest API",
+              "type": "string",
+              "group": "endevor session definition options"
+            },
+            {
+              "name": "suppress-messages",
+              "aliases": [
+                "sm"
+              ],
+              "description": "Suppress all [INFO]/[WARN] messages from terminal output.",
+              "type": "boolean",
+              "group": "output customization options"
+            },
+            {
+              "name": "report-file",
+              "aliases": [
+                "file-name"
+              ],
+              "description": "File name for saving reports from Endevor SCM locally.",
+              "type": "string",
+              "group": "output customization options"
+            },
+            {
+              "name": "report-dir",
+              "description": "Directory for saving reports from Endevor SCM locally, if --report-file wasn't specified. Defaults to current directory.",
+              "type": "string",
+              "group": "output customization options",
+              "aliases": []
+            },
+            {
+              "name": "write-report",
+              "description": "Write the endevor reports to a file. By default, when return code is 0, no report will be written, unless this option is specified. When return code is bigger than 0, reports will be written to a file, unless this option is specifed to be false",
+              "type": "boolean",
+              "group": "output customization options",
+              "aliases": []
+            },
+            {
+              "name": "show-inputs-only",
+              "group": "Global Options",
+              "description": "Show command inputs and do not run the command",
+              "type": "boolean",
+              "aliases": []
+            },
+            {
+              "name": "response-format-json",
+              "aliases": [
+                "rfj"
+              ],
+              "group": "Global Options",
+              "description": "Produce JSON formatted data from a command",
+              "type": "boolean"
+            },
+            {
+              "name": "help",
+              "aliases": [
+                "h"
+              ],
+              "group": "Global Options",
+              "description": "Display help text",
+              "type": "boolean"
+            },
+            {
+              "name": "help-web",
+              "aliases": [
+                "hw"
+              ],
+              "group": "Global Options",
+              "description": "Display HTML help in browser",
+              "type": "boolean"
+            },
+            {
+              "name": "endevor-profile",
+              "aliases": [
+                "endevor-p"
+              ],
+              "group": "Profile Options",
+              "description": "The name of a (endevor) profile to load for this command execution.",
+              "type": "string"
+            },
+            {
+              "name": "endevor-location-profile",
+              "aliases": [
+                "endevor-location-p"
+              ],
+              "group": "Profile Options",
+              "description": "The name of a (endevor-location) profile to load for this command execution.",
+              "type": "string"
+            },
+            {
+              "name": "base-profile",
+              "aliases": [
+                "base-p"
+              ],
+              "group": "Profile Options",
+              "description": "The name of a (base) profile to load for this command execution.",
+              "type": "string"
+            },
+            {
+              "name": "token-type",
+              "aliases": [
+                "tt"
+              ],
+              "description": "The type of token to get and use for the API. Omit this option to use the default token type, which is provided by 'zowe auth login'.",
+              "type": "string",
+              "group": "Base Connection Options"
+            },
+            {
+              "name": "token-value",
+              "aliases": [
+                "tv"
+              ],
+              "description": "The value of the token to pass to the API.",
+              "type": "string",
+              "group": "Base Connection Options"
+            },
+            {
+              "name": "cert-file",
+              "description": "The file path to a certificate file to use for authentication",
+              "type": "existingLocalFile",
+              "group": "Base Connection Options",
+              "aliases": []
+            },
+            {
+              "name": "cert-key-file",
+              "description": "The file path to a certificate key file to use for authentication",
+              "type": "existingLocalFile",
+              "group": "Base Connection Options",
+              "aliases": []
+            }
+          ],
+          "aliases": [],
+          "passOn": [],
+          "children": []
+        }
+      ],
+      "passOn": [
+        {
+          "property": "options",
+          "value": [
+            {
+              "name": "host",
+              "aliases": [
+                "hostname"
+              ],
+              "description": "Specifies the base host name.",
+              "type": "string",
+              "group": "endevor session definition options"
+            },
+            {
+              "name": "port",
+              "aliases": [
+                "p"
+              ],
+              "description": "Specifies the port number.",
+              "type": "string",
+              "group": "endevor session definition options"
+            },
+            {
+              "name": "instance",
+              "aliases": [
+                "i"
+              ],
+              "description": "Specifies Endevor Web Services dataSource name.",
+              "type": "string",
+              "group": "endevor-location definition options"
+            },
+            {
+              "name": "protocol",
+              "aliases": [
+                "prot"
+              ],
+              "description": "Specifies the protocol used for connecting to Endevor Rest API",
+              "type": "string",
+              "defaultValue": "https",
+              "allowableValues": {
+                "values": [
+                  "http",
+                  "https"
+                ],
+                "caseSensitive": false
+              },
+              "group": "endevor session definition options"
+            },
+            {
+              "name": "user",
+              "aliases": [
+                "username"
+              ],
+              "description": "Specifies the user name.",
+              "type": "string",
+              "group": "endevor session definition options"
+            },
+            {
+              "name": "password",
+              "aliases": [
+                "pass"
+              ],
+              "description": "Specifies the user's password.",
+              "type": "string",
+              "group": "endevor session definition options"
+            },
+            {
+              "name": "reject-unauthorized",
+              "aliases": [
+                "ru"
+              ],
+              "description": "Specify this option to have the server certificate verified against the list of supplied CAs",
+              "type": "boolean",
+              "group": "endevor session definition options"
+            },
+            {
+              "name": "base-path",
+              "aliases": [
+                "bp"
+              ],
+              "description": "Specifies the base path used for connecting to Endevor Rest API",
+              "type": "string",
+              "group": "endevor session definition options"
+            }
+          ],
+          "merge": true,
+          "ignoreNodes": [
+            {
+              "type": "group"
+            }
+          ]
+        },
+        {
+          "property": "options",
+          "value": [
+            {
+              "name": "suppress-messages",
+              "aliases": [
+                "sm"
+              ],
+              "description": "Suppress all [INFO]/[WARN] messages from terminal output.",
+              "type": "boolean",
+              "group": "output customization options"
+            },
+            {
+              "name": "report-file",
+              "aliases": [
+                "file-name"
+              ],
+              "description": "File name for saving reports from Endevor SCM locally.",
+              "type": "string",
+              "group": "output customization options"
+            },
+            {
+              "name": "report-dir",
+              "description": "Directory for saving reports from Endevor SCM locally, if --report-file wasn't specified. Defaults to current directory.",
+              "type": "string",
+              "group": "output customization options"
+            },
+            {
+              "name": "write-report",
+              "description": "Write the endevor reports to a file. By default, when return code is 0, no report will be written, unless this option is specified. When return code is bigger than 0, reports will be written to a file, unless this option is specifed to be false",
+              "type": "boolean",
+              "group": "output customization options"
+            }
+          ],
+          "merge": true,
+          "ignoreNodes": [
+            {
+              "type": "group"
+            }
+          ]
+        }
+      ],
+      "options": [
+        {
+          "name": "help-examples",
+          "group": "Global Options",
+          "description": "Display examples for all the commands in a group",
+          "type": "boolean",
+          "aliases": []
+        },
+        {
+          "name": "response-format-json",
+          "aliases": [
+            "rfj"
+          ],
+          "group": "Global Options",
+          "description": "Produce JSON formatted data from a command",
+          "type": "boolean"
+        },
+        {
+          "name": "help",
+          "aliases": [
+            "h"
+          ],
+          "group": "Global Options",
+          "description": "Display help text",
+          "type": "boolean"
+        },
+        {
+          "name": "help-web",
+          "aliases": [
+            "hw"
+          ],
+          "group": "Global Options",
+          "description": "Display HTML help in browser",
+          "type": "boolean"
+        }
+      ],
+      "aliases": [],
+      "positionals": []
+    },
+    {
       "name": "commit",
       "type": "group",
       "description": "Commit a Package in Endevor.",
@@ -2582,6 +3043,15 @@
               "defaultValue": 8,
               "group": "endevor-location definition options",
               "aliases": []
+            },
+            {
+              "name": "asynchronous",
+              "aliases": [
+                "async"
+              ],
+              "description": "Submit this command as an asynchronous Endevor Web Services task",
+              "type": "boolean",
+              "group": "asynchronous task options"
             },
             {
               "name": "host",
@@ -4041,6 +4511,15 @@
               "group": "options"
             },
             {
+              "name": "asynchronous",
+              "aliases": [
+                "async"
+              ],
+              "description": "Submit this command as an asynchronous Endevor Web Services task",
+              "type": "boolean",
+              "group": "asynchronous task options"
+            },
+            {
               "name": "host",
               "aliases": [
                 "hostname"
@@ -4322,6 +4801,15 @@
               "defaultValue": 8,
               "group": "endevor-location definition options",
               "aliases": []
+            },
+            {
+              "name": "asynchronous",
+              "aliases": [
+                "async"
+              ],
+              "description": "Submit this command as an asynchronous Endevor Web Services task",
+              "type": "boolean",
+              "group": "asynchronous task options"
             },
             {
               "name": "host",
@@ -4779,6 +5267,15 @@
               "defaultValue": 8,
               "group": "endevor-location definition options",
               "aliases": []
+            },
+            {
+              "name": "asynchronous",
+              "aliases": [
+                "async"
+              ],
+              "description": "Submit this command as an asynchronous Endevor Web Services task",
+              "type": "boolean",
+              "group": "asynchronous task options"
             },
             {
               "name": "host",
@@ -5250,6 +5747,15 @@
               "defaultValue": 8,
               "group": "endevor-location definition options",
               "aliases": []
+            },
+            {
+              "name": "asynchronous",
+              "aliases": [
+                "async"
+              ],
+              "description": "Submit this command as an asynchronous Endevor Web Services task",
+              "type": "boolean",
+              "group": "asynchronous task options"
             },
             {
               "name": "host",
@@ -5883,6 +6389,15 @@
               "group": "options"
             },
             {
+              "name": "asynchronous",
+              "aliases": [
+                "async"
+              ],
+              "description": "Submit this command as an asynchronous Endevor Web Services task",
+              "type": "boolean",
+              "group": "asynchronous task options"
+            },
+            {
               "name": "host",
               "aliases": [
                 "hostname"
@@ -6497,6 +7012,1703 @@
         {
           "examples": [
             {
+              "options": "",
+              "description": "List the contents of the main Endevor configuration table (C1DEFLTS)"
+            }
+          ],
+          "name": "defaults",
+          "description": "List the contents of the main Endevor configuration table (C1DEFLTS)",
+          "type": "command",
+          "handler": "",
+          "profile": {
+            "optional": [
+              "endevor",
+              "endevor-location",
+              "base"
+            ]
+          },
+          "options": [
+            {
+              "name": "host",
+              "aliases": [
+                "hostname"
+              ],
+              "description": "Specifies the base host name.",
+              "type": "string",
+              "group": "endevor session definition options"
+            },
+            {
+              "name": "port",
+              "aliases": [
+                "p"
+              ],
+              "description": "Specifies the port number.",
+              "type": "string",
+              "group": "endevor session definition options"
+            },
+            {
+              "name": "protocol",
+              "aliases": [
+                "prot"
+              ],
+              "description": "Specifies the protocol used for connecting to Endevor Rest API",
+              "type": "string",
+              "defaultValue": "https",
+              "allowableValues": {
+                "values": [
+                  "http",
+                  "https"
+                ],
+                "caseSensitive": false
+              },
+              "group": "endevor session definition options"
+            },
+            {
+              "name": "reject-unauthorized",
+              "aliases": [
+                "ru"
+              ],
+              "description": "Specify this option to have the server certificate verified against the list of supplied CAs",
+              "type": "boolean",
+              "group": "endevor session definition options"
+            },
+            {
+              "name": "base-path",
+              "aliases": [
+                "bp"
+              ],
+              "description": "Specifies the base path used for connecting to Endevor Rest API",
+              "type": "string",
+              "group": "endevor session definition options"
+            },
+            {
+              "name": "host",
+              "aliases": [
+                "hostname"
+              ],
+              "description": "Specifies the base host name.",
+              "type": "string",
+              "group": "endevor session definition options"
+            },
+            {
+              "name": "port",
+              "aliases": [
+                "p"
+              ],
+              "description": "Specifies the port number.",
+              "type": "string",
+              "group": "endevor session definition options"
+            },
+            {
+              "name": "instance",
+              "aliases": [
+                "i"
+              ],
+              "description": "Specifies Endevor Web Services dataSource name.",
+              "type": "string",
+              "group": "endevor-location definition options"
+            },
+            {
+              "name": "protocol",
+              "aliases": [
+                "prot"
+              ],
+              "description": "Specifies the protocol used for connecting to Endevor Rest API",
+              "type": "string",
+              "defaultValue": "https",
+              "allowableValues": {
+                "values": [
+                  "http",
+                  "https"
+                ],
+                "caseSensitive": false
+              },
+              "group": "endevor session definition options"
+            },
+            {
+              "name": "user",
+              "aliases": [
+                "username"
+              ],
+              "description": "Specifies the user name.",
+              "type": "string",
+              "group": "endevor session definition options"
+            },
+            {
+              "name": "password",
+              "aliases": [
+                "pass"
+              ],
+              "description": "Specifies the user's password.",
+              "type": "string",
+              "group": "endevor session definition options"
+            },
+            {
+              "name": "reject-unauthorized",
+              "aliases": [
+                "ru"
+              ],
+              "description": "Specify this option to have the server certificate verified against the list of supplied CAs",
+              "type": "boolean",
+              "group": "endevor session definition options"
+            },
+            {
+              "name": "base-path",
+              "aliases": [
+                "bp"
+              ],
+              "description": "Specifies the base path used for connecting to Endevor Rest API",
+              "type": "string",
+              "group": "endevor session definition options"
+            },
+            {
+              "name": "suppress-messages",
+              "aliases": [
+                "sm"
+              ],
+              "description": "Suppress all [INFO]/[WARN] messages from terminal output.",
+              "type": "boolean",
+              "group": "output customization options"
+            },
+            {
+              "name": "report-file",
+              "aliases": [
+                "file-name"
+              ],
+              "description": "File name for saving reports from Endevor SCM locally.",
+              "type": "string",
+              "group": "output customization options"
+            },
+            {
+              "name": "report-dir",
+              "description": "Directory for saving reports from Endevor SCM locally, if --report-file wasn't specified. Defaults to current directory.",
+              "type": "string",
+              "group": "output customization options",
+              "aliases": []
+            },
+            {
+              "name": "write-report",
+              "description": "Write the endevor reports to a file. By default, when return code is 0, no report will be written, unless this option is specified. When return code is bigger than 0, reports will be written to a file, unless this option is specifed to be false",
+              "type": "boolean",
+              "group": "output customization options",
+              "aliases": []
+            },
+            {
+              "name": "full-output",
+              "aliases": [
+                "fo"
+              ],
+              "description": "Specify this option if you want a full output of list action.",
+              "type": "boolean",
+              "group": "output customization options"
+            },
+            {
+              "name": "asynchronous",
+              "aliases": [
+                "async"
+              ],
+              "description": "Submit this command as an asynchronous Endevor Web Services task",
+              "type": "boolean",
+              "group": "asynchronous task options"
+            },
+            {
+              "name": "show-inputs-only",
+              "group": "Global Options",
+              "description": "Show command inputs and do not run the command",
+              "type": "boolean",
+              "aliases": []
+            },
+            {
+              "name": "response-format-json",
+              "aliases": [
+                "rfj"
+              ],
+              "group": "Global Options",
+              "description": "Produce JSON formatted data from a command",
+              "type": "boolean"
+            },
+            {
+              "name": "help",
+              "aliases": [
+                "h"
+              ],
+              "group": "Global Options",
+              "description": "Display help text",
+              "type": "boolean"
+            },
+            {
+              "name": "help-web",
+              "aliases": [
+                "hw"
+              ],
+              "group": "Global Options",
+              "description": "Display HTML help in browser",
+              "type": "boolean"
+            },
+            {
+              "name": "endevor-profile",
+              "aliases": [
+                "endevor-p"
+              ],
+              "group": "Profile Options",
+              "description": "The name of a (endevor) profile to load for this command execution.",
+              "type": "string"
+            },
+            {
+              "name": "endevor-location-profile",
+              "aliases": [
+                "endevor-location-p"
+              ],
+              "group": "Profile Options",
+              "description": "The name of a (endevor-location) profile to load for this command execution.",
+              "type": "string"
+            },
+            {
+              "name": "base-profile",
+              "aliases": [
+                "base-p"
+              ],
+              "group": "Profile Options",
+              "description": "The name of a (base) profile to load for this command execution.",
+              "type": "string"
+            },
+            {
+              "name": "token-type",
+              "aliases": [
+                "tt"
+              ],
+              "description": "The type of token to get and use for the API. Omit this option to use the default token type, which is provided by 'zowe auth login'.",
+              "type": "string",
+              "group": "Base Connection Options"
+            },
+            {
+              "name": "token-value",
+              "aliases": [
+                "tv"
+              ],
+              "description": "The value of the token to pass to the API.",
+              "type": "string",
+              "group": "Base Connection Options"
+            },
+            {
+              "name": "cert-file",
+              "description": "The file path to a certificate file to use for authentication",
+              "type": "existingLocalFile",
+              "group": "Base Connection Options",
+              "aliases": []
+            },
+            {
+              "name": "cert-key-file",
+              "description": "The file path to a certificate key file to use for authentication",
+              "type": "existingLocalFile",
+              "group": "Base Connection Options",
+              "aliases": []
+            },
+            {
+              "name": "response-format-filter",
+              "aliases": [
+                "rff"
+              ],
+              "description": "Filter (include) fields in the response. Accepts an array of field/property names to include in the output response. You can filter JSON objects properties OR table columns/fields. In addition, you can use this option in conjunction with '--response-format-type' to reduce the output of a command to a single field/property or a list of a single field/property.",
+              "type": "array",
+              "group": "Response Format Options"
+            },
+            {
+              "name": "response-format-type",
+              "aliases": [
+                "rft"
+              ],
+              "description": "The command response output format type. Must be one of the following:\n\ntable: Formats output data as a table. Use this option when the output data is an array of homogeneous JSON objects. Each property of the object will become a column in the table.\n\nlist: Formats output data as a list of strings. Can be used on any data type (JSON objects/arrays) are stringified and a new line is added after each entry in an array.\n\nobject: Formats output data as a list of prettified objects (or single object). Can be used in place of \"table\" to change from tabular output to a list of prettified objects.\n\nstring: Formats output data as a string. JSON objects/arrays are stringified.",
+              "type": "string",
+              "allowableValues": {
+                "values": [
+                  "table",
+                  "list",
+                  "object",
+                  "string"
+                ],
+                "caseSensitive": false
+              },
+              "group": "Response Format Options"
+            },
+            {
+              "name": "response-format-header",
+              "aliases": [
+                "rfh"
+              ],
+              "description": "If \"--response-format-type table\" is specified, include the column headers in the output.",
+              "type": "boolean",
+              "group": "Response Format Options",
+              "defaultValue": null
+            }
+          ],
+          "outputFormatOptions": true,
+          "aliases": [],
+          "positionals": [],
+          "passOn": [],
+          "children": []
+        },
+        {
+          "examples": [
+            {
+              "options": "",
+              "description": "List the contents of the Endevor optional features table (ENCOPTBL)"
+            }
+          ],
+          "name": "features",
+          "description": "List the contents of the Endevor optional features table (ENCOPTBL)",
+          "type": "command",
+          "handler": "",
+          "profile": {
+            "optional": [
+              "endevor",
+              "endevor-location",
+              "base"
+            ]
+          },
+          "options": [
+            {
+              "name": "host",
+              "aliases": [
+                "hostname"
+              ],
+              "description": "Specifies the base host name.",
+              "type": "string",
+              "group": "endevor session definition options"
+            },
+            {
+              "name": "port",
+              "aliases": [
+                "p"
+              ],
+              "description": "Specifies the port number.",
+              "type": "string",
+              "group": "endevor session definition options"
+            },
+            {
+              "name": "protocol",
+              "aliases": [
+                "prot"
+              ],
+              "description": "Specifies the protocol used for connecting to Endevor Rest API",
+              "type": "string",
+              "defaultValue": "https",
+              "allowableValues": {
+                "values": [
+                  "http",
+                  "https"
+                ],
+                "caseSensitive": false
+              },
+              "group": "endevor session definition options"
+            },
+            {
+              "name": "reject-unauthorized",
+              "aliases": [
+                "ru"
+              ],
+              "description": "Specify this option to have the server certificate verified against the list of supplied CAs",
+              "type": "boolean",
+              "group": "endevor session definition options"
+            },
+            {
+              "name": "base-path",
+              "aliases": [
+                "bp"
+              ],
+              "description": "Specifies the base path used for connecting to Endevor Rest API",
+              "type": "string",
+              "group": "endevor session definition options"
+            },
+            {
+              "name": "host",
+              "aliases": [
+                "hostname"
+              ],
+              "description": "Specifies the base host name.",
+              "type": "string",
+              "group": "endevor session definition options"
+            },
+            {
+              "name": "port",
+              "aliases": [
+                "p"
+              ],
+              "description": "Specifies the port number.",
+              "type": "string",
+              "group": "endevor session definition options"
+            },
+            {
+              "name": "instance",
+              "aliases": [
+                "i"
+              ],
+              "description": "Specifies Endevor Web Services dataSource name.",
+              "type": "string",
+              "group": "endevor-location definition options"
+            },
+            {
+              "name": "protocol",
+              "aliases": [
+                "prot"
+              ],
+              "description": "Specifies the protocol used for connecting to Endevor Rest API",
+              "type": "string",
+              "defaultValue": "https",
+              "allowableValues": {
+                "values": [
+                  "http",
+                  "https"
+                ],
+                "caseSensitive": false
+              },
+              "group": "endevor session definition options"
+            },
+            {
+              "name": "user",
+              "aliases": [
+                "username"
+              ],
+              "description": "Specifies the user name.",
+              "type": "string",
+              "group": "endevor session definition options"
+            },
+            {
+              "name": "password",
+              "aliases": [
+                "pass"
+              ],
+              "description": "Specifies the user's password.",
+              "type": "string",
+              "group": "endevor session definition options"
+            },
+            {
+              "name": "reject-unauthorized",
+              "aliases": [
+                "ru"
+              ],
+              "description": "Specify this option to have the server certificate verified against the list of supplied CAs",
+              "type": "boolean",
+              "group": "endevor session definition options"
+            },
+            {
+              "name": "base-path",
+              "aliases": [
+                "bp"
+              ],
+              "description": "Specifies the base path used for connecting to Endevor Rest API",
+              "type": "string",
+              "group": "endevor session definition options"
+            },
+            {
+              "name": "suppress-messages",
+              "aliases": [
+                "sm"
+              ],
+              "description": "Suppress all [INFO]/[WARN] messages from terminal output.",
+              "type": "boolean",
+              "group": "output customization options"
+            },
+            {
+              "name": "report-file",
+              "aliases": [
+                "file-name"
+              ],
+              "description": "File name for saving reports from Endevor SCM locally.",
+              "type": "string",
+              "group": "output customization options"
+            },
+            {
+              "name": "report-dir",
+              "description": "Directory for saving reports from Endevor SCM locally, if --report-file wasn't specified. Defaults to current directory.",
+              "type": "string",
+              "group": "output customization options",
+              "aliases": []
+            },
+            {
+              "name": "write-report",
+              "description": "Write the endevor reports to a file. By default, when return code is 0, no report will be written, unless this option is specified. When return code is bigger than 0, reports will be written to a file, unless this option is specifed to be false",
+              "type": "boolean",
+              "group": "output customization options",
+              "aliases": []
+            },
+            {
+              "name": "full-output",
+              "aliases": [
+                "fo"
+              ],
+              "description": "Specify this option if you want a full output of list action.",
+              "type": "boolean",
+              "group": "output customization options"
+            },
+            {
+              "name": "asynchronous",
+              "aliases": [
+                "async"
+              ],
+              "description": "Submit this command as an asynchronous Endevor Web Services task",
+              "type": "boolean",
+              "group": "asynchronous task options"
+            },
+            {
+              "name": "show-inputs-only",
+              "group": "Global Options",
+              "description": "Show command inputs and do not run the command",
+              "type": "boolean",
+              "aliases": []
+            },
+            {
+              "name": "response-format-json",
+              "aliases": [
+                "rfj"
+              ],
+              "group": "Global Options",
+              "description": "Produce JSON formatted data from a command",
+              "type": "boolean"
+            },
+            {
+              "name": "help",
+              "aliases": [
+                "h"
+              ],
+              "group": "Global Options",
+              "description": "Display help text",
+              "type": "boolean"
+            },
+            {
+              "name": "help-web",
+              "aliases": [
+                "hw"
+              ],
+              "group": "Global Options",
+              "description": "Display HTML help in browser",
+              "type": "boolean"
+            },
+            {
+              "name": "endevor-profile",
+              "aliases": [
+                "endevor-p"
+              ],
+              "group": "Profile Options",
+              "description": "The name of a (endevor) profile to load for this command execution.",
+              "type": "string"
+            },
+            {
+              "name": "endevor-location-profile",
+              "aliases": [
+                "endevor-location-p"
+              ],
+              "group": "Profile Options",
+              "description": "The name of a (endevor-location) profile to load for this command execution.",
+              "type": "string"
+            },
+            {
+              "name": "base-profile",
+              "aliases": [
+                "base-p"
+              ],
+              "group": "Profile Options",
+              "description": "The name of a (base) profile to load for this command execution.",
+              "type": "string"
+            },
+            {
+              "name": "token-type",
+              "aliases": [
+                "tt"
+              ],
+              "description": "The type of token to get and use for the API. Omit this option to use the default token type, which is provided by 'zowe auth login'.",
+              "type": "string",
+              "group": "Base Connection Options"
+            },
+            {
+              "name": "token-value",
+              "aliases": [
+                "tv"
+              ],
+              "description": "The value of the token to pass to the API.",
+              "type": "string",
+              "group": "Base Connection Options"
+            },
+            {
+              "name": "cert-file",
+              "description": "The file path to a certificate file to use for authentication",
+              "type": "existingLocalFile",
+              "group": "Base Connection Options",
+              "aliases": []
+            },
+            {
+              "name": "cert-key-file",
+              "description": "The file path to a certificate key file to use for authentication",
+              "type": "existingLocalFile",
+              "group": "Base Connection Options",
+              "aliases": []
+            },
+            {
+              "name": "response-format-filter",
+              "aliases": [
+                "rff"
+              ],
+              "description": "Filter (include) fields in the response. Accepts an array of field/property names to include in the output response. You can filter JSON objects properties OR table columns/fields. In addition, you can use this option in conjunction with '--response-format-type' to reduce the output of a command to a single field/property or a list of a single field/property.",
+              "type": "array",
+              "group": "Response Format Options"
+            },
+            {
+              "name": "response-format-type",
+              "aliases": [
+                "rft"
+              ],
+              "description": "The command response output format type. Must be one of the following:\n\ntable: Formats output data as a table. Use this option when the output data is an array of homogeneous JSON objects. Each property of the object will become a column in the table.\n\nlist: Formats output data as a list of strings. Can be used on any data type (JSON objects/arrays) are stringified and a new line is added after each entry in an array.\n\nobject: Formats output data as a list of prettified objects (or single object). Can be used in place of \"table\" to change from tabular output to a list of prettified objects.\n\nstring: Formats output data as a string. JSON objects/arrays are stringified.",
+              "type": "string",
+              "allowableValues": {
+                "values": [
+                  "table",
+                  "list",
+                  "object",
+                  "string"
+                ],
+                "caseSensitive": false
+              },
+              "group": "Response Format Options"
+            },
+            {
+              "name": "response-format-header",
+              "aliases": [
+                "rfh"
+              ],
+              "description": "If \"--response-format-type table\" is specified, include the column headers in the output.",
+              "type": "boolean",
+              "group": "Response Format Options",
+              "defaultValue": null
+            }
+          ],
+          "outputFormatOptions": true,
+          "aliases": [],
+          "positionals": [],
+          "passOn": [],
+          "children": []
+        },
+        {
+          "examples": [
+            {
+              "options": "",
+              "description": "List the contents of the Endevor type sequence"
+            }
+          ],
+          "name": "type-sequence",
+          "aliases": [
+            "typeseq"
+          ],
+          "description": "List the contents of the Endevor type sequence",
+          "type": "command",
+          "handler": "",
+          "profile": {
+            "optional": [
+              "endevor",
+              "endevor-location",
+              "base"
+            ]
+          },
+          "options": [
+            {
+              "name": "host",
+              "aliases": [
+                "hostname"
+              ],
+              "description": "Specifies the base host name.",
+              "type": "string",
+              "group": "endevor session definition options"
+            },
+            {
+              "name": "port",
+              "aliases": [
+                "p"
+              ],
+              "description": "Specifies the port number.",
+              "type": "string",
+              "group": "endevor session definition options"
+            },
+            {
+              "name": "protocol",
+              "aliases": [
+                "prot"
+              ],
+              "description": "Specifies the protocol used for connecting to Endevor Rest API",
+              "type": "string",
+              "defaultValue": "https",
+              "allowableValues": {
+                "values": [
+                  "http",
+                  "https"
+                ],
+                "caseSensitive": false
+              },
+              "group": "endevor session definition options"
+            },
+            {
+              "name": "reject-unauthorized",
+              "aliases": [
+                "ru"
+              ],
+              "description": "Specify this option to have the server certificate verified against the list of supplied CAs",
+              "type": "boolean",
+              "group": "endevor session definition options"
+            },
+            {
+              "name": "base-path",
+              "aliases": [
+                "bp"
+              ],
+              "description": "Specifies the base path used for connecting to Endevor Rest API",
+              "type": "string",
+              "group": "endevor session definition options"
+            },
+            {
+              "name": "host",
+              "aliases": [
+                "hostname"
+              ],
+              "description": "Specifies the base host name.",
+              "type": "string",
+              "group": "endevor session definition options"
+            },
+            {
+              "name": "port",
+              "aliases": [
+                "p"
+              ],
+              "description": "Specifies the port number.",
+              "type": "string",
+              "group": "endevor session definition options"
+            },
+            {
+              "name": "instance",
+              "aliases": [
+                "i"
+              ],
+              "description": "Specifies Endevor Web Services dataSource name.",
+              "type": "string",
+              "group": "endevor-location definition options"
+            },
+            {
+              "name": "protocol",
+              "aliases": [
+                "prot"
+              ],
+              "description": "Specifies the protocol used for connecting to Endevor Rest API",
+              "type": "string",
+              "defaultValue": "https",
+              "allowableValues": {
+                "values": [
+                  "http",
+                  "https"
+                ],
+                "caseSensitive": false
+              },
+              "group": "endevor session definition options"
+            },
+            {
+              "name": "user",
+              "aliases": [
+                "username"
+              ],
+              "description": "Specifies the user name.",
+              "type": "string",
+              "group": "endevor session definition options"
+            },
+            {
+              "name": "password",
+              "aliases": [
+                "pass"
+              ],
+              "description": "Specifies the user's password.",
+              "type": "string",
+              "group": "endevor session definition options"
+            },
+            {
+              "name": "reject-unauthorized",
+              "aliases": [
+                "ru"
+              ],
+              "description": "Specify this option to have the server certificate verified against the list of supplied CAs",
+              "type": "boolean",
+              "group": "endevor session definition options"
+            },
+            {
+              "name": "base-path",
+              "aliases": [
+                "bp"
+              ],
+              "description": "Specifies the base path used for connecting to Endevor Rest API",
+              "type": "string",
+              "group": "endevor session definition options"
+            },
+            {
+              "name": "suppress-messages",
+              "aliases": [
+                "sm"
+              ],
+              "description": "Suppress all [INFO]/[WARN] messages from terminal output.",
+              "type": "boolean",
+              "group": "output customization options"
+            },
+            {
+              "name": "report-file",
+              "aliases": [
+                "file-name"
+              ],
+              "description": "File name for saving reports from Endevor SCM locally.",
+              "type": "string",
+              "group": "output customization options"
+            },
+            {
+              "name": "report-dir",
+              "description": "Directory for saving reports from Endevor SCM locally, if --report-file wasn't specified. Defaults to current directory.",
+              "type": "string",
+              "group": "output customization options",
+              "aliases": []
+            },
+            {
+              "name": "write-report",
+              "description": "Write the endevor reports to a file. By default, when return code is 0, no report will be written, unless this option is specified. When return code is bigger than 0, reports will be written to a file, unless this option is specifed to be false",
+              "type": "boolean",
+              "group": "output customization options",
+              "aliases": []
+            },
+            {
+              "name": "full-output",
+              "aliases": [
+                "fo"
+              ],
+              "description": "Specify this option if you want a full output of list action.",
+              "type": "boolean",
+              "group": "output customization options"
+            },
+            {
+              "name": "asynchronous",
+              "aliases": [
+                "async"
+              ],
+              "description": "Submit this command as an asynchronous Endevor Web Services task",
+              "type": "boolean",
+              "group": "asynchronous task options"
+            },
+            {
+              "name": "show-inputs-only",
+              "group": "Global Options",
+              "description": "Show command inputs and do not run the command",
+              "type": "boolean",
+              "aliases": []
+            },
+            {
+              "name": "response-format-json",
+              "aliases": [
+                "rfj"
+              ],
+              "group": "Global Options",
+              "description": "Produce JSON formatted data from a command",
+              "type": "boolean"
+            },
+            {
+              "name": "help",
+              "aliases": [
+                "h"
+              ],
+              "group": "Global Options",
+              "description": "Display help text",
+              "type": "boolean"
+            },
+            {
+              "name": "help-web",
+              "aliases": [
+                "hw"
+              ],
+              "group": "Global Options",
+              "description": "Display HTML help in browser",
+              "type": "boolean"
+            },
+            {
+              "name": "endevor-profile",
+              "aliases": [
+                "endevor-p"
+              ],
+              "group": "Profile Options",
+              "description": "The name of a (endevor) profile to load for this command execution.",
+              "type": "string"
+            },
+            {
+              "name": "endevor-location-profile",
+              "aliases": [
+                "endevor-location-p"
+              ],
+              "group": "Profile Options",
+              "description": "The name of a (endevor-location) profile to load for this command execution.",
+              "type": "string"
+            },
+            {
+              "name": "base-profile",
+              "aliases": [
+                "base-p"
+              ],
+              "group": "Profile Options",
+              "description": "The name of a (base) profile to load for this command execution.",
+              "type": "string"
+            },
+            {
+              "name": "token-type",
+              "aliases": [
+                "tt"
+              ],
+              "description": "The type of token to get and use for the API. Omit this option to use the default token type, which is provided by 'zowe auth login'.",
+              "type": "string",
+              "group": "Base Connection Options"
+            },
+            {
+              "name": "token-value",
+              "aliases": [
+                "tv"
+              ],
+              "description": "The value of the token to pass to the API.",
+              "type": "string",
+              "group": "Base Connection Options"
+            },
+            {
+              "name": "cert-file",
+              "description": "The file path to a certificate file to use for authentication",
+              "type": "existingLocalFile",
+              "group": "Base Connection Options",
+              "aliases": []
+            },
+            {
+              "name": "cert-key-file",
+              "description": "The file path to a certificate key file to use for authentication",
+              "type": "existingLocalFile",
+              "group": "Base Connection Options",
+              "aliases": []
+            },
+            {
+              "name": "response-format-filter",
+              "aliases": [
+                "rff"
+              ],
+              "description": "Filter (include) fields in the response. Accepts an array of field/property names to include in the output response. You can filter JSON objects properties OR table columns/fields. In addition, you can use this option in conjunction with '--response-format-type' to reduce the output of a command to a single field/property or a list of a single field/property.",
+              "type": "array",
+              "group": "Response Format Options"
+            },
+            {
+              "name": "response-format-type",
+              "aliases": [
+                "rft"
+              ],
+              "description": "The command response output format type. Must be one of the following:\n\ntable: Formats output data as a table. Use this option when the output data is an array of homogeneous JSON objects. Each property of the object will become a column in the table.\n\nlist: Formats output data as a list of strings. Can be used on any data type (JSON objects/arrays) are stringified and a new line is added after each entry in an array.\n\nobject: Formats output data as a list of prettified objects (or single object). Can be used in place of \"table\" to change from tabular output to a list of prettified objects.\n\nstring: Formats output data as a string. JSON objects/arrays are stringified.",
+              "type": "string",
+              "allowableValues": {
+                "values": [
+                  "table",
+                  "list",
+                  "object",
+                  "string"
+                ],
+                "caseSensitive": false
+              },
+              "group": "Response Format Options"
+            },
+            {
+              "name": "response-format-header",
+              "aliases": [
+                "rfh"
+              ],
+              "description": "If \"--response-format-type table\" is specified, include the column headers in the output.",
+              "type": "boolean",
+              "group": "Response Format Options",
+              "defaultValue": null
+            }
+          ],
+          "outputFormatOptions": true,
+          "positionals": [],
+          "passOn": [],
+          "children": []
+        },
+        {
+          "examples": [
+            {
+              "options": "",
+              "description": "List the contents of the Endevor ISPF dialog defaults table (ENDIECFG)"
+            }
+          ],
+          "name": "dialog",
+          "description": "List the contents of the Endevor ISPF dialog defaults table (ENDIECFG)",
+          "type": "command",
+          "handler": "",
+          "profile": {
+            "optional": [
+              "endevor",
+              "endevor-location",
+              "base"
+            ]
+          },
+          "options": [
+            {
+              "name": "host",
+              "aliases": [
+                "hostname"
+              ],
+              "description": "Specifies the base host name.",
+              "type": "string",
+              "group": "endevor session definition options"
+            },
+            {
+              "name": "port",
+              "aliases": [
+                "p"
+              ],
+              "description": "Specifies the port number.",
+              "type": "string",
+              "group": "endevor session definition options"
+            },
+            {
+              "name": "protocol",
+              "aliases": [
+                "prot"
+              ],
+              "description": "Specifies the protocol used for connecting to Endevor Rest API",
+              "type": "string",
+              "defaultValue": "https",
+              "allowableValues": {
+                "values": [
+                  "http",
+                  "https"
+                ],
+                "caseSensitive": false
+              },
+              "group": "endevor session definition options"
+            },
+            {
+              "name": "reject-unauthorized",
+              "aliases": [
+                "ru"
+              ],
+              "description": "Specify this option to have the server certificate verified against the list of supplied CAs",
+              "type": "boolean",
+              "group": "endevor session definition options"
+            },
+            {
+              "name": "base-path",
+              "aliases": [
+                "bp"
+              ],
+              "description": "Specifies the base path used for connecting to Endevor Rest API",
+              "type": "string",
+              "group": "endevor session definition options"
+            },
+            {
+              "name": "host",
+              "aliases": [
+                "hostname"
+              ],
+              "description": "Specifies the base host name.",
+              "type": "string",
+              "group": "endevor session definition options"
+            },
+            {
+              "name": "port",
+              "aliases": [
+                "p"
+              ],
+              "description": "Specifies the port number.",
+              "type": "string",
+              "group": "endevor session definition options"
+            },
+            {
+              "name": "instance",
+              "aliases": [
+                "i"
+              ],
+              "description": "Specifies Endevor Web Services dataSource name.",
+              "type": "string",
+              "group": "endevor-location definition options"
+            },
+            {
+              "name": "protocol",
+              "aliases": [
+                "prot"
+              ],
+              "description": "Specifies the protocol used for connecting to Endevor Rest API",
+              "type": "string",
+              "defaultValue": "https",
+              "allowableValues": {
+                "values": [
+                  "http",
+                  "https"
+                ],
+                "caseSensitive": false
+              },
+              "group": "endevor session definition options"
+            },
+            {
+              "name": "user",
+              "aliases": [
+                "username"
+              ],
+              "description": "Specifies the user name.",
+              "type": "string",
+              "group": "endevor session definition options"
+            },
+            {
+              "name": "password",
+              "aliases": [
+                "pass"
+              ],
+              "description": "Specifies the user's password.",
+              "type": "string",
+              "group": "endevor session definition options"
+            },
+            {
+              "name": "reject-unauthorized",
+              "aliases": [
+                "ru"
+              ],
+              "description": "Specify this option to have the server certificate verified against the list of supplied CAs",
+              "type": "boolean",
+              "group": "endevor session definition options"
+            },
+            {
+              "name": "base-path",
+              "aliases": [
+                "bp"
+              ],
+              "description": "Specifies the base path used for connecting to Endevor Rest API",
+              "type": "string",
+              "group": "endevor session definition options"
+            },
+            {
+              "name": "suppress-messages",
+              "aliases": [
+                "sm"
+              ],
+              "description": "Suppress all [INFO]/[WARN] messages from terminal output.",
+              "type": "boolean",
+              "group": "output customization options"
+            },
+            {
+              "name": "report-file",
+              "aliases": [
+                "file-name"
+              ],
+              "description": "File name for saving reports from Endevor SCM locally.",
+              "type": "string",
+              "group": "output customization options"
+            },
+            {
+              "name": "report-dir",
+              "description": "Directory for saving reports from Endevor SCM locally, if --report-file wasn't specified. Defaults to current directory.",
+              "type": "string",
+              "group": "output customization options",
+              "aliases": []
+            },
+            {
+              "name": "write-report",
+              "description": "Write the endevor reports to a file. By default, when return code is 0, no report will be written, unless this option is specified. When return code is bigger than 0, reports will be written to a file, unless this option is specifed to be false",
+              "type": "boolean",
+              "group": "output customization options",
+              "aliases": []
+            },
+            {
+              "name": "full-output",
+              "aliases": [
+                "fo"
+              ],
+              "description": "Specify this option if you want a full output of list action.",
+              "type": "boolean",
+              "group": "output customization options"
+            },
+            {
+              "name": "asynchronous",
+              "aliases": [
+                "async"
+              ],
+              "description": "Submit this command as an asynchronous Endevor Web Services task",
+              "type": "boolean",
+              "group": "asynchronous task options"
+            },
+            {
+              "name": "show-inputs-only",
+              "group": "Global Options",
+              "description": "Show command inputs and do not run the command",
+              "type": "boolean",
+              "aliases": []
+            },
+            {
+              "name": "response-format-json",
+              "aliases": [
+                "rfj"
+              ],
+              "group": "Global Options",
+              "description": "Produce JSON formatted data from a command",
+              "type": "boolean"
+            },
+            {
+              "name": "help",
+              "aliases": [
+                "h"
+              ],
+              "group": "Global Options",
+              "description": "Display help text",
+              "type": "boolean"
+            },
+            {
+              "name": "help-web",
+              "aliases": [
+                "hw"
+              ],
+              "group": "Global Options",
+              "description": "Display HTML help in browser",
+              "type": "boolean"
+            },
+            {
+              "name": "endevor-profile",
+              "aliases": [
+                "endevor-p"
+              ],
+              "group": "Profile Options",
+              "description": "The name of a (endevor) profile to load for this command execution.",
+              "type": "string"
+            },
+            {
+              "name": "endevor-location-profile",
+              "aliases": [
+                "endevor-location-p"
+              ],
+              "group": "Profile Options",
+              "description": "The name of a (endevor-location) profile to load for this command execution.",
+              "type": "string"
+            },
+            {
+              "name": "base-profile",
+              "aliases": [
+                "base-p"
+              ],
+              "group": "Profile Options",
+              "description": "The name of a (base) profile to load for this command execution.",
+              "type": "string"
+            },
+            {
+              "name": "token-type",
+              "aliases": [
+                "tt"
+              ],
+              "description": "The type of token to get and use for the API. Omit this option to use the default token type, which is provided by 'zowe auth login'.",
+              "type": "string",
+              "group": "Base Connection Options"
+            },
+            {
+              "name": "token-value",
+              "aliases": [
+                "tv"
+              ],
+              "description": "The value of the token to pass to the API.",
+              "type": "string",
+              "group": "Base Connection Options"
+            },
+            {
+              "name": "cert-file",
+              "description": "The file path to a certificate file to use for authentication",
+              "type": "existingLocalFile",
+              "group": "Base Connection Options",
+              "aliases": []
+            },
+            {
+              "name": "cert-key-file",
+              "description": "The file path to a certificate key file to use for authentication",
+              "type": "existingLocalFile",
+              "group": "Base Connection Options",
+              "aliases": []
+            },
+            {
+              "name": "response-format-filter",
+              "aliases": [
+                "rff"
+              ],
+              "description": "Filter (include) fields in the response. Accepts an array of field/property names to include in the output response. You can filter JSON objects properties OR table columns/fields. In addition, you can use this option in conjunction with '--response-format-type' to reduce the output of a command to a single field/property or a list of a single field/property.",
+              "type": "array",
+              "group": "Response Format Options"
+            },
+            {
+              "name": "response-format-type",
+              "aliases": [
+                "rft"
+              ],
+              "description": "The command response output format type. Must be one of the following:\n\ntable: Formats output data as a table. Use this option when the output data is an array of homogeneous JSON objects. Each property of the object will become a column in the table.\n\nlist: Formats output data as a list of strings. Can be used on any data type (JSON objects/arrays) are stringified and a new line is added after each entry in an array.\n\nobject: Formats output data as a list of prettified objects (or single object). Can be used in place of \"table\" to change from tabular output to a list of prettified objects.\n\nstring: Formats output data as a string. JSON objects/arrays are stringified.",
+              "type": "string",
+              "allowableValues": {
+                "values": [
+                  "table",
+                  "list",
+                  "object",
+                  "string"
+                ],
+                "caseSensitive": false
+              },
+              "group": "Response Format Options"
+            },
+            {
+              "name": "response-format-header",
+              "aliases": [
+                "rfh"
+              ],
+              "description": "If \"--response-format-type table\" is specified, include the column headers in the output.",
+              "type": "boolean",
+              "group": "Response Format Options",
+              "defaultValue": null
+            }
+          ],
+          "outputFormatOptions": true,
+          "aliases": [],
+          "positionals": [],
+          "passOn": [],
+          "children": []
+        },
+        {
+          "examples": [
+            {
+              "options": "",
+              "description": "List the Endevor site symbols"
+            }
+          ],
+          "name": "symbols",
+          "description": "List the Endevor site symbols",
+          "type": "command",
+          "handler": "",
+          "profile": {
+            "optional": [
+              "endevor",
+              "endevor-location",
+              "base"
+            ]
+          },
+          "options": [
+            {
+              "name": "host",
+              "aliases": [
+                "hostname"
+              ],
+              "description": "Specifies the base host name.",
+              "type": "string",
+              "group": "endevor session definition options"
+            },
+            {
+              "name": "port",
+              "aliases": [
+                "p"
+              ],
+              "description": "Specifies the port number.",
+              "type": "string",
+              "group": "endevor session definition options"
+            },
+            {
+              "name": "protocol",
+              "aliases": [
+                "prot"
+              ],
+              "description": "Specifies the protocol used for connecting to Endevor Rest API",
+              "type": "string",
+              "defaultValue": "https",
+              "allowableValues": {
+                "values": [
+                  "http",
+                  "https"
+                ],
+                "caseSensitive": false
+              },
+              "group": "endevor session definition options"
+            },
+            {
+              "name": "reject-unauthorized",
+              "aliases": [
+                "ru"
+              ],
+              "description": "Specify this option to have the server certificate verified against the list of supplied CAs",
+              "type": "boolean",
+              "group": "endevor session definition options"
+            },
+            {
+              "name": "base-path",
+              "aliases": [
+                "bp"
+              ],
+              "description": "Specifies the base path used for connecting to Endevor Rest API",
+              "type": "string",
+              "group": "endevor session definition options"
+            },
+            {
+              "name": "host",
+              "aliases": [
+                "hostname"
+              ],
+              "description": "Specifies the base host name.",
+              "type": "string",
+              "group": "endevor session definition options"
+            },
+            {
+              "name": "port",
+              "aliases": [
+                "p"
+              ],
+              "description": "Specifies the port number.",
+              "type": "string",
+              "group": "endevor session definition options"
+            },
+            {
+              "name": "instance",
+              "aliases": [
+                "i"
+              ],
+              "description": "Specifies Endevor Web Services dataSource name.",
+              "type": "string",
+              "group": "endevor-location definition options"
+            },
+            {
+              "name": "protocol",
+              "aliases": [
+                "prot"
+              ],
+              "description": "Specifies the protocol used for connecting to Endevor Rest API",
+              "type": "string",
+              "defaultValue": "https",
+              "allowableValues": {
+                "values": [
+                  "http",
+                  "https"
+                ],
+                "caseSensitive": false
+              },
+              "group": "endevor session definition options"
+            },
+            {
+              "name": "user",
+              "aliases": [
+                "username"
+              ],
+              "description": "Specifies the user name.",
+              "type": "string",
+              "group": "endevor session definition options"
+            },
+            {
+              "name": "password",
+              "aliases": [
+                "pass"
+              ],
+              "description": "Specifies the user's password.",
+              "type": "string",
+              "group": "endevor session definition options"
+            },
+            {
+              "name": "reject-unauthorized",
+              "aliases": [
+                "ru"
+              ],
+              "description": "Specify this option to have the server certificate verified against the list of supplied CAs",
+              "type": "boolean",
+              "group": "endevor session definition options"
+            },
+            {
+              "name": "base-path",
+              "aliases": [
+                "bp"
+              ],
+              "description": "Specifies the base path used for connecting to Endevor Rest API",
+              "type": "string",
+              "group": "endevor session definition options"
+            },
+            {
+              "name": "suppress-messages",
+              "aliases": [
+                "sm"
+              ],
+              "description": "Suppress all [INFO]/[WARN] messages from terminal output.",
+              "type": "boolean",
+              "group": "output customization options"
+            },
+            {
+              "name": "report-file",
+              "aliases": [
+                "file-name"
+              ],
+              "description": "File name for saving reports from Endevor SCM locally.",
+              "type": "string",
+              "group": "output customization options"
+            },
+            {
+              "name": "report-dir",
+              "description": "Directory for saving reports from Endevor SCM locally, if --report-file wasn't specified. Defaults to current directory.",
+              "type": "string",
+              "group": "output customization options",
+              "aliases": []
+            },
+            {
+              "name": "write-report",
+              "description": "Write the endevor reports to a file. By default, when return code is 0, no report will be written, unless this option is specified. When return code is bigger than 0, reports will be written to a file, unless this option is specifed to be false",
+              "type": "boolean",
+              "group": "output customization options",
+              "aliases": []
+            },
+            {
+              "name": "full-output",
+              "aliases": [
+                "fo"
+              ],
+              "description": "Specify this option if you want a full output of list action.",
+              "type": "boolean",
+              "group": "output customization options"
+            },
+            {
+              "name": "asynchronous",
+              "aliases": [
+                "async"
+              ],
+              "description": "Submit this command as an asynchronous Endevor Web Services task",
+              "type": "boolean",
+              "group": "asynchronous task options"
+            },
+            {
+              "name": "show-inputs-only",
+              "group": "Global Options",
+              "description": "Show command inputs and do not run the command",
+              "type": "boolean",
+              "aliases": []
+            },
+            {
+              "name": "response-format-json",
+              "aliases": [
+                "rfj"
+              ],
+              "group": "Global Options",
+              "description": "Produce JSON formatted data from a command",
+              "type": "boolean"
+            },
+            {
+              "name": "help",
+              "aliases": [
+                "h"
+              ],
+              "group": "Global Options",
+              "description": "Display help text",
+              "type": "boolean"
+            },
+            {
+              "name": "help-web",
+              "aliases": [
+                "hw"
+              ],
+              "group": "Global Options",
+              "description": "Display HTML help in browser",
+              "type": "boolean"
+            },
+            {
+              "name": "endevor-profile",
+              "aliases": [
+                "endevor-p"
+              ],
+              "group": "Profile Options",
+              "description": "The name of a (endevor) profile to load for this command execution.",
+              "type": "string"
+            },
+            {
+              "name": "endevor-location-profile",
+              "aliases": [
+                "endevor-location-p"
+              ],
+              "group": "Profile Options",
+              "description": "The name of a (endevor-location) profile to load for this command execution.",
+              "type": "string"
+            },
+            {
+              "name": "base-profile",
+              "aliases": [
+                "base-p"
+              ],
+              "group": "Profile Options",
+              "description": "The name of a (base) profile to load for this command execution.",
+              "type": "string"
+            },
+            {
+              "name": "token-type",
+              "aliases": [
+                "tt"
+              ],
+              "description": "The type of token to get and use for the API. Omit this option to use the default token type, which is provided by 'zowe auth login'.",
+              "type": "string",
+              "group": "Base Connection Options"
+            },
+            {
+              "name": "token-value",
+              "aliases": [
+                "tv"
+              ],
+              "description": "The value of the token to pass to the API.",
+              "type": "string",
+              "group": "Base Connection Options"
+            },
+            {
+              "name": "cert-file",
+              "description": "The file path to a certificate file to use for authentication",
+              "type": "existingLocalFile",
+              "group": "Base Connection Options",
+              "aliases": []
+            },
+            {
+              "name": "cert-key-file",
+              "description": "The file path to a certificate key file to use for authentication",
+              "type": "existingLocalFile",
+              "group": "Base Connection Options",
+              "aliases": []
+            },
+            {
+              "name": "response-format-filter",
+              "aliases": [
+                "rff"
+              ],
+              "description": "Filter (include) fields in the response. Accepts an array of field/property names to include in the output response. You can filter JSON objects properties OR table columns/fields. In addition, you can use this option in conjunction with '--response-format-type' to reduce the output of a command to a single field/property or a list of a single field/property.",
+              "type": "array",
+              "group": "Response Format Options"
+            },
+            {
+              "name": "response-format-type",
+              "aliases": [
+                "rft"
+              ],
+              "description": "The command response output format type. Must be one of the following:\n\ntable: Formats output data as a table. Use this option when the output data is an array of homogeneous JSON objects. Each property of the object will become a column in the table.\n\nlist: Formats output data as a list of strings. Can be used on any data type (JSON objects/arrays) are stringified and a new line is added after each entry in an array.\n\nobject: Formats output data as a list of prettified objects (or single object). Can be used in place of \"table\" to change from tabular output to a list of prettified objects.\n\nstring: Formats output data as a string. JSON objects/arrays are stringified.",
+              "type": "string",
+              "allowableValues": {
+                "values": [
+                  "table",
+                  "list",
+                  "object",
+                  "string"
+                ],
+                "caseSensitive": false
+              },
+              "group": "Response Format Options"
+            },
+            {
+              "name": "response-format-header",
+              "aliases": [
+                "rfh"
+              ],
+              "description": "If \"--response-format-type table\" is specified, include the column headers in the output.",
+              "type": "boolean",
+              "group": "Response Format Options",
+              "defaultValue": null
+            }
+          ],
+          "outputFormatOptions": true,
+          "aliases": [],
+          "positionals": [],
+          "passOn": [],
+          "children": []
+        },
+        {
+          "examples": [
+            {
               "options": "--host hostName --port 8080",
               "description": "List instances with session specified"
             }
@@ -6940,6 +9152,15 @@
               "group": "output customization options"
             },
             {
+              "name": "asynchronous",
+              "aliases": [
+                "async"
+              ],
+              "description": "Submit this command as an asynchronous Endevor Web Services task",
+              "type": "boolean",
+              "group": "asynchronous task options"
+            },
+            {
               "name": "show-inputs-only",
               "group": "Global Options",
               "description": "Show command inputs and do not run the command",
@@ -7291,6 +9512,15 @@
               "description": "Specify this option if you want a full output of list action.",
               "type": "boolean",
               "group": "output customization options"
+            },
+            {
+              "name": "asynchronous",
+              "aliases": [
+                "async"
+              ],
+              "description": "Submit this command as an asynchronous Endevor Web Services task",
+              "type": "boolean",
+              "group": "asynchronous task options"
             },
             {
               "name": "show-inputs-only",
@@ -7662,6 +9892,15 @@
               "description": "Specify this option if you want a full output of list action.",
               "type": "boolean",
               "group": "output customization options"
+            },
+            {
+              "name": "asynchronous",
+              "aliases": [
+                "async"
+              ],
+              "description": "Submit this command as an asynchronous Endevor Web Services task",
+              "type": "boolean",
+              "group": "asynchronous task options"
             },
             {
               "name": "show-inputs-only",
@@ -8048,6 +10287,15 @@
               "group": "output customization options"
             },
             {
+              "name": "asynchronous",
+              "aliases": [
+                "async"
+              ],
+              "description": "Submit this command as an asynchronous Endevor Web Services task",
+              "type": "boolean",
+              "group": "asynchronous task options"
+            },
+            {
               "name": "show-inputs-only",
               "group": "Global Options",
               "description": "Show command inputs and do not run the command",
@@ -8429,6 +10677,825 @@
               "description": "Specify this option if you want a full output of list action.",
               "type": "boolean",
               "group": "output customization options"
+            },
+            {
+              "name": "asynchronous",
+              "aliases": [
+                "async"
+              ],
+              "description": "Submit this command as an asynchronous Endevor Web Services task",
+              "type": "boolean",
+              "group": "asynchronous task options"
+            },
+            {
+              "name": "show-inputs-only",
+              "group": "Global Options",
+              "description": "Show command inputs and do not run the command",
+              "type": "boolean",
+              "aliases": []
+            },
+            {
+              "name": "response-format-json",
+              "aliases": [
+                "rfj"
+              ],
+              "group": "Global Options",
+              "description": "Produce JSON formatted data from a command",
+              "type": "boolean"
+            },
+            {
+              "name": "help",
+              "aliases": [
+                "h"
+              ],
+              "group": "Global Options",
+              "description": "Display help text",
+              "type": "boolean"
+            },
+            {
+              "name": "help-web",
+              "aliases": [
+                "hw"
+              ],
+              "group": "Global Options",
+              "description": "Display HTML help in browser",
+              "type": "boolean"
+            },
+            {
+              "name": "endevor-profile",
+              "aliases": [
+                "endevor-p"
+              ],
+              "group": "Profile Options",
+              "description": "The name of a (endevor) profile to load for this command execution.",
+              "type": "string"
+            },
+            {
+              "name": "endevor-location-profile",
+              "aliases": [
+                "endevor-location-p"
+              ],
+              "group": "Profile Options",
+              "description": "The name of a (endevor-location) profile to load for this command execution.",
+              "type": "string"
+            },
+            {
+              "name": "base-profile",
+              "aliases": [
+                "base-p"
+              ],
+              "group": "Profile Options",
+              "description": "The name of a (base) profile to load for this command execution.",
+              "type": "string"
+            },
+            {
+              "name": "token-type",
+              "aliases": [
+                "tt"
+              ],
+              "description": "The type of token to get and use for the API. Omit this option to use the default token type, which is provided by 'zowe auth login'.",
+              "type": "string",
+              "group": "Base Connection Options"
+            },
+            {
+              "name": "token-value",
+              "aliases": [
+                "tv"
+              ],
+              "description": "The value of the token to pass to the API.",
+              "type": "string",
+              "group": "Base Connection Options"
+            },
+            {
+              "name": "cert-file",
+              "description": "The file path to a certificate file to use for authentication",
+              "type": "existingLocalFile",
+              "group": "Base Connection Options",
+              "aliases": []
+            },
+            {
+              "name": "cert-key-file",
+              "description": "The file path to a certificate key file to use for authentication",
+              "type": "existingLocalFile",
+              "group": "Base Connection Options",
+              "aliases": []
+            },
+            {
+              "name": "response-format-filter",
+              "aliases": [
+                "rff"
+              ],
+              "description": "Filter (include) fields in the response. Accepts an array of field/property names to include in the output response. You can filter JSON objects properties OR table columns/fields. In addition, you can use this option in conjunction with '--response-format-type' to reduce the output of a command to a single field/property or a list of a single field/property.",
+              "type": "array",
+              "group": "Response Format Options"
+            },
+            {
+              "name": "response-format-type",
+              "aliases": [
+                "rft"
+              ],
+              "description": "The command response output format type. Must be one of the following:\n\ntable: Formats output data as a table. Use this option when the output data is an array of homogeneous JSON objects. Each property of the object will become a column in the table.\n\nlist: Formats output data as a list of strings. Can be used on any data type (JSON objects/arrays) are stringified and a new line is added after each entry in an array.\n\nobject: Formats output data as a list of prettified objects (or single object). Can be used in place of \"table\" to change from tabular output to a list of prettified objects.\n\nstring: Formats output data as a string. JSON objects/arrays are stringified.",
+              "type": "string",
+              "allowableValues": {
+                "values": [
+                  "table",
+                  "list",
+                  "object",
+                  "string"
+                ],
+                "caseSensitive": false
+              },
+              "group": "Response Format Options"
+            },
+            {
+              "name": "response-format-header",
+              "aliases": [
+                "rfh"
+              ],
+              "description": "If \"--response-format-type table\" is specified, include the column headers in the output.",
+              "type": "boolean",
+              "group": "Response Format Options",
+              "defaultValue": null
+            }
+          ],
+          "outputFormatOptions": true,
+          "passOn": [],
+          "children": []
+        },
+        {
+          "examples": [
+            {
+              "options": "--type TYPENAME --env ENVNAME --sn 1 --sys SYSNAME -i ENDEVOR",
+              "description": "List processor groups for type TYPENAME with endevor profile set up"
+            }
+          ],
+          "name": "processor-groups",
+          "aliases": [
+            "processor-group",
+            "pgrp"
+          ],
+          "description": "The list processor-groups command lists processor group information in Endevor",
+          "type": "command",
+          "handler": "",
+          "profile": {
+            "optional": [
+              "endevor",
+              "endevor-location",
+              "base"
+            ]
+          },
+          "positionals": [
+            {
+              "name": "proc-group",
+              "type": "string",
+              "description": "Name of the Endevor processor group",
+              "required": false,
+              "stringLengthRange": [
+                1,
+                8
+              ]
+            }
+          ],
+          "options": [
+            {
+              "name": "environment",
+              "aliases": [
+                "env"
+              ],
+              "description": "The Endevor environment where your project resides.",
+              "type": "string",
+              "stringLengthRange": [
+                1,
+                8
+              ],
+              "group": "endevor-location definition options"
+            },
+            {
+              "name": "system",
+              "aliases": [
+                "sys"
+              ],
+              "description": "The Endevor system where your project resides.",
+              "type": "string",
+              "stringLengthRange": [
+                1,
+                8
+              ],
+              "group": "endevor-location definition options"
+            },
+            {
+              "name": "stage-number",
+              "aliases": [
+                "sn"
+              ],
+              "description": "The Endevor stage number where your project resides.",
+              "type": "string",
+              "allowableValues": {
+                "values": [
+                  "\\*",
+                  "\\%",
+                  "1",
+                  "2"
+                ]
+              },
+              "group": "endevor-location definition options"
+            },
+            {
+              "name": "type",
+              "aliases": [
+                "typ"
+              ],
+              "description": "Name of the Endevor element's type.",
+              "type": "string",
+              "stringLengthRange": [
+                1,
+                8
+              ],
+              "group": "endevor-location definition options"
+            },
+            {
+              "name": "maxrc",
+              "description": "The maximum value of the return code of a successful action. When the return code is greater than the maxrc value, the command fails",
+              "type": "number",
+              "defaultValue": 8,
+              "group": "endevor-location definition options",
+              "aliases": []
+            },
+            {
+              "name": "path",
+              "aliases": [
+                "pa"
+              ],
+              "description": "Specifies a PHYsical or LOGical path.",
+              "type": "string",
+              "allowableValues": {
+                "values": [
+                  "log",
+                  "phy"
+                ],
+                "caseSensitive": false
+              },
+              "group": "options"
+            },
+            {
+              "name": "return",
+              "aliases": [
+                "ret"
+              ],
+              "description": "Sets mapping options for returned results: return FIRst match or ALL matching results.",
+              "type": "string",
+              "allowableValues": {
+                "values": [
+                  "fir",
+                  "all"
+                ],
+                "caseSensitive": false
+              },
+              "group": "options"
+            },
+            {
+              "name": "search",
+              "aliases": [
+                "sea"
+              ],
+              "description": "Enables the search through the Endevor map.",
+              "type": "boolean",
+              "group": "options"
+            },
+            {
+              "name": "host",
+              "aliases": [
+                "hostname"
+              ],
+              "description": "Specifies the base host name.",
+              "type": "string",
+              "group": "endevor session definition options"
+            },
+            {
+              "name": "port",
+              "aliases": [
+                "p"
+              ],
+              "description": "Specifies the port number.",
+              "type": "string",
+              "group": "endevor session definition options"
+            },
+            {
+              "name": "instance",
+              "aliases": [
+                "i"
+              ],
+              "description": "Specifies Endevor Web Services dataSource name.",
+              "type": "string",
+              "group": "endevor-location definition options"
+            },
+            {
+              "name": "protocol",
+              "aliases": [
+                "prot"
+              ],
+              "description": "Specifies the protocol used for connecting to Endevor Rest API",
+              "type": "string",
+              "defaultValue": "https",
+              "allowableValues": {
+                "values": [
+                  "http",
+                  "https"
+                ],
+                "caseSensitive": false
+              },
+              "group": "endevor session definition options"
+            },
+            {
+              "name": "user",
+              "aliases": [
+                "username"
+              ],
+              "description": "Specifies the user name.",
+              "type": "string",
+              "group": "endevor session definition options"
+            },
+            {
+              "name": "password",
+              "aliases": [
+                "pass"
+              ],
+              "description": "Specifies the user's password.",
+              "type": "string",
+              "group": "endevor session definition options"
+            },
+            {
+              "name": "reject-unauthorized",
+              "aliases": [
+                "ru"
+              ],
+              "description": "Specify this option to have the server certificate verified against the list of supplied CAs",
+              "type": "boolean",
+              "group": "endevor session definition options"
+            },
+            {
+              "name": "base-path",
+              "aliases": [
+                "bp"
+              ],
+              "description": "Specifies the base path used for connecting to Endevor Rest API",
+              "type": "string",
+              "group": "endevor session definition options"
+            },
+            {
+              "name": "suppress-messages",
+              "aliases": [
+                "sm"
+              ],
+              "description": "Suppress all [INFO]/[WARN] messages from terminal output.",
+              "type": "boolean",
+              "group": "output customization options"
+            },
+            {
+              "name": "report-file",
+              "aliases": [
+                "file-name"
+              ],
+              "description": "File name for saving reports from Endevor SCM locally.",
+              "type": "string",
+              "group": "output customization options"
+            },
+            {
+              "name": "report-dir",
+              "description": "Directory for saving reports from Endevor SCM locally, if --report-file wasn't specified. Defaults to current directory.",
+              "type": "string",
+              "group": "output customization options",
+              "aliases": []
+            },
+            {
+              "name": "write-report",
+              "description": "Write the endevor reports to a file. By default, when return code is 0, no report will be written, unless this option is specified. When return code is bigger than 0, reports will be written to a file, unless this option is specifed to be false",
+              "type": "boolean",
+              "group": "output customization options",
+              "aliases": []
+            },
+            {
+              "name": "full-output",
+              "aliases": [
+                "fo"
+              ],
+              "description": "Specify this option if you want a full output of list action.",
+              "type": "boolean",
+              "group": "output customization options"
+            },
+            {
+              "name": "asynchronous",
+              "aliases": [
+                "async"
+              ],
+              "description": "Submit this command as an asynchronous Endevor Web Services task",
+              "type": "boolean",
+              "group": "asynchronous task options"
+            },
+            {
+              "name": "show-inputs-only",
+              "group": "Global Options",
+              "description": "Show command inputs and do not run the command",
+              "type": "boolean",
+              "aliases": []
+            },
+            {
+              "name": "response-format-json",
+              "aliases": [
+                "rfj"
+              ],
+              "group": "Global Options",
+              "description": "Produce JSON formatted data from a command",
+              "type": "boolean"
+            },
+            {
+              "name": "help",
+              "aliases": [
+                "h"
+              ],
+              "group": "Global Options",
+              "description": "Display help text",
+              "type": "boolean"
+            },
+            {
+              "name": "help-web",
+              "aliases": [
+                "hw"
+              ],
+              "group": "Global Options",
+              "description": "Display HTML help in browser",
+              "type": "boolean"
+            },
+            {
+              "name": "endevor-profile",
+              "aliases": [
+                "endevor-p"
+              ],
+              "group": "Profile Options",
+              "description": "The name of a (endevor) profile to load for this command execution.",
+              "type": "string"
+            },
+            {
+              "name": "endevor-location-profile",
+              "aliases": [
+                "endevor-location-p"
+              ],
+              "group": "Profile Options",
+              "description": "The name of a (endevor-location) profile to load for this command execution.",
+              "type": "string"
+            },
+            {
+              "name": "base-profile",
+              "aliases": [
+                "base-p"
+              ],
+              "group": "Profile Options",
+              "description": "The name of a (base) profile to load for this command execution.",
+              "type": "string"
+            },
+            {
+              "name": "token-type",
+              "aliases": [
+                "tt"
+              ],
+              "description": "The type of token to get and use for the API. Omit this option to use the default token type, which is provided by 'zowe auth login'.",
+              "type": "string",
+              "group": "Base Connection Options"
+            },
+            {
+              "name": "token-value",
+              "aliases": [
+                "tv"
+              ],
+              "description": "The value of the token to pass to the API.",
+              "type": "string",
+              "group": "Base Connection Options"
+            },
+            {
+              "name": "cert-file",
+              "description": "The file path to a certificate file to use for authentication",
+              "type": "existingLocalFile",
+              "group": "Base Connection Options",
+              "aliases": []
+            },
+            {
+              "name": "cert-key-file",
+              "description": "The file path to a certificate key file to use for authentication",
+              "type": "existingLocalFile",
+              "group": "Base Connection Options",
+              "aliases": []
+            },
+            {
+              "name": "response-format-filter",
+              "aliases": [
+                "rff"
+              ],
+              "description": "Filter (include) fields in the response. Accepts an array of field/property names to include in the output response. You can filter JSON objects properties OR table columns/fields. In addition, you can use this option in conjunction with '--response-format-type' to reduce the output of a command to a single field/property or a list of a single field/property.",
+              "type": "array",
+              "group": "Response Format Options"
+            },
+            {
+              "name": "response-format-type",
+              "aliases": [
+                "rft"
+              ],
+              "description": "The command response output format type. Must be one of the following:\n\ntable: Formats output data as a table. Use this option when the output data is an array of homogeneous JSON objects. Each property of the object will become a column in the table.\n\nlist: Formats output data as a list of strings. Can be used on any data type (JSON objects/arrays) are stringified and a new line is added after each entry in an array.\n\nobject: Formats output data as a list of prettified objects (or single object). Can be used in place of \"table\" to change from tabular output to a list of prettified objects.\n\nstring: Formats output data as a string. JSON objects/arrays are stringified.",
+              "type": "string",
+              "allowableValues": {
+                "values": [
+                  "table",
+                  "list",
+                  "object",
+                  "string"
+                ],
+                "caseSensitive": false
+              },
+              "group": "Response Format Options"
+            },
+            {
+              "name": "response-format-header",
+              "aliases": [
+                "rfh"
+              ],
+              "description": "If \"--response-format-type table\" is specified, include the column headers in the output.",
+              "type": "boolean",
+              "group": "Response Format Options",
+              "defaultValue": null
+            }
+          ],
+          "outputFormatOptions": true,
+          "passOn": [],
+          "children": []
+        },
+        {
+          "examples": [
+            {
+              "options": "PROCGROUP --env ENVNAME --sn 1 --sys SYSNAME --typ TYPENAME -i ENDEVOR",
+              "description": "List all processor symbols for group PROCGROUP with endevor profile set up"
+            }
+          ],
+          "name": "processor-symbols",
+          "aliases": [
+            "processor-symbol",
+            "psym"
+          ],
+          "description": "The list processor-symbols command lists processor group symbol overrides information in Endevor",
+          "type": "command",
+          "handler": "",
+          "profile": {
+            "optional": [
+              "endevor",
+              "endevor-location",
+              "base"
+            ]
+          },
+          "positionals": [
+            {
+              "name": "proc-group",
+              "type": "string",
+              "description": "Name of the Endevor processor group",
+              "required": false,
+              "stringLengthRange": [
+                1,
+                8
+              ]
+            }
+          ],
+          "options": [
+            {
+              "name": "environment",
+              "aliases": [
+                "env"
+              ],
+              "description": "The Endevor environment where your project resides.",
+              "type": "string",
+              "stringLengthRange": [
+                1,
+                8
+              ],
+              "group": "endevor-location definition options"
+            },
+            {
+              "name": "system",
+              "aliases": [
+                "sys"
+              ],
+              "description": "The Endevor system where your project resides.",
+              "type": "string",
+              "stringLengthRange": [
+                1,
+                8
+              ],
+              "group": "endevor-location definition options"
+            },
+            {
+              "name": "stage-number",
+              "aliases": [
+                "sn"
+              ],
+              "description": "The Endevor stage number where your project resides.",
+              "type": "string",
+              "allowableValues": {
+                "values": [
+                  "\\*",
+                  "\\%",
+                  "1",
+                  "2"
+                ]
+              },
+              "group": "endevor-location definition options"
+            },
+            {
+              "name": "type",
+              "aliases": [
+                "typ"
+              ],
+              "description": "Name of the Endevor element's type.",
+              "type": "string",
+              "stringLengthRange": [
+                1,
+                8
+              ],
+              "group": "endevor-location definition options"
+            },
+            {
+              "name": "maxrc",
+              "description": "The maximum value of the return code of a successful action. When the return code is greater than the maxrc value, the command fails",
+              "type": "number",
+              "defaultValue": 8,
+              "group": "endevor-location definition options",
+              "aliases": []
+            },
+            {
+              "name": "path",
+              "aliases": [
+                "pa"
+              ],
+              "description": "Specifies a PHYsical or LOGical path.",
+              "type": "string",
+              "allowableValues": {
+                "values": [
+                  "log",
+                  "phy"
+                ],
+                "caseSensitive": false
+              },
+              "group": "options"
+            },
+            {
+              "name": "return",
+              "aliases": [
+                "ret"
+              ],
+              "description": "Sets mapping options for returned results: return FIRst match or ALL matching results.",
+              "type": "string",
+              "allowableValues": {
+                "values": [
+                  "fir",
+                  "all"
+                ],
+                "caseSensitive": false
+              },
+              "group": "options"
+            },
+            {
+              "name": "search",
+              "aliases": [
+                "sea"
+              ],
+              "description": "Enables the search through the Endevor map.",
+              "type": "boolean",
+              "group": "options"
+            },
+            {
+              "name": "host",
+              "aliases": [
+                "hostname"
+              ],
+              "description": "Specifies the base host name.",
+              "type": "string",
+              "group": "endevor session definition options"
+            },
+            {
+              "name": "port",
+              "aliases": [
+                "p"
+              ],
+              "description": "Specifies the port number.",
+              "type": "string",
+              "group": "endevor session definition options"
+            },
+            {
+              "name": "instance",
+              "aliases": [
+                "i"
+              ],
+              "description": "Specifies Endevor Web Services dataSource name.",
+              "type": "string",
+              "group": "endevor-location definition options"
+            },
+            {
+              "name": "protocol",
+              "aliases": [
+                "prot"
+              ],
+              "description": "Specifies the protocol used for connecting to Endevor Rest API",
+              "type": "string",
+              "defaultValue": "https",
+              "allowableValues": {
+                "values": [
+                  "http",
+                  "https"
+                ],
+                "caseSensitive": false
+              },
+              "group": "endevor session definition options"
+            },
+            {
+              "name": "user",
+              "aliases": [
+                "username"
+              ],
+              "description": "Specifies the user name.",
+              "type": "string",
+              "group": "endevor session definition options"
+            },
+            {
+              "name": "password",
+              "aliases": [
+                "pass"
+              ],
+              "description": "Specifies the user's password.",
+              "type": "string",
+              "group": "endevor session definition options"
+            },
+            {
+              "name": "reject-unauthorized",
+              "aliases": [
+                "ru"
+              ],
+              "description": "Specify this option to have the server certificate verified against the list of supplied CAs",
+              "type": "boolean",
+              "group": "endevor session definition options"
+            },
+            {
+              "name": "base-path",
+              "aliases": [
+                "bp"
+              ],
+              "description": "Specifies the base path used for connecting to Endevor Rest API",
+              "type": "string",
+              "group": "endevor session definition options"
+            },
+            {
+              "name": "suppress-messages",
+              "aliases": [
+                "sm"
+              ],
+              "description": "Suppress all [INFO]/[WARN] messages from terminal output.",
+              "type": "boolean",
+              "group": "output customization options"
+            },
+            {
+              "name": "report-file",
+              "aliases": [
+                "file-name"
+              ],
+              "description": "File name for saving reports from Endevor SCM locally.",
+              "type": "string",
+              "group": "output customization options"
+            },
+            {
+              "name": "report-dir",
+              "description": "Directory for saving reports from Endevor SCM locally, if --report-file wasn't specified. Defaults to current directory.",
+              "type": "string",
+              "group": "output customization options",
+              "aliases": []
+            },
+            {
+              "name": "write-report",
+              "description": "Write the endevor reports to a file. By default, when return code is 0, no report will be written, unless this option is specified. When return code is bigger than 0, reports will be written to a file, unless this option is specifed to be false",
+              "type": "boolean",
+              "group": "output customization options",
+              "aliases": []
+            },
+            {
+              "name": "full-output",
+              "aliases": [
+                "fo"
+              ],
+              "description": "Specify this option if you want a full output of list action.",
+              "type": "boolean",
+              "group": "output customization options"
+            },
+            {
+              "name": "asynchronous",
+              "aliases": [
+                "async"
+              ],
+              "description": "Submit this command as an asynchronous Endevor Web Services task",
+              "type": "boolean",
+              "group": "asynchronous task options"
             },
             {
               "name": "show-inputs-only",
@@ -8830,6 +11897,15 @@
               "description": "Specify this option if you want a full output of list action.",
               "type": "boolean",
               "group": "output customization options"
+            },
+            {
+              "name": "asynchronous",
+              "aliases": [
+                "async"
+              ],
+              "description": "Submit this command as an asynchronous Endevor Web Services task",
+              "type": "boolean",
+              "group": "asynchronous task options"
             },
             {
               "name": "show-inputs-only",
@@ -9276,6 +12352,9 @@
               "implies": [
                 "scl-action"
               ],
+              "conflictsWith": [
+                "asynchronous"
+              ],
               "stringLengthRange": [
                 1,
                 16
@@ -9300,6 +12379,317 @@
                 "to-package"
               ],
               "group": "scl generation options"
+            },
+            {
+              "name": "host",
+              "aliases": [
+                "hostname"
+              ],
+              "description": "Specifies the base host name.",
+              "type": "string",
+              "group": "endevor session definition options"
+            },
+            {
+              "name": "port",
+              "aliases": [
+                "p"
+              ],
+              "description": "Specifies the port number.",
+              "type": "string",
+              "group": "endevor session definition options"
+            },
+            {
+              "name": "instance",
+              "aliases": [
+                "i"
+              ],
+              "description": "Specifies Endevor Web Services dataSource name.",
+              "type": "string",
+              "group": "endevor-location definition options"
+            },
+            {
+              "name": "protocol",
+              "aliases": [
+                "prot"
+              ],
+              "description": "Specifies the protocol used for connecting to Endevor Rest API",
+              "type": "string",
+              "defaultValue": "https",
+              "allowableValues": {
+                "values": [
+                  "http",
+                  "https"
+                ],
+                "caseSensitive": false
+              },
+              "group": "endevor session definition options"
+            },
+            {
+              "name": "user",
+              "aliases": [
+                "username"
+              ],
+              "description": "Specifies the user name.",
+              "type": "string",
+              "group": "endevor session definition options"
+            },
+            {
+              "name": "password",
+              "aliases": [
+                "pass"
+              ],
+              "description": "Specifies the user's password.",
+              "type": "string",
+              "group": "endevor session definition options"
+            },
+            {
+              "name": "reject-unauthorized",
+              "aliases": [
+                "ru"
+              ],
+              "description": "Specify this option to have the server certificate verified against the list of supplied CAs",
+              "type": "boolean",
+              "group": "endevor session definition options"
+            },
+            {
+              "name": "base-path",
+              "aliases": [
+                "bp"
+              ],
+              "description": "Specifies the base path used for connecting to Endevor Rest API",
+              "type": "string",
+              "group": "endevor session definition options"
+            },
+            {
+              "name": "suppress-messages",
+              "aliases": [
+                "sm"
+              ],
+              "description": "Suppress all [INFO]/[WARN] messages from terminal output.",
+              "type": "boolean",
+              "group": "output customization options"
+            },
+            {
+              "name": "report-file",
+              "aliases": [
+                "file-name"
+              ],
+              "description": "File name for saving reports from Endevor SCM locally.",
+              "type": "string",
+              "group": "output customization options"
+            },
+            {
+              "name": "report-dir",
+              "description": "Directory for saving reports from Endevor SCM locally, if --report-file wasn't specified. Defaults to current directory.",
+              "type": "string",
+              "group": "output customization options",
+              "aliases": []
+            },
+            {
+              "name": "write-report",
+              "description": "Write the endevor reports to a file. By default, when return code is 0, no report will be written, unless this option is specified. When return code is bigger than 0, reports will be written to a file, unless this option is specifed to be false",
+              "type": "boolean",
+              "group": "output customization options",
+              "aliases": []
+            },
+            {
+              "name": "full-output",
+              "aliases": [
+                "fo"
+              ],
+              "description": "Specify this option if you want a full output of list action.",
+              "type": "boolean",
+              "group": "output customization options"
+            },
+            {
+              "name": "asynchronous",
+              "aliases": [
+                "async"
+              ],
+              "description": "Submit this command as an asynchronous Endevor Web Services task",
+              "type": "boolean",
+              "group": "asynchronous task options"
+            },
+            {
+              "name": "show-inputs-only",
+              "group": "Global Options",
+              "description": "Show command inputs and do not run the command",
+              "type": "boolean",
+              "aliases": []
+            },
+            {
+              "name": "response-format-json",
+              "aliases": [
+                "rfj"
+              ],
+              "group": "Global Options",
+              "description": "Produce JSON formatted data from a command",
+              "type": "boolean"
+            },
+            {
+              "name": "help",
+              "aliases": [
+                "h"
+              ],
+              "group": "Global Options",
+              "description": "Display help text",
+              "type": "boolean"
+            },
+            {
+              "name": "help-web",
+              "aliases": [
+                "hw"
+              ],
+              "group": "Global Options",
+              "description": "Display HTML help in browser",
+              "type": "boolean"
+            },
+            {
+              "name": "endevor-profile",
+              "aliases": [
+                "endevor-p"
+              ],
+              "group": "Profile Options",
+              "description": "The name of a (endevor) profile to load for this command execution.",
+              "type": "string"
+            },
+            {
+              "name": "endevor-location-profile",
+              "aliases": [
+                "endevor-location-p"
+              ],
+              "group": "Profile Options",
+              "description": "The name of a (endevor-location) profile to load for this command execution.",
+              "type": "string"
+            },
+            {
+              "name": "base-profile",
+              "aliases": [
+                "base-p"
+              ],
+              "group": "Profile Options",
+              "description": "The name of a (base) profile to load for this command execution.",
+              "type": "string"
+            },
+            {
+              "name": "token-type",
+              "aliases": [
+                "tt"
+              ],
+              "description": "The type of token to get and use for the API. Omit this option to use the default token type, which is provided by 'zowe auth login'.",
+              "type": "string",
+              "group": "Base Connection Options"
+            },
+            {
+              "name": "token-value",
+              "aliases": [
+                "tv"
+              ],
+              "description": "The value of the token to pass to the API.",
+              "type": "string",
+              "group": "Base Connection Options"
+            },
+            {
+              "name": "cert-file",
+              "description": "The file path to a certificate file to use for authentication",
+              "type": "existingLocalFile",
+              "group": "Base Connection Options",
+              "aliases": []
+            },
+            {
+              "name": "cert-key-file",
+              "description": "The file path to a certificate key file to use for authentication",
+              "type": "existingLocalFile",
+              "group": "Base Connection Options",
+              "aliases": []
+            },
+            {
+              "name": "response-format-filter",
+              "aliases": [
+                "rff"
+              ],
+              "description": "Filter (include) fields in the response. Accepts an array of field/property names to include in the output response. You can filter JSON objects properties OR table columns/fields. In addition, you can use this option in conjunction with '--response-format-type' to reduce the output of a command to a single field/property or a list of a single field/property.",
+              "type": "array",
+              "group": "Response Format Options"
+            },
+            {
+              "name": "response-format-type",
+              "aliases": [
+                "rft"
+              ],
+              "description": "The command response output format type. Must be one of the following:\n\ntable: Formats output data as a table. Use this option when the output data is an array of homogeneous JSON objects. Each property of the object will become a column in the table.\n\nlist: Formats output data as a list of strings. Can be used on any data type (JSON objects/arrays) are stringified and a new line is added after each entry in an array.\n\nobject: Formats output data as a list of prettified objects (or single object). Can be used in place of \"table\" to change from tabular output to a list of prettified objects.\n\nstring: Formats output data as a string. JSON objects/arrays are stringified.",
+              "type": "string",
+              "allowableValues": {
+                "values": [
+                  "table",
+                  "list",
+                  "object",
+                  "string"
+                ],
+                "caseSensitive": false
+              },
+              "group": "Response Format Options"
+            },
+            {
+              "name": "response-format-header",
+              "aliases": [
+                "rfh"
+              ],
+              "description": "If \"--response-format-type table\" is specified, include the column headers in the output.",
+              "type": "boolean",
+              "group": "Response Format Options",
+              "defaultValue": null
+            }
+          ],
+          "outputFormatOptions": true,
+          "passOn": [],
+          "children": []
+        },
+        {
+          "examples": [
+            {
+              "options": "--task-status fin",
+              "description": "List all finished tasks"
+            },
+            {
+              "options": "2789102296850204364",
+              "description": "List a specific task to verify its completion status"
+            }
+          ],
+          "name": "tasks",
+          "type": "command",
+          "handler": "",
+          "description": "List asynchronous tasks submitted by this user",
+          "positionals": [
+            {
+              "name": "task-id",
+              "description": "The id of an asynchronous Endevor web service task.",
+              "type": "string"
+            }
+          ],
+          "profile": {
+            "optional": [
+              "endevor",
+              "endevor-location",
+              "base"
+            ]
+          },
+          "options": [
+            {
+              "name": "task-status",
+              "description": "Filter tasks by status: in-progress, finished or all.",
+              "type": "string",
+              "defaultValue": "all",
+              "allowableValues": {
+                "values": [
+                  "inp",
+                  "fin",
+                  "all"
+                ],
+                "caseSensitive": false
+              },
+              "group": "asynchronous task options",
+              "aliases": []
             },
             {
               "name": "host",
@@ -9554,6 +12944,7 @@
             }
           ],
           "outputFormatOptions": true,
+          "aliases": [],
           "passOn": [],
           "children": []
         }
@@ -9711,6 +13102,32 @@
             "group": "output customization options"
           },
           "merge": true
+        },
+        {
+          "property": "options",
+          "value": {
+            "name": "asynchronous",
+            "aliases": [
+              "async"
+            ],
+            "description": "Submit this command as an asynchronous Endevor Web Services task",
+            "type": "boolean",
+            "group": "asynchronous task options"
+          },
+          "merge": true,
+          "ignoreNodes": [
+            {
+              "type": "group"
+            },
+            {
+              "type": "command",
+              "name": "instances"
+            },
+            {
+              "type": "command",
+              "name": "tasks"
+            }
+          ]
         }
       ],
       "options": [
@@ -10594,6 +14011,15 @@
               "group": "options"
             },
             {
+              "name": "asynchronous",
+              "aliases": [
+                "async"
+              ],
+              "description": "Submit this command as an asynchronous Endevor Web Services task",
+              "type": "boolean",
+              "group": "asynchronous task options"
+            },
+            {
               "name": "host",
               "aliases": [
                 "hostname"
@@ -11238,6 +14664,25 @@
               "group": "options"
             },
             {
+              "name": "charset",
+              "aliases": [
+                "char"
+              ],
+              "description": "Specifies the clients preferred character set when retrieving, printing or updating elements.",
+              "type": "string",
+              "defaultValue": false,
+              "group": "options"
+            },
+            {
+              "name": "asynchronous",
+              "aliases": [
+                "async"
+              ],
+              "description": "Submit this command as an asynchronous Endevor Web Services task",
+              "type": "boolean",
+              "group": "asynchronous task options"
+            },
+            {
               "name": "to-file",
               "aliases": [
                 "tf"
@@ -11691,6 +15136,25 @@
               "description": "Lets you select Elements according to a specified Processor group. You can use a wildcard when specifying the Processor group name. \nAccepts up to 8 Processor group names separated by \", \". ",
               "type": "string",
               "group": "options"
+            },
+            {
+              "name": "charset",
+              "aliases": [
+                "char"
+              ],
+              "description": "Specifies the clients preferred character set when retrieving, printing or updating elements.",
+              "type": "string",
+              "defaultValue": false,
+              "group": "options"
+            },
+            {
+              "name": "asynchronous",
+              "aliases": [
+                "async"
+              ],
+              "description": "Submit this command as an asynchronous Endevor Web Services task",
+              "type": "boolean",
+              "group": "asynchronous task options"
             },
             {
               "name": "to-file",
@@ -12236,6 +15700,15 @@
               "group": "output customization options"
             },
             {
+              "name": "asynchronous",
+              "aliases": [
+                "async"
+              ],
+              "description": "Submit this command as an asynchronous Endevor Web Services task",
+              "type": "boolean",
+              "group": "asynchronous task options"
+            },
+            {
               "name": "host",
               "aliases": [
                 "hostname"
@@ -12702,6 +16175,15 @@
               "defaultValue": 8,
               "group": "endevor-location definition options",
               "aliases": []
+            },
+            {
+              "name": "asynchronous",
+              "aliases": [
+                "async"
+              ],
+              "description": "Submit this command as an asynchronous Endevor Web Services task",
+              "type": "boolean",
+              "group": "asynchronous task options"
             },
             {
               "name": "host",
@@ -13372,6 +16854,16 @@
               "group": "options"
             },
             {
+              "name": "charset",
+              "aliases": [
+                "char"
+              ],
+              "description": "Specifies the clients preferred character set when retrieving, printing or updating elements.",
+              "type": "string",
+              "defaultValue": false,
+              "group": "options"
+            },
+            {
               "name": "to-path",
               "aliases": [
                 "tp"
@@ -13570,6 +17062,282 @@
               ],
               "group": "bulk action options"
             },
+            {
+              "name": "host",
+              "aliases": [
+                "hostname"
+              ],
+              "description": "Specifies the base host name.",
+              "type": "string",
+              "group": "endevor session definition options"
+            },
+            {
+              "name": "port",
+              "aliases": [
+                "p"
+              ],
+              "description": "Specifies the port number.",
+              "type": "string",
+              "group": "endevor session definition options"
+            },
+            {
+              "name": "instance",
+              "aliases": [
+                "i"
+              ],
+              "description": "Specifies Endevor Web Services dataSource name.",
+              "type": "string",
+              "group": "endevor-location definition options"
+            },
+            {
+              "name": "protocol",
+              "aliases": [
+                "prot"
+              ],
+              "description": "Specifies the protocol used for connecting to Endevor Rest API",
+              "type": "string",
+              "defaultValue": "https",
+              "allowableValues": {
+                "values": [
+                  "http",
+                  "https"
+                ],
+                "caseSensitive": false
+              },
+              "group": "endevor session definition options"
+            },
+            {
+              "name": "user",
+              "aliases": [
+                "username"
+              ],
+              "description": "Specifies the user name.",
+              "type": "string",
+              "group": "endevor session definition options"
+            },
+            {
+              "name": "password",
+              "aliases": [
+                "pass"
+              ],
+              "description": "Specifies the user's password.",
+              "type": "string",
+              "group": "endevor session definition options"
+            },
+            {
+              "name": "reject-unauthorized",
+              "aliases": [
+                "ru"
+              ],
+              "description": "Specify this option to have the server certificate verified against the list of supplied CAs",
+              "type": "boolean",
+              "group": "endevor session definition options"
+            },
+            {
+              "name": "base-path",
+              "aliases": [
+                "bp"
+              ],
+              "description": "Specifies the base path used for connecting to Endevor Rest API",
+              "type": "string",
+              "group": "endevor session definition options"
+            },
+            {
+              "name": "suppress-messages",
+              "aliases": [
+                "sm"
+              ],
+              "description": "Suppress all [INFO]/[WARN] messages from terminal output.",
+              "type": "boolean",
+              "group": "output customization options"
+            },
+            {
+              "name": "report-file",
+              "aliases": [
+                "file-name"
+              ],
+              "description": "File name for saving reports from Endevor SCM locally.",
+              "type": "string",
+              "group": "output customization options"
+            },
+            {
+              "name": "report-dir",
+              "description": "Directory for saving reports from Endevor SCM locally, if --report-file wasn't specified. Defaults to current directory.",
+              "type": "string",
+              "group": "output customization options",
+              "aliases": []
+            },
+            {
+              "name": "write-report",
+              "description": "Write the endevor reports to a file. By default, when return code is 0, no report will be written, unless this option is specified. When return code is bigger than 0, reports will be written to a file, unless this option is specifed to be false",
+              "type": "boolean",
+              "group": "output customization options",
+              "aliases": []
+            },
+            {
+              "name": "show-inputs-only",
+              "group": "Global Options",
+              "description": "Show command inputs and do not run the command",
+              "type": "boolean",
+              "aliases": []
+            },
+            {
+              "name": "response-format-json",
+              "aliases": [
+                "rfj"
+              ],
+              "group": "Global Options",
+              "description": "Produce JSON formatted data from a command",
+              "type": "boolean"
+            },
+            {
+              "name": "help",
+              "aliases": [
+                "h"
+              ],
+              "group": "Global Options",
+              "description": "Display help text",
+              "type": "boolean"
+            },
+            {
+              "name": "help-web",
+              "aliases": [
+                "hw"
+              ],
+              "group": "Global Options",
+              "description": "Display HTML help in browser",
+              "type": "boolean"
+            },
+            {
+              "name": "endevor-profile",
+              "aliases": [
+                "endevor-p"
+              ],
+              "group": "Profile Options",
+              "description": "The name of a (endevor) profile to load for this command execution.",
+              "type": "string"
+            },
+            {
+              "name": "endevor-location-profile",
+              "aliases": [
+                "endevor-location-p"
+              ],
+              "group": "Profile Options",
+              "description": "The name of a (endevor-location) profile to load for this command execution.",
+              "type": "string"
+            },
+            {
+              "name": "base-profile",
+              "aliases": [
+                "base-p"
+              ],
+              "group": "Profile Options",
+              "description": "The name of a (base) profile to load for this command execution.",
+              "type": "string"
+            },
+            {
+              "name": "token-type",
+              "aliases": [
+                "tt"
+              ],
+              "description": "The type of token to get and use for the API. Omit this option to use the default token type, which is provided by 'zowe auth login'.",
+              "type": "string",
+              "group": "Base Connection Options"
+            },
+            {
+              "name": "token-value",
+              "aliases": [
+                "tv"
+              ],
+              "description": "The value of the token to pass to the API.",
+              "type": "string",
+              "group": "Base Connection Options"
+            },
+            {
+              "name": "cert-file",
+              "description": "The file path to a certificate file to use for authentication",
+              "type": "existingLocalFile",
+              "group": "Base Connection Options",
+              "aliases": []
+            },
+            {
+              "name": "cert-key-file",
+              "description": "The file path to a certificate key file to use for authentication",
+              "type": "existingLocalFile",
+              "group": "Base Connection Options",
+              "aliases": []
+            },
+            {
+              "name": "response-format-filter",
+              "aliases": [
+                "rff"
+              ],
+              "description": "Filter (include) fields in the response. Accepts an array of field/property names to include in the output response. You can filter JSON objects properties OR table columns/fields. In addition, you can use this option in conjunction with '--response-format-type' to reduce the output of a command to a single field/property or a list of a single field/property.",
+              "type": "array",
+              "group": "Response Format Options"
+            },
+            {
+              "name": "response-format-type",
+              "aliases": [
+                "rft"
+              ],
+              "description": "The command response output format type. Must be one of the following:\n\ntable: Formats output data as a table. Use this option when the output data is an array of homogeneous JSON objects. Each property of the object will become a column in the table.\n\nlist: Formats output data as a list of strings. Can be used on any data type (JSON objects/arrays) are stringified and a new line is added after each entry in an array.\n\nobject: Formats output data as a list of prettified objects (or single object). Can be used in place of \"table\" to change from tabular output to a list of prettified objects.\n\nstring: Formats output data as a string. JSON objects/arrays are stringified.",
+              "type": "string",
+              "allowableValues": {
+                "values": [
+                  "table",
+                  "list",
+                  "object",
+                  "string"
+                ],
+                "caseSensitive": false
+              },
+              "group": "Response Format Options"
+            },
+            {
+              "name": "response-format-header",
+              "aliases": [
+                "rfh"
+              ],
+              "description": "If \"--response-format-type table\" is specified, include the column headers in the output.",
+              "type": "boolean",
+              "group": "Response Format Options",
+              "defaultValue": null
+            }
+          ],
+          "outputFormatOptions": true,
+          "passOn": [],
+          "children": []
+        },
+        {
+          "examples": [
+            {
+              "options": "2789102296850204364",
+              "description": "Retrieve the result of task 2789102296850204364"
+            }
+          ],
+          "name": "result",
+          "aliases": [
+            "res"
+          ],
+          "type": "command",
+          "handler": "",
+          "description": "Retrieve the result of an asynchronous task",
+          "positionals": [
+            {
+              "name": "task-id",
+              "description": "The id of an asynchronous Endevor web service task.",
+              "type": "string"
+            }
+          ],
+          "profile": {
+            "optional": [
+              "endevor",
+              "endevor-location",
+              "base"
+            ]
+          },
+          "options": [
             {
               "name": "host",
               "aliases": [
@@ -14227,6 +17995,15 @@
               "group": "options"
             },
             {
+              "name": "asynchronous",
+              "aliases": [
+                "async"
+              ],
+              "description": "Submit this command as an asynchronous Endevor Web Services task",
+              "type": "boolean",
+              "group": "asynchronous task options"
+            },
+            {
               "name": "host",
               "aliases": [
                 "hostname"
@@ -14794,6 +18571,15 @@
               "aliases": []
             },
             {
+              "name": "asynchronous",
+              "aliases": [
+                "async"
+              ],
+              "description": "Submit this command as an asynchronous Endevor Web Services task",
+              "type": "boolean",
+              "group": "asynchronous task options"
+            },
+            {
               "name": "host",
               "aliases": [
                 "hostname"
@@ -15077,6 +18863,15 @@
               "defaultValue": 8,
               "group": "endevor-location definition options",
               "aliases": []
+            },
+            {
+              "name": "asynchronous",
+              "aliases": [
+                "async"
+              ],
+              "description": "Submit this command as an asynchronous Endevor Web Services task",
+              "type": "boolean",
+              "group": "asynchronous task options"
             },
             {
               "name": "host",
@@ -16416,6 +20211,15 @@
               "group": "options"
             },
             {
+              "name": "asynchronous",
+              "aliases": [
+                "async"
+              ],
+              "description": "Submit this command as an asynchronous Endevor Web Services task",
+              "type": "boolean",
+              "group": "asynchronous task options"
+            },
+            {
               "name": "host",
               "aliases": [
                 "hostname"
@@ -17714,7 +21518,7 @@
         {
           "examples": [
             {
-              "options": "elementName --env ENV --sys SYS --sub SUB --typ TYPE --ff localfile.txt -i ENDEVOR",
+              "options": "elementName --env ENV --sys SYS --sub SUB --typ TYPE --ff localfile.txt -i ENDEVOR --ccid CCID --comment 'updating element'",
               "description": "Update element from local file with endevor profile set up"
             }
           ],
@@ -17992,6 +21796,49 @@
                 "from-uss-file"
               ],
               "required": false,
+              "group": "options"
+            },
+            {
+              "name": "charset",
+              "aliases": [
+                "char"
+              ],
+              "description": "Specifies the clients preferred character set when retrieving, printing or updating elements.",
+              "type": "string",
+              "defaultValue": false,
+              "group": "options"
+            },
+            {
+              "name": "sync",
+              "aliases": [
+                "s"
+              ],
+              "description": "Specify if you want to synchronize source and current level of the Elements while performing this action.",
+              "type": "boolean",
+              "group": "options"
+            },
+            {
+              "name": "sync-with-history",
+              "aliases": [
+                "swh"
+              ],
+              "description": "Specify if you want to preserve the change history of the Elements while performing the synchronization during element update.",
+              "type": "boolean",
+              "implies": [
+                "sync"
+              ],
+              "group": "options"
+            },
+            {
+              "name": "sync-fingerprint",
+              "aliases": [
+                "sfg"
+              ],
+              "description": "Specifies the fingerprint of the element directly up the map that the updated element should be synchronized with. Prevents the sync if the element up the map doesn't match the fingerprint.",
+              "type": "string",
+              "implies": [
+                "sync"
+              ],
               "group": "options"
             },
             {
@@ -18608,6 +22455,16 @@
               "group": "options"
             },
             {
+              "name": "charset",
+              "aliases": [
+                "char"
+              ],
+              "description": "Specifies the clients preferred character set when retrieving, printing or updating elements.",
+              "type": "string",
+              "defaultValue": false,
+              "group": "options"
+            },
+            {
               "name": "to-file",
               "aliases": [
                 "tf"
@@ -18615,6 +22472,15 @@
               "description": "The file name in which the data from the command output is stored",
               "type": "string",
               "group": "output customization options"
+            },
+            {
+              "name": "asynchronous",
+              "aliases": [
+                "async"
+              ],
+              "description": "Submit this command as an asynchronous Endevor Web Services task",
+              "type": "boolean",
+              "group": "asynchronous task options"
             },
             {
               "name": "host",
