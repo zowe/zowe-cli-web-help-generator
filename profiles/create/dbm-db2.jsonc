@@ -6,7 +6,7 @@
     "dbm-db2"
   ],
   "summary": "Create a dbm-db2 profile",
-  "description": "The dbm-db2 profile is a named set of DBM Data Service parameters that are implicitly used with the zowe dbm-db2 commands. The profile includes server connection, z/OS execution, and user-dependent details.",
+  "description": "The DBM-Db2 profile is a named set of DBM Data Service parameters that are implicitly used with the zowe dbm-db2 commands. The profile includes server connection, z/OS execution, and user-dependent details.",
   "type": "command",
   "handler": "",
   "deprecatedReplacement": "The 'config init' command",
@@ -34,7 +34,7 @@
         "//DB2DVOPS JOB CLASS=A,",
         "//         MSGCLASS=X"
       ],
-      "group": "dbm-db2 Common Options"
+      "group": "DBM-Db2 Common Options"
     },
     {
       "name": "work-dataset-prefix",
@@ -45,7 +45,7 @@
       "required": false,
       "type": "string",
       "defaultValue": "${user}.dbmdb2",
-      "group": "dbm-db2 Common Options"
+      "group": "DBM-Db2 Common Options"
     },
     {
       "name": "authid",
@@ -56,7 +56,7 @@
       "required": false,
       "type": "string",
       "defaultValue": "${user}",
-      "group": "dbm-db2 Common Options"
+      "group": "DBM-Db2 Common Options"
     },
     {
       "name": "sqlid",
@@ -67,7 +67,7 @@
       "required": false,
       "type": "string",
       "defaultValue": "${user}",
-      "group": "dbm-db2 Common Options"
+      "group": "DBM-Db2 Common Options"
     },
     {
       "name": "termination-character",
@@ -82,7 +82,7 @@
         1,
         1
       ],
-      "group": "dbm-db2 Common Options"
+      "group": "DBM-Db2 Common Options"
     },
     {
       "name": "overwrite-output-files",
@@ -93,7 +93,7 @@
       "required": false,
       "type": "boolean",
       "defaultValue": false,
-      "group": "dbm-db2 Common Options"
+      "group": "DBM-Db2 Common Options"
     },
     {
       "name": "host",
@@ -103,7 +103,7 @@
       "description": "Specifies the DBM Data Service REST API server host name or TCP/IP address to use.",
       "required": false,
       "type": "string",
-      "group": "dbm-db2 Connection Options"
+      "group": "DBM-Db2 Connection Options"
     },
     {
       "name": "port",
@@ -114,7 +114,7 @@
       "required": false,
       "type": "number",
       "defaultValue": 7300,
-      "group": "dbm-db2 Connection Options"
+      "group": "DBM-Db2 Connection Options"
     },
     {
       "name": "user",
@@ -124,7 +124,7 @@
       "description": "Specifies the mainframe user name that you want to use to connect to the mainframe systems during execution of the Zowe CLI commands. This user name can be the same as your TSO login ID.",
       "required": false,
       "type": "string",
-      "group": "dbm-db2 Connection Options"
+      "group": "DBM-Db2 Connection Options"
     },
     {
       "name": "password",
@@ -135,7 +135,7 @@
       "description": "Specifies the mainframe password for the user name that is used to connect to the mainframe systems during execution of the CLI commands. This password can be the same as your TSO password.",
       "required": false,
       "type": "string",
-      "group": "dbm-db2 Connection Options"
+      "group": "DBM-Db2 Connection Options"
     },
     {
       "name": "reject-unauthorized",
@@ -146,7 +146,7 @@
       "required": false,
       "type": "boolean",
       "defaultValue": true,
-      "group": "dbm-db2 Connection Options"
+      "group": "DBM-Db2 Connection Options"
     },
     {
       "name": "protocol",
@@ -160,7 +160,7 @@
           "https"
         ]
       },
-      "group": "dbm-db2 Connection Options",
+      "group": "DBM-Db2 Connection Options",
       "aliases": []
     },
     {
@@ -175,7 +175,7 @@
         "ssid1": "env1@host1:port1",
         "ssid2": "env2@host2:port2"
       },
-      "group": "dbm-db2 Connection Options"
+      "group": "DBM-Db2 Connection Options"
     },
     {
       "name": "overwrite",
@@ -233,23 +233,23 @@
   "examples": [
     {
       "options": "profile_name1",
-      "description": "Create a dbm-db2 profile named profile_name1 and default values for all the dbm-db2-profile options"
+      "description": "Create a DBM-Db2 profile named profile_name1 and default values for all the DBM-Db2-profile options"
     },
     {
       "options": "dbm123 --host dbm123 --port 1443 --user db2user --password myp4ss",
-      "description": "Create a dbm-db2 profile named dbm123 that connects to the DBM Data Service at host dbm123 and port 1443 as user db2user and password myp4ss"
+      "description": "Create a DBM-Db2 profile named dbm123 that connects to the DBM Data Service at host dbm123 and port 1443 as user db2user and password myp4ss"
     },
     {
       "options": "dbm124 --host dbm124 --user db2user --password myp4ss --reject-unauthorized false",
-      "description": "Create a dbm-db2 profile named dbm124 that connects to the DBM Data Service at host dbm124 and the default port as user db2user and password myp4ss, and allow self-signed certificates"
+      "description": "Create a DBM-Db2 profile named dbm124 that connects to the DBM Data Service at host dbm124 and the default port as user db2user and password myp4ss, and allow self-signed certificates"
     },
     {
       "options": "dbm125 --host dbm125 --port 1443 --environment-list \"SUBA:prod@host1.com:322,SUBB:test@host2.net:522\"",
-      "description": "Create a dbm-db2 profile named dbm125 that connects to the DBM Data Service at host dbm125 and port 1443 and requires a user and password to be specified on every dbm-db2 command. DBM Data Service access to Db2 subsystems SUBA and SUBB uses prod@host1.com:322 and test@host2.com:522, respectively"
+      "description": "Create a DBM-Db2 profile named dbm125 that connects to the DBM Data Service at host dbm125 and port 1443 and requires a user and password to be specified on every dbm-db2 command. DBM Data Service access to Db2 subsystems SUBA and SUBB uses prod@host1.com:322 and test@host2.com:522, respectively"
     },
     {
       "options": "dbm126 --job-cards \"//DB2DVOPS JOB (123456789),'DB2 PROVISIONING',NOTIFY=&SYSUID,\" \"//     CLASS=A,MSGCLASS=X,MSGLEVEL=(1,1),\" \"//     REGION=0M,TIME=NOLIMIT\"",
-      "description": "Create a dbm-db2 profile named dbm126 that uses specified job cards for every mainframe job"
+      "description": "Create a DBM-Db2 profile named dbm126 that uses specified job cards for every mainframe job"
     }
   ],
   "passOn": [],

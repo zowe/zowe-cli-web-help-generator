@@ -2,7 +2,7 @@
 // "Broadcom" refers to Broadcom Inc. and/or its subsidiaries.
 {
   "name": "dbm-db2",
-  "description": "dbm-db2 plug-in to interact with Db2 using the Broadcom Database Management Solutions for Db2 for z/OS.",
+  "description": "DBM-Db2 plug-in to interact with Db2 using the Broadcom Database Management Solutions for Db2 for z/OS.\n \n For details about command usage for automation, see DBM-Db2 samples at https://github.com/BroadcomMFD/dbm-db2-for-zowe-cli",
   "type": "group",
   "children": [
     {
@@ -12,7 +12,7 @@
       "children": [
         {
           "name": "ddl",
-          "description": "Validate the syntax of input DDL and optionally verify Db2 object dependencies. Use this command to ensure that the syntax of the input DDL is valid. You can also optionally verify that the objects to be created do not exist on the Db2 subsystem and that the related objects that are required for successful creation of the objects exist on the Db2 subsystem or in the input DDL. You can generate input DDL using the 'zowe dbm-db2 generate ddl' command.",
+          "description": "Validate the syntax of input DDL and optionally verify Db2 object dependencies. Use this command to ensure that the syntax of the input DDL is valid. You can also optionally verify that the objects to be created do not exist on the Db2 subsystem and that the related objects that are required for successful creation of the objects exist on the Db2 subsystem or in the input DDL. You can generate input DDL using the 'zowe dbm generate ddl' command.\n \nFor details about command usage for automation, see DBM-Db2 samples at https://github.com/BroadcomMFD/dbm-db2-for-zowe-cli",
           "type": "command",
           "handler": "",
           "profile": {
@@ -206,7 +206,7 @@
           "positionals": [
             {
               "name": "local-input-ddl-filename",
-              "description": "Specifies the local input file that contains the DDL statements for the Db2 objects that you want to validate on a target subsystem. Typically, this file is created by a 'zowe dbm-db2 generate ddl' command or retrieved from an archive. You can edit this file. ",
+              "description": "Specifies the local input file that contains the DDL statements for the Db2 objects that you want to validate on a target subsystem. Typically, this file is created by a 'zowe dbm generate ddl' command or retrieved from an archive. You can edit this file. ",
               "type": "string",
               "required": true
             }
@@ -273,7 +273,7 @@
       "children": [
         {
           "name": "ddl",
-          "description": "Compare objects that are defined in a DDL file to objects that are defined on a Db2 subsystem and generate an update script to implement the necessary object changes. This command also generates a high-level change summary report and a parseable impact analysis report. You can execute the script that is generated from this command using the 'zowe dbm-db2 execute compare-script' command.",
+          "description": "Compare objects that are defined in a DDL file to objects that are defined on a Db2 subsystem and generate an update script to implement the necessary object changes. This command also generates a high-level change summary report and a parseable impact analysis report. You can execute the script that is generated from this command using the 'zowe dbm execute compare-script' command.\n \nFor details about command usage for automation, see DBM-Db2 samples at https://github.com/BroadcomMFD/dbm-db2-for-zowe-cli",
           "type": "command",
           "handler": "",
           "profile": {
@@ -321,7 +321,7 @@
             },
             {
               "name": "change-set",
-              "description": "Specifies the creator and name of an existing RC/Migrator global change set to be used to modify Db2 object attributes. The changes apply to new objects only as determined by match-set processing.\n\n\u001b[90m Format:\n\n<change-set-creator.change-set-name>\n \nFor more information about global change services, see the RC/Migrator documentation at https://techdocs.broadcom.com/db2rcmig. \n        \nNote: If change-set and change-set-file are both specified, specifications in change-set-file take precedence. \u001b[0m",
+              "description": "Specifies the creator and name of an existing RC/Migrator global change set used for modifying Db2 object attributes. Depending on the backend configuration, the changes apply to either ALL objects in the DDL or to NEW objects only as determined by match-set processing.\n\n\u001b[90m Format:\n\n<change-set-creator.change-set-name>\n \nFor more information about global change services, see the RC/Migrator documentation at https://techdocs.broadcom.com/db2rcmig.\n        \nNote: If change-set and change-set-file are both specified, specifications in change-set-file take precedence.\n \nConsult with your database administrator about global change behavior for the default or a specific modification parameter. \u001b[0m",
               "type": "string",
               "aliases": [
                 "cs"
@@ -331,7 +331,7 @@
             },
             {
               "name": "change-set-file",
-              "description": "Specifies the name of the local input file that contains the global change specifications to modify Db2 object attributes. The changes apply to new objects only as determined by match-set processing. \n                    \n\u001b[90m Format:\n\n<object-attribute> <from-value> <to-value>\n                    \nThe <object-attribute> consists of four characters. The first two characters identify the object type. The last two characters identify the specific attribute. Wildcard characters are supported in the <from-value> and <to-value>. The first occurrence in multiple specifications for the same <object-attribute> has the highest precedence.\n \nExample:\n \nThe following example demonstrates changes to table’s schema (creator) and tablespace names:\n \nTBCR TEST% PROD%\nTBTS TESTTS% PRODTS%\n                   \nFor a list of global change set attributes, see the RC/Migrator documentation at https://techdocs.broadcom.com/db2rcmig.\n         \nNote: If change-set and change-set-file are both specified, specifications in change-set-file take precedence. \u001b[0m",
+              "description": "Specifies the name of the local input file that contains the global change specifications to modify Db2 object attributes. Depending on the backend configuration, the changes apply to either ALL objects in the DDL or to NEW objects only as determined by match-set processing.\n                    \n\u001b[90m Format:\n\n<object-attribute> <from-value> <to-value>\n                    \nThe <object-attribute> consists of four characters. The first two characters identify the object type. The last two characters identify the specific attribute. Wildcard characters are supported in the <from-value> and <to-value>. The first occurrence in multiple specifications for the same <object-attribute> has the highest precedence.\n \nExample:\n \nThe following example demonstrates changes to table’s schema (creator) and tablespace names:\n \nTBCR TEST% PROD%\nTBTS TESTTS% PRODTS%\n                   \nFor more information about global change services, see the RC/Migrator documentation at https://techdocs.broadcom.com/db2rcmig.\n         \nNote: If change-set and change-set-file are both specified, specifications in change-set-file take precedence.\n \nConsult with your database administrator about global change behavior for the default or a specific modification parameter. \u001b[0m",
               "type": "string",
               "aliases": [
                 "csf"
@@ -552,7 +552,7 @@
           "positionals": [
             {
               "name": "local-input-ddl-filename",
-              "description": "Specifies the local input file that contains DDL statements for the Db2 objects that you want to compare to Db2 objects on a target subsystem. Typically, this file is created by a 'zowe dbm-db2 generate ddl' command or retrieved from an archive. You can edit this file.",
+              "description": "Specifies the local input file that contains DDL statements for the Db2 objects that you want to compare to Db2 objects on a target subsystem. Typically, this file is created by a 'zowe dbm generate ddl' command or retrieved from an archive. You can edit this file.",
               "type": "string",
               "required": true
             }
@@ -623,7 +623,7 @@
       "children": [
         {
           "name": "ddl",
-          "description": "Deploy Db2 object changes on the target Db2 subsystem using an input file that contains the DDL. For example, an application developer has made changes to DDL in a local file and is ready to test the DDL changes. Use this command to deploy the changes to the test environment.",
+          "description": "Deploy Db2 object changes on the target Db2 subsystem using an input file that contains the DDL. For example, an application developer has made changes to DDL in a local file and is ready to test the DDL changes. Use this command to deploy the changes to the test environment.\n \nFor details about command usage for automation, see DBM-Db2 samples at https://github.com/BroadcomMFD/dbm-db2-for-zowe-cli",
           "type": "command",
           "handler": "",
           "profile": {
@@ -671,7 +671,7 @@
             },
             {
               "name": "change-set",
-              "description": "Specifies the creator and name of an existing RC/Migrator global change set to be used to modify Db2 object attributes. The changes apply to new objects only as determined by match-set processing.\n\n\u001b[90m Format:\n\n<change-set-creator.change-set-name>\n \nFor more information about global change services, see the RC/Migrator documentation at https://techdocs.broadcom.com/db2rcmig. \n        \nNote: If change-set and change-set-file are both specified, specifications in change-set-file take precedence. \u001b[0m",
+              "description": "Specifies the creator and name of an existing RC/Migrator global change set used for modifying Db2 object attributes. Depending on the backend configuration, the changes apply to either ALL objects in the DDL or to NEW objects only as determined by match-set processing.\n\n\u001b[90m Format:\n\n<change-set-creator.change-set-name>\n \nFor more information about global change services, see the RC/Migrator documentation at https://techdocs.broadcom.com/db2rcmig.\n        \nNote: If change-set and change-set-file are both specified, specifications in change-set-file take precedence.\n \nConsult with your database administrator about global change behavior for the default or a specific modification parameter. \u001b[0m",
               "type": "string",
               "aliases": [
                 "cs"
@@ -681,7 +681,7 @@
             },
             {
               "name": "change-set-file",
-              "description": "Specifies the name of the local input file that contains the global change specifications to modify Db2 object attributes. The changes apply to new objects only as determined by match-set processing. \n                    \n\u001b[90m Format:\n\n<object-attribute> <from-value> <to-value>\n                    \nThe <object-attribute> consists of four characters. The first two characters identify the object type. The last two characters identify the specific attribute. Wildcard characters are supported in the <from-value> and <to-value>. The first occurrence in multiple specifications for the same <object-attribute> has the highest precedence.\n \nExample:\n \nThe following example demonstrates changes to table’s schema (creator) and tablespace names:\n \nTBCR TEST% PROD%\nTBTS TESTTS% PRODTS%\n                   \nFor a list of global change set attributes, see the RC/Migrator documentation at https://techdocs.broadcom.com/db2rcmig.\n         \nNote: If change-set and change-set-file are both specified, specifications in change-set-file take precedence. \u001b[0m",
+              "description": "Specifies the name of the local input file that contains the global change specifications to modify Db2 object attributes. Depending on the backend configuration, the changes apply to either ALL objects in the DDL or to NEW objects only as determined by match-set processing.\n                    \n\u001b[90m Format:\n\n<object-attribute> <from-value> <to-value>\n                    \nThe <object-attribute> consists of four characters. The first two characters identify the object type. The last two characters identify the specific attribute. Wildcard characters are supported in the <from-value> and <to-value>. The first occurrence in multiple specifications for the same <object-attribute> has the highest precedence.\n \nExample:\n \nThe following example demonstrates changes to table’s schema (creator) and tablespace names:\n \nTBCR TEST% PROD%\nTBTS TESTTS% PRODTS%\n                   \nFor more information about global change services, see the RC/Migrator documentation at https://techdocs.broadcom.com/db2rcmig.\n         \nNote: If change-set and change-set-file are both specified, specifications in change-set-file take precedence.\n \nConsult with your database administrator about global change behavior for the default or a specific modification parameter. \u001b[0m",
               "type": "string",
               "aliases": [
                 "csf"
@@ -854,7 +854,7 @@
           "positionals": [
             {
               "name": "local-input-ddl-filename",
-              "description": "Specifies the local input file that contains DDL statements for the Db2 objects that you want to deploy on a target subsystem. Typically, this file is created by a 'zowe dbm-db2 generate ddl' command or retrieved from an archive. You can edit this file.",
+              "description": "Specifies the local input file that contains DDL statements for the Db2 objects that you want to deploy on a target subsystem. Typically, this file is created by a 'zowe dbm generate ddl' command or retrieved from an archive. You can edit this file.",
               "type": "string",
               "required": true
             }
@@ -925,7 +925,7 @@
       "children": [
         {
           "name": "compare-script",
-          "description": "Execute the compare script that was generated with the 'zowe dbm-db2 compare ddl' command to implement the Db2 object changes on the Db2 subsystem specified within the script. This command also generates a recovery script to undo compare script changes.\n ",
+          "description": "Execute the compare script that was generated with the 'zowe dbm compare ddl' command to implement the Db2 object changes on the Db2 subsystem specified within the script. This command also generates a recovery script to undo compare script changes.\n \nFor details about command usage for automation, see DBM-Db2 samples at https://github.com/BroadcomMFD/dbm-db2-for-zowe-cli\n",
           "type": "command",
           "handler": "",
           "profile": {
@@ -940,7 +940,7 @@
           "options": [
             {
               "name": "output-recovery-script",
-              "description": "Specifies the local output file name that contains the recovery script that is generated during execution of this command. Executing the recovery script using the 'zowe dbm-db2 execute script' command undoes the changes that were made by execution of the compare-script. \n      \n\u001b[90m Default value: recovery.txt \u001b[0m",
+              "description": "Specifies the local output file name that contains the recovery script that is generated during execution of this command. Executing the recovery script using the 'zowe dbm execute script' command undoes the changes that were made by execution of the compare-script. \n      \n\u001b[90m Default value: recovery.txt \u001b[0m",
               "type": "string",
               "aliases": [
                 "ors",
@@ -1115,7 +1115,7 @@
           "positionals": [
             {
               "name": "local-input-compare-script-filename",
-              "description": "Specifies the local input compare-script file that contains the update script that was generated with the 'zowe dbm-db2 compare ddl' command.",
+              "description": "Specifies the local input compare-script file that contains the update script that was generated with the 'zowe dbm compare ddl' command.",
               "type": "string",
               "required": true
             }
@@ -1140,7 +1140,7 @@
         },
         {
           "name": "script",
-          "description": "Execute a Batch Processor script on a target subsystem. For example, use this command to execute a Batch Processor script or specifically to execute a recovery script to undo changes that were made by the 'zowe dbm-db2 execute compare-script' command. If execution of the script fails, you can execute it again using the 'script-section' or 'restart' options. You can edit the script and make changes before you execute or restart it.\n ",
+          "description": "Execute a Batch Processor script on a target subsystem. For example, use this command to execute a Batch Processor script or specifically to execute a recovery script to undo changes that were made by the 'zowe dbm execute compare-script' command. If execution of the script fails, you can execute it again using the 'script-section' or 'restart' options. You can edit the script and make changes before you execute or restart it.\n \nFor details about command usage for automation, see DBM-Db2 samples at https://github.com/BroadcomMFD/dbm-db2-for-zowe-cli\n",
           "type": "command",
           "handler": "",
           "profile": {
@@ -1341,7 +1341,7 @@
           "positionals": [
             {
               "name": "local-input-bp-script-filename",
-              "description": "Specifies the local input file that contains the Batch Processor statements such as the recovery script that was created by executing the 'zowe dbm-db2 execute compare-script' command.",
+              "description": "Specifies the local input file that contains the Batch Processor statements such as the recovery script that was created by executing the 'zowe dbm execute compare-script' command.",
               "type": "string",
               "required": true
             }
@@ -1373,7 +1373,7 @@
             },
             {
               "options": "script001.txt ––restart 78A724A48DA5185D06FD140F6780D6FA",
-              "description": "Restart execution of a script at the location specified in the token. The restart token is returned by a previous 'zowe dbm-db2 execute command' failure as part of the terminal output and in the error file"
+              "description": "Restart execution of a script at the location specified in the token. The restart token is returned by a previous 'zowe dbm execute command' failure as part of the terminal output and in the error file"
             },
             {
               "options": "script001.txt ––restart target,78A724A48DA5185D06FD140F6780D6FA",
@@ -1386,7 +1386,7 @@
         },
         {
           "name": "migration-script",
-          "description": "Execute the migration script that was generated with the 'zowe dbm-db2 prepare migration' command to migrate Db2 objects (DDL) and table data from a source subsystem to a target subsystem. The source and target subsystem IDs are specified within the script.\n ",
+          "description": "Execute the migration script that was generated with the 'zowe dbm prepare migration' command to migrate Db2 objects (DDL) and table data from a source subsystem to a target subsystem. The source and target subsystem IDs are specified within the script.\n \nFor details about command usage for automation, see DBM-Db2 samples at https://github.com/BroadcomMFD/dbm-db2-for-zowe-cli\n",
           "type": "command",
           "handler": "",
           "profile": {
@@ -1564,7 +1564,7 @@
           "positionals": [
             {
               "name": "local-input-migrate-script-filename",
-              "description": "Specifies the local input migration-script file that was generated with the 'zowe dbm-db2 prepare migration' command.",
+              "description": "Specifies the local input migration-script file that was generated with the 'zowe dbm prepare migration' command.",
               "type": "string",
               "required": true
             }
@@ -1635,7 +1635,7 @@
       "children": [
         {
           "name": "ddl",
-          "description": "Generate CREATE or DROP DDL statements for specified Db2 objects into an output DDL file. For example, use this command to generate CREATE TABLE definitions that you can then edit and use to update the table definition on a Db2 subsystem with the 'zowe dbm-db2 compare ddl' command.",
+          "description": "Generate CREATE or DROP DDL statements for specified Db2 objects into an output DDL file. For example, use this command to generate CREATE TABLE definitions that you can then edit and use to update the table definition on a Db2 subsystem with the 'zowe dbm compare ddl' command.\n \nFor details about command usage for automation, see DBM-Db2 samples at https://github.com/BroadcomMFD/dbm-db2-for-zowe-cli",
           "type": "command",
           "handler": "",
           "profile": {
@@ -1949,7 +1949,7 @@
       "children": [
         {
           "name": "migration",
-          "description": "Generate a script to migrate Db2 object definitions (DDL) and data from a source subsystem to a target subsystem. You can specify which objects to include and apply changes to the objects as part of the migration. To execute the script, use the 'zowe dbm-db2 execute migration-script' command.",
+          "description": "Generate a script to migrate Db2 object definitions (DDL) and data from a source subsystem to a target subsystem. You can specify which objects to include and apply changes to the objects as part of the migration. To execute the script, use the 'zowe dbm execute migration-script' command.\n \nFor details about command usage for automation, see DBM-Db2 samples at https://github.com/BroadcomMFD/dbm-db2-for-zowe-cli",
           "type": "command",
           "handler": "",
           "profile": {
