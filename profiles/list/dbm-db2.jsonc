@@ -6,7 +6,7 @@
     "dbm-db2"
   ],
   "summary": "List profiles of the type dbm-db2.",
-  "description": "The dbm-db2 profile is a named set of DBM Data Service parameters that are implicitly used with the zowe dbm-db2 commands. The profile includes server connection, z/OS execution, and user-dependent details.",
+  "description": "The DBM-Db2 profile is a named set of DBM Data Service parameters that are implicitly used with the zowe dbm-db2 commands. The profile includes server connection, z/OS execution, and user-dependent details.",
   "type": "command",
   "handler": "",
   "deprecatedReplacement": "The 'config list' command",
