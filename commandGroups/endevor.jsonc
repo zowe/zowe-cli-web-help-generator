@@ -12047,6 +12047,10 @@
             {
               "options": "-i ENDEVOR --env ENVNAME --sn 1 --sys SYSNAME --sub SUBNAME --typ TYPENAME",
               "description": "List elements in Endevor from the specified inventory location with the endevor profile set up"
+            },
+            {
+              "options": "--stext \"first or second and third\"",
+              "description": "List elements in Endevor using search text string"
             }
           ],
           "name": "elements",
@@ -12340,6 +12344,139 @@
               "description": "Lets you select Elements according to a specified Processor group. You can use a wildcard when specifying the Processor group name. \nAccepts up to 8 Processor group names separated by \", \". ",
               "type": "string",
               "group": "options"
+            },
+            {
+              "name": "search-text",
+              "aliases": [
+                "stext"
+              ],
+              "description": "Search string(s) separated with AND or OR. E.g.: string_1 AND string_2 AND string_3 OR string_4.\nFor complex search strings with quotation marks use search-text-file parameter.",
+              "type": "string",
+              "conflictsWith": [
+                "search-text-file"
+              ],
+              "group": "endevor search text options"
+            },
+            {
+              "name": "search-text-file",
+              "aliases": [
+                "stf"
+              ],
+              "description": "File which contains search string(s) separated with AND or OR. Recommended for complex search strings with quotation marks.",
+              "type": "string",
+              "conflictsWith": [
+                "search-text"
+              ],
+              "group": "endevor search text options"
+            },
+            {
+              "name": "search-in",
+              "aliases": [
+                "si"
+              ],
+              "description": "2 letters describing where search should be performed:\nes - Element Source\neh - Element History\nec - Element Changes\neu - Element Summary\ncs - Components Source\nch - Components History\ncc - Components Changes\ncu - Components Summary.",
+              "type": "string",
+              "allowableValues": {
+                "values": [
+                  "es",
+                  "eh",
+                  "ec",
+                  "eu",
+                  "cs",
+                  "ch",
+                  "cc",
+                  "cu"
+                ],
+                "caseSensitive": false
+              },
+              "impliesOneOf": [
+                "search-text",
+                "search-text-file"
+              ],
+              "group": "endevor search text options"
+            },
+            {
+              "name": "search-from",
+              "aliases": [
+                "sf"
+              ],
+              "description": "Beginning interval of the column range for the search-text.",
+              "type": "number",
+              "numericValueRange": [
+                1,
+                32000
+              ],
+              "implies": [
+                "search-to"
+              ],
+              "impliesOneOf": [
+                "search-text",
+                "search-text-file"
+              ],
+              "group": "endevor search text options"
+            },
+            {
+              "name": "search-to",
+              "aliases": [
+                "st"
+              ],
+              "description": "Ending interval of the column range for the search-text.",
+              "type": "number",
+              "numericValueRange": [
+                1,
+                32000
+              ],
+              "implies": [
+                "search-from"
+              ],
+              "impliesOneOf": [
+                "search-text",
+                "search-text-file"
+              ],
+              "group": "endevor search text options"
+            },
+            {
+              "name": "search-ignore-case",
+              "aliases": [
+                "ic"
+              ],
+              "description": "Ignore search case.",
+              "type": "boolean",
+              "impliesOneOf": [
+                "search-text",
+                "search-text-file"
+              ],
+              "group": "endevor search text options"
+            },
+            {
+              "name": "search-in-binary",
+              "aliases": [
+                "bin"
+              ],
+              "description": "Should the text search be performed in binary elements.",
+              "type": "boolean",
+              "impliesOneOf": [
+                "search-text",
+                "search-text-file"
+              ],
+              "group": "endevor search text options"
+            },
+            {
+              "name": "search-limit",
+              "aliases": [
+                "sl"
+              ],
+              "description": "Maximum search limit where 0 is NOLIMIT.",
+              "type": "number",
+              "numericValueRange": [
+                0,
+                2147483647
+              ],
+              "impliesOneOf": [
+                "search-text",
+                "search-text-file"
+              ],
+              "group": "endevor search text options"
             },
             {
               "name": "to-package",
