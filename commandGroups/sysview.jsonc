@@ -352,6 +352,206 @@
       "children": []
     },
     {
+      "name": "capture-immediate",
+      "aliases": [
+        "cap-imm"
+      ],
+      "summary": "Submit a capture request1",
+      "description": "Submit a capture request2",
+      "type": "command",
+      "handler": "",
+      "profile": {
+        "optional": [
+          "sysview",
+          "base"
+        ]
+      },
+      "positionals": [
+        {
+          "name": "capture-file",
+          "description": "The list of SYSVIEW commands to be executed as an Event Capture.This takes the same form as a CAPLIB member.",
+          "type": "string",
+          "required": true
+        }
+      ],
+      "options": [
+        {
+          "name": "context-fields",
+          "aliases": [
+            "cf"
+          ],
+          "description": "Context fields to display. Defaults to hiding all context",
+          "type": "array",
+          "group": "display options"
+        },
+        {
+          "name": "capture-description",
+          "aliases": [
+            "cd"
+          ],
+          "description": "The description of the capture",
+          "type": "string",
+          "group": "data options"
+        },
+        {
+          "description": "The hostname of the SYSVIEW REST API",
+          "type": "string",
+          "name": "host",
+          "aliases": [
+            "H"
+          ],
+          "group": "sysview connection options"
+        },
+        {
+          "description": "The port number of the SYSVIEW REST API",
+          "type": "number",
+          "name": "port",
+          "aliases": [
+            "P"
+          ],
+          "group": "sysview connection options"
+        },
+        {
+          "description": "Your z/OS username used to authenticate to the SYSVIEW REST API",
+          "type": "string",
+          "name": "user",
+          "aliases": [
+            "u"
+          ],
+          "group": "sysview connection options"
+        },
+        {
+          "description": "Your z/OS password used to authenticate to the SYSVIEW REST API",
+          "type": "string",
+          "name": "password",
+          "aliases": [
+            "pass",
+            "pw"
+          ],
+          "group": "sysview connection options"
+        },
+        {
+          "description": "If set, the server certificate is verified against the list of supplied CAs",
+          "type": "boolean",
+          "name": "reject-unauthorized",
+          "aliases": [
+            "ru"
+          ],
+          "group": "sysview connection options"
+        },
+        {
+          "description": "SSID of the SYSVIEW instance. Default value: GSVX",
+          "type": "string",
+          "name": "ssid",
+          "defaultValue": "GSVX",
+          "group": "sysview connection options",
+          "aliases": []
+        },
+        {
+          "description": "The base path for your API mediation layer instance. Do not specify this option if you are not using an API mediation layer.",
+          "type": "string",
+          "name": "base-path",
+          "aliases": [
+            "bp"
+          ],
+          "defaultValue": "/api/v1",
+          "group": "sysview connection options"
+        },
+        {
+          "name": "show-inputs-only",
+          "group": "Global Options",
+          "description": "Show command inputs and do not run the command",
+          "type": "boolean",
+          "aliases": []
+        },
+        {
+          "name": "response-format-json",
+          "aliases": [
+            "rfj"
+          ],
+          "group": "Global Options",
+          "description": "Produce JSON formatted data from a command",
+          "type": "boolean"
+        },
+        {
+          "name": "help",
+          "aliases": [
+            "h"
+          ],
+          "group": "Global Options",
+          "description": "Display help text",
+          "type": "boolean"
+        },
+        {
+          "name": "help-web",
+          "aliases": [
+            "hw"
+          ],
+          "group": "Global Options",
+          "description": "Display HTML help in browser",
+          "type": "boolean"
+        },
+        {
+          "name": "sysview-profile",
+          "aliases": [
+            "sysview-p"
+          ],
+          "group": "Profile Options",
+          "description": "The name of a (sysview) profile to load for this command execution.",
+          "type": "string"
+        },
+        {
+          "name": "base-profile",
+          "aliases": [
+            "base-p"
+          ],
+          "group": "Profile Options",
+          "description": "The name of a (base) profile to load for this command execution.",
+          "type": "string"
+        },
+        {
+          "name": "token-type",
+          "aliases": [
+            "tt"
+          ],
+          "description": "The type of token to get and use for the API. Omit this option to use the default token type, which is provided by 'zowe auth login'.",
+          "type": "string",
+          "group": "Base Connection Options"
+        },
+        {
+          "name": "token-value",
+          "aliases": [
+            "tv"
+          ],
+          "description": "The value of the token to pass to the API.",
+          "type": "string",
+          "group": "Base Connection Options"
+        },
+        {
+          "name": "cert-file",
+          "description": "The file path to a certificate file to use for authentication",
+          "type": "existingLocalFile",
+          "group": "Base Connection Options",
+          "aliases": []
+        },
+        {
+          "name": "cert-key-file",
+          "description": "The file path to a certificate key file to use for authentication",
+          "type": "existingLocalFile",
+          "group": "Base Connection Options",
+          "aliases": []
+        }
+      ],
+      "examples": [
+        {
+          "options": "\"./my-capture.txt\" --description \"Top CPU Users\"",
+          "description": "Issues a Capture containing the commands in capture file 'my-capture.txt' with the description 'Top CPU Users'"
+        }
+      ],
+      "passOn": [],
+      "children": []
+    },
+    {
       "name": "check",
       "type": "group",
       "description": "Confirm that the SYSVIEW REST server is running on a specified system.",
