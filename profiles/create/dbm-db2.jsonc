@@ -30,11 +30,11 @@
       "description": "Specifies a string array of z/OS JCL JOB statements.",
       "required": false,
       "type": "array",
+      "group": "DBM-Db2 Common Options",
       "defaultValue": [
         "//DB2DVOPS JOB CLASS=A,",
         "//         MSGCLASS=X"
-      ],
-      "group": "DBM-Db2 Common Options"
+      ]
     },
     {
       "name": "work-dataset-prefix",
@@ -44,8 +44,8 @@
       "description": "Specifies the prefix that is used as the high level qualifier in z/OS work data set names.",
       "required": false,
       "type": "string",
-      "defaultValue": "${user}.dbmdb2",
-      "group": "DBM-Db2 Common Options"
+      "group": "DBM-Db2 Common Options",
+      "defaultValue": "${user}.dbmdb2"
     },
     {
       "name": "authid",
@@ -55,8 +55,8 @@
       "description": "Specifies the primary Db2 authorization ID (user ID) that is used to establish a connection between Db2 and a process.",
       "required": false,
       "type": "string",
-      "defaultValue": "${user}",
-      "group": "DBM-Db2 Common Options"
+      "group": "DBM-Db2 Common Options",
+      "defaultValue": "${user}"
     },
     {
       "name": "sqlid",
@@ -66,8 +66,8 @@
       "description": "Specifies the authorization ID that is used as the value in generated SET CURRENT SQLID statements most of the time.",
       "required": false,
       "type": "string",
-      "defaultValue": "${user}",
-      "group": "DBM-Db2 Common Options"
+      "group": "DBM-Db2 Common Options",
+      "defaultValue": "${user}"
     },
     {
       "name": "termination-character",
@@ -77,12 +77,12 @@
       "description": "Specifies the SQL termination character that you want to use to terminate object DDL for triggers, XML indexes, functions, and procedures that contain embedded semicolon-terminated SQL statements. You cannot use a comma, an underscore, a single quote, double quotes, left parentheses, or right parentheses for this value.",
       "required": false,
       "type": "string",
-      "defaultValue": ";",
       "stringLengthRange": [
         1,
         1
       ],
-      "group": "DBM-Db2 Common Options"
+      "group": "DBM-Db2 Common Options",
+      "defaultValue": ";"
     },
     {
       "name": "overwrite-output-files",
@@ -92,8 +92,8 @@
       "description": "Specifies whether to overwrite output files when they already exist.",
       "required": false,
       "type": "boolean",
-      "defaultValue": false,
-      "group": "DBM-Db2 Common Options"
+      "group": "DBM-Db2 Common Options",
+      "defaultValue": false
     },
     {
       "name": "host",
@@ -153,7 +153,6 @@
       "description": "Specifies the communication protocol to use between the zowe dbm-db2 client and the DBM Data Service.",
       "required": false,
       "type": "string",
-      "defaultValue": "https",
       "allowableValues": {
         "values": [
           "http",
@@ -161,6 +160,7 @@
         ]
       },
       "group": "DBM-Db2 Connection Options",
+      "defaultValue": "https",
       "aliases": []
     },
     {
@@ -168,14 +168,14 @@
       "aliases": [
         "el"
       ],
-      "description": "Specifies an object of one or more values consisting of a Db2 subsystem ID and a DBM Data Service environment pair. The paired entry identifies the DBM Data Service environment to use for a subsystem that is accessible through multiple DBM Data Service environments. For more information about configuring the DBM Data Service, see the Database Management Solutions for Db2 for z/OS documentation at https://techdocs.broadcom.com/db2mgmt.",
+      "description": "Specifies an object of one or more values consisting of a Db2 subsystem ID and a DBM Data Service environment pair. The paired entry identifies the DBM Data Service environment to use for a subsystem that is accessible through multiple DBM Data Service environments. For more information about configuring the DBM Data Service, see the Database Management Solutions for Db2 for z/OS documentation at https://techdocs.broadcom.com/db2mgmt",
       "required": false,
       "type": "string",
+      "group": "DBM-Db2 Connection Options",
       "defaultValue": {
         "ssid1": "env1@host1:port1",
         "ssid2": "env2@host2:port2"
-      },
-      "group": "DBM-Db2 Connection Options"
+      }
     },
     {
       "name": "overwrite",
