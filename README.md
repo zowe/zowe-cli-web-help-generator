@@ -8,7 +8,7 @@ This repository introduces some utilities that can be used to extract the comman
 
 ## Installing
 
-To install the necessary components, run `npm install`. For a minimal install, try `npm install --prod`.
+Clone this repository and run `npm install` to install the necessary components. For a minimal install, try `npm install --prod`.
 
 ---
 
