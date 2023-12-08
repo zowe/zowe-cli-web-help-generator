@@ -15510,6 +15510,305 @@
           ],
           "passOn": [],
           "children": []
+        },
+        {
+          "examples": [
+            {
+              "options": "memName --fd DSNAME  -i ENDEVOR",
+              "description": "Print a member from specified dataset"
+            }
+          ],
+          "name": "member",
+          "aliases": [
+            "mem"
+          ],
+          "description": "The print member command prints a member from a specified dataset.",
+          "type": "command",
+          "handler": "",
+          "positionals": [
+            {
+              "name": "member",
+              "type": "string",
+              "description": "Name of the member.",
+              "required": true,
+              "stringLengthRange": [
+                1,
+                255
+              ]
+            }
+          ],
+          "profile": {
+            "optional": [
+              "endevor",
+              "endevor-location",
+              "base"
+            ]
+          },
+          "options": [
+            {
+              "name": "from-dataset",
+              "aliases": [
+                "fd"
+              ],
+              "description": "Use this input to provide source data set name.",
+              "type": "string",
+              "stringLengthRange": [
+                1,
+                44
+              ],
+              "conflictsWith": [
+                "from-package",
+                "from-file",
+                "from-path",
+                "from-uss-file",
+                "from-text"
+              ],
+              "group": "input sources options"
+            },
+            {
+              "name": "headings",
+              "type": "boolean",
+              "description": "Specify it if you want to print a header on each page.",
+              "required": false,
+              "group": "options",
+              "aliases": []
+            },
+            {
+              "name": "charset",
+              "aliases": [
+                "char"
+              ],
+              "description": "Specifies the clients preferred character set when retrieving, printing or updating elements.",
+              "type": "string",
+              "defaultValue": false,
+              "group": "options"
+            },
+            {
+              "name": "asynchronous",
+              "aliases": [
+                "async"
+              ],
+              "description": "Submit this command as an asynchronous Endevor Web Services task",
+              "type": "boolean",
+              "group": "asynchronous task options"
+            },
+            {
+              "name": "to-file",
+              "aliases": [
+                "tf"
+              ],
+              "description": "The file name in which the data from the command output is stored",
+              "type": "string",
+              "group": "output customization options"
+            },
+            {
+              "name": "host",
+              "aliases": [
+                "hostname"
+              ],
+              "description": "Specifies the base host name.",
+              "type": "string",
+              "group": "endevor session definition options"
+            },
+            {
+              "name": "port",
+              "aliases": [
+                "p"
+              ],
+              "description": "Specifies the port number.",
+              "type": "string",
+              "group": "endevor session definition options"
+            },
+            {
+              "name": "instance",
+              "aliases": [
+                "i"
+              ],
+              "description": "Specifies Endevor Web Services dataSource name.",
+              "type": "string",
+              "group": "endevor-location definition options"
+            },
+            {
+              "name": "protocol",
+              "aliases": [
+                "prot"
+              ],
+              "description": "Specifies the protocol used for connecting to Endevor Rest API",
+              "type": "string",
+              "defaultValue": "https",
+              "allowableValues": {
+                "values": [
+                  "http",
+                  "https"
+                ],
+                "caseSensitive": false
+              },
+              "group": "endevor session definition options"
+            },
+            {
+              "name": "user",
+              "aliases": [
+                "username"
+              ],
+              "description": "Specifies the user name.",
+              "type": "string",
+              "group": "endevor session definition options"
+            },
+            {
+              "name": "password",
+              "aliases": [
+                "pass"
+              ],
+              "description": "Specifies the user's password.",
+              "type": "string",
+              "group": "endevor session definition options"
+            },
+            {
+              "name": "reject-unauthorized",
+              "aliases": [
+                "ru"
+              ],
+              "description": "Specify this option to have the server certificate verified against the list of supplied CAs",
+              "type": "boolean",
+              "group": "endevor session definition options"
+            },
+            {
+              "name": "base-path",
+              "aliases": [
+                "bp"
+              ],
+              "description": "Specifies the base path used for connecting to Endevor Rest API",
+              "type": "string",
+              "group": "endevor session definition options"
+            },
+            {
+              "name": "suppress-messages",
+              "aliases": [
+                "sm"
+              ],
+              "description": "Suppress all [INFO]/[WARN] messages from terminal output.",
+              "type": "boolean",
+              "group": "output customization options"
+            },
+            {
+              "name": "report-file",
+              "aliases": [
+                "file-name"
+              ],
+              "description": "File name for saving reports from Endevor SCM locally.",
+              "type": "string",
+              "group": "output customization options"
+            },
+            {
+              "name": "report-dir",
+              "description": "Directory for saving reports from Endevor SCM locally, if --report-file wasn't specified. Defaults to current directory.",
+              "type": "string",
+              "group": "output customization options",
+              "aliases": []
+            },
+            {
+              "name": "write-report",
+              "description": "Write the endevor reports to a file. By default, when return code is 0, no report will be written, unless this option is specified. When return code is bigger than 0, reports will be written to a file, unless this option is specifed to be false",
+              "type": "boolean",
+              "group": "output customization options",
+              "aliases": []
+            },
+            {
+              "name": "show-inputs-only",
+              "group": "Global Options",
+              "description": "Show command inputs and do not run the command",
+              "type": "boolean",
+              "aliases": []
+            },
+            {
+              "name": "response-format-json",
+              "aliases": [
+                "rfj"
+              ],
+              "group": "Global Options",
+              "description": "Produce JSON formatted data from a command",
+              "type": "boolean"
+            },
+            {
+              "name": "help",
+              "aliases": [
+                "h"
+              ],
+              "group": "Global Options",
+              "description": "Display help text",
+              "type": "boolean"
+            },
+            {
+              "name": "help-web",
+              "aliases": [
+                "hw"
+              ],
+              "group": "Global Options",
+              "description": "Display HTML help in browser",
+              "type": "boolean"
+            },
+            {
+              "name": "endevor-profile",
+              "aliases": [
+                "endevor-p"
+              ],
+              "group": "Profile Options",
+              "description": "The name of a (endevor) profile to load for this command execution.",
+              "type": "string"
+            },
+            {
+              "name": "endevor-location-profile",
+              "aliases": [
+                "endevor-location-p"
+              ],
+              "group": "Profile Options",
+              "description": "The name of a (endevor-location) profile to load for this command execution.",
+              "type": "string"
+            },
+            {
+              "name": "base-profile",
+              "aliases": [
+                "base-p"
+              ],
+              "group": "Profile Options",
+              "description": "The name of a (base) profile to load for this command execution.",
+              "type": "string"
+            },
+            {
+              "name": "token-type",
+              "aliases": [
+                "tt"
+              ],
+              "description": "The type of token to get and use for the API. Omit this option to use the default token type, which is provided by 'zowe auth login'.",
+              "type": "string",
+              "group": "Base Connection Options"
+            },
+            {
+              "name": "token-value",
+              "aliases": [
+                "tv"
+              ],
+              "description": "The value of the token to pass to the API.",
+              "type": "string",
+              "group": "Base Connection Options"
+            },
+            {
+              "name": "cert-file",
+              "description": "The file path to a certificate file to use for authentication",
+              "type": "existingLocalFile",
+              "group": "Base Connection Options",
+              "aliases": []
+            },
+            {
+              "name": "cert-key-file",
+              "description": "The file path to a certificate key file to use for authentication",
+              "type": "existingLocalFile",
+              "group": "Base Connection Options",
+              "aliases": []
+            }
+          ],
+          "passOn": [],
+          "children": []
         }
       ],
       "passOn": [

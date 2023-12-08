@@ -26,7 +26,7 @@
           "options": [
             {
               "name": "target-db2",
-              "description": "Specifies the target Db2 subsystem ID where you want to validate the DDL.",
+              "description": "Specifies the target Db2 subsystem or data sharing group where you want to validate the DDL.\n      \n\u001b[90m Note: If you specify the data sharing group, the first active Db2 subsystem in the group is used. \u001b[0m",
               "type": "string",
               "aliases": [
                 "td"
@@ -360,7 +360,7 @@
           "options": [
             {
               "name": "target-db2",
-              "description": "Specifies the target Db2 subsystem ID where the objects that you are comparing reside.",
+              "description": "Specifies the target Db2 subsystem or the data sharing group where the objects that you are comparing reside.\n \n \u001b[90m Note: If you specify the data sharing group, the first active Db2 subsystem in the group is used. \u001b[0m",
               "type": "string",
               "aliases": [
                 "td"
@@ -380,7 +380,7 @@
             },
             {
               "name": "match-set-file",
-              "description": "Specifies the name of the local input file that contains the mapping mask specifications. Matching is used to pair objects in a DDL file to objects that are defined on a Db2 subsystem. For example, a mask specification can account for different schema naming patterns across environments. Matching determines whether the 'change-set' or 'rule-set' options are applied.\n                    \n\u001b[90m Format:\n\n<object-type> <source-name-mask> <target-name-mask>;\n\nSTOGROUP <name> <name>\nDATABASE <name> <name>\nTABLESPACE <database.name> <database.name>\nTABLE <schema.name> <schema.name>\nINDEX <schema.name> <schema.name>\nVIEW <schema.name> <schema.name>\nSYNONYM <schema.name> <schema.name>\nALIAS <schema.name> <schema.name>\nTRIGGER <schema.name> <schema.name>\nSEQUENCE <schema.name> <schema.name>\nFUNCTION <schema.name[.version]> <schema.name[.version]>\nPROCEDURE <schema.name[.version]> <schema.name[.version]>\n                        \nNote: <schema> must be 8 characters or less. <name> must be 18 characters or less. The SEQUENCE <name> must be 8 characters or less.\n                    \nA mask specification can include the following wildcard characters:\n                    \n% (percent sign) indicates that zero or more characters can occupy that position. Other non-wildcard characters must match.\n \n- (hyphen) indicates that any character can occupy that position, but a character must exist at that position.\n \n* (asterisk) indicates that like named objects on the source and target should be mapped. No other characters can appear together with this character.\n                    \nUse a semicolon to separate mask specifications. Multiple mask specifications for the same object type are supported.\n\nExample:\n \nThe following example demonstrates different ways of matching the table MYNAME.MYTABLE to the table YOURNAME.YOURTABLE:\n \nTABLE MY%.%TABLE YOUR%.%TABLE; \nTABLE MYN-M-.MYT% YOURN-M-.YOURT%;\nTABLE MYNAME.MYTABLE YOURNAME.YOURTABLE; \nTABLE *.MYTABLE *.YOURTABLE;\n\nFor a list of mask specifications, see the RC/Migrator documentation at https://techdocs.broadcom.com/db2rcmig\n \nNote: If --match-set and --match-set-file are both specified, specifications in match-set-file take precedence. \u001b[0m",
+              "description": "Specifies the name of the local input file that contains the mapping mask specifications. Matching is used to pair objects in a DDL file to objects that are defined on a Db2 subsystem. For example, a mask specification can account for different schema naming patterns across environments. Matching determines whether the 'change-set' or 'rule-set' options are applied.\n                    \n\u001b[90m Format:\n\n<object-type> <source-name-mask> <target-name-mask>;\n\nSTOGROUP <name> <name>\nDATABASE <name> <name>\nTABLESPACE <database.name> <database.name>\nTABLE <schema.name> <schema.name>\nINDEX <schema.name> <schema.name>\nVIEW <schema.name> <schema.name>\nSYNONYM <schema.name> <schema.name>\nALIAS <schema.name> <schema.name>\nTRIGGER <schema.name> <schema.name>\nSEQUENCE <schema.name> <schema.name>\nFUNCTION <schema.name[.version]> <schema.name[.version]>\nPROCEDURE <schema.name[.version]> <schema.name[.version]>\n                        \nNote:\n- <name> must be between 1 and 128 characters. For DATABASE and TABLESPACE, <name> must be between 1 and 8 characters.\n- <schema> must be between 1 and 128 characters.\n- <version> must be between 1 and 64 characters.\n                    \nA mask specification can include the following wildcard characters:\n                    \n% (percent sign) indicates that zero or more characters can occupy that position. Other non-wildcard characters must match.\n \n- (hyphen) indicates that any character can occupy that position, but a character must exist at that position.\n \n* (asterisk) indicates that like named objects on the source and target should be mapped. No other characters can appear together with this character.\n                    \nUse a semicolon to separate mask specifications. Multiple mask specifications for the same object type are supported.\n\nExample:\n \nThe following example demonstrates different ways of matching the table MYNAME.MYTABLE to the table YOURNAME.YOURTABLE:\n \nTABLE MY%.%TABLE YOUR%.%TABLE; \nTABLE MYN-M-.MYT% YOURN-M-.YOURT%;\nTABLE MYNAME.MYTABLE YOURNAME.YOURTABLE; \nTABLE *.MYTABLE *.YOURTABLE;\n\nFor a list of mask specifications, see the RC/Migrator documentation at https://techdocs.broadcom.com/db2rcmig\n \nNote: If --match-set and --match-set-file are both specified, specifications in match-set-file take precedence. \u001b[0m",
               "type": "string",
               "conflictsWith": [
                 "match-set"
@@ -797,7 +797,7 @@
           "options": [
             {
               "name": "target-db2",
-              "description": "Specifies the target Db2 subsystem ID.",
+              "description": "Specifies the target Db2 subsystem or the data sharing group.\n      \n\u001b[90m Note: If you specify the data sharing group, the first active Db2 subsystem in the group is used. \u001b[0m",
               "type": "string",
               "aliases": [
                 "td"
@@ -817,7 +817,7 @@
             },
             {
               "name": "match-set-file",
-              "description": "Specifies the name of the local input file that contains the mapping mask specifications. Matching is used to pair objects in a DDL file to objects that are defined on a Db2 subsystem. For example, a mask specification can account for different schema naming patterns across environments. Matching determines whether the 'change-set' or 'rule-set' options are applied.\n                    \n\u001b[90m Format:\n\n<object-type> <source-name-mask> <target-name-mask>;\n\nSTOGROUP <name> <name>\nDATABASE <name> <name>\nTABLESPACE <database.name> <database.name>\nTABLE <schema.name> <schema.name>\nINDEX <schema.name> <schema.name>\nVIEW <schema.name> <schema.name>\nSYNONYM <schema.name> <schema.name>\nALIAS <schema.name> <schema.name>\nTRIGGER <schema.name> <schema.name>\nSEQUENCE <schema.name> <schema.name>\nFUNCTION <schema.name[.version]> <schema.name[.version]>\nPROCEDURE <schema.name[.version]> <schema.name[.version]>\n                        \nNote: <schema> must be 8 characters or less. <name> must be 18 characters or less. The SEQUENCE <name> must be 8 characters or less.\n                    \nA mask specification can include the following wildcard characters:\n                    \n% (percent sign) indicates that zero or more characters can occupy that position. Other non-wildcard characters must match.\n \n- (hyphen) indicates that any character can occupy that position, but a character must exist at that position.\n \n* (asterisk) indicates that like named objects on the source and target should be mapped. No other characters can appear together with this character.\n                    \nUse a semicolon to separate mask specifications. Multiple mask specifications for the same object type are supported.\n\nExample:\n \nThe following example demonstrates different ways of matching the table MYNAME.MYTABLE to the table YOURNAME.YOURTABLE:\n \nTABLE MY%.%TABLE YOUR%.%TABLE; \nTABLE MYN-M-.MYT% YOURN-M-.YOURT%;\nTABLE MYNAME.MYTABLE YOURNAME.YOURTABLE; \nTABLE *.MYTABLE *.YOURTABLE;\n\nFor a list of mask specifications, see the RC/Migrator documentation at https://techdocs.broadcom.com/db2rcmig\n \nNote: If --match-set and --match-set-file are both specified, specifications in match-set-file take precedence. \u001b[0m",
+              "description": "Specifies the name of the local input file that contains the mapping mask specifications. Matching is used to pair objects in a DDL file to objects that are defined on a Db2 subsystem. For example, a mask specification can account for different schema naming patterns across environments. Matching determines whether the 'change-set' or 'rule-set' options are applied.\n                    \n\u001b[90m Format:\n\n<object-type> <source-name-mask> <target-name-mask>;\n\nSTOGROUP <name> <name>\nDATABASE <name> <name>\nTABLESPACE <database.name> <database.name>\nTABLE <schema.name> <schema.name>\nINDEX <schema.name> <schema.name>\nVIEW <schema.name> <schema.name>\nSYNONYM <schema.name> <schema.name>\nALIAS <schema.name> <schema.name>\nTRIGGER <schema.name> <schema.name>\nSEQUENCE <schema.name> <schema.name>\nFUNCTION <schema.name[.version]> <schema.name[.version]>\nPROCEDURE <schema.name[.version]> <schema.name[.version]>\n                        \nNote:\n- <name> must be between 1 and 128 characters. For DATABASE and TABLESPACE, <name> must be between 1 and 8 characters.\n- <schema> must be between 1 and 128 characters.\n- <version> must be between 1 and 64 characters.\n                    \nA mask specification can include the following wildcard characters:\n                    \n% (percent sign) indicates that zero or more characters can occupy that position. Other non-wildcard characters must match.\n \n- (hyphen) indicates that any character can occupy that position, but a character must exist at that position.\n \n* (asterisk) indicates that like named objects on the source and target should be mapped. No other characters can appear together with this character.\n                    \nUse a semicolon to separate mask specifications. Multiple mask specifications for the same object type are supported.\n\nExample:\n \nThe following example demonstrates different ways of matching the table MYNAME.MYTABLE to the table YOURNAME.YOURTABLE:\n \nTABLE MY%.%TABLE YOUR%.%TABLE; \nTABLE MYN-M-.MYT% YOURN-M-.YOURT%;\nTABLE MYNAME.MYTABLE YOURNAME.YOURTABLE; \nTABLE *.MYTABLE *.YOURTABLE;\n\nFor a list of mask specifications, see the RC/Migrator documentation at https://techdocs.broadcom.com/db2rcmig\n \nNote: If --match-set and --match-set-file are both specified, specifications in match-set-file take precedence. \u001b[0m",
               "type": "string",
               "conflictsWith": [
                 "match-set"
@@ -1454,7 +1454,7 @@
           "options": [
             {
               "name": "target-db2",
-              "description": "Specifies the target Db2 subsystem ID where you want to execute the script. If the option is not specified, the target subsystem is identified by the first .CONNECT statement in the script. The target-db2 option value takes precedence.",
+              "description": "Specifies the target Db2 subsystem or data sharing group where you want to execute the script. If this option is not specified, the target subsystem is identified by the first .CONNECT statement in the script.\n \n \u001b[90m Note: If you specify the data sharing group, the first active Db2 subsystem in the group is used.\n \n The target-db2 option takes precedence over any other value that is specified for the Db2 subsystem or data sharing group. \u001b[0m",
               "type": "string",
               "aliases": [
                 "td"
@@ -2076,7 +2076,7 @@
             },
             {
               "name": "source-db2",
-              "description": "Specifies the source Db2 subsystem ID where the objects that you want to generate DDL for are located.",
+              "description": "Specifies the source Db2 subsystem or the data sharing group where the objects that you want to generate DDL for are located.\n \n \u001b[90m Note: If you specify the data sharing group, the first active Db2 subsystem in the group is used. \u001b[0m",
               "type": "string",
               "aliases": [
                 "sd"
@@ -2477,7 +2477,7 @@
             },
             {
               "name": "source-db2",
-              "description": "Specifies the source Db2 subsystem ID where the object definitions and data that you want to migrate are located.",
+              "description": "Specifies the source Db2 subsystem or the data sharing group where the object definitions and data that you want to migrate are located.\n \n \u001b[90m Note: If you specify the data sharing group, the first active Db2 subsystem in the group is used. \u001b[0m",
               "type": "string",
               "aliases": [
                 "sd"
@@ -2487,7 +2487,7 @@
             },
             {
               "name": "target-db2",
-              "description": "Specifies the target Db2 subsystem ID where the object definitions and data are migrated (copied) to.",
+              "description": "Specifies the target Db2 subsystem or the data sharing group where the object definitions and data are migrated (copied) to.\n \n \u001b[90m Note: If you specify the data sharing group, the first active Db2 subsystem in the group is used. \u001b[0m",
               "type": "string",
               "aliases": [
                 "td"
