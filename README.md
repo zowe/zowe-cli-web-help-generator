@@ -35,7 +35,7 @@ To add your conformant plug-in's commands, perform the following steps:
 > **Note:** All steps should be performed in the root of this project.
 
 1. _Ensure the plug-in you want to contribute to the Web Help is installed in Zowe CLI._<br>
-    If it is not already installed, see step 3 above.
+    If it is not already installed, see step 3 in the [Installing](#installing) section.
 
 2. _Define command groups and profiles that your plug-in contributes._<br>
     Copy the template file `zowe.template.json` to a new file named `zowe.json`. This file will be ignored by git. Customize this file to include the full names of command group(s) of your plugin(s), and the name(s) of your plug-in's profile(s), like the following:
