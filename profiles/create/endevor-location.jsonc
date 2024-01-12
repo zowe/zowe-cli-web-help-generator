@@ -145,6 +145,25 @@
       "group": "Options"
     },
     {
+      "name": "file-extension",
+      "aliases": [
+        "ext"
+      ],
+      "description": "The strategy for deciding what file extension to use during a bulk retrieve or workspace synchronization. Must be one of the following:\n\n            none: File name is equal to element name, no extension is added.\n\n            file-ext: The file extension defined in the Type definition is used; If not defined, no extension is added.\n\n            type-name: The type name is used as the file extension.\n\n            mixed: The file extension defined in Type definition is used; If not defined, the type name is used instead.",
+      "type": "string",
+      "allowableValues": {
+        "values": [
+          "none",
+          "type-name",
+          "file-ext",
+          "mixed"
+        ],
+        "caseSensitive": false
+      },
+      "defaultValue": "mixed",
+      "group": "Options"
+    },
+    {
       "name": "overwrite",
       "aliases": [
         "ow"
