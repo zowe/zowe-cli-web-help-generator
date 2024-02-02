@@ -108,6 +108,8 @@ jobs:
     - name: Create Release
       id: release-create
       if: ${{ steps.release-prepare.outcome == 'success' }}
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       run: |
         gh release create \
         -t "${{ github.event.inputs.zowe-version }}" \
