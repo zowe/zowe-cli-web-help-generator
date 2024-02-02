@@ -108,14 +108,10 @@ jobs:
     - name: Create Release
       id: release-create
       if: ${{ steps.release-prepare.outcome == 'success' }}
-      uses: ncipollo/release-action@v1
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      with:
-        draft: false
-        prerelease: false
-        name: ${{ github.event.inputs.zowe-version }}
-        tag: ${{ github.event.inputs.zowe-version }}
-        body: |
-          Zowe CLI Web-Help for Zowe Release ${{ github.event.inputs.zowe-version }}
-        artifacts: "release/zowe-${{ github.event.inputs.zowe-version }}.pdf,release/zowe-${{ github.event.inputs.zowe-version }}-WebHelp.zip"
+      run: |
+        gh release create \
+        -t "${{ github.event.inputs.zowe-version }}" \
+        -n "Zowe CLI Web-Help for Zowe Release ${{ github.event.inputs.zowe-version }}" \
+        ${{ github.event.inputs.zowe-version }} \
+        release/zowe-${{ github.event.inputs.zowe-version }}.pdf \
+        release/zowe-${{ github.event.inputs.zowe-version }}-WebHelp.zip
