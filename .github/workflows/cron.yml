@@ -9,6 +9,9 @@ jobs:
   v1-lts:
     runs-on: ubuntu-latest
     steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
       - name: Test Scripts
         run: gh workflow run -r zowe-v1-lts test.yml
           
@@ -18,6 +21,9 @@ jobs:
   v2-lts:
     runs-on: ubuntu-latest
     steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
       - name: Test Scripts
         run: gh workflow run -r master test.yml
 
