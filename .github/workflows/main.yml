@@ -2,6 +2,9 @@ name: CI for WebHelp Contribution
 
 on:
   push:
+    branches:
+      - master
+      - zowe-v1-lts
   pull_request_target:
   workflow_dispatch:
     inputs:
@@ -17,7 +20,7 @@ on:
 jobs:
   test:
     runs-on: ubuntu-latest
-    if: (github.event_name == 'push' || github.event.pull_request.head.repo.full_name != github.repository) && !contains(github.event.head_commit.message, '[ci skip]')
+    if: (!contains(github.event.head_commit.message, '[ci skip]'))
 
     steps:
     - name: Checkout
