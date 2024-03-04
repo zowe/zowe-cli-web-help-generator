@@ -1,4 +1,4 @@
-// Copyright (c) 2023 Broadcom.  All Rights Reserved.  The term
+// Copyright (c) 2024 Broadcom.  All Rights Reserved.  The term
 // "Broadcom" refers to Broadcom Inc. and/or its subsidiaries.
 {
   "name": "dbm-db2",
@@ -26,38 +26,28 @@
           "options": [
             {
               "name": "target-db2",
-              "description": "Specifies the target Db2 subsystem or data sharing group where you want to validate the DDL.\n      \n\u001b[90m Note: If you specify the data sharing group, the first active Db2 subsystem in the group is used. \u001b[0m",
-              "type": "string",
               "aliases": [
                 "td"
               ],
+              "description": "Specifies the target Db2 subsystem or data sharing group where you want to use a command.\n \n \u001b[90m Note: If you specify the data sharing group, the first active Db2 subsystem in the group is used. \u001b[0m",
               "required": true,
+              "type": "string",
               "group": "Required Options"
             },
             {
               "name": "verify",
-              "description": "Specifies whether to verify that the objects to be created do not exist on the Db2 subsystem and that the related objects that are required for successful creation of the objects exist on the Db2 subsystem or in the input DDL.\n \n\u001b[90m Default value: no \u001b[0m",
-              "type": "string",
               "aliases": [
                 "v"
               ],
+              "description": "Specifies whether to verify that the objects to be created do not exist on the Db2 subsystem and that the related objects that are required for successful creation of the objects exist on the Db2 subsystem or in the input DDL.\n \n\u001b[90m Default value: no \u001b[0m",
+              "required": false,
+              "type": "string",
               "allowableValues": {
                 "values": [
                   "yes",
                   "no"
                 ]
               },
-              "required": false,
-              "group": "Options"
-            },
-            {
-              "name": "modification",
-              "aliases": [
-                "m"
-              ],
-              "description": "Identifies a named set of server-managed default parameter values that control the execution behavior of the zowe dbm-db2 commands. For example, you can use a modification to identify a set of default values that differ from the set of values that are normally used.\n   \n\u001b[90m For more information about using the modification option, see the DBM Data Service documentation at https://techdocs.broadcom.com/db2mgmt \u001b[0m",
-              "required": false,
-              "type": "string",
               "group": "Options"
             },
             {
@@ -65,10 +55,54 @@
               "aliases": [
                 "ef"
               ],
-              "description": "Specifies the local output error file in YAML format that contains basic execution information, connection details, dbm-db2 profile parameters, used arguments, and errors that occurred during execution of the command.\n       \n\u001b[90m Default value: error.log \u001b[0m",
+              "description": "Specifies the local output error file in YAML format. The file contains basic execution information, connection details, dbm-db2 profile parameters, used arguments, and errors that occurred during execution of the command.\n       \n\u001b[90m Default value: error.log \u001b[0m",
               "required": false,
               "type": "string",
               "group": "Options"
+            },
+            {
+              "name": "modification",
+              "aliases": [
+                "m"
+              ],
+              "description": "Specifies a named set of server-managed default parameter values that control the execution behavior of the zowe dbm-db2 commands. For example, you can use a modification to identify a set of default values that differ from the current set of default values.\n   \n\u001b[90m For more information about using the modification option, see the DBM Data Service documentation at https://techdocs.broadcom.com/db2mgmt \u001b[0m",
+              "required": false,
+              "type": "string",
+              "group": "Options"
+            },
+            {
+              "name": "dbm-db2-options-profile",
+              "description": "The name of a (dbm-db2-options) profile to load for this command execution.",
+              "type": "string",
+              "aliases": [
+                "dbm-db2-options-p"
+              ],
+              "required": false,
+              "group": "Profile Options"
+            },
+            {
+              "name": "protocol",
+              "description": "Specifies the communication protocol between zowe dbm-db2 client and DBM Data Service.",
+              "required": false,
+              "type": "string",
+              "allowableValues": {
+                "values": [
+                  "http",
+                  "https"
+                ]
+              },
+              "group": "DBM-Db2 Connection Options",
+              "aliases": []
+            },
+            {
+              "name": "environment-list",
+              "aliases": [
+                "el"
+              ],
+              "description": "Specifies a string of one or more entries consisting of a Db2 subsystem ID and a DBM Data Service REST API server host name or TCP/IP address. Use a comma to separate entries. The same Db2 subsystem can be used in multiple DBM Data Service environments. For more information about configuring the DBM Data Service, see the Database Management Solutions for Db2 for z/OS documentation at https://techdocs.broadcom.com/db2mgmt",
+              "required": false,
+              "type": "string",
+              "group": "DBM-Db2 Connection Options"
             },
             {
               "name": "job-cards",
@@ -78,71 +112,57 @@
               "description": "Specifies a string array of z/OS JCL JOB statements.",
               "required": false,
               "type": "array",
-              "group": "DBM-Db2 Profile Options"
+              "group": "DBM-Db2 Connection Options"
             },
             {
               "name": "work-dataset-prefix",
               "aliases": [
                 "wdp"
               ],
-              "description": "Specifies the prefix that is used as the high level qualifier in z/OS work data set names.",
+              "description": "Specifies the prefix (high-level qualifier) in z/OS work data set names.",
               "required": false,
               "type": "string",
-              "group": "DBM-Db2 Profile Options"
+              "group": "DBM-Db2 Connection Options"
             },
             {
-              "name": "authid",
+              "name": "delete-work-datasets",
               "aliases": [
-                "a"
+                "dwd"
               ],
-              "description": "Specifies the primary Db2 authorization ID (user ID) that is used to establish a connection between Db2 and a process.",
+              "description": "Specifies whether to delete work data sets on a mainframe after the request is fulfilled.",
               "required": false,
-              "type": "string",
-              "group": "DBM-Db2 Profile Options"
-            },
-            {
-              "name": "sqlid",
-              "aliases": [
-                "s"
-              ],
-              "description": "Specifies the authorization ID that is used as the value in generated SET CURRENT SQLID statements most of the time.",
-              "required": false,
-              "type": "string",
-              "group": "DBM-Db2 Profile Options"
+              "type": "boolean",
+              "group": "DBM-Db2 Connection Options"
             },
             {
               "name": "overwrite-output-files",
               "aliases": [
                 "oof"
               ],
-              "description": "Specifies whether to overwrite output files when they already exist.",
+              "description": "Specifies whether to overwrite output files if they exist.",
               "required": false,
               "type": "boolean",
-              "group": "DBM-Db2 Profile Options"
+              "group": "DBM-Db2 Connection Options"
             },
             {
-              "name": "protocol",
-              "description": "Specifies the communication protocol to use between the zowe dbm-db2 client and the DBM Data Service.",
-              "required": false,
-              "type": "string",
-              "allowableValues": {
-                "values": [
-                  "http",
-                  "https"
-                ]
-              },
-              "group": "DBM-Db2 Profile Options",
-              "aliases": []
-            },
-            {
-              "name": "environment-list",
+              "name": "authid",
               "aliases": [
-                "el"
+                "a"
               ],
-              "description": "Specifies an object of one or more values consisting of a Db2 subsystem ID and a DBM Data Service environment pair. The paired entry identifies the DBM Data Service environment to use for a subsystem that is accessible through multiple DBM Data Service environments. For more information about configuring the DBM Data Service, see the Database Management Solutions for Db2 for z/OS documentation at https://techdocs.broadcom.com/db2mgmt",
+              "description": "Specifies the primary Db2 authorization ID that is used to establish a connection between Db2 and a process.",
               "required": false,
               "type": "string",
-              "group": "DBM-Db2 Profile Options"
+              "group": "DBM-Db2 Connection Options"
+            },
+            {
+              "name": "sqlid",
+              "aliases": [
+                "s"
+              ],
+              "description": "Specifies the authorization ID that is used in generated SET CURRENT SQLID statements.",
+              "required": false,
+              "type": "string",
+              "group": "DBM-Db2 Connection Options"
             },
             {
               "name": "show-inputs-only",
@@ -360,27 +380,27 @@
           "options": [
             {
               "name": "target-db2",
-              "description": "Specifies the target Db2 subsystem or the data sharing group where the objects that you are comparing reside.\n \n \u001b[90m Note: If you specify the data sharing group, the first active Db2 subsystem in the group is used. \u001b[0m",
-              "type": "string",
               "aliases": [
                 "td"
               ],
+              "description": "Specifies the target Db2 subsystem or data sharing group where you want to use a command.\n \n \u001b[90m Note: If you specify the data sharing group, the first active Db2 subsystem in the group is used. \u001b[0m",
               "required": true,
+              "type": "string",
               "group": "Required Options"
             },
             {
               "name": "match-set",
-              "description": "Specifies the creator and name of an existing RC/Migrator automapping mask set. Matching is used to pair objects in a DDL file to objects that are defined on a Db2 subsystem. Matching determines whether the 'change-set' or 'rule-set' options are applied.\n\n\u001b[90m Format:\n\n<match-set-creator.match-set-name>\n\nFor more information about mask services, see the RC/Migrator documentation at https://techdocs.broadcom.com/db2rcmig\n\nNote: If --match-set and --match-set-file are both specified, specifications in match-set-file take precedence. \u001b[0m",
-              "type": "string",
               "aliases": [
                 "ms"
               ],
+              "description": "Specifies the creator and name of an existing RC/Migrator automapping mask set. Matching is used to pair objects in a DDL file to objects that are defined on a Db2 subsystem. Matching determines whether the 'change-set' or 'rule-set' options are applied.\n\n\u001b[90m Format:\n\n<match-set-creator.match-set-name>\n\nFor more information about mask services, see the RC/Migrator documentation at https://techdocs.broadcom.com/db2rcmig\n\nNote: If --match-set and --match-set-file are both specified, specifications in match-set-file take precedence. \u001b[0m",
               "required": false,
+              "type": "string",
               "group": "Options"
             },
             {
               "name": "match-set-file",
-              "description": "Specifies the name of the local input file that contains the mapping mask specifications. Matching is used to pair objects in a DDL file to objects that are defined on a Db2 subsystem. For example, a mask specification can account for different schema naming patterns across environments. Matching determines whether the 'change-set' or 'rule-set' options are applied.\n                    \n\u001b[90m Format:\n\n<object-type> <source-name-mask> <target-name-mask>;\n\nSTOGROUP <name> <name>\nDATABASE <name> <name>\nTABLESPACE <database.name> <database.name>\nTABLE <schema.name> <schema.name>\nINDEX <schema.name> <schema.name>\nVIEW <schema.name> <schema.name>\nSYNONYM <schema.name> <schema.name>\nALIAS <schema.name> <schema.name>\nTRIGGER <schema.name> <schema.name>\nSEQUENCE <schema.name> <schema.name>\nFUNCTION <schema.name[.version]> <schema.name[.version]>\nPROCEDURE <schema.name[.version]> <schema.name[.version]>\n                        \nNote:\n- <name> must be between 1 and 128 characters. For DATABASE and TABLESPACE, <name> must be between 1 and 8 characters.\n- <schema> must be between 1 and 128 characters.\n- <version> must be between 1 and 64 characters.\n                    \nA mask specification can include the following wildcard characters:\n                    \n% (percent sign) indicates that zero or more characters can occupy that position. Other non-wildcard characters must match.\n \n- (hyphen) indicates that any character can occupy that position, but a character must exist at that position.\n \n* (asterisk) indicates that like named objects on the source and target should be mapped. No other characters can appear together with this character.\n                    \nUse a semicolon to separate mask specifications. Multiple mask specifications for the same object type are supported.\n\nExample:\n \nThe following example demonstrates different ways of matching the table MYNAME.MYTABLE to the table YOURNAME.YOURTABLE:\n \nTABLE MY%.%TABLE YOUR%.%TABLE; \nTABLE MYN-M-.MYT% YOURN-M-.YOURT%;\nTABLE MYNAME.MYTABLE YOURNAME.YOURTABLE; \nTABLE *.MYTABLE *.YOURTABLE;\n\nFor a list of mask specifications, see the RC/Migrator documentation at https://techdocs.broadcom.com/db2rcmig\n \nNote: If --match-set and --match-set-file are both specified, specifications in match-set-file take precedence. \u001b[0m",
+              "description": "Specifies the name of the local input file that contains the mapping mask specifications. Matching is used to pair objects in a DDL file to objects that are defined on a Db2 subsystem. For example, a mask specification can account for different schema naming patterns across environments. Matching determines whether the 'change-set' or 'rule-set' options are applied.\n                    \n\u001b[90m Format:\n\n<object-type> <source-name-mask> <target-name-mask>;\n\nSTOGROUP <name> <name>\nDATABASE <name> <name>\nTABLESPACE <database.name> <database.name>\nTABLE <schema.name> <schema.name>\nINDEX <schema.name> <schema.name>\nVIEW <schema.name> <schema.name>\nSYNONYM <schema.name> <schema.name>\nALIAS <schema.name> <schema.name>\nTRIGGER <schema.name> <schema.name>\nSEQUENCE <schema.name> <schema.name>\nFUNCTION <schema.name[.version]> <schema.name[.version]>\nPROCEDURE <schema.name[.version]> <schema.name[.version]>\n                        \nNote:\n- <name> must be between 1 and 128 characters. For DATABASE and TABLESPACE, <name> must be between 1 and 8 characters.\n- <schema> must be between 1 and 128 characters.\n- <version> must be between 1 and 64 characters.\n                    \nA mask specification can include the following wildcard characters:\n                    \nPercent sign (%) indicates that zero or more characters can occupy that position and all remaining positions to the end of the name, or to the next character. The percent sign can be used anywhere in the name. However, the source and target characters must match exactly.\n \nHyphen or dash (-) indicates that any character can occupy that position, but a character must exist at that position, and the source and target character must match exactly. The hyphen can be repeated in several places in the name.\n \nAsterisk (*) indicates matching values. An asterisk cannot be used with other characters.\n                    \nUse a semicolon to separate mask specifications. Multiple mask specifications for the same object type are supported.\n\nExample:\n \nThe following example demonstrates different ways of matching the table MYNAME.MYTABLE to the table YOURNAME.YOURTABLE:\n \nTABLE MY%.%TABLE YOUR%.%TABLE; \nTABLE MYN-M-.MYT% YOURN-M-.YOURT%;\nTABLE MYNAME.MYTABLE YOURNAME.YOURTABLE; \nTABLE *.MYTABLE *.YOURTABLE;\n\nFor a list of mask specifications, see the RC/Migrator documentation at https://techdocs.broadcom.com/db2rcmig\n \nNote:\n- If --match-set and --match-set-file are both specified, specifications in match-set-file take precedence.\n- The matchSetValues options-profile option has the same behavior as the match-set-file command option. \u001b[0m",
               "type": "string",
               "conflictsWith": [
                 "match-set"
@@ -393,17 +413,17 @@
             },
             {
               "name": "change-set",
-              "description": "Specifies the creator and name of an existing RC/Migrator global change set used for modifying Db2 object attributes. Depending on the backend configuration, the changes apply to either ALL objects in the DDL or to NEW objects only as determined by match-set processing.\n\n\u001b[90m Format:\n\n<change-set-creator.change-set-name>\n \nFor more information about global change services, see the RC/Migrator documentation at https://techdocs.broadcom.com/db2rcmig\n        \nNote: If change-set and change-set-file are both specified, specifications in change-set-file take precedence.\n \nConsult with your database administrator about global change behavior for the default or a specific modification parameter. \u001b[0m",
-              "type": "string",
               "aliases": [
                 "cs"
               ],
+              "description": "Specifies the creator and name of an existing RC/Migrator global change set that changes Db2 objects during a command execution.\n\n\u001b[90m Format:\n \n<change-set-creator.change-set-name> \n\nFor more information about global change services, see the RC/Migrator documentation at https://techdocs.broadcom.com/db2rcmig\n \nNote: If change-set and change-set-file are both specified, specifications in change-set-file take precedence. \u001b[0m",
               "required": false,
+              "type": "string",
               "group": "Options"
             },
             {
               "name": "change-set-file",
-              "description": "Specifies the name of the local input file that contains the global change specifications to modify Db2 object attributes. Depending on the backend configuration, the changes apply to either ALL objects in the DDL or to NEW objects only as determined by match-set processing.\n                    \n\u001b[90m Format:\n\n<object-attribute> <from-value> <to-value>\n                    \nThe <object-attribute> consists of four characters. The first two characters identify the object type. The last two characters identify the specific attribute. Wildcard characters are supported in the <from-value> and <to-value>. The first occurrence in multiple specifications for the same <object-attribute> has the highest precedence.\n \nExample:\n \nThe following example demonstrates changes to table’s schema (creator) and tablespace names:\n \nTBCR TEST% PROD%\nTBTS TESTTS% PRODTS%\n                   \nFor more information about global change services, see the RC/Migrator documentation at https://techdocs.broadcom.com/db2rcmig\n         \nNote: If change-set and change-set-file are both specified, specifications in change-set-file take precedence.\n \nConsult with your database administrator about global change behavior for the default or a specific modification parameter. \u001b[0m",
+              "description": "Specifies the name of the local input file that contains the global change specifications that modify attributes of Db2 objects. Depending on the backend configuration, the changes apply to either ALL objects in the DDL or to NEW objects only as determined by match-set processing.\n                    \n\u001b[90m Format:\n\n<object-attribute> <from-value> <to-value>\n                    \nThe <object-attribute> consists of four characters. The first two characters identify the object type. The last two characters identify the specific attribute. Wildcard characters are supported in the <from-value> and <to-value>. The first occurrence in multiple specifications for the same <object-attribute> has the highest precedence.\n \nExample:\n \nThe following example demonstrates changes to the table schema (creator) and tablespace names:\n \nTBCR TEST% PROD%\nTBTS TESTTS% PRODTS%\n                   \nFor more information about global change services, see the RC/Migrator documentation at https://techdocs.broadcom.com/db2rcmig\n         \nNote:\n- If change-set and change-set-file are both specified, specifications in change-set-file take precedence.\n- The changeSetValues options-profile option has the same behavior as the change-set-file command option. \u001b[0m",
               "type": "string",
               "aliases": [
                 "csf"
@@ -413,35 +433,35 @@
             },
             {
               "name": "rule-set",
-              "description": "Specifies the creator and name of an existing RC/Migrator rule set to be used to override Db2 object attributes in the target Db2 subsystem with the corresponding values from the input DDL file.The changes apply to the existing objects only (as determined by match-set processing).\n\n\u001b[90m Format:\n\n<rule-set-creator.rule-set-name>\n         \nFor more information about rule database services, see the RC/Migrator documentation at https://techdocs.broadcom.com/db2rcmig \u001b[0m",
-              "type": "string",
               "aliases": [
                 "rs"
               ],
+              "description": "Specifies the creator and name of an existing RC/Migrator rule set that overrides Db2 object attributes in the target Db2 subsystem with the corresponding values from the input DDL file. The changes only apply to existing objects, as determined by match-set processing.\n\n\u001b[90m Format:\n\n<rule-set-creator.rule-set-name>\n         \nFor more information about rule database services, see the RC/Migrator documentation at https://techdocs.broadcom.com/db2rcmig \u001b[0m",
               "required": false,
+              "type": "string",
               "group": "Options"
             },
             {
               "name": "id",
-              "description": "Specifies the 1- to 8-character name of the RC/Migrator compare strategy that is created on the target Db2 subsystem by the execution of this command.\n \n\u001b[90m Format: The name must begin with a non-numeric character, and can consist of the characters A to Z (uppercase only), 0 to 9, $, #, and @. \u001b[0m",
-              "type": "string",
+              "description": "Specifies the 1- to 8-character name of the RC/Migrator compare strategy that is created on the target Db2 subsystem during a command execution.\n \n\u001b[90m Format: The name must begin with a non-numeric character and contain the following characters only: uppercase letters from A to Z, numbers from 0 to 9, and special characters $, #, and @. \u001b[0m",
               "required": false,
+              "type": "string",
               "group": "Options",
               "aliases": []
             },
             {
               "name": "description",
-              "description": "Specifies a 1- to 25-character description for the RC/Migrator compare strategy.",
-              "type": "string",
               "aliases": [
                 "d"
               ],
+              "description": "Specifies a 1- to 25-character description for the RC/Migrator compare strategy.",
               "required": false,
+              "type": "string",
               "group": "Options"
             },
             {
               "name": "output-compare-script",
-              "description": "Specifies the local output file name that contains the update script to make changes to the target Db2 subsystem.\n      \n\u001b[90m Default value: compare.txt \u001b[0m",
+              "description": "Specifies the name of the local output file that contains the update script to make changes to objects that reside on the Db2 subsystem.\n      \n\u001b[90m Default value: compare.txt \u001b[0m",
               "type": "string",
               "aliases": [
                 "ocs"
@@ -451,7 +471,7 @@
             },
             {
               "name": "output-summary-file",
-              "description": "Specifies the local output file name that contains the change summary report in textual format. This report provides an overview of the changes to be performed to the Db2 objects on the target Db2 subsystem, but it does not describe how the changes are made.\n      \n\u001b[90m Default value: summary.txt \u001b[0m",
+              "description": "Specifies the name of the local output file that contains the change summary report in text format. This report tracks changes to Db2 objects on the target Db2 subsystem, but it does not describe how changes are made.\n      \n\u001b[90m Default value: summary.txt \u001b[0m",
               "type": "string",
               "aliases": [
                 "osf"
@@ -461,7 +481,7 @@
             },
             {
               "name": "output-impact-file",
-              "description": "Specifies the local output file name that contains the parseable impact analysis report in JSON or YAML format. This report helps identify significant DDL operations to be performed on Db2 objects. It provides the total number and type of DDL operations that are being performed on each object type, the list of DDL operations performed on each object instance, and the state of any pending changes.\n \nThe report format is determined by the supplied file name extension: .json for JSON and .yaml or .yml for YAML. If no extension is provided, JSON format is used.\n      \n\u001b[90m Default value: impact.json\n\nFor more information about the impact analysis report, see the RC/Migrator documentation at https://techdocs.broadcom.com/db2rcmig \u001b[0m",
+              "description": "Specifies the name of the local output file that contains the parseable impact analysis report in JSON or YAML format. This report identifies the significant DDL operations that are performed on Db2 objects. The report provides the total number and type of DDL operations that are performed on each object type, the list of DDL operations performed on each object instance, and the state of any pending changes.\n \nTo determine the report format, supply one of the following extensions in the file name:\n- .json for JSON\n- .yaml or .yml for YAML\nIf no extension is provided, the format is set to JSON.\n      \n\u001b[90m Default value: impact.json\n\nFor more information about the impact analysis report, see the RC/Migrator documentation at https://techdocs.broadcom.com/db2rcmig \u001b[0m",
               "type": "string",
               "aliases": [
                 "oif"
@@ -470,24 +490,58 @@
               "group": "Options"
             },
             {
-              "name": "modification",
+              "name": "error-file",
               "aliases": [
-                "m"
+                "ef"
               ],
-              "description": "Identifies a named set of server-managed default parameter values that control the execution behavior of the zowe dbm-db2 commands. For example, you can use a modification to identify a set of default values that differ from the set of values that are normally used.\n   \n\u001b[90m For more information about using the modification option, see the DBM Data Service documentation at https://techdocs.broadcom.com/db2mgmt \u001b[0m",
+              "description": "Specifies the local output error file in YAML format. The file contains basic execution information, connection details, dbm-db2 profile parameters, used arguments, and errors that occurred during execution of the command.\n       \n\u001b[90m Default value: error.log \u001b[0m",
               "required": false,
               "type": "string",
               "group": "Options"
             },
             {
-              "name": "error-file",
+              "name": "modification",
               "aliases": [
-                "ef"
+                "m"
               ],
-              "description": "Specifies the local output error file in YAML format that contains basic execution information, connection details, dbm-db2 profile parameters, used arguments, and errors that occurred during execution of the command.\n       \n\u001b[90m Default value: error.log \u001b[0m",
+              "description": "Specifies a named set of server-managed default parameter values that control the execution behavior of the zowe dbm-db2 commands. For example, you can use a modification to identify a set of default values that differ from the current set of default values.\n   \n\u001b[90m For more information about using the modification option, see the DBM Data Service documentation at https://techdocs.broadcom.com/db2mgmt \u001b[0m",
               "required": false,
               "type": "string",
               "group": "Options"
+            },
+            {
+              "name": "dbm-db2-options-profile",
+              "description": "The name of a (dbm-db2-options) profile to load for this command execution.",
+              "type": "string",
+              "aliases": [
+                "dbm-db2-options-p"
+              ],
+              "required": false,
+              "group": "Profile Options"
+            },
+            {
+              "name": "protocol",
+              "description": "Specifies the communication protocol between zowe dbm-db2 client and DBM Data Service.",
+              "required": false,
+              "type": "string",
+              "allowableValues": {
+                "values": [
+                  "http",
+                  "https"
+                ]
+              },
+              "group": "DBM-Db2 Connection Options",
+              "aliases": []
+            },
+            {
+              "name": "environment-list",
+              "aliases": [
+                "el"
+              ],
+              "description": "Specifies a string of one or more entries consisting of a Db2 subsystem ID and a DBM Data Service REST API server host name or TCP/IP address. Use a comma to separate entries. The same Db2 subsystem can be used in multiple DBM Data Service environments. For more information about configuring the DBM Data Service, see the Database Management Solutions for Db2 for z/OS documentation at https://techdocs.broadcom.com/db2mgmt",
+              "required": false,
+              "type": "string",
+              "group": "DBM-Db2 Connection Options"
             },
             {
               "name": "job-cards",
@@ -497,85 +551,71 @@
               "description": "Specifies a string array of z/OS JCL JOB statements.",
               "required": false,
               "type": "array",
-              "group": "DBM-Db2 Profile Options"
+              "group": "DBM-Db2 Connection Options"
             },
             {
               "name": "work-dataset-prefix",
               "aliases": [
                 "wdp"
               ],
-              "description": "Specifies the prefix that is used as the high level qualifier in z/OS work data set names.",
+              "description": "Specifies the prefix (high-level qualifier) in z/OS work data set names.",
               "required": false,
               "type": "string",
-              "group": "DBM-Db2 Profile Options"
+              "group": "DBM-Db2 Connection Options"
             },
             {
-              "name": "authid",
+              "name": "delete-work-datasets",
               "aliases": [
-                "a"
+                "dwd"
               ],
-              "description": "Specifies the primary Db2 authorization ID (user ID) that is used to establish a connection between Db2 and a process.",
+              "description": "Specifies whether to delete work data sets on a mainframe after the request is fulfilled.",
               "required": false,
-              "type": "string",
-              "group": "DBM-Db2 Profile Options"
-            },
-            {
-              "name": "sqlid",
-              "aliases": [
-                "s"
-              ],
-              "description": "Specifies the authorization ID that is used as the value in generated SET CURRENT SQLID statements most of the time.",
-              "required": false,
-              "type": "string",
-              "group": "DBM-Db2 Profile Options"
-            },
-            {
-              "name": "termination-character",
-              "aliases": [
-                "tc"
-              ],
-              "description": "Specifies the SQL termination character that you want to use to terminate object DDL for triggers, XML indexes, functions, and procedures that contain embedded semicolon-terminated SQL statements. You cannot use a comma, an underscore, a single quote, double quotes, left parentheses, or right parentheses for this value.",
-              "required": false,
-              "type": "string",
-              "stringLengthRange": [
-                1,
-                1
-              ],
-              "group": "DBM-Db2 Profile Options"
+              "type": "boolean",
+              "group": "DBM-Db2 Connection Options"
             },
             {
               "name": "overwrite-output-files",
               "aliases": [
                 "oof"
               ],
-              "description": "Specifies whether to overwrite output files when they already exist.",
+              "description": "Specifies whether to overwrite output files if they exist.",
               "required": false,
               "type": "boolean",
-              "group": "DBM-Db2 Profile Options"
+              "group": "DBM-Db2 Connection Options"
             },
             {
-              "name": "protocol",
-              "description": "Specifies the communication protocol to use between the zowe dbm-db2 client and the DBM Data Service.",
-              "required": false,
-              "type": "string",
-              "allowableValues": {
-                "values": [
-                  "http",
-                  "https"
-                ]
-              },
-              "group": "DBM-Db2 Profile Options",
-              "aliases": []
-            },
-            {
-              "name": "environment-list",
+              "name": "authid",
               "aliases": [
-                "el"
+                "a"
               ],
-              "description": "Specifies an object of one or more values consisting of a Db2 subsystem ID and a DBM Data Service environment pair. The paired entry identifies the DBM Data Service environment to use for a subsystem that is accessible through multiple DBM Data Service environments. For more information about configuring the DBM Data Service, see the Database Management Solutions for Db2 for z/OS documentation at https://techdocs.broadcom.com/db2mgmt",
+              "description": "Specifies the primary Db2 authorization ID that is used to establish a connection between Db2 and a process.",
               "required": false,
               "type": "string",
-              "group": "DBM-Db2 Profile Options"
+              "group": "DBM-Db2 Connection Options"
+            },
+            {
+              "name": "sqlid",
+              "aliases": [
+                "s"
+              ],
+              "description": "Specifies the authorization ID that is used in generated SET CURRENT SQLID statements.",
+              "required": false,
+              "type": "string",
+              "group": "DBM-Db2 Connection Options"
+            },
+            {
+              "name": "termination-character",
+              "aliases": [
+                "tc"
+              ],
+              "description": "Specifies the SQL termination character to use in DDL generation when the default termination character conflicts with the SQL statements that are used in triggers, XML indexes, and routines (external SQL functions and native SQL stored procedures). The default termination character is a semi-colon (;). You cannot specify a comma, double quote, single quote, left or right parentheses, or an underscore.",
+              "required": false,
+              "type": "string",
+              "stringLengthRange": [
+                1,
+                1
+              ],
+              "group": "DBM-Db2 Connection Options"
             },
             {
               "name": "show-inputs-only",
@@ -797,27 +837,27 @@
           "options": [
             {
               "name": "target-db2",
-              "description": "Specifies the target Db2 subsystem or the data sharing group.\n      \n\u001b[90m Note: If you specify the data sharing group, the first active Db2 subsystem in the group is used. \u001b[0m",
-              "type": "string",
               "aliases": [
                 "td"
               ],
+              "description": "Specifies the target Db2 subsystem or data sharing group where you want to use a command.\n \n \u001b[90m Note: If you specify the data sharing group, the first active Db2 subsystem in the group is used. \u001b[0m",
               "required": true,
+              "type": "string",
               "group": "Required Options"
             },
             {
               "name": "match-set",
-              "description": "Specifies the creator and name of an existing RC/Migrator automapping mask set. Matching is used to pair objects in a DDL file to objects that are defined on a Db2 subsystem. Matching determines whether the 'change-set' or 'rule-set' options are applied.\n\n\u001b[90m Format:\n\n<match-set-creator.match-set-name> \n\nFor more information about mask services, see the RC/Migrator documentation at https://techdocs.broadcom.com/db2rcmig\n\nNote: If --match-set and --match-set-file are both specified, specifications in match-set-file take precedence. \u001b[0m",
-              "type": "string",
               "aliases": [
                 "ms"
               ],
+              "description": "Specifies the creator and name of an existing RC/Migrator automapping mask set. Matching is used to pair objects in a DDL file to objects that are defined on a Db2 subsystem. Matching determines whether the 'change-set' or 'rule-set' options are applied.\n\n\u001b[90m Format:\n\n<match-set-creator.match-set-name>\n\nFor more information about mask services, see the RC/Migrator documentation at https://techdocs.broadcom.com/db2rcmig\n\nNote: If --match-set and --match-set-file are both specified, specifications in match-set-file take precedence. \u001b[0m",
               "required": false,
+              "type": "string",
               "group": "Options"
             },
             {
               "name": "match-set-file",
-              "description": "Specifies the name of the local input file that contains the mapping mask specifications. Matching is used to pair objects in a DDL file to objects that are defined on a Db2 subsystem. For example, a mask specification can account for different schema naming patterns across environments. Matching determines whether the 'change-set' or 'rule-set' options are applied.\n                    \n\u001b[90m Format:\n\n<object-type> <source-name-mask> <target-name-mask>;\n\nSTOGROUP <name> <name>\nDATABASE <name> <name>\nTABLESPACE <database.name> <database.name>\nTABLE <schema.name> <schema.name>\nINDEX <schema.name> <schema.name>\nVIEW <schema.name> <schema.name>\nSYNONYM <schema.name> <schema.name>\nALIAS <schema.name> <schema.name>\nTRIGGER <schema.name> <schema.name>\nSEQUENCE <schema.name> <schema.name>\nFUNCTION <schema.name[.version]> <schema.name[.version]>\nPROCEDURE <schema.name[.version]> <schema.name[.version]>\n                        \nNote:\n- <name> must be between 1 and 128 characters. For DATABASE and TABLESPACE, <name> must be between 1 and 8 characters.\n- <schema> must be between 1 and 128 characters.\n- <version> must be between 1 and 64 characters.\n                    \nA mask specification can include the following wildcard characters:\n                    \n% (percent sign) indicates that zero or more characters can occupy that position. Other non-wildcard characters must match.\n \n- (hyphen) indicates that any character can occupy that position, but a character must exist at that position.\n \n* (asterisk) indicates that like named objects on the source and target should be mapped. No other characters can appear together with this character.\n                    \nUse a semicolon to separate mask specifications. Multiple mask specifications for the same object type are supported.\n\nExample:\n \nThe following example demonstrates different ways of matching the table MYNAME.MYTABLE to the table YOURNAME.YOURTABLE:\n \nTABLE MY%.%TABLE YOUR%.%TABLE; \nTABLE MYN-M-.MYT% YOURN-M-.YOURT%;\nTABLE MYNAME.MYTABLE YOURNAME.YOURTABLE; \nTABLE *.MYTABLE *.YOURTABLE;\n\nFor a list of mask specifications, see the RC/Migrator documentation at https://techdocs.broadcom.com/db2rcmig\n \nNote: If --match-set and --match-set-file are both specified, specifications in match-set-file take precedence. \u001b[0m",
+              "description": "Specifies the name of the local input file that contains the mapping mask specifications. Matching is used to pair objects in a DDL file to objects that are defined on a Db2 subsystem. For example, a mask specification can account for different schema naming patterns across environments. Matching determines whether the 'change-set' or 'rule-set' options are applied.\n                    \n\u001b[90m Format:\n\n<object-type> <source-name-mask> <target-name-mask>;\n\nSTOGROUP <name> <name>\nDATABASE <name> <name>\nTABLESPACE <database.name> <database.name>\nTABLE <schema.name> <schema.name>\nINDEX <schema.name> <schema.name>\nVIEW <schema.name> <schema.name>\nSYNONYM <schema.name> <schema.name>\nALIAS <schema.name> <schema.name>\nTRIGGER <schema.name> <schema.name>\nSEQUENCE <schema.name> <schema.name>\nFUNCTION <schema.name[.version]> <schema.name[.version]>\nPROCEDURE <schema.name[.version]> <schema.name[.version]>\n                        \nNote:\n- <name> must be between 1 and 128 characters. For DATABASE and TABLESPACE, <name> must be between 1 and 8 characters.\n- <schema> must be between 1 and 128 characters.\n- <version> must be between 1 and 64 characters.\n                    \nA mask specification can include the following wildcard characters:\n                    \nPercent sign (%) indicates that zero or more characters can occupy that position and all remaining positions to the end of the name, or to the next character. The percent sign can be used anywhere in the name. However, the source and target characters must match exactly.\n \nHyphen or dash (-) indicates that any character can occupy that position, but a character must exist at that position, and the source and target character must match exactly. The hyphen can be repeated in several places in the name.\n \nAsterisk (*) indicates matching values. An asterisk cannot be used with other characters.\n                    \nUse a semicolon to separate mask specifications. Multiple mask specifications for the same object type are supported.\n\nExample:\n \nThe following example demonstrates different ways of matching the table MYNAME.MYTABLE to the table YOURNAME.YOURTABLE:\n \nTABLE MY%.%TABLE YOUR%.%TABLE; \nTABLE MYN-M-.MYT% YOURN-M-.YOURT%;\nTABLE MYNAME.MYTABLE YOURNAME.YOURTABLE; \nTABLE *.MYTABLE *.YOURTABLE;\n\nFor a list of mask specifications, see the RC/Migrator documentation at https://techdocs.broadcom.com/db2rcmig\n \nNote:\n- If --match-set and --match-set-file are both specified, specifications in match-set-file take precedence.\n- The matchSetValues options-profile option has the same behavior as the match-set-file command option. \u001b[0m",
               "type": "string",
               "conflictsWith": [
                 "match-set"
@@ -830,17 +870,17 @@
             },
             {
               "name": "change-set",
-              "description": "Specifies the creator and name of an existing RC/Migrator global change set used for modifying Db2 object attributes. Depending on the backend configuration, the changes apply to either ALL objects in the DDL or to NEW objects only as determined by match-set processing.\n\n\u001b[90m Format:\n\n<change-set-creator.change-set-name>\n \nFor more information about global change services, see the RC/Migrator documentation at https://techdocs.broadcom.com/db2rcmig\n        \nNote: If change-set and change-set-file are both specified, specifications in change-set-file take precedence.\n \nConsult with your database administrator about global change behavior for the default or a specific modification parameter. \u001b[0m",
-              "type": "string",
               "aliases": [
                 "cs"
               ],
+              "description": "Specifies the creator and name of an existing RC/Migrator global change set that changes Db2 objects during a command execution.\n\n\u001b[90m Format:\n \n<change-set-creator.change-set-name> \n\nFor more information about global change services, see the RC/Migrator documentation at https://techdocs.broadcom.com/db2rcmig\n \nNote: If change-set and change-set-file are both specified, specifications in change-set-file take precedence. \u001b[0m",
               "required": false,
+              "type": "string",
               "group": "Options"
             },
             {
               "name": "change-set-file",
-              "description": "Specifies the name of the local input file that contains the global change specifications to modify Db2 object attributes. Depending on the backend configuration, the changes apply to either ALL objects in the DDL or to NEW objects only as determined by match-set processing.\n                    \n\u001b[90m Format:\n\n<object-attribute> <from-value> <to-value>\n                    \nThe <object-attribute> consists of four characters. The first two characters identify the object type. The last two characters identify the specific attribute. Wildcard characters are supported in the <from-value> and <to-value>. The first occurrence in multiple specifications for the same <object-attribute> has the highest precedence.\n \nExample:\n \nThe following example demonstrates changes to table’s schema (creator) and tablespace names:\n \nTBCR TEST% PROD%\nTBTS TESTTS% PRODTS%\n                   \nFor more information about global change services, see the RC/Migrator documentation at https://techdocs.broadcom.com/db2rcmig\n         \nNote: If change-set and change-set-file are both specified, specifications in change-set-file take precedence.\n \nConsult with your database administrator about global change behavior for the default or a specific modification parameter. \u001b[0m",
+              "description": "Specifies the name of the local input file that contains the global change specifications that modify attributes of Db2 objects. Depending on the backend configuration, the changes apply to either ALL objects in the DDL or to NEW objects only as determined by match-set processing.\n                    \n\u001b[90m Format:\n\n<object-attribute> <from-value> <to-value>\n                    \nThe <object-attribute> consists of four characters. The first two characters identify the object type. The last two characters identify the specific attribute. Wildcard characters are supported in the <from-value> and <to-value>. The first occurrence in multiple specifications for the same <object-attribute> has the highest precedence.\n \nExample:\n \nThe following example demonstrates changes to the table schema (creator) and tablespace names:\n \nTBCR TEST% PROD%\nTBTS TESTTS% PRODTS%\n                   \nFor more information about global change services, see the RC/Migrator documentation at https://techdocs.broadcom.com/db2rcmig\n         \nNote:\n- If change-set and change-set-file are both specified, specifications in change-set-file take precedence.\n- The changeSetValues options-profile option has the same behavior as the change-set-file command option. \u001b[0m",
               "type": "string",
               "aliases": [
                 "csf"
@@ -850,20 +890,10 @@
             },
             {
               "name": "rule-set",
-              "description": "Specifies the creator and name of an existing RC/Migrator rule set to be used to override Db2 object attributes in the target Db2 subsystem with the corresponding values from the input DDL file.The changes apply to the existing objects only (as determined by match-set processing).\n\n\u001b[90m Format:\n\n<rule-set-creator.rule-set-name>\n         \nFor more information about rule database services, see the RC/Migrator documentation at https://techdocs.broadcom.com/db2rcmig \u001b[0m",
-              "type": "string",
               "aliases": [
                 "rs"
               ],
-              "required": false,
-              "group": "Options"
-            },
-            {
-              "name": "modification",
-              "aliases": [
-                "m"
-              ],
-              "description": "Identifies a named set of server-managed default parameter values that control the execution behavior of the zowe dbm-db2 commands. For example, you can use a modification to identify a set of default values that differ from the set of values that are normally used.\n   \n\u001b[90m For more information about using the modification option, see the DBM Data Service documentation at https://techdocs.broadcom.com/db2mgmt \u001b[0m",
+              "description": "Specifies the creator and name of an existing RC/Migrator rule set that overrides Db2 object attributes in the target Db2 subsystem with the corresponding values from the input DDL file. The changes only apply to existing objects, as determined by match-set processing.\n\n\u001b[90m Format:\n\n<rule-set-creator.rule-set-name>\n         \nFor more information about rule database services, see the RC/Migrator documentation at https://techdocs.broadcom.com/db2rcmig \u001b[0m",
               "required": false,
               "type": "string",
               "group": "Options"
@@ -873,10 +903,54 @@
               "aliases": [
                 "ef"
               ],
-              "description": "Specifies the local output error file in YAML format that contains basic execution information, connection details, dbm-db2 profile parameters, used arguments, and errors that occurred during execution of the command.\n       \n\u001b[90m Default value: error.log \u001b[0m",
+              "description": "Specifies the local output error file in YAML format. The file contains basic execution information, connection details, dbm-db2 profile parameters, used arguments, and errors that occurred during execution of the command.\n       \n\u001b[90m Default value: error.log \u001b[0m",
               "required": false,
               "type": "string",
               "group": "Options"
+            },
+            {
+              "name": "modification",
+              "aliases": [
+                "m"
+              ],
+              "description": "Specifies a named set of server-managed default parameter values that control the execution behavior of the zowe dbm-db2 commands. For example, you can use a modification to identify a set of default values that differ from the current set of default values.\n   \n\u001b[90m For more information about using the modification option, see the DBM Data Service documentation at https://techdocs.broadcom.com/db2mgmt \u001b[0m",
+              "required": false,
+              "type": "string",
+              "group": "Options"
+            },
+            {
+              "name": "dbm-db2-options-profile",
+              "description": "The name of a (dbm-db2-options) profile to load for this command execution.",
+              "type": "string",
+              "aliases": [
+                "dbm-db2-options-p"
+              ],
+              "required": false,
+              "group": "Profile Options"
+            },
+            {
+              "name": "protocol",
+              "description": "Specifies the communication protocol between zowe dbm-db2 client and DBM Data Service.",
+              "required": false,
+              "type": "string",
+              "allowableValues": {
+                "values": [
+                  "http",
+                  "https"
+                ]
+              },
+              "group": "DBM-Db2 Connection Options",
+              "aliases": []
+            },
+            {
+              "name": "environment-list",
+              "aliases": [
+                "el"
+              ],
+              "description": "Specifies a string of one or more entries consisting of a Db2 subsystem ID and a DBM Data Service REST API server host name or TCP/IP address. Use a comma to separate entries. The same Db2 subsystem can be used in multiple DBM Data Service environments. For more information about configuring the DBM Data Service, see the Database Management Solutions for Db2 for z/OS documentation at https://techdocs.broadcom.com/db2mgmt",
+              "required": false,
+              "type": "string",
+              "group": "DBM-Db2 Connection Options"
             },
             {
               "name": "job-cards",
@@ -886,85 +960,71 @@
               "description": "Specifies a string array of z/OS JCL JOB statements.",
               "required": false,
               "type": "array",
-              "group": "DBM-Db2 Profile Options"
+              "group": "DBM-Db2 Connection Options"
             },
             {
               "name": "work-dataset-prefix",
               "aliases": [
                 "wdp"
               ],
-              "description": "Specifies the prefix that is used as the high level qualifier in z/OS work data set names.",
+              "description": "Specifies the prefix (high-level qualifier) in z/OS work data set names.",
               "required": false,
               "type": "string",
-              "group": "DBM-Db2 Profile Options"
+              "group": "DBM-Db2 Connection Options"
             },
             {
-              "name": "authid",
+              "name": "delete-work-datasets",
               "aliases": [
-                "a"
+                "dwd"
               ],
-              "description": "Specifies the primary Db2 authorization ID (user ID) that is used to establish a connection between Db2 and a process.",
+              "description": "Specifies whether to delete work data sets on a mainframe after the request is fulfilled.",
               "required": false,
-              "type": "string",
-              "group": "DBM-Db2 Profile Options"
-            },
-            {
-              "name": "sqlid",
-              "aliases": [
-                "s"
-              ],
-              "description": "Specifies the authorization ID that is used as the value in generated SET CURRENT SQLID statements most of the time.",
-              "required": false,
-              "type": "string",
-              "group": "DBM-Db2 Profile Options"
-            },
-            {
-              "name": "termination-character",
-              "aliases": [
-                "tc"
-              ],
-              "description": "Specifies the SQL termination character that you want to use to terminate object DDL for triggers, XML indexes, functions, and procedures that contain embedded semicolon-terminated SQL statements. You cannot use a comma, an underscore, a single quote, double quotes, left parentheses, or right parentheses for this value.",
-              "required": false,
-              "type": "string",
-              "stringLengthRange": [
-                1,
-                1
-              ],
-              "group": "DBM-Db2 Profile Options"
+              "type": "boolean",
+              "group": "DBM-Db2 Connection Options"
             },
             {
               "name": "overwrite-output-files",
               "aliases": [
                 "oof"
               ],
-              "description": "Specifies whether to overwrite output files when they already exist.",
+              "description": "Specifies whether to overwrite output files if they exist.",
               "required": false,
               "type": "boolean",
-              "group": "DBM-Db2 Profile Options"
+              "group": "DBM-Db2 Connection Options"
             },
             {
-              "name": "protocol",
-              "description": "Specifies the communication protocol to use between the zowe dbm-db2 client and the DBM Data Service.",
-              "required": false,
-              "type": "string",
-              "allowableValues": {
-                "values": [
-                  "http",
-                  "https"
-                ]
-              },
-              "group": "DBM-Db2 Profile Options",
-              "aliases": []
-            },
-            {
-              "name": "environment-list",
+              "name": "authid",
               "aliases": [
-                "el"
+                "a"
               ],
-              "description": "Specifies an object of one or more values consisting of a Db2 subsystem ID and a DBM Data Service environment pair. The paired entry identifies the DBM Data Service environment to use for a subsystem that is accessible through multiple DBM Data Service environments. For more information about configuring the DBM Data Service, see the Database Management Solutions for Db2 for z/OS documentation at https://techdocs.broadcom.com/db2mgmt",
+              "description": "Specifies the primary Db2 authorization ID that is used to establish a connection between Db2 and a process.",
               "required": false,
               "type": "string",
-              "group": "DBM-Db2 Profile Options"
+              "group": "DBM-Db2 Connection Options"
+            },
+            {
+              "name": "sqlid",
+              "aliases": [
+                "s"
+              ],
+              "description": "Specifies the authorization ID that is used in generated SET CURRENT SQLID statements.",
+              "required": false,
+              "type": "string",
+              "group": "DBM-Db2 Connection Options"
+            },
+            {
+              "name": "termination-character",
+              "aliases": [
+                "tc"
+              ],
+              "description": "Specifies the SQL termination character to use in DDL generation when the default termination character conflicts with the SQL statements that are used in triggers, XML indexes, and routines (external SQL functions and native SQL stored procedures). The default termination character is a semi-colon (;). You cannot specify a comma, double quote, single quote, left or right parentheses, or an underscore.",
+              "required": false,
+              "type": "string",
+              "stringLengthRange": [
+                1,
+                1
+              ],
+              "group": "DBM-Db2 Connection Options"
             },
             {
               "name": "show-inputs-only",
@@ -1207,24 +1267,58 @@
               "group": "Options"
             },
             {
-              "name": "modification",
+              "name": "error-file",
               "aliases": [
-                "m"
+                "ef"
               ],
-              "description": "Identifies a named set of server-managed default parameter values that control the execution behavior of the zowe dbm-db2 commands. For example, you can use a modification to identify a set of default values that differ from the set of values that are normally used.\n   \n\u001b[90m For more information about using the modification option, see the DBM Data Service documentation at https://techdocs.broadcom.com/db2mgmt \u001b[0m",
+              "description": "Specifies the local output error file in YAML format. The file contains basic execution information, connection details, dbm-db2 profile parameters, used arguments, and errors that occurred during execution of the command.\n       \n\u001b[90m Default value: error.log \u001b[0m",
               "required": false,
               "type": "string",
               "group": "Options"
             },
             {
-              "name": "error-file",
+              "name": "modification",
               "aliases": [
-                "ef"
+                "m"
               ],
-              "description": "Specifies the local output error file in YAML format that contains basic execution information, connection details, dbm-db2 profile parameters, used arguments, and errors that occurred during execution of the command.\n       \n\u001b[90m Default value: error.log \u001b[0m",
+              "description": "Specifies a named set of server-managed default parameter values that control the execution behavior of the zowe dbm-db2 commands. For example, you can use a modification to identify a set of default values that differ from the current set of default values.\n   \n\u001b[90m For more information about using the modification option, see the DBM Data Service documentation at https://techdocs.broadcom.com/db2mgmt \u001b[0m",
               "required": false,
               "type": "string",
               "group": "Options"
+            },
+            {
+              "name": "dbm-db2-options-profile",
+              "description": "The name of a (dbm-db2-options) profile to load for this command execution.",
+              "type": "string",
+              "aliases": [
+                "dbm-db2-options-p"
+              ],
+              "required": false,
+              "group": "Profile Options"
+            },
+            {
+              "name": "protocol",
+              "description": "Specifies the communication protocol between zowe dbm-db2 client and DBM Data Service.",
+              "required": false,
+              "type": "string",
+              "allowableValues": {
+                "values": [
+                  "http",
+                  "https"
+                ]
+              },
+              "group": "DBM-Db2 Connection Options",
+              "aliases": []
+            },
+            {
+              "name": "environment-list",
+              "aliases": [
+                "el"
+              ],
+              "description": "Specifies a string of one or more entries consisting of a Db2 subsystem ID and a DBM Data Service REST API server host name or TCP/IP address. Use a comma to separate entries. The same Db2 subsystem can be used in multiple DBM Data Service environments. For more information about configuring the DBM Data Service, see the Database Management Solutions for Db2 for z/OS documentation at https://techdocs.broadcom.com/db2mgmt",
+              "required": false,
+              "type": "string",
+              "group": "DBM-Db2 Connection Options"
             },
             {
               "name": "job-cards",
@@ -1234,51 +1328,37 @@
               "description": "Specifies a string array of z/OS JCL JOB statements.",
               "required": false,
               "type": "array",
-              "group": "DBM-Db2 Profile Options"
+              "group": "DBM-Db2 Connection Options"
             },
             {
               "name": "work-dataset-prefix",
               "aliases": [
                 "wdp"
               ],
-              "description": "Specifies the prefix that is used as the high level qualifier in z/OS work data set names.",
+              "description": "Specifies the prefix (high-level qualifier) in z/OS work data set names.",
               "required": false,
               "type": "string",
-              "group": "DBM-Db2 Profile Options"
+              "group": "DBM-Db2 Connection Options"
+            },
+            {
+              "name": "delete-work-datasets",
+              "aliases": [
+                "dwd"
+              ],
+              "description": "Specifies whether to delete work data sets on a mainframe after the request is fulfilled.",
+              "required": false,
+              "type": "boolean",
+              "group": "DBM-Db2 Connection Options"
             },
             {
               "name": "overwrite-output-files",
               "aliases": [
                 "oof"
               ],
-              "description": "Specifies whether to overwrite output files when they already exist.",
+              "description": "Specifies whether to overwrite output files if they exist.",
               "required": false,
               "type": "boolean",
-              "group": "DBM-Db2 Profile Options"
-            },
-            {
-              "name": "protocol",
-              "description": "Specifies the communication protocol to use between the zowe dbm-db2 client and the DBM Data Service.",
-              "required": false,
-              "type": "string",
-              "allowableValues": {
-                "values": [
-                  "http",
-                  "https"
-                ]
-              },
-              "group": "DBM-Db2 Profile Options",
-              "aliases": []
-            },
-            {
-              "name": "environment-list",
-              "aliases": [
-                "el"
-              ],
-              "description": "Specifies an object of one or more values consisting of a Db2 subsystem ID and a DBM Data Service environment pair. The paired entry identifies the DBM Data Service environment to use for a subsystem that is accessible through multiple DBM Data Service environments. For more information about configuring the DBM Data Service, see the Database Management Solutions for Db2 for z/OS documentation at https://techdocs.broadcom.com/db2mgmt",
-              "required": false,
-              "type": "string",
-              "group": "DBM-Db2 Profile Options"
+              "group": "DBM-Db2 Connection Options"
             },
             {
               "name": "show-inputs-only",
@@ -1486,24 +1566,58 @@
               "group": "Options"
             },
             {
-              "name": "modification",
+              "name": "error-file",
               "aliases": [
-                "m"
+                "ef"
               ],
-              "description": "Identifies a named set of server-managed default parameter values that control the execution behavior of the zowe dbm-db2 commands. For example, you can use a modification to identify a set of default values that differ from the set of values that are normally used.\n   \n\u001b[90m For more information about using the modification option, see the DBM Data Service documentation at https://techdocs.broadcom.com/db2mgmt \u001b[0m",
+              "description": "Specifies the local output error file in YAML format. The file contains basic execution information, connection details, dbm-db2 profile parameters, used arguments, and errors that occurred during execution of the command.\n       \n\u001b[90m Default value: error.log \u001b[0m",
               "required": false,
               "type": "string",
               "group": "Options"
             },
             {
-              "name": "error-file",
+              "name": "modification",
               "aliases": [
-                "ef"
+                "m"
               ],
-              "description": "Specifies the local output error file in YAML format that contains basic execution information, connection details, dbm-db2 profile parameters, used arguments, and errors that occurred during execution of the command.\n       \n\u001b[90m Default value: error.log \u001b[0m",
+              "description": "Specifies a named set of server-managed default parameter values that control the execution behavior of the zowe dbm-db2 commands. For example, you can use a modification to identify a set of default values that differ from the current set of default values.\n   \n\u001b[90m For more information about using the modification option, see the DBM Data Service documentation at https://techdocs.broadcom.com/db2mgmt \u001b[0m",
               "required": false,
               "type": "string",
               "group": "Options"
+            },
+            {
+              "name": "dbm-db2-options-profile",
+              "description": "The name of a (dbm-db2-options) profile to load for this command execution.",
+              "type": "string",
+              "aliases": [
+                "dbm-db2-options-p"
+              ],
+              "required": false,
+              "group": "Profile Options"
+            },
+            {
+              "name": "protocol",
+              "description": "Specifies the communication protocol between zowe dbm-db2 client and DBM Data Service.",
+              "required": false,
+              "type": "string",
+              "allowableValues": {
+                "values": [
+                  "http",
+                  "https"
+                ]
+              },
+              "group": "DBM-Db2 Connection Options",
+              "aliases": []
+            },
+            {
+              "name": "environment-list",
+              "aliases": [
+                "el"
+              ],
+              "description": "Specifies a string of one or more entries consisting of a Db2 subsystem ID and a DBM Data Service REST API server host name or TCP/IP address. Use a comma to separate entries. The same Db2 subsystem can be used in multiple DBM Data Service environments. For more information about configuring the DBM Data Service, see the Database Management Solutions for Db2 for z/OS documentation at https://techdocs.broadcom.com/db2mgmt",
+              "required": false,
+              "type": "string",
+              "group": "DBM-Db2 Connection Options"
             },
             {
               "name": "job-cards",
@@ -1513,51 +1627,37 @@
               "description": "Specifies a string array of z/OS JCL JOB statements.",
               "required": false,
               "type": "array",
-              "group": "DBM-Db2 Profile Options"
+              "group": "DBM-Db2 Connection Options"
             },
             {
               "name": "work-dataset-prefix",
               "aliases": [
                 "wdp"
               ],
-              "description": "Specifies the prefix that is used as the high level qualifier in z/OS work data set names.",
+              "description": "Specifies the prefix (high-level qualifier) in z/OS work data set names.",
               "required": false,
               "type": "string",
-              "group": "DBM-Db2 Profile Options"
+              "group": "DBM-Db2 Connection Options"
+            },
+            {
+              "name": "delete-work-datasets",
+              "aliases": [
+                "dwd"
+              ],
+              "description": "Specifies whether to delete work data sets on a mainframe after the request is fulfilled.",
+              "required": false,
+              "type": "boolean",
+              "group": "DBM-Db2 Connection Options"
             },
             {
               "name": "overwrite-output-files",
               "aliases": [
                 "oof"
               ],
-              "description": "Specifies whether to overwrite output files when they already exist.",
+              "description": "Specifies whether to overwrite output files if they exist.",
               "required": false,
               "type": "boolean",
-              "group": "DBM-Db2 Profile Options"
-            },
-            {
-              "name": "protocol",
-              "description": "Specifies the communication protocol to use between the zowe dbm-db2 client and the DBM Data Service.",
-              "required": false,
-              "type": "string",
-              "allowableValues": {
-                "values": [
-                  "http",
-                  "https"
-                ]
-              },
-              "group": "DBM-Db2 Profile Options",
-              "aliases": []
-            },
-            {
-              "name": "environment-list",
-              "aliases": [
-                "el"
-              ],
-              "description": "Specifies an object of one or more values consisting of a Db2 subsystem ID and a DBM Data Service environment pair. The paired entry identifies the DBM Data Service environment to use for a subsystem that is accessible through multiple DBM Data Service environments. For more information about configuring the DBM Data Service, see the Database Management Solutions for Db2 for z/OS documentation at https://techdocs.broadcom.com/db2mgmt",
-              "required": false,
-              "type": "string",
-              "group": "DBM-Db2 Profile Options"
+              "group": "DBM-Db2 Connection Options"
             },
             {
               "name": "show-inputs-only",
@@ -1762,24 +1862,58 @@
               "group": "Options"
             },
             {
-              "name": "modification",
+              "name": "error-file",
               "aliases": [
-                "m"
+                "ef"
               ],
-              "description": "Identifies a named set of server-managed default parameter values that control the execution behavior of the zowe dbm-db2 commands. For example, you can use a modification to identify a set of default values that differ from the set of values that are normally used.\n   \n\u001b[90m For more information about using the modification option, see the DBM Data Service documentation at https://techdocs.broadcom.com/db2mgmt \u001b[0m",
+              "description": "Specifies the local output error file in YAML format. The file contains basic execution information, connection details, dbm-db2 profile parameters, used arguments, and errors that occurred during execution of the command.\n       \n\u001b[90m Default value: error.log \u001b[0m",
               "required": false,
               "type": "string",
               "group": "Options"
             },
             {
-              "name": "error-file",
+              "name": "modification",
               "aliases": [
-                "ef"
+                "m"
               ],
-              "description": "Specifies the local output error file in YAML format that contains basic execution information, connection details, dbm-db2 profile parameters, used arguments, and errors that occurred during execution of the command.\n       \n\u001b[90m Default value: error.log \u001b[0m",
+              "description": "Specifies a named set of server-managed default parameter values that control the execution behavior of the zowe dbm-db2 commands. For example, you can use a modification to identify a set of default values that differ from the current set of default values.\n   \n\u001b[90m For more information about using the modification option, see the DBM Data Service documentation at https://techdocs.broadcom.com/db2mgmt \u001b[0m",
               "required": false,
               "type": "string",
               "group": "Options"
+            },
+            {
+              "name": "dbm-db2-options-profile",
+              "description": "The name of a (dbm-db2-options) profile to load for this command execution.",
+              "type": "string",
+              "aliases": [
+                "dbm-db2-options-p"
+              ],
+              "required": false,
+              "group": "Profile Options"
+            },
+            {
+              "name": "protocol",
+              "description": "Specifies the communication protocol between zowe dbm-db2 client and DBM Data Service.",
+              "required": false,
+              "type": "string",
+              "allowableValues": {
+                "values": [
+                  "http",
+                  "https"
+                ]
+              },
+              "group": "DBM-Db2 Connection Options",
+              "aliases": []
+            },
+            {
+              "name": "environment-list",
+              "aliases": [
+                "el"
+              ],
+              "description": "Specifies a string of one or more entries consisting of a Db2 subsystem ID and a DBM Data Service REST API server host name or TCP/IP address. Use a comma to separate entries. The same Db2 subsystem can be used in multiple DBM Data Service environments. For more information about configuring the DBM Data Service, see the Database Management Solutions for Db2 for z/OS documentation at https://techdocs.broadcom.com/db2mgmt",
+              "required": false,
+              "type": "string",
+              "group": "DBM-Db2 Connection Options"
             },
             {
               "name": "job-cards",
@@ -1789,51 +1923,37 @@
               "description": "Specifies a string array of z/OS JCL JOB statements.",
               "required": false,
               "type": "array",
-              "group": "DBM-Db2 Profile Options"
+              "group": "DBM-Db2 Connection Options"
             },
             {
               "name": "work-dataset-prefix",
               "aliases": [
                 "wdp"
               ],
-              "description": "Specifies the prefix that is used as the high level qualifier in z/OS work data set names.",
+              "description": "Specifies the prefix (high-level qualifier) in z/OS work data set names.",
               "required": false,
               "type": "string",
-              "group": "DBM-Db2 Profile Options"
+              "group": "DBM-Db2 Connection Options"
+            },
+            {
+              "name": "delete-work-datasets",
+              "aliases": [
+                "dwd"
+              ],
+              "description": "Specifies whether to delete work data sets on a mainframe after the request is fulfilled.",
+              "required": false,
+              "type": "boolean",
+              "group": "DBM-Db2 Connection Options"
             },
             {
               "name": "overwrite-output-files",
               "aliases": [
                 "oof"
               ],
-              "description": "Specifies whether to overwrite output files when they already exist.",
+              "description": "Specifies whether to overwrite output files if they exist.",
               "required": false,
               "type": "boolean",
-              "group": "DBM-Db2 Profile Options"
-            },
-            {
-              "name": "protocol",
-              "description": "Specifies the communication protocol to use between the zowe dbm-db2 client and the DBM Data Service.",
-              "required": false,
-              "type": "string",
-              "allowableValues": {
-                "values": [
-                  "http",
-                  "https"
-                ]
-              },
-              "group": "DBM-Db2 Profile Options",
-              "aliases": []
-            },
-            {
-              "name": "environment-list",
-              "aliases": [
-                "el"
-              ],
-              "description": "Specifies an object of one or more values consisting of a Db2 subsystem ID and a DBM Data Service environment pair. The paired entry identifies the DBM Data Service environment to use for a subsystem that is accessible through multiple DBM Data Service environments. For more information about configuring the DBM Data Service, see the Database Management Solutions for Db2 for z/OS documentation at https://techdocs.broadcom.com/db2mgmt",
-              "required": false,
-              "type": "string",
-              "group": "DBM-Db2 Profile Options"
+              "group": "DBM-Db2 Connection Options"
             },
             {
               "name": "show-inputs-only",
@@ -2055,16 +2175,16 @@
           "options": [
             {
               "name": "object",
-              "description": "Specifies the Db2 objects for which you want to generate DDL statements. Use the optional include syntax to include related Db2 objects.\n      \n\u001b[90m Format: see object-file description.\n\nNote: The --object and --object-file options are mutually exclusive. \u001b[0m",
+              "description": "Specifies the Db2 objects to be generated in DDL. Use the optional include clause to include related Db2 objects.\n          \n    \u001b[90m Format: see the object-file description\n    \n    Note: The --object and --object-file options are mutually exclusive. \u001b[0m",
               "type": "string",
               "aliases": [
                 "o"
               ],
-              "group": "Options"
+              "group": "Required Options"
             },
             {
               "name": "object-file",
-              "description": "Specifies the local input file that contains a list of Db2 objects, separated by a semicolon, for which you want to generate DDL statements. Use the optional include syntax to include related Db2 objects.\n      \n\u001b[90m Format:\n\n<object-type> <object-name> [include(<related-object-type>,...)];\n\nThe required clause <object-type> <object-name>  identifies the specific Db2 (base) object:\n     \nSTOGROUP <name>\nDATABASE <name>\nTABLESPACE <dbname.name>\nTABLE <schema.name>\nINDEX <schema.name>\nVIEW <schema.name>\nALIAS <schema.name>\nSYNONYM <schema.name>\nMQT <schema.name>\nSEQUENCE <schema.name>\nTRIGGER <schema.name>\nFUNCTION <schema.name[.version]>\nPROCEDURE <schema.name[.version]>\n\nThe optional clause include(<related-object-type>,...) identifies one or more, comma separated related object types that you want to include in the generated DDL statements. You can specify STOGROUP, DATABASE, TABLESPACE, TABLE, INDEX, VIEW, SYNONYM, MQT-ALL, TRIGGER, ROUTINE, PARENTS, CHILDREN, and ALL.\n     \nExample:\n     \ntable sysibm.systables include (tablespace, database, index);\ndatabase db1 include(children);\n\nNote: The --object and --object-file options are mutually exclusive. \u001b[0m",
+              "description": "Specifies the name of the local input file that contains a list of Db2 objects to be generated in DDL. Use a semicolon to separate objects. Use the optional include clause to include related Db2 objects.\n      \n\u001b[90m Format:\n\n<object-type> <object-name> [include(<related-object-type>,...)];\n\nThe required clause <object-type> <object-name>  identifies the specific Db2 (base) object:\n     \nSTOGROUP <name>\nDATABASE <name>\nTABLESPACE <dbname.name>\nTABLE <schema.name>\nINDEX <schema.name>\nVIEW <schema.name>\nALIAS <schema.name>\nSYNONYM <schema.name>\nMQT <schema.name>\nSEQUENCE <schema.name>\nTRIGGER <schema.name>\nFUNCTION <schema.name[.version]>\nPROCEDURE <schema.name[.version]>\n\nThe optional include clause (<related-object-type>,...) identifies one or more related Db2 object types to include in the object list.\n\nYou can specify the following object types: STOGROUP, DATABASE, TABLESPACE, TABLE, INDEX, VIEW, SYNONYM, MQT-ALL, TRIGGER, ROUTINE, PARENTS, CHILDREN, and ALL.\n     \nExample:\n     \ntable sysibm.systables include (tablespace, database, index);\ndatabase db1 include(children);\n\nNote: The --object and --object-file options are mutually exclusive. \u001b[0m",
               "type": "string",
               "aliases": [
                 "of"
@@ -2072,31 +2192,31 @@
               "conflictsWith": [
                 "object"
               ],
-              "group": "Options"
+              "group": "Required Options"
             },
             {
               "name": "source-db2",
-              "description": "Specifies the source Db2 subsystem or the data sharing group where the objects that you want to generate DDL for are located.\n \n \u001b[90m Note: If you specify the data sharing group, the first active Db2 subsystem in the group is used. \u001b[0m",
-              "type": "string",
               "aliases": [
                 "sd"
               ],
+              "description": "Specifies the source Db2 subsystem or data sharing group where the objects that you want to use in a command are located.\n \n \u001b[90m Note: If you specify the data sharing group, the first active Db2 subsystem in the group is used. \u001b[0m",
               "required": true,
+              "type": "string",
               "group": "Required Options"
             },
             {
               "name": "change-set",
-              "description": "Specifies the creator and name of an existing RC/Migrator global change set to be used to modify Db2 object attributes when generating the DDL.\n\n\u001b[90m Format:\n \n<change-set-creator.change-set-name> \n\nFor more information about global change services, see the RC/Migrator documentation at https://techdocs.broadcom.com/db2rcmig\n \nNote: If change-set and change-set-file are both specified, specifications in change-set-file take precedence. \u001b[0m",
-              "type": "string",
               "aliases": [
                 "cs"
               ],
+              "description": "Specifies the creator and name of an existing RC/Migrator global change set that changes Db2 objects during a command execution.\n\n\u001b[90m Format:\n \n<change-set-creator.change-set-name> \n\nFor more information about global change services, see the RC/Migrator documentation at https://techdocs.broadcom.com/db2rcmig\n \nNote: If change-set and change-set-file are both specified, specifications in change-set-file take precedence. \u001b[0m",
               "required": false,
+              "type": "string",
               "group": "Options"
             },
             {
               "name": "change-set-file",
-              "description": "Specifies the name of the local input file that contains the global change specifications to modify Db2 object attributes when generating DDL.\n\n\u001b[90m Format:\n \n<object-attribute> <from-value> <to-value>\n    \nThe <object-attribute> consists of four characters. The first two characters identify the object type. The last two characters identify the specific attribute. Wildcard characters are supported in the <from-value> and <to-value>. The first occurrence in multiple specifications for the same <object-attribute> has the highest precedence.\n   \nFor a list of global change set attributes, see the RC/Migrator documentation at https://techdocs.broadcom.com/db2rcmig\n \nExample:\n    \nThe following example demonstrates changes to table’s schema (creator) and tablespace names:\n     \nTBCR TEST% PROD%\nTBTS TESTTS% PRODTS%\n\nNote: If change-set and change-set-file are both specified, specifications in change-set-file take precedence. \u001b[0m",
+              "description": "Specifies the name of the local input file that contains the global change specifications that modify attributes of Db2 objects.\n\n\u001b[90m Format:\n \n<object-attribute> <from-value> <to-value>\n    \nThe <object-attribute> consists of four characters. The first two characters identify the object type. The last two characters identify the specific attribute. Wildcard characters are supported in the <from-value> and <to-value>. The first occurrence in multiple specifications for the same <object-attribute> has the highest precedence.\n   \nFor a list of global change set attributes, see the RC/Migrator documentation at https://techdocs.broadcom.com/db2rcmig\n \nExample:\n    \nThe following example demonstrates changes to the table schema (creator) and tablespace names:\n     \nTBCR TEST% PROD%\nTBTS TESTTS% PRODTS%\n\nNote:\n- If change-set and change-set-file are both specified, specifications in change-set-file take precedence.\n- The changeSetValues options-profile option has the same behavior as the change-set-file command option. \u001b[0m",
               "type": "string",
               "aliases": [
                 "csf"
@@ -2106,12 +2226,12 @@
             },
             {
               "name": "type",
-              "description": "Specifies the type of DDL statements that you want to generate. You can generate CREATE or DROP statements.",
-              "type": "string",
               "aliases": [
                 "t"
               ],
+              "description": "Specifies the type of DDL statements that you want to generate. You can generate CREATE or DROP statements.",
               "required": false,
+              "type": "string",
               "allowableValues": {
                 "values": [
                   "drop",
@@ -2132,24 +2252,58 @@
               "group": "Options"
             },
             {
-              "name": "modification",
+              "name": "error-file",
               "aliases": [
-                "m"
+                "ef"
               ],
-              "description": "Identifies a named set of server-managed default parameter values that control the execution behavior of the zowe dbm-db2 commands. For example, you can use a modification to identify a set of default values that differ from the set of values that are normally used.\n   \n\u001b[90m For more information about using the modification option, see the DBM Data Service documentation at https://techdocs.broadcom.com/db2mgmt \u001b[0m",
+              "description": "Specifies the local output error file in YAML format. The file contains basic execution information, connection details, dbm-db2 profile parameters, used arguments, and errors that occurred during execution of the command.\n       \n\u001b[90m Default value: error.log \u001b[0m",
               "required": false,
               "type": "string",
               "group": "Options"
             },
             {
-              "name": "error-file",
+              "name": "modification",
               "aliases": [
-                "ef"
+                "m"
               ],
-              "description": "Specifies the local output error file in YAML format that contains basic execution information, connection details, dbm-db2 profile parameters, used arguments, and errors that occurred during execution of the command.\n       \n\u001b[90m Default value: error.log \u001b[0m",
+              "description": "Specifies a named set of server-managed default parameter values that control the execution behavior of the zowe dbm-db2 commands. For example, you can use a modification to identify a set of default values that differ from the current set of default values.\n   \n\u001b[90m For more information about using the modification option, see the DBM Data Service documentation at https://techdocs.broadcom.com/db2mgmt \u001b[0m",
               "required": false,
               "type": "string",
               "group": "Options"
+            },
+            {
+              "name": "dbm-db2-options-profile",
+              "description": "The name of a (dbm-db2-options) profile to load for this command execution.",
+              "type": "string",
+              "aliases": [
+                "dbm-db2-options-p"
+              ],
+              "required": false,
+              "group": "Profile Options"
+            },
+            {
+              "name": "protocol",
+              "description": "Specifies the communication protocol between zowe dbm-db2 client and DBM Data Service.",
+              "required": false,
+              "type": "string",
+              "allowableValues": {
+                "values": [
+                  "http",
+                  "https"
+                ]
+              },
+              "group": "DBM-Db2 Connection Options",
+              "aliases": []
+            },
+            {
+              "name": "environment-list",
+              "aliases": [
+                "el"
+              ],
+              "description": "Specifies a string of one or more entries consisting of a Db2 subsystem ID and a DBM Data Service REST API server host name or TCP/IP address. Use a comma to separate entries. The same Db2 subsystem can be used in multiple DBM Data Service environments. For more information about configuring the DBM Data Service, see the Database Management Solutions for Db2 for z/OS documentation at https://techdocs.broadcom.com/db2mgmt",
+              "required": false,
+              "type": "string",
+              "group": "DBM-Db2 Connection Options"
             },
             {
               "name": "job-cards",
@@ -2159,85 +2313,71 @@
               "description": "Specifies a string array of z/OS JCL JOB statements.",
               "required": false,
               "type": "array",
-              "group": "DBM-Db2 Profile Options"
+              "group": "DBM-Db2 Connection Options"
             },
             {
               "name": "work-dataset-prefix",
               "aliases": [
                 "wdp"
               ],
-              "description": "Specifies the prefix that is used as the high level qualifier in z/OS work data set names.",
+              "description": "Specifies the prefix (high-level qualifier) in z/OS work data set names.",
               "required": false,
               "type": "string",
-              "group": "DBM-Db2 Profile Options"
+              "group": "DBM-Db2 Connection Options"
             },
             {
-              "name": "authid",
+              "name": "delete-work-datasets",
               "aliases": [
-                "a"
+                "dwd"
               ],
-              "description": "Specifies the primary Db2 authorization ID (user ID) that is used to establish a connection between Db2 and a process.",
+              "description": "Specifies whether to delete work data sets on a mainframe after the request is fulfilled.",
               "required": false,
-              "type": "string",
-              "group": "DBM-Db2 Profile Options"
-            },
-            {
-              "name": "sqlid",
-              "aliases": [
-                "s"
-              ],
-              "description": "Specifies the authorization ID that is used as the value in generated SET CURRENT SQLID statements most of the time.",
-              "required": false,
-              "type": "string",
-              "group": "DBM-Db2 Profile Options"
-            },
-            {
-              "name": "termination-character",
-              "aliases": [
-                "tc"
-              ],
-              "description": "Specifies the SQL termination character that you want to use to terminate object DDL for triggers, XML indexes, functions, and procedures that contain embedded semicolon-terminated SQL statements. You cannot use a comma, an underscore, a single quote, double quotes, left parentheses, or right parentheses for this value.",
-              "required": false,
-              "type": "string",
-              "stringLengthRange": [
-                1,
-                1
-              ],
-              "group": "DBM-Db2 Profile Options"
+              "type": "boolean",
+              "group": "DBM-Db2 Connection Options"
             },
             {
               "name": "overwrite-output-files",
               "aliases": [
                 "oof"
               ],
-              "description": "Specifies whether to overwrite output files when they already exist.",
+              "description": "Specifies whether to overwrite output files if they exist.",
               "required": false,
               "type": "boolean",
-              "group": "DBM-Db2 Profile Options"
+              "group": "DBM-Db2 Connection Options"
             },
             {
-              "name": "protocol",
-              "description": "Specifies the communication protocol to use between the zowe dbm-db2 client and the DBM Data Service.",
-              "required": false,
-              "type": "string",
-              "allowableValues": {
-                "values": [
-                  "http",
-                  "https"
-                ]
-              },
-              "group": "DBM-Db2 Profile Options",
-              "aliases": []
-            },
-            {
-              "name": "environment-list",
+              "name": "authid",
               "aliases": [
-                "el"
+                "a"
               ],
-              "description": "Specifies an object of one or more values consisting of a Db2 subsystem ID and a DBM Data Service environment pair. The paired entry identifies the DBM Data Service environment to use for a subsystem that is accessible through multiple DBM Data Service environments. For more information about configuring the DBM Data Service, see the Database Management Solutions for Db2 for z/OS documentation at https://techdocs.broadcom.com/db2mgmt",
+              "description": "Specifies the primary Db2 authorization ID that is used to establish a connection between Db2 and a process.",
               "required": false,
               "type": "string",
-              "group": "DBM-Db2 Profile Options"
+              "group": "DBM-Db2 Connection Options"
+            },
+            {
+              "name": "sqlid",
+              "aliases": [
+                "s"
+              ],
+              "description": "Specifies the authorization ID that is used in generated SET CURRENT SQLID statements.",
+              "required": false,
+              "type": "string",
+              "group": "DBM-Db2 Connection Options"
+            },
+            {
+              "name": "termination-character",
+              "aliases": [
+                "tc"
+              ],
+              "description": "Specifies the SQL termination character to use in DDL generation when the default termination character conflicts with the SQL statements that are used in triggers, XML indexes, and routines (external SQL functions and native SQL stored procedures). The default termination character is a semi-colon (;). You cannot specify a comma, double quote, single quote, left or right parentheses, or an underscore.",
+              "required": false,
+              "type": "string",
+              "stringLengthRange": [
+                1,
+                1
+              ],
+              "group": "DBM-Db2 Connection Options"
             },
             {
               "name": "show-inputs-only",
@@ -2456,16 +2596,16 @@
           "options": [
             {
               "name": "object",
-              "description": "Specifies the Db2 objects that you want to migrate. Use the optional include syntax to include related Db2 objects.\n     \n\u001b[90m Format: see object-file description.\n\nNote: The --object and --object-file options are mutually exclusive. \u001b[0m",
+              "description": "Specifies the Db2 objects to be migrated. Use the optional include clause to include related Db2 objects.\n     \n\u001b[90m Format: see the object-file description\n\nNote: The --object and --object-file options are mutually exclusive. \u001b[0m",
               "type": "string",
               "aliases": [
                 "o"
               ],
-              "group": "Options"
+              "group": "Required Options"
             },
             {
               "name": "object-file",
-              "description": "Specifies the local input file that contains a list of Db2 objects, separated by a semicolon, that you want to migrate. Use the optional include syntax to include related Db2 objects.\n      \n\u001b[90m Format:\n\n<object-type> <object-name> [include(<related-object-type>,...)];\n\nThe required clause <object-type> <object-name>  identifies the specific Db2 (base) object:\n     \nSTOGROUP <name>\nDATABASE <name>\nTABLESPACE <dbname.name>\nTABLE <schema.name>\nINDEX <schema.name>\nVIEW <schema.name>\nALIAS <schema.name>\nSYNONYM <schema.name>\nMQT <schema.name>\nSEQUENCE <schema.name>\nTRIGGER <schema.name>\nFUNCTION <schema.name[.version]>\nPROCEDURE <schema.name[.version]>\n\nThe optional clause include(<related-object-type>,...) identifies one or more, comma separated related object types that you want to include in the object list. You can specify STOGROUP, DATABASE, TABLESPACE, TABLE, INDEX, VIEW, SYNONYM, MQT-ALL, TRIGGER, ROUTINE, PARENTS, CHILDREN, and ALL.\n     \nExample:\n     \ntable sysibm.systables include (tablespace, database, index);\ndatabase db1 include(children);\n\nNote: The --object and --object-file options are mutually exclusive. \u001b[0m",
+              "description": "Specifies the name of the local input file that contains a list of Db2 objects to be migrated. Use a semicolon to separate objects. Use the optional include clause to include related Db2 objects.\n      \n\u001b[90m Format:\n\n<object-type> <object-name> [include(<related-object-type>,...)];\n\nThe required clause <object-type> <object-name>  identifies the specific Db2 (base) object:\n     \nSTOGROUP <name>\nDATABASE <name>\nTABLESPACE <dbname.name>\nTABLE <schema.name>\nINDEX <schema.name>\nVIEW <schema.name>\nALIAS <schema.name>\nSYNONYM <schema.name>\nMQT <schema.name>\nSEQUENCE <schema.name>\nTRIGGER <schema.name>\nFUNCTION <schema.name[.version]>\nPROCEDURE <schema.name[.version]>\n\nThe optional include clause (<related-object-type>,...) identifies one or more related Db2 object types to include in the object list.\n\nYou can specify the following object types: STOGROUP, DATABASE, TABLESPACE, TABLE, INDEX, VIEW, SYNONYM, MQT-ALL, TRIGGER, ROUTINE, PARENTS, CHILDREN, and ALL.\n     \nExample:\n     \ntable sysibm.systables include (tablespace, database, index);\ndatabase db1 include(children);\n\nNote: The --object and --object-file options are mutually exclusive. \u001b[0m",
               "type": "string",
               "aliases": [
                 "of"
@@ -2473,41 +2613,41 @@
               "conflictsWith": [
                 "object"
               ],
-              "group": "Options"
+              "group": "Required Options"
             },
             {
               "name": "source-db2",
-              "description": "Specifies the source Db2 subsystem or the data sharing group where the object definitions and data that you want to migrate are located.\n \n \u001b[90m Note: If you specify the data sharing group, the first active Db2 subsystem in the group is used. \u001b[0m",
-              "type": "string",
               "aliases": [
                 "sd"
               ],
+              "description": "Specifies the source Db2 subsystem or data sharing group where the objects that you want to use in a command are located.\n \n \u001b[90m Note: If you specify the data sharing group, the first active Db2 subsystem in the group is used. \u001b[0m",
               "required": true,
+              "type": "string",
               "group": "Required Options"
             },
             {
               "name": "target-db2",
-              "description": "Specifies the target Db2 subsystem or the data sharing group where the object definitions and data are migrated (copied) to.\n \n \u001b[90m Note: If you specify the data sharing group, the first active Db2 subsystem in the group is used. \u001b[0m",
-              "type": "string",
               "aliases": [
                 "td"
               ],
+              "description": "Specifies the target Db2 subsystem or data sharing group where you want to use a command.\n \n \u001b[90m Note: If you specify the data sharing group, the first active Db2 subsystem in the group is used. \u001b[0m",
               "required": true,
+              "type": "string",
               "group": "Required Options"
             },
             {
               "name": "change-set",
-              "description": "Specifies the creator and name of an existing RC/Migrator global change set to be used to modify Db2 object attributes when preparing objects for migration. \n\n\u001b[90m Format:\n \n<change-set-creator.change-set-name> \n\nFor more information about global change services, see the RC/Migrator documentation at https://techdocs.broadcom.com/db2rcmig\n \nNote: If change-set and change-set-file are both specified, specifications in change-set-file take precedence. \u001b[0m",
-              "type": "string",
               "aliases": [
                 "cs"
               ],
+              "description": "Specifies the creator and name of an existing RC/Migrator global change set that changes Db2 objects during a command execution.\n\n\u001b[90m Format:\n \n<change-set-creator.change-set-name> \n\nFor more information about global change services, see the RC/Migrator documentation at https://techdocs.broadcom.com/db2rcmig\n \nNote: If change-set and change-set-file are both specified, specifications in change-set-file take precedence. \u001b[0m",
               "required": false,
+              "type": "string",
               "group": "Options"
             },
             {
               "name": "change-set-file",
-              "description": "Specifies the name of the local input file that contains the global change specifications to modify Db2 object attributes when preparing for migration.\n\n\u001b[90m Format:\n \n<object-attribute> <from-value> <to-value>\n    \nThe <object-attribute> consists of four characters. The first two characters identify the object type. The last two characters identify the specific attribute. Wildcard characters are supported in the <from-value> and <to-value>. The first occurrence in multiple specifications for the same <object-attribute> has the highest precedence.\n   \nFor a list of global change set attributes, see the RC/Migrator documentation at https://techdocs.broadcom.com/db2rcmig\n \nExample:\n    \nThe following example demonstrates changes to table’s schema (creator) and tablespace names:\n     \nTBCR TEST% PROD%\nTBTS TESTTS% PRODTS%\n  \nNote: If change-set and change-set-file are both specified, specifications in change-set-file take precedence. \u001b[0m",
+              "description": "Specifies the name of the local input file that contains the global change specifications that modify attributes of Db2 objects.\n\n\u001b[90m Format:\n \n<object-attribute> <from-value> <to-value>\n    \nThe <object-attribute> consists of four characters. The first two characters identify the object type. The last two characters identify the specific attribute. Wildcard characters are supported in the <from-value> and <to-value>. The first occurrence in multiple specifications for the same <object-attribute> has the highest precedence.\n   \nFor a list of global change set attributes, see the RC/Migrator documentation at https://techdocs.broadcom.com/db2rcmig\n \nExample:\n    \nThe following example demonstrates changes to the table schema (creator) and tablespace names:\n     \nTBCR TEST% PROD%\nTBTS TESTTS% PRODTS%\n\nNote:\n- If change-set and change-set-file are both specified, specifications in change-set-file take precedence.\n- The changeSetValues options-profile option has the same behavior as the change-set-file command option. \u001b[0m",
               "type": "string",
               "aliases": [
                 "csf"
@@ -2517,7 +2657,7 @@
             },
             {
               "name": "output-migrate-script",
-              "description": "Specifies the local output file name that contains the script to make changes to the target Db2 subsystem.\n  \n\u001b[90m Default value: migration.txt \u001b[0m",
+              "description": "Specifies the name of the local output file that contains the script to make changes to objects that reside on the Db2 subsystem.\n  \n\u001b[90m Default value: migration.txt \u001b[0m",
               "type": "string",
               "aliases": [
                 "oms"
@@ -2527,7 +2667,7 @@
             },
             {
               "name": "output-ddl-file",
-              "description": "Specifies the local output file name that contains the generated DDL for the input objects that are identified by the --object-file or --object option.\n \n\u001b[90m Default value: output.sql \u001b[0m",
+              "description": "Specifies the name of the local output file that contains the generated DDL for objects that are identified by the --object-file or --object option.\n      \n\u001b[90m Default value: output.sql \u001b[0m",
               "type": "string",
               "aliases": [
                 "odf"
@@ -2536,24 +2676,58 @@
               "group": "Options"
             },
             {
-              "name": "modification",
+              "name": "error-file",
               "aliases": [
-                "m"
+                "ef"
               ],
-              "description": "Identifies a named set of server-managed default parameter values that control the execution behavior of the zowe dbm-db2 commands. For example, you can use a modification to identify a set of default values that differ from the set of values that are normally used.\n   \n\u001b[90m For more information about using the modification option, see the DBM Data Service documentation at https://techdocs.broadcom.com/db2mgmt \u001b[0m",
+              "description": "Specifies the local output error file in YAML format. The file contains basic execution information, connection details, dbm-db2 profile parameters, used arguments, and errors that occurred during execution of the command.\n       \n\u001b[90m Default value: error.log \u001b[0m",
               "required": false,
               "type": "string",
               "group": "Options"
             },
             {
-              "name": "error-file",
+              "name": "modification",
               "aliases": [
-                "ef"
+                "m"
               ],
-              "description": "Specifies the local output error file in YAML format that contains basic execution information, connection details, dbm-db2 profile parameters, used arguments, and errors that occurred during execution of the command.\n       \n\u001b[90m Default value: error.log \u001b[0m",
+              "description": "Specifies a named set of server-managed default parameter values that control the execution behavior of the zowe dbm-db2 commands. For example, you can use a modification to identify a set of default values that differ from the current set of default values.\n   \n\u001b[90m For more information about using the modification option, see the DBM Data Service documentation at https://techdocs.broadcom.com/db2mgmt \u001b[0m",
               "required": false,
               "type": "string",
               "group": "Options"
+            },
+            {
+              "name": "dbm-db2-options-profile",
+              "description": "The name of a (dbm-db2-options) profile to load for this command execution.",
+              "type": "string",
+              "aliases": [
+                "dbm-db2-options-p"
+              ],
+              "required": false,
+              "group": "Profile Options"
+            },
+            {
+              "name": "protocol",
+              "description": "Specifies the communication protocol between zowe dbm-db2 client and DBM Data Service.",
+              "required": false,
+              "type": "string",
+              "allowableValues": {
+                "values": [
+                  "http",
+                  "https"
+                ]
+              },
+              "group": "DBM-Db2 Connection Options",
+              "aliases": []
+            },
+            {
+              "name": "environment-list",
+              "aliases": [
+                "el"
+              ],
+              "description": "Specifies a string of one or more entries consisting of a Db2 subsystem ID and a DBM Data Service REST API server host name or TCP/IP address. Use a comma to separate entries. The same Db2 subsystem can be used in multiple DBM Data Service environments. For more information about configuring the DBM Data Service, see the Database Management Solutions for Db2 for z/OS documentation at https://techdocs.broadcom.com/db2mgmt",
+              "required": false,
+              "type": "string",
+              "group": "DBM-Db2 Connection Options"
             },
             {
               "name": "job-cards",
@@ -2563,85 +2737,71 @@
               "description": "Specifies a string array of z/OS JCL JOB statements.",
               "required": false,
               "type": "array",
-              "group": "DBM-Db2 Profile Options"
+              "group": "DBM-Db2 Connection Options"
             },
             {
               "name": "work-dataset-prefix",
               "aliases": [
                 "wdp"
               ],
-              "description": "Specifies the prefix that is used as the high level qualifier in z/OS work data set names.",
+              "description": "Specifies the prefix (high-level qualifier) in z/OS work data set names.",
               "required": false,
               "type": "string",
-              "group": "DBM-Db2 Profile Options"
+              "group": "DBM-Db2 Connection Options"
             },
             {
-              "name": "authid",
+              "name": "delete-work-datasets",
               "aliases": [
-                "a"
+                "dwd"
               ],
-              "description": "Specifies the primary Db2 authorization ID (user ID) that is used to establish a connection between Db2 and a process.",
+              "description": "Specifies whether to delete work data sets on a mainframe after the request is fulfilled.",
               "required": false,
-              "type": "string",
-              "group": "DBM-Db2 Profile Options"
-            },
-            {
-              "name": "sqlid",
-              "aliases": [
-                "s"
-              ],
-              "description": "Specifies the authorization ID that is used as the value in generated SET CURRENT SQLID statements most of the time.",
-              "required": false,
-              "type": "string",
-              "group": "DBM-Db2 Profile Options"
-            },
-            {
-              "name": "termination-character",
-              "aliases": [
-                "tc"
-              ],
-              "description": "Specifies the SQL termination character that you want to use to terminate object DDL for triggers, XML indexes, functions, and procedures that contain embedded semicolon-terminated SQL statements. You cannot use a comma, an underscore, a single quote, double quotes, left parentheses, or right parentheses for this value.",
-              "required": false,
-              "type": "string",
-              "stringLengthRange": [
-                1,
-                1
-              ],
-              "group": "DBM-Db2 Profile Options"
+              "type": "boolean",
+              "group": "DBM-Db2 Connection Options"
             },
             {
               "name": "overwrite-output-files",
               "aliases": [
                 "oof"
               ],
-              "description": "Specifies whether to overwrite output files when they already exist.",
+              "description": "Specifies whether to overwrite output files if they exist.",
               "required": false,
               "type": "boolean",
-              "group": "DBM-Db2 Profile Options"
+              "group": "DBM-Db2 Connection Options"
             },
             {
-              "name": "protocol",
-              "description": "Specifies the communication protocol to use between the zowe dbm-db2 client and the DBM Data Service.",
-              "required": false,
-              "type": "string",
-              "allowableValues": {
-                "values": [
-                  "http",
-                  "https"
-                ]
-              },
-              "group": "DBM-Db2 Profile Options",
-              "aliases": []
-            },
-            {
-              "name": "environment-list",
+              "name": "authid",
               "aliases": [
-                "el"
+                "a"
               ],
-              "description": "Specifies an object of one or more values consisting of a Db2 subsystem ID and a DBM Data Service environment pair. The paired entry identifies the DBM Data Service environment to use for a subsystem that is accessible through multiple DBM Data Service environments. For more information about configuring the DBM Data Service, see the Database Management Solutions for Db2 for z/OS documentation at https://techdocs.broadcom.com/db2mgmt",
+              "description": "Specifies the primary Db2 authorization ID that is used to establish a connection between Db2 and a process.",
               "required": false,
               "type": "string",
-              "group": "DBM-Db2 Profile Options"
+              "group": "DBM-Db2 Connection Options"
+            },
+            {
+              "name": "sqlid",
+              "aliases": [
+                "s"
+              ],
+              "description": "Specifies the authorization ID that is used in generated SET CURRENT SQLID statements.",
+              "required": false,
+              "type": "string",
+              "group": "DBM-Db2 Connection Options"
+            },
+            {
+              "name": "termination-character",
+              "aliases": [
+                "tc"
+              ],
+              "description": "Specifies the SQL termination character to use in DDL generation when the default termination character conflicts with the SQL statements that are used in triggers, XML indexes, and routines (external SQL functions and native SQL stored procedures). The default termination character is a semi-colon (;). You cannot specify a comma, double quote, single quote, left or right parentheses, or an underscore.",
+              "required": false,
+              "type": "string",
+              "stringLengthRange": [
+                1,
+                1
+              ],
+              "group": "DBM-Db2 Connection Options"
             },
             {
               "name": "show-inputs-only",

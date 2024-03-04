@@ -1,23 +1,25 @@
 // Copyright (c) 2024 Broadcom.  All Rights Reserved.  The term
 // "Broadcom" refers to Broadcom Inc. and/or its subsidiaries.
 {
-  "name": "endevor-location-profile",
+  "name": "dbm-db2-options-profiles",
   "aliases": [
-    "endevor-location"
+    "dbm-db2-options"
   ],
-  "summary": "Delete a endevor-location profile.",
-  "description": "Delete a endevor-location profile. You must specify a profile name to be deleted. To find a list of available profiles for deletion, issue the profiles list command. By default, you will be prompted to confirm the profile removal.",
+  "summary": "List profiles of the type dbm-db2-options.",
+  "description": "The DBM-Db2 options profile is a named set of DBM Data Service parameters that are implicitly used with the zowe dbm-db2 commands. The profile includes execution-dependent details.",
   "type": "command",
   "handler": "",
-  "deprecatedReplacement": "Edit your Zowe V2 configuration\n    zowe.config.json",
+  "deprecatedReplacement": "The 'config list' command",
   "customize": {
-    "profileTypeIdentifier": "endevor-location"
+    "profileTypeIdentifier": "dbm-db2-options"
   },
   "options": [
     {
-      "name": "force",
-      "aliases": [],
-      "description": "Force deletion of profile, and dependent profiles if specified. No prompt will be displayed before  deletion occurs.",
+      "name": "show-contents",
+      "aliases": [
+        "sc"
+      ],
+      "description": "List dbm-db2-options  profiles  and their contents. All profile details will be printed as part of command output.",
       "type": "boolean",
       "required": false,
       "group": "Options"
@@ -57,20 +59,17 @@
       "type": "boolean"
     }
   ],
-  "positionals": [
-    {
-      "name": "profileName",
-      "description": "Specifies the name of the endevor-location  profile to be deleted. You can also load this profile by using the name on commands that support the \"--endevor-location-profile\" option.",
-      "type": "string",
-      "required": true
-    }
-  ],
   "examples": [
     {
-      "options": "profilename",
-      "description": "Delete a endevor-location profile named profilename"
+      "options": "",
+      "description": "List profiles of type dbm-db2-options"
+    },
+    {
+      "options": "--sc",
+      "description": "List profiles of type dbm-db2-options and display their contents"
     }
   ],
+  "positionals": [],
   "passOn": [],
   "children": []
 }

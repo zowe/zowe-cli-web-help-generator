@@ -1,4 +1,4 @@
-// Copyright (c) 2023 Broadcom.  All Rights Reserved.  The term
+// Copyright (c) 2024 Broadcom.  All Rights Reserved.  The term
 // "Broadcom" refers to Broadcom Inc. and/or its subsidiaries.
 {
   "name": "dbm-db2-profile",
@@ -23,82 +23,6 @@
   ],
   "options": [
     {
-      "name": "job-cards",
-      "aliases": [
-        "jc"
-      ],
-      "description": "Specifies a string array of z/OS JCL JOB statements.",
-      "required": false,
-      "type": "array",
-      "group": "DBM-Db2 Common Options",
-      "absenceImplications": null,
-      "implies": null
-    },
-    {
-      "name": "work-dataset-prefix",
-      "aliases": [
-        "wdp"
-      ],
-      "description": "Specifies the prefix that is used as the high level qualifier in z/OS work data set names.",
-      "required": false,
-      "type": "string",
-      "group": "DBM-Db2 Common Options",
-      "absenceImplications": null,
-      "implies": null
-    },
-    {
-      "name": "authid",
-      "aliases": [
-        "a"
-      ],
-      "description": "Specifies the primary Db2 authorization ID (user ID) that is used to establish a connection between Db2 and a process.",
-      "required": false,
-      "type": "string",
-      "group": "DBM-Db2 Common Options",
-      "absenceImplications": null,
-      "implies": null
-    },
-    {
-      "name": "sqlid",
-      "aliases": [
-        "s"
-      ],
-      "description": "Specifies the authorization ID that is used as the value in generated SET CURRENT SQLID statements most of the time.",
-      "required": false,
-      "type": "string",
-      "group": "DBM-Db2 Common Options",
-      "absenceImplications": null,
-      "implies": null
-    },
-    {
-      "name": "termination-character",
-      "aliases": [
-        "tc"
-      ],
-      "description": "Specifies the SQL termination character that you want to use to terminate object DDL for triggers, XML indexes, functions, and procedures that contain embedded semicolon-terminated SQL statements. You cannot use a comma, an underscore, a single quote, double quotes, left parentheses, or right parentheses for this value.",
-      "required": false,
-      "type": "string",
-      "stringLengthRange": [
-        1,
-        1
-      ],
-      "group": "DBM-Db2 Common Options",
-      "absenceImplications": null,
-      "implies": null
-    },
-    {
-      "name": "overwrite-output-files",
-      "aliases": [
-        "oof"
-      ],
-      "description": "Specifies whether to overwrite output files when they already exist.",
-      "required": false,
-      "type": "boolean",
-      "group": "DBM-Db2 Common Options",
-      "absenceImplications": null,
-      "implies": null
-    },
-    {
       "name": "host",
       "aliases": [
         "H"
@@ -106,7 +30,7 @@
       "description": "Specifies the DBM Data Service REST API server host name or TCP/IP address to use.",
       "required": false,
       "type": "string",
-      "group": "DBM-Db2 Connection Options",
+      "group": "DBM-Db2 Options",
       "absenceImplications": null,
       "implies": null
     },
@@ -118,7 +42,7 @@
       "description": "Specifies the DBM Data Service REST API server TCP/IP port number.",
       "required": false,
       "type": "number",
-      "group": "DBM-Db2 Connection Options",
+      "group": "DBM-Db2 Options",
       "absenceImplications": null,
       "implies": null
     },
@@ -130,7 +54,7 @@
       "description": "Specifies the mainframe user name that you want to use to connect to the mainframe systems during execution of the Zowe CLI commands. This user name can be the same as your TSO login ID.",
       "required": false,
       "type": "string",
-      "group": "DBM-Db2 Connection Options",
+      "group": "DBM-Db2 Options",
       "absenceImplications": null,
       "implies": null
     },
@@ -143,9 +67,25 @@
       "description": "Specifies the mainframe password for the user name that is used to connect to the mainframe systems during execution of the CLI commands. This password can be the same as your TSO password.",
       "required": false,
       "type": "string",
-      "group": "DBM-Db2 Connection Options",
+      "group": "DBM-Db2 Options",
       "absenceImplications": null,
       "implies": null
+    },
+    {
+      "name": "protocol",
+      "description": "Specifies the communication protocol between zowe dbm-db2 client and DBM Data Service.",
+      "required": false,
+      "type": "string",
+      "allowableValues": {
+        "values": [
+          "http",
+          "https"
+        ]
+      },
+      "group": "DBM-Db2 Options",
+      "absenceImplications": null,
+      "implies": null,
+      "aliases": []
     },
     {
       "name": "reject-unauthorized",
@@ -155,35 +95,107 @@
       "description": "Determines whether the dbm-db2 command is accepted or rejected when a self-signed certificate is returned by the DBM Data Service.",
       "required": false,
       "type": "boolean",
-      "group": "DBM-Db2 Connection Options",
+      "group": "DBM-Db2 Options",
       "absenceImplications": null,
       "implies": null
-    },
-    {
-      "name": "protocol",
-      "description": "Specifies the communication protocol to use between the zowe dbm-db2 client and the DBM Data Service.",
-      "required": false,
-      "type": "string",
-      "allowableValues": {
-        "values": [
-          "http",
-          "https"
-        ]
-      },
-      "group": "DBM-Db2 Connection Options",
-      "absenceImplications": null,
-      "implies": null,
-      "aliases": []
     },
     {
       "name": "environment-list",
       "aliases": [
         "el"
       ],
-      "description": "Specifies an object of one or more values consisting of a Db2 subsystem ID and a DBM Data Service environment pair. The paired entry identifies the DBM Data Service environment to use for a subsystem that is accessible through multiple DBM Data Service environments. For more information about configuring the DBM Data Service, see the Database Management Solutions for Db2 for z/OS documentation at https://techdocs.broadcom.com/db2mgmt",
+      "description": "Specifies a string of one or more entries consisting of a Db2 subsystem ID and a DBM Data Service REST API server host name or TCP/IP address. Use a comma to separate entries. The same Db2 subsystem can be used in multiple DBM Data Service environments. For more information about configuring the DBM Data Service, see the Database Management Solutions for Db2 for z/OS documentation at https://techdocs.broadcom.com/db2mgmt",
       "required": false,
       "type": "string",
-      "group": "DBM-Db2 Connection Options",
+      "group": "DBM-Db2 Options",
+      "absenceImplications": null,
+      "implies": null
+    },
+    {
+      "name": "job-cards",
+      "aliases": [
+        "jc"
+      ],
+      "description": "Specifies a string array of z/OS JCL JOB statements.",
+      "required": false,
+      "type": "array",
+      "group": "DBM-Db2 Options",
+      "absenceImplications": null,
+      "implies": null
+    },
+    {
+      "name": "work-dataset-prefix",
+      "aliases": [
+        "wdp"
+      ],
+      "description": "Specifies the prefix (high-level qualifier) in z/OS work data set names.",
+      "required": false,
+      "type": "string",
+      "group": "DBM-Db2 Options",
+      "absenceImplications": null,
+      "implies": null
+    },
+    {
+      "name": "delete-work-datasets",
+      "aliases": [
+        "dwd"
+      ],
+      "description": "Specifies whether to delete work data sets on a mainframe after the request is fulfilled.",
+      "required": false,
+      "type": "boolean",
+      "group": "DBM-Db2 Options",
+      "absenceImplications": null,
+      "implies": null
+    },
+    {
+      "name": "overwrite-output-files",
+      "aliases": [
+        "oof"
+      ],
+      "description": "Specifies whether to overwrite output files if they exist.",
+      "required": false,
+      "type": "boolean",
+      "group": "DBM-Db2 Options",
+      "absenceImplications": null,
+      "implies": null
+    },
+    {
+      "name": "authid",
+      "aliases": [
+        "a"
+      ],
+      "description": "Specifies the primary Db2 authorization ID that is used to establish a connection between Db2 and a process.",
+      "required": false,
+      "type": "string",
+      "group": "DBM-Db2 Options",
+      "absenceImplications": null,
+      "implies": null
+    },
+    {
+      "name": "sqlid",
+      "aliases": [
+        "s"
+      ],
+      "description": "Specifies the authorization ID that is used in generated SET CURRENT SQLID statements.",
+      "required": false,
+      "type": "string",
+      "group": "DBM-Db2 Options",
+      "absenceImplications": null,
+      "implies": null
+    },
+    {
+      "name": "termination-character",
+      "aliases": [
+        "tc"
+      ],
+      "description": "Specifies the SQL termination character to use in DDL generation when the default termination character conflicts with the SQL statements that are used in triggers, XML indexes, and routines (external SQL functions and native SQL stored procedures). The default termination character is a semi-colon (;). You cannot specify a comma, double quote, single quote, left or right parentheses, or an underscore.",
+      "required": false,
+      "type": "string",
+      "stringLengthRange": [
+        1,
+        1
+      ],
+      "group": "DBM-Db2 Options",
       "absenceImplications": null,
       "implies": null
     },
