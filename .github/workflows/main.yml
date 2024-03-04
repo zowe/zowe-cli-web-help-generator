@@ -135,6 +135,7 @@ jobs:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       run: |
         gh release download ${{ github.event.inputs.zowe-version }} -p zowe-${{ github.event.inputs.zowe-version }}-WebHelp.zip
+        rm -rf docs/${{ github.event.inputs.zowe-version }}
         mkdir -p docs/${{ github.event.inputs.zowe-version }}
         unzip -nqq zowe-${{ github.event.inputs.zowe-version }}-WebHelp.zip -d docs/${{ github.event.inputs.zowe-version }}
         mv docs/${{ github.event.inputs.zowe-version }}/zowe-${{ github.event.inputs.zowe-version }}-WebHelp/* docs/${{ github.event.inputs.zowe-version }}/.
@@ -185,7 +186,9 @@ jobs:
         ref: 'gh-pages'
 
     - name: Create directory
-      run: mkdir -p docs/pr-${{github.event.number}}
+      run: |
+        rm -rf docs/pr-${{github.event.number}}
+        mkdir -p docs/pr-${{github.event.number}}
 
     - name: Get Artifact
       uses: actions/download-artifact@v4
