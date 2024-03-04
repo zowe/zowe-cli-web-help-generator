@@ -16,6 +16,8 @@ jobs:
     - name: Remove directory
       run: | 
         rm -rf docs/pr-${{ github.event.number }}
+        git config --global user.name ${{ secrets.ZOWE_ROBOT_USER }}
+        git config --global user.email ${{ secrets.ZOWE_ROBOT_EMAIL }}
         git rm -r docs/pr-${{ github.event.number }}
         git commit -sm "Remove Zowe Web Help for PR ${{ github.event.number }}"
         git push origin HEAD

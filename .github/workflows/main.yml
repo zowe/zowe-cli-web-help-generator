@@ -141,6 +141,8 @@ jobs:
         mv docs/${{ github.event.inputs.zowe-version }}/zowe-${{ github.event.inputs.zowe-version }}-WebHelp/* docs/${{ github.event.inputs.zowe-version }}/.
         rmdir docs/${{ github.event.inputs.zowe-version }}/zowe-${{ github.event.inputs.zowe-version }}-WebHelp/
         rm zowe-${{ github.event.inputs.zowe-version }}-WebHelp.zip
+        git config --global user.name ${{ secrets.ZOWE_ROBOT_USER }}
+        git config --global user.email ${{ secrets.ZOWE_ROBOT_EMAIL }}
         git add docs/${{ github.event.inputs.zowe-version }}
         git commit -sm "Add Zowe Web Help ${{ github.event.inputs.zowe-version }}"
         git push origin HEAD
@@ -171,6 +173,8 @@ jobs:
         mv docs/${{ github.ref_name }}/generatedWebHelp/* docs/${{ github.ref_name }}/.
         rmdir docs/${{ github.ref_name }}/generatedWebHelp
         rm docs/${{ github.ref_name }}/zowe.pdf
+        git config --global user.name ${{ secrets.ZOWE_ROBOT_USER }}
+        git config --global user.email ${{ secrets.ZOWE_ROBOT_EMAIL }}
         git add docs/${{ github.ref_name }}
         git commit -sm "Add Zowe Web Help for ${{ github.ref_name }}"
         git push origin HEAD
@@ -201,6 +205,8 @@ jobs:
         mv docs/pr-${{ github.event.number }}/generatedWebHelp/* docs/pr-${{ github.event.number }}/.
         rmdir docs/pr-${{ github.event.number }}/generatedWebHelp
         rm docs/pr-${{ github.event.number }}/zowe.pdf
+        git config --global user.name ${{ secrets.ZOWE_ROBOT_USER }}
+        git config --global user.email ${{ secrets.ZOWE_ROBOT_EMAIL }}
         git add docs/pr-${{ github.event.number }}
         git commit -sm "Add Zowe Web Help for PR ${{ github.event.number }}"
         git push origin HEAD
