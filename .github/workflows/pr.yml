@@ -1,0 +1,21 @@
+name: Remove Closed PR Contents
+
+on:
+  pull_request_target:
+    types: closed
+
+jobs:
+  remove-pr:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout Pages Branch
+      uses: actions/checkout@v4
+      with:
+        ref: 'gh-pages'
+    
+    - name: Remove directory
+      run: | 
+        rm -rf docs/pr-${{ github.event.number }}
+        git rm -r docs/pr-${{ github.event.number }}
+        git commit -sm "Remove Zowe Web Help for PR ${{ github.event.number }}"
+        git push origin HEAD
