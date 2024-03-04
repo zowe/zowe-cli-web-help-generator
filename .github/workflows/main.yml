@@ -135,7 +135,7 @@ jobs:
     
     - name: Get Release Contents
       env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        GITHUB_TOKEN: ${{ secrets.ZOWE_ROBOT_TOKEN }}
       run: |
         gh release download ${{ github.event.inputs.zowe-version }} -p zowe-${{ github.event.inputs.zowe-version }}-WebHelp.zip
         rm -rf docs/${{ github.event.inputs.zowe-version }}
@@ -149,6 +149,7 @@ jobs:
         git add docs/${{ github.event.inputs.zowe-version }}
         git commit -sm "Add Zowe Web Help ${{ github.event.inputs.zowe-version }}"
         git push origin HEAD
+        gh workflow run -r gh-pages deploy-pages.yml
 
   deploy-artifact:
     needs: test
@@ -172,6 +173,8 @@ jobs:
         path: docs/${{ github.ref_name }}
 
     - name: Resolve Artifact
+      env:
+        GITHUB_TOKEN: ${{ secrets.ZOWE_ROBOT_TOKEN }}
       run: |
         mv docs/${{ github.ref_name }}/generatedWebHelp/* docs/${{ github.ref_name }}/.
         rmdir docs/${{ github.ref_name }}/generatedWebHelp
@@ -181,6 +184,7 @@ jobs:
         git add docs/${{ github.ref_name }}
         git commit -sm "Add Zowe Web Help for ${{ github.ref_name }}"
         git push origin HEAD
+        gh workflow run -r gh-pages deploy-pages.yml
 
   deploy-pr:
     needs: test
@@ -204,6 +208,8 @@ jobs:
         path: docs/pr-${{ github.event.number }}
 
     - name: Resolve Artifact
+      env:
+        GITHUB_TOKEN: ${{ secrets.ZOWE_ROBOT_TOKEN }}
       run: |
         mv docs/pr-${{ github.event.number }}/generatedWebHelp/* docs/pr-${{ github.event.number }}/.
         rmdir docs/pr-${{ github.event.number }}/generatedWebHelp
@@ -213,6 +219,7 @@ jobs:
         git add docs/pr-${{ github.event.number }}
         git commit -sm "Add Zowe Web Help for PR ${{ github.event.number }}"
         git push origin HEAD
+        gh workflow run -r gh-pages deploy-pages.yml
 
     - name: Comment on PR
       uses: marocchino/sticky-pull-request-comment@v2
