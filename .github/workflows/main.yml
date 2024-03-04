@@ -201,7 +201,7 @@ jobs:
       uses: actions/download-artifact@v4
       with:
         name: results
-        path: docs/pr-${{ github.ref_name }}
+        path: docs/pr-${{ github.event.number }}
 
     - name: Resolve Artifact
       run: |
