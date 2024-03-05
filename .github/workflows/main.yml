@@ -2,7 +2,10 @@ name: CI for WebHelp Contribution
 
 on:
   push:
-  pull_request:
+    branches:
+      - master
+      - zowe-v1-lts
+  pull_request_target:
   workflow_dispatch:
     inputs:
       zowe-version:
@@ -17,14 +20,16 @@ on:
 jobs:
   test:
     runs-on: ubuntu-latest
-    if: (github.event_name == 'push' || github.event.pull_request.head.repo.full_name != github.repository) && !contains(github.event.head_commit.message, '[ci skip]')
+    if: (!contains(github.event.head_commit.message, '[ci skip]'))
 
     steps:
     - name: Checkout
-      uses: actions/checkout@v3
+      uses: actions/checkout@v4
+      with:
+        ref: ${{ github.event.pull_request.head.sha || github.ref }}
 
     - name: Use Node.js LTS
-      uses: actions/setup-node@v3
+      uses: actions/setup-node@v4
       with:
         node-version: lts/*
 
@@ -86,16 +91,16 @@ jobs:
     - name: Archive Results
       id: upload
       if: ${{ always() && steps.build.outcome == 'success' }}
-      uses: actions/upload-artifact@v3
+      uses: actions/upload-artifact@v4
       with:
         name: results
         path: |
           generatedWebHelp/
           zowe.pdf
-
+    
     - name: Prepare Release Artifacts
       id: release-prepare
-      if: ${{ (github.ref == 'refs/heads/master' || github.ref == 'refs/heads/zowe-v1-lts') && steps.build.outcome == 'success' && github.event_name == 'workflow_dispatch' && github.event.inputs.zowe-version && github.event.inputs.zowe-version != '' && github.event.inputs.release == 'true' }}
+      if: ${{ (github.ref_name == 'master' || github.ref_name == 'zowe-v1-lts') && steps.build.outcome == 'success' && github.event_name == 'workflow_dispatch' && github.event.inputs.zowe-version && github.event.inputs.zowe-version != '' && github.event.inputs.release == 'true' }}
       run: |
         mkdir release
         mv zowe.pdf release/.
@@ -110,14 +115,116 @@ jobs:
     - name: Create Release
       id: release-create
       if: ${{ steps.release-prepare.outcome == 'success' }}
-      uses: ncipollo/release-action@v1
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      run: |
+        gh release create \
+        -t "${{ github.event.inputs.zowe-version }}" \
+        -n "Zowe CLI Web-Help for Zowe Release ${{ github.event.inputs.zowe-version }}" \
+        ${{ github.event.inputs.zowe-version }} \
+        release/zowe-${{ github.event.inputs.zowe-version }}.pdf \
+        release/zowe-${{ github.event.inputs.zowe-version }}-WebHelp.zip
+
+  deploy-release:
+    needs: test
+    runs-on: ubuntu-latest
+    if: ${{ needs.test.result == 'success' && github.event_name == 'workflow_dispatch' && (github.ref_name == 'master' || github.ref_name == 'zowe-v1-lts') && github.event.inputs.zowe-version && github.event.inputs.zowe-version != '' && github.event.inputs.release == 'true' }}
+    steps:
+    - name: Checkout Pages Branch
+      uses: actions/checkout@v4
       with:
-        draft: false
-        prerelease: false
-        name: ${{ github.event.inputs.zowe-version }}
-        tag: ${{ github.event.inputs.zowe-version }}
-        body: |
-          Zowe CLI Web-Help for Zowe Release ${{ github.event.inputs.zowe-version }}
-        artifacts: "release/zowe-${{ github.event.inputs.zowe-version }}.pdf,release/zowe-${{ github.event.inputs.zowe-version }}-WebHelp.zip"
+        ref: 'gh-pages'
+    
+    - name: Get Release Contents
+      env:
+        GITHUB_TOKEN: ${{ secrets.ZOWE_ROBOT_TOKEN }}
+      run: |
+        gh release download ${{ github.event.inputs.zowe-version }} -p zowe-${{ github.event.inputs.zowe-version }}-WebHelp.zip
+        rm -rf docs/${{ github.event.inputs.zowe-version }}
+        mkdir -p docs/${{ github.event.inputs.zowe-version }}
+        unzip -nqq zowe-${{ github.event.inputs.zowe-version }}-WebHelp.zip -d docs/${{ github.event.inputs.zowe-version }}
+        mv docs/${{ github.event.inputs.zowe-version }}/zowe-${{ github.event.inputs.zowe-version }}-WebHelp/* docs/${{ github.event.inputs.zowe-version }}/.
+        rmdir docs/${{ github.event.inputs.zowe-version }}/zowe-${{ github.event.inputs.zowe-version }}-WebHelp/
+        rm zowe-${{ github.event.inputs.zowe-version }}-WebHelp.zip
+        git config --global user.name ${{ secrets.ZOWE_ROBOT_USER }}
+        git config --global user.email ${{ secrets.ZOWE_ROBOT_EMAIL }}
+        git add docs/${{ github.event.inputs.zowe-version }}
+        git commit -sm "Add Zowe Web Help ${{ github.event.inputs.zowe-version }}"
+        git push origin HEAD
+        gh workflow run -r gh-pages deploy-pages.yml
+
+  deploy-artifact:
+    needs: test
+    runs-on: ubuntu-latest
+    if: needs.test.result == 'success' && github.event_name == 'push' && (github.ref_name == 'master' || github.ref_name == 'zowe-v1-lts')
+    steps:
+    - name: Checkout Pages Branch
+      uses: actions/checkout@v4
+      with:
+        ref: 'gh-pages'
+
+    - name: Create directory
+      run: |
+        rm -rf docs/${{ github.ref_name }}
+        mkdir -p docs/${{ github.ref_name }}
+
+    - name: Get Artifact
+      uses: actions/download-artifact@v4
+      with:
+        name: results
+        path: docs/${{ github.ref_name }}
+
+    - name: Resolve Artifact
+      env:
+        GITHUB_TOKEN: ${{ secrets.ZOWE_ROBOT_TOKEN }}
+      run: |
+        mv docs/${{ github.ref_name }}/generatedWebHelp/* docs/${{ github.ref_name }}/.
+        rmdir docs/${{ github.ref_name }}/generatedWebHelp
+        rm docs/${{ github.ref_name }}/zowe.pdf
+        git config --global user.name ${{ secrets.ZOWE_ROBOT_USER }}
+        git config --global user.email ${{ secrets.ZOWE_ROBOT_EMAIL }}
+        git add docs/${{ github.ref_name }}
+        git commit -sm "Add Zowe Web Help for ${{ github.ref_name }}"
+        git push origin HEAD
+        gh workflow run -r gh-pages deploy-pages.yml
+
+  deploy-pr:
+    needs: test
+    runs-on: ubuntu-latest
+    if: needs.test.result == 'success' && github.event_name == 'pull_request_target'
+    steps:
+    - name: Checkout Pages Branch
+      uses: actions/checkout@v4
+      with:
+        ref: 'gh-pages'
+
+    - name: Create directory
+      run: |
+        rm -rf docs/pr-${{github.event.number}}
+        mkdir -p docs/pr-${{github.event.number}}
+
+    - name: Get Artifact
+      uses: actions/download-artifact@v4
+      with:
+        name: results
+        path: docs/pr-${{ github.event.number }}
+
+    - name: Resolve Artifact
+      env:
+        GITHUB_TOKEN: ${{ secrets.ZOWE_ROBOT_TOKEN }}
+      run: |
+        mv docs/pr-${{ github.event.number }}/generatedWebHelp/* docs/pr-${{ github.event.number }}/.
+        rmdir docs/pr-${{ github.event.number }}/generatedWebHelp
+        rm docs/pr-${{ github.event.number }}/zowe.pdf
+        git config --global user.name ${{ secrets.ZOWE_ROBOT_USER }}
+        git config --global user.email ${{ secrets.ZOWE_ROBOT_EMAIL }}
+        git add docs/pr-${{ github.event.number }}
+        git commit -sm "Add Zowe Web Help for PR ${{ github.event.number }}"
+        git push origin HEAD
+        gh workflow run -r gh-pages deploy-pages.yml
+
+    - name: Comment on PR
+      uses: marocchino/sticky-pull-request-comment@v2
+      with:
+        number: ${{ github.event.number }}
+        message: "Changes will be available soon at <https://zowe.github.io/zowe-cli-web-help-generator/pr-${{ github.event.number }}>"
