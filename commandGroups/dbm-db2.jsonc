@@ -30,7 +30,7 @@
                 "td"
               ],
               "description": "Specifies the target Db2 subsystem or data sharing group where you want to use a command.\n \n \u001b[90m Note: If you specify the data sharing group, the first active Db2 subsystem in the group is used. \u001b[0m",
-              "required": true,
+              "required": false,
               "type": "string",
               "group": "Required Options"
             },
@@ -384,7 +384,7 @@
                 "td"
               ],
               "description": "Specifies the target Db2 subsystem or data sharing group where you want to use a command.\n \n \u001b[90m Note: If you specify the data sharing group, the first active Db2 subsystem in the group is used. \u001b[0m",
-              "required": true,
+              "required": false,
               "type": "string",
               "group": "Required Options"
             },
@@ -841,7 +841,7 @@
                 "td"
               ],
               "description": "Specifies the target Db2 subsystem or data sharing group where you want to use a command.\n \n \u001b[90m Note: If you specify the data sharing group, the first active Db2 subsystem in the group is used. \u001b[0m",
-              "required": true,
+              "required": false,
               "type": "string",
               "group": "Required Options"
             },
@@ -2200,7 +2200,7 @@
                 "sd"
               ],
               "description": "Specifies the source Db2 subsystem or data sharing group where the objects that you want to use in a command are located.\n \n \u001b[90m Note: If you specify the data sharing group, the first active Db2 subsystem in the group is used. \u001b[0m",
-              "required": true,
+              "required": false,
               "type": "string",
               "group": "Required Options"
             },
@@ -2621,7 +2621,7 @@
                 "sd"
               ],
               "description": "Specifies the source Db2 subsystem or data sharing group where the objects that you want to use in a command are located.\n \n \u001b[90m Note: If you specify the data sharing group, the first active Db2 subsystem in the group is used. \u001b[0m",
-              "required": true,
+              "required": false,
               "type": "string",
               "group": "Required Options"
             },
@@ -2631,7 +2631,7 @@
                 "td"
               ],
               "description": "Specifies the target Db2 subsystem or data sharing group where you want to use a command.\n \n \u001b[90m Note: If you specify the data sharing group, the first active Db2 subsystem in the group is used. \u001b[0m",
-              "required": true,
+              "required": false,
               "type": "string",
               "group": "Required Options"
             },
