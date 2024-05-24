@@ -1,4 +1,4 @@
-// Copyright (c) 2023 Broadcom.  All Rights Reserved.  The term
+// Copyright (c) 2024 Broadcom.  All Rights Reserved.  The term
 // "Broadcom" refers to Broadcom Inc. and/or its subsidiaries.
 {
   "name": "mat",
@@ -376,7 +376,7 @@
             {
               "name": "module",
               "aliases": [
-                "cm"
+                "mod"
               ],
               "summary": "Get CodeView data in Module mode",
               "description": "Get the CodeView measurement details in Module mode.",
@@ -2013,6 +2013,3392 @@
             }
           ],
           "aliases": [],
+          "positionals": [],
+          "passOn": []
+        },
+        {
+          "name": "tranview",
+          "aliases": [
+            "tr"
+          ],
+          "summary": "Get TranView data",
+          "description": "Get the TranView measurement details.",
+          "type": "group",
+          "children": [
+            {
+              "name": "stat",
+              "aliases": [
+                "cis"
+              ],
+              "summary": "Get CodeView data in Module mode",
+              "description": "Get the CodeView measurement details in Module mode.",
+              "type": "command",
+              "handler": "",
+              "profile": {
+                "required": [
+                  "mat"
+                ],
+                "optional": [
+                  "base"
+                ]
+              },
+              "options": [
+                {
+                  "name": "profile",
+                  "description": "Specifies the name of the profile that you want to analyze. When you specify the profile name, you get the data for the latest measurement within the specified profile.",
+                  "type": "string",
+                  "group": "Options",
+                  "aliases": []
+                },
+                {
+                  "name": "mon_num",
+                  "description": "Specifies the unique monitor number of the measurement.",
+                  "type": "number",
+                  "group": "Options",
+                  "aliases": []
+                },
+                {
+                  "name": "tran",
+                  "description": "Specifies the histogram group size parameter that defines the resolution of the histogram (e.g., --group 32). If you do not specify the group parameter, the group size value defaults to 4 bytes. If the source program listing is registered with MAT, the group size parameter is ignored. The --group parameter is optional. Lower values of the --group parameter result in more granular representation of the histogram data. Values: numbers between 2 and 999999.",
+                  "type": "stringOrEmpty",
+                  "group": "Options",
+                  "aliases": []
+                },
+                {
+                  "name": "type",
+                  "description": "Specifies the histogram group size parameter that defines the resolution of the histogram (e.g., --group 32). If you do not specify the group parameter, the group size value defaults to 4 bytes. If the source program listing is registered with MAT, the group size parameter is ignored. The --group parameter is optional. Lower values of the --group parameter result in more granular representation of the histogram data. Values: numbers between 2 and 999999.",
+                  "type": "stringOrEmpty",
+                  "group": "Options",
+                  "aliases": []
+                },
+                {
+                  "name": "response-format-json",
+                  "aliases": [
+                    "rfj"
+                  ],
+                  "group": "Global options",
+                  "description": "Produce JSON formatted data from a command",
+                  "type": "boolean"
+                },
+                {
+                  "name": "help",
+                  "aliases": [
+                    "h"
+                  ],
+                  "group": "Global options",
+                  "description": "Display help text",
+                  "type": "boolean"
+                },
+                {
+                  "name": "help-examples",
+                  "group": "Global options",
+                  "description": "Display examples for all the commands in a group",
+                  "type": "boolean",
+                  "aliases": []
+                },
+                {
+                  "name": "help-web",
+                  "aliases": [
+                    "hw"
+                  ],
+                  "group": "Global options",
+                  "description": "Display HTML help in browser",
+                  "type": "boolean"
+                },
+                {
+                  "name": "mat-profile",
+                  "aliases": [
+                    "mat-p"
+                  ],
+                  "group": "Profile Options",
+                  "description": "The name of a (mat) profile to load for this command execution.",
+                  "type": "string"
+                },
+                {
+                  "name": "base-profile",
+                  "aliases": [
+                    "base-p"
+                  ],
+                  "group": "Profile Options",
+                  "description": "The name of a (base) profile to load for this command execution.",
+                  "type": "string"
+                },
+                {
+                  "name": "host",
+                  "aliases": [
+                    "H"
+                  ],
+                  "description": "Host name of service on the mainframe.",
+                  "type": "string",
+                  "group": "Base Connection Options"
+                },
+                {
+                  "name": "port",
+                  "aliases": [
+                    "P"
+                  ],
+                  "description": "Port number of service on the mainframe.",
+                  "type": "number",
+                  "group": "Base Connection Options"
+                },
+                {
+                  "name": "user",
+                  "aliases": [
+                    "u"
+                  ],
+                  "description": "User name to authenticate to service on the mainframe.",
+                  "type": "string",
+                  "group": "Base Connection Options"
+                },
+                {
+                  "name": "password",
+                  "aliases": [
+                    "pass",
+                    "pw"
+                  ],
+                  "description": "Password to authenticate to service on the mainframe.",
+                  "type": "string",
+                  "group": "Base Connection Options"
+                },
+                {
+                  "name": "reject-unauthorized",
+                  "aliases": [
+                    "ru"
+                  ],
+                  "description": "Reject self-signed certificates.",
+                  "type": "boolean",
+                  "defaultValue": true,
+                  "group": "Base Connection Options"
+                },
+                {
+                  "name": "token-type",
+                  "aliases": [
+                    "tt"
+                  ],
+                  "description": "The type of token to get and use for the API. Omit this option to use the default token type, which is provided by 'zowe auth login'.",
+                  "type": "string",
+                  "group": "Base Connection Options"
+                },
+                {
+                  "name": "token-value",
+                  "aliases": [
+                    "tv"
+                  ],
+                  "description": "The value of the token to pass to the API.",
+                  "type": "string",
+                  "group": "Base Connection Options"
+                },
+                {
+                  "name": "cert-file",
+                  "description": "The file path to a certificate file to use for authentication",
+                  "type": "existingLocalFile",
+                  "group": "Base Connection Options",
+                  "aliases": []
+                },
+                {
+                  "name": "cert-key-file",
+                  "description": "The file path to a certificate key file to use for authentication",
+                  "type": "existingLocalFile",
+                  "group": "Base Connection Options",
+                  "aliases": []
+                }
+              ],
+              "examples": [
+                {
+                  "description": "Get the CodeView measurement details in Module mode for monitor number 5",
+                  "options": "--mon_num 5"
+                },
+                {
+                  "description": "Get the CodeView measurement details in Module mode for the latest monitor in the TESTPROF profile",
+                  "options": "--profile TESTPROF"
+                }
+              ],
+              "positionals": [],
+              "passOn": [],
+              "children": []
+            },
+            {
+              "name": "all",
+              "aliases": [
+                "all"
+              ],
+              "summary": "Get CodeView data in Module mode",
+              "description": "Get the CodeView measurement details in Module mode.",
+              "type": "command",
+              "handler": "",
+              "profile": {
+                "required": [
+                  "mat"
+                ],
+                "optional": [
+                  "base"
+                ]
+              },
+              "options": [
+                {
+                  "name": "profile",
+                  "description": "Specifies the name of the profile that you want to analyze. When you specify the profile name, you get the data for the latest measurement within the specified profile.",
+                  "type": "string",
+                  "group": "Options",
+                  "aliases": []
+                },
+                {
+                  "name": "mon_num",
+                  "description": "Specifies the unique monitor number of the measurement.",
+                  "type": "number",
+                  "group": "Options",
+                  "aliases": []
+                },
+                {
+                  "name": "tran",
+                  "description": "Specifies the histogram group size parameter that defines the resolution of the histogram (e.g., --group 32). If you do not specify the group parameter, the group size value defaults to 4 bytes. If the source program listing is registered with MAT, the group size parameter is ignored. The --group parameter is optional. Lower values of the --group parameter result in more granular representation of the histogram data. Values: numbers between 2 and 999999.",
+                  "type": "stringOrEmpty",
+                  "group": "Options",
+                  "aliases": []
+                },
+                {
+                  "name": "type",
+                  "description": "Specifies the histogram group size parameter that defines the resolution of the histogram (e.g., --group 32). If you do not specify the group parameter, the group size value defaults to 4 bytes. If the source program listing is registered with MAT, the group size parameter is ignored. The --group parameter is optional. Lower values of the --group parameter result in more granular representation of the histogram data. Values: numbers between 2 and 999999.",
+                  "type": "stringOrEmpty",
+                  "group": "Options",
+                  "aliases": []
+                },
+                {
+                  "name": "response-format-json",
+                  "aliases": [
+                    "rfj"
+                  ],
+                  "group": "Global options",
+                  "description": "Produce JSON formatted data from a command",
+                  "type": "boolean"
+                },
+                {
+                  "name": "help",
+                  "aliases": [
+                    "h"
+                  ],
+                  "group": "Global options",
+                  "description": "Display help text",
+                  "type": "boolean"
+                },
+                {
+                  "name": "help-examples",
+                  "group": "Global options",
+                  "description": "Display examples for all the commands in a group",
+                  "type": "boolean",
+                  "aliases": []
+                },
+                {
+                  "name": "help-web",
+                  "aliases": [
+                    "hw"
+                  ],
+                  "group": "Global options",
+                  "description": "Display HTML help in browser",
+                  "type": "boolean"
+                },
+                {
+                  "name": "mat-profile",
+                  "aliases": [
+                    "mat-p"
+                  ],
+                  "group": "Profile Options",
+                  "description": "The name of a (mat) profile to load for this command execution.",
+                  "type": "string"
+                },
+                {
+                  "name": "base-profile",
+                  "aliases": [
+                    "base-p"
+                  ],
+                  "group": "Profile Options",
+                  "description": "The name of a (base) profile to load for this command execution.",
+                  "type": "string"
+                },
+                {
+                  "name": "host",
+                  "aliases": [
+                    "H"
+                  ],
+                  "description": "Host name of service on the mainframe.",
+                  "type": "string",
+                  "group": "Base Connection Options"
+                },
+                {
+                  "name": "port",
+                  "aliases": [
+                    "P"
+                  ],
+                  "description": "Port number of service on the mainframe.",
+                  "type": "number",
+                  "group": "Base Connection Options"
+                },
+                {
+                  "name": "user",
+                  "aliases": [
+                    "u"
+                  ],
+                  "description": "User name to authenticate to service on the mainframe.",
+                  "type": "string",
+                  "group": "Base Connection Options"
+                },
+                {
+                  "name": "password",
+                  "aliases": [
+                    "pass",
+                    "pw"
+                  ],
+                  "description": "Password to authenticate to service on the mainframe.",
+                  "type": "string",
+                  "group": "Base Connection Options"
+                },
+                {
+                  "name": "reject-unauthorized",
+                  "aliases": [
+                    "ru"
+                  ],
+                  "description": "Reject self-signed certificates.",
+                  "type": "boolean",
+                  "defaultValue": true,
+                  "group": "Base Connection Options"
+                },
+                {
+                  "name": "token-type",
+                  "aliases": [
+                    "tt"
+                  ],
+                  "description": "The type of token to get and use for the API. Omit this option to use the default token type, which is provided by 'zowe auth login'.",
+                  "type": "string",
+                  "group": "Base Connection Options"
+                },
+                {
+                  "name": "token-value",
+                  "aliases": [
+                    "tv"
+                  ],
+                  "description": "The value of the token to pass to the API.",
+                  "type": "string",
+                  "group": "Base Connection Options"
+                },
+                {
+                  "name": "cert-file",
+                  "description": "The file path to a certificate file to use for authentication",
+                  "type": "existingLocalFile",
+                  "group": "Base Connection Options",
+                  "aliases": []
+                },
+                {
+                  "name": "cert-key-file",
+                  "description": "The file path to a certificate key file to use for authentication",
+                  "type": "existingLocalFile",
+                  "group": "Base Connection Options",
+                  "aliases": []
+                }
+              ],
+              "examples": [
+                {
+                  "description": "Get the CodeView measurement details in Module mode for monitor number 5",
+                  "options": "--mon_num 5"
+                },
+                {
+                  "description": "Get the CodeView measurement details in Module mode for the latest monitor in the TESTPROF profile",
+                  "options": "--profile TESTPROF"
+                }
+              ],
+              "positionals": [],
+              "passOn": [],
+              "children": []
+            },
+            {
+              "name": "callerid",
+              "aliases": [
+                "cid"
+              ],
+              "summary": "Get Callerid data in Module mode",
+              "description": "Get the CodeView measurement details in Module mode.",
+              "type": "command",
+              "handler": "",
+              "profile": {
+                "required": [
+                  "mat"
+                ],
+                "optional": [
+                  "base"
+                ]
+              },
+              "options": [
+                {
+                  "name": "profile",
+                  "description": "Specifies the name of the profile that you want to analyze. When you specify the profile name, you get the data for the latest measurement within the specified profile.",
+                  "type": "string",
+                  "group": "Options",
+                  "aliases": []
+                },
+                {
+                  "name": "mon_num",
+                  "description": "Specifies the unique monitor number of the measurement.",
+                  "type": "number",
+                  "group": "Options",
+                  "aliases": []
+                },
+                {
+                  "name": "tran",
+                  "description": "Specifies the histogram group size parameter that defines the resolution of the histogram (e.g., --group 32). If you do not specify the group parameter, the group size value defaults to 4 bytes. If the source program listing is registered with MAT, the group size parameter is ignored. The --group parameter is optional. Lower values of the --group parameter result in more granular representation of the histogram data. Values: numbers between 2 and 999999.",
+                  "type": "stringOrEmpty",
+                  "group": "Options",
+                  "aliases": []
+                },
+                {
+                  "name": "response-format-json",
+                  "aliases": [
+                    "rfj"
+                  ],
+                  "group": "Global options",
+                  "description": "Produce JSON formatted data from a command",
+                  "type": "boolean"
+                },
+                {
+                  "name": "help",
+                  "aliases": [
+                    "h"
+                  ],
+                  "group": "Global options",
+                  "description": "Display help text",
+                  "type": "boolean"
+                },
+                {
+                  "name": "help-examples",
+                  "group": "Global options",
+                  "description": "Display examples for all the commands in a group",
+                  "type": "boolean",
+                  "aliases": []
+                },
+                {
+                  "name": "help-web",
+                  "aliases": [
+                    "hw"
+                  ],
+                  "group": "Global options",
+                  "description": "Display HTML help in browser",
+                  "type": "boolean"
+                },
+                {
+                  "name": "mat-profile",
+                  "aliases": [
+                    "mat-p"
+                  ],
+                  "group": "Profile Options",
+                  "description": "The name of a (mat) profile to load for this command execution.",
+                  "type": "string"
+                },
+                {
+                  "name": "base-profile",
+                  "aliases": [
+                    "base-p"
+                  ],
+                  "group": "Profile Options",
+                  "description": "The name of a (base) profile to load for this command execution.",
+                  "type": "string"
+                },
+                {
+                  "name": "host",
+                  "aliases": [
+                    "H"
+                  ],
+                  "description": "Host name of service on the mainframe.",
+                  "type": "string",
+                  "group": "Base Connection Options"
+                },
+                {
+                  "name": "port",
+                  "aliases": [
+                    "P"
+                  ],
+                  "description": "Port number of service on the mainframe.",
+                  "type": "number",
+                  "group": "Base Connection Options"
+                },
+                {
+                  "name": "user",
+                  "aliases": [
+                    "u"
+                  ],
+                  "description": "User name to authenticate to service on the mainframe.",
+                  "type": "string",
+                  "group": "Base Connection Options"
+                },
+                {
+                  "name": "password",
+                  "aliases": [
+                    "pass",
+                    "pw"
+                  ],
+                  "description": "Password to authenticate to service on the mainframe.",
+                  "type": "string",
+                  "group": "Base Connection Options"
+                },
+                {
+                  "name": "reject-unauthorized",
+                  "aliases": [
+                    "ru"
+                  ],
+                  "description": "Reject self-signed certificates.",
+                  "type": "boolean",
+                  "defaultValue": true,
+                  "group": "Base Connection Options"
+                },
+                {
+                  "name": "token-type",
+                  "aliases": [
+                    "tt"
+                  ],
+                  "description": "The type of token to get and use for the API. Omit this option to use the default token type, which is provided by 'zowe auth login'.",
+                  "type": "string",
+                  "group": "Base Connection Options"
+                },
+                {
+                  "name": "token-value",
+                  "aliases": [
+                    "tv"
+                  ],
+                  "description": "The value of the token to pass to the API.",
+                  "type": "string",
+                  "group": "Base Connection Options"
+                },
+                {
+                  "name": "cert-file",
+                  "description": "The file path to a certificate file to use for authentication",
+                  "type": "existingLocalFile",
+                  "group": "Base Connection Options",
+                  "aliases": []
+                },
+                {
+                  "name": "cert-key-file",
+                  "description": "The file path to a certificate key file to use for authentication",
+                  "type": "existingLocalFile",
+                  "group": "Base Connection Options",
+                  "aliases": []
+                }
+              ],
+              "examples": [
+                {
+                  "description": "Get the CodeView measurement details in Module mode for monitor number 5",
+                  "options": "--mon_num 5"
+                },
+                {
+                  "description": "Get the CodeView measurement details in Module mode for the latest monitor in the TESTPROF profile",
+                  "options": "--profile TESTPROF"
+                }
+              ],
+              "positionals": [],
+              "passOn": [],
+              "children": []
+            },
+            {
+              "name": "callstack",
+              "aliases": [
+                "csk"
+              ],
+              "summary": "Get CallStack data in Module mode",
+              "description": "Get the CodeView measurement details in Module mode.",
+              "type": "command",
+              "handler": "",
+              "profile": {
+                "required": [
+                  "mat"
+                ],
+                "optional": [
+                  "base"
+                ]
+              },
+              "options": [
+                {
+                  "name": "profile",
+                  "description": "Specifies the name of the profile that you want to analyze. When you specify the profile name, you get the data for the latest measurement within the specified profile.",
+                  "type": "string",
+                  "group": "Options",
+                  "aliases": []
+                },
+                {
+                  "name": "mon_num",
+                  "description": "Specifies the unique monitor number of the measurement.",
+                  "type": "number",
+                  "group": "Options",
+                  "aliases": []
+                },
+                {
+                  "name": "tran",
+                  "description": "Specifies the histogram group size parameter that defines the resolution of the histogram (e.g., --group 32). If you do not specify the group parameter, the group size value defaults to 4 bytes. If the source program listing is registered with MAT, the group size parameter is ignored. The --group parameter is optional. Lower values of the --group parameter result in more granular representation of the histogram data. Values: numbers between 2 and 999999.",
+                  "type": "stringOrEmpty",
+                  "group": "Options",
+                  "aliases": []
+                },
+                {
+                  "name": "response-format-json",
+                  "aliases": [
+                    "rfj"
+                  ],
+                  "group": "Global options",
+                  "description": "Produce JSON formatted data from a command",
+                  "type": "boolean"
+                },
+                {
+                  "name": "help",
+                  "aliases": [
+                    "h"
+                  ],
+                  "group": "Global options",
+                  "description": "Display help text",
+                  "type": "boolean"
+                },
+                {
+                  "name": "help-examples",
+                  "group": "Global options",
+                  "description": "Display examples for all the commands in a group",
+                  "type": "boolean",
+                  "aliases": []
+                },
+                {
+                  "name": "help-web",
+                  "aliases": [
+                    "hw"
+                  ],
+                  "group": "Global options",
+                  "description": "Display HTML help in browser",
+                  "type": "boolean"
+                },
+                {
+                  "name": "mat-profile",
+                  "aliases": [
+                    "mat-p"
+                  ],
+                  "group": "Profile Options",
+                  "description": "The name of a (mat) profile to load for this command execution.",
+                  "type": "string"
+                },
+                {
+                  "name": "base-profile",
+                  "aliases": [
+                    "base-p"
+                  ],
+                  "group": "Profile Options",
+                  "description": "The name of a (base) profile to load for this command execution.",
+                  "type": "string"
+                },
+                {
+                  "name": "host",
+                  "aliases": [
+                    "H"
+                  ],
+                  "description": "Host name of service on the mainframe.",
+                  "type": "string",
+                  "group": "Base Connection Options"
+                },
+                {
+                  "name": "port",
+                  "aliases": [
+                    "P"
+                  ],
+                  "description": "Port number of service on the mainframe.",
+                  "type": "number",
+                  "group": "Base Connection Options"
+                },
+                {
+                  "name": "user",
+                  "aliases": [
+                    "u"
+                  ],
+                  "description": "User name to authenticate to service on the mainframe.",
+                  "type": "string",
+                  "group": "Base Connection Options"
+                },
+                {
+                  "name": "password",
+                  "aliases": [
+                    "pass",
+                    "pw"
+                  ],
+                  "description": "Password to authenticate to service on the mainframe.",
+                  "type": "string",
+                  "group": "Base Connection Options"
+                },
+                {
+                  "name": "reject-unauthorized",
+                  "aliases": [
+                    "ru"
+                  ],
+                  "description": "Reject self-signed certificates.",
+                  "type": "boolean",
+                  "defaultValue": true,
+                  "group": "Base Connection Options"
+                },
+                {
+                  "name": "token-type",
+                  "aliases": [
+                    "tt"
+                  ],
+                  "description": "The type of token to get and use for the API. Omit this option to use the default token type, which is provided by 'zowe auth login'.",
+                  "type": "string",
+                  "group": "Base Connection Options"
+                },
+                {
+                  "name": "token-value",
+                  "aliases": [
+                    "tv"
+                  ],
+                  "description": "The value of the token to pass to the API.",
+                  "type": "string",
+                  "group": "Base Connection Options"
+                },
+                {
+                  "name": "cert-file",
+                  "description": "The file path to a certificate file to use for authentication",
+                  "type": "existingLocalFile",
+                  "group": "Base Connection Options",
+                  "aliases": []
+                },
+                {
+                  "name": "cert-key-file",
+                  "description": "The file path to a certificate key file to use for authentication",
+                  "type": "existingLocalFile",
+                  "group": "Base Connection Options",
+                  "aliases": []
+                }
+              ],
+              "examples": [
+                {
+                  "description": "Get the CodeView measurement details in Module mode for monitor number 5",
+                  "options": "--mon_num 5"
+                },
+                {
+                  "description": "Get the CodeView measurement details in Module mode for the latest monitor in the TESTPROF profile",
+                  "options": "--profile TESTPROF"
+                }
+              ],
+              "positionals": [],
+              "passOn": [],
+              "children": []
+            },
+            {
+              "name": "csect",
+              "aliases": [
+                "csd"
+              ],
+              "summary": "Get CodeView data in Csect mode",
+              "description": "Get the CodeView measurement details in Csect mode.",
+              "type": "command",
+              "handler": "",
+              "profile": {
+                "optional": [
+                  "mat",
+                  "base"
+                ]
+              },
+              "options": [
+                {
+                  "name": "profile",
+                  "description": "Specifies the name of the profile that you want to analyze. When you specify the profile name, you get the data for the latest measurement within the specified profile.",
+                  "type": "string",
+                  "group": "Options",
+                  "aliases": []
+                },
+                {
+                  "name": "mon_num",
+                  "description": "Specifies the unique monitor number of the measurement.",
+                  "type": "number",
+                  "group": "Options",
+                  "aliases": []
+                },
+                {
+                  "name": "tran",
+                  "description": "Specifies the unique monitor number of the measurement.",
+                  "type": "stringOrEmpty",
+                  "group": "Options",
+                  "aliases": []
+                },
+                {
+                  "name": "response-format-json",
+                  "aliases": [
+                    "rfj"
+                  ],
+                  "group": "Global options",
+                  "description": "Produce JSON formatted data from a command",
+                  "type": "boolean"
+                },
+                {
+                  "name": "help",
+                  "aliases": [
+                    "h"
+                  ],
+                  "group": "Global options",
+                  "description": "Display help text",
+                  "type": "boolean"
+                },
+                {
+                  "name": "help-examples",
+                  "group": "Global options",
+                  "description": "Display examples for all the commands in a group",
+                  "type": "boolean",
+                  "aliases": []
+                },
+                {
+                  "name": "help-web",
+                  "aliases": [
+                    "hw"
+                  ],
+                  "group": "Global options",
+                  "description": "Display HTML help in browser",
+                  "type": "boolean"
+                },
+                {
+                  "name": "mat-profile",
+                  "aliases": [
+                    "mat-p"
+                  ],
+                  "group": "Profile Options",
+                  "description": "The name of a (mat) profile to load for this command execution.",
+                  "type": "string"
+                },
+                {
+                  "name": "base-profile",
+                  "aliases": [
+                    "base-p"
+                  ],
+                  "group": "Profile Options",
+                  "description": "The name of a (base) profile to load for this command execution.",
+                  "type": "string"
+                },
+                {
+                  "name": "host",
+                  "aliases": [
+                    "H"
+                  ],
+                  "description": "Host name of service on the mainframe.",
+                  "type": "string",
+                  "group": "Base Connection Options"
+                },
+                {
+                  "name": "port",
+                  "aliases": [
+                    "P"
+                  ],
+                  "description": "Port number of service on the mainframe.",
+                  "type": "number",
+                  "group": "Base Connection Options"
+                },
+                {
+                  "name": "user",
+                  "aliases": [
+                    "u"
+                  ],
+                  "description": "User name to authenticate to service on the mainframe.",
+                  "type": "string",
+                  "group": "Base Connection Options"
+                },
+                {
+                  "name": "password",
+                  "aliases": [
+                    "pass",
+                    "pw"
+                  ],
+                  "description": "Password to authenticate to service on the mainframe.",
+                  "type": "string",
+                  "group": "Base Connection Options"
+                },
+                {
+                  "name": "reject-unauthorized",
+                  "aliases": [
+                    "ru"
+                  ],
+                  "description": "Reject self-signed certificates.",
+                  "type": "boolean",
+                  "defaultValue": true,
+                  "group": "Base Connection Options"
+                },
+                {
+                  "name": "token-type",
+                  "aliases": [
+                    "tt"
+                  ],
+                  "description": "The type of token to get and use for the API. Omit this option to use the default token type, which is provided by 'zowe auth login'.",
+                  "type": "string",
+                  "group": "Base Connection Options"
+                },
+                {
+                  "name": "token-value",
+                  "aliases": [
+                    "tv"
+                  ],
+                  "description": "The value of the token to pass to the API.",
+                  "type": "string",
+                  "group": "Base Connection Options"
+                },
+                {
+                  "name": "cert-file",
+                  "description": "The file path to a certificate file to use for authentication",
+                  "type": "existingLocalFile",
+                  "group": "Base Connection Options",
+                  "aliases": []
+                },
+                {
+                  "name": "cert-key-file",
+                  "description": "The file path to a certificate key file to use for authentication",
+                  "type": "existingLocalFile",
+                  "group": "Base Connection Options",
+                  "aliases": []
+                }
+              ],
+              "examples": [
+                {
+                  "description": "Get the CodeView measurement details in Csect mode for monitor number 5",
+                  "options": "--mon_num 5"
+                },
+                {
+                  "description": "Get the CodeView measurement details in Csect mode for the latest monitor in the TESTPROF profile",
+                  "options": "--profile TESTPROF"
+                },
+                {
+                  "description": "Get the CodeView measurement details in Csect mode for monitor number 5, with the specific MAT profile details defined",
+                  "options": "--mon_num 5 --host \"example.com\" --port 12345 --user johndoe --password qwerty"
+                }
+              ],
+              "positionals": [],
+              "passOn": [],
+              "children": []
+            },
+            {
+              "name": "module",
+              "aliases": [
+                "mod"
+              ],
+              "summary": "Get CodeView data in Module mode",
+              "description": "Get the CodeView measurement details in Module mode.",
+              "type": "command",
+              "handler": "",
+              "profile": {
+                "optional": [
+                  "mat",
+                  "base"
+                ]
+              },
+              "options": [
+                {
+                  "name": "profile",
+                  "description": "Specifies the name of the profile that you want to analyze. When you specify the profile name, you get the data for the latest measurement within the specified profile.",
+                  "type": "string",
+                  "group": "Options",
+                  "aliases": []
+                },
+                {
+                  "name": "mon_num",
+                  "description": "Specifies the unique monitor number of the measurement.",
+                  "type": "number",
+                  "group": "Options",
+                  "aliases": []
+                },
+                {
+                  "name": "tran",
+                  "description": "Specifies the unique monitor number of the measurement.",
+                  "type": "stringOrEmpty",
+                  "group": "Options",
+                  "aliases": []
+                },
+                {
+                  "name": "response-format-json",
+                  "aliases": [
+                    "rfj"
+                  ],
+                  "group": "Global options",
+                  "description": "Produce JSON formatted data from a command",
+                  "type": "boolean"
+                },
+                {
+                  "name": "help",
+                  "aliases": [
+                    "h"
+                  ],
+                  "group": "Global options",
+                  "description": "Display help text",
+                  "type": "boolean"
+                },
+                {
+                  "name": "help-examples",
+                  "group": "Global options",
+                  "description": "Display examples for all the commands in a group",
+                  "type": "boolean",
+                  "aliases": []
+                },
+                {
+                  "name": "help-web",
+                  "aliases": [
+                    "hw"
+                  ],
+                  "group": "Global options",
+                  "description": "Display HTML help in browser",
+                  "type": "boolean"
+                },
+                {
+                  "name": "mat-profile",
+                  "aliases": [
+                    "mat-p"
+                  ],
+                  "group": "Profile Options",
+                  "description": "The name of a (mat) profile to load for this command execution.",
+                  "type": "string"
+                },
+                {
+                  "name": "base-profile",
+                  "aliases": [
+                    "base-p"
+                  ],
+                  "group": "Profile Options",
+                  "description": "The name of a (base) profile to load for this command execution.",
+                  "type": "string"
+                },
+                {
+                  "name": "host",
+                  "aliases": [
+                    "H"
+                  ],
+                  "description": "Host name of service on the mainframe.",
+                  "type": "string",
+                  "group": "Base Connection Options"
+                },
+                {
+                  "name": "port",
+                  "aliases": [
+                    "P"
+                  ],
+                  "description": "Port number of service on the mainframe.",
+                  "type": "number",
+                  "group": "Base Connection Options"
+                },
+                {
+                  "name": "user",
+                  "aliases": [
+                    "u"
+                  ],
+                  "description": "User name to authenticate to service on the mainframe.",
+                  "type": "string",
+                  "group": "Base Connection Options"
+                },
+                {
+                  "name": "password",
+                  "aliases": [
+                    "pass",
+                    "pw"
+                  ],
+                  "description": "Password to authenticate to service on the mainframe.",
+                  "type": "string",
+                  "group": "Base Connection Options"
+                },
+                {
+                  "name": "reject-unauthorized",
+                  "aliases": [
+                    "ru"
+                  ],
+                  "description": "Reject self-signed certificates.",
+                  "type": "boolean",
+                  "defaultValue": true,
+                  "group": "Base Connection Options"
+                },
+                {
+                  "name": "token-type",
+                  "aliases": [
+                    "tt"
+                  ],
+                  "description": "The type of token to get and use for the API. Omit this option to use the default token type, which is provided by 'zowe auth login'.",
+                  "type": "string",
+                  "group": "Base Connection Options"
+                },
+                {
+                  "name": "token-value",
+                  "aliases": [
+                    "tv"
+                  ],
+                  "description": "The value of the token to pass to the API.",
+                  "type": "string",
+                  "group": "Base Connection Options"
+                },
+                {
+                  "name": "cert-file",
+                  "description": "The file path to a certificate file to use for authentication",
+                  "type": "existingLocalFile",
+                  "group": "Base Connection Options",
+                  "aliases": []
+                },
+                {
+                  "name": "cert-key-file",
+                  "description": "The file path to a certificate key file to use for authentication",
+                  "type": "existingLocalFile",
+                  "group": "Base Connection Options",
+                  "aliases": []
+                }
+              ],
+              "examples": [
+                {
+                  "description": "Get the CodeView measurement details in Module mode for monitor number 5",
+                  "options": "--mon_num 5"
+                },
+                {
+                  "description": "Get the CodeView measurement details in Module mode for the latest monitor in the TESTPROF profile",
+                  "options": "--profile TESTPROF"
+                },
+                {
+                  "description": "Get the CodeView measurement details in Module mode for monitor number 5, with the specific MAT profile details defined",
+                  "options": "--mon_num 5 --host \"example.com\" --port 12345 --user johndoe --password qwerty"
+                }
+              ],
+              "positionals": [],
+              "passOn": [],
+              "children": []
+            },
+            {
+              "name": "delay",
+              "aliases": [
+                "dl"
+              ],
+              "summary": "Get DelayView data",
+              "description": "Get the delay details for the measurement.",
+              "type": "command",
+              "handler": "",
+              "profile": {
+                "optional": [
+                  "mat",
+                  "base"
+                ]
+              },
+              "options": [
+                {
+                  "name": "profile",
+                  "description": "Specifies the name of the profile that you want to analyze. When you specify the profile name, you get the data for the latest measurement within the specified profile.",
+                  "type": "string",
+                  "group": "Options",
+                  "aliases": []
+                },
+                {
+                  "name": "mon_num",
+                  "description": "Specifies the unique monitor number of the measurement.",
+                  "type": "number",
+                  "group": "Options",
+                  "aliases": []
+                },
+                {
+                  "name": "tran",
+                  "description": "Specifies the unique monitor number of the measurement.",
+                  "type": "stringOrEmpty",
+                  "group": "Options",
+                  "aliases": []
+                },
+                {
+                  "name": "response-format-json",
+                  "aliases": [
+                    "rfj"
+                  ],
+                  "group": "Global options",
+                  "description": "Produce JSON formatted data from a command",
+                  "type": "boolean"
+                },
+                {
+                  "name": "help",
+                  "aliases": [
+                    "h"
+                  ],
+                  "group": "Global options",
+                  "description": "Display help text",
+                  "type": "boolean"
+                },
+                {
+                  "name": "help-examples",
+                  "group": "Global options",
+                  "description": "Display examples for all the commands in a group",
+                  "type": "boolean",
+                  "aliases": []
+                },
+                {
+                  "name": "help-web",
+                  "aliases": [
+                    "hw"
+                  ],
+                  "group": "Global options",
+                  "description": "Display HTML help in browser",
+                  "type": "boolean"
+                },
+                {
+                  "name": "mat-profile",
+                  "aliases": [
+                    "mat-p"
+                  ],
+                  "group": "Profile Options",
+                  "description": "The name of a (mat) profile to load for this command execution.",
+                  "type": "string"
+                },
+                {
+                  "name": "base-profile",
+                  "aliases": [
+                    "base-p"
+                  ],
+                  "group": "Profile Options",
+                  "description": "The name of a (base) profile to load for this command execution.",
+                  "type": "string"
+                },
+                {
+                  "name": "host",
+                  "aliases": [
+                    "H"
+                  ],
+                  "description": "Host name of service on the mainframe.",
+                  "type": "string",
+                  "group": "Base Connection Options"
+                },
+                {
+                  "name": "port",
+                  "aliases": [
+                    "P"
+                  ],
+                  "description": "Port number of service on the mainframe.",
+                  "type": "number",
+                  "group": "Base Connection Options"
+                },
+                {
+                  "name": "user",
+                  "aliases": [
+                    "u"
+                  ],
+                  "description": "User name to authenticate to service on the mainframe.",
+                  "type": "string",
+                  "group": "Base Connection Options"
+                },
+                {
+                  "name": "password",
+                  "aliases": [
+                    "pass",
+                    "pw"
+                  ],
+                  "description": "Password to authenticate to service on the mainframe.",
+                  "type": "string",
+                  "group": "Base Connection Options"
+                },
+                {
+                  "name": "reject-unauthorized",
+                  "aliases": [
+                    "ru"
+                  ],
+                  "description": "Reject self-signed certificates.",
+                  "type": "boolean",
+                  "defaultValue": true,
+                  "group": "Base Connection Options"
+                },
+                {
+                  "name": "token-type",
+                  "aliases": [
+                    "tt"
+                  ],
+                  "description": "The type of token to get and use for the API. Omit this option to use the default token type, which is provided by 'zowe auth login'.",
+                  "type": "string",
+                  "group": "Base Connection Options"
+                },
+                {
+                  "name": "token-value",
+                  "aliases": [
+                    "tv"
+                  ],
+                  "description": "The value of the token to pass to the API.",
+                  "type": "string",
+                  "group": "Base Connection Options"
+                },
+                {
+                  "name": "cert-file",
+                  "description": "The file path to a certificate file to use for authentication",
+                  "type": "existingLocalFile",
+                  "group": "Base Connection Options",
+                  "aliases": []
+                },
+                {
+                  "name": "cert-key-file",
+                  "description": "The file path to a certificate key file to use for authentication",
+                  "type": "existingLocalFile",
+                  "group": "Base Connection Options",
+                  "aliases": []
+                }
+              ],
+              "examples": [
+                {
+                  "description": "Get the DelayView measurement details for monitor number 5",
+                  "options": "--mon_num 5"
+                },
+                {
+                  "description": "Get the DelayView measurement details for the latest monitor in the TESTPROF profile",
+                  "options": "--profile TESTPROF"
+                },
+                {
+                  "description": "Get the DelayView measurement details for monitor number 5, with the specific MAT profile details defined",
+                  "options": "--mon_num 5 --host \"example.com\" --port 12345 --user johndoe --password qwerty"
+                }
+              ],
+              "positionals": [],
+              "passOn": [],
+              "children": []
+            }
+          ],
+          "profile": {
+            "required": [
+              "mat"
+            ],
+            "optional": [
+              "base"
+            ]
+          },
+          "options": [
+            {
+              "name": "profile",
+              "description": "Specifies the name of the profile that you want to analyze. When you specify the profile name, you get the data for the latest measurement within the specified profile.",
+              "type": "string",
+              "group": "Options",
+              "aliases": []
+            },
+            {
+              "name": "mon_num",
+              "description": "Specifies the unique monitor number of the measurement.",
+              "type": "number",
+              "group": "Options",
+              "aliases": []
+            },
+            {
+              "name": "response-format-json",
+              "aliases": [
+                "rfj"
+              ],
+              "group": "Global options",
+              "description": "Produce JSON formatted data from a command",
+              "type": "boolean"
+            },
+            {
+              "name": "help",
+              "aliases": [
+                "h"
+              ],
+              "group": "Global options",
+              "description": "Display help text",
+              "type": "boolean"
+            },
+            {
+              "name": "help-examples",
+              "group": "Global options",
+              "description": "Display examples for all the commands in a group",
+              "type": "boolean",
+              "aliases": []
+            },
+            {
+              "name": "help-web",
+              "aliases": [
+                "hw"
+              ],
+              "group": "Global options",
+              "description": "Display HTML help in browser",
+              "type": "boolean"
+            },
+            {
+              "name": "mat-profile",
+              "aliases": [
+                "mat-p"
+              ],
+              "group": "Profile Options",
+              "description": "The name of a (mat) profile to load for this command execution.",
+              "type": "string"
+            },
+            {
+              "name": "base-profile",
+              "aliases": [
+                "base-p"
+              ],
+              "group": "Profile Options",
+              "description": "The name of a (base) profile to load for this command execution.",
+              "type": "string"
+            },
+            {
+              "name": "host",
+              "aliases": [
+                "H"
+              ],
+              "description": "Host name of service on the mainframe.",
+              "type": "string",
+              "group": "Base Connection Options"
+            },
+            {
+              "name": "port",
+              "aliases": [
+                "P"
+              ],
+              "description": "Port number of service on the mainframe.",
+              "type": "number",
+              "group": "Base Connection Options"
+            },
+            {
+              "name": "user",
+              "aliases": [
+                "u"
+              ],
+              "description": "User name to authenticate to service on the mainframe.",
+              "type": "string",
+              "group": "Base Connection Options"
+            },
+            {
+              "name": "password",
+              "aliases": [
+                "pass",
+                "pw"
+              ],
+              "description": "Password to authenticate to service on the mainframe.",
+              "type": "string",
+              "group": "Base Connection Options"
+            },
+            {
+              "name": "reject-unauthorized",
+              "aliases": [
+                "ru"
+              ],
+              "description": "Reject self-signed certificates.",
+              "type": "boolean",
+              "defaultValue": true,
+              "group": "Base Connection Options"
+            },
+            {
+              "name": "token-type",
+              "aliases": [
+                "tt"
+              ],
+              "description": "The type of token to get and use for the API. Omit this option to use the default token type, which is provided by 'zowe auth login'.",
+              "type": "string",
+              "group": "Base Connection Options"
+            },
+            {
+              "name": "token-value",
+              "aliases": [
+                "tv"
+              ],
+              "description": "The value of the token to pass to the API.",
+              "type": "string",
+              "group": "Base Connection Options"
+            },
+            {
+              "name": "cert-file",
+              "description": "The file path to a certificate file to use for authentication",
+              "type": "existingLocalFile",
+              "group": "Base Connection Options",
+              "aliases": []
+            },
+            {
+              "name": "cert-key-file",
+              "description": "The file path to a certificate key file to use for authentication",
+              "type": "existingLocalFile",
+              "group": "Base Connection Options",
+              "aliases": []
+            }
+          ],
+          "examples": [
+            {
+              "description": "Get the overview details of the measurement for monitor number 5",
+              "options": "--mon_num 5"
+            },
+            {
+              "description": "Get the overview details of the measurement for the latest monitor in the TESTPROF profile",
+              "options": "--profile TESTPROF"
+            }
+          ],
+          "positionals": [],
+          "passOn": []
+        },
+        {
+          "name": "idms",
+          "aliases": [
+            "idms"
+          ],
+          "summary": "Get IDMS data",
+          "description": "Get the IDMS measurement details.",
+          "type": "group",
+          "children": [
+            {
+              "name": "dml",
+              "aliases": [
+                "dml"
+              ],
+              "summary": "Get DML data in Module mode",
+              "description": "Get the IDMS measurement details in DML mode.",
+              "type": "command",
+              "handler": "",
+              "profile": {
+                "required": [
+                  "mat"
+                ],
+                "optional": [
+                  "base"
+                ]
+              },
+              "options": [
+                {
+                  "name": "profile",
+                  "description": "Specifies the name of the profile that you want to analyze. When you specify the profile name, you get the data for the latest measurement within the specified profile.",
+                  "type": "string",
+                  "group": "Options",
+                  "aliases": []
+                },
+                {
+                  "name": "mon_num",
+                  "description": "Specifies the unique monitor number of the measurement.",
+                  "type": "number",
+                  "group": "Options",
+                  "aliases": []
+                },
+                {
+                  "name": "response-format-json",
+                  "aliases": [
+                    "rfj"
+                  ],
+                  "group": "Global options",
+                  "description": "Produce JSON formatted data from a command",
+                  "type": "boolean"
+                },
+                {
+                  "name": "help",
+                  "aliases": [
+                    "h"
+                  ],
+                  "group": "Global options",
+                  "description": "Display help text",
+                  "type": "boolean"
+                },
+                {
+                  "name": "help-examples",
+                  "group": "Global options",
+                  "description": "Display examples for all the commands in a group",
+                  "type": "boolean",
+                  "aliases": []
+                },
+                {
+                  "name": "help-web",
+                  "aliases": [
+                    "hw"
+                  ],
+                  "group": "Global options",
+                  "description": "Display HTML help in browser",
+                  "type": "boolean"
+                },
+                {
+                  "name": "mat-profile",
+                  "aliases": [
+                    "mat-p"
+                  ],
+                  "group": "Profile Options",
+                  "description": "The name of a (mat) profile to load for this command execution.",
+                  "type": "string"
+                },
+                {
+                  "name": "base-profile",
+                  "aliases": [
+                    "base-p"
+                  ],
+                  "group": "Profile Options",
+                  "description": "The name of a (base) profile to load for this command execution.",
+                  "type": "string"
+                },
+                {
+                  "name": "host",
+                  "aliases": [
+                    "H"
+                  ],
+                  "description": "Host name of service on the mainframe.",
+                  "type": "string",
+                  "group": "Base Connection Options"
+                },
+                {
+                  "name": "port",
+                  "aliases": [
+                    "P"
+                  ],
+                  "description": "Port number of service on the mainframe.",
+                  "type": "number",
+                  "group": "Base Connection Options"
+                },
+                {
+                  "name": "user",
+                  "aliases": [
+                    "u"
+                  ],
+                  "description": "User name to authenticate to service on the mainframe.",
+                  "type": "string",
+                  "group": "Base Connection Options"
+                },
+                {
+                  "name": "password",
+                  "aliases": [
+                    "pass",
+                    "pw"
+                  ],
+                  "description": "Password to authenticate to service on the mainframe.",
+                  "type": "string",
+                  "group": "Base Connection Options"
+                },
+                {
+                  "name": "reject-unauthorized",
+                  "aliases": [
+                    "ru"
+                  ],
+                  "description": "Reject self-signed certificates.",
+                  "type": "boolean",
+                  "defaultValue": true,
+                  "group": "Base Connection Options"
+                },
+                {
+                  "name": "token-type",
+                  "aliases": [
+                    "tt"
+                  ],
+                  "description": "The type of token to get and use for the API. Omit this option to use the default token type, which is provided by 'zowe auth login'.",
+                  "type": "string",
+                  "group": "Base Connection Options"
+                },
+                {
+                  "name": "token-value",
+                  "aliases": [
+                    "tv"
+                  ],
+                  "description": "The value of the token to pass to the API.",
+                  "type": "string",
+                  "group": "Base Connection Options"
+                },
+                {
+                  "name": "cert-file",
+                  "description": "The file path to a certificate file to use for authentication",
+                  "type": "existingLocalFile",
+                  "group": "Base Connection Options",
+                  "aliases": []
+                },
+                {
+                  "name": "cert-key-file",
+                  "description": "The file path to a certificate key file to use for authentication",
+                  "type": "existingLocalFile",
+                  "group": "Base Connection Options",
+                  "aliases": []
+                }
+              ],
+              "examples": [
+                {
+                  "description": "Get the CodeView measurement details in Module mode for monitor number 5",
+                  "options": "--mon_num 5"
+                },
+                {
+                  "description": "Get the CodeView measurement details in Module mode for the latest monitor in the TESTPROF profile",
+                  "options": "--profile TESTPROF"
+                },
+                {
+                  "description": "Get the dml details of the measurement for monitor number 5",
+                  "options": "dml --mon_num 5"
+                }
+              ],
+              "positionals": [],
+              "passOn": [],
+              "children": []
+            },
+            {
+              "name": "task",
+              "aliases": [
+                "ts"
+              ],
+              "summary": "Get IDMS data in Task mode",
+              "description": "Get the IDMS measurement details in Task mode.",
+              "type": "command",
+              "handler": "",
+              "profile": {
+                "required": [
+                  "mat"
+                ],
+                "optional": [
+                  "base"
+                ]
+              },
+              "options": [
+                {
+                  "name": "profile",
+                  "description": "Specifies the name of the profile that you want to analyze. When you specify the profile name, you get the data for the latest measurement within the specified profile.",
+                  "type": "string",
+                  "group": "Options",
+                  "aliases": []
+                },
+                {
+                  "name": "mon_num",
+                  "description": "Specifies the unique monitor number of the measurement.",
+                  "type": "number",
+                  "group": "Options",
+                  "aliases": []
+                },
+                {
+                  "name": "response-format-json",
+                  "aliases": [
+                    "rfj"
+                  ],
+                  "group": "Global options",
+                  "description": "Produce JSON formatted data from a command",
+                  "type": "boolean"
+                },
+                {
+                  "name": "help",
+                  "aliases": [
+                    "h"
+                  ],
+                  "group": "Global options",
+                  "description": "Display help text",
+                  "type": "boolean"
+                },
+                {
+                  "name": "help-examples",
+                  "group": "Global options",
+                  "description": "Display examples for all the commands in a group",
+                  "type": "boolean",
+                  "aliases": []
+                },
+                {
+                  "name": "help-web",
+                  "aliases": [
+                    "hw"
+                  ],
+                  "group": "Global options",
+                  "description": "Display HTML help in browser",
+                  "type": "boolean"
+                },
+                {
+                  "name": "mat-profile",
+                  "aliases": [
+                    "mat-p"
+                  ],
+                  "group": "Profile Options",
+                  "description": "The name of a (mat) profile to load for this command execution.",
+                  "type": "string"
+                },
+                {
+                  "name": "base-profile",
+                  "aliases": [
+                    "base-p"
+                  ],
+                  "group": "Profile Options",
+                  "description": "The name of a (base) profile to load for this command execution.",
+                  "type": "string"
+                },
+                {
+                  "name": "host",
+                  "aliases": [
+                    "H"
+                  ],
+                  "description": "Host name of service on the mainframe.",
+                  "type": "string",
+                  "group": "Base Connection Options"
+                },
+                {
+                  "name": "port",
+                  "aliases": [
+                    "P"
+                  ],
+                  "description": "Port number of service on the mainframe.",
+                  "type": "number",
+                  "group": "Base Connection Options"
+                },
+                {
+                  "name": "user",
+                  "aliases": [
+                    "u"
+                  ],
+                  "description": "User name to authenticate to service on the mainframe.",
+                  "type": "string",
+                  "group": "Base Connection Options"
+                },
+                {
+                  "name": "password",
+                  "aliases": [
+                    "pass",
+                    "pw"
+                  ],
+                  "description": "Password to authenticate to service on the mainframe.",
+                  "type": "string",
+                  "group": "Base Connection Options"
+                },
+                {
+                  "name": "reject-unauthorized",
+                  "aliases": [
+                    "ru"
+                  ],
+                  "description": "Reject self-signed certificates.",
+                  "type": "boolean",
+                  "defaultValue": true,
+                  "group": "Base Connection Options"
+                },
+                {
+                  "name": "token-type",
+                  "aliases": [
+                    "tt"
+                  ],
+                  "description": "The type of token to get and use for the API. Omit this option to use the default token type, which is provided by 'zowe auth login'.",
+                  "type": "string",
+                  "group": "Base Connection Options"
+                },
+                {
+                  "name": "token-value",
+                  "aliases": [
+                    "tv"
+                  ],
+                  "description": "The value of the token to pass to the API.",
+                  "type": "string",
+                  "group": "Base Connection Options"
+                },
+                {
+                  "name": "cert-file",
+                  "description": "The file path to a certificate file to use for authentication",
+                  "type": "existingLocalFile",
+                  "group": "Base Connection Options",
+                  "aliases": []
+                },
+                {
+                  "name": "cert-key-file",
+                  "description": "The file path to a certificate key file to use for authentication",
+                  "type": "existingLocalFile",
+                  "group": "Base Connection Options",
+                  "aliases": []
+                }
+              ],
+              "examples": [
+                {
+                  "description": "Get the CodeView measurement details in Module mode for monitor number 5",
+                  "options": "--mon_num 5"
+                },
+                {
+                  "description": "Get the CodeView measurement details in Module mode for the latest monitor in the TESTPROF profile",
+                  "options": "--profile TESTPROF"
+                },
+                {
+                  "description": "Get the task details of the measurement for monitor number 5",
+                  "options": "task --mon_num 5"
+                }
+              ],
+              "positionals": [],
+              "passOn": [],
+              "children": []
+            },
+            {
+              "name": "module",
+              "aliases": [
+                "mod"
+              ],
+              "summary": "Get IDMS Module data",
+              "description": "Get the IDMS measurement details.",
+              "type": "command",
+              "handler": "",
+              "profile": {
+                "required": [
+                  "mat"
+                ],
+                "optional": [
+                  "base"
+                ]
+              },
+              "options": [
+                {
+                  "name": "profile",
+                  "description": "Specifies the name of the profile that you want to analyze. When you specify the profile name, you get the data for the latest measurement within the specified profile.",
+                  "type": "string",
+                  "group": "Options",
+                  "aliases": []
+                },
+                {
+                  "name": "mon_num",
+                  "description": "Specifies the unique monitor number of the measurement.",
+                  "type": "number",
+                  "group": "Options",
+                  "aliases": []
+                },
+                {
+                  "name": "module",
+                  "description": "Specifies the module of the measurement.",
+                  "type": "stringOrEmpty",
+                  "group": "Options",
+                  "aliases": []
+                },
+                {
+                  "name": "taskid",
+                  "description": "Specifies the taskid number.",
+                  "type": "number",
+                  "group": "Options",
+                  "aliases": []
+                },
+                {
+                  "name": "ruid",
+                  "description": "Specifies the ruid number.",
+                  "type": "number",
+                  "group": "Options",
+                  "aliases": []
+                },
+                {
+                  "name": "linecmd",
+                  "description": "Specifies the line command to be used for the row data",
+                  "type": "stringOrEmpty",
+                  "group": "Options",
+                  "aliases": []
+                },
+                {
+                  "name": "response-format-json",
+                  "aliases": [
+                    "rfj"
+                  ],
+                  "group": "Global options",
+                  "description": "Produce JSON formatted data from a command",
+                  "type": "boolean"
+                },
+                {
+                  "name": "help",
+                  "aliases": [
+                    "h"
+                  ],
+                  "group": "Global options",
+                  "description": "Display help text",
+                  "type": "boolean"
+                },
+                {
+                  "name": "help-examples",
+                  "group": "Global options",
+                  "description": "Display examples for all the commands in a group",
+                  "type": "boolean",
+                  "aliases": []
+                },
+                {
+                  "name": "help-web",
+                  "aliases": [
+                    "hw"
+                  ],
+                  "group": "Global options",
+                  "description": "Display HTML help in browser",
+                  "type": "boolean"
+                },
+                {
+                  "name": "mat-profile",
+                  "aliases": [
+                    "mat-p"
+                  ],
+                  "group": "Profile Options",
+                  "description": "The name of a (mat) profile to load for this command execution.",
+                  "type": "string"
+                },
+                {
+                  "name": "base-profile",
+                  "aliases": [
+                    "base-p"
+                  ],
+                  "group": "Profile Options",
+                  "description": "The name of a (base) profile to load for this command execution.",
+                  "type": "string"
+                },
+                {
+                  "name": "host",
+                  "aliases": [
+                    "H"
+                  ],
+                  "description": "Host name of service on the mainframe.",
+                  "type": "string",
+                  "group": "Base Connection Options"
+                },
+                {
+                  "name": "port",
+                  "aliases": [
+                    "P"
+                  ],
+                  "description": "Port number of service on the mainframe.",
+                  "type": "number",
+                  "group": "Base Connection Options"
+                },
+                {
+                  "name": "user",
+                  "aliases": [
+                    "u"
+                  ],
+                  "description": "User name to authenticate to service on the mainframe.",
+                  "type": "string",
+                  "group": "Base Connection Options"
+                },
+                {
+                  "name": "password",
+                  "aliases": [
+                    "pass",
+                    "pw"
+                  ],
+                  "description": "Password to authenticate to service on the mainframe.",
+                  "type": "string",
+                  "group": "Base Connection Options"
+                },
+                {
+                  "name": "reject-unauthorized",
+                  "aliases": [
+                    "ru"
+                  ],
+                  "description": "Reject self-signed certificates.",
+                  "type": "boolean",
+                  "defaultValue": true,
+                  "group": "Base Connection Options"
+                },
+                {
+                  "name": "token-type",
+                  "aliases": [
+                    "tt"
+                  ],
+                  "description": "The type of token to get and use for the API. Omit this option to use the default token type, which is provided by 'zowe auth login'.",
+                  "type": "string",
+                  "group": "Base Connection Options"
+                },
+                {
+                  "name": "token-value",
+                  "aliases": [
+                    "tv"
+                  ],
+                  "description": "The value of the token to pass to the API.",
+                  "type": "string",
+                  "group": "Base Connection Options"
+                },
+                {
+                  "name": "cert-file",
+                  "description": "The file path to a certificate file to use for authentication",
+                  "type": "existingLocalFile",
+                  "group": "Base Connection Options",
+                  "aliases": []
+                },
+                {
+                  "name": "cert-key-file",
+                  "description": "The file path to a certificate key file to use for authentication",
+                  "type": "existingLocalFile",
+                  "group": "Base Connection Options",
+                  "aliases": []
+                }
+              ],
+              "examples": [
+                {
+                  "description": "Get the idms details of the measurement for monitor number 5",
+                  "options": "--mon_num 5"
+                },
+                {
+                  "description": "Get the idms details of the measurement for the latest monitor in the TESTPROF profile",
+                  "options": "--profile TESTPROF"
+                },
+                {
+                  "description": "Get the module details of the measurement for monitor number 5",
+                  "options": "module --mon_num 5"
+                },
+                {
+                  "description": "Specify the module | taskid | ruid | linecmd option of the measurement for the module mode",
+                  "options": "--module SQLA01D | --taskid 1 | --ruid 19333 | --linecmd dispatch"
+                }
+              ],
+              "positionals": [],
+              "passOn": [],
+              "children": []
+            }
+          ],
+          "profile": {
+            "required": [
+              "mat"
+            ],
+            "optional": [
+              "base"
+            ]
+          },
+          "options": [
+            {
+              "name": "profile",
+              "description": "Specifies the name of the profile that you want to analyze. When you specify the profile name, you get the data for the latest measurement within the specified profile.",
+              "type": "string",
+              "group": "Options",
+              "aliases": []
+            },
+            {
+              "name": "mon_num",
+              "description": "Specifies the unique monitor number of the measurement.",
+              "type": "number",
+              "group": "Options",
+              "aliases": []
+            },
+            {
+              "name": "response-format-json",
+              "aliases": [
+                "rfj"
+              ],
+              "group": "Global options",
+              "description": "Produce JSON formatted data from a command",
+              "type": "boolean"
+            },
+            {
+              "name": "help",
+              "aliases": [
+                "h"
+              ],
+              "group": "Global options",
+              "description": "Display help text",
+              "type": "boolean"
+            },
+            {
+              "name": "help-examples",
+              "group": "Global options",
+              "description": "Display examples for all the commands in a group",
+              "type": "boolean",
+              "aliases": []
+            },
+            {
+              "name": "help-web",
+              "aliases": [
+                "hw"
+              ],
+              "group": "Global options",
+              "description": "Display HTML help in browser",
+              "type": "boolean"
+            },
+            {
+              "name": "mat-profile",
+              "aliases": [
+                "mat-p"
+              ],
+              "group": "Profile Options",
+              "description": "The name of a (mat) profile to load for this command execution.",
+              "type": "string"
+            },
+            {
+              "name": "base-profile",
+              "aliases": [
+                "base-p"
+              ],
+              "group": "Profile Options",
+              "description": "The name of a (base) profile to load for this command execution.",
+              "type": "string"
+            },
+            {
+              "name": "host",
+              "aliases": [
+                "H"
+              ],
+              "description": "Host name of service on the mainframe.",
+              "type": "string",
+              "group": "Base Connection Options"
+            },
+            {
+              "name": "port",
+              "aliases": [
+                "P"
+              ],
+              "description": "Port number of service on the mainframe.",
+              "type": "number",
+              "group": "Base Connection Options"
+            },
+            {
+              "name": "user",
+              "aliases": [
+                "u"
+              ],
+              "description": "User name to authenticate to service on the mainframe.",
+              "type": "string",
+              "group": "Base Connection Options"
+            },
+            {
+              "name": "password",
+              "aliases": [
+                "pass",
+                "pw"
+              ],
+              "description": "Password to authenticate to service on the mainframe.",
+              "type": "string",
+              "group": "Base Connection Options"
+            },
+            {
+              "name": "reject-unauthorized",
+              "aliases": [
+                "ru"
+              ],
+              "description": "Reject self-signed certificates.",
+              "type": "boolean",
+              "defaultValue": true,
+              "group": "Base Connection Options"
+            },
+            {
+              "name": "token-type",
+              "aliases": [
+                "tt"
+              ],
+              "description": "The type of token to get and use for the API. Omit this option to use the default token type, which is provided by 'zowe auth login'.",
+              "type": "string",
+              "group": "Base Connection Options"
+            },
+            {
+              "name": "token-value",
+              "aliases": [
+                "tv"
+              ],
+              "description": "The value of the token to pass to the API.",
+              "type": "string",
+              "group": "Base Connection Options"
+            },
+            {
+              "name": "cert-file",
+              "description": "The file path to a certificate file to use for authentication",
+              "type": "existingLocalFile",
+              "group": "Base Connection Options",
+              "aliases": []
+            },
+            {
+              "name": "cert-key-file",
+              "description": "The file path to a certificate key file to use for authentication",
+              "type": "existingLocalFile",
+              "group": "Base Connection Options",
+              "aliases": []
+            }
+          ],
+          "examples": [
+            {
+              "description": "Get the overview details of the measurement for monitor number 5",
+              "options": "--mon_num 5"
+            },
+            {
+              "description": "Get the overview details of the measurement for the latest monitor in the TESTPROF profile",
+              "options": "--profile TESTPROF"
+            }
+          ],
+          "positionals": [],
+          "passOn": []
+        },
+        {
+          "name": "imsview",
+          "summary": "Get IMS data",
+          "aliases": [
+            "ims"
+          ],
+          "description": "Get the IMS measurement details.",
+          "type": "group",
+          "children": [
+            {
+              "name": "imsview",
+              "aliases": [
+                "imsv"
+              ],
+              "summary": "Get IMS View data",
+              "description": "Get the IMS View details for the measurement.",
+              "type": "command",
+              "handler": "",
+              "profile": {
+                "optional": [
+                  "mat",
+                  "base"
+                ]
+              },
+              "options": [
+                {
+                  "name": "mon_num",
+                  "description": "Specifies the unique monitor number of the measurement.",
+                  "type": "number",
+                  "group": "Options",
+                  "aliases": []
+                },
+                {
+                  "name": "profile",
+                  "description": "Specifies the name of the profile that you want to analyze. When you specify the profile name, you get the data for the latest measurement within the specified profile.",
+                  "type": "string",
+                  "group": "Options",
+                  "aliases": []
+                },
+                {
+                  "name": "response-format-json",
+                  "aliases": [
+                    "rfj"
+                  ],
+                  "group": "Global options",
+                  "description": "Produce JSON formatted data from a command",
+                  "type": "boolean"
+                },
+                {
+                  "name": "help",
+                  "aliases": [
+                    "h"
+                  ],
+                  "group": "Global options",
+                  "description": "Display help text",
+                  "type": "boolean"
+                },
+                {
+                  "name": "help-examples",
+                  "group": "Global options",
+                  "description": "Display examples for all the commands in a group",
+                  "type": "boolean",
+                  "aliases": []
+                },
+                {
+                  "name": "help-web",
+                  "aliases": [
+                    "hw"
+                  ],
+                  "group": "Global options",
+                  "description": "Display HTML help in browser",
+                  "type": "boolean"
+                },
+                {
+                  "name": "mat-profile",
+                  "aliases": [
+                    "mat-p"
+                  ],
+                  "group": "Profile Options",
+                  "description": "The name of a (mat) profile to load for this command execution.",
+                  "type": "string"
+                },
+                {
+                  "name": "base-profile",
+                  "aliases": [
+                    "base-p"
+                  ],
+                  "group": "Profile Options",
+                  "description": "The name of a (base) profile to load for this command execution.",
+                  "type": "string"
+                },
+                {
+                  "name": "host",
+                  "aliases": [
+                    "H"
+                  ],
+                  "description": "Host name of service on the mainframe.",
+                  "type": "string",
+                  "group": "Base Connection Options"
+                },
+                {
+                  "name": "port",
+                  "aliases": [
+                    "P"
+                  ],
+                  "description": "Port number of service on the mainframe.",
+                  "type": "number",
+                  "group": "Base Connection Options"
+                },
+                {
+                  "name": "user",
+                  "aliases": [
+                    "u"
+                  ],
+                  "description": "User name to authenticate to service on the mainframe.",
+                  "type": "string",
+                  "group": "Base Connection Options"
+                },
+                {
+                  "name": "password",
+                  "aliases": [
+                    "pass",
+                    "pw"
+                  ],
+                  "description": "Password to authenticate to service on the mainframe.",
+                  "type": "string",
+                  "group": "Base Connection Options"
+                },
+                {
+                  "name": "reject-unauthorized",
+                  "aliases": [
+                    "ru"
+                  ],
+                  "description": "Reject self-signed certificates.",
+                  "type": "boolean",
+                  "defaultValue": true,
+                  "group": "Base Connection Options"
+                },
+                {
+                  "name": "token-type",
+                  "aliases": [
+                    "tt"
+                  ],
+                  "description": "The type of token to get and use for the API. Omit this option to use the default token type, which is provided by 'zowe auth login'.",
+                  "type": "string",
+                  "group": "Base Connection Options"
+                },
+                {
+                  "name": "token-value",
+                  "aliases": [
+                    "tv"
+                  ],
+                  "description": "The value of the token to pass to the API.",
+                  "type": "string",
+                  "group": "Base Connection Options"
+                },
+                {
+                  "name": "cert-file",
+                  "description": "The file path to a certificate file to use for authentication",
+                  "type": "existingLocalFile",
+                  "group": "Base Connection Options",
+                  "aliases": []
+                },
+                {
+                  "name": "cert-key-file",
+                  "description": "The file path to a certificate key file to use for authentication",
+                  "type": "existingLocalFile",
+                  "group": "Base Connection Options",
+                  "aliases": []
+                }
+              ],
+              "examples": [
+                {
+                  "description": "Get the IMS View details for monitor number 5",
+                  "options": "--mon_num 5"
+                },
+                {
+                  "description": "Get the IMS View details for the latest monitor in the TESTPROF profile, ",
+                  "options": "--profile TESTPROF"
+                }
+              ],
+              "positionals": [],
+              "passOn": [],
+              "children": []
+            },
+            {
+              "name": "dbdname",
+              "aliases": [
+                "dbd"
+              ],
+              "summary": "Get IMS View DBDName data",
+              "description": "Get the IMS View DBDName details for the measurement.",
+              "type": "command",
+              "handler": "",
+              "profile": {
+                "optional": [
+                  "mat",
+                  "base"
+                ]
+              },
+              "options": [
+                {
+                  "name": "profile",
+                  "description": "Specifies the name of the profile that you want to analyze. When you specify the profile name, you get the data for the latest measurement within the specified profile.",
+                  "type": "string",
+                  "group": "Options",
+                  "aliases": []
+                },
+                {
+                  "name": "mon_num",
+                  "description": "Specifies the unique monitor number of the measurement.",
+                  "type": "number",
+                  "group": "Options",
+                  "aliases": []
+                },
+                {
+                  "name": "response-format-json",
+                  "aliases": [
+                    "rfj"
+                  ],
+                  "group": "Global options",
+                  "description": "Produce JSON formatted data from a command",
+                  "type": "boolean"
+                },
+                {
+                  "name": "help",
+                  "aliases": [
+                    "h"
+                  ],
+                  "group": "Global options",
+                  "description": "Display help text",
+                  "type": "boolean"
+                },
+                {
+                  "name": "help-examples",
+                  "group": "Global options",
+                  "description": "Display examples for all the commands in a group",
+                  "type": "boolean",
+                  "aliases": []
+                },
+                {
+                  "name": "help-web",
+                  "aliases": [
+                    "hw"
+                  ],
+                  "group": "Global options",
+                  "description": "Display HTML help in browser",
+                  "type": "boolean"
+                },
+                {
+                  "name": "mat-profile",
+                  "aliases": [
+                    "mat-p"
+                  ],
+                  "group": "Profile Options",
+                  "description": "The name of a (mat) profile to load for this command execution.",
+                  "type": "string"
+                },
+                {
+                  "name": "base-profile",
+                  "aliases": [
+                    "base-p"
+                  ],
+                  "group": "Profile Options",
+                  "description": "The name of a (base) profile to load for this command execution.",
+                  "type": "string"
+                },
+                {
+                  "name": "host",
+                  "aliases": [
+                    "H"
+                  ],
+                  "description": "Host name of service on the mainframe.",
+                  "type": "string",
+                  "group": "Base Connection Options"
+                },
+                {
+                  "name": "port",
+                  "aliases": [
+                    "P"
+                  ],
+                  "description": "Port number of service on the mainframe.",
+                  "type": "number",
+                  "group": "Base Connection Options"
+                },
+                {
+                  "name": "user",
+                  "aliases": [
+                    "u"
+                  ],
+                  "description": "User name to authenticate to service on the mainframe.",
+                  "type": "string",
+                  "group": "Base Connection Options"
+                },
+                {
+                  "name": "password",
+                  "aliases": [
+                    "pass",
+                    "pw"
+                  ],
+                  "description": "Password to authenticate to service on the mainframe.",
+                  "type": "string",
+                  "group": "Base Connection Options"
+                },
+                {
+                  "name": "reject-unauthorized",
+                  "aliases": [
+                    "ru"
+                  ],
+                  "description": "Reject self-signed certificates.",
+                  "type": "boolean",
+                  "defaultValue": true,
+                  "group": "Base Connection Options"
+                },
+                {
+                  "name": "token-type",
+                  "aliases": [
+                    "tt"
+                  ],
+                  "description": "The type of token to get and use for the API. Omit this option to use the default token type, which is provided by 'zowe auth login'.",
+                  "type": "string",
+                  "group": "Base Connection Options"
+                },
+                {
+                  "name": "token-value",
+                  "aliases": [
+                    "tv"
+                  ],
+                  "description": "The value of the token to pass to the API.",
+                  "type": "string",
+                  "group": "Base Connection Options"
+                },
+                {
+                  "name": "cert-file",
+                  "description": "The file path to a certificate file to use for authentication",
+                  "type": "existingLocalFile",
+                  "group": "Base Connection Options",
+                  "aliases": []
+                },
+                {
+                  "name": "cert-key-file",
+                  "description": "The file path to a certificate key file to use for authentication",
+                  "type": "existingLocalFile",
+                  "group": "Base Connection Options",
+                  "aliases": []
+                }
+              ],
+              "examples": [
+                {
+                  "description": "Get the IMS View DBDName details for monitor number 5",
+                  "options": "--mon_num 5"
+                },
+                {
+                  "description": "Get the IMS View DBDName details for the latest monitor in the TESTPROF profile, ",
+                  "options": "--profile TESTPROF"
+                }
+              ],
+              "positionals": [],
+              "passOn": [],
+              "children": []
+            },
+            {
+              "name": "psbname",
+              "aliases": [
+                "psb"
+              ],
+              "summary": "Get IMS View PSBName data",
+              "description": "Get the IMS View PSBName details for the measurement.",
+              "type": "command",
+              "handler": "",
+              "profile": {
+                "optional": [
+                  "mat",
+                  "base"
+                ]
+              },
+              "options": [
+                {
+                  "name": "profile",
+                  "description": "Specifies the name of the profile that you want to analyze. When you specify the profile name, you get the data for the latest measurement within the specified profile.",
+                  "type": "string",
+                  "group": "Options",
+                  "aliases": []
+                },
+                {
+                  "name": "mon_num",
+                  "description": "Specifies the unique monitor number of the measurement.",
+                  "type": "number",
+                  "group": "Options",
+                  "aliases": []
+                },
+                {
+                  "name": "response-format-json",
+                  "aliases": [
+                    "rfj"
+                  ],
+                  "group": "Global options",
+                  "description": "Produce JSON formatted data from a command",
+                  "type": "boolean"
+                },
+                {
+                  "name": "help",
+                  "aliases": [
+                    "h"
+                  ],
+                  "group": "Global options",
+                  "description": "Display help text",
+                  "type": "boolean"
+                },
+                {
+                  "name": "help-examples",
+                  "group": "Global options",
+                  "description": "Display examples for all the commands in a group",
+                  "type": "boolean",
+                  "aliases": []
+                },
+                {
+                  "name": "help-web",
+                  "aliases": [
+                    "hw"
+                  ],
+                  "group": "Global options",
+                  "description": "Display HTML help in browser",
+                  "type": "boolean"
+                },
+                {
+                  "name": "mat-profile",
+                  "aliases": [
+                    "mat-p"
+                  ],
+                  "group": "Profile Options",
+                  "description": "The name of a (mat) profile to load for this command execution.",
+                  "type": "string"
+                },
+                {
+                  "name": "base-profile",
+                  "aliases": [
+                    "base-p"
+                  ],
+                  "group": "Profile Options",
+                  "description": "The name of a (base) profile to load for this command execution.",
+                  "type": "string"
+                },
+                {
+                  "name": "host",
+                  "aliases": [
+                    "H"
+                  ],
+                  "description": "Host name of service on the mainframe.",
+                  "type": "string",
+                  "group": "Base Connection Options"
+                },
+                {
+                  "name": "port",
+                  "aliases": [
+                    "P"
+                  ],
+                  "description": "Port number of service on the mainframe.",
+                  "type": "number",
+                  "group": "Base Connection Options"
+                },
+                {
+                  "name": "user",
+                  "aliases": [
+                    "u"
+                  ],
+                  "description": "User name to authenticate to service on the mainframe.",
+                  "type": "string",
+                  "group": "Base Connection Options"
+                },
+                {
+                  "name": "password",
+                  "aliases": [
+                    "pass",
+                    "pw"
+                  ],
+                  "description": "Password to authenticate to service on the mainframe.",
+                  "type": "string",
+                  "group": "Base Connection Options"
+                },
+                {
+                  "name": "reject-unauthorized",
+                  "aliases": [
+                    "ru"
+                  ],
+                  "description": "Reject self-signed certificates.",
+                  "type": "boolean",
+                  "defaultValue": true,
+                  "group": "Base Connection Options"
+                },
+                {
+                  "name": "token-type",
+                  "aliases": [
+                    "tt"
+                  ],
+                  "description": "The type of token to get and use for the API. Omit this option to use the default token type, which is provided by 'zowe auth login'.",
+                  "type": "string",
+                  "group": "Base Connection Options"
+                },
+                {
+                  "name": "token-value",
+                  "aliases": [
+                    "tv"
+                  ],
+                  "description": "The value of the token to pass to the API.",
+                  "type": "string",
+                  "group": "Base Connection Options"
+                },
+                {
+                  "name": "cert-file",
+                  "description": "The file path to a certificate file to use for authentication",
+                  "type": "existingLocalFile",
+                  "group": "Base Connection Options",
+                  "aliases": []
+                },
+                {
+                  "name": "cert-key-file",
+                  "description": "The file path to a certificate key file to use for authentication",
+                  "type": "existingLocalFile",
+                  "group": "Base Connection Options",
+                  "aliases": []
+                }
+              ],
+              "examples": [
+                {
+                  "description": "Get the IMS View PSBName details for monitor number 5",
+                  "options": "--mon_num 5"
+                },
+                {
+                  "description": "Get the IMS View PSBName details for the latest monitor in the TESTPROF profile, ",
+                  "options": "--profile TESTPROF"
+                }
+              ],
+              "positionals": [],
+              "passOn": [],
+              "children": []
+            },
+            {
+              "name": "region",
+              "aliases": [
+                "reg"
+              ],
+              "summary": "Get IMS View Region data",
+              "description": "Get the IMS View Region details for the measurement.",
+              "type": "command",
+              "handler": "",
+              "profile": {
+                "optional": [
+                  "mat",
+                  "base"
+                ]
+              },
+              "options": [
+                {
+                  "name": "profile",
+                  "description": "Specifies the name of the profile that you want to analyze. When you specify the profile name, you get the data for the latest measurement within the specified profile.",
+                  "type": "string",
+                  "group": "Options",
+                  "aliases": []
+                },
+                {
+                  "name": "mon_num",
+                  "description": "Specifies the unique monitor number of the measurement.",
+                  "type": "number",
+                  "group": "Options",
+                  "aliases": []
+                },
+                {
+                  "name": "response-format-json",
+                  "aliases": [
+                    "rfj"
+                  ],
+                  "group": "Global options",
+                  "description": "Produce JSON formatted data from a command",
+                  "type": "boolean"
+                },
+                {
+                  "name": "help",
+                  "aliases": [
+                    "h"
+                  ],
+                  "group": "Global options",
+                  "description": "Display help text",
+                  "type": "boolean"
+                },
+                {
+                  "name": "help-examples",
+                  "group": "Global options",
+                  "description": "Display examples for all the commands in a group",
+                  "type": "boolean",
+                  "aliases": []
+                },
+                {
+                  "name": "help-web",
+                  "aliases": [
+                    "hw"
+                  ],
+                  "group": "Global options",
+                  "description": "Display HTML help in browser",
+                  "type": "boolean"
+                },
+                {
+                  "name": "mat-profile",
+                  "aliases": [
+                    "mat-p"
+                  ],
+                  "group": "Profile Options",
+                  "description": "The name of a (mat) profile to load for this command execution.",
+                  "type": "string"
+                },
+                {
+                  "name": "base-profile",
+                  "aliases": [
+                    "base-p"
+                  ],
+                  "group": "Profile Options",
+                  "description": "The name of a (base) profile to load for this command execution.",
+                  "type": "string"
+                },
+                {
+                  "name": "host",
+                  "aliases": [
+                    "H"
+                  ],
+                  "description": "Host name of service on the mainframe.",
+                  "type": "string",
+                  "group": "Base Connection Options"
+                },
+                {
+                  "name": "port",
+                  "aliases": [
+                    "P"
+                  ],
+                  "description": "Port number of service on the mainframe.",
+                  "type": "number",
+                  "group": "Base Connection Options"
+                },
+                {
+                  "name": "user",
+                  "aliases": [
+                    "u"
+                  ],
+                  "description": "User name to authenticate to service on the mainframe.",
+                  "type": "string",
+                  "group": "Base Connection Options"
+                },
+                {
+                  "name": "password",
+                  "aliases": [
+                    "pass",
+                    "pw"
+                  ],
+                  "description": "Password to authenticate to service on the mainframe.",
+                  "type": "string",
+                  "group": "Base Connection Options"
+                },
+                {
+                  "name": "reject-unauthorized",
+                  "aliases": [
+                    "ru"
+                  ],
+                  "description": "Reject self-signed certificates.",
+                  "type": "boolean",
+                  "defaultValue": true,
+                  "group": "Base Connection Options"
+                },
+                {
+                  "name": "token-type",
+                  "aliases": [
+                    "tt"
+                  ],
+                  "description": "The type of token to get and use for the API. Omit this option to use the default token type, which is provided by 'zowe auth login'.",
+                  "type": "string",
+                  "group": "Base Connection Options"
+                },
+                {
+                  "name": "token-value",
+                  "aliases": [
+                    "tv"
+                  ],
+                  "description": "The value of the token to pass to the API.",
+                  "type": "string",
+                  "group": "Base Connection Options"
+                },
+                {
+                  "name": "cert-file",
+                  "description": "The file path to a certificate file to use for authentication",
+                  "type": "existingLocalFile",
+                  "group": "Base Connection Options",
+                  "aliases": []
+                },
+                {
+                  "name": "cert-key-file",
+                  "description": "The file path to a certificate key file to use for authentication",
+                  "type": "existingLocalFile",
+                  "group": "Base Connection Options",
+                  "aliases": []
+                }
+              ],
+              "examples": [
+                {
+                  "description": "Get the IMS View Region details for monitor number 5",
+                  "options": "--mon_num 5"
+                },
+                {
+                  "description": "Get the IMS View Region details for the latest monitor in the TESTPROF profile, ",
+                  "options": "--profile TESTPROF"
+                }
+              ],
+              "positionals": [],
+              "passOn": [],
+              "children": []
+            },
+            {
+              "name": "ssa",
+              "aliases": [
+                "ssa"
+              ],
+              "summary": "Get IMS View SSA data",
+              "description": "Get the IMS View SSA details for the measurement.",
+              "type": "command",
+              "handler": "",
+              "profile": {
+                "optional": [
+                  "mat",
+                  "base"
+                ]
+              },
+              "options": [
+                {
+                  "name": "profile",
+                  "description": "Specifies the name of the profile that you want to analyze. When you specify the profile name, you get the data for the latest measurement within the specified profile.",
+                  "type": "string",
+                  "group": "Options",
+                  "aliases": []
+                },
+                {
+                  "name": "mon_num",
+                  "description": "Specifies the unique monitor number of the measurement.",
+                  "type": "number",
+                  "group": "Options",
+                  "aliases": []
+                },
+                {
+                  "name": "call",
+                  "description": "Specifies the call details for the specified monitor number or profile name.",
+                  "type": "string",
+                  "group": "Options",
+                  "aliases": []
+                },
+                {
+                  "name": "dbdname",
+                  "description": "Specifies the dbdname details for the specified monitor number or profile name.",
+                  "type": "string",
+                  "group": "Options",
+                  "aliases": []
+                },
+                {
+                  "name": "psbname",
+                  "description": "Specifies the psbname details for the specified monitor number or profile name.",
+                  "type": "string",
+                  "group": "Options",
+                  "aliases": []
+                },
+                {
+                  "name": "response-format-json",
+                  "aliases": [
+                    "rfj"
+                  ],
+                  "group": "Global options",
+                  "description": "Produce JSON formatted data from a command",
+                  "type": "boolean"
+                },
+                {
+                  "name": "help",
+                  "aliases": [
+                    "h"
+                  ],
+                  "group": "Global options",
+                  "description": "Display help text",
+                  "type": "boolean"
+                },
+                {
+                  "name": "help-examples",
+                  "group": "Global options",
+                  "description": "Display examples for all the commands in a group",
+                  "type": "boolean",
+                  "aliases": []
+                },
+                {
+                  "name": "help-web",
+                  "aliases": [
+                    "hw"
+                  ],
+                  "group": "Global options",
+                  "description": "Display HTML help in browser",
+                  "type": "boolean"
+                },
+                {
+                  "name": "mat-profile",
+                  "aliases": [
+                    "mat-p"
+                  ],
+                  "group": "Profile Options",
+                  "description": "The name of a (mat) profile to load for this command execution.",
+                  "type": "string"
+                },
+                {
+                  "name": "base-profile",
+                  "aliases": [
+                    "base-p"
+                  ],
+                  "group": "Profile Options",
+                  "description": "The name of a (base) profile to load for this command execution.",
+                  "type": "string"
+                },
+                {
+                  "name": "host",
+                  "aliases": [
+                    "H"
+                  ],
+                  "description": "Host name of service on the mainframe.",
+                  "type": "string",
+                  "group": "Base Connection Options"
+                },
+                {
+                  "name": "port",
+                  "aliases": [
+                    "P"
+                  ],
+                  "description": "Port number of service on the mainframe.",
+                  "type": "number",
+                  "group": "Base Connection Options"
+                },
+                {
+                  "name": "user",
+                  "aliases": [
+                    "u"
+                  ],
+                  "description": "User name to authenticate to service on the mainframe.",
+                  "type": "string",
+                  "group": "Base Connection Options"
+                },
+                {
+                  "name": "password",
+                  "aliases": [
+                    "pass",
+                    "pw"
+                  ],
+                  "description": "Password to authenticate to service on the mainframe.",
+                  "type": "string",
+                  "group": "Base Connection Options"
+                },
+                {
+                  "name": "reject-unauthorized",
+                  "aliases": [
+                    "ru"
+                  ],
+                  "description": "Reject self-signed certificates.",
+                  "type": "boolean",
+                  "defaultValue": true,
+                  "group": "Base Connection Options"
+                },
+                {
+                  "name": "token-type",
+                  "aliases": [
+                    "tt"
+                  ],
+                  "description": "The type of token to get and use for the API. Omit this option to use the default token type, which is provided by 'zowe auth login'.",
+                  "type": "string",
+                  "group": "Base Connection Options"
+                },
+                {
+                  "name": "token-value",
+                  "aliases": [
+                    "tv"
+                  ],
+                  "description": "The value of the token to pass to the API.",
+                  "type": "string",
+                  "group": "Base Connection Options"
+                },
+                {
+                  "name": "cert-file",
+                  "description": "The file path to a certificate file to use for authentication",
+                  "type": "existingLocalFile",
+                  "group": "Base Connection Options",
+                  "aliases": []
+                },
+                {
+                  "name": "cert-key-file",
+                  "description": "The file path to a certificate key file to use for authentication",
+                  "type": "existingLocalFile",
+                  "group": "Base Connection Options",
+                  "aliases": []
+                }
+              ],
+              "examples": [
+                {
+                  "description": "Get the IMS  details for monitor number 5, with the specific MAT profile details defined",
+                  "options": "--mon_num 5 --call TESTCALL --dbdname TESTDBDNAME --psbname TESTPSBNAME"
+                },
+                {
+                  "description": "Get the IMS View SSA details for the latest monitor in the TESTPROF profile,with the specific MAT profile details defined ",
+                  "options": "--profile TESTPROF --call TESTCALL --dbdname TESTDBDNAME --psbname TESTPSBNAME"
+                },
+                {
+                  "description": "Get the IMS View SSA details for monitor number 5, with the specific MAT profile details defined",
+                  "options": "--mon_num 5 --call TESTCALL --dbdname TESTDBDNAME --psbname TESTPSBNAME"
+                }
+              ],
+              "positionals": [],
+              "passOn": [],
+              "children": []
+            },
+            {
+              "name": "statement",
+              "aliases": [
+                "stat"
+              ],
+              "summary": "Get IMS View Statement data",
+              "description": "Get the IMS View Statement details for the measurement.",
+              "type": "command",
+              "handler": "",
+              "profile": {
+                "optional": [
+                  "mat",
+                  "base"
+                ]
+              },
+              "options": [
+                {
+                  "name": "profile",
+                  "description": "Specifies the name of the profile that you want to analyze. When you specify the profile name, you get the data for the latest measurement within the specified profile.",
+                  "type": "string",
+                  "group": "Options",
+                  "aliases": []
+                },
+                {
+                  "name": "mon_num",
+                  "description": "Specifies the unique monitor number of the measurement.",
+                  "type": "number",
+                  "group": "Options",
+                  "aliases": []
+                },
+                {
+                  "name": "trancode",
+                  "description": "Specifies the trancode for specified monitor number or profile name",
+                  "type": "string",
+                  "group": "Options",
+                  "aliases": []
+                },
+                {
+                  "name": "response-format-json",
+                  "aliases": [
+                    "rfj"
+                  ],
+                  "group": "Global options",
+                  "description": "Produce JSON formatted data from a command",
+                  "type": "boolean"
+                },
+                {
+                  "name": "help",
+                  "aliases": [
+                    "h"
+                  ],
+                  "group": "Global options",
+                  "description": "Display help text",
+                  "type": "boolean"
+                },
+                {
+                  "name": "help-examples",
+                  "group": "Global options",
+                  "description": "Display examples for all the commands in a group",
+                  "type": "boolean",
+                  "aliases": []
+                },
+                {
+                  "name": "help-web",
+                  "aliases": [
+                    "hw"
+                  ],
+                  "group": "Global options",
+                  "description": "Display HTML help in browser",
+                  "type": "boolean"
+                },
+                {
+                  "name": "mat-profile",
+                  "aliases": [
+                    "mat-p"
+                  ],
+                  "group": "Profile Options",
+                  "description": "The name of a (mat) profile to load for this command execution.",
+                  "type": "string"
+                },
+                {
+                  "name": "base-profile",
+                  "aliases": [
+                    "base-p"
+                  ],
+                  "group": "Profile Options",
+                  "description": "The name of a (base) profile to load for this command execution.",
+                  "type": "string"
+                },
+                {
+                  "name": "host",
+                  "aliases": [
+                    "H"
+                  ],
+                  "description": "Host name of service on the mainframe.",
+                  "type": "string",
+                  "group": "Base Connection Options"
+                },
+                {
+                  "name": "port",
+                  "aliases": [
+                    "P"
+                  ],
+                  "description": "Port number of service on the mainframe.",
+                  "type": "number",
+                  "group": "Base Connection Options"
+                },
+                {
+                  "name": "user",
+                  "aliases": [
+                    "u"
+                  ],
+                  "description": "User name to authenticate to service on the mainframe.",
+                  "type": "string",
+                  "group": "Base Connection Options"
+                },
+                {
+                  "name": "password",
+                  "aliases": [
+                    "pass",
+                    "pw"
+                  ],
+                  "description": "Password to authenticate to service on the mainframe.",
+                  "type": "string",
+                  "group": "Base Connection Options"
+                },
+                {
+                  "name": "reject-unauthorized",
+                  "aliases": [
+                    "ru"
+                  ],
+                  "description": "Reject self-signed certificates.",
+                  "type": "boolean",
+                  "defaultValue": true,
+                  "group": "Base Connection Options"
+                },
+                {
+                  "name": "token-type",
+                  "aliases": [
+                    "tt"
+                  ],
+                  "description": "The type of token to get and use for the API. Omit this option to use the default token type, which is provided by 'zowe auth login'.",
+                  "type": "string",
+                  "group": "Base Connection Options"
+                },
+                {
+                  "name": "token-value",
+                  "aliases": [
+                    "tv"
+                  ],
+                  "description": "The value of the token to pass to the API.",
+                  "type": "string",
+                  "group": "Base Connection Options"
+                },
+                {
+                  "name": "cert-file",
+                  "description": "The file path to a certificate file to use for authentication",
+                  "type": "existingLocalFile",
+                  "group": "Base Connection Options",
+                  "aliases": []
+                },
+                {
+                  "name": "cert-key-file",
+                  "description": "The file path to a certificate key file to use for authentication",
+                  "type": "existingLocalFile",
+                  "group": "Base Connection Options",
+                  "aliases": []
+                }
+              ],
+              "examples": [
+                {
+                  "description": "Get the IMS View Statement details for monitor number 5with trancode TESTTRANCODE",
+                  "options": "--mon_num 5 --trancode TESTTRANCODE"
+                },
+                {
+                  "description": "Get the IMS View Statement details for the latest monitor in the TESTPROF profile, with trancode TESTTRANCODE",
+                  "options": "--profile TESTPROF --trancode TESTTRANCODE"
+                }
+              ],
+              "positionals": [],
+              "passOn": [],
+              "children": []
+            }
+          ],
+          "options": [
+            {
+              "name": "response-format-json",
+              "aliases": [
+                "rfj"
+              ],
+              "group": "Global options",
+              "description": "Produce JSON formatted data from a command",
+              "type": "boolean"
+            },
+            {
+              "name": "help",
+              "aliases": [
+                "h"
+              ],
+              "group": "Global options",
+              "description": "Display help text",
+              "type": "boolean"
+            },
+            {
+              "name": "help-examples",
+              "group": "Global options",
+              "description": "Display examples for all the commands in a group",
+              "type": "boolean",
+              "aliases": []
+            },
+            {
+              "name": "help-web",
+              "aliases": [
+                "hw"
+              ],
+              "group": "Global options",
+              "description": "Display HTML help in browser",
+              "type": "boolean"
+            }
+          ],
           "positionals": [],
           "passOn": []
         }
