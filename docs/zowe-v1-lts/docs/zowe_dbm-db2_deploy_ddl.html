@@ -36,11 +36,11 @@
 <li>
 <p>Specifies the creator and name of an existing RC/Migrator automapping mask set. Matching is used to pair objects in a DDL file to objects that are defined on a Db2 subsystem. Matching determines whether the 'change-set' or 'rule-set' options are applied.</p>
 <p>Format:</p>
-<pre><code>        &lt;match\-set\-creator\.match\-set\-name&gt; 
+<pre><code>        &lt;match\-set\-creator.match\-set\-name&gt; 
 
-        For more information about mask services, see the RC/Migrator documentation at https://techdocs\.broadcom\.com/db2rcmig\.
+        For more information about mask services, see the RC/Migrator documentation at https://techdocs.broadcom.com/db2rcmig.
 
-        Note: If \-\-match\-set and \-\-match\-set\-file are both specified, specifications in match\-set\-file take precedence\.
+        Note: If \-\-match\-set and \-\-match\-set\-file are both specified, specifications in match\-set\-file take precedence.
 </code></pre>
 </li>
 </ul>
@@ -55,28 +55,28 @@
 
                 STOGROUP &lt;name&gt; &lt;name&gt;
                 DATABASE &lt;name&gt; &lt;name&gt;
-                TABLESPACE &lt;database\.name&gt; &lt;database\.name&gt;
-                TABLE &lt;schema\.name&gt; &lt;schema\.name&gt;
-                INDEX &lt;schema\.name&gt; &lt;schema\.name&gt;
-                VIEW &lt;schema\.name&gt; &lt;schema\.name&gt;
-                SYNONYM &lt;schema\.name&gt; &lt;schema\.name&gt;
-                ALIAS &lt;schema\.name&gt; &lt;schema\.name&gt;
-                TRIGGER &lt;schema\.name&gt; &lt;schema\.name&gt;
-                SEQUENCE &lt;schema\.name&gt; &lt;schema\.name&gt;
-                FUNCTION &lt;schema\.name\[\.version\]&gt; &lt;schema\.name\[\.version\]&gt;
-                PROCEDURE &lt;schema\.name\[\.version\]&gt; &lt;schema\.name\[\.version\]&gt;
+                TABLESPACE &lt;database.name&gt; &lt;database.name&gt;
+                TABLE &lt;schema.name&gt; &lt;schema.name&gt;
+                INDEX &lt;schema.name&gt; &lt;schema.name&gt;
+                VIEW &lt;schema.name&gt; &lt;schema.name&gt;
+                SYNONYM &lt;schema.name&gt; &lt;schema.name&gt;
+                ALIAS &lt;schema.name&gt; &lt;schema.name&gt;
+                TRIGGER &lt;schema.name&gt; &lt;schema.name&gt;
+                SEQUENCE &lt;schema.name&gt; &lt;schema.name&gt;
+                FUNCTION &lt;schema.name\[.version\]&gt; &lt;schema.name\[.version\]&gt;
+                PROCEDURE &lt;schema.name\[.version\]&gt; &lt;schema.name\[.version\]&gt;
                     
-                Note: &lt;schema&gt; must be 8 characters or less\. &lt;name&gt; must be 18 characters or less\. The SEQUENCE &lt;name&gt; must be 8 characters or less\.
+                Note: &lt;schema&gt; must be 8 characters or less. &lt;name&gt; must be 18 characters or less. The SEQUENCE &lt;name&gt; must be 8 characters or less.
                 
                 A mask specification can include the following wildcard characters:
                 
-                    % (percent sign) indicates that zero or more characters can occupy that position\. Other non\-wildcard characters must match\.
+                    % (percent sign) indicates that zero or more characters can occupy that position. Other non\-wildcard characters must match.
 
-                    \- (hyphen) indicates that any character can occupy that position, but a character must exist at that position\.
+                    \- (hyphen) indicates that any character can occupy that position, but a character must exist at that position.
 
-                    \* (asterisk) indicates that like named objects on the source and target should be mapped\. No other characters can appear together with this character\.
+                    \* (asterisk) indicates that like named objects on the source and target should be mapped. No other characters can appear together with this character.
                 
-                Use a semicolon to separate mask specifications\. Multiple mask specifications for the same object type are supported\.
+                Use a semicolon to separate mask specifications. Multiple mask specifications for the same object type are supported.
 </code></pre>
 <p>Example:</p>
 <p>The following example demonstrates different ways of matching the table MYNAME.MYTABLE to the table YOURNAME.YOURTABLE:</p>
@@ -84,9 +84,9 @@
 TABLE MYN-M-.MYT% YOURN-M-.YOURT%;<br>
 TABLE MYNAME.MYTABLE YOURNAME.YOURTABLE;<br>
 TABLE *.MYTABLE *.YOURTABLE;</p>
-<pre><code>For a list of mask specifications, see the RC/Migrator documentation at https://techdocs\.broadcom\.com/db2rcmig\.
+<pre><code>For a list of mask specifications, see the RC/Migrator documentation at https://techdocs.broadcom.com/db2rcmig.
 
-Note: If \-\-match\-set and \-\-match\-set\-file are both specified, specifications in match\-set\-file take precedence\.
+Note: If \-\-match\-set and \-\-match\-set\-file are both specified, specifications in match\-set\-file take precedence.
 </code></pre>
 </li>
 </ul>
@@ -97,11 +97,11 @@ Note: If \-\-match\-set and \-\-match\-set\-file are both specified, specificati
 <li>
 <p>Specifies the creator and name of an existing RC/Migrator global change set to be used to modify Db2 object attributes. The changes apply to new objects only as determined by match-set processing.</p>
 <p>Format:</p>
-<pre><code>    &lt;change\-set\-creator\.change\-set\-name&gt;
+<pre><code>    &lt;change\-set\-creator.change\-set\-name&gt;
 
-    For more information about global change services, see the RC/Migrator documentation at https://techdocs\.broadcom\.com/db2rcmig\. 
+    For more information about global change services, see the RC/Migrator documentation at https://techdocs.broadcom.com/db2rcmig. 
     
-    Note: If change\-set and change\-set\-file are both specified, specifications in change\-set\-file take precedence\.
+    Note: If change\-set and change\-set\-file are both specified, specifications in change\-set\-file take precedence.
 </code></pre>
 </li>
 </ul>
@@ -114,15 +114,15 @@ Note: If \-\-match\-set and \-\-match\-set\-file are both specified, specificati
 <p>Format:</p>
 <pre><code>                &lt;object\-attribute&gt; &lt;from\-value&gt; &lt;to\-value&gt;
                 
-                The &lt;object\-attribute&gt; consists of four characters\. The first two characters identify the object type\. The last two characters identify the specific attribute\. Wildcard characters are supported in the &lt;from\-value&gt; and &lt;to\-value&gt;\. The first occurrence in multiple specifications for the same &lt;object\-attribute&gt; has the highest precedence\.
+                The &lt;object\-attribute&gt; consists of four characters. The first two characters identify the object type. The last two characters identify the specific attribute. Wildcard characters are supported in the &lt;from\-value&gt; and &lt;to\-value&gt;. The first occurrence in multiple specifications for the same &lt;object\-attribute&gt; has the highest precedence.
 </code></pre>
 <p>Example:</p>
 <p>The following example demonstrates changes to table’s schema (creator) and tablespace names:</p>
 <p>TBCR TEST% PROD%<br>
 TBTS TESTTS% PRODTS%</p>
-<pre><code>     For a list of global change set attributes, see the RC/Migrator documentation at https://techdocs\.broadcom\.com/db2rcmig\.
+<pre><code>     For a list of global change set attributes, see the RC/Migrator documentation at https://techdocs.broadcom.com/db2rcmig.
      
-     Note: If change\-set and change\-set\-file are both specified, specifications in change\-set\-file take precedence\.
+     Note: If change\-set and change\-set\-file are both specified, specifications in change\-set\-file take precedence.
 </code></pre>
 </li>
 </ul>
@@ -133,9 +133,9 @@ TBTS TESTTS% PRODTS%</p>
 <li>
 <p>Specifies the creator and name of an existing RC/Migrator rule set to be used to override Db2 object attributes in the target Db2 subsystem with the corresponding values from the input DDL file.The changes apply to the existing objects only (as determined by match-set processing).</p>
 <p>Format:</p>
-<pre><code>    &lt;rule\-set\-creator\.rule\-set\-name&gt;
+<pre><code>    &lt;rule\-set\-creator.rule\-set\-name&gt;
      
-    For more information about rule database services, see the RC/Migrator documentation at https://techdocs\.broadcom\.com/db2rcmig\.
+    For more information about rule database services, see the RC/Migrator documentation at https://techdocs.broadcom.com/db2rcmig.
 </code></pre>
 </li>
 </ul>

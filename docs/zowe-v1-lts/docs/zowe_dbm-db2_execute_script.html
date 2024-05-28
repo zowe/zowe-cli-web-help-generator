@@ -34,12 +34,12 @@
 <p>Identifies the location in the script where you want to begin execution.</p>
 <pre><code>The following options are valid:
 
-name \- Begin execution of the specific section and process all subsequent statements up to the next section\.
-A section is a '\.SYSTEM &lt;name&gt;' statement, where &lt;name&gt; identifies a logical grouping of statements such as UNLOADS or SQLDDL\. 'source' is an alias for UNLOADS\. 'target' is an alias for SQLDDL\.
+name \- Begin execution of the specific section and process all subsequent statements up to the next section.
+A section is a '.SYSTEM &lt;name&gt;' statement, where &lt;name&gt; identifies a logical grouping of statements such as UNLOADS or SQLDDL. 'source' is an alias for UNLOADS. 'target' is an alias for SQLDDL.
 
-number \- Begin execution after the specific sync point (\.SYNC &lt;number&gt; statement) and process all statements up to the end of the script\.
+number \- Begin execution after the specific sync point (.SYNC &lt;number&gt; statement) and process all statements up to the end of the script.
 
-name, number \- Begin execution of the specific script section beginning from the sync point (\.SYNC &lt;number&gt; statement) within the section and process all subsequent statements up to the next section\.
+name, number \- Begin execution of the specific script section beginning from the sync point (.SYNC &lt;number&gt; statement) within the section and process all subsequent statements up to the next section.
 </code></pre>
 </li>
 </ul>
@@ -51,13 +51,13 @@ name, number \- Begin execution of the specific script section beginning from th
 <p>Specifies the location in the script where you want to restart execution. The effects of previous successful script statement executions remain.</p>
 <pre><code>    The following restart options are valid:
     
-    new \- Restart execution of the script at the first statement\.
+    new \- Restart execution of the script at the first statement.
      
-    token \- Restart execution of the script at the location that is recorded in the specified token and that was returned from a previous execution failure\.
+    token \- Restart execution of the script at the location that is recorded in the specified token and that was returned from a previous execution failure.
 
-    name, token \- Restart execution of the script at the location in the restart section that is recorded in the specified token and that was returned from a prior execution failure\.
+    name, token \- Restart execution of the script at the location in the restart section that is recorded in the specified token and that was returned from a prior execution failure.
     
-    A section is a Batch Processor '\.SYSTEM &lt;name&gt;' statement, where &lt;name&gt; identifies a logical grouping of statements such as UNLOADS or SQLDDL\. 'source' is an alias for UNLOADS\. 'target' is an alias for SQLDDL\.
+    A section is a Batch Processor '.SYSTEM &lt;name&gt;' statement, where &lt;name&gt; identifies a logical grouping of statements such as UNLOADS or SQLDDL. 'source' is an alias for UNLOADS. 'target' is an alias for SQLDDL.
 </code></pre>
 </li>
 </ul>

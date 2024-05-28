@@ -297,7 +297,7 @@
 <li><a href="#zowe_mat">mat | mat</a><ul><li><a href="#zowe_mat_monitor">monitor</a><ul><li><a href="#zowe_mat_monitor_codeview">codeview</a><ul><li><a href="#zowe_mat_monitor_codeview_callerid">callerid | cil</a></li>
 </ul><ul><li><a href="#zowe_mat_monitor_codeview_csect">csect | cs</a></li>
 </ul><ul><li><a href="#zowe_mat_monitor_codeview_histogram">histogram | hsg</a></li>
-</ul><ul><li><a href="#zowe_mat_monitor_codeview_module">module | cm</a></li>
+</ul><ul><li><a href="#zowe_mat_monitor_codeview_module">module | mod</a></li>
 </ul></li>
 </ul><ul><li><a href="#zowe_mat_monitor_db2">db2</a><ul><li><a href="#zowe_mat_monitor_db2_db2view">db2view | db2v</a></li>
 </ul><ul><li><a href="#zowe_mat_monitor_db2_sqlstmt">sqlstmt | sql</a></li>
@@ -306,7 +306,26 @@
 </ul><ul><li><a href="#zowe_mat_monitor_delayview_delay">delay | de</a></li>
 </ul></li>
 </ul><ul><li><a href="#zowe_mat_monitor_history">history | hs</a></li>
+</ul><ul><li><a href="#zowe_mat_monitor_idms">idms | idms</a><ul><li><a href="#zowe_mat_monitor_idms_dml">dml | dml</a></li>
+</ul><ul><li><a href="#zowe_mat_monitor_idms_module">module | mod</a></li>
+</ul><ul><li><a href="#zowe_mat_monitor_idms_task">task | ts</a></li>
+</ul></li>
+</ul><ul><li><a href="#zowe_mat_monitor_imsview">imsview | ims</a><ul><li><a href="#zowe_mat_monitor_imsview_dbdname">dbdname | dbd</a></li>
+</ul><ul><li><a href="#zowe_mat_monitor_imsview_imsview">imsview | imsv</a></li>
+</ul><ul><li><a href="#zowe_mat_monitor_imsview_psbname">psbname | psb</a></li>
+</ul><ul><li><a href="#zowe_mat_monitor_imsview_region">region | reg</a></li>
+</ul><ul><li><a href="#zowe_mat_monitor_imsview_ssa">ssa | ssa</a></li>
+</ul><ul><li><a href="#zowe_mat_monitor_imsview_statement">statement | stat</a></li>
+</ul></li>
 </ul><ul><li><a href="#zowe_mat_monitor_overview">overview | ov</a></li>
+</ul><ul><li><a href="#zowe_mat_monitor_tranview">tranview | tr</a><ul><li><a href="#zowe_mat_monitor_tranview_all">all | all</a></li>
+</ul><ul><li><a href="#zowe_mat_monitor_tranview_callerid">callerid | cid</a></li>
+</ul><ul><li><a href="#zowe_mat_monitor_tranview_callstack">callstack | csk</a></li>
+</ul><ul><li><a href="#zowe_mat_monitor_tranview_csect">csect | csd</a></li>
+</ul><ul><li><a href="#zowe_mat_monitor_tranview_delay">delay | dl</a></li>
+</ul><ul><li><a href="#zowe_mat_monitor_tranview_module">module | mod</a></li>
+</ul><ul><li><a href="#zowe_mat_monitor_tranview_stat">stat | cis</a></li>
+</ul></li>
 </ul></li>
 </ul><ul><li><a href="#zowe_mat_profile">profile</a><ul><li><a href="#zowe_mat_profile_create">create | cr</a></li>
 </ul><ul><li><a href="#zowe_mat_profile_invoke">invoke | ivk</a></li>
@@ -12140,11 +12159,11 @@ CredentialManager - The package name of a plugin that will override the default 
 <li>
 <p>Specifies the creator and name of an existing RC/Migrator automapping mask set. Matching is used to pair objects in a DDL file to objects that are defined on a Db2 subsystem. Matching determines whether the 'change-set' or 'rule-set' options are applied.</p>
 <p>Format:</p>
-<pre><code>        &lt;match\-set\-creator\.match\-set\-name&gt; 
+<pre><code>        &lt;match\-set\-creator.match\-set\-name&gt; 
 
-        For more information about mask services, see the RC/Migrator documentation at https://techdocs\.broadcom\.com/db2rcmig\.
+        For more information about mask services, see the RC/Migrator documentation at https://techdocs.broadcom.com/db2rcmig.
 
-        Note: If \-\-match\-set and \-\-match\-set\-file are both specified, specifications in match\-set\-file take precedence\.
+        Note: If \-\-match\-set and \-\-match\-set\-file are both specified, specifications in match\-set\-file take precedence.
 </code></pre>
 </li>
 </ul>
@@ -12159,28 +12178,28 @@ CredentialManager - The package name of a plugin that will override the default 
 
                 STOGROUP &lt;name&gt; &lt;name&gt;
                 DATABASE &lt;name&gt; &lt;name&gt;
-                TABLESPACE &lt;database\.name&gt; &lt;database\.name&gt;
-                TABLE &lt;schema\.name&gt; &lt;schema\.name&gt;
-                INDEX &lt;schema\.name&gt; &lt;schema\.name&gt;
-                VIEW &lt;schema\.name&gt; &lt;schema\.name&gt;
-                SYNONYM &lt;schema\.name&gt; &lt;schema\.name&gt;
-                ALIAS &lt;schema\.name&gt; &lt;schema\.name&gt;
-                TRIGGER &lt;schema\.name&gt; &lt;schema\.name&gt;
-                SEQUENCE &lt;schema\.name&gt; &lt;schema\.name&gt;
-                FUNCTION &lt;schema\.name\[\.version\]&gt; &lt;schema\.name\[\.version\]&gt;
-                PROCEDURE &lt;schema\.name\[\.version\]&gt; &lt;schema\.name\[\.version\]&gt;
+                TABLESPACE &lt;database.name&gt; &lt;database.name&gt;
+                TABLE &lt;schema.name&gt; &lt;schema.name&gt;
+                INDEX &lt;schema.name&gt; &lt;schema.name&gt;
+                VIEW &lt;schema.name&gt; &lt;schema.name&gt;
+                SYNONYM &lt;schema.name&gt; &lt;schema.name&gt;
+                ALIAS &lt;schema.name&gt; &lt;schema.name&gt;
+                TRIGGER &lt;schema.name&gt; &lt;schema.name&gt;
+                SEQUENCE &lt;schema.name&gt; &lt;schema.name&gt;
+                FUNCTION &lt;schema.name\[.version\]&gt; &lt;schema.name\[.version\]&gt;
+                PROCEDURE &lt;schema.name\[.version\]&gt; &lt;schema.name\[.version\]&gt;
                     
-                Note: &lt;schema&gt; must be 8 characters or less\. &lt;name&gt; must be 18 characters or less\. The SEQUENCE &lt;name&gt; must be 8 characters or less\.
+                Note: &lt;schema&gt; must be 8 characters or less. &lt;name&gt; must be 18 characters or less. The SEQUENCE &lt;name&gt; must be 8 characters or less.
                 
                 A mask specification can include the following wildcard characters:
                 
-                    % (percent sign) indicates that zero or more characters can occupy that position\. Other non\-wildcard characters must match\.
+                    % (percent sign) indicates that zero or more characters can occupy that position. Other non\-wildcard characters must match.
 
-                    \- (hyphen) indicates that any character can occupy that position, but a character must exist at that position\.
+                    \- (hyphen) indicates that any character can occupy that position, but a character must exist at that position.
 
-                    \* (asterisk) indicates that like named objects on the source and target should be mapped\. No other characters can appear together with this character\.
+                    \* (asterisk) indicates that like named objects on the source and target should be mapped. No other characters can appear together with this character.
                 
-                Use a semicolon to separate mask specifications\. Multiple mask specifications for the same object type are supported\.
+                Use a semicolon to separate mask specifications. Multiple mask specifications for the same object type are supported.
 </code></pre>
 <p>Example:</p>
 <p>The following example demonstrates different ways of matching the table MYNAME.MYTABLE to the table YOURNAME.YOURTABLE:</p>
@@ -12188,9 +12207,9 @@ CredentialManager - The package name of a plugin that will override the default 
 TABLE MYN-M-.MYT% YOURN-M-.YOURT%;<br>
 TABLE MYNAME.MYTABLE YOURNAME.YOURTABLE;<br>
 TABLE *.MYTABLE *.YOURTABLE;</p>
-<pre><code>For a list of mask specifications, see the RC/Migrator documentation at https://techdocs\.broadcom\.com/db2rcmig\.
+<pre><code>For a list of mask specifications, see the RC/Migrator documentation at https://techdocs.broadcom.com/db2rcmig.
 
-Note: If \-\-match\-set and \-\-match\-set\-file are both specified, specifications in match\-set\-file take precedence\.
+Note: If \-\-match\-set and \-\-match\-set\-file are both specified, specifications in match\-set\-file take precedence.
 </code></pre>
 </li>
 </ul>
@@ -12201,11 +12220,11 @@ Note: If \-\-match\-set and \-\-match\-set\-file are both specified, specificati
 <li>
 <p>Specifies the creator and name of an existing RC/Migrator global change set to be used to modify Db2 object attributes. The changes apply to new objects only as determined by match-set processing.</p>
 <p>Format:</p>
-<pre><code>    &lt;change\-set\-creator\.change\-set\-name&gt;
+<pre><code>    &lt;change\-set\-creator.change\-set\-name&gt;
 
-    For more information about global change services, see the RC/Migrator documentation at https://techdocs\.broadcom\.com/db2rcmig\. 
+    For more information about global change services, see the RC/Migrator documentation at https://techdocs.broadcom.com/db2rcmig. 
     
-    Note: If change\-set and change\-set\-file are both specified, specifications in change\-set\-file take precedence\.
+    Note: If change\-set and change\-set\-file are both specified, specifications in change\-set\-file take precedence.
 </code></pre>
 </li>
 </ul>
@@ -12218,15 +12237,15 @@ Note: If \-\-match\-set and \-\-match\-set\-file are both specified, specificati
 <p>Format:</p>
 <pre><code>                &lt;object\-attribute&gt; &lt;from\-value&gt; &lt;to\-value&gt;
                 
-                The &lt;object\-attribute&gt; consists of four characters\. The first two characters identify the object type\. The last two characters identify the specific attribute\. Wildcard characters are supported in the &lt;from\-value&gt; and &lt;to\-value&gt;\. The first occurrence in multiple specifications for the same &lt;object\-attribute&gt; has the highest precedence\.
+                The &lt;object\-attribute&gt; consists of four characters. The first two characters identify the object type. The last two characters identify the specific attribute. Wildcard characters are supported in the &lt;from\-value&gt; and &lt;to\-value&gt;. The first occurrence in multiple specifications for the same &lt;object\-attribute&gt; has the highest precedence.
 </code></pre>
 <p>Example:</p>
 <p>The following example demonstrates changes to table’s schema (creator) and tablespace names:</p>
 <p>TBCR TEST% PROD%<br>
 TBTS TESTTS% PRODTS%</p>
-<pre><code>     For a list of global change set attributes, see the RC/Migrator documentation at https://techdocs\.broadcom\.com/db2rcmig\.
+<pre><code>     For a list of global change set attributes, see the RC/Migrator documentation at https://techdocs.broadcom.com/db2rcmig.
      
-     Note: If change\-set and change\-set\-file are both specified, specifications in change\-set\-file take precedence\.
+     Note: If change\-set and change\-set\-file are both specified, specifications in change\-set\-file take precedence.
 </code></pre>
 </li>
 </ul>
@@ -12237,9 +12256,9 @@ TBTS TESTTS% PRODTS%</p>
 <li>
 <p>Specifies the creator and name of an existing RC/Migrator rule set to be used to override Db2 object attributes in the target Db2 subsystem with the corresponding values from the input DDL file.The changes apply to the existing objects only (as determined by match-set processing).</p>
 <p>Format:</p>
-<pre><code>    &lt;rule\-set\-creator\.rule\-set\-name&gt;
+<pre><code>    &lt;rule\-set\-creator.rule\-set\-name&gt;
      
-    For more information about rule database services, see the RC/Migrator documentation at https://techdocs\.broadcom\.com/db2rcmig\.
+    For more information about rule database services, see the RC/Migrator documentation at https://techdocs.broadcom.com/db2rcmig.
 </code></pre>
 </li>
 </ul>
@@ -12424,11 +12443,11 @@ TBTS TESTTS% PRODTS%</p>
 <li>
 <p>Specifies the creator and name of an existing RC/Migrator automapping mask set. Matching is used to pair objects in a DDL file to objects that are defined on a Db2 subsystem. Matching determines whether the 'change-set' or 'rule-set' options are applied.</p>
 <p>Format:</p>
-<pre><code>        &lt;match\-set\-creator\.match\-set\-name&gt; 
+<pre><code>        &lt;match\-set\-creator.match\-set\-name&gt; 
 
-        For more information about mask services, see the RC/Migrator documentation at https://techdocs\.broadcom\.com/db2rcmig\.
+        For more information about mask services, see the RC/Migrator documentation at https://techdocs.broadcom.com/db2rcmig.
 
-        Note: If \-\-match\-set and \-\-match\-set\-file are both specified, specifications in match\-set\-file take precedence\.
+        Note: If \-\-match\-set and \-\-match\-set\-file are both specified, specifications in match\-set\-file take precedence.
 </code></pre>
 </li>
 </ul>
@@ -12443,28 +12462,28 @@ TBTS TESTTS% PRODTS%</p>
 
                 STOGROUP &lt;name&gt; &lt;name&gt;
                 DATABASE &lt;name&gt; &lt;name&gt;
-                TABLESPACE &lt;database\.name&gt; &lt;database\.name&gt;
-                TABLE &lt;schema\.name&gt; &lt;schema\.name&gt;
-                INDEX &lt;schema\.name&gt; &lt;schema\.name&gt;
-                VIEW &lt;schema\.name&gt; &lt;schema\.name&gt;
-                SYNONYM &lt;schema\.name&gt; &lt;schema\.name&gt;
-                ALIAS &lt;schema\.name&gt; &lt;schema\.name&gt;
-                TRIGGER &lt;schema\.name&gt; &lt;schema\.name&gt;
-                SEQUENCE &lt;schema\.name&gt; &lt;schema\.name&gt;
-                FUNCTION &lt;schema\.name\[\.version\]&gt; &lt;schema\.name\[\.version\]&gt;
-                PROCEDURE &lt;schema\.name\[\.version\]&gt; &lt;schema\.name\[\.version\]&gt;
+                TABLESPACE &lt;database.name&gt; &lt;database.name&gt;
+                TABLE &lt;schema.name&gt; &lt;schema.name&gt;
+                INDEX &lt;schema.name&gt; &lt;schema.name&gt;
+                VIEW &lt;schema.name&gt; &lt;schema.name&gt;
+                SYNONYM &lt;schema.name&gt; &lt;schema.name&gt;
+                ALIAS &lt;schema.name&gt; &lt;schema.name&gt;
+                TRIGGER &lt;schema.name&gt; &lt;schema.name&gt;
+                SEQUENCE &lt;schema.name&gt; &lt;schema.name&gt;
+                FUNCTION &lt;schema.name\[.version\]&gt; &lt;schema.name\[.version\]&gt;
+                PROCEDURE &lt;schema.name\[.version\]&gt; &lt;schema.name\[.version\]&gt;
                     
-                Note: &lt;schema&gt; must be 8 characters or less\. &lt;name&gt; must be 18 characters or less\. The SEQUENCE &lt;name&gt; must be 8 characters or less\.
+                Note: &lt;schema&gt; must be 8 characters or less. &lt;name&gt; must be 18 characters or less. The SEQUENCE &lt;name&gt; must be 8 characters or less.
                 
                 A mask specification can include the following wildcard characters:
                 
-                    % (percent sign) indicates that zero or more characters can occupy that position\. Other non\-wildcard characters must match\.
+                    % (percent sign) indicates that zero or more characters can occupy that position. Other non\-wildcard characters must match.
 
-                    \- (hyphen) indicates that any character can occupy that position, but a character must exist at that position\.
+                    \- (hyphen) indicates that any character can occupy that position, but a character must exist at that position.
 
-                    \* (asterisk) indicates that like named objects on the source and target should be mapped\. No other characters can appear together with this character\.
+                    \* (asterisk) indicates that like named objects on the source and target should be mapped. No other characters can appear together with this character.
                 
-                Use a semicolon to separate mask specifications\. Multiple mask specifications for the same object type are supported\.
+                Use a semicolon to separate mask specifications. Multiple mask specifications for the same object type are supported.
 </code></pre>
 <p>Example:</p>
 <p>The following example demonstrates different ways of matching the table MYNAME.MYTABLE to the table YOURNAME.YOURTABLE:</p>
@@ -12472,9 +12491,9 @@ TBTS TESTTS% PRODTS%</p>
 TABLE MYN-M-.MYT% YOURN-M-.YOURT%;<br>
 TABLE MYNAME.MYTABLE YOURNAME.YOURTABLE;<br>
 TABLE *.MYTABLE *.YOURTABLE;</p>
-<pre><code>For a list of mask specifications, see the RC/Migrator documentation at https://techdocs\.broadcom\.com/db2rcmig\.
+<pre><code>For a list of mask specifications, see the RC/Migrator documentation at https://techdocs.broadcom.com/db2rcmig.
 
-Note: If \-\-match\-set and \-\-match\-set\-file are both specified, specifications in match\-set\-file take precedence\.
+Note: If \-\-match\-set and \-\-match\-set\-file are both specified, specifications in match\-set\-file take precedence.
 </code></pre>
 </li>
 </ul>
@@ -12485,11 +12504,11 @@ Note: If \-\-match\-set and \-\-match\-set\-file are both specified, specificati
 <li>
 <p>Specifies the creator and name of an existing RC/Migrator global change set to be used to modify Db2 object attributes. The changes apply to new objects only as determined by match-set processing.</p>
 <p>Format:</p>
-<pre><code>    &lt;change\-set\-creator\.change\-set\-name&gt;
+<pre><code>    &lt;change\-set\-creator.change\-set\-name&gt;
 
-    For more information about global change services, see the RC/Migrator documentation at https://techdocs\.broadcom\.com/db2rcmig\. 
+    For more information about global change services, see the RC/Migrator documentation at https://techdocs.broadcom.com/db2rcmig. 
     
-    Note: If change\-set and change\-set\-file are both specified, specifications in change\-set\-file take precedence\.
+    Note: If change\-set and change\-set\-file are both specified, specifications in change\-set\-file take precedence.
 </code></pre>
 </li>
 </ul>
@@ -12502,15 +12521,15 @@ Note: If \-\-match\-set and \-\-match\-set\-file are both specified, specificati
 <p>Format:</p>
 <pre><code>                &lt;object\-attribute&gt; &lt;from\-value&gt; &lt;to\-value&gt;
                 
-                The &lt;object\-attribute&gt; consists of four characters\. The first two characters identify the object type\. The last two characters identify the specific attribute\. Wildcard characters are supported in the &lt;from\-value&gt; and &lt;to\-value&gt;\. The first occurrence in multiple specifications for the same &lt;object\-attribute&gt; has the highest precedence\.
+                The &lt;object\-attribute&gt; consists of four characters. The first two characters identify the object type. The last two characters identify the specific attribute. Wildcard characters are supported in the &lt;from\-value&gt; and &lt;to\-value&gt;. The first occurrence in multiple specifications for the same &lt;object\-attribute&gt; has the highest precedence.
 </code></pre>
 <p>Example:</p>
 <p>The following example demonstrates changes to table’s schema (creator) and tablespace names:</p>
 <p>TBCR TEST% PROD%<br>
 TBTS TESTTS% PRODTS%</p>
-<pre><code>     For a list of global change set attributes, see the RC/Migrator documentation at https://techdocs\.broadcom\.com/db2rcmig\.
+<pre><code>     For a list of global change set attributes, see the RC/Migrator documentation at https://techdocs.broadcom.com/db2rcmig.
      
-     Note: If change\-set and change\-set\-file are both specified, specifications in change\-set\-file take precedence\.
+     Note: If change\-set and change\-set\-file are both specified, specifications in change\-set\-file take precedence.
 </code></pre>
 </li>
 </ul>
@@ -12521,9 +12540,9 @@ TBTS TESTTS% PRODTS%</p>
 <li>
 <p>Specifies the creator and name of an existing RC/Migrator rule set to be used to override Db2 object attributes in the target Db2 subsystem with the corresponding values from the input DDL file.The changes apply to the existing objects only (as determined by match-set processing).</p>
 <p>Format:</p>
-<pre><code>    &lt;rule\-set\-creator\.rule\-set\-name&gt;
+<pre><code>    &lt;rule\-set\-creator.rule\-set\-name&gt;
      
-    For more information about rule database services, see the RC/Migrator documentation at https://techdocs\.broadcom\.com/db2rcmig\.
+    For more information about rule database services, see the RC/Migrator documentation at https://techdocs.broadcom.com/db2rcmig.
 </code></pre>
 </li>
 </ul>
@@ -12665,7 +12684,7 @@ TBTS TESTTS% PRODTS%</p>
 <ul>
 <li>
 <p>Specifies the local output recovery file that contains the recovery script that is generated during execution of this command. Executing the recovery script using the 'zowe dbm-db2 execute script' command undoes the changes that were made by execution of the compare-script.</p>
-<pre><code>   Default value: recovery\.txt
+<pre><code>   Default value: recovery.txt
 </code></pre>
 </li>
 </ul>
@@ -12677,9 +12696,9 @@ TBTS TESTTS% PRODTS%</p>
 <p>Specifies the location in the script where you want to restart execution. The effects of previous successful script statement executions remain.</p>
 <pre><code>  The following restart options are valid:
   
-  new \- Restart execution of the script at the first statement\. 
+  new \- Restart execution of the script at the first statement. 
   
-  token \- Restart execution of the script at the location that is recorded in the specified token and that was returned from a previous execution failure\.
+  token \- Restart execution of the script at the location that is recorded in the specified token and that was returned from a previous execution failure.
 </code></pre>
 </li>
 </ul>
@@ -12821,11 +12840,11 @@ TBTS TESTTS% PRODTS%</p>
 <p>Specifies the location in the script where you want to restart execution. The effects of previous successful script statement executions remain.</p>
 <pre><code>    The following restart options are valid:
     
-    new \- Restart execution of the script at the first statement\.
+    new \- Restart execution of the script at the first statement.
     
-    name, token \- Restart execution of the script at the location in the restart section that is recorded in the specified token and that was returned from a prior execution failure\.
+    name, token \- Restart execution of the script at the location in the restart section that is recorded in the specified token and that was returned from a prior execution failure.
 
-    A section is a '\.SYSTEM &lt;name&gt;' statement, where &lt;name&gt; identifies a logical grouping of statements such as UNLOADS or SQLDDL\. 'source' is an alias for UNLOADS\. 'target' is an alias for SQLDDL\.
+    A section is a '.SYSTEM &lt;name&gt;' statement, where &lt;name&gt; identifies a logical grouping of statements such as UNLOADS or SQLDDL. 'source' is an alias for UNLOADS. 'target' is an alias for SQLDDL.
 </code></pre>
 </li>
 </ul>
@@ -12973,12 +12992,12 @@ TBTS TESTTS% PRODTS%</p>
 <p>Identifies the location in the script where you want to begin execution.</p>
 <pre><code>The following options are valid:
 
-name \- Begin execution of the specific section and process all subsequent statements up to the next section\.
-A section is a '\.SYSTEM &lt;name&gt;' statement, where &lt;name&gt; identifies a logical grouping of statements such as UNLOADS or SQLDDL\. 'source' is an alias for UNLOADS\. 'target' is an alias for SQLDDL\.
+name \- Begin execution of the specific section and process all subsequent statements up to the next section.
+A section is a '.SYSTEM &lt;name&gt;' statement, where &lt;name&gt; identifies a logical grouping of statements such as UNLOADS or SQLDDL. 'source' is an alias for UNLOADS. 'target' is an alias for SQLDDL.
 
-number \- Begin execution after the specific sync point (\.SYNC &lt;number&gt; statement) and process all statements up to the end of the script\.
+number \- Begin execution after the specific sync point (.SYNC &lt;number&gt; statement) and process all statements up to the end of the script.
 
-name, number \- Begin execution of the specific script section beginning from the sync point (\.SYNC &lt;number&gt; statement) within the section and process all subsequent statements up to the next section\.
+name, number \- Begin execution of the specific script section beginning from the sync point (.SYNC &lt;number&gt; statement) within the section and process all subsequent statements up to the next section.
 </code></pre>
 </li>
 </ul>
@@ -12990,13 +13009,13 @@ name, number \- Begin execution of the specific script section beginning from th
 <p>Specifies the location in the script where you want to restart execution. The effects of previous successful script statement executions remain.</p>
 <pre><code>    The following restart options are valid:
     
-    new \- Restart execution of the script at the first statement\.
+    new \- Restart execution of the script at the first statement.
      
-    token \- Restart execution of the script at the location that is recorded in the specified token and that was returned from a previous execution failure\.
+    token \- Restart execution of the script at the location that is recorded in the specified token and that was returned from a previous execution failure.
 
-    name, token \- Restart execution of the script at the location in the restart section that is recorded in the specified token and that was returned from a prior execution failure\.
+    name, token \- Restart execution of the script at the location in the restart section that is recorded in the specified token and that was returned from a prior execution failure.
     
-    A section is a Batch Processor '\.SYSTEM &lt;name&gt;' statement, where &lt;name&gt; identifies a logical grouping of statements such as UNLOADS or SQLDDL\. 'source' is an alias for UNLOADS\. 'target' is an alias for SQLDDL\.
+    A section is a Batch Processor '.SYSTEM &lt;name&gt;' statement, where &lt;name&gt; identifies a logical grouping of statements such as UNLOADS or SQLDDL. 'source' is an alias for UNLOADS. 'target' is an alias for SQLDDL.
 </code></pre>
 </li>
 </ul>
@@ -13160,7 +13179,7 @@ name, number \- Begin execution of the specific script section beginning from th
 <li>
 <p>Specifies the Db2 objects for which you want to generate DDL statements. Use the optional include syntax to include related Db2 objects.</p>
 <p>Format: see object-file description.</p>
-<pre><code>Note: The \-\-object and \-\-object\-file options are mutually exclusive\.
+<pre><code>Note: The \-\-object and \-\-object\-file options are mutually exclusive.
 </code></pre>
 </li>
 </ul>
@@ -13171,32 +13190,32 @@ name, number \- Begin execution of the specific script section beginning from th
 <li>
 <p>Specifies the local input file that contains a list of Db2 objects, separated by a semicolon, for which you want to generate DDL statements. Use the optional include syntax to include related Db2 objects.</p>
 <p>Format:</p>
-<pre><code>&lt;object\-type&gt; &lt;object\-name&gt; \[include(&lt;related\-object\-type&gt;,\.\.\.)\];
+<pre><code>&lt;object\-type&gt; &lt;object\-name&gt; \[include(&lt;related\-object\-type&gt;,...)\];
 
 The required clause &lt;object\-type&gt; &lt;object\-name&gt;  identifies the specific Db2 (base) object:
  
     STOGROUP &lt;name&gt;
     DATABASE &lt;name&gt;
-    TABLESPACE &lt;dbname&gt;\.&lt;name&gt;
-    TABLE &lt;schema&gt;\.&lt;name&gt;
-    INDEX &lt;schema&gt;\.&lt;name&gt;
-    VIEW &lt;schema&gt;\.&lt;name&gt;
-    ALIAS &lt;schema&gt;\.&lt;name&gt;
-    SYNONYM &lt;schema&gt;\.&lt;name&gt;
-    MQT &lt;schema&gt;\.&lt;name&gt;
-    SEQUENCE &lt;schema&gt;\.&lt;name&gt;
-    TRIGGER &lt;schema&gt;\.&lt;name&gt;
-    FUNCTION &lt;schema&gt;\.&lt;name&gt;\[\.&lt;version&gt;\]
-    PROCEDURE &lt;schema&gt;\.&lt;name&gt;\[\.&lt;version&gt;\]
+    TABLESPACE &lt;dbname&gt;.&lt;name&gt;
+    TABLE &lt;schema&gt;.&lt;name&gt;
+    INDEX &lt;schema&gt;.&lt;name&gt;
+    VIEW &lt;schema&gt;.&lt;name&gt;
+    ALIAS &lt;schema&gt;.&lt;name&gt;
+    SYNONYM &lt;schema&gt;.&lt;name&gt;
+    MQT &lt;schema&gt;.&lt;name&gt;
+    SEQUENCE &lt;schema&gt;.&lt;name&gt;
+    TRIGGER &lt;schema&gt;.&lt;name&gt;
+    FUNCTION &lt;schema&gt;.&lt;name&gt;\[.&lt;version&gt;\]
+    PROCEDURE &lt;schema&gt;.&lt;name&gt;\[.&lt;version&gt;\]
 
-The optional clause include(&lt;related\-object\-type&gt;,\.\.\.) identifies one or more, comma separated related object types that you want to include in the generated DDL statements\. You can specify STOGROUP, DATABASE, TABLESPACE, TABLE, INDEX, VIEW, SYNONYM, MQT\-ALL, TRIGGER, ROUTINE, PARENTS, CHILDREN, and ALL\.
+The optional clause include(&lt;related\-object\-type&gt;,...) identifies one or more, comma separated related object types that you want to include in the generated DDL statements. You can specify STOGROUP, DATABASE, TABLESPACE, TABLE, INDEX, VIEW, SYNONYM, MQT\-ALL, TRIGGER, ROUTINE, PARENTS, CHILDREN, and ALL.
  
  Example:
  
- table sysibm\.systables include (tablespace, database, index);
+ table sysibm.systables include (tablespace, database, index);
  database db1 include(children);
 
- Note: The \-\-object and \-\-object\-file options are mutually exclusive\.
+ Note: The \-\-object and \-\-object\-file options are mutually exclusive.
 </code></pre>
 </li>
 </ul>
@@ -13207,11 +13226,11 @@ The optional clause include(&lt;related\-object\-type&gt;,\.\.\.) identifies one
 <li>
 <p>Specifies the creator and name of an existing RC/Migrator global change set to be used to modify Db2 object attributes when generating the DDL.</p>
 <p>Format:</p>
-<pre><code>&lt;change\-set\-creator\.change\-set\-name&gt; 
+<pre><code>&lt;change\-set\-creator.change\-set\-name&gt; 
 
-For more information about global change services, see the RC/Migrator documentation at https://techdocs\.broadcom\.com/db2rcmig\. 
+For more information about global change services, see the RC/Migrator documentation at https://techdocs.broadcom.com/db2rcmig. 
 
-Note: If change\-set and change\-set\-file are both specified, specifications in change\-set\-file take precedence\.
+Note: If change\-set and change\-set\-file are both specified, specifications in change\-set\-file take precedence.
 </code></pre>
 </li>
 </ul>
@@ -13224,9 +13243,9 @@ Note: If change\-set and change\-set\-file are both specified, specifications in
 <p>Format:</p>
 <pre><code>&lt;object\-attribute&gt; &lt;from\-value&gt; &lt;to\-value&gt;
 
-The &lt;object\-attribute&gt; consists of four characters\. The first two characters identify the object type\. The last two characters identify the specific attribute\. Wildcard characters are supported in the &lt;from\-value&gt; and &lt;to\-value&gt;\. The first occurrence in multiple specifications for the same &lt;object\-attribute&gt; has the highest precedence\.
+The &lt;object\-attribute&gt; consists of four characters. The first two characters identify the object type. The last two characters identify the specific attribute. Wildcard characters are supported in the &lt;from\-value&gt; and &lt;to\-value&gt;. The first occurrence in multiple specifications for the same &lt;object\-attribute&gt; has the highest precedence.
 
-For a list of global change set attributes, see the RC/Migrator documentation at https://techdocs\.broadcom\.com/db2rcmig\.
+For a list of global change set attributes, see the RC/Migrator documentation at https://techdocs.broadcom.com/db2rcmig.
 
 Example:
 
@@ -13235,7 +13254,7 @@ The following example demonstrates changes to table’s schema (creator) and tab
     TBCR TEST% PROD%
     TBTS TESTTS% PRODTS%
 
-Note: If change\-set and change\-set\-file are both specified, specifications in change\-set\-file take precedence\.
+Note: If change\-set and change\-set\-file are both specified, specifications in change\-set\-file take precedence.
 </code></pre>
 </li>
 </ul>
@@ -13255,7 +13274,7 @@ Allowed values: drop, create</p>
 <ul>
 <li>
 <p>Specifies the local output file name that contains the generated DDL for the objects that are identified by the --object-file or --object option.</p>
-<pre><code>   Default value: output\.sql
+<pre><code>   Default value: output.sql
 </code></pre>
 </li>
 </ul>
@@ -13274,7 +13293,7 @@ Allowed values: drop, create</p>
 <ul>
 <li>
 <p>Specifies the local output error file that contains errors that occurred during execution of the command.</p>
-<pre><code>   Default value: error\.log
+<pre><code>   Default value: error.log
 </code></pre>
 </li>
 </ul>
@@ -13399,7 +13418,7 @@ Allowed values: drop, create</p>
 <li>
 <p>Specifies the Db2 objects that you want to migrate. Use the optional include syntax to include related Db2 objects.</p>
 <p>Format: see object-file description.</p>
-<pre><code>Note: The \-\-object and \-\-object\-file options are mutually exclusive\.
+<pre><code>Note: The \-\-object and \-\-object\-file options are mutually exclusive.
 </code></pre>
 </li>
 </ul>
@@ -13410,32 +13429,32 @@ Allowed values: drop, create</p>
 <li>
 <p>Specifies the local input file that contains a list of Db2 objects, separated by a semicolon, that you want to migrate. Use the optional include syntax to include related Db2 objects.</p>
 <p>Format:</p>
-<pre><code>&lt;object\-type&gt; &lt;object\-name&gt; \[include(&lt;related\-object\-type&gt;,\.\.\.)\];
+<pre><code>&lt;object\-type&gt; &lt;object\-name&gt; \[include(&lt;related\-object\-type&gt;,...)\];
 
 The required clause &lt;object\-type&gt; &lt;object\-name&gt;  identifies the specific Db2 (base) object:
  
     STOGROUP &lt;name&gt;
     DATABASE &lt;name&gt;
-    TABLESPACE &lt;dbname&gt;\.&lt;name&gt;
-    TABLE &lt;schema&gt;\.&lt;name&gt;
-    INDEX &lt;schema&gt;\.&lt;name&gt;
-    VIEW &lt;schema&gt;\.&lt;name&gt;
-    ALIAS &lt;schema&gt;\.&lt;name&gt;
-    SYNONYM &lt;schema&gt;\.&lt;name&gt;
-    MQT &lt;schema&gt;\.&lt;name&gt;
-    SEQUENCE &lt;schema&gt;\.&lt;name&gt;
-    TRIGGER &lt;schema&gt;\.&lt;name&gt;
-    FUNCTION &lt;schema&gt;\.&lt;name&gt;\[\.&lt;version&gt;\]
-    PROCEDURE &lt;schema&gt;\.&lt;name&gt;\[\.&lt;version&gt;\]
+    TABLESPACE &lt;dbname&gt;.&lt;name&gt;
+    TABLE &lt;schema&gt;.&lt;name&gt;
+    INDEX &lt;schema&gt;.&lt;name&gt;
+    VIEW &lt;schema&gt;.&lt;name&gt;
+    ALIAS &lt;schema&gt;.&lt;name&gt;
+    SYNONYM &lt;schema&gt;.&lt;name&gt;
+    MQT &lt;schema&gt;.&lt;name&gt;
+    SEQUENCE &lt;schema&gt;.&lt;name&gt;
+    TRIGGER &lt;schema&gt;.&lt;name&gt;
+    FUNCTION &lt;schema&gt;.&lt;name&gt;\[.&lt;version&gt;\]
+    PROCEDURE &lt;schema&gt;.&lt;name&gt;\[.&lt;version&gt;\]
 
-The optional clause include(&lt;related\-object\-type&gt;,\.\.\.) identifies one or more, comma separated related object types that you want to include in the object list\. You can specify STOGROUP, DATABASE, TABLESPACE, TABLE, INDEX, VIEW, SYNONYM, MQT\-ALL, TRIGGER, ROUTINE, PARENTS, CHILDREN, and ALL\.
+The optional clause include(&lt;related\-object\-type&gt;,...) identifies one or more, comma separated related object types that you want to include in the object list. You can specify STOGROUP, DATABASE, TABLESPACE, TABLE, INDEX, VIEW, SYNONYM, MQT\-ALL, TRIGGER, ROUTINE, PARENTS, CHILDREN, and ALL.
  
  Example:
  
- table sysibm\.systables include (tablespace, database, index);
+ table sysibm.systables include (tablespace, database, index);
  database db1 include(children);
 
- Note: The \-\-object and \-\-object\-file options are mutually exclusive\.
+ Note: The \-\-object and \-\-object\-file options are mutually exclusive.
 </code></pre>
 </li>
 </ul>
@@ -13446,11 +13465,11 @@ The optional clause include(&lt;related\-object\-type&gt;,\.\.\.) identifies one
 <li>
 <p>Specifies the creator and name of an existing RC/Migrator global change set to be used to modify Db2 object attributes when preparing objects for migration.</p>
 <p>Format:</p>
-<pre><code>&lt;change\-set\-creator\.change\-set\-name&gt; 
+<pre><code>&lt;change\-set\-creator.change\-set\-name&gt; 
 
-For more information about global change services, see the RC/Migrator documentation at https://techdocs\.broadcom\.com/db2rcmig\. 
+For more information about global change services, see the RC/Migrator documentation at https://techdocs.broadcom.com/db2rcmig. 
 
-Note: If change\-set and change\-set\-file are both specified, specifications in change\-set\-file take precedence\.
+Note: If change\-set and change\-set\-file are both specified, specifications in change\-set\-file take precedence.
 </code></pre>
 </li>
 </ul>
@@ -13463,9 +13482,9 @@ Note: If change\-set and change\-set\-file are both specified, specifications in
 <p>Format:</p>
 <pre><code>&lt;object\-attribute&gt; &lt;from\-value&gt; &lt;to\-value&gt;
 
-The &lt;object\-attribute&gt; consists of four characters\. The first two characters identify the object type\. The last two characters identify the specific attribute\. Wildcard characters are supported in the &lt;from\-value&gt; and &lt;to\-value&gt;\. The first occurrence in multiple specifications for the same &lt;object\-attribute&gt; has the highest precedence\.
+The &lt;object\-attribute&gt; consists of four characters. The first two characters identify the object type. The last two characters identify the specific attribute. Wildcard characters are supported in the &lt;from\-value&gt; and &lt;to\-value&gt;. The first occurrence in multiple specifications for the same &lt;object\-attribute&gt; has the highest precedence.
 
-For a list of global change set attributes, see the RC/Migrator documentation at https://techdocs\.broadcom\.com/db2rcmig\.
+For a list of global change set attributes, see the RC/Migrator documentation at https://techdocs.broadcom.com/db2rcmig.
 
 Example:
 
@@ -13474,7 +13493,7 @@ The following example demonstrates changes to table’s schema (creator) and tab
     TBCR TEST% PROD%
     TBTS TESTTS% PRODTS%
 
-Note: If change\-set and change\-set\-file are both specified, specifications in change\-set\-file take precedence\.
+Note: If change\-set and change\-set\-file are both specified, specifications in change\-set\-file take precedence.
 </code></pre>
 </li>
 </ul>
@@ -13511,7 +13530,7 @@ Note: If change\-set and change\-set\-file are both specified, specifications in
 <ul>
 <li>
 <p>Specifies the local output error file that contains errors that occurred during execution of the command.</p>
-<pre><code>   Default value: error\.log
+<pre><code>   Default value: error.log
 </code></pre>
 </li>
 </ul>
@@ -21907,7 +21926,7 @@ Allowed values: http, https</p>
 <li>
 <p><code>--skeleton-jcl</code>  | <code>--sjcl</code> <em>(string)</em></p>
 <ul>
-<li>The path of the file of skeleton JCL to submit endevor scl statements. Download it from: <a href="https://techdocs.broadcom.com/content/broadcom/techdocs/us/en/ca-mainframe-software/devops/ca-endevor-integrations-for-enterprise-devops/1-0/ca-endevor-bridge-for-git/set-up-and-run-the-ca-endevor-bridge-for-git/configuration-for-build-using-zowe-cli.html">https://techdocs.broadcom.com/content/broadcom/techdocs/us/en/ca-mainframe-software/devops/ca-endevor-integrations-for-enterprise-devops/1-0/ca-endevor-bridge-for-git/set-up-and-run-the-ca-endevor-bridge-for-git/configuration-for-build-using-zowe-cli.html</a></li>
+<li>The path of the file of skeleton JCL to submit endevor scl statements. Download it from: <a href="https://techdocs.broadcom.com/content/broadcom/techdocs/us/en/ca%5C-mainframe%5C-software/devops/ca%5C-endevor%5C-integrations%5C-for%5C-enterprise%5C-devops/1%5C-0/ca%5C-endevor%5C-bridge%5C-for%5C-git/set%5C-up%5C-and%5C-run%5C-the%5C-ca%5C-endevor%5C-bridge%5C-for%5C-git/configuration%5C-for%5C-build%5C-using%5C-zowe%5C-cli.html">https://techdocs.broadcom.com/content/broadcom/techdocs/us/en/ca\-mainframe\-software/devops/ca\-endevor\-integrations\-for\-enterprise\-devops/1\-0/ca\-endevor\-bridge\-for\-git/set\-up\-and\-run\-the\-ca\-endevor\-bridge\-for\-git/configuration\-for\-build\-using\-zowe\-cli.html</a></li>
 </ul>
 </li>
 </ul>
@@ -33554,6 +33573,1069 @@ Allowed values: http, https</p>
 </ul>
 </li>
 </ul>
+<a name="zowe_mat_monitor_idms"></a><h2><a href="#zowe">zowe</a> › <a href="#zowe_mat">mat</a> › <a href="#zowe_mat_monitor">monitor</a> › <a href="#zowe_mat_monitor_idms">idms</a><button id="btn-print" class="no-print" onclick="window.print();" title="Print">🖨️</button></h2>
+<p>Get the IDMS measurement details.</p>
+<a class="cmd-anchor" name="zowe_mat_monitor_idms_dml"></a><h3><a href="#zowe">zowe</a> › <a href="#zowe_mat">mat</a> › <a href="#zowe_mat_monitor">monitor</a> › <a href="#zowe_mat_monitor_idms">idms</a> › <a href="#zowe_mat_monitor_idms_dml">dml</a><button id="btn-print" class="no-print" onclick="window.print();" title="Print">🖨️</button></h3>
+<p>Get the IDMS measurement details in DML mode.</p>
+<h4>Usage</h4>
+<p>zowe mat monitor idms dml [options]</p>
+<h4>Options</h4>
+<ul>
+<li>
+<p><code>--profile</code>  <em>(string)</em></p>
+<ul>
+<li>Specifies the name of the profile that you want to analyze. When you specify the profile name, you get the data for the latest measurement within the specified profile.</li>
+</ul>
+</li>
+<li>
+<p><code>--mon_num</code>  <em>(number)</em></p>
+<ul>
+<li>Specifies the unique monitor number of the measurement.</li>
+</ul>
+</li>
+</ul>
+<h4>Profile Options</h4>
+<ul>
+<li>
+<p><code>--mat-profile</code>  | <code>--mat-p</code> <em>(string)</em></p>
+<ul>
+<li>The name of a (mat) profile to load for this command execution.</li>
+</ul>
+</li>
+<li>
+<p><code>--base-profile</code>  | <code>--base-p</code> <em>(string)</em></p>
+<ul>
+<li>The name of a (base) profile to load for this command execution.</li>
+</ul>
+</li>
+</ul>
+<h4>Base Connection Options</h4>
+<ul>
+<li>
+<p><code>--host</code>  | <code>-H</code> <em>(string)</em></p>
+<ul>
+<li>Host name of service on the mainframe.</li>
+</ul>
+</li>
+<li>
+<p><code>--port</code>  | <code>-P</code> <em>(number)</em></p>
+<ul>
+<li>Port number of service on the mainframe.</li>
+</ul>
+</li>
+<li>
+<p><code>--user</code>  | <code>-u</code> <em>(string)</em></p>
+<ul>
+<li>User name to authenticate to service on the mainframe.</li>
+</ul>
+</li>
+<li>
+<p><code>--password</code>  | <code>--pass</code> | <code>--pw</code> <em>(string)</em></p>
+<ul>
+<li>Password to authenticate to service on the mainframe.</li>
+</ul>
+</li>
+<li>
+<p><code>--reject-unauthorized</code>  | <code>--ru</code> <em>(boolean)</em></p>
+<ul>
+<li>
+<p>Reject self-signed certificates.</p>
+<p>Default value: true</p>
+</li>
+</ul>
+</li>
+<li>
+<p><code>--token-type</code>  | <code>--tt</code> <em>(string)</em></p>
+<ul>
+<li>The type of token to get and use for the API. Omit this option to use the default token type, which is provided by 'zowe auth login'.</li>
+</ul>
+</li>
+<li>
+<p><code>--token-value</code>  | <code>--tv</code> <em>(string)</em></p>
+<ul>
+<li>The value of the token to pass to the API.</li>
+</ul>
+</li>
+<li>
+<p><code>--cert-file</code>  <em>(local file path)</em></p>
+<ul>
+<li>The file path to a certificate file to use for authentication</li>
+</ul>
+</li>
+<li>
+<p><code>--cert-key-file</code>  <em>(local file path)</em></p>
+<ul>
+<li>The file path to a certificate key file to use for authentication</li>
+</ul>
+</li>
+</ul>
+<h4>Examples</h4>
+<ul>
+<li>
+<p>Get the CodeView measurement details in Module mode for monitor number 5:</p>
+<ul>
+<li><code>zowe mat monitor idms dml --mon_num 5</code> <button class="btn-copy no-print" data-balloon-pos="right" data-clipboard-text="zowe mat monitor idms dml --mon_num 5">Copy</button></li>
+</ul>
+</li>
+<li>
+<p>Get the CodeView measurement details in Module mode for the latest monitor in the TESTPROF profile:</p>
+<ul>
+<li><code>zowe mat monitor idms dml --profile TESTPROF</code> <button class="btn-copy no-print" data-balloon-pos="right" data-clipboard-text="zowe mat monitor idms dml --profile TESTPROF">Copy</button></li>
+</ul>
+</li>
+<li>
+<p>Get the dml details of the measurement for monitor number 5:</p>
+<ul>
+<li><code>zowe mat monitor idms dml dml --mon_num 5</code> <button class="btn-copy no-print" data-balloon-pos="right" data-clipboard-text="zowe mat monitor idms dml dml --mon_num 5">Copy</button></li>
+</ul>
+</li>
+</ul>
+<a class="cmd-anchor" name="zowe_mat_monitor_idms_module"></a><h3><a href="#zowe">zowe</a> › <a href="#zowe_mat">mat</a> › <a href="#zowe_mat_monitor">monitor</a> › <a href="#zowe_mat_monitor_idms">idms</a> › <a href="#zowe_mat_monitor_idms_module">module</a><button id="btn-print" class="no-print" onclick="window.print();" title="Print">🖨️</button></h3>
+<p>Get the IDMS measurement details.</p>
+<h4>Usage</h4>
+<p>zowe mat monitor idms module [options]</p>
+<h4>Options</h4>
+<ul>
+<li>
+<p><code>--profile</code>  <em>(string)</em></p>
+<ul>
+<li>Specifies the name of the profile that you want to analyze. When you specify the profile name, you get the data for the latest measurement within the specified profile.</li>
+</ul>
+</li>
+<li>
+<p><code>--mon_num</code>  <em>(number)</em></p>
+<ul>
+<li>Specifies the unique monitor number of the measurement.</li>
+</ul>
+</li>
+<li>
+<p><code>--module</code>  <em>(string)</em></p>
+<ul>
+<li>Specifies the module of the measurement.</li>
+</ul>
+</li>
+<li>
+<p><code>--taskid</code>  <em>(number)</em></p>
+<ul>
+<li>Specifies the taskid number.</li>
+</ul>
+</li>
+<li>
+<p><code>--ruid</code>  <em>(number)</em></p>
+<ul>
+<li>Specifies the ruid number.</li>
+</ul>
+</li>
+<li>
+<p><code>--linecmd</code>  <em>(string)</em></p>
+<ul>
+<li>Specifies the line command to be used for the row data</li>
+</ul>
+</li>
+</ul>
+<h4>Profile Options</h4>
+<ul>
+<li>
+<p><code>--mat-profile</code>  | <code>--mat-p</code> <em>(string)</em></p>
+<ul>
+<li>The name of a (mat) profile to load for this command execution.</li>
+</ul>
+</li>
+<li>
+<p><code>--base-profile</code>  | <code>--base-p</code> <em>(string)</em></p>
+<ul>
+<li>The name of a (base) profile to load for this command execution.</li>
+</ul>
+</li>
+</ul>
+<h4>Base Connection Options</h4>
+<ul>
+<li>
+<p><code>--host</code>  | <code>-H</code> <em>(string)</em></p>
+<ul>
+<li>Host name of service on the mainframe.</li>
+</ul>
+</li>
+<li>
+<p><code>--port</code>  | <code>-P</code> <em>(number)</em></p>
+<ul>
+<li>Port number of service on the mainframe.</li>
+</ul>
+</li>
+<li>
+<p><code>--user</code>  | <code>-u</code> <em>(string)</em></p>
+<ul>
+<li>User name to authenticate to service on the mainframe.</li>
+</ul>
+</li>
+<li>
+<p><code>--password</code>  | <code>--pass</code> | <code>--pw</code> <em>(string)</em></p>
+<ul>
+<li>Password to authenticate to service on the mainframe.</li>
+</ul>
+</li>
+<li>
+<p><code>--reject-unauthorized</code>  | <code>--ru</code> <em>(boolean)</em></p>
+<ul>
+<li>
+<p>Reject self-signed certificates.</p>
+<p>Default value: true</p>
+</li>
+</ul>
+</li>
+<li>
+<p><code>--token-type</code>  | <code>--tt</code> <em>(string)</em></p>
+<ul>
+<li>The type of token to get and use for the API. Omit this option to use the default token type, which is provided by 'zowe auth login'.</li>
+</ul>
+</li>
+<li>
+<p><code>--token-value</code>  | <code>--tv</code> <em>(string)</em></p>
+<ul>
+<li>The value of the token to pass to the API.</li>
+</ul>
+</li>
+<li>
+<p><code>--cert-file</code>  <em>(local file path)</em></p>
+<ul>
+<li>The file path to a certificate file to use for authentication</li>
+</ul>
+</li>
+<li>
+<p><code>--cert-key-file</code>  <em>(local file path)</em></p>
+<ul>
+<li>The file path to a certificate key file to use for authentication</li>
+</ul>
+</li>
+</ul>
+<h4>Examples</h4>
+<ul>
+<li>
+<p>Get the idms details of the measurement for monitor number 5:</p>
+<ul>
+<li><code>zowe mat monitor idms module --mon_num 5</code> <button class="btn-copy no-print" data-balloon-pos="right" data-clipboard-text="zowe mat monitor idms module --mon_num 5">Copy</button></li>
+</ul>
+</li>
+<li>
+<p>Get the idms details of the measurement for the latest monitor in the TESTPROF profile:</p>
+<ul>
+<li><code>zowe mat monitor idms module --profile TESTPROF</code> <button class="btn-copy no-print" data-balloon-pos="right" data-clipboard-text="zowe mat monitor idms module --profile TESTPROF">Copy</button></li>
+</ul>
+</li>
+<li>
+<p>Get the module details of the measurement for monitor number 5:</p>
+<ul>
+<li><code>zowe mat monitor idms module module --mon_num 5</code> <button class="btn-copy no-print" data-balloon-pos="right" data-clipboard-text="zowe mat monitor idms module module --mon_num 5">Copy</button></li>
+</ul>
+</li>
+<li>
+<p>Specify the module | taskid | ruid | linecmd option of the measurement for the module mode:</p>
+<ul>
+<li><code>zowe mat monitor idms module --module SQLA01D | --taskid 1 | --ruid 19333 | --linecmd dispatch</code> <button class="btn-copy no-print" data-balloon-pos="right" data-clipboard-text="zowe mat monitor idms module --module SQLA01D | --taskid 1 | --ruid 19333 | --linecmd dispatch">Copy</button></li>
+</ul>
+</li>
+</ul>
+<a class="cmd-anchor" name="zowe_mat_monitor_idms_task"></a><h3><a href="#zowe">zowe</a> › <a href="#zowe_mat">mat</a> › <a href="#zowe_mat_monitor">monitor</a> › <a href="#zowe_mat_monitor_idms">idms</a> › <a href="#zowe_mat_monitor_idms_task">task</a><button id="btn-print" class="no-print" onclick="window.print();" title="Print">🖨️</button></h3>
+<p>Get the IDMS measurement details in Task mode.</p>
+<h4>Usage</h4>
+<p>zowe mat monitor idms task [options]</p>
+<h4>Options</h4>
+<ul>
+<li>
+<p><code>--profile</code>  <em>(string)</em></p>
+<ul>
+<li>Specifies the name of the profile that you want to analyze. When you specify the profile name, you get the data for the latest measurement within the specified profile.</li>
+</ul>
+</li>
+<li>
+<p><code>--mon_num</code>  <em>(number)</em></p>
+<ul>
+<li>Specifies the unique monitor number of the measurement.</li>
+</ul>
+</li>
+</ul>
+<h4>Profile Options</h4>
+<ul>
+<li>
+<p><code>--mat-profile</code>  | <code>--mat-p</code> <em>(string)</em></p>
+<ul>
+<li>The name of a (mat) profile to load for this command execution.</li>
+</ul>
+</li>
+<li>
+<p><code>--base-profile</code>  | <code>--base-p</code> <em>(string)</em></p>
+<ul>
+<li>The name of a (base) profile to load for this command execution.</li>
+</ul>
+</li>
+</ul>
+<h4>Base Connection Options</h4>
+<ul>
+<li>
+<p><code>--host</code>  | <code>-H</code> <em>(string)</em></p>
+<ul>
+<li>Host name of service on the mainframe.</li>
+</ul>
+</li>
+<li>
+<p><code>--port</code>  | <code>-P</code> <em>(number)</em></p>
+<ul>
+<li>Port number of service on the mainframe.</li>
+</ul>
+</li>
+<li>
+<p><code>--user</code>  | <code>-u</code> <em>(string)</em></p>
+<ul>
+<li>User name to authenticate to service on the mainframe.</li>
+</ul>
+</li>
+<li>
+<p><code>--password</code>  | <code>--pass</code> | <code>--pw</code> <em>(string)</em></p>
+<ul>
+<li>Password to authenticate to service on the mainframe.</li>
+</ul>
+</li>
+<li>
+<p><code>--reject-unauthorized</code>  | <code>--ru</code> <em>(boolean)</em></p>
+<ul>
+<li>
+<p>Reject self-signed certificates.</p>
+<p>Default value: true</p>
+</li>
+</ul>
+</li>
+<li>
+<p><code>--token-type</code>  | <code>--tt</code> <em>(string)</em></p>
+<ul>
+<li>The type of token to get and use for the API. Omit this option to use the default token type, which is provided by 'zowe auth login'.</li>
+</ul>
+</li>
+<li>
+<p><code>--token-value</code>  | <code>--tv</code> <em>(string)</em></p>
+<ul>
+<li>The value of the token to pass to the API.</li>
+</ul>
+</li>
+<li>
+<p><code>--cert-file</code>  <em>(local file path)</em></p>
+<ul>
+<li>The file path to a certificate file to use for authentication</li>
+</ul>
+</li>
+<li>
+<p><code>--cert-key-file</code>  <em>(local file path)</em></p>
+<ul>
+<li>The file path to a certificate key file to use for authentication</li>
+</ul>
+</li>
+</ul>
+<h4>Examples</h4>
+<ul>
+<li>
+<p>Get the CodeView measurement details in Module mode for monitor number 5:</p>
+<ul>
+<li><code>zowe mat monitor idms task --mon_num 5</code> <button class="btn-copy no-print" data-balloon-pos="right" data-clipboard-text="zowe mat monitor idms task --mon_num 5">Copy</button></li>
+</ul>
+</li>
+<li>
+<p>Get the CodeView measurement details in Module mode for the latest monitor in the TESTPROF profile:</p>
+<ul>
+<li><code>zowe mat monitor idms task --profile TESTPROF</code> <button class="btn-copy no-print" data-balloon-pos="right" data-clipboard-text="zowe mat monitor idms task --profile TESTPROF">Copy</button></li>
+</ul>
+</li>
+<li>
+<p>Get the task details of the measurement for monitor number 5:</p>
+<ul>
+<li><code>zowe mat monitor idms task task --mon_num 5</code> <button class="btn-copy no-print" data-balloon-pos="right" data-clipboard-text="zowe mat monitor idms task task --mon_num 5">Copy</button></li>
+</ul>
+</li>
+</ul>
+<a name="zowe_mat_monitor_imsview"></a><h2><a href="#zowe">zowe</a> › <a href="#zowe_mat">mat</a> › <a href="#zowe_mat_monitor">monitor</a> › <a href="#zowe_mat_monitor_imsview">imsview</a><button id="btn-print" class="no-print" onclick="window.print();" title="Print">🖨️</button></h2>
+<p>Get the IMS measurement details.</p>
+<a class="cmd-anchor" name="zowe_mat_monitor_imsview_dbdname"></a><h3><a href="#zowe">zowe</a> › <a href="#zowe_mat">mat</a> › <a href="#zowe_mat_monitor">monitor</a> › <a href="#zowe_mat_monitor_imsview">imsview</a> › <a href="#zowe_mat_monitor_imsview_dbdname">dbdname</a><button id="btn-print" class="no-print" onclick="window.print();" title="Print">🖨️</button></h3>
+<p>Get the IMS View DBDName details for the measurement.</p>
+<h4>Usage</h4>
+<p>zowe mat monitor imsview dbdname [options]</p>
+<h4>Options</h4>
+<ul>
+<li>
+<p><code>--profile</code>  <em>(string)</em></p>
+<ul>
+<li>Specifies the name of the profile that you want to analyze. When you specify the profile name, you get the data for the latest measurement within the specified profile.</li>
+</ul>
+</li>
+<li>
+<p><code>--mon_num</code>  <em>(number)</em></p>
+<ul>
+<li>Specifies the unique monitor number of the measurement.</li>
+</ul>
+</li>
+</ul>
+<h4>Profile Options</h4>
+<ul>
+<li>
+<p><code>--mat-profile</code>  | <code>--mat-p</code> <em>(string)</em></p>
+<ul>
+<li>The name of a (mat) profile to load for this command execution.</li>
+</ul>
+</li>
+<li>
+<p><code>--base-profile</code>  | <code>--base-p</code> <em>(string)</em></p>
+<ul>
+<li>The name of a (base) profile to load for this command execution.</li>
+</ul>
+</li>
+</ul>
+<h4>Base Connection Options</h4>
+<ul>
+<li>
+<p><code>--host</code>  | <code>-H</code> <em>(string)</em></p>
+<ul>
+<li>Host name of service on the mainframe.</li>
+</ul>
+</li>
+<li>
+<p><code>--port</code>  | <code>-P</code> <em>(number)</em></p>
+<ul>
+<li>Port number of service on the mainframe.</li>
+</ul>
+</li>
+<li>
+<p><code>--user</code>  | <code>-u</code> <em>(string)</em></p>
+<ul>
+<li>User name to authenticate to service on the mainframe.</li>
+</ul>
+</li>
+<li>
+<p><code>--password</code>  | <code>--pass</code> | <code>--pw</code> <em>(string)</em></p>
+<ul>
+<li>Password to authenticate to service on the mainframe.</li>
+</ul>
+</li>
+<li>
+<p><code>--reject-unauthorized</code>  | <code>--ru</code> <em>(boolean)</em></p>
+<ul>
+<li>
+<p>Reject self-signed certificates.</p>
+<p>Default value: true</p>
+</li>
+</ul>
+</li>
+<li>
+<p><code>--token-type</code>  | <code>--tt</code> <em>(string)</em></p>
+<ul>
+<li>The type of token to get and use for the API. Omit this option to use the default token type, which is provided by 'zowe auth login'.</li>
+</ul>
+</li>
+<li>
+<p><code>--token-value</code>  | <code>--tv</code> <em>(string)</em></p>
+<ul>
+<li>The value of the token to pass to the API.</li>
+</ul>
+</li>
+<li>
+<p><code>--cert-file</code>  <em>(local file path)</em></p>
+<ul>
+<li>The file path to a certificate file to use for authentication</li>
+</ul>
+</li>
+<li>
+<p><code>--cert-key-file</code>  <em>(local file path)</em></p>
+<ul>
+<li>The file path to a certificate key file to use for authentication</li>
+</ul>
+</li>
+</ul>
+<h4>Examples</h4>
+<ul>
+<li>
+<p>Get the IMS View DBDName details for monitor number 5:</p>
+<ul>
+<li><code>zowe mat monitor imsview dbdname --mon_num 5</code> <button class="btn-copy no-print" data-balloon-pos="right" data-clipboard-text="zowe mat monitor imsview dbdname --mon_num 5">Copy</button></li>
+</ul>
+</li>
+<li>
+<p>Get the IMS View DBDName details for the latest monitor in the TESTPROF profile, :</p>
+<ul>
+<li><code>zowe mat monitor imsview dbdname --profile TESTPROF</code> <button class="btn-copy no-print" data-balloon-pos="right" data-clipboard-text="zowe mat monitor imsview dbdname --profile TESTPROF">Copy</button></li>
+</ul>
+</li>
+</ul>
+<a class="cmd-anchor" name="zowe_mat_monitor_imsview_imsview"></a><h3><a href="#zowe">zowe</a> › <a href="#zowe_mat">mat</a> › <a href="#zowe_mat_monitor">monitor</a> › <a href="#zowe_mat_monitor_imsview">imsview</a> › <a href="#zowe_mat_monitor_imsview_imsview">imsview</a><button id="btn-print" class="no-print" onclick="window.print();" title="Print">🖨️</button></h3>
+<p>Get the IMS View details for the measurement.</p>
+<h4>Usage</h4>
+<p>zowe mat monitor imsview imsview [options]</p>
+<h4>Options</h4>
+<ul>
+<li>
+<p><code>--mon_num</code>  <em>(number)</em></p>
+<ul>
+<li>Specifies the unique monitor number of the measurement.</li>
+</ul>
+</li>
+<li>
+<p><code>--profile</code>  <em>(string)</em></p>
+<ul>
+<li>Specifies the name of the profile that you want to analyze. When you specify the profile name, you get the data for the latest measurement within the specified profile.</li>
+</ul>
+</li>
+</ul>
+<h4>Profile Options</h4>
+<ul>
+<li>
+<p><code>--mat-profile</code>  | <code>--mat-p</code> <em>(string)</em></p>
+<ul>
+<li>The name of a (mat) profile to load for this command execution.</li>
+</ul>
+</li>
+<li>
+<p><code>--base-profile</code>  | <code>--base-p</code> <em>(string)</em></p>
+<ul>
+<li>The name of a (base) profile to load for this command execution.</li>
+</ul>
+</li>
+</ul>
+<h4>Base Connection Options</h4>
+<ul>
+<li>
+<p><code>--host</code>  | <code>-H</code> <em>(string)</em></p>
+<ul>
+<li>Host name of service on the mainframe.</li>
+</ul>
+</li>
+<li>
+<p><code>--port</code>  | <code>-P</code> <em>(number)</em></p>
+<ul>
+<li>Port number of service on the mainframe.</li>
+</ul>
+</li>
+<li>
+<p><code>--user</code>  | <code>-u</code> <em>(string)</em></p>
+<ul>
+<li>User name to authenticate to service on the mainframe.</li>
+</ul>
+</li>
+<li>
+<p><code>--password</code>  | <code>--pass</code> | <code>--pw</code> <em>(string)</em></p>
+<ul>
+<li>Password to authenticate to service on the mainframe.</li>
+</ul>
+</li>
+<li>
+<p><code>--reject-unauthorized</code>  | <code>--ru</code> <em>(boolean)</em></p>
+<ul>
+<li>
+<p>Reject self-signed certificates.</p>
+<p>Default value: true</p>
+</li>
+</ul>
+</li>
+<li>
+<p><code>--token-type</code>  | <code>--tt</code> <em>(string)</em></p>
+<ul>
+<li>The type of token to get and use for the API. Omit this option to use the default token type, which is provided by 'zowe auth login'.</li>
+</ul>
+</li>
+<li>
+<p><code>--token-value</code>  | <code>--tv</code> <em>(string)</em></p>
+<ul>
+<li>The value of the token to pass to the API.</li>
+</ul>
+</li>
+<li>
+<p><code>--cert-file</code>  <em>(local file path)</em></p>
+<ul>
+<li>The file path to a certificate file to use for authentication</li>
+</ul>
+</li>
+<li>
+<p><code>--cert-key-file</code>  <em>(local file path)</em></p>
+<ul>
+<li>The file path to a certificate key file to use for authentication</li>
+</ul>
+</li>
+</ul>
+<h4>Examples</h4>
+<ul>
+<li>
+<p>Get the IMS View details for monitor number 5:</p>
+<ul>
+<li><code>zowe mat monitor imsview imsview --mon_num 5</code> <button class="btn-copy no-print" data-balloon-pos="right" data-clipboard-text="zowe mat monitor imsview imsview --mon_num 5">Copy</button></li>
+</ul>
+</li>
+<li>
+<p>Get the IMS View details for the latest monitor in the TESTPROF profile, :</p>
+<ul>
+<li><code>zowe mat monitor imsview imsview --profile TESTPROF</code> <button class="btn-copy no-print" data-balloon-pos="right" data-clipboard-text="zowe mat monitor imsview imsview --profile TESTPROF">Copy</button></li>
+</ul>
+</li>
+</ul>
+<a class="cmd-anchor" name="zowe_mat_monitor_imsview_psbname"></a><h3><a href="#zowe">zowe</a> › <a href="#zowe_mat">mat</a> › <a href="#zowe_mat_monitor">monitor</a> › <a href="#zowe_mat_monitor_imsview">imsview</a> › <a href="#zowe_mat_monitor_imsview_psbname">psbname</a><button id="btn-print" class="no-print" onclick="window.print();" title="Print">🖨️</button></h3>
+<p>Get the IMS View PSBName details for the measurement.</p>
+<h4>Usage</h4>
+<p>zowe mat monitor imsview psbname [options]</p>
+<h4>Options</h4>
+<ul>
+<li>
+<p><code>--profile</code>  <em>(string)</em></p>
+<ul>
+<li>Specifies the name of the profile that you want to analyze. When you specify the profile name, you get the data for the latest measurement within the specified profile.</li>
+</ul>
+</li>
+<li>
+<p><code>--mon_num</code>  <em>(number)</em></p>
+<ul>
+<li>Specifies the unique monitor number of the measurement.</li>
+</ul>
+</li>
+</ul>
+<h4>Profile Options</h4>
+<ul>
+<li>
+<p><code>--mat-profile</code>  | <code>--mat-p</code> <em>(string)</em></p>
+<ul>
+<li>The name of a (mat) profile to load for this command execution.</li>
+</ul>
+</li>
+<li>
+<p><code>--base-profile</code>  | <code>--base-p</code> <em>(string)</em></p>
+<ul>
+<li>The name of a (base) profile to load for this command execution.</li>
+</ul>
+</li>
+</ul>
+<h4>Base Connection Options</h4>
+<ul>
+<li>
+<p><code>--host</code>  | <code>-H</code> <em>(string)</em></p>
+<ul>
+<li>Host name of service on the mainframe.</li>
+</ul>
+</li>
+<li>
+<p><code>--port</code>  | <code>-P</code> <em>(number)</em></p>
+<ul>
+<li>Port number of service on the mainframe.</li>
+</ul>
+</li>
+<li>
+<p><code>--user</code>  | <code>-u</code> <em>(string)</em></p>
+<ul>
+<li>User name to authenticate to service on the mainframe.</li>
+</ul>
+</li>
+<li>
+<p><code>--password</code>  | <code>--pass</code> | <code>--pw</code> <em>(string)</em></p>
+<ul>
+<li>Password to authenticate to service on the mainframe.</li>
+</ul>
+</li>
+<li>
+<p><code>--reject-unauthorized</code>  | <code>--ru</code> <em>(boolean)</em></p>
+<ul>
+<li>
+<p>Reject self-signed certificates.</p>
+<p>Default value: true</p>
+</li>
+</ul>
+</li>
+<li>
+<p><code>--token-type</code>  | <code>--tt</code> <em>(string)</em></p>
+<ul>
+<li>The type of token to get and use for the API. Omit this option to use the default token type, which is provided by 'zowe auth login'.</li>
+</ul>
+</li>
+<li>
+<p><code>--token-value</code>  | <code>--tv</code> <em>(string)</em></p>
+<ul>
+<li>The value of the token to pass to the API.</li>
+</ul>
+</li>
+<li>
+<p><code>--cert-file</code>  <em>(local file path)</em></p>
+<ul>
+<li>The file path to a certificate file to use for authentication</li>
+</ul>
+</li>
+<li>
+<p><code>--cert-key-file</code>  <em>(local file path)</em></p>
+<ul>
+<li>The file path to a certificate key file to use for authentication</li>
+</ul>
+</li>
+</ul>
+<h4>Examples</h4>
+<ul>
+<li>
+<p>Get the IMS View PSBName details for monitor number 5:</p>
+<ul>
+<li><code>zowe mat monitor imsview psbname --mon_num 5</code> <button class="btn-copy no-print" data-balloon-pos="right" data-clipboard-text="zowe mat monitor imsview psbname --mon_num 5">Copy</button></li>
+</ul>
+</li>
+<li>
+<p>Get the IMS View PSBName details for the latest monitor in the TESTPROF profile, :</p>
+<ul>
+<li><code>zowe mat monitor imsview psbname --profile TESTPROF</code> <button class="btn-copy no-print" data-balloon-pos="right" data-clipboard-text="zowe mat monitor imsview psbname --profile TESTPROF">Copy</button></li>
+</ul>
+</li>
+</ul>
+<a class="cmd-anchor" name="zowe_mat_monitor_imsview_region"></a><h3><a href="#zowe">zowe</a> › <a href="#zowe_mat">mat</a> › <a href="#zowe_mat_monitor">monitor</a> › <a href="#zowe_mat_monitor_imsview">imsview</a> › <a href="#zowe_mat_monitor_imsview_region">region</a><button id="btn-print" class="no-print" onclick="window.print();" title="Print">🖨️</button></h3>
+<p>Get the IMS View Region details for the measurement.</p>
+<h4>Usage</h4>
+<p>zowe mat monitor imsview region [options]</p>
+<h4>Options</h4>
+<ul>
+<li>
+<p><code>--profile</code>  <em>(string)</em></p>
+<ul>
+<li>Specifies the name of the profile that you want to analyze. When you specify the profile name, you get the data for the latest measurement within the specified profile.</li>
+</ul>
+</li>
+<li>
+<p><code>--mon_num</code>  <em>(number)</em></p>
+<ul>
+<li>Specifies the unique monitor number of the measurement.</li>
+</ul>
+</li>
+</ul>
+<h4>Profile Options</h4>
+<ul>
+<li>
+<p><code>--mat-profile</code>  | <code>--mat-p</code> <em>(string)</em></p>
+<ul>
+<li>The name of a (mat) profile to load for this command execution.</li>
+</ul>
+</li>
+<li>
+<p><code>--base-profile</code>  | <code>--base-p</code> <em>(string)</em></p>
+<ul>
+<li>The name of a (base) profile to load for this command execution.</li>
+</ul>
+</li>
+</ul>
+<h4>Base Connection Options</h4>
+<ul>
+<li>
+<p><code>--host</code>  | <code>-H</code> <em>(string)</em></p>
+<ul>
+<li>Host name of service on the mainframe.</li>
+</ul>
+</li>
+<li>
+<p><code>--port</code>  | <code>-P</code> <em>(number)</em></p>
+<ul>
+<li>Port number of service on the mainframe.</li>
+</ul>
+</li>
+<li>
+<p><code>--user</code>  | <code>-u</code> <em>(string)</em></p>
+<ul>
+<li>User name to authenticate to service on the mainframe.</li>
+</ul>
+</li>
+<li>
+<p><code>--password</code>  | <code>--pass</code> | <code>--pw</code> <em>(string)</em></p>
+<ul>
+<li>Password to authenticate to service on the mainframe.</li>
+</ul>
+</li>
+<li>
+<p><code>--reject-unauthorized</code>  | <code>--ru</code> <em>(boolean)</em></p>
+<ul>
+<li>
+<p>Reject self-signed certificates.</p>
+<p>Default value: true</p>
+</li>
+</ul>
+</li>
+<li>
+<p><code>--token-type</code>  | <code>--tt</code> <em>(string)</em></p>
+<ul>
+<li>The type of token to get and use for the API. Omit this option to use the default token type, which is provided by 'zowe auth login'.</li>
+</ul>
+</li>
+<li>
+<p><code>--token-value</code>  | <code>--tv</code> <em>(string)</em></p>
+<ul>
+<li>The value of the token to pass to the API.</li>
+</ul>
+</li>
+<li>
+<p><code>--cert-file</code>  <em>(local file path)</em></p>
+<ul>
+<li>The file path to a certificate file to use for authentication</li>
+</ul>
+</li>
+<li>
+<p><code>--cert-key-file</code>  <em>(local file path)</em></p>
+<ul>
+<li>The file path to a certificate key file to use for authentication</li>
+</ul>
+</li>
+</ul>
+<h4>Examples</h4>
+<ul>
+<li>
+<p>Get the IMS View Region details for monitor number 5:</p>
+<ul>
+<li><code>zowe mat monitor imsview region --mon_num 5</code> <button class="btn-copy no-print" data-balloon-pos="right" data-clipboard-text="zowe mat monitor imsview region --mon_num 5">Copy</button></li>
+</ul>
+</li>
+<li>
+<p>Get the IMS View Region details for the latest monitor in the TESTPROF profile, :</p>
+<ul>
+<li><code>zowe mat monitor imsview region --profile TESTPROF</code> <button class="btn-copy no-print" data-balloon-pos="right" data-clipboard-text="zowe mat monitor imsview region --profile TESTPROF">Copy</button></li>
+</ul>
+</li>
+</ul>
+<a class="cmd-anchor" name="zowe_mat_monitor_imsview_ssa"></a><h3><a href="#zowe">zowe</a> › <a href="#zowe_mat">mat</a> › <a href="#zowe_mat_monitor">monitor</a> › <a href="#zowe_mat_monitor_imsview">imsview</a> › <a href="#zowe_mat_monitor_imsview_ssa">ssa</a><button id="btn-print" class="no-print" onclick="window.print();" title="Print">🖨️</button></h3>
+<p>Get the IMS View SSA details for the measurement.</p>
+<h4>Usage</h4>
+<p>zowe mat monitor imsview ssa [options]</p>
+<h4>Options</h4>
+<ul>
+<li>
+<p><code>--profile</code>  <em>(string)</em></p>
+<ul>
+<li>Specifies the name of the profile that you want to analyze. When you specify the profile name, you get the data for the latest measurement within the specified profile.</li>
+</ul>
+</li>
+<li>
+<p><code>--mon_num</code>  <em>(number)</em></p>
+<ul>
+<li>Specifies the unique monitor number of the measurement.</li>
+</ul>
+</li>
+<li>
+<p><code>--call</code>  <em>(string)</em></p>
+<ul>
+<li>Specifies the call details for the specified monitor number or profile name.</li>
+</ul>
+</li>
+<li>
+<p><code>--dbdname</code>  <em>(string)</em></p>
+<ul>
+<li>Specifies the dbdname details for the specified monitor number or profile name.</li>
+</ul>
+</li>
+<li>
+<p><code>--psbname</code>  <em>(string)</em></p>
+<ul>
+<li>Specifies the psbname details for the specified monitor number or profile name.</li>
+</ul>
+</li>
+</ul>
+<h4>Profile Options</h4>
+<ul>
+<li>
+<p><code>--mat-profile</code>  | <code>--mat-p</code> <em>(string)</em></p>
+<ul>
+<li>The name of a (mat) profile to load for this command execution.</li>
+</ul>
+</li>
+<li>
+<p><code>--base-profile</code>  | <code>--base-p</code> <em>(string)</em></p>
+<ul>
+<li>The name of a (base) profile to load for this command execution.</li>
+</ul>
+</li>
+</ul>
+<h4>Base Connection Options</h4>
+<ul>
+<li>
+<p><code>--host</code>  | <code>-H</code> <em>(string)</em></p>
+<ul>
+<li>Host name of service on the mainframe.</li>
+</ul>
+</li>
+<li>
+<p><code>--port</code>  | <code>-P</code> <em>(number)</em></p>
+<ul>
+<li>Port number of service on the mainframe.</li>
+</ul>
+</li>
+<li>
+<p><code>--user</code>  | <code>-u</code> <em>(string)</em></p>
+<ul>
+<li>User name to authenticate to service on the mainframe.</li>
+</ul>
+</li>
+<li>
+<p><code>--password</code>  | <code>--pass</code> | <code>--pw</code> <em>(string)</em></p>
+<ul>
+<li>Password to authenticate to service on the mainframe.</li>
+</ul>
+</li>
+<li>
+<p><code>--reject-unauthorized</code>  | <code>--ru</code> <em>(boolean)</em></p>
+<ul>
+<li>
+<p>Reject self-signed certificates.</p>
+<p>Default value: true</p>
+</li>
+</ul>
+</li>
+<li>
+<p><code>--token-type</code>  | <code>--tt</code> <em>(string)</em></p>
+<ul>
+<li>The type of token to get and use for the API. Omit this option to use the default token type, which is provided by 'zowe auth login'.</li>
+</ul>
+</li>
+<li>
+<p><code>--token-value</code>  | <code>--tv</code> <em>(string)</em></p>
+<ul>
+<li>The value of the token to pass to the API.</li>
+</ul>
+</li>
+<li>
+<p><code>--cert-file</code>  <em>(local file path)</em></p>
+<ul>
+<li>The file path to a certificate file to use for authentication</li>
+</ul>
+</li>
+<li>
+<p><code>--cert-key-file</code>  <em>(local file path)</em></p>
+<ul>
+<li>The file path to a certificate key file to use for authentication</li>
+</ul>
+</li>
+</ul>
+<h4>Examples</h4>
+<ul>
+<li>
+<p>Get the IMS  details for monitor number 5, with the specific MAT profile details defined:</p>
+<ul>
+<li><code>zowe mat monitor imsview ssa --mon_num 5 --call TESTCALL --dbdname TESTDBDNAME --psbname TESTPSBNAME</code> <button class="btn-copy no-print" data-balloon-pos="right" data-clipboard-text="zowe mat monitor imsview ssa --mon_num 5 --call TESTCALL --dbdname TESTDBDNAME --psbname TESTPSBNAME">Copy</button></li>
+</ul>
+</li>
+<li>
+<p>Get the IMS View SSA details for the latest monitor in the TESTPROF profile,with the specific MAT profile details defined :</p>
+<ul>
+<li><code>zowe mat monitor imsview ssa --profile TESTPROF --call TESTCALL --dbdname TESTDBDNAME --psbname TESTPSBNAME</code> <button class="btn-copy no-print" data-balloon-pos="right" data-clipboard-text="zowe mat monitor imsview ssa --profile TESTPROF --call TESTCALL --dbdname TESTDBDNAME --psbname TESTPSBNAME">Copy</button></li>
+</ul>
+</li>
+<li>
+<p>Get the IMS View SSA details for monitor number 5, with the specific MAT profile details defined:</p>
+<ul>
+<li><code>zowe mat monitor imsview ssa --mon_num 5 --call TESTCALL --dbdname TESTDBDNAME --psbname TESTPSBNAME</code> <button class="btn-copy no-print" data-balloon-pos="right" data-clipboard-text="zowe mat monitor imsview ssa --mon_num 5 --call TESTCALL --dbdname TESTDBDNAME --psbname TESTPSBNAME">Copy</button></li>
+</ul>
+</li>
+</ul>
+<a class="cmd-anchor" name="zowe_mat_monitor_imsview_statement"></a><h3><a href="#zowe">zowe</a> › <a href="#zowe_mat">mat</a> › <a href="#zowe_mat_monitor">monitor</a> › <a href="#zowe_mat_monitor_imsview">imsview</a> › <a href="#zowe_mat_monitor_imsview_statement">statement</a><button id="btn-print" class="no-print" onclick="window.print();" title="Print">🖨️</button></h3>
+<p>Get the IMS View Statement details for the measurement.</p>
+<h4>Usage</h4>
+<p>zowe mat monitor imsview statement [options]</p>
+<h4>Options</h4>
+<ul>
+<li>
+<p><code>--profile</code>  <em>(string)</em></p>
+<ul>
+<li>Specifies the name of the profile that you want to analyze. When you specify the profile name, you get the data for the latest measurement within the specified profile.</li>
+</ul>
+</li>
+<li>
+<p><code>--mon_num</code>  <em>(number)</em></p>
+<ul>
+<li>Specifies the unique monitor number of the measurement.</li>
+</ul>
+</li>
+<li>
+<p><code>--trancode</code>  <em>(string)</em></p>
+<ul>
+<li>Specifies the trancode for specified monitor number or profile name</li>
+</ul>
+</li>
+</ul>
+<h4>Profile Options</h4>
+<ul>
+<li>
+<p><code>--mat-profile</code>  | <code>--mat-p</code> <em>(string)</em></p>
+<ul>
+<li>The name of a (mat) profile to load for this command execution.</li>
+</ul>
+</li>
+<li>
+<p><code>--base-profile</code>  | <code>--base-p</code> <em>(string)</em></p>
+<ul>
+<li>The name of a (base) profile to load for this command execution.</li>
+</ul>
+</li>
+</ul>
+<h4>Base Connection Options</h4>
+<ul>
+<li>
+<p><code>--host</code>  | <code>-H</code> <em>(string)</em></p>
+<ul>
+<li>Host name of service on the mainframe.</li>
+</ul>
+</li>
+<li>
+<p><code>--port</code>  | <code>-P</code> <em>(number)</em></p>
+<ul>
+<li>Port number of service on the mainframe.</li>
+</ul>
+</li>
+<li>
+<p><code>--user</code>  | <code>-u</code> <em>(string)</em></p>
+<ul>
+<li>User name to authenticate to service on the mainframe.</li>
+</ul>
+</li>
+<li>
+<p><code>--password</code>  | <code>--pass</code> | <code>--pw</code> <em>(string)</em></p>
+<ul>
+<li>Password to authenticate to service on the mainframe.</li>
+</ul>
+</li>
+<li>
+<p><code>--reject-unauthorized</code>  | <code>--ru</code> <em>(boolean)</em></p>
+<ul>
+<li>
+<p>Reject self-signed certificates.</p>
+<p>Default value: true</p>
+</li>
+</ul>
+</li>
+<li>
+<p><code>--token-type</code>  | <code>--tt</code> <em>(string)</em></p>
+<ul>
+<li>The type of token to get and use for the API. Omit this option to use the default token type, which is provided by 'zowe auth login'.</li>
+</ul>
+</li>
+<li>
+<p><code>--token-value</code>  | <code>--tv</code> <em>(string)</em></p>
+<ul>
+<li>The value of the token to pass to the API.</li>
+</ul>
+</li>
+<li>
+<p><code>--cert-file</code>  <em>(local file path)</em></p>
+<ul>
+<li>The file path to a certificate file to use for authentication</li>
+</ul>
+</li>
+<li>
+<p><code>--cert-key-file</code>  <em>(local file path)</em></p>
+<ul>
+<li>The file path to a certificate key file to use for authentication</li>
+</ul>
+</li>
+</ul>
+<h4>Examples</h4>
+<ul>
+<li>
+<p>Get the IMS View Statement details for monitor number 5with trancode TESTTRANCODE:</p>
+<ul>
+<li><code>zowe mat monitor imsview statement --mon_num 5 --trancode TESTTRANCODE</code> <button class="btn-copy no-print" data-balloon-pos="right" data-clipboard-text="zowe mat monitor imsview statement --mon_num 5 --trancode TESTTRANCODE">Copy</button></li>
+</ul>
+</li>
+<li>
+<p>Get the IMS View Statement details for the latest monitor in the TESTPROF profile, with trancode TESTTRANCODE:</p>
+<ul>
+<li><code>zowe mat monitor imsview statement --profile TESTPROF --trancode TESTTRANCODE</code> <button class="btn-copy no-print" data-balloon-pos="right" data-clipboard-text="zowe mat monitor imsview statement --profile TESTPROF --trancode TESTTRANCODE">Copy</button></li>
+</ul>
+</li>
+</ul>
 <a class="cmd-anchor" name="zowe_mat_monitor_overview"></a><h3><a href="#zowe">zowe</a> › <a href="#zowe_mat">mat</a> › <a href="#zowe_mat_monitor">monitor</a> › <a href="#zowe_mat_monitor_overview">overview</a><button id="btn-print" class="no-print" onclick="window.print();" title="Print">🖨️</button></h3>
 <p>Get the overview details of the measurement.</p>
 <h4>Usage</h4>
@@ -33660,6 +34742,843 @@ Allowed values: http, https</p>
 <p>Get the overview details of the measurement for the latest monitor in the TESTPROF profile:</p>
 <ul>
 <li><code>zowe mat monitor overview --profile TESTPROF</code> <button class="btn-copy no-print" data-balloon-pos="right" data-clipboard-text="zowe mat monitor overview --profile TESTPROF">Copy</button></li>
+</ul>
+</li>
+</ul>
+<a name="zowe_mat_monitor_tranview"></a><h2><a href="#zowe">zowe</a> › <a href="#zowe_mat">mat</a> › <a href="#zowe_mat_monitor">monitor</a> › <a href="#zowe_mat_monitor_tranview">tranview</a><button id="btn-print" class="no-print" onclick="window.print();" title="Print">🖨️</button></h2>
+<p>Get the TranView measurement details.</p>
+<a class="cmd-anchor" name="zowe_mat_monitor_tranview_all"></a><h3><a href="#zowe">zowe</a> › <a href="#zowe_mat">mat</a> › <a href="#zowe_mat_monitor">monitor</a> › <a href="#zowe_mat_monitor_tranview">tranview</a> › <a href="#zowe_mat_monitor_tranview_all">all</a><button id="btn-print" class="no-print" onclick="window.print();" title="Print">🖨️</button></h3>
+<p>Get the CodeView measurement details in Module mode.</p>
+<h4>Usage</h4>
+<p>zowe mat monitor tranview all [options]</p>
+<h4>Options</h4>
+<ul>
+<li>
+<p><code>--profile</code>  <em>(string)</em></p>
+<ul>
+<li>Specifies the name of the profile that you want to analyze. When you specify the profile name, you get the data for the latest measurement within the specified profile.</li>
+</ul>
+</li>
+<li>
+<p><code>--mon_num</code>  <em>(number)</em></p>
+<ul>
+<li>Specifies the unique monitor number of the measurement.</li>
+</ul>
+</li>
+<li>
+<p><code>--tran</code>  <em>(string)</em></p>
+<ul>
+<li>Specifies the histogram group size parameter that defines the resolution of the histogram (e.g., --group 32). If you do not specify the group parameter, the group size value defaults to 4 bytes. If the source program listing is registered with MAT, the group size parameter is ignored. The --group parameter is optional. Lower values of the --group parameter result in more granular representation of the histogram data. Values: numbers between 2 and 999999.</li>
+</ul>
+</li>
+<li>
+<p><code>--type</code>  <em>(string)</em></p>
+<ul>
+<li>Specifies the histogram group size parameter that defines the resolution of the histogram (e.g., --group 32). If you do not specify the group parameter, the group size value defaults to 4 bytes. If the source program listing is registered with MAT, the group size parameter is ignored. The --group parameter is optional. Lower values of the --group parameter result in more granular representation of the histogram data. Values: numbers between 2 and 999999.</li>
+</ul>
+</li>
+</ul>
+<h4>Profile Options</h4>
+<ul>
+<li>
+<p><code>--mat-profile</code>  | <code>--mat-p</code> <em>(string)</em></p>
+<ul>
+<li>The name of a (mat) profile to load for this command execution.</li>
+</ul>
+</li>
+<li>
+<p><code>--base-profile</code>  | <code>--base-p</code> <em>(string)</em></p>
+<ul>
+<li>The name of a (base) profile to load for this command execution.</li>
+</ul>
+</li>
+</ul>
+<h4>Base Connection Options</h4>
+<ul>
+<li>
+<p><code>--host</code>  | <code>-H</code> <em>(string)</em></p>
+<ul>
+<li>Host name of service on the mainframe.</li>
+</ul>
+</li>
+<li>
+<p><code>--port</code>  | <code>-P</code> <em>(number)</em></p>
+<ul>
+<li>Port number of service on the mainframe.</li>
+</ul>
+</li>
+<li>
+<p><code>--user</code>  | <code>-u</code> <em>(string)</em></p>
+<ul>
+<li>User name to authenticate to service on the mainframe.</li>
+</ul>
+</li>
+<li>
+<p><code>--password</code>  | <code>--pass</code> | <code>--pw</code> <em>(string)</em></p>
+<ul>
+<li>Password to authenticate to service on the mainframe.</li>
+</ul>
+</li>
+<li>
+<p><code>--reject-unauthorized</code>  | <code>--ru</code> <em>(boolean)</em></p>
+<ul>
+<li>
+<p>Reject self-signed certificates.</p>
+<p>Default value: true</p>
+</li>
+</ul>
+</li>
+<li>
+<p><code>--token-type</code>  | <code>--tt</code> <em>(string)</em></p>
+<ul>
+<li>The type of token to get and use for the API. Omit this option to use the default token type, which is provided by 'zowe auth login'.</li>
+</ul>
+</li>
+<li>
+<p><code>--token-value</code>  | <code>--tv</code> <em>(string)</em></p>
+<ul>
+<li>The value of the token to pass to the API.</li>
+</ul>
+</li>
+<li>
+<p><code>--cert-file</code>  <em>(local file path)</em></p>
+<ul>
+<li>The file path to a certificate file to use for authentication</li>
+</ul>
+</li>
+<li>
+<p><code>--cert-key-file</code>  <em>(local file path)</em></p>
+<ul>
+<li>The file path to a certificate key file to use for authentication</li>
+</ul>
+</li>
+</ul>
+<h4>Examples</h4>
+<ul>
+<li>
+<p>Get the CodeView measurement details in Module mode for monitor number 5:</p>
+<ul>
+<li><code>zowe mat monitor tranview all --mon_num 5</code> <button class="btn-copy no-print" data-balloon-pos="right" data-clipboard-text="zowe mat monitor tranview all --mon_num 5">Copy</button></li>
+</ul>
+</li>
+<li>
+<p>Get the CodeView measurement details in Module mode for the latest monitor in the TESTPROF profile:</p>
+<ul>
+<li><code>zowe mat monitor tranview all --profile TESTPROF</code> <button class="btn-copy no-print" data-balloon-pos="right" data-clipboard-text="zowe mat monitor tranview all --profile TESTPROF">Copy</button></li>
+</ul>
+</li>
+</ul>
+<a class="cmd-anchor" name="zowe_mat_monitor_tranview_callerid"></a><h3><a href="#zowe">zowe</a> › <a href="#zowe_mat">mat</a> › <a href="#zowe_mat_monitor">monitor</a> › <a href="#zowe_mat_monitor_tranview">tranview</a> › <a href="#zowe_mat_monitor_tranview_callerid">callerid</a><button id="btn-print" class="no-print" onclick="window.print();" title="Print">🖨️</button></h3>
+<p>Get the CodeView measurement details in Module mode.</p>
+<h4>Usage</h4>
+<p>zowe mat monitor tranview callerid [options]</p>
+<h4>Options</h4>
+<ul>
+<li>
+<p><code>--profile</code>  <em>(string)</em></p>
+<ul>
+<li>Specifies the name of the profile that you want to analyze. When you specify the profile name, you get the data for the latest measurement within the specified profile.</li>
+</ul>
+</li>
+<li>
+<p><code>--mon_num</code>  <em>(number)</em></p>
+<ul>
+<li>Specifies the unique monitor number of the measurement.</li>
+</ul>
+</li>
+<li>
+<p><code>--tran</code>  <em>(string)</em></p>
+<ul>
+<li>Specifies the histogram group size parameter that defines the resolution of the histogram (e.g., --group 32). If you do not specify the group parameter, the group size value defaults to 4 bytes. If the source program listing is registered with MAT, the group size parameter is ignored. The --group parameter is optional. Lower values of the --group parameter result in more granular representation of the histogram data. Values: numbers between 2 and 999999.</li>
+</ul>
+</li>
+</ul>
+<h4>Profile Options</h4>
+<ul>
+<li>
+<p><code>--mat-profile</code>  | <code>--mat-p</code> <em>(string)</em></p>
+<ul>
+<li>The name of a (mat) profile to load for this command execution.</li>
+</ul>
+</li>
+<li>
+<p><code>--base-profile</code>  | <code>--base-p</code> <em>(string)</em></p>
+<ul>
+<li>The name of a (base) profile to load for this command execution.</li>
+</ul>
+</li>
+</ul>
+<h4>Base Connection Options</h4>
+<ul>
+<li>
+<p><code>--host</code>  | <code>-H</code> <em>(string)</em></p>
+<ul>
+<li>Host name of service on the mainframe.</li>
+</ul>
+</li>
+<li>
+<p><code>--port</code>  | <code>-P</code> <em>(number)</em></p>
+<ul>
+<li>Port number of service on the mainframe.</li>
+</ul>
+</li>
+<li>
+<p><code>--user</code>  | <code>-u</code> <em>(string)</em></p>
+<ul>
+<li>User name to authenticate to service on the mainframe.</li>
+</ul>
+</li>
+<li>
+<p><code>--password</code>  | <code>--pass</code> | <code>--pw</code> <em>(string)</em></p>
+<ul>
+<li>Password to authenticate to service on the mainframe.</li>
+</ul>
+</li>
+<li>
+<p><code>--reject-unauthorized</code>  | <code>--ru</code> <em>(boolean)</em></p>
+<ul>
+<li>
+<p>Reject self-signed certificates.</p>
+<p>Default value: true</p>
+</li>
+</ul>
+</li>
+<li>
+<p><code>--token-type</code>  | <code>--tt</code> <em>(string)</em></p>
+<ul>
+<li>The type of token to get and use for the API. Omit this option to use the default token type, which is provided by 'zowe auth login'.</li>
+</ul>
+</li>
+<li>
+<p><code>--token-value</code>  | <code>--tv</code> <em>(string)</em></p>
+<ul>
+<li>The value of the token to pass to the API.</li>
+</ul>
+</li>
+<li>
+<p><code>--cert-file</code>  <em>(local file path)</em></p>
+<ul>
+<li>The file path to a certificate file to use for authentication</li>
+</ul>
+</li>
+<li>
+<p><code>--cert-key-file</code>  <em>(local file path)</em></p>
+<ul>
+<li>The file path to a certificate key file to use for authentication</li>
+</ul>
+</li>
+</ul>
+<h4>Examples</h4>
+<ul>
+<li>
+<p>Get the CodeView measurement details in Module mode for monitor number 5:</p>
+<ul>
+<li><code>zowe mat monitor tranview callerid --mon_num 5</code> <button class="btn-copy no-print" data-balloon-pos="right" data-clipboard-text="zowe mat monitor tranview callerid --mon_num 5">Copy</button></li>
+</ul>
+</li>
+<li>
+<p>Get the CodeView measurement details in Module mode for the latest monitor in the TESTPROF profile:</p>
+<ul>
+<li><code>zowe mat monitor tranview callerid --profile TESTPROF</code> <button class="btn-copy no-print" data-balloon-pos="right" data-clipboard-text="zowe mat monitor tranview callerid --profile TESTPROF">Copy</button></li>
+</ul>
+</li>
+</ul>
+<a class="cmd-anchor" name="zowe_mat_monitor_tranview_callstack"></a><h3><a href="#zowe">zowe</a> › <a href="#zowe_mat">mat</a> › <a href="#zowe_mat_monitor">monitor</a> › <a href="#zowe_mat_monitor_tranview">tranview</a> › <a href="#zowe_mat_monitor_tranview_callstack">callstack</a><button id="btn-print" class="no-print" onclick="window.print();" title="Print">🖨️</button></h3>
+<p>Get the CodeView measurement details in Module mode.</p>
+<h4>Usage</h4>
+<p>zowe mat monitor tranview callstack [options]</p>
+<h4>Options</h4>
+<ul>
+<li>
+<p><code>--profile</code>  <em>(string)</em></p>
+<ul>
+<li>Specifies the name of the profile that you want to analyze. When you specify the profile name, you get the data for the latest measurement within the specified profile.</li>
+</ul>
+</li>
+<li>
+<p><code>--mon_num</code>  <em>(number)</em></p>
+<ul>
+<li>Specifies the unique monitor number of the measurement.</li>
+</ul>
+</li>
+<li>
+<p><code>--tran</code>  <em>(string)</em></p>
+<ul>
+<li>Specifies the histogram group size parameter that defines the resolution of the histogram (e.g., --group 32). If you do not specify the group parameter, the group size value defaults to 4 bytes. If the source program listing is registered with MAT, the group size parameter is ignored. The --group parameter is optional. Lower values of the --group parameter result in more granular representation of the histogram data. Values: numbers between 2 and 999999.</li>
+</ul>
+</li>
+</ul>
+<h4>Profile Options</h4>
+<ul>
+<li>
+<p><code>--mat-profile</code>  | <code>--mat-p</code> <em>(string)</em></p>
+<ul>
+<li>The name of a (mat) profile to load for this command execution.</li>
+</ul>
+</li>
+<li>
+<p><code>--base-profile</code>  | <code>--base-p</code> <em>(string)</em></p>
+<ul>
+<li>The name of a (base) profile to load for this command execution.</li>
+</ul>
+</li>
+</ul>
+<h4>Base Connection Options</h4>
+<ul>
+<li>
+<p><code>--host</code>  | <code>-H</code> <em>(string)</em></p>
+<ul>
+<li>Host name of service on the mainframe.</li>
+</ul>
+</li>
+<li>
+<p><code>--port</code>  | <code>-P</code> <em>(number)</em></p>
+<ul>
+<li>Port number of service on the mainframe.</li>
+</ul>
+</li>
+<li>
+<p><code>--user</code>  | <code>-u</code> <em>(string)</em></p>
+<ul>
+<li>User name to authenticate to service on the mainframe.</li>
+</ul>
+</li>
+<li>
+<p><code>--password</code>  | <code>--pass</code> | <code>--pw</code> <em>(string)</em></p>
+<ul>
+<li>Password to authenticate to service on the mainframe.</li>
+</ul>
+</li>
+<li>
+<p><code>--reject-unauthorized</code>  | <code>--ru</code> <em>(boolean)</em></p>
+<ul>
+<li>
+<p>Reject self-signed certificates.</p>
+<p>Default value: true</p>
+</li>
+</ul>
+</li>
+<li>
+<p><code>--token-type</code>  | <code>--tt</code> <em>(string)</em></p>
+<ul>
+<li>The type of token to get and use for the API. Omit this option to use the default token type, which is provided by 'zowe auth login'.</li>
+</ul>
+</li>
+<li>
+<p><code>--token-value</code>  | <code>--tv</code> <em>(string)</em></p>
+<ul>
+<li>The value of the token to pass to the API.</li>
+</ul>
+</li>
+<li>
+<p><code>--cert-file</code>  <em>(local file path)</em></p>
+<ul>
+<li>The file path to a certificate file to use for authentication</li>
+</ul>
+</li>
+<li>
+<p><code>--cert-key-file</code>  <em>(local file path)</em></p>
+<ul>
+<li>The file path to a certificate key file to use for authentication</li>
+</ul>
+</li>
+</ul>
+<h4>Examples</h4>
+<ul>
+<li>
+<p>Get the CodeView measurement details in Module mode for monitor number 5:</p>
+<ul>
+<li><code>zowe mat monitor tranview callstack --mon_num 5</code> <button class="btn-copy no-print" data-balloon-pos="right" data-clipboard-text="zowe mat monitor tranview callstack --mon_num 5">Copy</button></li>
+</ul>
+</li>
+<li>
+<p>Get the CodeView measurement details in Module mode for the latest monitor in the TESTPROF profile:</p>
+<ul>
+<li><code>zowe mat monitor tranview callstack --profile TESTPROF</code> <button class="btn-copy no-print" data-balloon-pos="right" data-clipboard-text="zowe mat monitor tranview callstack --profile TESTPROF">Copy</button></li>
+</ul>
+</li>
+</ul>
+<a class="cmd-anchor" name="zowe_mat_monitor_tranview_csect"></a><h3><a href="#zowe">zowe</a> › <a href="#zowe_mat">mat</a> › <a href="#zowe_mat_monitor">monitor</a> › <a href="#zowe_mat_monitor_tranview">tranview</a> › <a href="#zowe_mat_monitor_tranview_csect">csect</a><button id="btn-print" class="no-print" onclick="window.print();" title="Print">🖨️</button></h3>
+<p>Get the CodeView measurement details in Csect mode.</p>
+<h4>Usage</h4>
+<p>zowe mat monitor tranview csect [options]</p>
+<h4>Options</h4>
+<ul>
+<li>
+<p><code>--profile</code>  <em>(string)</em></p>
+<ul>
+<li>Specifies the name of the profile that you want to analyze. When you specify the profile name, you get the data for the latest measurement within the specified profile.</li>
+</ul>
+</li>
+<li>
+<p><code>--mon_num</code>  <em>(number)</em></p>
+<ul>
+<li>Specifies the unique monitor number of the measurement.</li>
+</ul>
+</li>
+<li>
+<p><code>--tran</code>  <em>(string)</em></p>
+<ul>
+<li>Specifies the unique monitor number of the measurement.</li>
+</ul>
+</li>
+</ul>
+<h4>Profile Options</h4>
+<ul>
+<li>
+<p><code>--mat-profile</code>  | <code>--mat-p</code> <em>(string)</em></p>
+<ul>
+<li>The name of a (mat) profile to load for this command execution.</li>
+</ul>
+</li>
+<li>
+<p><code>--base-profile</code>  | <code>--base-p</code> <em>(string)</em></p>
+<ul>
+<li>The name of a (base) profile to load for this command execution.</li>
+</ul>
+</li>
+</ul>
+<h4>Base Connection Options</h4>
+<ul>
+<li>
+<p><code>--host</code>  | <code>-H</code> <em>(string)</em></p>
+<ul>
+<li>Host name of service on the mainframe.</li>
+</ul>
+</li>
+<li>
+<p><code>--port</code>  | <code>-P</code> <em>(number)</em></p>
+<ul>
+<li>Port number of service on the mainframe.</li>
+</ul>
+</li>
+<li>
+<p><code>--user</code>  | <code>-u</code> <em>(string)</em></p>
+<ul>
+<li>User name to authenticate to service on the mainframe.</li>
+</ul>
+</li>
+<li>
+<p><code>--password</code>  | <code>--pass</code> | <code>--pw</code> <em>(string)</em></p>
+<ul>
+<li>Password to authenticate to service on the mainframe.</li>
+</ul>
+</li>
+<li>
+<p><code>--reject-unauthorized</code>  | <code>--ru</code> <em>(boolean)</em></p>
+<ul>
+<li>
+<p>Reject self-signed certificates.</p>
+<p>Default value: true</p>
+</li>
+</ul>
+</li>
+<li>
+<p><code>--token-type</code>  | <code>--tt</code> <em>(string)</em></p>
+<ul>
+<li>The type of token to get and use for the API. Omit this option to use the default token type, which is provided by 'zowe auth login'.</li>
+</ul>
+</li>
+<li>
+<p><code>--token-value</code>  | <code>--tv</code> <em>(string)</em></p>
+<ul>
+<li>The value of the token to pass to the API.</li>
+</ul>
+</li>
+<li>
+<p><code>--cert-file</code>  <em>(local file path)</em></p>
+<ul>
+<li>The file path to a certificate file to use for authentication</li>
+</ul>
+</li>
+<li>
+<p><code>--cert-key-file</code>  <em>(local file path)</em></p>
+<ul>
+<li>The file path to a certificate key file to use for authentication</li>
+</ul>
+</li>
+</ul>
+<h4>Examples</h4>
+<ul>
+<li>
+<p>Get the CodeView measurement details in Csect mode for monitor number 5:</p>
+<ul>
+<li><code>zowe mat monitor tranview csect --mon_num 5</code> <button class="btn-copy no-print" data-balloon-pos="right" data-clipboard-text="zowe mat monitor tranview csect --mon_num 5">Copy</button></li>
+</ul>
+</li>
+<li>
+<p>Get the CodeView measurement details in Csect mode for the latest monitor in the TESTPROF profile:</p>
+<ul>
+<li><code>zowe mat monitor tranview csect --profile TESTPROF</code> <button class="btn-copy no-print" data-balloon-pos="right" data-clipboard-text="zowe mat monitor tranview csect --profile TESTPROF">Copy</button></li>
+</ul>
+</li>
+<li>
+<p>Get the CodeView measurement details in Csect mode for monitor number 5, with the specific MAT profile details defined:</p>
+<ul>
+<li><code>zowe mat monitor tranview csect --mon_num 5 --host &quot;example.com&quot; --port 12345 --user johndoe --password qwerty</code> <button class="btn-copy no-print" data-balloon-pos="right" data-clipboard-text="zowe mat monitor tranview csect --mon_num 5 --host &quot;example.com&quot; --port 12345 --user johndoe --password qwerty">Copy</button></li>
+</ul>
+</li>
+</ul>
+<a class="cmd-anchor" name="zowe_mat_monitor_tranview_delay"></a><h3><a href="#zowe">zowe</a> › <a href="#zowe_mat">mat</a> › <a href="#zowe_mat_monitor">monitor</a> › <a href="#zowe_mat_monitor_tranview">tranview</a> › <a href="#zowe_mat_monitor_tranview_delay">delay</a><button id="btn-print" class="no-print" onclick="window.print();" title="Print">🖨️</button></h3>
+<p>Get the delay details for the measurement.</p>
+<h4>Usage</h4>
+<p>zowe mat monitor tranview delay [options]</p>
+<h4>Options</h4>
+<ul>
+<li>
+<p><code>--profile</code>  <em>(string)</em></p>
+<ul>
+<li>Specifies the name of the profile that you want to analyze. When you specify the profile name, you get the data for the latest measurement within the specified profile.</li>
+</ul>
+</li>
+<li>
+<p><code>--mon_num</code>  <em>(number)</em></p>
+<ul>
+<li>Specifies the unique monitor number of the measurement.</li>
+</ul>
+</li>
+<li>
+<p><code>--tran</code>  <em>(string)</em></p>
+<ul>
+<li>Specifies the unique monitor number of the measurement.</li>
+</ul>
+</li>
+</ul>
+<h4>Profile Options</h4>
+<ul>
+<li>
+<p><code>--mat-profile</code>  | <code>--mat-p</code> <em>(string)</em></p>
+<ul>
+<li>The name of a (mat) profile to load for this command execution.</li>
+</ul>
+</li>
+<li>
+<p><code>--base-profile</code>  | <code>--base-p</code> <em>(string)</em></p>
+<ul>
+<li>The name of a (base) profile to load for this command execution.</li>
+</ul>
+</li>
+</ul>
+<h4>Base Connection Options</h4>
+<ul>
+<li>
+<p><code>--host</code>  | <code>-H</code> <em>(string)</em></p>
+<ul>
+<li>Host name of service on the mainframe.</li>
+</ul>
+</li>
+<li>
+<p><code>--port</code>  | <code>-P</code> <em>(number)</em></p>
+<ul>
+<li>Port number of service on the mainframe.</li>
+</ul>
+</li>
+<li>
+<p><code>--user</code>  | <code>-u</code> <em>(string)</em></p>
+<ul>
+<li>User name to authenticate to service on the mainframe.</li>
+</ul>
+</li>
+<li>
+<p><code>--password</code>  | <code>--pass</code> | <code>--pw</code> <em>(string)</em></p>
+<ul>
+<li>Password to authenticate to service on the mainframe.</li>
+</ul>
+</li>
+<li>
+<p><code>--reject-unauthorized</code>  | <code>--ru</code> <em>(boolean)</em></p>
+<ul>
+<li>
+<p>Reject self-signed certificates.</p>
+<p>Default value: true</p>
+</li>
+</ul>
+</li>
+<li>
+<p><code>--token-type</code>  | <code>--tt</code> <em>(string)</em></p>
+<ul>
+<li>The type of token to get and use for the API. Omit this option to use the default token type, which is provided by 'zowe auth login'.</li>
+</ul>
+</li>
+<li>
+<p><code>--token-value</code>  | <code>--tv</code> <em>(string)</em></p>
+<ul>
+<li>The value of the token to pass to the API.</li>
+</ul>
+</li>
+<li>
+<p><code>--cert-file</code>  <em>(local file path)</em></p>
+<ul>
+<li>The file path to a certificate file to use for authentication</li>
+</ul>
+</li>
+<li>
+<p><code>--cert-key-file</code>  <em>(local file path)</em></p>
+<ul>
+<li>The file path to a certificate key file to use for authentication</li>
+</ul>
+</li>
+</ul>
+<h4>Examples</h4>
+<ul>
+<li>
+<p>Get the DelayView measurement details for monitor number 5:</p>
+<ul>
+<li><code>zowe mat monitor tranview delay --mon_num 5</code> <button class="btn-copy no-print" data-balloon-pos="right" data-clipboard-text="zowe mat monitor tranview delay --mon_num 5">Copy</button></li>
+</ul>
+</li>
+<li>
+<p>Get the DelayView measurement details for the latest monitor in the TESTPROF profile:</p>
+<ul>
+<li><code>zowe mat monitor tranview delay --profile TESTPROF</code> <button class="btn-copy no-print" data-balloon-pos="right" data-clipboard-text="zowe mat monitor tranview delay --profile TESTPROF">Copy</button></li>
+</ul>
+</li>
+<li>
+<p>Get the DelayView measurement details for monitor number 5, with the specific MAT profile details defined:</p>
+<ul>
+<li><code>zowe mat monitor tranview delay --mon_num 5 --host &quot;example.com&quot; --port 12345 --user johndoe --password qwerty</code> <button class="btn-copy no-print" data-balloon-pos="right" data-clipboard-text="zowe mat monitor tranview delay --mon_num 5 --host &quot;example.com&quot; --port 12345 --user johndoe --password qwerty">Copy</button></li>
+</ul>
+</li>
+</ul>
+<a class="cmd-anchor" name="zowe_mat_monitor_tranview_module"></a><h3><a href="#zowe">zowe</a> › <a href="#zowe_mat">mat</a> › <a href="#zowe_mat_monitor">monitor</a> › <a href="#zowe_mat_monitor_tranview">tranview</a> › <a href="#zowe_mat_monitor_tranview_module">module</a><button id="btn-print" class="no-print" onclick="window.print();" title="Print">🖨️</button></h3>
+<p>Get the CodeView measurement details in Module mode.</p>
+<h4>Usage</h4>
+<p>zowe mat monitor tranview module [options]</p>
+<h4>Options</h4>
+<ul>
+<li>
+<p><code>--profile</code>  <em>(string)</em></p>
+<ul>
+<li>Specifies the name of the profile that you want to analyze. When you specify the profile name, you get the data for the latest measurement within the specified profile.</li>
+</ul>
+</li>
+<li>
+<p><code>--mon_num</code>  <em>(number)</em></p>
+<ul>
+<li>Specifies the unique monitor number of the measurement.</li>
+</ul>
+</li>
+<li>
+<p><code>--tran</code>  <em>(string)</em></p>
+<ul>
+<li>Specifies the unique monitor number of the measurement.</li>
+</ul>
+</li>
+</ul>
+<h4>Profile Options</h4>
+<ul>
+<li>
+<p><code>--mat-profile</code>  | <code>--mat-p</code> <em>(string)</em></p>
+<ul>
+<li>The name of a (mat) profile to load for this command execution.</li>
+</ul>
+</li>
+<li>
+<p><code>--base-profile</code>  | <code>--base-p</code> <em>(string)</em></p>
+<ul>
+<li>The name of a (base) profile to load for this command execution.</li>
+</ul>
+</li>
+</ul>
+<h4>Base Connection Options</h4>
+<ul>
+<li>
+<p><code>--host</code>  | <code>-H</code> <em>(string)</em></p>
+<ul>
+<li>Host name of service on the mainframe.</li>
+</ul>
+</li>
+<li>
+<p><code>--port</code>  | <code>-P</code> <em>(number)</em></p>
+<ul>
+<li>Port number of service on the mainframe.</li>
+</ul>
+</li>
+<li>
+<p><code>--user</code>  | <code>-u</code> <em>(string)</em></p>
+<ul>
+<li>User name to authenticate to service on the mainframe.</li>
+</ul>
+</li>
+<li>
+<p><code>--password</code>  | <code>--pass</code> | <code>--pw</code> <em>(string)</em></p>
+<ul>
+<li>Password to authenticate to service on the mainframe.</li>
+</ul>
+</li>
+<li>
+<p><code>--reject-unauthorized</code>  | <code>--ru</code> <em>(boolean)</em></p>
+<ul>
+<li>
+<p>Reject self-signed certificates.</p>
+<p>Default value: true</p>
+</li>
+</ul>
+</li>
+<li>
+<p><code>--token-type</code>  | <code>--tt</code> <em>(string)</em></p>
+<ul>
+<li>The type of token to get and use for the API. Omit this option to use the default token type, which is provided by 'zowe auth login'.</li>
+</ul>
+</li>
+<li>
+<p><code>--token-value</code>  | <code>--tv</code> <em>(string)</em></p>
+<ul>
+<li>The value of the token to pass to the API.</li>
+</ul>
+</li>
+<li>
+<p><code>--cert-file</code>  <em>(local file path)</em></p>
+<ul>
+<li>The file path to a certificate file to use for authentication</li>
+</ul>
+</li>
+<li>
+<p><code>--cert-key-file</code>  <em>(local file path)</em></p>
+<ul>
+<li>The file path to a certificate key file to use for authentication</li>
+</ul>
+</li>
+</ul>
+<h4>Examples</h4>
+<ul>
+<li>
+<p>Get the CodeView measurement details in Module mode for monitor number 5:</p>
+<ul>
+<li><code>zowe mat monitor tranview module --mon_num 5</code> <button class="btn-copy no-print" data-balloon-pos="right" data-clipboard-text="zowe mat monitor tranview module --mon_num 5">Copy</button></li>
+</ul>
+</li>
+<li>
+<p>Get the CodeView measurement details in Module mode for the latest monitor in the TESTPROF profile:</p>
+<ul>
+<li><code>zowe mat monitor tranview module --profile TESTPROF</code> <button class="btn-copy no-print" data-balloon-pos="right" data-clipboard-text="zowe mat monitor tranview module --profile TESTPROF">Copy</button></li>
+</ul>
+</li>
+<li>
+<p>Get the CodeView measurement details in Module mode for monitor number 5, with the specific MAT profile details defined:</p>
+<ul>
+<li><code>zowe mat monitor tranview module --mon_num 5 --host &quot;example.com&quot; --port 12345 --user johndoe --password qwerty</code> <button class="btn-copy no-print" data-balloon-pos="right" data-clipboard-text="zowe mat monitor tranview module --mon_num 5 --host &quot;example.com&quot; --port 12345 --user johndoe --password qwerty">Copy</button></li>
+</ul>
+</li>
+</ul>
+<a class="cmd-anchor" name="zowe_mat_monitor_tranview_stat"></a><h3><a href="#zowe">zowe</a> › <a href="#zowe_mat">mat</a> › <a href="#zowe_mat_monitor">monitor</a> › <a href="#zowe_mat_monitor_tranview">tranview</a> › <a href="#zowe_mat_monitor_tranview_stat">stat</a><button id="btn-print" class="no-print" onclick="window.print();" title="Print">🖨️</button></h3>
+<p>Get the CodeView measurement details in Module mode.</p>
+<h4>Usage</h4>
+<p>zowe mat monitor tranview stat [options]</p>
+<h4>Options</h4>
+<ul>
+<li>
+<p><code>--profile</code>  <em>(string)</em></p>
+<ul>
+<li>Specifies the name of the profile that you want to analyze. When you specify the profile name, you get the data for the latest measurement within the specified profile.</li>
+</ul>
+</li>
+<li>
+<p><code>--mon_num</code>  <em>(number)</em></p>
+<ul>
+<li>Specifies the unique monitor number of the measurement.</li>
+</ul>
+</li>
+<li>
+<p><code>--tran</code>  <em>(string)</em></p>
+<ul>
+<li>Specifies the histogram group size parameter that defines the resolution of the histogram (e.g., --group 32). If you do not specify the group parameter, the group size value defaults to 4 bytes. If the source program listing is registered with MAT, the group size parameter is ignored. The --group parameter is optional. Lower values of the --group parameter result in more granular representation of the histogram data. Values: numbers between 2 and 999999.</li>
+</ul>
+</li>
+<li>
+<p><code>--type</code>  <em>(string)</em></p>
+<ul>
+<li>Specifies the histogram group size parameter that defines the resolution of the histogram (e.g., --group 32). If you do not specify the group parameter, the group size value defaults to 4 bytes. If the source program listing is registered with MAT, the group size parameter is ignored. The --group parameter is optional. Lower values of the --group parameter result in more granular representation of the histogram data. Values: numbers between 2 and 999999.</li>
+</ul>
+</li>
+</ul>
+<h4>Profile Options</h4>
+<ul>
+<li>
+<p><code>--mat-profile</code>  | <code>--mat-p</code> <em>(string)</em></p>
+<ul>
+<li>The name of a (mat) profile to load for this command execution.</li>
+</ul>
+</li>
+<li>
+<p><code>--base-profile</code>  | <code>--base-p</code> <em>(string)</em></p>
+<ul>
+<li>The name of a (base) profile to load for this command execution.</li>
+</ul>
+</li>
+</ul>
+<h4>Base Connection Options</h4>
+<ul>
+<li>
+<p><code>--host</code>  | <code>-H</code> <em>(string)</em></p>
+<ul>
+<li>Host name of service on the mainframe.</li>
+</ul>
+</li>
+<li>
+<p><code>--port</code>  | <code>-P</code> <em>(number)</em></p>
+<ul>
+<li>Port number of service on the mainframe.</li>
+</ul>
+</li>
+<li>
+<p><code>--user</code>  | <code>-u</code> <em>(string)</em></p>
+<ul>
+<li>User name to authenticate to service on the mainframe.</li>
+</ul>
+</li>
+<li>
+<p><code>--password</code>  | <code>--pass</code> | <code>--pw</code> <em>(string)</em></p>
+<ul>
+<li>Password to authenticate to service on the mainframe.</li>
+</ul>
+</li>
+<li>
+<p><code>--reject-unauthorized</code>  | <code>--ru</code> <em>(boolean)</em></p>
+<ul>
+<li>
+<p>Reject self-signed certificates.</p>
+<p>Default value: true</p>
+</li>
+</ul>
+</li>
+<li>
+<p><code>--token-type</code>  | <code>--tt</code> <em>(string)</em></p>
+<ul>
+<li>The type of token to get and use for the API. Omit this option to use the default token type, which is provided by 'zowe auth login'.</li>
+</ul>
+</li>
+<li>
+<p><code>--token-value</code>  | <code>--tv</code> <em>(string)</em></p>
+<ul>
+<li>The value of the token to pass to the API.</li>
+</ul>
+</li>
+<li>
+<p><code>--cert-file</code>  <em>(local file path)</em></p>
+<ul>
+<li>The file path to a certificate file to use for authentication</li>
+</ul>
+</li>
+<li>
+<p><code>--cert-key-file</code>  <em>(local file path)</em></p>
+<ul>
+<li>The file path to a certificate key file to use for authentication</li>
+</ul>
+</li>
+</ul>
+<h4>Examples</h4>
+<ul>
+<li>
+<p>Get the CodeView measurement details in Module mode for monitor number 5:</p>
+<ul>
+<li><code>zowe mat monitor tranview stat --mon_num 5</code> <button class="btn-copy no-print" data-balloon-pos="right" data-clipboard-text="zowe mat monitor tranview stat --mon_num 5">Copy</button></li>
+</ul>
+</li>
+<li>
+<p>Get the CodeView measurement details in Module mode for the latest monitor in the TESTPROF profile:</p>
+<ul>
+<li><code>zowe mat monitor tranview stat --profile TESTPROF</code> <button class="btn-copy no-print" data-balloon-pos="right" data-clipboard-text="zowe mat monitor tranview stat --profile TESTPROF">Copy</button></li>
 </ul>
 </li>
 </ul>
@@ -49742,7 +51661,7 @@ Allowed values: http, https</p>
 *.profile        ISO8859-1             EBCDIC</p>
 <p>Lines starting with the ‘#’ character are comments. Each line can specify up to three positional attributes:</p>
 <ul>
-<li>A pattern to match a set of files. Pattern-matching syntax follows the same rules as those that apply in .gitignore files (note that negated patterns that begin with ‘!’ are not supported). See <a href="https://git-scm.com/docs/gitignore#_pattern_format">https://git-scm.com/docs/gitignore#_pattern_format</a>.<br>
+<li>A pattern to match a set of files. Pattern-matching syntax follows the same rules as those that apply in .gitignore files (note that negated patterns that begin with ‘!’ are not supported). See <a href="https://git">https://git</a>-scm.com/docs/gitignore#_pattern_format.<br>
 local-encoding, * A local-encoding to identify a file’s encoding on the local workstation. If '-' is specified for files that match the pattern are not transferred.</li>
 <li>A remote-encoding to specify the file’s desired character set on USS. This attribute must either match the local encoding or be set to EBCDIC. If set to EBCDIC, files are transferred in text mode and converted, otherwise they are transferred  in binary mode. Remote files are tagged either with the remote encoding or as binary.</li>
 </ul>
@@ -64557,7 +66476,7 @@ node_modules     -<br>
 *.profile        ISO8859-1             EBCDIC</p>
 <p>Lines starting with the ‘#’ character are comments. Each line can specify up to three positional attributes:</p>
 <ul>
-<li>A pattern to match a set of files. Pattern-matching syntax follows the same rules as those that apply in .gitignore files (note that negated patterns that begin with ‘!’ are not supported). See <a href="https://git-scm.com/docs/gitignore#_pattern_format">https://git-scm.com/docs/gitignore#_pattern_format</a>.</li>
+<li>A pattern to match a set of files. Pattern-matching syntax follows the same rules as those that apply in .gitignore files (note that negated patterns that begin with ‘!’ are not supported). See <a href="https://git">https://git</a>-scm.com/docs/gitignore#_pattern_format.</li>
 <li>A local-encoding to identify a file’s encoding on the local workstation. If '-' is specified for local-encoding,files that match the pattern are not transferred.</li>
 <li>A remote-encoding to specify the file’s desired character set on USS. This attribute must either match the local encoding or be set to EBCDIC. If set to EBCDIC, files are transferred in text mode and converted, otherwise they are transferred in binary mode. Remote files are tagged either with the remote encoding or as binary.</li>
 </ul>
