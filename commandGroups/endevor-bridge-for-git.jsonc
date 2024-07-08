@@ -123,9 +123,6 @@
               "implies": [
                 "endevor-stage-number"
               ],
-              "conflictsWith": [
-                "json-file"
-              ],
               "group": "Options",
               "aliases": []
             },
@@ -139,18 +136,7 @@
               "implies": [
                 "read-only"
               ],
-              "conflictsWith": [
-                "json-file"
-              ],
               "group": "Options"
-            },
-            {
-              "name": "only-work-environment",
-              "description": "If specified, only elements from the Endevor work environment will be synchronized.",
-              "type": "boolean",
-              "required": false,
-              "group": "Options",
-              "aliases": []
             },
             {
               "name": "mapping-mode",
@@ -172,6 +158,21 @@
               "name": "like",
               "description": "Add branch using parameters from another branch in the same repository",
               "type": "string",
+              "required": false,
+              "group": "Options",
+              "aliases": []
+            },
+            {
+              "name": "repository-check",
+              "description": "If set to allowNonEmpty, user can proceed with initialization of the branch even if the branch exists.",
+              "allowableValues": {
+                "values": [
+                  "REQUIRE_EMPTY",
+                  "ALLOW_NON_EMPTY"
+                ]
+              },
+              "type": "string",
+              "defaultValue": "REQUIRE_EMPTY",
               "required": false,
               "group": "Options",
               "aliases": []
@@ -468,9 +469,9 @@
               "aliases": [
                 "b"
               ],
-              "description": "Name of the synchronized branch in the Git repository.",
+              "description": "Name of the branch that will be added/removed.",
               "type": "string",
-              "defaultValue": "master"
+              "required": true
             }
           ],
           "profile": {
@@ -996,8 +997,8 @@
               ],
               "description": "The Endevor Web Services Endevor configuration name.",
               "type": "string",
-              "required": true,
-              "group": "Required Options"
+              "required": false,
+              "group": "Options"
             },
             {
               "name": "work-area-id",
@@ -1386,8 +1387,8 @@
               ],
               "description": "The Endevor Web Services Endevor configuration name.",
               "type": "string",
-              "required": true,
-              "group": "Required Options"
+              "required": false,
+              "group": "Options"
             },
             {
               "name": "work-area-id",
@@ -1859,8 +1860,8 @@
               ],
               "description": "The Endevor Web Services Endevor configuration name.",
               "type": "string",
-              "required": true,
-              "group": "Required Options"
+              "required": false,
+              "group": "Options"
             },
             {
               "name": "work-dir",
@@ -3702,364 +3703,6 @@
       "positionals": []
     },
     {
-      "name": "endevor-credentials",
-      "aliases": [
-        "ec"
-      ],
-      "summary": "Manage the stored Endevor credentials. [Deprecated]",
-      "description": "Manage your Endevor credentials stored in Endevor Bridge for Git. [Deprecated]",
-      "type": "group",
-      "children": [
-        {
-          "name": "update",
-          "aliases": [
-            "u"
-          ],
-          "type": "command",
-          "handler": "",
-          "description": "Update your Endevor credentials for a Git-Endevor mapping.",
-          "positionals": [
-            {
-              "name": "context",
-              "description": "Git-Endevor mapping context (ID of the organization, project, team or owner of the Git repository).",
-              "type": "string",
-              "required": true
-            },
-            {
-              "name": "mapping",
-              "description": "Git-Endevor mapping name (ID of the Git repository).",
-              "type": "string",
-              "required": true
-            }
-          ],
-          "profile": {
-            "optional": [
-              "ebg",
-              "endevor",
-              "base"
-            ]
-          },
-          "options": [
-            {
-              "name": "endevor-user",
-              "aliases": [
-                "endevoru"
-              ],
-              "description": "Mainframe (Endevor) username, which can be the same as your TSO login.",
-              "type": "string",
-              "required": false,
-              "group": "Endevor options (alternatively use an 'endevor' profile)"
-            },
-            {
-              "name": "endevor-password",
-              "aliases": [
-                "endevorpass",
-                "endevorpw"
-              ],
-              "description": "Mainframe (Endevor) password, which can be the same as your TSO password.",
-              "type": "string",
-              "required": false,
-              "group": "Endevor options (alternatively use an 'endevor' profile)"
-            },
-            {
-              "name": "protocol",
-              "aliases": [
-                "prot"
-              ],
-              "description": "The Endevor Bridge for Git SCM protocol. \n\nDefault value: https",
-              "type": "string",
-              "required": true,
-              "group": "Endevor Bridge for Git connection options (alternatively use an 'ebg' profile)",
-              "defaultValue": "https",
-              "allowableValues": {
-                "values": [
-                  "http",
-                  "https"
-                ],
-                "caseSensitive": false
-              }
-            },
-            {
-              "name": "host",
-              "aliases": [
-                "H"
-              ],
-              "description": "The Endevor Bridge for Git hostname.",
-              "type": "string",
-              "required": true,
-              "group": "Endevor Bridge for Git connection options (alternatively use an 'ebg' profile)"
-            },
-            {
-              "name": "port",
-              "aliases": [
-                "P"
-              ],
-              "description": "The Endevor Bridge for Git port.",
-              "type": "number",
-              "required": true,
-              "group": "Endevor Bridge for Git connection options (alternatively use an 'ebg' profile)"
-            },
-            {
-              "name": "user",
-              "aliases": [
-                "u"
-              ],
-              "description": "Endevor Bridge for Git username (your git username).",
-              "type": "string",
-              "required": true,
-              "group": "Endevor Bridge for Git connection options (alternatively use an 'ebg' profile)"
-            },
-            {
-              "name": "token",
-              "aliases": [
-                "t"
-              ],
-              "description": "Git personal access token (it can be obtained from your Git Enterprise Server).",
-              "type": "string",
-              "required": true,
-              "group": "Endevor Bridge for Git connection options (alternatively use an 'ebg' profile)"
-            },
-            {
-              "name": "reject-unauthorized",
-              "aliases": [
-                "ru"
-              ],
-              "description": "Reject self-signed certificates. \n\nDefault value: false",
-              "type": "boolean",
-              "group": "Endevor Bridge for Git connection options (alternatively use an 'ebg' profile)"
-            },
-            {
-              "name": "show-inputs-only",
-              "group": "Global Options",
-              "description": "Show command inputs and do not run the command",
-              "type": "boolean",
-              "aliases": []
-            },
-            {
-              "name": "response-format-json",
-              "aliases": [
-                "rfj"
-              ],
-              "group": "Global Options",
-              "description": "Produce JSON formatted data from a command",
-              "type": "boolean"
-            },
-            {
-              "name": "help",
-              "aliases": [
-                "h"
-              ],
-              "group": "Global Options",
-              "description": "Display help text",
-              "type": "boolean"
-            },
-            {
-              "name": "help-web",
-              "aliases": [
-                "hw"
-              ],
-              "group": "Global Options",
-              "description": "Display HTML help in browser",
-              "type": "boolean"
-            },
-            {
-              "name": "ebg-profile",
-              "aliases": [
-                "ebg-p"
-              ],
-              "group": "Profile Options",
-              "description": "The name of a (ebg) profile to load for this command execution.",
-              "type": "string"
-            },
-            {
-              "name": "endevor-profile",
-              "aliases": [
-                "endevor-p"
-              ],
-              "group": "Profile Options",
-              "description": "The name of a (endevor) profile to load for this command execution.",
-              "type": "string"
-            },
-            {
-              "name": "base-profile",
-              "aliases": [
-                "base-p"
-              ],
-              "group": "Profile Options",
-              "description": "The name of a (base) profile to load for this command execution.",
-              "type": "string"
-            },
-            {
-              "name": "password",
-              "aliases": [
-                "pass",
-                "pw"
-              ],
-              "description": "Password to authenticate to service on the mainframe.",
-              "type": "string",
-              "group": "Base Connection Options"
-            },
-            {
-              "name": "token-type",
-              "aliases": [
-                "tt"
-              ],
-              "description": "The type of token to get and use for the API. Omit this option to use the default token type, which is provided by 'zowe auth login'.",
-              "type": "string",
-              "group": "Base Connection Options"
-            },
-            {
-              "name": "token-value",
-              "aliases": [
-                "tv"
-              ],
-              "description": "The value of the token to pass to the API.",
-              "type": "string",
-              "group": "Base Connection Options"
-            },
-            {
-              "name": "cert-file",
-              "description": "The file path to a certificate file to use for authentication.\n\nNote: The CLI does not support certificate files that require a password. For more information, search Troubleshooting PEM Certificates in Zowe Docs.",
-              "type": "existingLocalFile",
-              "group": "Base Connection Options",
-              "aliases": []
-            },
-            {
-              "name": "cert-key-file",
-              "description": "The file path to a certificate key file to use for authentication",
-              "type": "existingLocalFile",
-              "group": "Base Connection Options",
-              "aliases": []
-            }
-          ],
-          "examples": [
-            {
-              "description": "Update the Endevor credentials for the Git-Endevor mapping 'MY-CONTEXT / MY-MAPPING' using the default EBG and Endevor profile",
-              "options": "MY-CONTEXT MY-MAPPING"
-            },
-            {
-              "description": "Update the Endevor credentials for the Git-Endevor mapping 'MY-CONTEXT / MY-MAPPING' using the default EBG profile but not using an Endevor profile",
-              "options": "MY-CONTEXT MY-MAPPING --endevor-user my-user --endevor-password my-password"
-            }
-          ],
-          "passOn": [],
-          "children": []
-        }
-      ],
-      "passOn": [
-        {
-          "property": "options",
-          "value": [
-            {
-              "name": "protocol",
-              "aliases": [
-                "prot"
-              ],
-              "description": "The Endevor Bridge for Git SCM protocol. \n\nDefault value: https",
-              "type": "string",
-              "required": true,
-              "group": "Endevor Bridge for Git connection options (alternatively use an 'ebg' profile)",
-              "defaultValue": "https",
-              "allowableValues": {
-                "values": [
-                  "http",
-                  "https"
-                ],
-                "caseSensitive": false
-              }
-            },
-            {
-              "name": "host",
-              "aliases": [
-                "H"
-              ],
-              "description": "The Endevor Bridge for Git hostname.",
-              "type": "string",
-              "required": true,
-              "group": "Endevor Bridge for Git connection options (alternatively use an 'ebg' profile)"
-            },
-            {
-              "name": "port",
-              "aliases": [
-                "P"
-              ],
-              "description": "The Endevor Bridge for Git port.",
-              "type": "number",
-              "required": true,
-              "group": "Endevor Bridge for Git connection options (alternatively use an 'ebg' profile)"
-            },
-            {
-              "name": "user",
-              "aliases": [
-                "u"
-              ],
-              "description": "Endevor Bridge for Git username (your git username).",
-              "type": "string",
-              "required": true,
-              "group": "Endevor Bridge for Git connection options (alternatively use an 'ebg' profile)"
-            },
-            {
-              "name": "token",
-              "aliases": [
-                "t"
-              ],
-              "description": "Git personal access token (it can be obtained from your Git Enterprise Server).",
-              "type": "string",
-              "required": true,
-              "group": "Endevor Bridge for Git connection options (alternatively use an 'ebg' profile)"
-            },
-            {
-              "name": "reject-unauthorized",
-              "aliases": [
-                "ru"
-              ],
-              "description": "Reject self-signed certificates. \n\nDefault value: false",
-              "type": "boolean",
-              "group": "Endevor Bridge for Git connection options (alternatively use an 'ebg' profile)"
-            }
-          ],
-          "merge": true
-        }
-      ],
-      "options": [
-        {
-          "name": "help-examples",
-          "group": "Global Options",
-          "description": "Display examples for all the commands in a group",
-          "type": "boolean",
-          "aliases": []
-        },
-        {
-          "name": "response-format-json",
-          "aliases": [
-            "rfj"
-          ],
-          "group": "Global Options",
-          "description": "Produce JSON formatted data from a command",
-          "type": "boolean"
-        },
-        {
-          "name": "help",
-          "aliases": [
-            "h"
-          ],
-          "group": "Global Options",
-          "description": "Display help text",
-          "type": "boolean"
-        },
-        {
-          "name": "help-web",
-          "aliases": [
-            "hw"
-          ],
-          "group": "Global Options",
-          "description": "Display HTML help in browser",
-          "type": "boolean"
-        }
-      ],
-      "positionals": []
-    },
-    {
       "name": "local-hook-token",
       "aliases": [
         "token"
@@ -4883,14 +4526,6 @@
               "group": "Options"
             },
             {
-              "name": "only-work-environment",
-              "description": "If specified, only elements from the Endevor work environment will be synchronized.",
-              "type": "boolean",
-              "required": false,
-              "group": "Options",
-              "aliases": []
-            },
-            {
               "name": "read-only",
               "description": "If specified, it is necessary to use the option --endevor-stage-number. The synchronized elements will be read-only.",
               "type": "boolean",
@@ -4920,9 +4555,32 @@
               "group": "Options"
             },
             {
-              "name": "type-filter",
-              "description": "Type filter",
+              "name": "type-filters",
+              "description": "Type filters that your mapping will be using. There can be multiple separated by a space. eg --type-filters \"COBOL\" \"COPY\".",
+              "type": "array",
+              "required": false,
+              "group": "Options",
+              "aliases": []
+            },
+            {
+              "name": "name-filters",
+              "description": "Name filters that your mapping will be using. There can be multiple separated by a space. eg --name-filters \"ELE*\" \"CO*\".",
+              "type": "array",
+              "required": false,
+              "group": "Options",
+              "aliases": []
+            },
+            {
+              "name": "repository-check",
+              "description": "If set to allowNonEmpty, user can proceed with initialization even if the repository is not empty.",
+              "allowableValues": {
+                "values": [
+                  "REQUIRE_EMPTY",
+                  "ALLOW_NON_EMPTY"
+                ]
+              },
               "type": "string",
+              "defaultValue": "REQUIRE_EMPTY",
               "required": false,
               "group": "Options",
               "aliases": []
@@ -4956,7 +4614,6 @@
                 "endevor-stage-number",
                 "read-only",
                 "endevor-instance",
-                "endevor-environment",
                 "endevor-environment",
                 "endevor-system",
                 "endevor-subsystem"
@@ -6842,8 +6499,8 @@
               ],
               "description": "The Endevor Web Services Endevor configuration name.",
               "type": "string",
-              "required": true,
-              "group": "Required Options"
+              "required": false,
+              "group": "Options"
             },
             {
               "name": "work-dir",
@@ -7108,8 +6765,8 @@
               ],
               "description": "The Endevor Web Services Endevor configuration name.",
               "type": "string",
-              "required": true,
-              "group": "Required Options"
+              "required": false,
+              "group": "Options"
             },
             {
               "name": "work-dir",
