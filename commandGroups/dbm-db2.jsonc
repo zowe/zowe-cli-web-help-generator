@@ -283,7 +283,7 @@
             },
             {
               "name": "cert-file",
-              "description": "The file path to a certificate file to use for authentication",
+              "description": "The file path to a certificate file to use for authentication.\n\nNote: The CLI does not support certificate files that require a password. For more information, search Troubleshooting PEM Certificates in Zowe Docs.",
               "type": "existingLocalFile",
               "group": "Base Connection Options",
               "aliases": []
@@ -736,7 +736,7 @@
             },
             {
               "name": "cert-file",
-              "description": "The file path to a certificate file to use for authentication",
+              "description": "The file path to a certificate file to use for authentication.\n\nNote: The CLI does not support certificate files that require a password. For more information, search Troubleshooting PEM Certificates in Zowe Docs.",
               "type": "existingLocalFile",
               "group": "Base Connection Options",
               "aliases": []
@@ -1145,7 +1145,7 @@
             },
             {
               "name": "cert-file",
-              "description": "The file path to a certificate file to use for authentication",
+              "description": "The file path to a certificate file to use for authentication.\n\nNote: The CLI does not support certificate files that require a password. For more information, search Troubleshooting PEM Certificates in Zowe Docs.",
               "type": "existingLocalFile",
               "group": "Base Connection Options",
               "aliases": []
@@ -1479,7 +1479,7 @@
             },
             {
               "name": "cert-file",
-              "description": "The file path to a certificate file to use for authentication",
+              "description": "The file path to a certificate file to use for authentication.\n\nNote: The CLI does not support certificate files that require a password. For more information, search Troubleshooting PEM Certificates in Zowe Docs.",
               "type": "existingLocalFile",
               "group": "Base Connection Options",
               "aliases": []
@@ -1778,7 +1778,7 @@
             },
             {
               "name": "cert-file",
-              "description": "The file path to a certificate file to use for authentication",
+              "description": "The file path to a certificate file to use for authentication.\n\nNote: The CLI does not support certificate files that require a password. For more information, search Troubleshooting PEM Certificates in Zowe Docs.",
               "type": "existingLocalFile",
               "group": "Base Connection Options",
               "aliases": []
@@ -2074,7 +2074,7 @@
             },
             {
               "name": "cert-file",
-              "description": "The file path to a certificate file to use for authentication",
+              "description": "The file path to a certificate file to use for authentication.\n\nNote: The CLI does not support certificate files that require a password. For more information, search Troubleshooting PEM Certificates in Zowe Docs.",
               "type": "existingLocalFile",
               "group": "Base Connection Options",
               "aliases": []
@@ -2184,7 +2184,7 @@
             },
             {
               "name": "object-file",
-              "description": "Specifies the name of the local input file that contains a list of Db2 objects to be generated in DDL. Use a semicolon to separate objects. Use the optional include clause to include related Db2 objects.\n      \n\u001b[90m Format:\n\n<object-type> <object-name> [include(<related-object-type>,...)];\n\nThe required clause <object-type> <object-name>  identifies the specific Db2 (base) object:\n     \nSTOGROUP <name>\nDATABASE <name>\nTABLESPACE <dbname.name>\nTABLE <schema.name>\nINDEX <schema.name>\nVIEW <schema.name>\nALIAS <schema.name>\nSYNONYM <schema.name>\nMQT <schema.name>\nSEQUENCE <schema.name>\nTRIGGER <schema.name>\nFUNCTION <schema.name[.version]>\nPROCEDURE <schema.name[.version]>\n\nThe optional include clause (<related-object-type>,...) identifies one or more related Db2 object types to include in the object list.\n\nYou can specify the following object types: STOGROUP, DATABASE, TABLESPACE, TABLE, INDEX, VIEW, SYNONYM, MQT-ALL, TRIGGER, ROUTINE, PARENTS, CHILDREN, and ALL.\n     \nExample:\n     \ntable sysibm.systables include (tablespace, database, index);\ndatabase db1 include(children);\n\nNote: The --object and --object-file options are mutually exclusive. \u001b[0m",
+              "description": "Specifies the name of the local input file that contains a list of Db2 objects to be generated in DDL. Use a semicolon to separate objects. Use the optional include clause to include related Db2 objects.\n      \n\u001b[90m Format:\n\n<object-type> <object-name> [include(<related-object-type>,...)];\n\nThe required clause <object-type> <object-name>  identifies the specific Db2 (base) object:\n     \nSTOGROUP <name>\nDATABASE <name>\nTABLESPACE <dbname.name>\nTABLE <schema.name>\nINDEX <schema.name>\nVIEW <schema.name>\nALIAS <schema.name>\nSYNONYM <schema.name>\nMQT <schema.name>\nSEQUENCE <schema.name>\nTRIGGER <schema.name[.version]>\nFUNCTION <schema.name[.version]>\nPROCEDURE <schema.name[.version]>\n\nThe optional include clause (<related-object-type>,...) identifies one or more related Db2 object types to include in the object list.\n\nYou can specify the following object types: STOGROUP, DATABASE, TABLESPACE, TABLE, INDEX, VIEW, SYNONYM, MQT-ALL, TRIGGER, ROUTINE, PARENTS, CHILDREN, and ALL.\n     \nExample:\n     \ntable sysibm.systables include (tablespace, database, index);\ndatabase db1 include(children);\n\nNote: The --object and --object-file options are mutually exclusive. \u001b[0m",
               "type": "string",
               "aliases": [
                 "of"
@@ -2498,7 +2498,7 @@
             },
             {
               "name": "cert-file",
-              "description": "The file path to a certificate file to use for authentication",
+              "description": "The file path to a certificate file to use for authentication.\n\nNote: The CLI does not support certificate files that require a password. For more information, search Troubleshooting PEM Certificates in Zowe Docs.",
               "type": "existingLocalFile",
               "group": "Base Connection Options",
               "aliases": []
@@ -2605,7 +2605,7 @@
             },
             {
               "name": "object-file",
-              "description": "Specifies the name of the local input file that contains a list of Db2 objects to be migrated. Use a semicolon to separate objects. Use the optional include clause to include related Db2 objects.\n      \n\u001b[90m Format:\n\n<object-type> <object-name> [include(<related-object-type>,...)];\n\nThe required clause <object-type> <object-name>  identifies the specific Db2 (base) object:\n     \nSTOGROUP <name>\nDATABASE <name>\nTABLESPACE <dbname.name>\nTABLE <schema.name>\nINDEX <schema.name>\nVIEW <schema.name>\nALIAS <schema.name>\nSYNONYM <schema.name>\nMQT <schema.name>\nSEQUENCE <schema.name>\nTRIGGER <schema.name>\nFUNCTION <schema.name[.version]>\nPROCEDURE <schema.name[.version]>\n\nThe optional include clause (<related-object-type>,...) identifies one or more related Db2 object types to include in the object list.\n\nYou can specify the following object types: STOGROUP, DATABASE, TABLESPACE, TABLE, INDEX, VIEW, SYNONYM, MQT-ALL, TRIGGER, ROUTINE, PARENTS, CHILDREN, and ALL.\n     \nExample:\n     \ntable sysibm.systables include (tablespace, database, index);\ndatabase db1 include(children);\n\nNote: The --object and --object-file options are mutually exclusive. \u001b[0m",
+              "description": "Specifies the name of the local input file that contains a list of Db2 objects to be migrated. Use a semicolon to separate objects. Use the optional include clause to include related Db2 objects.\n      \n\u001b[90m Format:\n\n<object-type> <object-name> [include(<related-object-type>,...)];\n\nThe required clause <object-type> <object-name>  identifies the specific Db2 (base) object:\n     \nSTOGROUP <name>\nDATABASE <name>\nTABLESPACE <dbname.name>\nTABLE <schema.name>\nINDEX <schema.name>\nVIEW <schema.name>\nALIAS <schema.name>\nSYNONYM <schema.name>\nMQT <schema.name>\nSEQUENCE <schema.name>\nTRIGGER <schema.name[.version]>\nFUNCTION <schema.name[.version]>\nPROCEDURE <schema.name[.version]>\n\nThe optional include clause (<related-object-type>,...) identifies one or more related Db2 object types to include in the object list.\n\nYou can specify the following object types: STOGROUP, DATABASE, TABLESPACE, TABLE, INDEX, VIEW, SYNONYM, MQT-ALL, TRIGGER, ROUTINE, PARENTS, CHILDREN, and ALL.\n     \nExample:\n     \ntable sysibm.systables include (tablespace, database, index);\ndatabase db1 include(children);\n\nNote: The --object and --object-file options are mutually exclusive. \u001b[0m",
               "type": "string",
               "aliases": [
                 "of"
@@ -2922,7 +2922,7 @@
             },
             {
               "name": "cert-file",
-              "description": "The file path to a certificate file to use for authentication",
+              "description": "The file path to a certificate file to use for authentication.\n\nNote: The CLI does not support certificate files that require a password. For more information, search Troubleshooting PEM Certificates in Zowe Docs.",
               "type": "existingLocalFile",
               "group": "Base Connection Options",
               "aliases": []

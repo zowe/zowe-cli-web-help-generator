@@ -34,8 +34,8 @@
     },
     "dependencies": {
         "@types/node": "^16.11.1",
-        "@zowe/cli": "^7.11.0",
-        "@zowe/imperative": "^5.9.0",
+        "@zowe/cli": "^7.27.0",
+        "@zowe/imperative": "^5.25.0",
         "husky": "^7.0.2",
         "jsonc": "^2.0.0",
         "ts-node": "^10.3.0",
