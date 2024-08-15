@@ -165,6 +165,16 @@
               "group": "DBM-Db2 Connection Options"
             },
             {
+              "name": "base-path",
+              "aliases": [
+                "bp"
+              ],
+              "description": "The base path for your API mediation layer instance. Specify this option to prepend the base path to all DBM DS resources when making REST requests. Do not specify this option if you are not using an API mediation layer.",
+              "required": false,
+              "type": "string",
+              "group": "DBM-Db2 Connection Options"
+            },
+            {
               "name": "show-inputs-only",
               "group": "Global Options",
               "description": "Show command inputs and do not run the command",
@@ -618,6 +628,16 @@
               "group": "DBM-Db2 Connection Options"
             },
             {
+              "name": "base-path",
+              "aliases": [
+                "bp"
+              ],
+              "description": "The base path for your API mediation layer instance. Specify this option to prepend the base path to all DBM DS resources when making REST requests. Do not specify this option if you are not using an API mediation layer.",
+              "required": false,
+              "type": "string",
+              "group": "DBM-Db2 Connection Options"
+            },
+            {
               "name": "show-inputs-only",
               "group": "Global Options",
               "description": "Show command inputs and do not run the command",
@@ -1027,6 +1047,16 @@
               "group": "DBM-Db2 Connection Options"
             },
             {
+              "name": "base-path",
+              "aliases": [
+                "bp"
+              ],
+              "description": "The base path for your API mediation layer instance. Specify this option to prepend the base path to all DBM DS resources when making REST requests. Do not specify this option if you are not using an API mediation layer.",
+              "required": false,
+              "type": "string",
+              "group": "DBM-Db2 Connection Options"
+            },
+            {
               "name": "show-inputs-only",
               "group": "Global Options",
               "description": "Show command inputs and do not run the command",
@@ -1361,6 +1391,16 @@
               "group": "DBM-Db2 Connection Options"
             },
             {
+              "name": "base-path",
+              "aliases": [
+                "bp"
+              ],
+              "description": "The base path for your API mediation layer instance. Specify this option to prepend the base path to all DBM DS resources when making REST requests. Do not specify this option if you are not using an API mediation layer.",
+              "required": false,
+              "type": "string",
+              "group": "DBM-Db2 Connection Options"
+            },
+            {
               "name": "show-inputs-only",
               "group": "Global Options",
               "description": "Show command inputs and do not run the command",
@@ -1660,6 +1700,16 @@
               "group": "DBM-Db2 Connection Options"
             },
             {
+              "name": "base-path",
+              "aliases": [
+                "bp"
+              ],
+              "description": "The base path for your API mediation layer instance. Specify this option to prepend the base path to all DBM DS resources when making REST requests. Do not specify this option if you are not using an API mediation layer.",
+              "required": false,
+              "type": "string",
+              "group": "DBM-Db2 Connection Options"
+            },
+            {
               "name": "show-inputs-only",
               "group": "Global Options",
               "description": "Show command inputs and do not run the command",
@@ -1953,6 +2003,16 @@
               "description": "Specifies whether to overwrite output files if they exist.",
               "required": false,
               "type": "boolean",
+              "group": "DBM-Db2 Connection Options"
+            },
+            {
+              "name": "base-path",
+              "aliases": [
+                "bp"
+              ],
+              "description": "The base path for your API mediation layer instance. Specify this option to prepend the base path to all DBM DS resources when making REST requests. Do not specify this option if you are not using an API mediation layer.",
+              "required": false,
+              "type": "string",
               "group": "DBM-Db2 Connection Options"
             },
             {
@@ -2380,6 +2440,16 @@
               "group": "DBM-Db2 Connection Options"
             },
             {
+              "name": "base-path",
+              "aliases": [
+                "bp"
+              ],
+              "description": "The base path for your API mediation layer instance. Specify this option to prepend the base path to all DBM DS resources when making REST requests. Do not specify this option if you are not using an API mediation layer.",
+              "required": false,
+              "type": "string",
+              "group": "DBM-Db2 Connection Options"
+            },
+            {
               "name": "show-inputs-only",
               "group": "Global Options",
               "description": "Show command inputs and do not run the command",
@@ -2801,6 +2871,16 @@
                 1,
                 1
               ],
+              "group": "DBM-Db2 Connection Options"
+            },
+            {
+              "name": "base-path",
+              "aliases": [
+                "bp"
+              ],
+              "description": "The base path for your API mediation layer instance. Specify this option to prepend the base path to all DBM DS resources when making REST requests. Do not specify this option if you are not using an API mediation layer.",
+              "required": false,
+              "type": "string",
               "group": "DBM-Db2 Connection Options"
             },
             {
