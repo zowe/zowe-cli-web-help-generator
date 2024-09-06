@@ -5,6 +5,10 @@ on:
       - gh-pages
   workflow_dispatch:
 
+permissions:
+  pages: write
+  id-token: write
+
 jobs:
   pages-directory-listing:
     runs-on: ubuntu-latest
