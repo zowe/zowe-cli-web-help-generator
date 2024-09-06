@@ -130,6 +130,8 @@ jobs:
     needs: test
     runs-on: ubuntu-latest
     if: ${{ needs.test.result == 'success' && github.event_name == 'workflow_dispatch' && (github.ref_name == 'master' || github.ref_name == 'zowe-v1-lts') && github.event.inputs.zowe-version && github.event.inputs.zowe-version != '' && github.event.inputs.release == 'true' }}
+    permissions:
+      contents: write
     steps:
     - name: Checkout Pages Branch
       uses: actions/checkout@v4
@@ -158,6 +160,8 @@ jobs:
     needs: test
     runs-on: ubuntu-latest
     if: needs.test.result == 'success' && github.event_name == 'push' && (github.ref_name == 'master' || github.ref_name == 'zowe-v1-lts')
+    permissions:
+      contents: write
     steps:
     - name: Checkout Pages Branch
       uses: actions/checkout@v4
@@ -195,6 +199,7 @@ jobs:
     if: needs.test.result == 'success' && github.event_name == 'pull_request_target'
     permissions:
       pull-requests: write
+      contents: write
     steps:
     - name: Checkout Pages Branch
       uses: actions/checkout@v4
