@@ -24,7 +24,7 @@ import { jsonc as JSONC } from 'jsonc';
 
     // Add the missing command groups
     if (existsSync(commandGroupsDirectory)) {
-        const commandGroupsFiles = readdirSync(commandGroupsDirectory);
+        const commandGroupsFiles = readdirSync(commandGroupsDirectory).filter(name => name.endsWith(".jsonc"));
         for (const file of commandGroupsFiles) {
             const commandGroup = JSONC.parse(readFileSync(join(commandGroupsDirectory, file)).toString());
             let conflict = false;
