@@ -7,16 +7,19 @@ on:
 jobs:
   remove-pr:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
     steps:
     - name: Checkout Pages Branch
       uses: actions/checkout@v4
       with:
         ref: 'gh-pages'
-    
+
     - name: Remove directory
       env:
         GITHUB_TOKEN: ${{ secrets.ZOWE_ROBOT_TOKEN }}
-      run: | 
+      run: |
         rm -rf docs/pr-${{ github.event.number }}
         git config --global user.name ${{ secrets.ZOWE_ROBOT_USER }}
         git config --global user.email ${{ secrets.ZOWE_ROBOT_EMAIL }}
