@@ -38,14 +38,13 @@ To add your conformant plug-in's commands, perform the following steps:
 
     If it is not already installed, see Step 3 in the [Installing](#installing) section.
 
-2. Define command groups and profiles that your plug-in contributes.
+2. Define command groups that your plug-in contributes.
 
     - Copy the template file `zowe.template.json` to a new file named `zowe.json`. This file will be ignored by git.
-    - Customize this file to include the full names of command group(s) of your plug-in(s), and the name(s) of your plug-in's profile(s), like the following:
+    - Customize this file to include the full names of command group(s) of your plug-in(s), like the following:
         ```json
         {
-          "commandGroups": ["zowe-cli-sample"],
-          "profiles": ["sample"]
+          "commandGroups": ["zowe-cli-sample"]
         }
         ```
     > **Note:** No @zowe scoped plug-ins should be included in this repository, and the above is merely for demonstration purposes.
@@ -63,7 +62,7 @@ To add your conformant plug-in's commands, perform the following steps:
     ```bash
     npm run contribute
     ```
-    This will retrieve the CLI command tree from Zowe CLI and all installed plug-ins, and extract the above command group(s) and profile(s) to `.jsonc` files in the "commandGroups" and "profiles" directories.
+    This will retrieve the CLI command tree from Zowe CLI and all installed plug-ins, and extract the above command group(s) to `.jsonc` files in the "commandGroups" directory.
 
 5. Commit new files back to the GitHub repository.
 

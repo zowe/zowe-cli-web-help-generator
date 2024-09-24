@@ -27,19 +27,18 @@ jobs:
 
     - name: Install Node Package Dependencies
       id: install-node
-      run: | 
+      run: |
         npm i --prod
         npm install -g puppeteer-cli
 
     - name: Set Up Zowe
       id: setup-zowe
       run: |
-        npm install -g @zowe/cli@zowe-v2-lts
-        zowe plugins install @zowe/cics-for-zowe-cli@zowe-v2-lts
-        zowe plugins install @zowe/db2-for-zowe-cli@zowe-v2-lts
-        zowe plugins install @zowe/ims-for-zowe-cli@zowe-v2-lts
-        zowe plugins install @zowe/mq-for-zowe-cli@zowe-v2-lts
-        zowe plugins install @zowe/zos-ftp-for-zowe-cli@zowe-v2-lts
+        npm install -g @zowe/cli@zowe-v3-lts
+        zowe plugins install @zowe/cics-for-zowe-cli@zowe-v3-lts
+        zowe plugins install @zowe/db2-for-zowe-cli@zowe-v3-lts
+        zowe plugins install @zowe/mq-for-zowe-cli@zowe-v3-lts
+        zowe plugins install @zowe/zos-ftp-for-zowe-cli@zowe-v3-lts
 
     - name: Get Zowe version
       id: get-version
@@ -50,9 +49,8 @@ jobs:
       id: setup
       run: |
         jq '.commandGroups=["cics","db2","ims","mq","zos-ftp"]' zowe.template.json > zowe.json
-        echo "$(jq '.profiles=["cics", "db2","ims","mq","zftp"]' zowe.json)" > zowe.json
         npm run contribute
-    
+
     - name: Teardown Zowe Plugins
       id: teardown-zowe
       run: |
@@ -69,7 +67,7 @@ jobs:
         zowe --version || true
         npm run build:local -- ${{ steps.get-version.outputs.number }}
         export margin="0.4in"
-        puppeteer print ./generatedWebHelp/docs/all.html ./zowe.pdf --margin-top $margin --margin-right $margin --margin-bottom $margin --margin-left $margin --no-sandbox 
+        puppeteer print ./generatedWebHelp/docs/all.html ./zowe.pdf --margin-top $margin --margin-right $margin --margin-bottom $margin --margin-left $margin --no-sandbox
 
     - name: Archive Results
       id: upload

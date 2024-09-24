@@ -20,5 +20,5 @@ jobs:
         readarray -t all_files <<<"$(jq -r '.[]' <<<'${{ steps.files.outputs.all_changed_files }}')"
         for file in ${all_files[@]}; do
           [[ ''${file}'' == *.jsonc ]] || (echo "Not a JSON file: ${file}" && exit 1)
-          [[ ''${file}'' == commandGroups/* ]] || [[ ''${file}'' == profiles/* ]] || (echo "Wrong location: ${file}" && exit 1)
+          [[ ''${file}'' == commandGroups/* ]] || (echo "Wrong location: ${file}" && exit 1)
         done
