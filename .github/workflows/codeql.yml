@@ -4,11 +4,11 @@ on:
   push:
     branches:
       - master
-      - zowe-v1-lts
+      - zowe-v?-lts
   pull_request:
     branches:
       - master
-      - zowe-v1-lts
+      - zowe-v?-lts
 
 jobs:
   analyze:
