@@ -80,7 +80,7 @@ To preview web help with your plug-in included locally, perform the following st
 
 1. Ensure the latest CLI and plug-ins are installed to generate up-to-date help.
 
-    Install the latest version of Zowe CLI, and all @zowe scoped plug-ins (CICS, DB2, FTP, IMS, and MQ for Zowe v2) if they are not already installed. If you do not have a globally installed Zowe CLI available, the CLI can also be accessed in this repository by running `npx zowe`.
+    Install the latest version of Zowe CLI, and all @zowe scoped plug-ins (CICS, DB2, FTP, and MQ for Zowe v2) if they are not already installed. If you do not have a globally installed Zowe CLI available, the CLI can also be accessed in this repository by running `npx zowe`.
 
 2. Build web help that includes all plug-ins contributed to this repository.
 

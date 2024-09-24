@@ -48,7 +48,7 @@ jobs:
     - name: Setup zowe.json file
       id: setup
       run: |
-        jq '.commandGroups=["cics","db2","ims","mq","zos-ftp"]' zowe.template.json > zowe.json
+        jq '.commandGroups=["cics","db2","mq","zos-ftp"]' zowe.template.json > zowe.json
         npm run contribute
 
     - name: Teardown Zowe Plugins
@@ -56,7 +56,6 @@ jobs:
       run: |
         zowe plugins uninstall @zowe/cics-for-zowe-cli
         zowe plugins uninstall @zowe/db2-for-zowe-cli
-        zowe plugins uninstall @zowe/ims-for-zowe-cli
         zowe plugins uninstall @zowe/mq-for-zowe-cli
         zowe plugins uninstall @zowe/zos-ftp-for-zowe-cli
 
