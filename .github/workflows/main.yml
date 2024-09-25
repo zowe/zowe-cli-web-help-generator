@@ -55,24 +55,22 @@ jobs:
       if: ${{ github.event.inputs.zowe-version && github.event.inputs.zowe-version != '' }}
       run: |
         curl -s https://raw.githubusercontent.com/zowe/zowe-cli-standalone-package/${{ github.event.inputs.zowe-version }}/master/zowe-versions.yaml > __zowe__version__
-        npm install -g @zowe/cli@$(yq '.packages.cli."zowe-v2-lts"' __zowe__version__ | tr -d '"')
-        zowe plugins install @zowe/cics-for-zowe-cli@$(yq '.packages."cics-for-zowe-cli"."zowe-v2-lts"' __zowe__version__ | tr -d '"')
-        zowe plugins install @zowe/db2-for-zowe-cli@$(yq '.packages."db2-for-zowe-cli"."zowe-v2-lts"' __zowe__version__ | tr -d '"')
-        zowe plugins install @zowe/ims-for-zowe-cli@$(yq '.packages."ims-for-zowe-cli"."zowe-v2-lts"' __zowe__version__ | tr -d '"')
-        zowe plugins install @zowe/mq-for-zowe-cli@$(yq '.packages."mq-for-zowe-cli"."zowe-v2-lts"' __zowe__version__ | tr -d '"')
-        zowe plugins install @zowe/zos-ftp-for-zowe-cli@$(yq '.packages."zos-ftp-for-zowe-cli"."zowe-v2-lts"' __zowe__version__ | tr -d '"')
+        npm install -g @zowe/cli@$(yq '.packages.cli."zowe-v3-lts"' __zowe__version__ | tr -d '"')
+        zowe plugins install @zowe/cics-for-zowe-cli@$(yq '.packages."cics-for-zowe-cli"."zowe-v3-lts"' __zowe__version__ | tr -d '"')
+        zowe plugins install @zowe/db2-for-zowe-cli@$(yq '.packages."db2-for-zowe-cli"."zowe-v3-lts"' __zowe__version__ | tr -d '"')
+        zowe plugins install @zowe/mq-for-zowe-cli@$(yq '.packages."mq-for-zowe-cli"."zowe-v3-lts"' __zowe__version__ | tr -d '"')
+        zowe plugins install @zowe/zos-ftp-for-zowe-cli@$(yq '.packages."zos-ftp-for-zowe-cli"."zowe-v3-lts"' __zowe__version__ | tr -d '"')
         rm __zowe__version__
 
     - name: Set Up Zowe
       id: setup-zowe
       if: ${{ steps.get-version-from-workflow.outcome == 'skipped' }}
       run: |
-        npm install -g @zowe/cli@zowe-v2-lts
-        zowe plugins install @zowe/cics-for-zowe-cli@zowe-v2-lts
-        zowe plugins install @zowe/db2-for-zowe-cli@zowe-v2-lts
-        zowe plugins install @zowe/ims-for-zowe-cli@zowe-v2-lts
-        zowe plugins install @zowe/mq-for-zowe-cli@zowe-v2-lts
-        zowe plugins install @zowe/zos-ftp-for-zowe-cli@zowe-v2-lts
+        npm install -g @zowe/cli@zowe-v3-lts
+        zowe plugins install @zowe/cics-for-zowe-cli@zowe-v3-lts
+        zowe plugins install @zowe/db2-for-zowe-cli@zowe-v3-lts
+        zowe plugins install @zowe/mq-for-zowe-cli@zowe-v3-lts
+        zowe plugins install @zowe/zos-ftp-for-zowe-cli@zowe-v3-lts
 
     - name: Get Zowe version
       id: get-version
@@ -86,7 +84,7 @@ jobs:
         zowe --version || true
         npm run build:local -- ${{ github.event.inputs.zowe-version || steps.get-version.outputs.number }}
         export margin="0.4in"
-        puppeteer print ./generatedWebHelp/docs/all.html ./zowe.pdf --margin-top $margin --margin-right $margin --margin-bottom $margin --margin-left $margin --no-sandbox 
+        puppeteer print ./generatedWebHelp/docs/all.html ./zowe.pdf --margin-top $margin --margin-right $margin --margin-bottom $margin --margin-left $margin --no-sandbox
 
     - name: Archive Results
       id: upload

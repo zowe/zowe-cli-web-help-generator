@@ -38,14 +38,13 @@ To add your conformant plug-in's commands, perform the following steps:
 
     If it is not already installed, see Step 3 in the [Installing](#installing) section.
 
-2. Define command groups and profiles that your plug-in contributes.
+2. Define command groups that your plug-in contributes.
 
     - Copy the template file `zowe.template.json` to a new file named `zowe.json`. This file will be ignored by git.
-    - Customize this file to include the full names of command group(s) of your plug-in(s), and the name(s) of your plug-in's profile(s), like the following:
+    - Customize this file to include the full names of command group(s) of your plug-in(s), like the following:
         ```json
         {
-          "commandGroups": ["zowe-cli-sample"],
-          "profiles": ["sample"]
+          "commandGroups": ["zowe-cli-sample"]
         }
         ```
     > **Note:** No @zowe scoped plug-ins should be included in this repository, and the above is merely for demonstration purposes.
@@ -63,7 +62,7 @@ To add your conformant plug-in's commands, perform the following steps:
     ```bash
     npm run contribute
     ```
-    This will retrieve the CLI command tree from Zowe CLI and all installed plug-ins, and extract the above command group(s) and profile(s) to `.jsonc` files in the "commandGroups" and "profiles" directories.
+    This will retrieve the CLI command tree from Zowe CLI and all installed plug-ins, and extract the above command group(s) to `.jsonc` files in the "commandGroups" directory.
 
 5. Commit new files back to the GitHub repository.
 
@@ -81,7 +80,7 @@ To preview web help with your plug-in included locally, perform the following st
 
 1. Ensure the latest CLI and plug-ins are installed to generate up-to-date help.
 
-    Install the latest version of Zowe CLI, and all @zowe scoped plug-ins (CICS, DB2, FTP, IMS, and MQ for Zowe v2) if they are not already installed. If you do not have a globally installed Zowe CLI available, the CLI can also be accessed in this repository by running `npx zowe`.
+    Install the latest version of Zowe CLI, and all @zowe scoped plug-ins (CICS, DB2, FTP, and MQ for Zowe v2) if they are not already installed. If you do not have a globally installed Zowe CLI available, the CLI can also be accessed in this repository by running `npx zowe`.
 
 2. Build web help that includes all plug-ins contributed to this repository.
 
