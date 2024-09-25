@@ -2,26 +2,62 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta http-equiv="X-UA-Compatible" content="ie=edge">
-<title>zos-workflows delete archived-workflow</title>
+<title>zos-jobs search job</title>
 <link rel="stylesheet" href="../css/bundle-docs.css">
 <link rel="stylesheet" href="../css/docs.css">
 <article class="markdown-body">
-<h2><a href="zowe.html">zowe</a> › <a href="zowe_zos-workflows.html">zos-workflows</a> › <a href="zowe_zos-workflows_delete.html">delete</a> › <a href="zowe_zos-workflows_delete_archived-workflow.html">archived-workflow</a><button id="btn-print" class="no-print" onclick="window.print();" title="Print">🖨️</button></h2>
-<p>Delete an archived workflow from z/OSMF.</p>
+<h2><a href="zowe.html">zowe</a> › <a href="zowe_zos-jobs.html">zos-jobs</a> › <a href="zowe_zos-jobs_search.html">search</a> › <a href="zowe_zos-jobs_search_job.html">job</a><button id="btn-print" class="no-print" onclick="window.print();" title="Print">🖨️</button></h2>
+<p>Search the spool output of a job.</p>
 <h4>Usage</h4>
-<p>zowe zos-workflows delete archived-workflow [options]</p>
+<p>zowe zos-jobs search job &lt;jobname&gt; [options]</p>
+<h4>Positional Arguments</h4>
+<ul>
+<li>
+<p><code>jobname</code>		 <em>(string)</em></p>
+<ul>
+<li>The job name to search. Wildcards are accepted for the job name. You can use, for example &quot;USERJOB*&quot; to search all jobs that start with USERJOB.</li>
+</ul>
+</li>
+</ul>
 <h4>Options</h4>
 <ul>
 <li>
-<p><code>--workflow-key</code> | <code>--wk</code> <em>(string)</em></p>
+<p><code>--search-string</code> | <code>--string</code> <em>(string)</em></p>
 <ul>
-<li>Delete an archived workflow by specified workflow key</li>
+<li>The string to search for in the spool output.</li>
 </ul>
 </li>
 <li>
-<p><code>--workflow-name</code> | <code>--wn</code> <em>(string)</em></p>
+<p><code>--search-regex</code> | <code>--regex</code> <em>(string)</em></p>
 <ul>
-<li>Delete an archived workflow by specified workflow name</li>
+<li>The regular expression to search for in the spool output.</li>
+</ul>
+</li>
+<li>
+<p><code>--case-insensitive</code> | <code>--ci</code> <em>(boolean)</em></p>
+<ul>
+<li>
+<p>The search is case insensitive or not.</p>
+<p>Default value: true</p>
+</li>
+</ul>
+</li>
+<li>
+<p><code>--search-limit</code> | <code>--sl</code> <em>(number)</em></p>
+<ul>
+<li>
+<p>The maximum number of matching lines to return for an individual spool file.</p>
+<p>Default value: 100</p>
+</li>
+</ul>
+</li>
+<li>
+<p><code>--file-limit</code> | <code>--fl</code> <em>(number)</em></p>
+<ul>
+<li>
+<p>The maximum number of spool files to search.</p>
+<p>Default value: 100</p>
+</li>
 </ul>
 </li>
 </ul>
@@ -125,21 +161,21 @@ Allowed values: http, https</p>
 <h4>Examples</h4>
 <ul>
 <li>
-<p>To delete an archived workflow from z/OSMF with workflow key &quot;d043b5f1-adab-48e7-b7c3-d41cd95fa4b0&quot;:</p>
+<p>Search all jobs named USERJOB for the string &quot;RC=0000&quot;:</p>
 <ul>
-<li><code>zowe zos-workflows delete archived-workflow --workflow-key &quot;d043b5f1-adab-48e7-b7c3-d41cd95fa4b0&quot;</code> <button class="btn-copy no-print" data-balloon-pos="right" data-clipboard-text="zowe zos-workflows delete archived-workflow --workflow-key &quot;d043b5f1-adab-48e7-b7c3-d41cd95fa4b0&quot;">Copy</button></li>
+<li><code>zowe zos-jobs search job &quot;USERJOB&quot; --search-string &quot;RC=0000&quot;</code> <button class="btn-copy no-print" data-balloon-pos="right" data-clipboard-text="zowe zos-jobs search job &quot;USERJOB&quot; --search-string &quot;RC=0000&quot;">Copy</button></li>
 </ul>
 </li>
 <li>
-<p>To delete an archived workflow from z/OSMF with workflow name &quot;testWorkflow&quot;:</p>
+<p>Search all jobs that start with USER for the string &quot;ENDED&quot;:</p>
 <ul>
-<li><code>zowe zos-workflows delete archived-workflow --workflow-name &quot;testWorkflow&quot;</code> <button class="btn-copy no-print" data-balloon-pos="right" data-clipboard-text="zowe zos-workflows delete archived-workflow --workflow-name &quot;testWorkflow&quot;">Copy</button></li>
+<li><code>zowe zos-jobs search job &quot;USER*&quot; --search-string &quot;ENDED&quot;</code> <button class="btn-copy no-print" data-balloon-pos="right" data-clipboard-text="zowe zos-jobs search job &quot;USER*&quot; --search-string &quot;ENDED&quot;">Copy</button></li>
 </ul>
 </li>
 <li>
-<p>To delete multiple archived workflows from z/OSMF with names beginnig with &quot;test&quot;:</p>
+<p>Search all jobs named USERJOB for the string &quot;COND CODE&quot;, with the options case sensitive and a search limit of 5:</p>
 <ul>
-<li><code>zowe zos-workflows delete archived-workflow --workflow-name &quot;test.*&quot;</code> <button class="btn-copy no-print" data-balloon-pos="right" data-clipboard-text="zowe zos-workflows delete archived-workflow --workflow-name &quot;test.*&quot;">Copy</button></li>
+<li><code>zowe zos-jobs search job &quot;USERJOB&quot; --search-string &quot;COND CODE&quot; --case-insensitive false --search-limit 5</code> <button class="btn-copy no-print" data-balloon-pos="right" data-clipboard-text="zowe zos-jobs search job &quot;USERJOB&quot; --search-string &quot;COND CODE&quot; --case-insensitive false --search-limit 5">Copy</button></li>
 </ul>
 </li>
 </ul>
