@@ -34,8 +34,8 @@
     },
     "dependencies": {
         "@types/node": "^20.14.8",
-        "@zowe/cli": "^7.28.2",
-        "@zowe/imperative": "^5.26.1",
+        "@zowe/cli": "^8.0.0",
+        "@zowe/imperative": "^8.0.0",
         "husky": "^8.0.3",
         "jsonc": "^2.0.0",
         "ts-node": "^10.9.2",
@@ -45,16 +45,13 @@
     "devDependencies": {
         "@typescript-eslint/eslint-plugin": "^7.18.0",
         "@typescript-eslint/parser": "^7.18.0",
-        "ansi-colors": "^4.1.3",
         "eslint": "^8.56.0",
         "eslint-plugin-unused-imports": "^3.0.0",
-        "fancy-log": "^2.0.0",
         "glob": "^9.3.3",
-        "rimraf": "^5.0.0",
-        "shebang-regex": "^3.0.0"
+        "rimraf": "^5.0.0"
     },
     "engines": {
-        "node": ">=12.0.0"
+        "node": ">=18.0.0"
     },
     "bin": "zowe"
 }
