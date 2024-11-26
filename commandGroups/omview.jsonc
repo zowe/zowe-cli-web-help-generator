@@ -1224,7 +1224,7 @@
                 "n"
               ],
               "type": "string",
-              "description": "Filter (include) based on repository name. Use the percent sign (%) as a wildcard to represent a single character. Use the asterisk (*) as a wildcard to represent any number of characters.",
+              "description": "Filter (include) based on repository name. Use the question mark (?) as a wildcard to represent a single character. Use the asterisk (*) as a wildcard to represent any number of characters.",
               "defaultValue": null,
               "group": "Options"
             },
