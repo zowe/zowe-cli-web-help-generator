@@ -2,71 +2,104 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta http-equiv="X-UA-Compatible" content="ie=edge">
-<title>zos-jobs download output</title>
+<title>zos-tso start app</title>
 <link rel="stylesheet" href="../css/bundle-docs.css">
 <link rel="stylesheet" href="../css/docs.css">
 <article class="markdown-body">
-<h2><a href="zowe.html">zowe</a> › <a href="zowe_zos-jobs.html">zos-jobs</a> › <a href="zowe_zos-jobs_download.html">download</a> › <a href="zowe_zos-jobs_download_output.html">output</a><button id="btn-print" class="no-print" onclick="window.print();" title="Print">🖨️</button></h2>
-<p>Download all job output to a local directory. Each spool DD will be downloaded to its own file in the directory.</p>
+<h2><a href="zowe.html">zowe</a> › <a href="zowe_zos-tso.html">zos-tso</a> › <a href="zowe_zos-tso_start.html">start</a> › <a href="zowe_zos-tso_start_app.html">app</a><button id="btn-print" class="no-print" onclick="window.print();" title="Print">🖨️</button></h2>
+<p>Start application at TSO address space,</p>
 <h4>Usage</h4>
-<p>zowe zos-jobs download output &lt;jobid&gt; [options]</p>
-<h4>Positional Arguments</h4>
+<p>zowe zos-tso start app [options]</p>
+<h4>TSO ADDRESS SPACE OPTIONS</h4>
 <ul>
 <li>
-<p><code>jobid</code>		 <em>(string)</em></p>
+<p><code>--account</code> | <code>-a</code> <em>(string)</em></p>
 <ul>
-<li>The z/OS JOBID of the job containing the spool files you want to view. No pre-validation of the JOBID is performed.</li>
+<li>Your z/OS TSO/E accounting information.</li>
+</ul>
+</li>
+<li>
+<p><code>--character-set</code> | <code>--cs</code> <em>(string)</em></p>
+<ul>
+<li>
+<p>Character set for address space to convert messages and responses from UTF-8 to EBCDIC.</p>
+<p>Default value: 697</p>
+</li>
+</ul>
+</li>
+<li>
+<p><code>--code-page</code> | <code>--cp</code> <em>(string)</em></p>
+<ul>
+<li>
+<p>Codepage value for TSO/E address space to convert messages and responses from UTF-8 to EBCDIC.</p>
+<p>Default value: 1047</p>
+</li>
+</ul>
+</li>
+<li>
+<p><code>--columns</code> | <code>--cols</code> <em>(number)</em></p>
+<ul>
+<li>
+<p>The number of columns on a screen.</p>
+<p>Default value: 80</p>
+</li>
+</ul>
+</li>
+<li>
+<p><code>--logon-procedure</code> | <code>-l</code> <em>(string)</em></p>
+<ul>
+<li>
+<p>The logon procedure to use when creating TSO procedures on your behalf.</p>
+<p>Default value: IZUFPROC</p>
+</li>
+</ul>
+</li>
+<li>
+<p><code>--region-size</code> | <code>--rs</code> <em>(number)</em></p>
+<ul>
+<li>
+<p>Region size for the TSO/E address space.</p>
+<p>Default value: 4096</p>
+</li>
+</ul>
+</li>
+<li>
+<p><code>--rows</code> <em>(number)</em></p>
+<ul>
+<li>
+<p>The number of rows on a screen.</p>
+<p>Default value: 24</p>
+</li>
+</ul>
+</li>
+</ul>
+<h4>Required Options</h4>
+<ul>
+<li>
+<p><code>--app-key</code> | <code>--ak</code> <em>(string)</em></p>
+<ul>
+<li>App key of application running at TSO address space, this app key value should be referenced when sending or receiving messages from the application instance</li>
+</ul>
+</li>
+<li>
+<p><code>--startup</code> | <code>--sc</code> <em>(string)</em></p>
+<ul>
+<li>Command to be ran to start application at the TSO address space</li>
 </ul>
 </li>
 </ul>
 <h4>Options</h4>
 <ul>
 <li>
-<p><code>--directory</code> | <code>-d</code> | <code>--dir</code> <em>(string)</em></p>
+<p><code>--queue-id</code> | <code>--qi</code> <em>(string)</em></p>
 <ul>
-<li>The local directory you would like to download the output for the job to.</li>
+<li>Queue ID of TSO address space</li>
 </ul>
 </li>
 <li>
-<p><code>--extension</code> | <code>-e</code> <em>(string)</em></p>
+<p><code>--servlet-key</code> | <code>--sk</code> <em>(string)</em></p>
 <ul>
-<li>A file extension to save the job output with. Defaults to '.txt'.</li>
-</ul>
-</li>
-<li>
-<p><code>--omit-jobid-directory</code> | <code>--ojd</code> <em>(boolean)</em></p>
-<ul>
-<li>If specified, job output will be saved directly to the specified directory rather than creating a subdirectory named after the ID of the job.</li>
-</ul>
-</li>
-<li>
-<p><code>--binary</code> | <code>-b</code> <em>(boolean)</em></p>
-<ul>
-<li>If specified, job output will be downloaded in binary format instead of performing text conversion. Conflicts with record.</li>
-</ul>
-</li>
-<li>
-<p><code>--record</code> | <code>-r</code> <em>(boolean)</em></p>
-<ul>
-<li>If specified, job output will be downloaded in record format instead of performing text conversion. Conflicts with binary.</li>
-</ul>
-</li>
-<li>
-<p><code>--encoding</code> | <code>--ec</code> <em>(string)</em></p>
-<ul>
-<li>Download the spool file content with encoding mode, which means that data conversion is performed using the file encoding specified.</li>
-</ul>
-</li>
-<li>
-<p><code>--wait-for-active</code> | <code>--wfa</code> <em>(boolean)</em></p>
-<ul>
-<li>Wait for the job to enter ACTIVE status before completing the command.</li>
-</ul>
-</li>
-<li>
-<p><code>--wait-for-output</code> | <code>--wfo</code> <em>(boolean)</em></p>
-<ul>
-<li>Wait for the job to enter OUTPUT status before completing the command.</li>
+<li>Servlet Key of TSO address space</li>
 </ul>
 </li>
 </ul>
@@ -146,6 +179,12 @@ Allowed values: http, https</p>
 </ul>
 </li>
 <li>
+<p><code>--tso-profile</code> | <code>--tso-p</code> <em>(string)</em></p>
+<ul>
+<li>The name of a (tso) profile to load for this command execution.</li>
+</ul>
+</li>
+<li>
 <p><code>--base-profile</code> | <code>--base-p</code> <em>(string)</em></p>
 <ul>
 <li>The name of a (base) profile to load for this command execution.</li>
@@ -164,15 +203,6 @@ Allowed values: http, https</p>
 <p><code>--token-value</code> | <code>--tv</code> <em>(string)</em></p>
 <ul>
 <li>The value of the token to pass to the API.</li>
-</ul>
-</li>
-</ul>
-<h4>Examples</h4>
-<ul>
-<li>
-<p>Download all the output of the job with job ID JOB00234 to an automatically generated directory.:</p>
-<ul>
-<li><code>zowe zos-jobs download output JOB00234</code> <button class="btn-copy no-print" data-balloon-pos="right" data-clipboard-text="zowe zos-jobs download output JOB00234">Copy</button></li>
 </ul>
 </li>
 </ul>

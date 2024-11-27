@@ -213,6 +213,31 @@
 <li><a href="#zowe_omspool">omspool | esf</a><ul><li><a href="#zowe_omspool_issue">issue | is</a><ul><li><a href="#zowe_omspool_issue_command">command | cmd</a></li>
 </ul></li>
 </ul></li>
+<li><a href="#zowe_omview">omview | caview | cv</a><ul><li><a href="#zowe_omview_download">download | dl</a><ul><li><a href="#zowe_omview_download_report">report | r</a></li>
+</ul></li>
+</ul><ul><li><a href="#zowe_omview_export">export | exp</a><ul><li><a href="#zowe_omview_export_report">report | r</a></li>
+</ul></li>
+</ul><ul><li><a href="#zowe_omview_get">get</a><ul><li><a href="#zowe_omview_get_user">user</a><ul><li><a href="#zowe_omview_get_user_settings">settings</a></li>
+</ul></li>
+</ul></li>
+</ul><ul><li><a href="#zowe_omview_list">list | ls</a><ul><li><a href="#zowe_omview_list_export-rules">export-rules | rules</a></li>
+</ul><ul><li><a href="#zowe_omview_list_report">report | repo</a><ul><li><a href="#zowe_omview_list_report_index-names">index-names | indexes</a></li>
+</ul><ul><li><a href="#zowe_omview_list_report_index-values">index-values</a></li>
+</ul><ul><li><a href="#zowe_omview_list_report_logical-views">logical-views | views</a></li>
+</ul></li>
+</ul><ul><li><a href="#zowe_omview_list_reports">reports</a></li>
+</ul><ul><li><a href="#zowe_omview_list_repositories">repositories | repos</a></li>
+</ul></li>
+</ul><ul><li><a href="#zowe_omview_search">search | find</a><ul><li><a href="#zowe_omview_search_index">index</a><ul><li><a href="#zowe_omview_search_index_names">names</a></li>
+</ul><ul><li><a href="#zowe_omview_search_index_reports">reports</a></li>
+</ul><ul><li><a href="#zowe_omview_search_index_values">values</a></li>
+</ul></li>
+</ul></li>
+</ul><ul><li><a href="#zowe_omview_set">set</a><ul><li><a href="#zowe_omview_set_user">user</a><ul><li><a href="#zowe_omview_set_user_distribution">distribution</a></li>
+</ul><ul><li><a href="#zowe_omview_set_user_mode">mode</a></li>
+</ul></li>
+</ul></li>
+</ul></li>
 <li><a href="#zowe_ops">ops</a><ul><li><a href="#zowe_ops_create">create</a><ul><li><a href="#zowe_ops_create_event">event</a></li>
 </ul></li>
 </ul><ul><li><a href="#zowe_ops_disable">disable</a><ul><li><a href="#zowe_ops_disable_rule">rule</a></li>
@@ -295,6 +320,7 @@
 </ul><ul><li><a href="#zowe_zos-files_delete_zos-file-system">zos-file-system | zfs</a></li>
 </ul></li>
 </ul><ul><li><a href="#zowe_zos-files_download">download | dl</a><ul><li><a href="#zowe_zos-files_download_all-members">all-members | am</a></li>
+</ul><ul><li><a href="#zowe_zos-files_download_all-members-matching">all-members-matching | amm | all-members-matching</a></li>
 </ul><ul><li><a href="#zowe_zos-files_download_data-set">data-set | ds</a></li>
 </ul><ul><li><a href="#zowe_zos-files_download_data-sets-matching">data-sets-matching | dsm | data-set-matching</a></li>
 </ul><ul><li><a href="#zowe_zos-files_download_uss-directory">uss-directory | uss-dir</a></li>
@@ -405,9 +431,13 @@
 </ul></li>
 </ul><ul><li><a href="#zowe_zos-tso_ping">ping</a><ul><li><a href="#zowe_zos-tso_ping_address-space">address-space | as</a></li>
 </ul></li>
+</ul><ul><li><a href="#zowe_zos-tso_receive">receive | r</a><ul><li><a href="#zowe_zos-tso_receive_app">app | a</a></li>
+</ul></li>
 </ul><ul><li><a href="#zowe_zos-tso_send">send</a><ul><li><a href="#zowe_zos-tso_send_address-space">address-space | as</a></li>
+</ul><ul><li><a href="#zowe_zos-tso_send_app">app | a</a></li>
 </ul></li>
 </ul><ul><li><a href="#zowe_zos-tso_start">start | st</a><ul><li><a href="#zowe_zos-tso_start_address-space">address-space | as</a></li>
+</ul><ul><li><a href="#zowe_zos-tso_start_app">app | a</a></li>
 </ul></li>
 </ul><ul><li><a href="#zowe_zos-tso_stop">stop | sp</a><ul><li><a href="#zowe_zos-tso_stop_address-space">address-space | as</a></li>
 </ul></li>
@@ -4408,6 +4438,12 @@ Allowed values: http, https</p>
 <p>Delete properties stored in the vault for Zowe client config files that do not exist.</p>
 <p>Default value: false</p>
 </li>
+</ul>
+</li>
+<li>
+<p><code>--profile</code> | <code>--pf</code> <em>(string)</em></p>
+<ul>
+<li>Specify the profile for which you want to configure secure values.</li>
 </ul>
 </li>
 </ul>
@@ -19776,6 +19812,2512 @@ Allowed values: http, https</p>
 </li>
 </ul>
 <hr class="no-print">
+<a name="zowe_omview"></a><h2 class="page-break"><a href="#zowe">zowe</a> › <a href="#zowe_omview">omview</a><button id="btn-print" class="no-print" onclick="window.print();" title="Print">🖨️</button></h2>
+<p>Access Output Management View™ for z/OS data and perform related tasks.</p>
+<a name="zowe_omview_download"></a><h2><a href="#zowe">zowe</a> › <a href="#zowe_omview">omview</a> › <a href="#zowe_omview_download">download</a><button id="btn-print" class="no-print" onclick="window.print();" title="Print">🖨️</button></h2>
+<p>Download OM View report data to local folder.</p>
+<a class="cmd-anchor" name="zowe_omview_download_report"></a><h3><a href="#zowe">zowe</a> › <a href="#zowe_omview">omview</a> › <a href="#zowe_omview_download">download</a> › <a href="#zowe_omview_download_report">report</a><button id="btn-print" class="no-print" onclick="window.print();" title="Print">🖨️</button></h3>
+<p>Download report data.<br>
+Optionally convert text report to PDF.</p>
+<h4>Usage</h4>
+<p>zowe omview download report &lt;repositoryId&gt; &lt;reportHandle&gt; [fileTarget] [options]</p>
+<h4>Positional Arguments</h4>
+<ul>
+<li>
+<p><code>repositoryId</code>		 <em>(number)</em></p>
+<ul>
+<li>Repository identifier.</li>
+</ul>
+</li>
+<li>
+<p><code>reportHandle</code>		 <em>(string)</em></p>
+<ul>
+<li>Report handle.</li>
+</ul>
+</li>
+<li>
+<p><code>fileTarget</code>		 <em>(string)</em></p>
+<ul>
+<li>Local file path.<br>
+If the path represents a directory location, the report will be downloaded into that directory using a default file name.<br>
+If the path does not represent a directory location, the report will be downloaded into the specified path.<br>
+If the path is not specified, the file will be saved to the current working directory using the default file name.<br>
+Any missing directories will be created. If the target file already exists, the file will be overwritten.</li>
+</ul>
+</li>
+</ul>
+<h4>Options</h4>
+<ul>
+<li>
+<p><code>--convert-to-pdf</code> | <code>--to-pdf</code> <em>(boolean)</em></p>
+<ul>
+<li>
+<p>Converts text report to PDF.</p>
+<p>Default value: false</p>
+</li>
+</ul>
+</li>
+<li>
+<p><code>--page-orientation</code> | <code>--orientation</code> <em>(string)</em></p>
+<ul>
+<li>
+<p>Page orientation for converted PDF.</p>
+<p>Default value: PORTRAIT<br>
+Allowed values: PORTRAIT, LANDSCAPE</p>
+</li>
+</ul>
+</li>
+<li>
+<p><code>--font-size</code> | <code>--font</code> <em>(number)</em></p>
+<ul>
+<li>
+<p>Font size for converted PDF.</p>
+<p>Default value: 12</p>
+</li>
+</ul>
+</li>
+<li>
+<p><code>--green-bar</code> <em>(boolean)</em></p>
+<ul>
+<li>
+<p>Include green-bar background in converted PDF.</p>
+<p>Default value: false</p>
+</li>
+</ul>
+</li>
+<li>
+<p><code>--pages</code> <em>(string)</em></p>
+<ul>
+<li>
+<p>Include the specified page numbers (or page ranges). Separate page numbers (or page ranges) with commas.<br>
+Separate boundaries of a page range with a dash (-). If you do not specify this option, all the pages of the report are downloaded.</p>
+<p>Allowed values: (\d+(-\d+)?)(,(\d+(-\d+)?))*</p>
+</li>
+</ul>
+</li>
+<li>
+<p><code>--content-filter</code> | <code>--filter</code> <em>(string)</em></p>
+<ul>
+<li>Filter text report content using a permanent filter definition.<br>
+If the product instance does not support this feature, this option is ignored.</li>
+</ul>
+</li>
+</ul>
+<h4>OM Web Viewer Connection Options</h4>
+<ul>
+<li>
+<p><code>--host</code> | <code>--hostname</code> <em>(string)</em></p>
+<ul>
+<li>Hostname or ip address of the target OM Web Viewer instance.</li>
+</ul>
+</li>
+<li>
+<p><code>--port</code> <em>(number)</em></p>
+<ul>
+<li>
+<p>Port of the target OM Web Viewer instance.</p>
+<p>Default value: 443</p>
+</li>
+</ul>
+</li>
+<li>
+<p><code>--user</code> | <code>--username</code> <em>(string)</em></p>
+<ul>
+<li>User name used to authenticate against the target OM Web Viewer instance.</li>
+</ul>
+</li>
+<li>
+<p><code>--password</code> <em>(string)</em></p>
+<ul>
+<li>Password used to authenticate against the target OM Web Viewer instance.</li>
+</ul>
+</li>
+<li>
+<p><code>--base-path</code> <em>(string)</em></p>
+<ul>
+<li>
+<p>Context name of the target OM Web Viewer instance.</p>
+<p>Default value: web-viewer</p>
+</li>
+</ul>
+</li>
+<li>
+<p><code>--protocol</code> <em>(string)</em></p>
+<ul>
+<li>
+<p>Protocol of the target OM Web Viewer instance.</p>
+<p>Default value: https<br>
+Allowed values: http, https</p>
+</li>
+</ul>
+</li>
+</ul>
+<h4>Profile Options</h4>
+<ul>
+<li>
+<p><code>--omview-profile</code> | <code>--omview-p</code> <em>(string)</em></p>
+<ul>
+<li>The name of a (omview) profile to load for this command execution.</li>
+</ul>
+</li>
+<li>
+<p><code>--caview-profile</code> | <code>--caview-p</code> <em>(string)</em></p>
+<ul>
+<li>The name of a (caview) profile to load for this command execution.</li>
+</ul>
+</li>
+<li>
+<p><code>--base-profile</code> | <code>--base-p</code> <em>(string)</em></p>
+<ul>
+<li>The name of a (base) profile to load for this command execution.</li>
+</ul>
+</li>
+</ul>
+<h4>Base Connection Options</h4>
+<ul>
+<li>
+<p><code>--reject-unauthorized</code> | <code>--ru</code> <em>(boolean)</em></p>
+<ul>
+<li>
+<p>Reject self-signed certificates.</p>
+<p>Default value: true</p>
+</li>
+</ul>
+</li>
+<li>
+<p><code>--token-type</code> | <code>--tt</code> <em>(string)</em></p>
+<ul>
+<li>The type of token to get and use for the API. Omit this option to use the default token type, which is provided by 'zowe auth login'.</li>
+</ul>
+</li>
+<li>
+<p><code>--token-value</code> | <code>--tv</code> <em>(string)</em></p>
+<ul>
+<li>The value of the token to pass to the API.</li>
+</ul>
+</li>
+<li>
+<p><code>--cert-file</code> <em>(local file path)</em></p>
+<ul>
+<li>
+<p>The file path to a certificate file to use for authentication.</p>
+<p>Note: The CLI does not support certificate files that require a password. For more information, search Troubleshooting PEM Certificates in Zowe Docs.</p>
+</li>
+</ul>
+</li>
+<li>
+<p><code>--cert-key-file</code> <em>(local file path)</em></p>
+<ul>
+<li>The file path to a certificate key file to use for authentication</li>
+</ul>
+</li>
+</ul>
+<a name="zowe_omview_export"></a><h2><a href="#zowe">zowe</a> › <a href="#zowe_omview">omview</a> › <a href="#zowe_omview_export">export</a><button id="btn-print" class="no-print" onclick="window.print();" title="Print">🖨️</button></h2>
+<p>Export OM View text report file to local folder.</p>
+<a class="cmd-anchor" name="zowe_omview_export_report"></a><h3><a href="#zowe">zowe</a> › <a href="#zowe_omview">omview</a> › <a href="#zowe_omview_export">export</a> › <a href="#zowe_omview_export_report">report</a><button id="btn-print" class="no-print" onclick="window.print();" title="Print">🖨️</button></h3>
+<p>Export text report to spreadsheet using a predefined export rule.</p>
+<h4>Usage</h4>
+<p>zowe omview export report &lt;repositoryId&gt; &lt;reportHandle&gt; &lt;ruleId&gt; [fileTarget] [options]</p>
+<h4>Positional Arguments</h4>
+<ul>
+<li>
+<p><code>repositoryId</code>		 <em>(number)</em></p>
+<ul>
+<li>Repository identifier.</li>
+</ul>
+</li>
+<li>
+<p><code>reportHandle</code>		 <em>(string)</em></p>
+<ul>
+<li>Report handle.</li>
+</ul>
+</li>
+<li>
+<p><code>ruleId</code>		 <em>(number)</em></p>
+<ul>
+<li>Export rule identifier.</li>
+</ul>
+</li>
+<li>
+<p><code>fileTarget</code>		 <em>(string)</em></p>
+<ul>
+<li>Local file path.<br>
+If the path represents a directory location, the report will be exported into that directory using a default file name.<br>
+If the path does not represent a directory location, the report will be exported into the specified path.<br>
+If the path is not specified, the file will be saved to the current working directory using the default file name.<br>
+Any missing directories will be created. If the target file already exists, the file will be overwritten.</li>
+</ul>
+</li>
+</ul>
+<h4>Options</h4>
+<ul>
+<li>
+<p><code>--pages</code> <em>(string)</em></p>
+<ul>
+<li>
+<p>Include the specified page numbers (or page ranges). Separate page numbers (or page ranges) with commas.<br>
+Separate boundaries of a page range with a dash (-). If you do not specify this option, all the pages of the report are exported.</p>
+<p>Allowed values: (\d+(-\d+)?)(,(\d+(-\d+)?))*</p>
+</li>
+</ul>
+</li>
+</ul>
+<h4>OM Web Viewer Connection Options</h4>
+<ul>
+<li>
+<p><code>--host</code> | <code>--hostname</code> <em>(string)</em></p>
+<ul>
+<li>Hostname or ip address of the target OM Web Viewer instance.</li>
+</ul>
+</li>
+<li>
+<p><code>--port</code> <em>(number)</em></p>
+<ul>
+<li>
+<p>Port of the target OM Web Viewer instance.</p>
+<p>Default value: 443</p>
+</li>
+</ul>
+</li>
+<li>
+<p><code>--user</code> | <code>--username</code> <em>(string)</em></p>
+<ul>
+<li>User name used to authenticate against the target OM Web Viewer instance.</li>
+</ul>
+</li>
+<li>
+<p><code>--password</code> <em>(string)</em></p>
+<ul>
+<li>Password used to authenticate against the target OM Web Viewer instance.</li>
+</ul>
+</li>
+<li>
+<p><code>--base-path</code> <em>(string)</em></p>
+<ul>
+<li>
+<p>Context name of the target OM Web Viewer instance.</p>
+<p>Default value: web-viewer</p>
+</li>
+</ul>
+</li>
+<li>
+<p><code>--protocol</code> <em>(string)</em></p>
+<ul>
+<li>
+<p>Protocol of the target OM Web Viewer instance.</p>
+<p>Default value: https<br>
+Allowed values: http, https</p>
+</li>
+</ul>
+</li>
+</ul>
+<h4>Profile Options</h4>
+<ul>
+<li>
+<p><code>--omview-profile</code> | <code>--omview-p</code> <em>(string)</em></p>
+<ul>
+<li>The name of a (omview) profile to load for this command execution.</li>
+</ul>
+</li>
+<li>
+<p><code>--caview-profile</code> | <code>--caview-p</code> <em>(string)</em></p>
+<ul>
+<li>The name of a (caview) profile to load for this command execution.</li>
+</ul>
+</li>
+<li>
+<p><code>--base-profile</code> | <code>--base-p</code> <em>(string)</em></p>
+<ul>
+<li>The name of a (base) profile to load for this command execution.</li>
+</ul>
+</li>
+</ul>
+<h4>Base Connection Options</h4>
+<ul>
+<li>
+<p><code>--reject-unauthorized</code> | <code>--ru</code> <em>(boolean)</em></p>
+<ul>
+<li>
+<p>Reject self-signed certificates.</p>
+<p>Default value: true</p>
+</li>
+</ul>
+</li>
+<li>
+<p><code>--token-type</code> | <code>--tt</code> <em>(string)</em></p>
+<ul>
+<li>The type of token to get and use for the API. Omit this option to use the default token type, which is provided by 'zowe auth login'.</li>
+</ul>
+</li>
+<li>
+<p><code>--token-value</code> | <code>--tv</code> <em>(string)</em></p>
+<ul>
+<li>The value of the token to pass to the API.</li>
+</ul>
+</li>
+<li>
+<p><code>--cert-file</code> <em>(local file path)</em></p>
+<ul>
+<li>
+<p>The file path to a certificate file to use for authentication.</p>
+<p>Note: The CLI does not support certificate files that require a password. For more information, search Troubleshooting PEM Certificates in Zowe Docs.</p>
+</li>
+</ul>
+</li>
+<li>
+<p><code>--cert-key-file</code> <em>(local file path)</em></p>
+<ul>
+<li>The file path to a certificate key file to use for authentication</li>
+</ul>
+</li>
+</ul>
+<a name="zowe_omview_get"></a><h2><a href="#zowe">zowe</a> › <a href="#zowe_omview">omview</a> › <a href="#zowe_omview_get">get</a><button id="btn-print" class="no-print" onclick="window.print();" title="Print">🖨️</button></h2>
+<p>Get information from OM View repository.</p>
+<a name="zowe_omview_get_user"></a><h2><a href="#zowe">zowe</a> › <a href="#zowe_omview">omview</a> › <a href="#zowe_omview_get">get</a> › <a href="#zowe_omview_get_user">user</a><button id="btn-print" class="no-print" onclick="window.print();" title="Print">🖨️</button></h2>
+<p>Get user information from repository.</p>
+<a class="cmd-anchor" name="zowe_omview_get_user_settings"></a><h3><a href="#zowe">zowe</a> › <a href="#zowe_omview">omview</a> › <a href="#zowe_omview_get">get</a> › <a href="#zowe_omview_get_user">user</a> › <a href="#zowe_omview_get_user_settings">settings</a><button id="btn-print" class="no-print" onclick="window.print();" title="Print">🖨️</button></h3>
+<p>Get current user settings from repository.</p>
+<h4>Usage</h4>
+<p>zowe omview get user settings &lt;repositoryId&gt; [options]</p>
+<h4>Positional Arguments</h4>
+<ul>
+<li>
+<p><code>repositoryId</code>		 <em>(number)</em></p>
+<ul>
+<li>Repository identifier.</li>
+</ul>
+</li>
+</ul>
+<h4>Options</h4>
+<ul>
+<li>
+<p><code>--output-format</code> | <code>--output</code> <em>(string)</em></p>
+<ul>
+<li>
+<p>Output format. This option is ignored if '--response-format-json' is specified.</p>
+<p>Default value: tabular<br>
+Allowed values: tabular, csv, json, xml</p>
+</li>
+</ul>
+</li>
+<li>
+<p><code>--output-header</code> | <code>--header</code> <em>(boolean)</em></p>
+<ul>
+<li>
+<p>Include header with field names in the output when you specify 'tabular' or 'csv' for the output format.<br>
+This option is ignored when you specify any other output format.</p>
+<p>Default value: true</p>
+</li>
+</ul>
+</li>
+<li>
+<p><code>--output-field</code> | <code>-f</code> <em>(array)</em></p>
+<ul>
+<li>
+<p>Field to include in the output. Multiple fields can be specified. Fields appear in the order you specify.</p>
+<p>Default value: Mode,DistId,ModeAccess,DistMask<br>
+Allowed values: Mode, DistId, ModeAccess, DistMask, Banner, Language, MasterAuthority, Printer, UserId</p>
+</li>
+</ul>
+</li>
+</ul>
+<h4>OM Web Viewer Connection Options</h4>
+<ul>
+<li>
+<p><code>--host</code> | <code>--hostname</code> <em>(string)</em></p>
+<ul>
+<li>Hostname or ip address of the target OM Web Viewer instance.</li>
+</ul>
+</li>
+<li>
+<p><code>--port</code> <em>(number)</em></p>
+<ul>
+<li>
+<p>Port of the target OM Web Viewer instance.</p>
+<p>Default value: 443</p>
+</li>
+</ul>
+</li>
+<li>
+<p><code>--user</code> | <code>--username</code> <em>(string)</em></p>
+<ul>
+<li>User name used to authenticate against the target OM Web Viewer instance.</li>
+</ul>
+</li>
+<li>
+<p><code>--password</code> <em>(string)</em></p>
+<ul>
+<li>Password used to authenticate against the target OM Web Viewer instance.</li>
+</ul>
+</li>
+<li>
+<p><code>--base-path</code> <em>(string)</em></p>
+<ul>
+<li>
+<p>Context name of the target OM Web Viewer instance.</p>
+<p>Default value: web-viewer</p>
+</li>
+</ul>
+</li>
+<li>
+<p><code>--protocol</code> <em>(string)</em></p>
+<ul>
+<li>
+<p>Protocol of the target OM Web Viewer instance.</p>
+<p>Default value: https<br>
+Allowed values: http, https</p>
+</li>
+</ul>
+</li>
+</ul>
+<h4>Profile Options</h4>
+<ul>
+<li>
+<p><code>--omview-profile</code> | <code>--omview-p</code> <em>(string)</em></p>
+<ul>
+<li>The name of a (omview) profile to load for this command execution.</li>
+</ul>
+</li>
+<li>
+<p><code>--caview-profile</code> | <code>--caview-p</code> <em>(string)</em></p>
+<ul>
+<li>The name of a (caview) profile to load for this command execution.</li>
+</ul>
+</li>
+<li>
+<p><code>--base-profile</code> | <code>--base-p</code> <em>(string)</em></p>
+<ul>
+<li>The name of a (base) profile to load for this command execution.</li>
+</ul>
+</li>
+</ul>
+<h4>Base Connection Options</h4>
+<ul>
+<li>
+<p><code>--reject-unauthorized</code> | <code>--ru</code> <em>(boolean)</em></p>
+<ul>
+<li>
+<p>Reject self-signed certificates.</p>
+<p>Default value: true</p>
+</li>
+</ul>
+</li>
+<li>
+<p><code>--token-type</code> | <code>--tt</code> <em>(string)</em></p>
+<ul>
+<li>The type of token to get and use for the API. Omit this option to use the default token type, which is provided by 'zowe auth login'.</li>
+</ul>
+</li>
+<li>
+<p><code>--token-value</code> | <code>--tv</code> <em>(string)</em></p>
+<ul>
+<li>The value of the token to pass to the API.</li>
+</ul>
+</li>
+<li>
+<p><code>--cert-file</code> <em>(local file path)</em></p>
+<ul>
+<li>
+<p>The file path to a certificate file to use for authentication.</p>
+<p>Note: The CLI does not support certificate files that require a password. For more information, search Troubleshooting PEM Certificates in Zowe Docs.</p>
+</li>
+</ul>
+</li>
+<li>
+<p><code>--cert-key-file</code> <em>(local file path)</em></p>
+<ul>
+<li>The file path to a certificate key file to use for authentication</li>
+</ul>
+</li>
+</ul>
+<a name="zowe_omview_list"></a><h2><a href="#zowe">zowe</a> › <a href="#zowe_omview">omview</a> › <a href="#zowe_omview_list">list</a><button id="btn-print" class="no-print" onclick="window.print();" title="Print">🖨️</button></h2>
+<p>List OM View repository, report, and user information.</p>
+<a class="cmd-anchor" name="zowe_omview_list_export-rules"></a><h3><a href="#zowe">zowe</a> › <a href="#zowe_omview">omview</a> › <a href="#zowe_omview_list">list</a> › <a href="#zowe_omview_list_export-rules">export-rules</a><button id="btn-print" class="no-print" onclick="window.print();" title="Print">🖨️</button></h3>
+<p>List export rules defined for a report.<br>
+Use the returned 'Identifier' in the 'export report' command to reference that rule.</p>
+<h4>Usage</h4>
+<p>zowe omview list export-rules &lt;reportId&gt; [options]</p>
+<h4>Positional Arguments</h4>
+<ul>
+<li>
+<p><code>reportId</code>		 <em>(string)</em></p>
+<ul>
+<li>Report ID (Name).</li>
+</ul>
+</li>
+</ul>
+<h4>Options</h4>
+<ul>
+<li>
+<p><code>--output-format</code> | <code>--output</code> <em>(string)</em></p>
+<ul>
+<li>
+<p>Output format. This option is ignored if '--response-format-json' is specified.</p>
+<p>Default value: tabular<br>
+Allowed values: tabular, csv, json, xml</p>
+</li>
+</ul>
+</li>
+<li>
+<p><code>--output-header</code> | <code>--header</code> <em>(boolean)</em></p>
+<ul>
+<li>
+<p>Include header with field names in the output when you specify 'tabular' or 'csv' for the output format.<br>
+This option is ignored when you specify any other output format.</p>
+<p>Default value: true</p>
+</li>
+</ul>
+</li>
+<li>
+<p><code>--output-field</code> | <code>-f</code> <em>(array)</em></p>
+<ul>
+<li>
+<p>Field to include in the output. Multiple fields can be specified. Fields appear in the order you specify.</p>
+<p>Default value: Identifier,Name,Description<br>
+Allowed values: Identifier, Name, Description, Owner, Public</p>
+</li>
+</ul>
+</li>
+</ul>
+<h4>OM Web Viewer Connection Options</h4>
+<ul>
+<li>
+<p><code>--host</code> | <code>--hostname</code> <em>(string)</em></p>
+<ul>
+<li>Hostname or ip address of the target OM Web Viewer instance.</li>
+</ul>
+</li>
+<li>
+<p><code>--port</code> <em>(number)</em></p>
+<ul>
+<li>
+<p>Port of the target OM Web Viewer instance.</p>
+<p>Default value: 443</p>
+</li>
+</ul>
+</li>
+<li>
+<p><code>--user</code> | <code>--username</code> <em>(string)</em></p>
+<ul>
+<li>User name used to authenticate against the target OM Web Viewer instance.</li>
+</ul>
+</li>
+<li>
+<p><code>--password</code> <em>(string)</em></p>
+<ul>
+<li>Password used to authenticate against the target OM Web Viewer instance.</li>
+</ul>
+</li>
+<li>
+<p><code>--base-path</code> <em>(string)</em></p>
+<ul>
+<li>
+<p>Context name of the target OM Web Viewer instance.</p>
+<p>Default value: web-viewer</p>
+</li>
+</ul>
+</li>
+<li>
+<p><code>--protocol</code> <em>(string)</em></p>
+<ul>
+<li>
+<p>Protocol of the target OM Web Viewer instance.</p>
+<p>Default value: https<br>
+Allowed values: http, https</p>
+</li>
+</ul>
+</li>
+</ul>
+<h4>Profile Options</h4>
+<ul>
+<li>
+<p><code>--omview-profile</code> | <code>--omview-p</code> <em>(string)</em></p>
+<ul>
+<li>The name of a (omview) profile to load for this command execution.</li>
+</ul>
+</li>
+<li>
+<p><code>--caview-profile</code> | <code>--caview-p</code> <em>(string)</em></p>
+<ul>
+<li>The name of a (caview) profile to load for this command execution.</li>
+</ul>
+</li>
+<li>
+<p><code>--base-profile</code> | <code>--base-p</code> <em>(string)</em></p>
+<ul>
+<li>The name of a (base) profile to load for this command execution.</li>
+</ul>
+</li>
+</ul>
+<h4>Base Connection Options</h4>
+<ul>
+<li>
+<p><code>--reject-unauthorized</code> | <code>--ru</code> <em>(boolean)</em></p>
+<ul>
+<li>
+<p>Reject self-signed certificates.</p>
+<p>Default value: true</p>
+</li>
+</ul>
+</li>
+<li>
+<p><code>--token-type</code> | <code>--tt</code> <em>(string)</em></p>
+<ul>
+<li>The type of token to get and use for the API. Omit this option to use the default token type, which is provided by 'zowe auth login'.</li>
+</ul>
+</li>
+<li>
+<p><code>--token-value</code> | <code>--tv</code> <em>(string)</em></p>
+<ul>
+<li>The value of the token to pass to the API.</li>
+</ul>
+</li>
+<li>
+<p><code>--cert-file</code> <em>(local file path)</em></p>
+<ul>
+<li>
+<p>The file path to a certificate file to use for authentication.</p>
+<p>Note: The CLI does not support certificate files that require a password. For more information, search Troubleshooting PEM Certificates in Zowe Docs.</p>
+</li>
+</ul>
+</li>
+<li>
+<p><code>--cert-key-file</code> <em>(local file path)</em></p>
+<ul>
+<li>The file path to a certificate key file to use for authentication</li>
+</ul>
+</li>
+</ul>
+<a name="zowe_omview_list_report"></a><h2><a href="#zowe">zowe</a> › <a href="#zowe_omview">omview</a> › <a href="#zowe_omview_list">list</a> › <a href="#zowe_omview_list_report">report</a><button id="btn-print" class="no-print" onclick="window.print();" title="Print">🖨️</button></h2>
+<p>List information about a specific report.</p>
+<a class="cmd-anchor" name="zowe_omview_list_report_index-names"></a><h3><a href="#zowe">zowe</a> › <a href="#zowe_omview">omview</a> › <a href="#zowe_omview_list">list</a> › <a href="#zowe_omview_list_report">report</a> › <a href="#zowe_omview_list_report_index-names">index-names</a><button id="btn-print" class="no-print" onclick="window.print();" title="Print">🖨️</button></h3>
+<p>List indexes for a a specific report.<br>
+Use the returned 'IndexNameHandle' to reference a report index.<br>
+Use the returned 'IndexNameHandle' in the 'list report index-values' command to retrieve the list of associated index values for that index.</p>
+<h4>Usage</h4>
+<p>zowe omview list report index-names &lt;repositoryId&gt; &lt;reportHandle&gt; [options]</p>
+<h4>Positional Arguments</h4>
+<ul>
+<li>
+<p><code>repositoryId</code>		 <em>(number)</em></p>
+<ul>
+<li>Repository identifier.</li>
+</ul>
+</li>
+<li>
+<p><code>reportHandle</code>		 <em>(string)</em></p>
+<ul>
+<li>Report handle.</li>
+</ul>
+</li>
+</ul>
+<h4>Options</h4>
+<ul>
+<li>
+<p><code>--filter-names</code> | <code>--names</code> <em>(string)</em></p>
+<ul>
+<li>
+<p>Filter (include) based on index name. Separate multiple index names with commas. Use the asterisk (*) as a wildcard to represent any number of characters.</p>
+<p>Default value: *,*,*,*,*,*,*,*</p>
+</li>
+</ul>
+</li>
+<li>
+<p><code>--output-format</code> | <code>--output</code> <em>(string)</em></p>
+<ul>
+<li>
+<p>Output format. This option is ignored if '--response-format-json' is specified.</p>
+<p>Default value: tabular<br>
+Allowed values: tabular, csv, json, xml</p>
+</li>
+</ul>
+</li>
+<li>
+<p><code>--output-header</code> | <code>--header</code> <em>(boolean)</em></p>
+<ul>
+<li>
+<p>Include header with field names in the output when you specify 'tabular' or 'csv' for the output format.<br>
+This option is ignored when you specify any other output format.</p>
+<p>Default value: true</p>
+</li>
+</ul>
+</li>
+<li>
+<p><code>--output-field</code> | <code>-f</code> <em>(array)</em></p>
+<ul>
+<li>
+<p>Field to include in the output. Multiple fields can be specified. Fields appear in the order you specify.</p>
+<p>Default value: Index,SubIndexNames,IndexNameHandle<br>
+Allowed values: Index, SubIndexNames, IndexNameHandle</p>
+</li>
+</ul>
+</li>
+</ul>
+<h4>OM Web Viewer Connection Options</h4>
+<ul>
+<li>
+<p><code>--host</code> | <code>--hostname</code> <em>(string)</em></p>
+<ul>
+<li>Hostname or ip address of the target OM Web Viewer instance.</li>
+</ul>
+</li>
+<li>
+<p><code>--port</code> <em>(number)</em></p>
+<ul>
+<li>
+<p>Port of the target OM Web Viewer instance.</p>
+<p>Default value: 443</p>
+</li>
+</ul>
+</li>
+<li>
+<p><code>--user</code> | <code>--username</code> <em>(string)</em></p>
+<ul>
+<li>User name used to authenticate against the target OM Web Viewer instance.</li>
+</ul>
+</li>
+<li>
+<p><code>--password</code> <em>(string)</em></p>
+<ul>
+<li>Password used to authenticate against the target OM Web Viewer instance.</li>
+</ul>
+</li>
+<li>
+<p><code>--base-path</code> <em>(string)</em></p>
+<ul>
+<li>
+<p>Context name of the target OM Web Viewer instance.</p>
+<p>Default value: web-viewer</p>
+</li>
+</ul>
+</li>
+<li>
+<p><code>--protocol</code> <em>(string)</em></p>
+<ul>
+<li>
+<p>Protocol of the target OM Web Viewer instance.</p>
+<p>Default value: https<br>
+Allowed values: http, https</p>
+</li>
+</ul>
+</li>
+</ul>
+<h4>Profile Options</h4>
+<ul>
+<li>
+<p><code>--omview-profile</code> | <code>--omview-p</code> <em>(string)</em></p>
+<ul>
+<li>The name of a (omview) profile to load for this command execution.</li>
+</ul>
+</li>
+<li>
+<p><code>--caview-profile</code> | <code>--caview-p</code> <em>(string)</em></p>
+<ul>
+<li>The name of a (caview) profile to load for this command execution.</li>
+</ul>
+</li>
+<li>
+<p><code>--base-profile</code> | <code>--base-p</code> <em>(string)</em></p>
+<ul>
+<li>The name of a (base) profile to load for this command execution.</li>
+</ul>
+</li>
+</ul>
+<h4>Base Connection Options</h4>
+<ul>
+<li>
+<p><code>--reject-unauthorized</code> | <code>--ru</code> <em>(boolean)</em></p>
+<ul>
+<li>
+<p>Reject self-signed certificates.</p>
+<p>Default value: true</p>
+</li>
+</ul>
+</li>
+<li>
+<p><code>--token-type</code> | <code>--tt</code> <em>(string)</em></p>
+<ul>
+<li>The type of token to get and use for the API. Omit this option to use the default token type, which is provided by 'zowe auth login'.</li>
+</ul>
+</li>
+<li>
+<p><code>--token-value</code> | <code>--tv</code> <em>(string)</em></p>
+<ul>
+<li>The value of the token to pass to the API.</li>
+</ul>
+</li>
+<li>
+<p><code>--cert-file</code> <em>(local file path)</em></p>
+<ul>
+<li>
+<p>The file path to a certificate file to use for authentication.</p>
+<p>Note: The CLI does not support certificate files that require a password. For more information, search Troubleshooting PEM Certificates in Zowe Docs.</p>
+</li>
+</ul>
+</li>
+<li>
+<p><code>--cert-key-file</code> <em>(local file path)</em></p>
+<ul>
+<li>The file path to a certificate key file to use for authentication</li>
+</ul>
+</li>
+</ul>
+<a class="cmd-anchor" name="zowe_omview_list_report_index-values"></a><h3><a href="#zowe">zowe</a> › <a href="#zowe_omview">omview</a> › <a href="#zowe_omview_list">list</a> › <a href="#zowe_omview_list_report">report</a> › <a href="#zowe_omview_list_report_index-values">index-values</a><button id="btn-print" class="no-print" onclick="window.print();" title="Print">🖨️</button></h3>
+<p>List index values for a report index.<br>
+Use the returned 'ReportHandle' to reference an index value in other commands.<br>
+For example, use 'ReportHandle' in the 'download report' command to download that corresponding view of the report.</p>
+<h4>Usage</h4>
+<p>zowe omview list report index-values &lt;repositoryId&gt; &lt;reportHandle&gt; &lt;indexNameHandle&gt; [options]</p>
+<h4>Positional Arguments</h4>
+<ul>
+<li>
+<p><code>repositoryId</code>		 <em>(number)</em></p>
+<ul>
+<li>Repository identifier.</li>
+</ul>
+</li>
+<li>
+<p><code>reportHandle</code>		 <em>(string)</em></p>
+<ul>
+<li>Report handle.</li>
+</ul>
+</li>
+<li>
+<p><code>indexNameHandle</code>		 <em>(string)</em></p>
+<ul>
+<li>Index name handle.</li>
+</ul>
+</li>
+</ul>
+<h4>Options</h4>
+<ul>
+<li>
+<p><code>--filter-values</code> | <code>--values</code> <em>(string)</em></p>
+<ul>
+<li>
+<p>Filter (include) based on index values. Separate index values with commas. Use the asterisk (*) as a wildcard to represent any number of characters.</p>
+<p>Default value: *,*,*,*,*,*,*,*</p>
+</li>
+</ul>
+</li>
+<li>
+<p><code>--output-format</code> | <code>--output</code> <em>(string)</em></p>
+<ul>
+<li>
+<p>Output format. This option is ignored if '--response-format-json' is specified.</p>
+<p>Default value: tabular<br>
+Allowed values: tabular, csv, json, xml</p>
+</li>
+</ul>
+</li>
+<li>
+<p><code>--output-header</code> | <code>--header</code> <em>(boolean)</em></p>
+<ul>
+<li>
+<p>Include header with field names in the output when you specify 'tabular' or 'csv' for the output format.<br>
+This option is ignored when you specify any other output format.</p>
+<p>Default value: true</p>
+</li>
+</ul>
+</li>
+<li>
+<p><code>--output-field</code> | <code>-f</code> <em>(array)</em></p>
+<ul>
+<li>
+<p>Field to include in the output. Multiple fields can be specified. Fields appear in the order you specify.</p>
+<p>Default value: Value,SubValues,ReportHandle<br>
+Allowed values: Value, SubValues, ReportHandle</p>
+</li>
+</ul>
+</li>
+</ul>
+<h4>OM Web Viewer Connection Options</h4>
+<ul>
+<li>
+<p><code>--host</code> | <code>--hostname</code> <em>(string)</em></p>
+<ul>
+<li>Hostname or ip address of the target OM Web Viewer instance.</li>
+</ul>
+</li>
+<li>
+<p><code>--port</code> <em>(number)</em></p>
+<ul>
+<li>
+<p>Port of the target OM Web Viewer instance.</p>
+<p>Default value: 443</p>
+</li>
+</ul>
+</li>
+<li>
+<p><code>--user</code> | <code>--username</code> <em>(string)</em></p>
+<ul>
+<li>User name used to authenticate against the target OM Web Viewer instance.</li>
+</ul>
+</li>
+<li>
+<p><code>--password</code> <em>(string)</em></p>
+<ul>
+<li>Password used to authenticate against the target OM Web Viewer instance.</li>
+</ul>
+</li>
+<li>
+<p><code>--base-path</code> <em>(string)</em></p>
+<ul>
+<li>
+<p>Context name of the target OM Web Viewer instance.</p>
+<p>Default value: web-viewer</p>
+</li>
+</ul>
+</li>
+<li>
+<p><code>--protocol</code> <em>(string)</em></p>
+<ul>
+<li>
+<p>Protocol of the target OM Web Viewer instance.</p>
+<p>Default value: https<br>
+Allowed values: http, https</p>
+</li>
+</ul>
+</li>
+</ul>
+<h4>Profile Options</h4>
+<ul>
+<li>
+<p><code>--omview-profile</code> | <code>--omview-p</code> <em>(string)</em></p>
+<ul>
+<li>The name of a (omview) profile to load for this command execution.</li>
+</ul>
+</li>
+<li>
+<p><code>--caview-profile</code> | <code>--caview-p</code> <em>(string)</em></p>
+<ul>
+<li>The name of a (caview) profile to load for this command execution.</li>
+</ul>
+</li>
+<li>
+<p><code>--base-profile</code> | <code>--base-p</code> <em>(string)</em></p>
+<ul>
+<li>The name of a (base) profile to load for this command execution.</li>
+</ul>
+</li>
+</ul>
+<h4>Base Connection Options</h4>
+<ul>
+<li>
+<p><code>--reject-unauthorized</code> | <code>--ru</code> <em>(boolean)</em></p>
+<ul>
+<li>
+<p>Reject self-signed certificates.</p>
+<p>Default value: true</p>
+</li>
+</ul>
+</li>
+<li>
+<p><code>--token-type</code> | <code>--tt</code> <em>(string)</em></p>
+<ul>
+<li>The type of token to get and use for the API. Omit this option to use the default token type, which is provided by 'zowe auth login'.</li>
+</ul>
+</li>
+<li>
+<p><code>--token-value</code> | <code>--tv</code> <em>(string)</em></p>
+<ul>
+<li>The value of the token to pass to the API.</li>
+</ul>
+</li>
+<li>
+<p><code>--cert-file</code> <em>(local file path)</em></p>
+<ul>
+<li>
+<p>The file path to a certificate file to use for authentication.</p>
+<p>Note: The CLI does not support certificate files that require a password. For more information, search Troubleshooting PEM Certificates in Zowe Docs.</p>
+</li>
+</ul>
+</li>
+<li>
+<p><code>--cert-key-file</code> <em>(local file path)</em></p>
+<ul>
+<li>The file path to a certificate key file to use for authentication</li>
+</ul>
+</li>
+</ul>
+<a class="cmd-anchor" name="zowe_omview_list_report_logical-views"></a><h3><a href="#zowe">zowe</a> › <a href="#zowe_omview">omview</a> › <a href="#zowe_omview_list">list</a> › <a href="#zowe_omview_list_report">report</a> › <a href="#zowe_omview_list_report_logical-views">logical-views</a><button id="btn-print" class="no-print" onclick="window.print();" title="Print">🖨️</button></h3>
+<p>List logical views available for a specific report.<br>
+Use the returned 'ReportHandle' to reference a logical view in other commands.<br>
+For example, use 'ReportHandle' in the 'download report' command to download the logical view of that report.<br>
+Use the returned 'IndexNameHandle' in the 'list report index-values' command to retrieve the list of associated index values (if defined) for that index.</p>
+<h4>Usage</h4>
+<p>zowe omview list report logical-views &lt;repositoryId&gt; &lt;reportHandle&gt; [options]</p>
+<h4>Positional Arguments</h4>
+<ul>
+<li>
+<p><code>repositoryId</code>		 <em>(number)</em></p>
+<ul>
+<li>Repository identifier.</li>
+</ul>
+</li>
+<li>
+<p><code>reportHandle</code>		 <em>(string)</em></p>
+<ul>
+<li>Report handle.</li>
+</ul>
+</li>
+</ul>
+<h4>Options</h4>
+<ul>
+<li>
+<p><code>--output-format</code> | <code>--output</code> <em>(string)</em></p>
+<ul>
+<li>
+<p>Output format. This option is ignored if '--response-format-json' is specified.</p>
+<p>Default value: tabular<br>
+Allowed values: tabular, csv, json, xml</p>
+</li>
+</ul>
+</li>
+<li>
+<p><code>--output-header</code> | <code>--header</code> <em>(boolean)</em></p>
+<ul>
+<li>
+<p>Include header with field names in the output when you specify 'tabular' or 'csv' for the output format.<br>
+This option is ignored when you specify any other output format.</p>
+<p>Default value: true</p>
+</li>
+</ul>
+</li>
+<li>
+<p><code>--output-field</code> | <code>-f</code> <em>(array)</em></p>
+<ul>
+<li>
+<p>Field to include in the output. Multiple fields can be specified. Fields appear in the order you specify.</p>
+<p>Default value: Description,Index,SubIndexNames,ReportHandle,IndexNameHandle<br>
+Allowed values: Description, Index, SubIndexNames, ReportHandle, IndexNameHandle, Number, ViewId, Default</p>
+</li>
+</ul>
+</li>
+</ul>
+<h4>OM Web Viewer Connection Options</h4>
+<ul>
+<li>
+<p><code>--host</code> | <code>--hostname</code> <em>(string)</em></p>
+<ul>
+<li>Hostname or ip address of the target OM Web Viewer instance.</li>
+</ul>
+</li>
+<li>
+<p><code>--port</code> <em>(number)</em></p>
+<ul>
+<li>
+<p>Port of the target OM Web Viewer instance.</p>
+<p>Default value: 443</p>
+</li>
+</ul>
+</li>
+<li>
+<p><code>--user</code> | <code>--username</code> <em>(string)</em></p>
+<ul>
+<li>User name used to authenticate against the target OM Web Viewer instance.</li>
+</ul>
+</li>
+<li>
+<p><code>--password</code> <em>(string)</em></p>
+<ul>
+<li>Password used to authenticate against the target OM Web Viewer instance.</li>
+</ul>
+</li>
+<li>
+<p><code>--base-path</code> <em>(string)</em></p>
+<ul>
+<li>
+<p>Context name of the target OM Web Viewer instance.</p>
+<p>Default value: web-viewer</p>
+</li>
+</ul>
+</li>
+<li>
+<p><code>--protocol</code> <em>(string)</em></p>
+<ul>
+<li>
+<p>Protocol of the target OM Web Viewer instance.</p>
+<p>Default value: https<br>
+Allowed values: http, https</p>
+</li>
+</ul>
+</li>
+</ul>
+<h4>Profile Options</h4>
+<ul>
+<li>
+<p><code>--omview-profile</code> | <code>--omview-p</code> <em>(string)</em></p>
+<ul>
+<li>The name of a (omview) profile to load for this command execution.</li>
+</ul>
+</li>
+<li>
+<p><code>--caview-profile</code> | <code>--caview-p</code> <em>(string)</em></p>
+<ul>
+<li>The name of a (caview) profile to load for this command execution.</li>
+</ul>
+</li>
+<li>
+<p><code>--base-profile</code> | <code>--base-p</code> <em>(string)</em></p>
+<ul>
+<li>The name of a (base) profile to load for this command execution.</li>
+</ul>
+</li>
+</ul>
+<h4>Base Connection Options</h4>
+<ul>
+<li>
+<p><code>--reject-unauthorized</code> | <code>--ru</code> <em>(boolean)</em></p>
+<ul>
+<li>
+<p>Reject self-signed certificates.</p>
+<p>Default value: true</p>
+</li>
+</ul>
+</li>
+<li>
+<p><code>--token-type</code> | <code>--tt</code> <em>(string)</em></p>
+<ul>
+<li>The type of token to get and use for the API. Omit this option to use the default token type, which is provided by 'zowe auth login'.</li>
+</ul>
+</li>
+<li>
+<p><code>--token-value</code> | <code>--tv</code> <em>(string)</em></p>
+<ul>
+<li>The value of the token to pass to the API.</li>
+</ul>
+</li>
+<li>
+<p><code>--cert-file</code> <em>(local file path)</em></p>
+<ul>
+<li>
+<p>The file path to a certificate file to use for authentication.</p>
+<p>Note: The CLI does not support certificate files that require a password. For more information, search Troubleshooting PEM Certificates in Zowe Docs.</p>
+</li>
+</ul>
+</li>
+<li>
+<p><code>--cert-key-file</code> <em>(local file path)</em></p>
+<ul>
+<li>The file path to a certificate key file to use for authentication</li>
+</ul>
+</li>
+</ul>
+<a class="cmd-anchor" name="zowe_omview_list_reports"></a><h3><a href="#zowe">zowe</a> › <a href="#zowe_omview">omview</a> › <a href="#zowe_omview_list">list</a> › <a href="#zowe_omview_list_reports">reports</a><button id="btn-print" class="no-print" onclick="window.print();" title="Print">🖨️</button></h3>
+<p>List reports in a repository.<br>
+Use the returned 'ReportHandle' to reference a report in other commands.<br>
+For example, use the 'ReportHandle' in the 'download report' command to download that report.</p>
+<h4>Usage</h4>
+<p>zowe omview list reports &lt;repositoryId&gt; [options]</p>
+<h4>Positional Arguments</h4>
+<ul>
+<li>
+<p><code>repositoryId</code>		 <em>(number)</em></p>
+<ul>
+<li>Repository identifier.</li>
+</ul>
+</li>
+</ul>
+<h4>Options</h4>
+<ul>
+<li>
+<p><code>--filter-name</code> | <code>-n</code> <em>(string)</em></p>
+<ul>
+<li>
+<p>Filter (include) based on report name. Use the asterisk (*) as a wildcard to represent any number of characters.</p>
+<p>Default value: *</p>
+</li>
+</ul>
+</li>
+<li>
+<p><code>--limit</code> | <code>-l</code> <em>(number)</em></p>
+<ul>
+<li>
+<p>Limit (maximum number) of retrieved records.</p>
+<p>Default value: 1000</p>
+</li>
+</ul>
+</li>
+<li>
+<p><code>--latest-versions</code> | <code>--latest-version</code> | <code>--lv</code> <em>(number)</em></p>
+<ul>
+<li>
+<p>Number of latest versions (of reports) to include. If not specified, all versions of reports are included.</p>
+<p>Default value: 0</p>
+</li>
+</ul>
+</li>
+<li>
+<p><code>--archival-since</code> | <code>--since</code> | <code>--archival-from</code> | <code>--from</code> <em>(string)</em></p>
+<ul>
+<li>Date of earliest archived reports to include based on archival date. Specify a value in the ISO-8601 format.</li>
+</ul>
+</li>
+<li>
+<p><code>--archival-until</code> | <code>--until</code> | <code>--archival-to</code> | <code>--to</code> <em>(string)</em></p>
+<ul>
+<li>Date of latest archived reports to include based on archival date. Specify a value in the ISO-8601 format.</li>
+</ul>
+</li>
+<li>
+<p><code>--output-header</code> | <code>--header</code> <em>(boolean)</em></p>
+<ul>
+<li>
+<p>Include header with field names in the output when you specify 'tabular' or 'csv' for the output format.<br>
+This option is ignored when you specify any other output format.</p>
+<p>Default value: true</p>
+</li>
+</ul>
+</li>
+<li>
+<p><code>--output-format</code> | <code>--output</code> <em>(string)</em></p>
+<ul>
+<li>
+<p>Output format. This option is ignored if '--response-format-json' is specified.</p>
+<p>Default value: tabular<br>
+Allowed values: tabular, csv, json, xml</p>
+</li>
+</ul>
+</li>
+<li>
+<p><code>--output-field</code> | <code>-f</code> <em>(array)</em></p>
+<ul>
+<li>
+<p>Field to include in the output. Multiple fields can be specified. Fields appear in the order you specify.</p>
+<p>Default value: ReportName,Lines,Pages,Type,ArchivalDate,Description,UserComments,ReportHandle<br>
+Allowed values: ReportName, Lines, Pages, Type, ArchivalDate, Description, UserComments, ReportHandle, TotalPages, OriginalType, Destination, JobName, Origin, Generation, SequenceNumber, SysoutClass, Status, JobID, Forms, XCode, UserID, ReadDate, PrintDate, OnDisk, OnTape, OnOptical, IndexOnDisk, Location, TapeSequence, TapePosition, TapeCount, ExtendedRetentionOptionID, RemainingDays, RemainingGenerations, RemainingCopy, RemainingDiskDays, RemainingDiskGeneration, RemainingDiskCopy, RemainingDisk2days</p>
+</li>
+</ul>
+</li>
+</ul>
+<h4>OM Web Viewer Connection Options</h4>
+<ul>
+<li>
+<p><code>--host</code> | <code>--hostname</code> <em>(string)</em></p>
+<ul>
+<li>Hostname or ip address of the target OM Web Viewer instance.</li>
+</ul>
+</li>
+<li>
+<p><code>--port</code> <em>(number)</em></p>
+<ul>
+<li>
+<p>Port of the target OM Web Viewer instance.</p>
+<p>Default value: 443</p>
+</li>
+</ul>
+</li>
+<li>
+<p><code>--user</code> | <code>--username</code> <em>(string)</em></p>
+<ul>
+<li>User name used to authenticate against the target OM Web Viewer instance.</li>
+</ul>
+</li>
+<li>
+<p><code>--password</code> <em>(string)</em></p>
+<ul>
+<li>Password used to authenticate against the target OM Web Viewer instance.</li>
+</ul>
+</li>
+<li>
+<p><code>--base-path</code> <em>(string)</em></p>
+<ul>
+<li>
+<p>Context name of the target OM Web Viewer instance.</p>
+<p>Default value: web-viewer</p>
+</li>
+</ul>
+</li>
+<li>
+<p><code>--protocol</code> <em>(string)</em></p>
+<ul>
+<li>
+<p>Protocol of the target OM Web Viewer instance.</p>
+<p>Default value: https<br>
+Allowed values: http, https</p>
+</li>
+</ul>
+</li>
+</ul>
+<h4>Profile Options</h4>
+<ul>
+<li>
+<p><code>--omview-profile</code> | <code>--omview-p</code> <em>(string)</em></p>
+<ul>
+<li>The name of a (omview) profile to load for this command execution.</li>
+</ul>
+</li>
+<li>
+<p><code>--caview-profile</code> | <code>--caview-p</code> <em>(string)</em></p>
+<ul>
+<li>The name of a (caview) profile to load for this command execution.</li>
+</ul>
+</li>
+<li>
+<p><code>--base-profile</code> | <code>--base-p</code> <em>(string)</em></p>
+<ul>
+<li>The name of a (base) profile to load for this command execution.</li>
+</ul>
+</li>
+</ul>
+<h4>Base Connection Options</h4>
+<ul>
+<li>
+<p><code>--reject-unauthorized</code> | <code>--ru</code> <em>(boolean)</em></p>
+<ul>
+<li>
+<p>Reject self-signed certificates.</p>
+<p>Default value: true</p>
+</li>
+</ul>
+</li>
+<li>
+<p><code>--token-type</code> | <code>--tt</code> <em>(string)</em></p>
+<ul>
+<li>The type of token to get and use for the API. Omit this option to use the default token type, which is provided by 'zowe auth login'.</li>
+</ul>
+</li>
+<li>
+<p><code>--token-value</code> | <code>--tv</code> <em>(string)</em></p>
+<ul>
+<li>The value of the token to pass to the API.</li>
+</ul>
+</li>
+<li>
+<p><code>--cert-file</code> <em>(local file path)</em></p>
+<ul>
+<li>
+<p>The file path to a certificate file to use for authentication.</p>
+<p>Note: The CLI does not support certificate files that require a password. For more information, search Troubleshooting PEM Certificates in Zowe Docs.</p>
+</li>
+</ul>
+</li>
+<li>
+<p><code>--cert-key-file</code> <em>(local file path)</em></p>
+<ul>
+<li>The file path to a certificate key file to use for authentication</li>
+</ul>
+</li>
+</ul>
+<a class="cmd-anchor" name="zowe_omview_list_repositories"></a><h3><a href="#zowe">zowe</a> › <a href="#zowe_omview">omview</a> › <a href="#zowe_omview_list">list</a> › <a href="#zowe_omview_list_repositories">repositories</a><button id="btn-print" class="no-print" onclick="window.print();" title="Print">🖨️</button></h3>
+<p>List repositories.<br>
+Use the returned 'Identifier' to reference a repository in other commands.<br>
+For example, use the 'Identifier' in the list reports' command to list reports in that repository.</p>
+<h4>Usage</h4>
+<p>zowe omview list repositories [options]</p>
+<h4>Options</h4>
+<ul>
+<li>
+<p><code>--filter-name</code> | <code>-n</code> <em>(string)</em></p>
+<ul>
+<li>Filter (include) based on repository name. Use the question mark (?) as a wildcard to represent a single character. Use the asterisk (*) as a wildcard to represent any number of characters.</li>
+</ul>
+</li>
+<li>
+<p><code>--filter-path</code> | <code>-p</code> <em>(string)</em></p>
+<ul>
+<li>
+<p>Filter (include) based on repository path. Use the percent sign (%) as a wildcard to represent a single character. Use the asterisk (*) as a wildcard to represent any number of characters.</p>
+<p>Default value: *</p>
+</li>
+</ul>
+</li>
+<li>
+<p><code>--output-format</code> | <code>--output</code> <em>(string)</em></p>
+<ul>
+<li>
+<p>Output format. This option is ignored if '--response-format-json' is specified.</p>
+<p>Default value: tabular<br>
+Allowed values: tabular, csv, json, xml</p>
+</li>
+</ul>
+</li>
+<li>
+<p><code>--output-header</code> | <code>--header</code> <em>(boolean)</em></p>
+<ul>
+<li>
+<p>Include header with field names in the output when you specify 'tabular' or 'csv' for the output format.<br>
+This option is ignored when you specify any other output format.</p>
+<p>Default value: true</p>
+</li>
+</ul>
+</li>
+<li>
+<p><code>--output-field</code> | <code>-f</code> <em>(array)</em></p>
+<ul>
+<li>
+<p>Field to include in the output. Multiple fields can be specified. Fields appear in the order you specify.</p>
+<p>Default value: Identifier,Name,Description,Path,CharacterSet<br>
+Allowed values: Identifier, Name, Description, Path, CharacterSet, ReportAccess, CreatedBy, DateCreated, ModifiedBy, ModifiedDate</p>
+</li>
+</ul>
+</li>
+</ul>
+<h4>OM Web Viewer Connection Options</h4>
+<ul>
+<li>
+<p><code>--host</code> | <code>--hostname</code> <em>(string)</em></p>
+<ul>
+<li>Hostname or ip address of the target OM Web Viewer instance.</li>
+</ul>
+</li>
+<li>
+<p><code>--port</code> <em>(number)</em></p>
+<ul>
+<li>
+<p>Port of the target OM Web Viewer instance.</p>
+<p>Default value: 443</p>
+</li>
+</ul>
+</li>
+<li>
+<p><code>--user</code> | <code>--username</code> <em>(string)</em></p>
+<ul>
+<li>User name used to authenticate against the target OM Web Viewer instance.</li>
+</ul>
+</li>
+<li>
+<p><code>--password</code> <em>(string)</em></p>
+<ul>
+<li>Password used to authenticate against the target OM Web Viewer instance.</li>
+</ul>
+</li>
+<li>
+<p><code>--base-path</code> <em>(string)</em></p>
+<ul>
+<li>
+<p>Context name of the target OM Web Viewer instance.</p>
+<p>Default value: web-viewer</p>
+</li>
+</ul>
+</li>
+<li>
+<p><code>--protocol</code> <em>(string)</em></p>
+<ul>
+<li>
+<p>Protocol of the target OM Web Viewer instance.</p>
+<p>Default value: https<br>
+Allowed values: http, https</p>
+</li>
+</ul>
+</li>
+</ul>
+<h4>Profile Options</h4>
+<ul>
+<li>
+<p><code>--omview-profile</code> | <code>--omview-p</code> <em>(string)</em></p>
+<ul>
+<li>The name of a (omview) profile to load for this command execution.</li>
+</ul>
+</li>
+<li>
+<p><code>--caview-profile</code> | <code>--caview-p</code> <em>(string)</em></p>
+<ul>
+<li>The name of a (caview) profile to load for this command execution.</li>
+</ul>
+</li>
+<li>
+<p><code>--base-profile</code> | <code>--base-p</code> <em>(string)</em></p>
+<ul>
+<li>The name of a (base) profile to load for this command execution.</li>
+</ul>
+</li>
+</ul>
+<h4>Base Connection Options</h4>
+<ul>
+<li>
+<p><code>--reject-unauthorized</code> | <code>--ru</code> <em>(boolean)</em></p>
+<ul>
+<li>
+<p>Reject self-signed certificates.</p>
+<p>Default value: true</p>
+</li>
+</ul>
+</li>
+<li>
+<p><code>--token-type</code> | <code>--tt</code> <em>(string)</em></p>
+<ul>
+<li>The type of token to get and use for the API. Omit this option to use the default token type, which is provided by 'zowe auth login'.</li>
+</ul>
+</li>
+<li>
+<p><code>--token-value</code> | <code>--tv</code> <em>(string)</em></p>
+<ul>
+<li>The value of the token to pass to the API.</li>
+</ul>
+</li>
+<li>
+<p><code>--cert-file</code> <em>(local file path)</em></p>
+<ul>
+<li>
+<p>The file path to a certificate file to use for authentication.</p>
+<p>Note: The CLI does not support certificate files that require a password. For more information, search Troubleshooting PEM Certificates in Zowe Docs.</p>
+</li>
+</ul>
+</li>
+<li>
+<p><code>--cert-key-file</code> <em>(local file path)</em></p>
+<ul>
+<li>The file path to a certificate key file to use for authentication</li>
+</ul>
+</li>
+</ul>
+<a name="zowe_omview_search"></a><h2><a href="#zowe">zowe</a> › <a href="#zowe_omview">omview</a> › <a href="#zowe_omview_search">search</a><button id="btn-print" class="no-print" onclick="window.print();" title="Print">🖨️</button></h2>
+<p>Search data in a OM View repository.</p>
+<a name="zowe_omview_search_index"></a><h2><a href="#zowe">zowe</a> › <a href="#zowe_omview">omview</a> › <a href="#zowe_omview_search">search</a> › <a href="#zowe_omview_search_index">index</a><button id="btn-print" class="no-print" onclick="window.print();" title="Print">🖨️</button></h2>
+<p>Search cross-report index data in a repository.</p>
+<a class="cmd-anchor" name="zowe_omview_search_index_names"></a><h3><a href="#zowe">zowe</a> › <a href="#zowe_omview">omview</a> › <a href="#zowe_omview_search">search</a> › <a href="#zowe_omview_search_index">index</a> › <a href="#zowe_omview_search_index_names">names</a><button id="btn-print" class="no-print" onclick="window.print();" title="Print">🖨️</button></h3>
+<p>Search cross-report index names in a repository.<br>
+Use the returned 'IndexNameHandle' to reference a cross-report index name.<br>
+For example, use the 'IndexNameHandle' in the 'search index values' command to retrieve the list of index values for that cross-report index.</p>
+<h4>Usage</h4>
+<p>zowe omview search index names &lt;repositoryId&gt; [options]</p>
+<h4>Positional Arguments</h4>
+<ul>
+<li>
+<p><code>repositoryId</code>		 <em>(number)</em></p>
+<ul>
+<li>Repository identifier.</li>
+</ul>
+</li>
+</ul>
+<h4>Options</h4>
+<ul>
+<li>
+<p><code>--filter-reports</code> | <code>--reports</code> <em>(string)</em></p>
+<ul>
+<li>
+<p>Filter (include) based on report names (IDs). Use the asterisk (*) as a wildcard to represent any number of characters.</p>
+<p>Default value: *</p>
+</li>
+</ul>
+</li>
+<li>
+<p><code>--filter-names</code> | <code>--names</code> <em>(string)</em></p>
+<ul>
+<li>
+<p>Filter (include) based on index name. Separate multiple index names with commas. Use the asterisk (*) as a wildcard to represent any number of characters.</p>
+<p>Default value: *,*,*,*,*,*,*,*</p>
+</li>
+</ul>
+</li>
+<li>
+<p><code>--latest-versions</code> | <code>--latest-version</code> | <code>--lv</code> <em>(number)</em></p>
+<ul>
+<li>
+<p>Number of latest versions (of reports) to include. If not specified, all versions of reports are included.</p>
+<p>Default value: 0</p>
+</li>
+</ul>
+</li>
+<li>
+<p><code>--archival-since</code> | <code>--since</code> | <code>--archival-from</code> | <code>--from</code> <em>(string)</em></p>
+<ul>
+<li>Date of earliest archived reports to include based on archival date. Specify a value in the ISO-8601 format.</li>
+</ul>
+</li>
+<li>
+<p><code>--archival-until</code> | <code>--until</code> | <code>--archival-to</code> | <code>--to</code> <em>(string)</em></p>
+<ul>
+<li>Date of latest archived reports to include based on archival date. Specify a value in the ISO-8601 format.</li>
+</ul>
+</li>
+<li>
+<p><code>--online-only</code> | <code>--online</code> <em>(boolean)</em></p>
+<ul>
+<li>
+<p>Include only those reports that are available online.</p>
+<p>Default value: true</p>
+</li>
+</ul>
+</li>
+<li>
+<p><code>--output-format</code> | <code>--output</code> <em>(string)</em></p>
+<ul>
+<li>
+<p>Output format. This option is ignored if '--response-format-json' is specified.</p>
+<p>Default value: tabular<br>
+Allowed values: tabular, csv, json, xml</p>
+</li>
+</ul>
+</li>
+<li>
+<p><code>--output-header</code> | <code>--header</code> <em>(boolean)</em></p>
+<ul>
+<li>
+<p>Include header with field names in the output when you specify 'tabular' or 'csv' for the output format.<br>
+This option is ignored when you specify any other output format.</p>
+<p>Default value: true</p>
+</li>
+</ul>
+</li>
+<li>
+<p><code>--output-field</code> | <code>-f</code> <em>(array)</em></p>
+<ul>
+<li>
+<p>Field to include in the output. Multiple fields can be specified. Fields appear in the order you specify.</p>
+<p>Default value: Index,SubIndexNames,IndexNameHandle<br>
+Allowed values: Index, SubIndexNames, IndexNameHandle</p>
+</li>
+</ul>
+</li>
+</ul>
+<h4>OM Web Viewer Connection Options</h4>
+<ul>
+<li>
+<p><code>--host</code> | <code>--hostname</code> <em>(string)</em></p>
+<ul>
+<li>Hostname or ip address of the target OM Web Viewer instance.</li>
+</ul>
+</li>
+<li>
+<p><code>--port</code> <em>(number)</em></p>
+<ul>
+<li>
+<p>Port of the target OM Web Viewer instance.</p>
+<p>Default value: 443</p>
+</li>
+</ul>
+</li>
+<li>
+<p><code>--user</code> | <code>--username</code> <em>(string)</em></p>
+<ul>
+<li>User name used to authenticate against the target OM Web Viewer instance.</li>
+</ul>
+</li>
+<li>
+<p><code>--password</code> <em>(string)</em></p>
+<ul>
+<li>Password used to authenticate against the target OM Web Viewer instance.</li>
+</ul>
+</li>
+<li>
+<p><code>--base-path</code> <em>(string)</em></p>
+<ul>
+<li>
+<p>Context name of the target OM Web Viewer instance.</p>
+<p>Default value: web-viewer</p>
+</li>
+</ul>
+</li>
+<li>
+<p><code>--protocol</code> <em>(string)</em></p>
+<ul>
+<li>
+<p>Protocol of the target OM Web Viewer instance.</p>
+<p>Default value: https<br>
+Allowed values: http, https</p>
+</li>
+</ul>
+</li>
+</ul>
+<h4>Profile Options</h4>
+<ul>
+<li>
+<p><code>--omview-profile</code> | <code>--omview-p</code> <em>(string)</em></p>
+<ul>
+<li>The name of a (omview) profile to load for this command execution.</li>
+</ul>
+</li>
+<li>
+<p><code>--caview-profile</code> | <code>--caview-p</code> <em>(string)</em></p>
+<ul>
+<li>The name of a (caview) profile to load for this command execution.</li>
+</ul>
+</li>
+<li>
+<p><code>--base-profile</code> | <code>--base-p</code> <em>(string)</em></p>
+<ul>
+<li>The name of a (base) profile to load for this command execution.</li>
+</ul>
+</li>
+</ul>
+<h4>Base Connection Options</h4>
+<ul>
+<li>
+<p><code>--reject-unauthorized</code> | <code>--ru</code> <em>(boolean)</em></p>
+<ul>
+<li>
+<p>Reject self-signed certificates.</p>
+<p>Default value: true</p>
+</li>
+</ul>
+</li>
+<li>
+<p><code>--token-type</code> | <code>--tt</code> <em>(string)</em></p>
+<ul>
+<li>The type of token to get and use for the API. Omit this option to use the default token type, which is provided by 'zowe auth login'.</li>
+</ul>
+</li>
+<li>
+<p><code>--token-value</code> | <code>--tv</code> <em>(string)</em></p>
+<ul>
+<li>The value of the token to pass to the API.</li>
+</ul>
+</li>
+<li>
+<p><code>--cert-file</code> <em>(local file path)</em></p>
+<ul>
+<li>
+<p>The file path to a certificate file to use for authentication.</p>
+<p>Note: The CLI does not support certificate files that require a password. For more information, search Troubleshooting PEM Certificates in Zowe Docs.</p>
+</li>
+</ul>
+</li>
+<li>
+<p><code>--cert-key-file</code> <em>(local file path)</em></p>
+<ul>
+<li>The file path to a certificate key file to use for authentication</li>
+</ul>
+</li>
+</ul>
+<a class="cmd-anchor" name="zowe_omview_search_index_reports"></a><h3><a href="#zowe">zowe</a> › <a href="#zowe_omview">omview</a> › <a href="#zowe_omview_search">search</a> › <a href="#zowe_omview_search_index">index</a> › <a href="#zowe_omview_search_index_reports">reports</a><button id="btn-print" class="no-print" onclick="window.print();" title="Print">🖨️</button></h3>
+<p>Search reports containing a cross-report index value in a repository.<br>
+Use the returned 'ReportHandle' to reference a view of the report.<br>
+For example, use the 'ReportHandle' in the 'download report' command to download that view of the report.</p>
+<h4>Usage</h4>
+<p>zowe omview search index reports &lt;repositoryId&gt; &lt;indexNameHandle&gt; &lt;valueHandle&gt; [options]</p>
+<h4>Positional Arguments</h4>
+<ul>
+<li>
+<p><code>repositoryId</code>		 <em>(number)</em></p>
+<ul>
+<li>Repository identifier.</li>
+</ul>
+</li>
+<li>
+<p><code>indexNameHandle</code>		 <em>(string)</em></p>
+<ul>
+<li>Index name handle.</li>
+</ul>
+</li>
+<li>
+<p><code>valueHandle</code>		 <em>(string)</em></p>
+<ul>
+<li>Index value handle.</li>
+</ul>
+</li>
+</ul>
+<h4>Options</h4>
+<ul>
+<li>
+<p><code>--filter-reports</code> | <code>--reports</code> <em>(string)</em></p>
+<ul>
+<li>
+<p>Filter (include) based on report names (IDs). Use the asterisk (*) as a wildcard to represent any number of characters.</p>
+<p>Default value: *</p>
+</li>
+</ul>
+</li>
+<li>
+<p><code>--latest-versions</code> | <code>--latest-version</code> | <code>--lv</code> <em>(number)</em></p>
+<ul>
+<li>
+<p>Number of latest versions (of reports) to include. If not specified, all versions of reports are included.</p>
+<p>Default value: 0</p>
+</li>
+</ul>
+</li>
+<li>
+<p><code>--archival-since</code> | <code>--since</code> | <code>--archival-from</code> | <code>--from</code> <em>(string)</em></p>
+<ul>
+<li>Date of earliest archived reports to include based on archival date. Specify a value in the ISO-8601 format.</li>
+</ul>
+</li>
+<li>
+<p><code>--archival-until</code> | <code>--until</code> | <code>--archival-to</code> | <code>--to</code> <em>(string)</em></p>
+<ul>
+<li>Date of latest archived reports to include based on archival date. Specify a value in the ISO-8601 format.</li>
+</ul>
+</li>
+<li>
+<p><code>--online-only</code> | <code>--online</code> <em>(boolean)</em></p>
+<ul>
+<li>
+<p>Include only those reports that are available online.</p>
+<p>Default value: true</p>
+</li>
+</ul>
+</li>
+<li>
+<p><code>--output-format</code> | <code>--output</code> <em>(string)</em></p>
+<ul>
+<li>
+<p>Output format. This option is ignored if '--response-format-json' is specified.</p>
+<p>Default value: tabular<br>
+Allowed values: tabular, csv, json, xml</p>
+</li>
+</ul>
+</li>
+<li>
+<p><code>--output-header</code> | <code>--header</code> <em>(boolean)</em></p>
+<ul>
+<li>
+<p>Include header with field names in the output when you specify 'tabular' or 'csv' for the output format.<br>
+This option is ignored when you specify any other output format.</p>
+<p>Default value: true</p>
+</li>
+</ul>
+</li>
+<li>
+<p><code>--output-field</code> | <code>-f</code> <em>(array)</em></p>
+<ul>
+<li>
+<p>Field to include in the output. Multiple fields can be specified. Fields appear in the order you specify.</p>
+<p>Default value: ReportName,Lines,Pages,Type,ArchivalDate,Description,UserComments,ReportHandle<br>
+Allowed values: ReportName, Lines, Pages, Type, ArchivalDate, Description, UserComments, ReportHandle, TotalPages, OriginalType, Destination, JobName, Origin, Generation, SequenceNumber, SysoutClass, Status, JobID, Forms, XCode, UserID, ReadDate, PrintDate, OnDisk, OnTape, OnOptical, IndexOnDisk, Location, TapeSequence, TapePosition, TapeCount, ExtendedRetentionOptionID, RemainingDays, RemainingGenerations, RemainingCopy, RemainingDiskDays, RemainingDiskGeneration, RemainingDiskCopy, RemainingDisk2days</p>
+</li>
+</ul>
+</li>
+</ul>
+<h4>OM Web Viewer Connection Options</h4>
+<ul>
+<li>
+<p><code>--host</code> | <code>--hostname</code> <em>(string)</em></p>
+<ul>
+<li>Hostname or ip address of the target OM Web Viewer instance.</li>
+</ul>
+</li>
+<li>
+<p><code>--port</code> <em>(number)</em></p>
+<ul>
+<li>
+<p>Port of the target OM Web Viewer instance.</p>
+<p>Default value: 443</p>
+</li>
+</ul>
+</li>
+<li>
+<p><code>--user</code> | <code>--username</code> <em>(string)</em></p>
+<ul>
+<li>User name used to authenticate against the target OM Web Viewer instance.</li>
+</ul>
+</li>
+<li>
+<p><code>--password</code> <em>(string)</em></p>
+<ul>
+<li>Password used to authenticate against the target OM Web Viewer instance.</li>
+</ul>
+</li>
+<li>
+<p><code>--base-path</code> <em>(string)</em></p>
+<ul>
+<li>
+<p>Context name of the target OM Web Viewer instance.</p>
+<p>Default value: web-viewer</p>
+</li>
+</ul>
+</li>
+<li>
+<p><code>--protocol</code> <em>(string)</em></p>
+<ul>
+<li>
+<p>Protocol of the target OM Web Viewer instance.</p>
+<p>Default value: https<br>
+Allowed values: http, https</p>
+</li>
+</ul>
+</li>
+</ul>
+<h4>Profile Options</h4>
+<ul>
+<li>
+<p><code>--omview-profile</code> | <code>--omview-p</code> <em>(string)</em></p>
+<ul>
+<li>The name of a (omview) profile to load for this command execution.</li>
+</ul>
+</li>
+<li>
+<p><code>--caview-profile</code> | <code>--caview-p</code> <em>(string)</em></p>
+<ul>
+<li>The name of a (caview) profile to load for this command execution.</li>
+</ul>
+</li>
+<li>
+<p><code>--base-profile</code> | <code>--base-p</code> <em>(string)</em></p>
+<ul>
+<li>The name of a (base) profile to load for this command execution.</li>
+</ul>
+</li>
+</ul>
+<h4>Base Connection Options</h4>
+<ul>
+<li>
+<p><code>--reject-unauthorized</code> | <code>--ru</code> <em>(boolean)</em></p>
+<ul>
+<li>
+<p>Reject self-signed certificates.</p>
+<p>Default value: true</p>
+</li>
+</ul>
+</li>
+<li>
+<p><code>--token-type</code> | <code>--tt</code> <em>(string)</em></p>
+<ul>
+<li>The type of token to get and use for the API. Omit this option to use the default token type, which is provided by 'zowe auth login'.</li>
+</ul>
+</li>
+<li>
+<p><code>--token-value</code> | <code>--tv</code> <em>(string)</em></p>
+<ul>
+<li>The value of the token to pass to the API.</li>
+</ul>
+</li>
+<li>
+<p><code>--cert-file</code> <em>(local file path)</em></p>
+<ul>
+<li>
+<p>The file path to a certificate file to use for authentication.</p>
+<p>Note: The CLI does not support certificate files that require a password. For more information, search Troubleshooting PEM Certificates in Zowe Docs.</p>
+</li>
+</ul>
+</li>
+<li>
+<p><code>--cert-key-file</code> <em>(local file path)</em></p>
+<ul>
+<li>The file path to a certificate key file to use for authentication</li>
+</ul>
+</li>
+</ul>
+<a class="cmd-anchor" name="zowe_omview_search_index_values"></a><h3><a href="#zowe">zowe</a> › <a href="#zowe_omview">omview</a> › <a href="#zowe_omview_search">search</a> › <a href="#zowe_omview_search_index">index</a> › <a href="#zowe_omview_search_index_values">values</a><button id="btn-print" class="no-print" onclick="window.print();" title="Print">🖨️</button></h3>
+<p>Search cross-report index values in a repository.<br>
+Use the returned 'IndexValueHandle' in the 'search index reports' command to retrieve the list of reports containing that index value.</p>
+<h4>Usage</h4>
+<p>zowe omview search index values &lt;repositoryId&gt; &lt;indexNameHandle&gt; [options]</p>
+<h4>Positional Arguments</h4>
+<ul>
+<li>
+<p><code>repositoryId</code>		 <em>(number)</em></p>
+<ul>
+<li>Repository identifier.</li>
+</ul>
+</li>
+<li>
+<p><code>indexNameHandle</code>		 <em>(string)</em></p>
+<ul>
+<li>Index name handle.</li>
+</ul>
+</li>
+</ul>
+<h4>Options</h4>
+<ul>
+<li>
+<p><code>--filter-reports</code> | <code>--reports</code> <em>(string)</em></p>
+<ul>
+<li>
+<p>Filter (include) based on report names (IDs). Use the asterisk (*) as a wildcard to represent any number of characters.</p>
+<p>Default value: *</p>
+</li>
+</ul>
+</li>
+<li>
+<p><code>--filter-values</code> | <code>--values</code> <em>(string)</em></p>
+<ul>
+<li>
+<p>Filter (include) based on index values. Separate index values with commas. Use the asterisk (*) as a wildcard to represent any number of characters.</p>
+<p>Default value: *,*,*,*,*,*,*,*</p>
+</li>
+</ul>
+</li>
+<li>
+<p><code>--latest-versions</code> | <code>--latest-version</code> | <code>--lv</code> <em>(number)</em></p>
+<ul>
+<li>
+<p>Number of latest versions (of reports) to include. If not specified, all versions of reports are included.</p>
+<p>Default value: 0</p>
+</li>
+</ul>
+</li>
+<li>
+<p><code>--archival-since</code> | <code>--since</code> | <code>--archival-from</code> | <code>--from</code> <em>(string)</em></p>
+<ul>
+<li>Date of earliest archived reports to include based on archival date. Specify a value in the ISO-8601 format.</li>
+</ul>
+</li>
+<li>
+<p><code>--archival-until</code> | <code>--until</code> | <code>--archival-to</code> | <code>--to</code> <em>(string)</em></p>
+<ul>
+<li>Date of latest archived reports to include based on archival date. Specify a value in the ISO-8601 format.</li>
+</ul>
+</li>
+<li>
+<p><code>--online-only</code> | <code>--online</code> <em>(boolean)</em></p>
+<ul>
+<li>
+<p>Include only those reports that are available online.</p>
+<p>Default value: true</p>
+</li>
+</ul>
+</li>
+<li>
+<p><code>--output-format</code> | <code>--output</code> <em>(string)</em></p>
+<ul>
+<li>
+<p>Output format. This option is ignored if '--response-format-json' is specified.</p>
+<p>Default value: tabular<br>
+Allowed values: tabular, csv, json, xml</p>
+</li>
+</ul>
+</li>
+<li>
+<p><code>--output-header</code> | <code>--header</code> <em>(boolean)</em></p>
+<ul>
+<li>
+<p>Include header with field names in the output when you specify 'tabular' or 'csv' for the output format.<br>
+This option is ignored when you specify any other output format.</p>
+<p>Default value: true</p>
+</li>
+</ul>
+</li>
+<li>
+<p><code>--output-field</code> | <code>-f</code> <em>(array)</em></p>
+<ul>
+<li>
+<p>Field to include in the output. Multiple fields can be specified. Fields appear in the order you specify.</p>
+<p>Default value: Value,SubValues,IndexValueHandle<br>
+Allowed values: Value, SubValues, IndexValueHandle</p>
+</li>
+</ul>
+</li>
+</ul>
+<h4>OM Web Viewer Connection Options</h4>
+<ul>
+<li>
+<p><code>--host</code> | <code>--hostname</code> <em>(string)</em></p>
+<ul>
+<li>Hostname or ip address of the target OM Web Viewer instance.</li>
+</ul>
+</li>
+<li>
+<p><code>--port</code> <em>(number)</em></p>
+<ul>
+<li>
+<p>Port of the target OM Web Viewer instance.</p>
+<p>Default value: 443</p>
+</li>
+</ul>
+</li>
+<li>
+<p><code>--user</code> | <code>--username</code> <em>(string)</em></p>
+<ul>
+<li>User name used to authenticate against the target OM Web Viewer instance.</li>
+</ul>
+</li>
+<li>
+<p><code>--password</code> <em>(string)</em></p>
+<ul>
+<li>Password used to authenticate against the target OM Web Viewer instance.</li>
+</ul>
+</li>
+<li>
+<p><code>--base-path</code> <em>(string)</em></p>
+<ul>
+<li>
+<p>Context name of the target OM Web Viewer instance.</p>
+<p>Default value: web-viewer</p>
+</li>
+</ul>
+</li>
+<li>
+<p><code>--protocol</code> <em>(string)</em></p>
+<ul>
+<li>
+<p>Protocol of the target OM Web Viewer instance.</p>
+<p>Default value: https<br>
+Allowed values: http, https</p>
+</li>
+</ul>
+</li>
+</ul>
+<h4>Profile Options</h4>
+<ul>
+<li>
+<p><code>--omview-profile</code> | <code>--omview-p</code> <em>(string)</em></p>
+<ul>
+<li>The name of a (omview) profile to load for this command execution.</li>
+</ul>
+</li>
+<li>
+<p><code>--caview-profile</code> | <code>--caview-p</code> <em>(string)</em></p>
+<ul>
+<li>The name of a (caview) profile to load for this command execution.</li>
+</ul>
+</li>
+<li>
+<p><code>--base-profile</code> | <code>--base-p</code> <em>(string)</em></p>
+<ul>
+<li>The name of a (base) profile to load for this command execution.</li>
+</ul>
+</li>
+</ul>
+<h4>Base Connection Options</h4>
+<ul>
+<li>
+<p><code>--reject-unauthorized</code> | <code>--ru</code> <em>(boolean)</em></p>
+<ul>
+<li>
+<p>Reject self-signed certificates.</p>
+<p>Default value: true</p>
+</li>
+</ul>
+</li>
+<li>
+<p><code>--token-type</code> | <code>--tt</code> <em>(string)</em></p>
+<ul>
+<li>The type of token to get and use for the API. Omit this option to use the default token type, which is provided by 'zowe auth login'.</li>
+</ul>
+</li>
+<li>
+<p><code>--token-value</code> | <code>--tv</code> <em>(string)</em></p>
+<ul>
+<li>The value of the token to pass to the API.</li>
+</ul>
+</li>
+<li>
+<p><code>--cert-file</code> <em>(local file path)</em></p>
+<ul>
+<li>
+<p>The file path to a certificate file to use for authentication.</p>
+<p>Note: The CLI does not support certificate files that require a password. For more information, search Troubleshooting PEM Certificates in Zowe Docs.</p>
+</li>
+</ul>
+</li>
+<li>
+<p><code>--cert-key-file</code> <em>(local file path)</em></p>
+<ul>
+<li>The file path to a certificate key file to use for authentication</li>
+</ul>
+</li>
+</ul>
+<a name="zowe_omview_set"></a><h2><a href="#zowe">zowe</a> › <a href="#zowe_omview">omview</a> › <a href="#zowe_omview_set">set</a><button id="btn-print" class="no-print" onclick="window.print();" title="Print">🖨️</button></h2>
+<p>Set information in OM View repository.</p>
+<a name="zowe_omview_set_user"></a><h2><a href="#zowe">zowe</a> › <a href="#zowe_omview">omview</a> › <a href="#zowe_omview_set">set</a> › <a href="#zowe_omview_set_user">user</a><button id="btn-print" class="no-print" onclick="window.print();" title="Print">🖨️</button></h2>
+<p>Set configuration for current user in repository.</p>
+<a class="cmd-anchor" name="zowe_omview_set_user_distribution"></a><h3><a href="#zowe">zowe</a> › <a href="#zowe_omview">omview</a> › <a href="#zowe_omview_set">set</a> › <a href="#zowe_omview_set_user">user</a> › <a href="#zowe_omview_set_user_distribution">distribution</a><button id="btn-print" class="no-print" onclick="window.print();" title="Print">🖨️</button></h3>
+<p>Set distribution id for current user in repository.</p>
+<h4>Usage</h4>
+<p>zowe omview set user distribution &lt;repositoryId&gt; &lt;distributionId&gt; [options]</p>
+<h4>Positional Arguments</h4>
+<ul>
+<li>
+<p><code>repositoryId</code>		 <em>(number)</em></p>
+<ul>
+<li>Repository identifier.</li>
+</ul>
+</li>
+<li>
+<p><code>distributionId</code>		 <em>(string)</em></p>
+<ul>
+<li>Distribution ID.</li>
+</ul>
+</li>
+</ul>
+<h4>Options</h4>
+<ul>
+<li>
+<p><code>--output-format</code> | <code>--output</code> <em>(string)</em></p>
+<ul>
+<li>
+<p>Output format. This option is ignored if '--response-format-json' is specified.</p>
+<p>Default value: tabular<br>
+Allowed values: tabular, csv, json, xml</p>
+</li>
+</ul>
+</li>
+<li>
+<p><code>--output-header</code> | <code>--header</code> <em>(boolean)</em></p>
+<ul>
+<li>
+<p>Include header with field names in the output when you specify 'tabular' or 'csv' for the output format.<br>
+This option is ignored when you specify any other output format.</p>
+<p>Default value: true</p>
+</li>
+</ul>
+</li>
+<li>
+<p><code>--output-field</code> | <code>-f</code> <em>(array)</em></p>
+<ul>
+<li>
+<p>Field to include in the output. Multiple fields can be specified. Fields appear in the order you specify.</p>
+<p>Default value: Mode,DistId,ModeAccess,DistMask<br>
+Allowed values: Mode, DistId, ModeAccess, DistMask, Banner, Language, MasterAuthority, Printer, UserId</p>
+</li>
+</ul>
+</li>
+</ul>
+<h4>OM Web Viewer Connection Options</h4>
+<ul>
+<li>
+<p><code>--host</code> | <code>--hostname</code> <em>(string)</em></p>
+<ul>
+<li>Hostname or ip address of the target OM Web Viewer instance.</li>
+</ul>
+</li>
+<li>
+<p><code>--port</code> <em>(number)</em></p>
+<ul>
+<li>
+<p>Port of the target OM Web Viewer instance.</p>
+<p>Default value: 443</p>
+</li>
+</ul>
+</li>
+<li>
+<p><code>--user</code> | <code>--username</code> <em>(string)</em></p>
+<ul>
+<li>User name used to authenticate against the target OM Web Viewer instance.</li>
+</ul>
+</li>
+<li>
+<p><code>--password</code> <em>(string)</em></p>
+<ul>
+<li>Password used to authenticate against the target OM Web Viewer instance.</li>
+</ul>
+</li>
+<li>
+<p><code>--base-path</code> <em>(string)</em></p>
+<ul>
+<li>
+<p>Context name of the target OM Web Viewer instance.</p>
+<p>Default value: web-viewer</p>
+</li>
+</ul>
+</li>
+<li>
+<p><code>--protocol</code> <em>(string)</em></p>
+<ul>
+<li>
+<p>Protocol of the target OM Web Viewer instance.</p>
+<p>Default value: https<br>
+Allowed values: http, https</p>
+</li>
+</ul>
+</li>
+</ul>
+<h4>Profile Options</h4>
+<ul>
+<li>
+<p><code>--omview-profile</code> | <code>--omview-p</code> <em>(string)</em></p>
+<ul>
+<li>The name of a (omview) profile to load for this command execution.</li>
+</ul>
+</li>
+<li>
+<p><code>--caview-profile</code> | <code>--caview-p</code> <em>(string)</em></p>
+<ul>
+<li>The name of a (caview) profile to load for this command execution.</li>
+</ul>
+</li>
+<li>
+<p><code>--base-profile</code> | <code>--base-p</code> <em>(string)</em></p>
+<ul>
+<li>The name of a (base) profile to load for this command execution.</li>
+</ul>
+</li>
+</ul>
+<h4>Base Connection Options</h4>
+<ul>
+<li>
+<p><code>--reject-unauthorized</code> | <code>--ru</code> <em>(boolean)</em></p>
+<ul>
+<li>
+<p>Reject self-signed certificates.</p>
+<p>Default value: true</p>
+</li>
+</ul>
+</li>
+<li>
+<p><code>--token-type</code> | <code>--tt</code> <em>(string)</em></p>
+<ul>
+<li>The type of token to get and use for the API. Omit this option to use the default token type, which is provided by 'zowe auth login'.</li>
+</ul>
+</li>
+<li>
+<p><code>--token-value</code> | <code>--tv</code> <em>(string)</em></p>
+<ul>
+<li>The value of the token to pass to the API.</li>
+</ul>
+</li>
+<li>
+<p><code>--cert-file</code> <em>(local file path)</em></p>
+<ul>
+<li>
+<p>The file path to a certificate file to use for authentication.</p>
+<p>Note: The CLI does not support certificate files that require a password. For more information, search Troubleshooting PEM Certificates in Zowe Docs.</p>
+</li>
+</ul>
+</li>
+<li>
+<p><code>--cert-key-file</code> <em>(local file path)</em></p>
+<ul>
+<li>The file path to a certificate key file to use for authentication</li>
+</ul>
+</li>
+</ul>
+<a class="cmd-anchor" name="zowe_omview_set_user_mode"></a><h3><a href="#zowe">zowe</a> › <a href="#zowe_omview">omview</a> › <a href="#zowe_omview_set">set</a> › <a href="#zowe_omview_set_user">user</a> › <a href="#zowe_omview_set_user_mode">mode</a><button id="btn-print" class="no-print" onclick="window.print();" title="Print">🖨️</button></h3>
+<p>Set mode for current user in repository.</p>
+<h4>Usage</h4>
+<p>zowe omview set user mode &lt;repositoryId&gt; &lt;mode&gt; [options]</p>
+<h4>Positional Arguments</h4>
+<ul>
+<li>
+<p><code>repositoryId</code>		 <em>(number)</em></p>
+<ul>
+<li>Repository identifier.</li>
+</ul>
+</li>
+<li>
+<p><code>mode</code>		 <em>(string)</em></p>
+<ul>
+<li>User mode.<br>
+Must match regular expression: <code>^(ALL|SAR|SARO|EXP|EXPO)$</code></li>
+</ul>
+</li>
+</ul>
+<h4>Options</h4>
+<ul>
+<li>
+<p><code>--output-format</code> | <code>--output</code> <em>(string)</em></p>
+<ul>
+<li>
+<p>Output format. This option is ignored if '--response-format-json' is specified.</p>
+<p>Default value: tabular<br>
+Allowed values: tabular, csv, json, xml</p>
+</li>
+</ul>
+</li>
+<li>
+<p><code>--output-header</code> | <code>--header</code> <em>(boolean)</em></p>
+<ul>
+<li>
+<p>Include header with field names in the output when you specify 'tabular' or 'csv' for the output format.<br>
+This option is ignored when you specify any other output format.</p>
+<p>Default value: true</p>
+</li>
+</ul>
+</li>
+<li>
+<p><code>--output-field</code> | <code>-f</code> <em>(array)</em></p>
+<ul>
+<li>
+<p>Field to include in the output. Multiple fields can be specified. Fields appear in the order you specify.</p>
+<p>Default value: Mode,DistId,ModeAccess,DistMask<br>
+Allowed values: Mode, DistId, ModeAccess, DistMask, Banner, Language, MasterAuthority, Printer, UserId</p>
+</li>
+</ul>
+</li>
+</ul>
+<h4>OM Web Viewer Connection Options</h4>
+<ul>
+<li>
+<p><code>--host</code> | <code>--hostname</code> <em>(string)</em></p>
+<ul>
+<li>Hostname or ip address of the target OM Web Viewer instance.</li>
+</ul>
+</li>
+<li>
+<p><code>--port</code> <em>(number)</em></p>
+<ul>
+<li>
+<p>Port of the target OM Web Viewer instance.</p>
+<p>Default value: 443</p>
+</li>
+</ul>
+</li>
+<li>
+<p><code>--user</code> | <code>--username</code> <em>(string)</em></p>
+<ul>
+<li>User name used to authenticate against the target OM Web Viewer instance.</li>
+</ul>
+</li>
+<li>
+<p><code>--password</code> <em>(string)</em></p>
+<ul>
+<li>Password used to authenticate against the target OM Web Viewer instance.</li>
+</ul>
+</li>
+<li>
+<p><code>--base-path</code> <em>(string)</em></p>
+<ul>
+<li>
+<p>Context name of the target OM Web Viewer instance.</p>
+<p>Default value: web-viewer</p>
+</li>
+</ul>
+</li>
+<li>
+<p><code>--protocol</code> <em>(string)</em></p>
+<ul>
+<li>
+<p>Protocol of the target OM Web Viewer instance.</p>
+<p>Default value: https<br>
+Allowed values: http, https</p>
+</li>
+</ul>
+</li>
+</ul>
+<h4>Profile Options</h4>
+<ul>
+<li>
+<p><code>--omview-profile</code> | <code>--omview-p</code> <em>(string)</em></p>
+<ul>
+<li>The name of a (omview) profile to load for this command execution.</li>
+</ul>
+</li>
+<li>
+<p><code>--caview-profile</code> | <code>--caview-p</code> <em>(string)</em></p>
+<ul>
+<li>The name of a (caview) profile to load for this command execution.</li>
+</ul>
+</li>
+<li>
+<p><code>--base-profile</code> | <code>--base-p</code> <em>(string)</em></p>
+<ul>
+<li>The name of a (base) profile to load for this command execution.</li>
+</ul>
+</li>
+</ul>
+<h4>Base Connection Options</h4>
+<ul>
+<li>
+<p><code>--reject-unauthorized</code> | <code>--ru</code> <em>(boolean)</em></p>
+<ul>
+<li>
+<p>Reject self-signed certificates.</p>
+<p>Default value: true</p>
+</li>
+</ul>
+</li>
+<li>
+<p><code>--token-type</code> | <code>--tt</code> <em>(string)</em></p>
+<ul>
+<li>The type of token to get and use for the API. Omit this option to use the default token type, which is provided by 'zowe auth login'.</li>
+</ul>
+</li>
+<li>
+<p><code>--token-value</code> | <code>--tv</code> <em>(string)</em></p>
+<ul>
+<li>The value of the token to pass to the API.</li>
+</ul>
+</li>
+<li>
+<p><code>--cert-file</code> <em>(local file path)</em></p>
+<ul>
+<li>
+<p>The file path to a certificate file to use for authentication.</p>
+<p>Note: The CLI does not support certificate files that require a password. For more information, search Troubleshooting PEM Certificates in Zowe Docs.</p>
+</li>
+</ul>
+</li>
+<li>
+<p><code>--cert-key-file</code> <em>(local file path)</em></p>
+<ul>
+<li>The file path to a certificate key file to use for authentication</li>
+</ul>
+</li>
+</ul>
+<hr class="no-print">
 <a name="zowe_ops"></a><h2 class="page-break"><a href="#zowe">zowe</a> › <a href="#zowe_ops">ops</a><button id="btn-print" class="no-print" onclick="window.print();" title="Print">🖨️</button></h2>
 <p>Interact with OPS/MVS® for automation administration and resource management.</p>
 <a name="zowe_ops_create"></a><h2><a href="#zowe">zowe</a> › <a href="#zowe_ops">ops</a> › <a href="#zowe_ops_create">create</a><button id="btn-print" class="no-print" onclick="window.print();" title="Print">🖨️</button></h2>
@@ -28250,6 +30792,12 @@ Allowed values: http, https</p>
 <h4>Options</h4>
 <ul>
 <li>
+<p><code>--ignore-not-found</code> | <code>-i</code> | <code>--inf</code> <em>(boolean)</em></p>
+<ul>
+<li>Suppress errors if the data set does not exist.</li>
+</ul>
+</li>
+<li>
 <p><code>--volume</code> | <code>--vol</code> <em>(string)</em></p>
 <ul>
 <li>The volume serial (VOLSER) where the data set resides. The option is required only when the data set is not catalogued on the system.</li>
@@ -28373,6 +30921,12 @@ Allowed values: http, https</p>
 <li><code>zowe zos-files delete data-set &quot;ibmuser.cntl(mem)&quot; -f</code> <button class="btn-copy no-print" data-balloon-pos="right" data-clipboard-text="zowe zos-files delete data-set &quot;ibmuser.cntl(mem)&quot; -f">Copy</button></li>
 </ul>
 </li>
+<li>
+<p>Quietly delete a data set, suppressing errors if it doesn't exist:</p>
+<ul>
+<li><code>zowe zos-files delete data-set &quot;ibmuser.cntl(mem)&quot; -fi</code> <button class="btn-copy no-print" data-balloon-pos="right" data-clipboard-text="zowe zos-files delete data-set &quot;ibmuser.cntl(mem)&quot; -fi">Copy</button></li>
+</ul>
+</li>
 </ul>
 <a class="cmd-anchor" name="zowe_zos-files_delete_data-set-vsam"></a><h3><a href="#zowe">zowe</a> › <a href="#zowe_zos-files">zos-files</a> › <a href="#zowe_zos-files_delete">delete</a> › <a href="#zowe_zos-files_delete_data-set-vsam">data-set-vsam</a><button id="btn-print" class="no-print" onclick="window.print();" title="Print">🖨️</button></h3>
 <p>Delete a VSAM cluster permanently.</p>
@@ -28396,6 +30950,12 @@ Allowed values: http, https</p>
 <p>Specify this option to overwrite the data component for the cluster with binary zeros. This option is ignored if the NOERASE attribute was specified when the cluster was defined or altered.</p>
 <p>Default value: false</p>
 </li>
+</ul>
+</li>
+<li>
+<p><code>--ignore-not-found</code> | <code>-i</code> | <code>--inf</code> <em>(boolean)</em></p>
+<ul>
+<li>Suppress errors if the VSAM data set does not exist.</li>
 </ul>
 </li>
 <li>
@@ -28529,7 +31089,7 @@ Allowed values: http, https</p>
 </ul>
 </li>
 <li>
-<p>Delete all expired VSAM data sets that match 'ibmuser.AAA.**.FFF':</p>
+<p>Quietly delete all VSAM data sets that match 'ibmuser.AAA.**.FFF' ignoring not-found errors:</p>
 <ul>
 <li><code>zowe zos-files delete data-set-vsam &quot;ibmuser.AAA.**.FFF&quot; -f</code> <button class="btn-copy no-print" data-balloon-pos="right" data-clipboard-text="zowe zos-files delete data-set-vsam &quot;ibmuser.AAA.**.FFF&quot; -f">Copy</button></li>
 </ul>
@@ -28544,6 +31104,12 @@ Allowed values: http, https</p>
 <p>Delete an expired VSAM data set named 'ibmuser.cntl.vsam' by overwriting the components with zeros:</p>
 <ul>
 <li><code>zowe zos-files delete data-set-vsam &quot;ibmuser.cntl.vsam&quot; -f --erase</code> <button class="btn-copy no-print" data-balloon-pos="right" data-clipboard-text="zowe zos-files delete data-set-vsam &quot;ibmuser.cntl.vsam&quot; -f --erase">Copy</button></li>
+</ul>
+</li>
+<li>
+<p>Quietly delete all VSAM data sets that match 'ibmuser.AAA.**.FFF' ignoring not-found errors:</p>
+<ul>
+<li><code>zowe zos-files delete data-set-vsam &quot;ibmuser.cntl.vsam&quot; -fi</code> <button class="btn-copy no-print" data-balloon-pos="right" data-clipboard-text="zowe zos-files delete data-set-vsam &quot;ibmuser.cntl.vsam&quot; -fi">Copy</button></li>
 </ul>
 </li>
 </ul>
@@ -28724,6 +31290,12 @@ Allowed values: http, https</p>
 </ul>
 </li>
 <li>
+<p><code>--ignore-not-found</code> | <code>-i</code> | <code>--inf</code> <em>(boolean)</em></p>
+<ul>
+<li>Suppress errors if the file does not exist.</li>
+</ul>
+</li>
+<li>
 <p><code>--response-timeout</code> | <code>--rto</code> <em>(number)</em></p>
 <ul>
 <li>The maximum amount of time in seconds the z/OSMF Files TSO servlet should run before returning a response. Any request exceeding this amount of time will be terminated and return an error. Allowed values: 5 - 600</li>
@@ -28847,6 +31419,12 @@ Allowed values: http, https</p>
 <li><code>zowe zos-files delete uss-file &quot;/a/ibmuser/testcases&quot; -rf</code> <button class="btn-copy no-print" data-balloon-pos="right" data-clipboard-text="zowe zos-files delete uss-file &quot;/a/ibmuser/testcases&quot; -rf">Copy</button></li>
 </ul>
 </li>
+<li>
+<p>Quietly delete a file, suppressing errors if the file doesn't exist:</p>
+<ul>
+<li><code>zowe zos-files delete uss-file &quot;/a/ibmuser/testcases&quot; -fi</code> <button class="btn-copy no-print" data-balloon-pos="right" data-clipboard-text="zowe zos-files delete uss-file &quot;/a/ibmuser/testcases&quot; -fi">Copy</button></li>
+</ul>
+</li>
 </ul>
 <a class="cmd-anchor" name="zowe_zos-files_delete_zos-file-system"></a><h3><a href="#zowe">zowe</a> › <a href="#zowe_zos-files">zos-files</a> › <a href="#zowe_zos-files_delete">delete</a> › <a href="#zowe_zos-files_delete_zos-file-system">zos-file-system</a><button id="btn-print" class="no-print" onclick="window.print();" title="Print">🖨️</button></h3>
 <p>Delete a z/OS file system permanently.</p>
@@ -28867,6 +31445,21 @@ Allowed values: http, https</p>
 <p><code>--for-sure</code> | <code>-f</code> <em>(boolean)</em></p>
 <ul>
 <li>Specify this option to confirm that you want to delete the ZFS permanently.</li>
+</ul>
+</li>
+</ul>
+<h4>Options</h4>
+<ul>
+<li>
+<p><code>--ignore-not-found</code> | <code>-i</code> | <code>--inf</code> <em>(boolean)</em></p>
+<ul>
+<li>Suppress errors if the z/OS file does not exist.</li>
+</ul>
+</li>
+<li>
+<p><code>--response-timeout</code> | <code>--rto</code> <em>(number)</em></p>
+<ul>
+<li>The maximum amount of time in seconds the z/OSMF Files TSO servlet should run before returning a response. Any request exceeding this amount of time will be terminated and return an error. Allowed values: 5 - 600</li>
 </ul>
 </li>
 </ul>
@@ -28937,15 +31530,6 @@ Allowed values: http, https</p>
 </ul>
 </li>
 </ul>
-<h4>Options</h4>
-<ul>
-<li>
-<p><code>--response-timeout</code> | <code>--rto</code> <em>(number)</em></p>
-<ul>
-<li>The maximum amount of time in seconds the z/OSMF Files TSO servlet should run before returning a response. Any request exceeding this amount of time will be terminated and return an error. Allowed values: 5 - 600</li>
-</ul>
-</li>
-</ul>
 <h4>Profile Options</h4>
 <ul>
 <li>
@@ -28982,6 +31566,12 @@ Allowed values: http, https</p>
 <p>Delete the z/OS file system 'HLQ.MYNEW.ZFS':</p>
 <ul>
 <li><code>zowe zos-files delete zos-file-system &quot;HLQ.MYNEW.ZFS&quot; -f</code> <button class="btn-copy no-print" data-balloon-pos="right" data-clipboard-text="zowe zos-files delete zos-file-system &quot;HLQ.MYNEW.ZFS&quot; -f">Copy</button></li>
+</ul>
+</li>
+<li>
+<p>Quietly delete a z/OS file, suppressing errors if the file doesn't exist:</p>
+<ul>
+<li><code>zowe zos-files delete zos-file-system &quot;HLQ.MYNEW.ZFS&quot; -fi</code> <button class="btn-copy no-print" data-balloon-pos="right" data-clipboard-text="zowe zos-files delete zos-file-system &quot;HLQ.MYNEW.ZFS&quot; -fi">Copy</button></li>
 </ul>
 </li>
 </ul>
@@ -29182,6 +31772,220 @@ Allowed values: http, https</p>
 <p>Download the members of the data set &quot;ibmuser.cntl&quot; in text mode to the directory &quot;jcl/&quot;:</p>
 <ul>
 <li><code>zowe zos-files download all-members &quot;ibmuser.cntl&quot; -d jcl</code> <button class="btn-copy no-print" data-balloon-pos="right" data-clipboard-text="zowe zos-files download all-members &quot;ibmuser.cntl&quot; -d jcl">Copy</button></li>
+</ul>
+</li>
+</ul>
+<a class="cmd-anchor" name="zowe_zos-files_download_all-members-matching"></a><h3><a href="#zowe">zowe</a> › <a href="#zowe_zos-files">zos-files</a> › <a href="#zowe_zos-files_download">download</a> › <a href="#zowe_zos-files_download_all-members-matching">all-members-matching</a><button id="btn-print" class="no-print" onclick="window.print();" title="Print">🖨️</button></h3>
+<p>Download all members that match a specific pattern from a partitioned data set to a local folder.</p>
+<h4>Usage</h4>
+<p>zowe zos-files download all-members-matching &lt;dataSetName&gt; &lt;pattern&gt; [options]</p>
+<h4>Positional Arguments</h4>
+<ul>
+<li>
+<p><code>dataSetName</code>		 <em>(string)</em></p>
+<ul>
+<li>The name of the data set from which you want to download members</li>
+</ul>
+</li>
+<li>
+<p><code>pattern</code>		 <em>(string)</em></p>
+<ul>
+<li>The pattern or patterns to match members against. Also known as 'DSLEVEL'. The following special sequences can be used in the pattern:<br>
+%: matches any single character<br>
+*: matches any number of characters within a member<br>
+You can specify multiple patterns separated by commas, for example &quot;Mem*, Test*&quot;</li>
+</ul>
+</li>
+</ul>
+<h4>Options</h4>
+<ul>
+<li>
+<p><code>--binary</code> | <code>-b</code> <em>(boolean)</em></p>
+<ul>
+<li>Download the file content in binary mode, which means that no data conversion is performed. The data transfer process returns each line as-is, without translation. No delimiters are added between records.</li>
+</ul>
+</li>
+<li>
+<p><code>--directory</code> | <code>-d</code> <em>(string)</em></p>
+<ul>
+<li>The directory to where you want to save the members. The command creates the directory for you when it does not already exist. By default, the command creates a folder structure based on the data set qualifiers. For example, the data set ibmuser.new.cntl's members are downloaded to ibmuser/new/cntl).</li>
+</ul>
+</li>
+<li>
+<p><code>--encoding</code> | <code>--ec</code> <em>(string)</em></p>
+<ul>
+<li>Download the file content with encoding mode, which means that data conversion is performed using the file encoding specified.</li>
+</ul>
+</li>
+<li>
+<p><code>--exclude-patterns</code> | <code>--ep</code> <em>(string)</em></p>
+<ul>
+<li>Exclude data sets that match these DSLEVEL patterns. Any data sets that match this pattern will not be downloaded.</li>
+</ul>
+</li>
+<li>
+<p><code>--extension</code> | <code>-e</code> <em>(string)</em></p>
+<ul>
+<li>Save the local files with a specified file extension. For example, .txt. Or &quot;&quot; for no extension. When no extension is specified, .txt is used as the default file extension.</li>
+</ul>
+</li>
+<li>
+<p><code>--fail-fast</code> | <code>--ff</code> <em>(boolean)</em></p>
+<ul>
+<li>
+<p>Set this option to false to continue downloading data set members if one or more fail.</p>
+<p>Default value: true</p>
+</li>
+</ul>
+</li>
+<li>
+<p><code>--max-concurrent-requests</code> | <code>--mcr</code> <em>(number)</em></p>
+<ul>
+<li>
+<p>Specifies the maximum number of concurrent z/OSMF REST API requests to download members. Increasing the value results in faster downloads. However, increasing the value increases resource consumption on z/OS and can be prone to errors caused by making too many concurrent requests. If the download process encounters an error, the following message displays:<br>
+The maximum number of TSO address spaces have been created. When you specify 0, Zowe CLI attempts to download all members at once without a maximum number of concurrent requests.</p>
+<p>Default value: 1</p>
+</li>
+</ul>
+</li>
+<li>
+<p><code>--preserve-original-letter-case</code> | <code>--po</code> <em>(boolean)</em></p>
+<ul>
+<li>
+<p>Specifies if the automatically generated directories and files use the original letter case.</p>
+<p>Default value: false</p>
+</li>
+</ul>
+</li>
+<li>
+<p><code>--record</code> | <code>-r</code> <em>(boolean)</em></p>
+<ul>
+<li>Download the file content in record mode, which means that no data conversion is performed and the record length is prepended to the data. The data transfer process returns each line as-is, without translation. No delimiters are added between records. Conflicts with binary.</li>
+</ul>
+</li>
+<li>
+<p><code>--volume-serial</code> | <code>--vs</code> <em>(string)</em></p>
+<ul>
+<li>The volume serial (VOLSER) where the data set resides. You can use this option at any time. However, the VOLSER is required only when the data set is not cataloged on the system. A VOLSER is analogous to a drive name on a PC.</li>
+</ul>
+</li>
+<li>
+<p><code>--response-timeout</code> | <code>--rto</code> <em>(number)</em></p>
+<ul>
+<li>The maximum amount of time in seconds the z/OSMF Files TSO servlet should run before returning a response. Any request exceeding this amount of time will be terminated and return an error. Allowed values: 5 - 600</li>
+</ul>
+</li>
+</ul>
+<h4>Zosmf Connection Options</h4>
+<ul>
+<li>
+<p><code>--host</code> | <code>-H</code> <em>(string)</em></p>
+<ul>
+<li>The z/OSMF server host name.</li>
+</ul>
+</li>
+<li>
+<p><code>--port</code> | <code>-P</code> <em>(number)</em></p>
+<ul>
+<li>
+<p>The z/OSMF server port.</p>
+<p>Default value: 443</p>
+</li>
+</ul>
+</li>
+<li>
+<p><code>--user</code> | <code>-u</code> <em>(string)</em></p>
+<ul>
+<li>Mainframe (z/OSMF) user name, which can be the same as your TSO login.</li>
+</ul>
+</li>
+<li>
+<p><code>--password</code> | <code>--pass</code> | <code>--pw</code> <em>(string)</em></p>
+<ul>
+<li>Mainframe (z/OSMF) password, which can be the same as your TSO password.</li>
+</ul>
+</li>
+<li>
+<p><code>--reject-unauthorized</code> | <code>--ru</code> <em>(boolean)</em></p>
+<ul>
+<li>
+<p>Reject self-signed certificates.</p>
+<p>Default value: true</p>
+</li>
+</ul>
+</li>
+<li>
+<p><code>--base-path</code> | <code>--bp</code> <em>(string)</em></p>
+<ul>
+<li>The base path for your API mediation layer instance. Specify this option to prepend the base path to all z/OSMF resources when making REST requests. Do not specify this option if you are not using an API mediation layer.</li>
+</ul>
+</li>
+<li>
+<p><code>--protocol</code> <em>(string)</em></p>
+<ul>
+<li>
+<p>The protocol used (HTTP or HTTPS)</p>
+<p>Default value: https<br>
+Allowed values: http, https</p>
+</li>
+</ul>
+</li>
+<li>
+<p><code>--cert-file</code> <em>(local file path)</em></p>
+<ul>
+<li>The file path to a certificate file to use for authentication</li>
+</ul>
+</li>
+<li>
+<p><code>--cert-key-file</code> <em>(local file path)</em></p>
+<ul>
+<li>The file path to a certificate key file to use for authentication</li>
+</ul>
+</li>
+</ul>
+<h4>Profile Options</h4>
+<ul>
+<li>
+<p><code>--zosmf-profile</code> | <code>--zosmf-p</code> <em>(string)</em></p>
+<ul>
+<li>The name of a (zosmf) profile to load for this command execution.</li>
+</ul>
+</li>
+<li>
+<p><code>--base-profile</code> | <code>--base-p</code> <em>(string)</em></p>
+<ul>
+<li>The name of a (base) profile to load for this command execution.</li>
+</ul>
+</li>
+</ul>
+<h4>Base Connection Options</h4>
+<ul>
+<li>
+<p><code>--token-type</code> | <code>--tt</code> <em>(string)</em></p>
+<ul>
+<li>The type of token to get and use for the API. Omit this option to use the default token type, which is provided by 'zowe auth login'.</li>
+</ul>
+</li>
+<li>
+<p><code>--token-value</code> | <code>--tv</code> <em>(string)</em></p>
+<ul>
+<li>The value of the token to pass to the API.</li>
+</ul>
+</li>
+</ul>
+<h4>Examples</h4>
+<ul>
+<li>
+<p>Download the members of the data set &quot;ibmuser.loadlib&quot; that begin with &quot;Test&quot; to the directory &quot;loadlib/&quot;:</p>
+<ul>
+<li><code>zowe zos-files download all-members-matching &quot;ibmuser.loadlib&quot; &quot;Test*&quot; -d loadlib</code> <button class="btn-copy no-print" data-balloon-pos="right" data-clipboard-text="zowe zos-files download all-members-matching &quot;ibmuser.loadlib&quot; &quot;Test*&quot; -d loadlib">Copy</button></li>
+</ul>
+</li>
+<li>
+<p>Download the members of the data set &quot;ibmuser.cntl&quot; that begin with &quot;Test&quot; &amp; &quot;M&quot; to the directory &quot;output&quot;,<br>
+and exclude members that begin with &quot;M2&quot;.:</p>
+<ul>
+<li><code>zowe zos-files download all-members-matching &quot;ibmuser.cntl&quot; &quot;test*,M*&quot; --exclude-patterns &quot;M2*&quot; -d output</code> <button class="btn-copy no-print" data-balloon-pos="right" data-clipboard-text="zowe zos-files download all-members-matching &quot;ibmuser.cntl&quot; &quot;test*,M*&quot; --exclude-patterns &quot;M2*&quot; -d output">Copy</button></li>
 </ul>
 </li>
 </ul>
@@ -29852,6 +32656,12 @@ Allowed values: http, https</p>
 <h4>Options</h4>
 <ul>
 <li>
+<p><code>--attributes</code> | <code>--attrs</code> <em>(local file path)</em></p>
+<ul>
+<li>Path of an attributes file to control how files are downloaded.</li>
+</ul>
+</li>
+<li>
 <p><code>--binary</code> | <code>-b</code> <em>(boolean)</em></p>
 <ul>
 <li>Download the file content in binary mode, which means that no data conversion is performed. The data transfer process returns each line as-is, without translation. No delimiters are added between records.</li>
@@ -29985,6 +32795,12 @@ Allowed values: http, https</p>
 <p>Download the file &quot;/a/ibmuser/MyJava.class&quot; to &quot;java/MyJava.class&quot; in binary mode:</p>
 <ul>
 <li><code>zowe zos-files download uss-file &quot;/a/ibmuser/MyJava.class&quot; -b -f &quot;java/MyJava.class&quot;</code> <button class="btn-copy no-print" data-balloon-pos="right" data-clipboard-text="zowe zos-files download uss-file &quot;/a/ibmuser/MyJava.class&quot; -b -f &quot;java/MyJava.class&quot;">Copy</button></li>
+</ul>
+</li>
+<li>
+<p>Download the file &quot;/a/ibmuser/MyJava.class&quot; to &quot;java/MyJava.class&quot; using a .zosattributes file:</p>
+<ul>
+<li><code>zowe zos-files download uss-file &quot;/a/ibmuser/MyJava.class&quot; --attributes /path/to/.zosattributes -f &quot;java/MyJava.class&quot;</code> <button class="btn-copy no-print" data-balloon-pos="right" data-clipboard-text="zowe zos-files download uss-file &quot;/a/ibmuser/MyJava.class&quot; --attributes /path/to/.zosattributes -f &quot;java/MyJava.class&quot;">Copy</button></li>
 </ul>
 </li>
 </ul>
@@ -32005,7 +34821,7 @@ However, the pattern cannot begin with any of these sequences. You can specify m
 <li>
 <p><code>searchString</code>		 <em>(string)</em></p>
 <ul>
-<li>The parameter to search for</li>
+<li>The parameter to search for.</li>
 </ul>
 </li>
 </ul>
@@ -32018,6 +34834,12 @@ However, the pattern cannot begin with any of these sequences. You can specify m
 <p>The search should be case sensitive</p>
 <p>Default value: false</p>
 </li>
+</ul>
+</li>
+<li>
+<p><code>--encoding</code> | <code>--ec</code> <em>(string)</em></p>
+<ul>
+<li>Search the file content with encoding mode, which means that data conversion is performed using the file encoding specified.</li>
 </ul>
 </li>
 <li>
@@ -32041,7 +34863,7 @@ However, the pattern cannot begin with any of these sequences. You can specify m
 <li>
 <p><code>--timeout</code> | <code>--to</code> <em>(number)</em></p>
 <ul>
-<li>The number of seconds to search before timing out</li>
+<li>The number of seconds to search before timing out.</li>
 </ul>
 </li>
 <li>
@@ -32566,6 +35388,12 @@ The maximum number of TSO address spaces have been created. When you specify 0, 
 </ul>
 </li>
 <li>
+<p><code>--encoding</code> | <code>--ec</code> <em>(string)</em></p>
+<ul>
+<li>Data content in encoding mode, which means that data conversion is performed according to the encoding specified.</li>
+</ul>
+</li>
+<li>
 <p><code>--response-timeout</code> | <code>--rto</code> <em>(number)</em></p>
 <ul>
 <li>The maximum amount of time in seconds the z/OSMF Files TSO servlet should run before returning a response. Any request exceeding this amount of time will be terminated and return an error. Allowed values: 5 - 600</li>
@@ -32699,6 +35527,12 @@ Allowed values: http, https</p>
 <p>Recursively upload all files from the &quot;local_dir&quot; directory to the &quot;/a/ibmuser/my_dir&quot; USS directory, specifying files to ignore and file encodings in the local file my_global_attributes:</p>
 <ul>
 <li><code>zowe zos-files upload dir-to-uss &quot;local_dir&quot; &quot;/a/ibmuser/my_dir&quot; --recursive --attributes my_global_attributes</code> <button class="btn-copy no-print" data-balloon-pos="right" data-clipboard-text="zowe zos-files upload dir-to-uss &quot;local_dir&quot; &quot;/a/ibmuser/my_dir&quot; --recursive --attributes my_global_attributes">Copy</button></li>
+</ul>
+</li>
+<li>
+<p>Upload all files from the &quot;local_dir&quot; directory to the &quot;/a/ibmuser/my_dir&quot; USS directory using IBM-1047 encoding:</p>
+<ul>
+<li><code>zowe zos-files upload dir-to-uss &quot;local_dir&quot; &quot;/a/ibmuser/my_dir&quot; --encoding &quot;IBM-1047&quot;</code> <button class="btn-copy no-print" data-balloon-pos="right" data-clipboard-text="zowe zos-files upload dir-to-uss &quot;local_dir&quot; &quot;/a/ibmuser/my_dir&quot; --encoding &quot;IBM-1047&quot;">Copy</button></li>
 </ul>
 </li>
 </ul>
@@ -32912,6 +35746,12 @@ Allowed values: http, https</p>
 <p><code>--encoding</code> | <code>--ec</code> <em>(string)</em></p>
 <ul>
 <li>Data content in encoding mode, which means that data conversion is performed according to the encoding specified.</li>
+</ul>
+</li>
+<li>
+<p><code>--attributes</code> | <code>--attrs</code> <em>(string)</em></p>
+<ul>
+<li>Path of an attributes file to control how files are uploaded.</li>
 </ul>
 </li>
 <li>
@@ -38137,6 +40977,18 @@ Allowed values: http, https</p>
 <li>Download the spool file content with encoding mode, which means that data conversion is performed using the file encoding specified.</li>
 </ul>
 </li>
+<li>
+<p><code>--wait-for-active</code> | <code>--wfa</code> <em>(boolean)</em></p>
+<ul>
+<li>Wait for the job to enter ACTIVE status before completing the command.</li>
+</ul>
+</li>
+<li>
+<p><code>--wait-for-output</code> | <code>--wfo</code> <em>(boolean)</em></p>
+<ul>
+<li>Wait for the job to enter OUTPUT status before completing the command.</li>
+</ul>
+</li>
 </ul>
 <h4>Zosmf Connection Options</h4>
 <ul>
@@ -40459,7 +43311,19 @@ Allowed values: http, https</p>
 <li>
 <p><code>--suppress-startup-messages</code> | <code>--ssm</code> <em>(boolean)</em></p>
 <ul>
-<li>Suppress console messages from start of address space.</li>
+<li>
+<p>Suppress console messages from start of address space.</p>
+<p>Default value: true</p>
+</li>
+</ul>
+</li>
+<li>
+<p><code>--stateful</code> | <code>--sf</code> <em>(boolean)</em></p>
+<ul>
+<li>
+<p>Statefulness of address space created for TSO command. This option is not supported when --suppress-startup-messages is set to false.</p>
+<p>Default value: false</p>
+</li>
 </ul>
 </li>
 </ul>
@@ -40759,6 +43623,214 @@ Allowed values: http, https</p>
 </ul>
 </li>
 </ul>
+<a name="zowe_zos-tso_receive"></a><h2><a href="#zowe">zowe</a> › <a href="#zowe_zos-tso">zos-tso</a> › <a href="#zowe_zos-tso_receive">receive</a><button id="btn-print" class="no-print" onclick="window.print();" title="Print">🖨️</button></h2>
+<p>Receive message from TSO address space app</p>
+<a class="cmd-anchor" name="zowe_zos-tso_receive_app"></a><h3><a href="#zowe">zowe</a> › <a href="#zowe_zos-tso">zos-tso</a> › <a href="#zowe_zos-tso_receive">receive</a> › <a href="#zowe_zos-tso_receive_app">app</a><button id="btn-print" class="no-print" onclick="window.print();" title="Print">🖨️</button></h3>
+<p>Receive message from TSO address space app,</p>
+<h4>Usage</h4>
+<p>zowe zos-tso receive app [options]</p>
+<h4>TSO ADDRESS SPACE OPTIONS</h4>
+<ul>
+<li>
+<p><code>--account</code> | <code>-a</code> <em>(string)</em></p>
+<ul>
+<li>Your z/OS TSO/E accounting information.</li>
+</ul>
+</li>
+<li>
+<p><code>--character-set</code> | <code>--cs</code> <em>(string)</em></p>
+<ul>
+<li>
+<p>Character set for address space to convert messages and responses from UTF-8 to EBCDIC.</p>
+<p>Default value: 697</p>
+</li>
+</ul>
+</li>
+<li>
+<p><code>--code-page</code> | <code>--cp</code> <em>(string)</em></p>
+<ul>
+<li>
+<p>Codepage value for TSO/E address space to convert messages and responses from UTF-8 to EBCDIC.</p>
+<p>Default value: 1047</p>
+</li>
+</ul>
+</li>
+<li>
+<p><code>--columns</code> | <code>--cols</code> <em>(number)</em></p>
+<ul>
+<li>
+<p>The number of columns on a screen.</p>
+<p>Default value: 80</p>
+</li>
+</ul>
+</li>
+<li>
+<p><code>--logon-procedure</code> | <code>-l</code> <em>(string)</em></p>
+<ul>
+<li>
+<p>The logon procedure to use when creating TSO procedures on your behalf.</p>
+<p>Default value: IZUFPROC</p>
+</li>
+</ul>
+</li>
+<li>
+<p><code>--region-size</code> | <code>--rs</code> <em>(number)</em></p>
+<ul>
+<li>
+<p>Region size for the TSO/E address space.</p>
+<p>Default value: 4096</p>
+</li>
+</ul>
+</li>
+<li>
+<p><code>--rows</code> <em>(number)</em></p>
+<ul>
+<li>
+<p>The number of rows on a screen.</p>
+<p>Default value: 24</p>
+</li>
+</ul>
+</li>
+</ul>
+<h4>Required Options</h4>
+<ul>
+<li>
+<p><code>--app-key</code> | <code>--ak</code> <em>(string)</em></p>
+<ul>
+<li>App key of application running at TSO address space, app key should be the value established when app instance was started</li>
+</ul>
+</li>
+<li>
+<p><code>--servlet-key</code> | <code>--sk</code> <em>(string)</em></p>
+<ul>
+<li>Servlet Key of TSO address space</li>
+</ul>
+</li>
+</ul>
+<h4>Options</h4>
+<ul>
+<li>
+<p><code>--receive-until-ready</code> | <code>--rur</code> <em>(boolean)</em></p>
+<ul>
+<li>
+<p>Receives data until keyword is received or timeout</p>
+<p>Default value: false</p>
+</li>
+</ul>
+</li>
+<li>
+<p><code>--timeout</code> | <code>-t</code> <em>(number)</em></p>
+<ul>
+<li>
+<p>Timeout length in seconds, all data at the time of timeout will be returned to user</p>
+<p>Default value: 600</p>
+</li>
+</ul>
+</li>
+</ul>
+<h4>Zosmf Connection Options</h4>
+<ul>
+<li>
+<p><code>--host</code> | <code>-H</code> <em>(string)</em></p>
+<ul>
+<li>The z/OSMF server host name.</li>
+</ul>
+</li>
+<li>
+<p><code>--port</code> | <code>-P</code> <em>(number)</em></p>
+<ul>
+<li>
+<p>The z/OSMF server port.</p>
+<p>Default value: 443</p>
+</li>
+</ul>
+</li>
+<li>
+<p><code>--user</code> | <code>-u</code> <em>(string)</em></p>
+<ul>
+<li>Mainframe (z/OSMF) user name, which can be the same as your TSO login.</li>
+</ul>
+</li>
+<li>
+<p><code>--password</code> | <code>--pass</code> | <code>--pw</code> <em>(string)</em></p>
+<ul>
+<li>Mainframe (z/OSMF) password, which can be the same as your TSO password.</li>
+</ul>
+</li>
+<li>
+<p><code>--reject-unauthorized</code> | <code>--ru</code> <em>(boolean)</em></p>
+<ul>
+<li>
+<p>Reject self-signed certificates.</p>
+<p>Default value: true</p>
+</li>
+</ul>
+</li>
+<li>
+<p><code>--base-path</code> | <code>--bp</code> <em>(string)</em></p>
+<ul>
+<li>The base path for your API mediation layer instance. Specify this option to prepend the base path to all z/OSMF resources when making REST requests. Do not specify this option if you are not using an API mediation layer.</li>
+</ul>
+</li>
+<li>
+<p><code>--protocol</code> <em>(string)</em></p>
+<ul>
+<li>
+<p>The protocol used (HTTP or HTTPS)</p>
+<p>Default value: https<br>
+Allowed values: http, https</p>
+</li>
+</ul>
+</li>
+<li>
+<p><code>--cert-file</code> <em>(local file path)</em></p>
+<ul>
+<li>The file path to a certificate file to use for authentication</li>
+</ul>
+</li>
+<li>
+<p><code>--cert-key-file</code> <em>(local file path)</em></p>
+<ul>
+<li>The file path to a certificate key file to use for authentication</li>
+</ul>
+</li>
+</ul>
+<h4>Profile Options</h4>
+<ul>
+<li>
+<p><code>--zosmf-profile</code> | <code>--zosmf-p</code> <em>(string)</em></p>
+<ul>
+<li>The name of a (zosmf) profile to load for this command execution.</li>
+</ul>
+</li>
+<li>
+<p><code>--tso-profile</code> | <code>--tso-p</code> <em>(string)</em></p>
+<ul>
+<li>The name of a (tso) profile to load for this command execution.</li>
+</ul>
+</li>
+<li>
+<p><code>--base-profile</code> | <code>--base-p</code> <em>(string)</em></p>
+<ul>
+<li>The name of a (base) profile to load for this command execution.</li>
+</ul>
+</li>
+</ul>
+<h4>Base Connection Options</h4>
+<ul>
+<li>
+<p><code>--token-type</code> | <code>--tt</code> <em>(string)</em></p>
+<ul>
+<li>The type of token to get and use for the API. Omit this option to use the default token type, which is provided by 'zowe auth login'.</li>
+</ul>
+</li>
+<li>
+<p><code>--token-value</code> | <code>--tv</code> <em>(string)</em></p>
+<ul>
+<li>The value of the token to pass to the API.</li>
+</ul>
+</li>
+</ul>
 <a name="zowe_zos-tso_send"></a><h2><a href="#zowe">zowe</a> › <a href="#zowe_zos-tso">zos-tso</a> › <a href="#zowe_zos-tso_send">send</a><button id="btn-print" class="no-print" onclick="window.print();" title="Print">🖨️</button></h2>
 <p>Send data to TSO and collect responses until the prompt is reached.</p>
 <a class="cmd-anchor" name="zowe_zos-tso_send_address-space"></a><h3><a href="#zowe">zowe</a> › <a href="#zowe_zos-tso">zos-tso</a> › <a href="#zowe_zos-tso_send">send</a> › <a href="#zowe_zos-tso_send_address-space">address-space</a><button id="btn-print" class="no-print" onclick="window.print();" title="Print">🖨️</button></h3>
@@ -40886,6 +43958,197 @@ Allowed values: http, https</p>
 <p>&quot;Send the TIME TSO command to the TSO address space identified by IBMUSER-329-aafkaaoc&quot;:</p>
 <ul>
 <li><code>zowe zos-tso send address-space IBMUSER-329-aafkaaoc --data &quot;TIME&quot;</code> <button class="btn-copy no-print" data-balloon-pos="right" data-clipboard-text="zowe zos-tso send address-space IBMUSER-329-aafkaaoc --data &quot;TIME&quot;">Copy</button></li>
+</ul>
+</li>
+</ul>
+<a class="cmd-anchor" name="zowe_zos-tso_send_app"></a><h3><a href="#zowe">zowe</a> › <a href="#zowe_zos-tso">zos-tso</a> › <a href="#zowe_zos-tso_send">send</a> › <a href="#zowe_zos-tso_send_app">app</a><button id="btn-print" class="no-print" onclick="window.print();" title="Print">🖨️</button></h3>
+<p>Send message to an application at a TSO address space,</p>
+<h4>Usage</h4>
+<p>zowe zos-tso send app [options]</p>
+<h4>TSO ADDRESS SPACE OPTIONS</h4>
+<ul>
+<li>
+<p><code>--account</code> | <code>-a</code> <em>(string)</em></p>
+<ul>
+<li>Your z/OS TSO/E accounting information.</li>
+</ul>
+</li>
+<li>
+<p><code>--character-set</code> | <code>--cs</code> <em>(string)</em></p>
+<ul>
+<li>
+<p>Character set for address space to convert messages and responses from UTF-8 to EBCDIC.</p>
+<p>Default value: 697</p>
+</li>
+</ul>
+</li>
+<li>
+<p><code>--code-page</code> | <code>--cp</code> <em>(string)</em></p>
+<ul>
+<li>
+<p>Codepage value for TSO/E address space to convert messages and responses from UTF-8 to EBCDIC.</p>
+<p>Default value: 1047</p>
+</li>
+</ul>
+</li>
+<li>
+<p><code>--columns</code> | <code>--cols</code> <em>(number)</em></p>
+<ul>
+<li>
+<p>The number of columns on a screen.</p>
+<p>Default value: 80</p>
+</li>
+</ul>
+</li>
+<li>
+<p><code>--logon-procedure</code> | <code>-l</code> <em>(string)</em></p>
+<ul>
+<li>
+<p>The logon procedure to use when creating TSO procedures on your behalf.</p>
+<p>Default value: IZUFPROC</p>
+</li>
+</ul>
+</li>
+<li>
+<p><code>--region-size</code> | <code>--rs</code> <em>(number)</em></p>
+<ul>
+<li>
+<p>Region size for the TSO/E address space.</p>
+<p>Default value: 4096</p>
+</li>
+</ul>
+</li>
+<li>
+<p><code>--rows</code> <em>(number)</em></p>
+<ul>
+<li>
+<p>The number of rows on a screen.</p>
+<p>Default value: 24</p>
+</li>
+</ul>
+</li>
+</ul>
+<h4>Required Options</h4>
+<ul>
+<li>
+<p><code>--app-key</code> | <code>--ak</code> <em>(string)</em></p>
+<ul>
+<li>App key of application running at TSO address space, app key should be the value established when app instance was started</li>
+</ul>
+</li>
+<li>
+<p><code>--servlet-key</code> | <code>--sk</code> <em>(string)</em></p>
+<ul>
+<li>Servlet Key of TSO address space</li>
+</ul>
+</li>
+<li>
+<p><code>--message</code> | <code>-m</code> <em>(string)</em></p>
+<ul>
+<li>Message payload to be sent to the TSO address space application</li>
+</ul>
+</li>
+</ul>
+<h4>Zosmf Connection Options</h4>
+<ul>
+<li>
+<p><code>--host</code> | <code>-H</code> <em>(string)</em></p>
+<ul>
+<li>The z/OSMF server host name.</li>
+</ul>
+</li>
+<li>
+<p><code>--port</code> | <code>-P</code> <em>(number)</em></p>
+<ul>
+<li>
+<p>The z/OSMF server port.</p>
+<p>Default value: 443</p>
+</li>
+</ul>
+</li>
+<li>
+<p><code>--user</code> | <code>-u</code> <em>(string)</em></p>
+<ul>
+<li>Mainframe (z/OSMF) user name, which can be the same as your TSO login.</li>
+</ul>
+</li>
+<li>
+<p><code>--password</code> | <code>--pass</code> | <code>--pw</code> <em>(string)</em></p>
+<ul>
+<li>Mainframe (z/OSMF) password, which can be the same as your TSO password.</li>
+</ul>
+</li>
+<li>
+<p><code>--reject-unauthorized</code> | <code>--ru</code> <em>(boolean)</em></p>
+<ul>
+<li>
+<p>Reject self-signed certificates.</p>
+<p>Default value: true</p>
+</li>
+</ul>
+</li>
+<li>
+<p><code>--base-path</code> | <code>--bp</code> <em>(string)</em></p>
+<ul>
+<li>The base path for your API mediation layer instance. Specify this option to prepend the base path to all z/OSMF resources when making REST requests. Do not specify this option if you are not using an API mediation layer.</li>
+</ul>
+</li>
+<li>
+<p><code>--protocol</code> <em>(string)</em></p>
+<ul>
+<li>
+<p>The protocol used (HTTP or HTTPS)</p>
+<p>Default value: https<br>
+Allowed values: http, https</p>
+</li>
+</ul>
+</li>
+<li>
+<p><code>--cert-file</code> <em>(local file path)</em></p>
+<ul>
+<li>The file path to a certificate file to use for authentication</li>
+</ul>
+</li>
+<li>
+<p><code>--cert-key-file</code> <em>(local file path)</em></p>
+<ul>
+<li>The file path to a certificate key file to use for authentication</li>
+</ul>
+</li>
+</ul>
+<h4>Profile Options</h4>
+<ul>
+<li>
+<p><code>--zosmf-profile</code> | <code>--zosmf-p</code> <em>(string)</em></p>
+<ul>
+<li>The name of a (zosmf) profile to load for this command execution.</li>
+</ul>
+</li>
+<li>
+<p><code>--tso-profile</code> | <code>--tso-p</code> <em>(string)</em></p>
+<ul>
+<li>The name of a (tso) profile to load for this command execution.</li>
+</ul>
+</li>
+<li>
+<p><code>--base-profile</code> | <code>--base-p</code> <em>(string)</em></p>
+<ul>
+<li>The name of a (base) profile to load for this command execution.</li>
+</ul>
+</li>
+</ul>
+<h4>Base Connection Options</h4>
+<ul>
+<li>
+<p><code>--token-type</code> | <code>--tt</code> <em>(string)</em></p>
+<ul>
+<li>The type of token to get and use for the API. Omit this option to use the default token type, which is provided by 'zowe auth login'.</li>
+</ul>
+</li>
+<li>
+<p><code>--token-value</code> | <code>--tv</code> <em>(string)</em></p>
+<ul>
+<li>The value of the token to pass to the API.</li>
 </ul>
 </li>
 </ul>
@@ -41088,6 +44351,206 @@ Allowed values: http, https</p>
 <p>Start TSO/E address space, and print only the servlet key:</p>
 <ul>
 <li><code>zowe zos-tso start address-space --sko</code> <button class="btn-copy no-print" data-balloon-pos="right" data-clipboard-text="zowe zos-tso start address-space --sko">Copy</button></li>
+</ul>
+</li>
+</ul>
+<a class="cmd-anchor" name="zowe_zos-tso_start_app"></a><h3><a href="#zowe">zowe</a> › <a href="#zowe_zos-tso">zos-tso</a> › <a href="#zowe_zos-tso_start">start</a> › <a href="#zowe_zos-tso_start_app">app</a><button id="btn-print" class="no-print" onclick="window.print();" title="Print">🖨️</button></h3>
+<p>Start application at TSO address space,</p>
+<h4>Usage</h4>
+<p>zowe zos-tso start app [options]</p>
+<h4>TSO ADDRESS SPACE OPTIONS</h4>
+<ul>
+<li>
+<p><code>--account</code> | <code>-a</code> <em>(string)</em></p>
+<ul>
+<li>Your z/OS TSO/E accounting information.</li>
+</ul>
+</li>
+<li>
+<p><code>--character-set</code> | <code>--cs</code> <em>(string)</em></p>
+<ul>
+<li>
+<p>Character set for address space to convert messages and responses from UTF-8 to EBCDIC.</p>
+<p>Default value: 697</p>
+</li>
+</ul>
+</li>
+<li>
+<p><code>--code-page</code> | <code>--cp</code> <em>(string)</em></p>
+<ul>
+<li>
+<p>Codepage value for TSO/E address space to convert messages and responses from UTF-8 to EBCDIC.</p>
+<p>Default value: 1047</p>
+</li>
+</ul>
+</li>
+<li>
+<p><code>--columns</code> | <code>--cols</code> <em>(number)</em></p>
+<ul>
+<li>
+<p>The number of columns on a screen.</p>
+<p>Default value: 80</p>
+</li>
+</ul>
+</li>
+<li>
+<p><code>--logon-procedure</code> | <code>-l</code> <em>(string)</em></p>
+<ul>
+<li>
+<p>The logon procedure to use when creating TSO procedures on your behalf.</p>
+<p>Default value: IZUFPROC</p>
+</li>
+</ul>
+</li>
+<li>
+<p><code>--region-size</code> | <code>--rs</code> <em>(number)</em></p>
+<ul>
+<li>
+<p>Region size for the TSO/E address space.</p>
+<p>Default value: 4096</p>
+</li>
+</ul>
+</li>
+<li>
+<p><code>--rows</code> <em>(number)</em></p>
+<ul>
+<li>
+<p>The number of rows on a screen.</p>
+<p>Default value: 24</p>
+</li>
+</ul>
+</li>
+</ul>
+<h4>Required Options</h4>
+<ul>
+<li>
+<p><code>--app-key</code> | <code>--ak</code> <em>(string)</em></p>
+<ul>
+<li>App key of application running at TSO address space, this app key value should be referenced when sending or receiving messages from the application instance</li>
+</ul>
+</li>
+<li>
+<p><code>--startup</code> | <code>--sc</code> <em>(string)</em></p>
+<ul>
+<li>Command to be ran to start application at the TSO address space</li>
+</ul>
+</li>
+</ul>
+<h4>Options</h4>
+<ul>
+<li>
+<p><code>--queue-id</code> | <code>--qi</code> <em>(string)</em></p>
+<ul>
+<li>Queue ID of TSO address space</li>
+</ul>
+</li>
+<li>
+<p><code>--servlet-key</code> | <code>--sk</code> <em>(string)</em></p>
+<ul>
+<li>Servlet Key of TSO address space</li>
+</ul>
+</li>
+</ul>
+<h4>Zosmf Connection Options</h4>
+<ul>
+<li>
+<p><code>--host</code> | <code>-H</code> <em>(string)</em></p>
+<ul>
+<li>The z/OSMF server host name.</li>
+</ul>
+</li>
+<li>
+<p><code>--port</code> | <code>-P</code> <em>(number)</em></p>
+<ul>
+<li>
+<p>The z/OSMF server port.</p>
+<p>Default value: 443</p>
+</li>
+</ul>
+</li>
+<li>
+<p><code>--user</code> | <code>-u</code> <em>(string)</em></p>
+<ul>
+<li>Mainframe (z/OSMF) user name, which can be the same as your TSO login.</li>
+</ul>
+</li>
+<li>
+<p><code>--password</code> | <code>--pass</code> | <code>--pw</code> <em>(string)</em></p>
+<ul>
+<li>Mainframe (z/OSMF) password, which can be the same as your TSO password.</li>
+</ul>
+</li>
+<li>
+<p><code>--reject-unauthorized</code> | <code>--ru</code> <em>(boolean)</em></p>
+<ul>
+<li>
+<p>Reject self-signed certificates.</p>
+<p>Default value: true</p>
+</li>
+</ul>
+</li>
+<li>
+<p><code>--base-path</code> | <code>--bp</code> <em>(string)</em></p>
+<ul>
+<li>The base path for your API mediation layer instance. Specify this option to prepend the base path to all z/OSMF resources when making REST requests. Do not specify this option if you are not using an API mediation layer.</li>
+</ul>
+</li>
+<li>
+<p><code>--protocol</code> <em>(string)</em></p>
+<ul>
+<li>
+<p>The protocol used (HTTP or HTTPS)</p>
+<p>Default value: https<br>
+Allowed values: http, https</p>
+</li>
+</ul>
+</li>
+<li>
+<p><code>--cert-file</code> <em>(local file path)</em></p>
+<ul>
+<li>The file path to a certificate file to use for authentication</li>
+</ul>
+</li>
+<li>
+<p><code>--cert-key-file</code> <em>(local file path)</em></p>
+<ul>
+<li>The file path to a certificate key file to use for authentication</li>
+</ul>
+</li>
+</ul>
+<h4>Profile Options</h4>
+<ul>
+<li>
+<p><code>--zosmf-profile</code> | <code>--zosmf-p</code> <em>(string)</em></p>
+<ul>
+<li>The name of a (zosmf) profile to load for this command execution.</li>
+</ul>
+</li>
+<li>
+<p><code>--tso-profile</code> | <code>--tso-p</code> <em>(string)</em></p>
+<ul>
+<li>The name of a (tso) profile to load for this command execution.</li>
+</ul>
+</li>
+<li>
+<p><code>--base-profile</code> | <code>--base-p</code> <em>(string)</em></p>
+<ul>
+<li>The name of a (base) profile to load for this command execution.</li>
+</ul>
+</li>
+</ul>
+<h4>Base Connection Options</h4>
+<ul>
+<li>
+<p><code>--token-type</code> | <code>--tt</code> <em>(string)</em></p>
+<ul>
+<li>The type of token to get and use for the API. Omit this option to use the default token type, which is provided by 'zowe auth login'.</li>
+</ul>
+</li>
+<li>
+<p><code>--token-value</code> | <code>--tv</code> <em>(string)</em></p>
+<ul>
+<li>The value of the token to pass to the API.</li>
 </ul>
 </li>
 </ul>
