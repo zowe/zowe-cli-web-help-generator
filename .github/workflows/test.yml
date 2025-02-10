@@ -9,7 +9,7 @@ on:
 
 jobs:
   test:
-    runs-on: ubuntu-22.04
+    runs-on: ubuntu-latest
     if: (github.event_name == 'push' || github.event.pull_request.head.repo.full_name != github.repository) && !contains(github.event.head_commit.message, '[ci skip]')
 
     steps:
@@ -29,7 +29,7 @@ jobs:
       id: install-node
       run: | 
         npm i --prod
-        npm install -g puppeteer-cli
+        npm install -g puppeteer-cli@1.5.1
 
     - name: Set Up Zowe
       id: setup-zowe
@@ -69,7 +69,7 @@ jobs:
         zowe --version || true
         npm run build:local -- ${{ steps.get-version.outputs.number }}
         export margin="0.4in"
-        puppeteer print ./generatedWebHelp/docs/all.html ./zowe.pdf --margin-top $margin --margin-right $margin --margin-bottom $margin --margin-left $margin --no-sandbox --timeout 60000
+        puppeteer print ./generatedWebHelp/docs/all.html ./zowe.pdf --margin-top $margin --margin-right $margin --margin-bottom $margin --margin-left $margin --no-sandbox
 
     - name: Archive Results
       id: upload
