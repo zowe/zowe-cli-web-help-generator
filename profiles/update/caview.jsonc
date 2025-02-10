@@ -1,4 +1,4 @@
-// Copyright (c) 2024 Broadcom.  All Rights Reserved.  The term
+// Copyright (c) 2025 Broadcom.  All Rights Reserved.  The term
 // "Broadcom" refers to Broadcom Inc. and/or its subsidiaries.
 {
   "name": "caview-profile",
@@ -6,7 +6,7 @@
     "caview"
   ],
   "summary": "Update a caview profile. You can update any property present within the profile configuration. The updated profile will be printed so that you can review the result of the updates.",
-  "description": "Configuration profile for View",
+  "description": "Configuration profile for OM View",
   "type": "command",
   "handler": "",
   "deprecatedReplacement": "The 'config set' command",
@@ -25,7 +25,7 @@
     {
       "type": "string",
       "name": "protocol",
-      "description": "Protocol of the target View REST API instance.",
+      "description": "Protocol of the target OM Web Viewer instance.",
       "required": false,
       "allowableValues": {
         "values": [
@@ -45,7 +45,7 @@
       "aliases": [
         "hostname"
       ],
-      "description": "Hostname or ip address of the target View REST API instance.",
+      "description": "Hostname or ip address of the target OM Web Viewer instance.",
       "required": false,
       "absenceImplications": null,
       "implies": null,
@@ -54,7 +54,7 @@
     {
       "type": "number",
       "name": "port",
-      "description": "Port of the target View REST API instance.",
+      "description": "Port of the target OM Web Viewer instance.",
       "numericValueRange": [
         0,
         65535
@@ -68,7 +68,7 @@
     {
       "type": "string",
       "name": "base-path",
-      "description": "Context name of the target View REST API instance.",
+      "description": "Context name of the target OM Web Viewer instance.",
       "required": false,
       "absenceImplications": null,
       "implies": null,
@@ -81,7 +81,7 @@
       "aliases": [
         "username"
       ],
-      "description": "User name used to authenticate against the target View REST API instance.",
+      "description": "User name used to authenticate against the target OM Web Viewer instance.",
       "required": false,
       "absenceImplications": null,
       "implies": null,
@@ -90,7 +90,7 @@
     {
       "type": "string",
       "name": "password",
-      "description": "Password used to authenticate against the target View REST API instance.",
+      "description": "Password used to authenticate against the target OM Web Viewer instance.",
       "required": false,
       "absenceImplications": null,
       "implies": null,
