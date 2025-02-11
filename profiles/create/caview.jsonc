@@ -1,4 +1,4 @@
-// Copyright (c) 2024 Broadcom.  All Rights Reserved.  The term
+// Copyright (c) 2025 Broadcom.  All Rights Reserved.  The term
 // "Broadcom" refers to Broadcom Inc. and/or its subsidiaries.
 {
   "name": "caview-profile",
@@ -6,7 +6,7 @@
     "caview"
   ],
   "summary": "Create a caview profile",
-  "description": "Configuration profile for View",
+  "description": "Configuration profile for OM View",
   "type": "command",
   "handler": "",
   "deprecatedReplacement": "The 'config init' command",
@@ -25,7 +25,7 @@
     {
       "type": "string",
       "name": "protocol",
-      "description": "Protocol of the target View REST API instance.",
+      "description": "Protocol of the target OM Web Viewer instance.",
       "required": false,
       "allowableValues": {
         "values": [
@@ -44,14 +44,14 @@
       "aliases": [
         "hostname"
       ],
-      "description": "Hostname or ip address of the target View REST API instance.",
+      "description": "Hostname or ip address of the target OM Web Viewer instance.",
       "required": false,
       "group": "Options"
     },
     {
       "type": "number",
       "name": "port",
-      "description": "Port of the target View REST API instance.",
+      "description": "Port of the target OM Web Viewer instance.",
       "numericValueRange": [
         0,
         65535
@@ -64,7 +64,7 @@
     {
       "type": "string",
       "name": "base-path",
-      "description": "Context name of the target View REST API instance.",
+      "description": "Context name of the target OM Web Viewer instance.",
       "required": false,
       "defaultValue": "web-viewer",
       "group": "Options",
@@ -76,14 +76,14 @@
       "aliases": [
         "username"
       ],
-      "description": "User name used to authenticate against the target View REST API instance.",
+      "description": "User name used to authenticate against the target OM Web Viewer instance.",
       "required": false,
       "group": "Options"
     },
     {
       "type": "string",
       "name": "password",
-      "description": "Password used to authenticate against the target View REST API instance.",
+      "description": "Password used to authenticate against the target OM Web Viewer instance.",
       "required": false,
       "group": "Options",
       "aliases": []
@@ -144,7 +144,7 @@
   "examples": [
     {
       "options": "myProfile --hostname mf.company.org --protocol http --port 80 --username johndoe --password secret",
-      "description": "Create a profile for View™ Plug-in for Zowe CLI named 'myProfile' to connect to 'mf.company.org' over HTTP on port 80 using the 'johndoe' account."
+      "description": "Create a caview profile named 'myProfile' to connect to 'mf.company.org' over HTTP on port 80 using the 'johndoe' account."
     }
   ],
   "passOn": [],

@@ -1,8 +1,8 @@
-// Copyright (c) 2024 Broadcom.  All Rights Reserved.  The term
+// Copyright (c) 2025 Broadcom.  All Rights Reserved.  The term
 // "Broadcom" refers to Broadcom Inc. and/or its subsidiaries.
 {
   "name": "caview",
-  "description": "Access View data and perform related tasks.",
+  "description": "Access Output Management View™ for z/OS data and perform related tasks.",
   "type": "group",
   "children": [
     {
@@ -10,8 +10,8 @@
       "aliases": [
         "dl"
       ],
-      "summary": "Download View report data to local folder.",
-      "description": "Download View report data to local folder.",
+      "summary": "Download OM View report data to local folder.",
+      "description": "Download OM View report data to local folder.",
       "type": "group",
       "children": [
         {
@@ -135,21 +135,21 @@
               "aliases": [
                 "hostname"
               ],
-              "description": "Hostname or ip address of the target View REST API instance.",
+              "description": "Hostname or ip address of the target OM Web Viewer instance.",
               "required": false,
-              "group": "View Connection Options"
+              "group": "OM Web Viewer Connection Options"
             },
             {
               "type": "number",
               "name": "port",
-              "description": "Port of the target View REST API instance.",
+              "description": "Port of the target OM Web Viewer instance.",
               "numericValueRange": [
                 0,
                 65535
               ],
               "required": false,
               "defaultValue": 443,
-              "group": "View Connection Options",
+              "group": "OM Web Viewer Connection Options",
               "aliases": []
             },
             {
@@ -158,31 +158,31 @@
               "aliases": [
                 "username"
               ],
-              "description": "User name used to authenticate against the target View REST API instance.",
+              "description": "User name used to authenticate against the target OM Web Viewer instance.",
               "required": false,
-              "group": "View Connection Options"
+              "group": "OM Web Viewer Connection Options"
             },
             {
               "type": "string",
               "name": "password",
-              "description": "Password used to authenticate against the target View REST API instance.",
+              "description": "Password used to authenticate against the target OM Web Viewer instance.",
               "required": false,
-              "group": "View Connection Options",
+              "group": "OM Web Viewer Connection Options",
               "aliases": []
             },
             {
               "type": "string",
               "name": "base-path",
-              "description": "Context name of the target View REST API instance.",
+              "description": "Context name of the target OM Web Viewer instance.",
               "required": false,
               "defaultValue": "web-viewer",
-              "group": "View Connection Options",
+              "group": "OM Web Viewer Connection Options",
               "aliases": []
             },
             {
               "type": "string",
               "name": "protocol",
-              "description": "Protocol of the target View REST API instance.",
+              "description": "Protocol of the target OM Web Viewer instance.",
               "required": false,
               "allowableValues": {
                 "values": [
@@ -192,7 +192,7 @@
                 "caseSensitive": false
               },
               "defaultValue": "https",
-              "group": "View Connection Options",
+              "group": "OM Web Viewer Connection Options",
               "aliases": []
             },
             {
@@ -310,21 +310,21 @@
               "aliases": [
                 "hostname"
               ],
-              "description": "Hostname or ip address of the target View REST API instance.",
+              "description": "Hostname or ip address of the target OM Web Viewer instance.",
               "required": false,
-              "group": "View Connection Options"
+              "group": "OM Web Viewer Connection Options"
             },
             {
               "type": "number",
               "name": "port",
-              "description": "Port of the target View REST API instance.",
+              "description": "Port of the target OM Web Viewer instance.",
               "numericValueRange": [
                 0,
                 65535
               ],
               "required": false,
               "defaultValue": 443,
-              "group": "View Connection Options"
+              "group": "OM Web Viewer Connection Options"
             },
             {
               "type": "string",
@@ -332,29 +332,29 @@
               "aliases": [
                 "username"
               ],
-              "description": "User name used to authenticate against the target View REST API instance.",
+              "description": "User name used to authenticate against the target OM Web Viewer instance.",
               "required": false,
-              "group": "View Connection Options"
+              "group": "OM Web Viewer Connection Options"
             },
             {
               "type": "string",
               "name": "password",
-              "description": "Password used to authenticate against the target View REST API instance.",
+              "description": "Password used to authenticate against the target OM Web Viewer instance.",
               "required": false,
-              "group": "View Connection Options"
+              "group": "OM Web Viewer Connection Options"
             },
             {
               "type": "string",
               "name": "base-path",
-              "description": "Context name of the target View REST API instance.",
+              "description": "Context name of the target OM Web Viewer instance.",
               "required": false,
               "defaultValue": "web-viewer",
-              "group": "View Connection Options"
+              "group": "OM Web Viewer Connection Options"
             },
             {
               "type": "string",
               "name": "protocol",
-              "description": "Protocol of the target View REST API instance.",
+              "description": "Protocol of the target OM Web Viewer instance.",
               "required": false,
               "allowableValues": {
                 "values": [
@@ -364,7 +364,7 @@
                 "caseSensitive": false
               },
               "defaultValue": "https",
-              "group": "View Connection Options"
+              "group": "OM Web Viewer Connection Options"
             }
           ],
           "merge": true,
@@ -418,8 +418,8 @@
       "aliases": [
         "exp"
       ],
-      "summary": "Export View text report file to local folder.",
-      "description": "Export View text report file to local folder.",
+      "summary": "Export OM View text report file to local folder.",
+      "description": "Export OM View text report file to local folder.",
       "type": "group",
       "children": [
         {
@@ -478,21 +478,21 @@
               "aliases": [
                 "hostname"
               ],
-              "description": "Hostname or ip address of the target View REST API instance.",
+              "description": "Hostname or ip address of the target OM Web Viewer instance.",
               "required": false,
-              "group": "View Connection Options"
+              "group": "OM Web Viewer Connection Options"
             },
             {
               "type": "number",
               "name": "port",
-              "description": "Port of the target View REST API instance.",
+              "description": "Port of the target OM Web Viewer instance.",
               "numericValueRange": [
                 0,
                 65535
               ],
               "required": false,
               "defaultValue": 443,
-              "group": "View Connection Options",
+              "group": "OM Web Viewer Connection Options",
               "aliases": []
             },
             {
@@ -501,31 +501,31 @@
               "aliases": [
                 "username"
               ],
-              "description": "User name used to authenticate against the target View REST API instance.",
+              "description": "User name used to authenticate against the target OM Web Viewer instance.",
               "required": false,
-              "group": "View Connection Options"
+              "group": "OM Web Viewer Connection Options"
             },
             {
               "type": "string",
               "name": "password",
-              "description": "Password used to authenticate against the target View REST API instance.",
+              "description": "Password used to authenticate against the target OM Web Viewer instance.",
               "required": false,
-              "group": "View Connection Options",
+              "group": "OM Web Viewer Connection Options",
               "aliases": []
             },
             {
               "type": "string",
               "name": "base-path",
-              "description": "Context name of the target View REST API instance.",
+              "description": "Context name of the target OM Web Viewer instance.",
               "required": false,
               "defaultValue": "web-viewer",
-              "group": "View Connection Options",
+              "group": "OM Web Viewer Connection Options",
               "aliases": []
             },
             {
               "type": "string",
               "name": "protocol",
-              "description": "Protocol of the target View REST API instance.",
+              "description": "Protocol of the target OM Web Viewer instance.",
               "required": false,
               "allowableValues": {
                 "values": [
@@ -535,7 +535,7 @@
                 "caseSensitive": false
               },
               "defaultValue": "https",
-              "group": "View Connection Options",
+              "group": "OM Web Viewer Connection Options",
               "aliases": []
             },
             {
@@ -653,21 +653,21 @@
               "aliases": [
                 "hostname"
               ],
-              "description": "Hostname or ip address of the target View REST API instance.",
+              "description": "Hostname or ip address of the target OM Web Viewer instance.",
               "required": false,
-              "group": "View Connection Options"
+              "group": "OM Web Viewer Connection Options"
             },
             {
               "type": "number",
               "name": "port",
-              "description": "Port of the target View REST API instance.",
+              "description": "Port of the target OM Web Viewer instance.",
               "numericValueRange": [
                 0,
                 65535
               ],
               "required": false,
               "defaultValue": 443,
-              "group": "View Connection Options"
+              "group": "OM Web Viewer Connection Options"
             },
             {
               "type": "string",
@@ -675,29 +675,29 @@
               "aliases": [
                 "username"
               ],
-              "description": "User name used to authenticate against the target View REST API instance.",
+              "description": "User name used to authenticate against the target OM Web Viewer instance.",
               "required": false,
-              "group": "View Connection Options"
+              "group": "OM Web Viewer Connection Options"
             },
             {
               "type": "string",
               "name": "password",
-              "description": "Password used to authenticate against the target View REST API instance.",
+              "description": "Password used to authenticate against the target OM Web Viewer instance.",
               "required": false,
-              "group": "View Connection Options"
+              "group": "OM Web Viewer Connection Options"
             },
             {
               "type": "string",
               "name": "base-path",
-              "description": "Context name of the target View REST API instance.",
+              "description": "Context name of the target OM Web Viewer instance.",
               "required": false,
               "defaultValue": "web-viewer",
-              "group": "View Connection Options"
+              "group": "OM Web Viewer Connection Options"
             },
             {
               "type": "string",
               "name": "protocol",
-              "description": "Protocol of the target View REST API instance.",
+              "description": "Protocol of the target OM Web Viewer instance.",
               "required": false,
               "allowableValues": {
                 "values": [
@@ -707,7 +707,7 @@
                 "caseSensitive": false
               },
               "defaultValue": "https",
-              "group": "View Connection Options"
+              "group": "OM Web Viewer Connection Options"
             }
           ],
           "merge": true,
@@ -758,8 +758,8 @@
     },
     {
       "name": "get",
-      "summary": "Get information from View repository.",
-      "description": "Get information from View repository.",
+      "summary": "Get information from OM View repository.",
+      "description": "Get information from OM View repository.",
       "type": "group",
       "children": [
         {
@@ -833,21 +833,21 @@
                   "aliases": [
                     "hostname"
                   ],
-                  "description": "Hostname or ip address of the target View REST API instance.",
+                  "description": "Hostname or ip address of the target OM Web Viewer instance.",
                   "required": false,
-                  "group": "View Connection Options"
+                  "group": "OM Web Viewer Connection Options"
                 },
                 {
                   "type": "number",
                   "name": "port",
-                  "description": "Port of the target View REST API instance.",
+                  "description": "Port of the target OM Web Viewer instance.",
                   "numericValueRange": [
                     0,
                     65535
                   ],
                   "required": false,
                   "defaultValue": 443,
-                  "group": "View Connection Options",
+                  "group": "OM Web Viewer Connection Options",
                   "aliases": []
                 },
                 {
@@ -856,31 +856,31 @@
                   "aliases": [
                     "username"
                   ],
-                  "description": "User name used to authenticate against the target View REST API instance.",
+                  "description": "User name used to authenticate against the target OM Web Viewer instance.",
                   "required": false,
-                  "group": "View Connection Options"
+                  "group": "OM Web Viewer Connection Options"
                 },
                 {
                   "type": "string",
                   "name": "password",
-                  "description": "Password used to authenticate against the target View REST API instance.",
+                  "description": "Password used to authenticate against the target OM Web Viewer instance.",
                   "required": false,
-                  "group": "View Connection Options",
+                  "group": "OM Web Viewer Connection Options",
                   "aliases": []
                 },
                 {
                   "type": "string",
                   "name": "base-path",
-                  "description": "Context name of the target View REST API instance.",
+                  "description": "Context name of the target OM Web Viewer instance.",
                   "required": false,
                   "defaultValue": "web-viewer",
-                  "group": "View Connection Options",
+                  "group": "OM Web Viewer Connection Options",
                   "aliases": []
                 },
                 {
                   "type": "string",
                   "name": "protocol",
-                  "description": "Protocol of the target View REST API instance.",
+                  "description": "Protocol of the target OM Web Viewer instance.",
                   "required": false,
                   "allowableValues": {
                     "values": [
@@ -890,7 +890,7 @@
                     "caseSensitive": false
                   },
                   "defaultValue": "https",
-                  "group": "View Connection Options",
+                  "group": "OM Web Viewer Connection Options",
                   "aliases": []
                 },
                 {
@@ -1050,21 +1050,21 @@
               "aliases": [
                 "hostname"
               ],
-              "description": "Hostname or ip address of the target View REST API instance.",
+              "description": "Hostname or ip address of the target OM Web Viewer instance.",
               "required": false,
-              "group": "View Connection Options"
+              "group": "OM Web Viewer Connection Options"
             },
             {
               "type": "number",
               "name": "port",
-              "description": "Port of the target View REST API instance.",
+              "description": "Port of the target OM Web Viewer instance.",
               "numericValueRange": [
                 0,
                 65535
               ],
               "required": false,
               "defaultValue": 443,
-              "group": "View Connection Options"
+              "group": "OM Web Viewer Connection Options"
             },
             {
               "type": "string",
@@ -1072,29 +1072,29 @@
               "aliases": [
                 "username"
               ],
-              "description": "User name used to authenticate against the target View REST API instance.",
+              "description": "User name used to authenticate against the target OM Web Viewer instance.",
               "required": false,
-              "group": "View Connection Options"
+              "group": "OM Web Viewer Connection Options"
             },
             {
               "type": "string",
               "name": "password",
-              "description": "Password used to authenticate against the target View REST API instance.",
+              "description": "Password used to authenticate against the target OM Web Viewer instance.",
               "required": false,
-              "group": "View Connection Options"
+              "group": "OM Web Viewer Connection Options"
             },
             {
               "type": "string",
               "name": "base-path",
-              "description": "Context name of the target View REST API instance.",
+              "description": "Context name of the target OM Web Viewer instance.",
               "required": false,
               "defaultValue": "web-viewer",
-              "group": "View Connection Options"
+              "group": "OM Web Viewer Connection Options"
             },
             {
               "type": "string",
               "name": "protocol",
-              "description": "Protocol of the target View REST API instance.",
+              "description": "Protocol of the target OM Web Viewer instance.",
               "required": false,
               "allowableValues": {
                 "values": [
@@ -1104,7 +1104,7 @@
                 "caseSensitive": false
               },
               "defaultValue": "https",
-              "group": "View Connection Options"
+              "group": "OM Web Viewer Connection Options"
             }
           ],
           "merge": true,
@@ -1159,8 +1159,8 @@
       "aliases": [
         "ls"
       ],
-      "summary": "List View repository, report, and user information.",
-      "description": "List View repository, report, and user information.",
+      "summary": "List OM View repository, report, and user information.",
+      "description": "List OM View repository, report, and user information.",
       "type": "group",
       "children": [
         {
@@ -1179,7 +1179,7 @@
                 "n"
               ],
               "type": "string",
-              "description": "Filter (include) based on repository name. Use the percent sign (%) as a wildcard to represent a single character. Use the asterisk (*) as a wildcard to represent any number of characters.",
+              "description": "Filter (include) based on repository name. Use the question mark (?) as a wildcard to represent a single character. Use the asterisk (*) as a wildcard to represent any number of characters.",
               "defaultValue": null,
               "group": "Options"
             },
@@ -1244,21 +1244,21 @@
               "aliases": [
                 "hostname"
               ],
-              "description": "Hostname or ip address of the target View REST API instance.",
+              "description": "Hostname or ip address of the target OM Web Viewer instance.",
               "required": false,
-              "group": "View Connection Options"
+              "group": "OM Web Viewer Connection Options"
             },
             {
               "type": "number",
               "name": "port",
-              "description": "Port of the target View REST API instance.",
+              "description": "Port of the target OM Web Viewer instance.",
               "numericValueRange": [
                 0,
                 65535
               ],
               "required": false,
               "defaultValue": 443,
-              "group": "View Connection Options",
+              "group": "OM Web Viewer Connection Options",
               "aliases": []
             },
             {
@@ -1267,31 +1267,31 @@
               "aliases": [
                 "username"
               ],
-              "description": "User name used to authenticate against the target View REST API instance.",
+              "description": "User name used to authenticate against the target OM Web Viewer instance.",
               "required": false,
-              "group": "View Connection Options"
+              "group": "OM Web Viewer Connection Options"
             },
             {
               "type": "string",
               "name": "password",
-              "description": "Password used to authenticate against the target View REST API instance.",
+              "description": "Password used to authenticate against the target OM Web Viewer instance.",
               "required": false,
-              "group": "View Connection Options",
+              "group": "OM Web Viewer Connection Options",
               "aliases": []
             },
             {
               "type": "string",
               "name": "base-path",
-              "description": "Context name of the target View REST API instance.",
+              "description": "Context name of the target OM Web Viewer instance.",
               "required": false,
               "defaultValue": "web-viewer",
-              "group": "View Connection Options",
+              "group": "OM Web Viewer Connection Options",
               "aliases": []
             },
             {
               "type": "string",
               "name": "protocol",
-              "description": "Protocol of the target View REST API instance.",
+              "description": "Protocol of the target OM Web Viewer instance.",
               "required": false,
               "allowableValues": {
                 "values": [
@@ -1301,7 +1301,7 @@
                 "caseSensitive": false
               },
               "defaultValue": "https",
-              "group": "View Connection Options",
+              "group": "OM Web Viewer Connection Options",
               "aliases": []
             },
             {
@@ -1537,21 +1537,21 @@
               "aliases": [
                 "hostname"
               ],
-              "description": "Hostname or ip address of the target View REST API instance.",
+              "description": "Hostname or ip address of the target OM Web Viewer instance.",
               "required": false,
-              "group": "View Connection Options"
+              "group": "OM Web Viewer Connection Options"
             },
             {
               "type": "number",
               "name": "port",
-              "description": "Port of the target View REST API instance.",
+              "description": "Port of the target OM Web Viewer instance.",
               "numericValueRange": [
                 0,
                 65535
               ],
               "required": false,
               "defaultValue": 443,
-              "group": "View Connection Options",
+              "group": "OM Web Viewer Connection Options",
               "aliases": []
             },
             {
@@ -1560,31 +1560,31 @@
               "aliases": [
                 "username"
               ],
-              "description": "User name used to authenticate against the target View REST API instance.",
+              "description": "User name used to authenticate against the target OM Web Viewer instance.",
               "required": false,
-              "group": "View Connection Options"
+              "group": "OM Web Viewer Connection Options"
             },
             {
               "type": "string",
               "name": "password",
-              "description": "Password used to authenticate against the target View REST API instance.",
+              "description": "Password used to authenticate against the target OM Web Viewer instance.",
               "required": false,
-              "group": "View Connection Options",
+              "group": "OM Web Viewer Connection Options",
               "aliases": []
             },
             {
               "type": "string",
               "name": "base-path",
-              "description": "Context name of the target View REST API instance.",
+              "description": "Context name of the target OM Web Viewer instance.",
               "required": false,
               "defaultValue": "web-viewer",
-              "group": "View Connection Options",
+              "group": "OM Web Viewer Connection Options",
               "aliases": []
             },
             {
               "type": "string",
               "name": "protocol",
-              "description": "Protocol of the target View REST API instance.",
+              "description": "Protocol of the target OM Web Viewer instance.",
               "required": false,
               "allowableValues": {
                 "values": [
@@ -1594,7 +1594,7 @@
                 "caseSensitive": false
               },
               "defaultValue": "https",
-              "group": "View Connection Options",
+              "group": "OM Web Viewer Connection Options",
               "aliases": []
             },
             {
@@ -1786,21 +1786,21 @@
                   "aliases": [
                     "hostname"
                   ],
-                  "description": "Hostname or ip address of the target View REST API instance.",
+                  "description": "Hostname or ip address of the target OM Web Viewer instance.",
                   "required": false,
-                  "group": "View Connection Options"
+                  "group": "OM Web Viewer Connection Options"
                 },
                 {
                   "type": "number",
                   "name": "port",
-                  "description": "Port of the target View REST API instance.",
+                  "description": "Port of the target OM Web Viewer instance.",
                   "numericValueRange": [
                     0,
                     65535
                   ],
                   "required": false,
                   "defaultValue": 443,
-                  "group": "View Connection Options",
+                  "group": "OM Web Viewer Connection Options",
                   "aliases": []
                 },
                 {
@@ -1809,31 +1809,31 @@
                   "aliases": [
                     "username"
                   ],
-                  "description": "User name used to authenticate against the target View REST API instance.",
+                  "description": "User name used to authenticate against the target OM Web Viewer instance.",
                   "required": false,
-                  "group": "View Connection Options"
+                  "group": "OM Web Viewer Connection Options"
                 },
                 {
                   "type": "string",
                   "name": "password",
-                  "description": "Password used to authenticate against the target View REST API instance.",
+                  "description": "Password used to authenticate against the target OM Web Viewer instance.",
                   "required": false,
-                  "group": "View Connection Options",
+                  "group": "OM Web Viewer Connection Options",
                   "aliases": []
                 },
                 {
                   "type": "string",
                   "name": "base-path",
-                  "description": "Context name of the target View REST API instance.",
+                  "description": "Context name of the target OM Web Viewer instance.",
                   "required": false,
                   "defaultValue": "web-viewer",
-                  "group": "View Connection Options",
+                  "group": "OM Web Viewer Connection Options",
                   "aliases": []
                 },
                 {
                   "type": "string",
                   "name": "protocol",
-                  "description": "Protocol of the target View REST API instance.",
+                  "description": "Protocol of the target OM Web Viewer instance.",
                   "required": false,
                   "allowableValues": {
                     "values": [
@@ -1843,7 +1843,7 @@
                     "caseSensitive": false
                   },
                   "defaultValue": "https",
-                  "group": "View Connection Options",
+                  "group": "OM Web Viewer Connection Options",
                   "aliases": []
                 },
                 {
@@ -2033,21 +2033,21 @@
                   "aliases": [
                     "hostname"
                   ],
-                  "description": "Hostname or ip address of the target View REST API instance.",
+                  "description": "Hostname or ip address of the target OM Web Viewer instance.",
                   "required": false,
-                  "group": "View Connection Options"
+                  "group": "OM Web Viewer Connection Options"
                 },
                 {
                   "type": "number",
                   "name": "port",
-                  "description": "Port of the target View REST API instance.",
+                  "description": "Port of the target OM Web Viewer instance.",
                   "numericValueRange": [
                     0,
                     65535
                   ],
                   "required": false,
                   "defaultValue": 443,
-                  "group": "View Connection Options",
+                  "group": "OM Web Viewer Connection Options",
                   "aliases": []
                 },
                 {
@@ -2056,31 +2056,31 @@
                   "aliases": [
                     "username"
                   ],
-                  "description": "User name used to authenticate against the target View REST API instance.",
+                  "description": "User name used to authenticate against the target OM Web Viewer instance.",
                   "required": false,
-                  "group": "View Connection Options"
+                  "group": "OM Web Viewer Connection Options"
                 },
                 {
                   "type": "string",
                   "name": "password",
-                  "description": "Password used to authenticate against the target View REST API instance.",
+                  "description": "Password used to authenticate against the target OM Web Viewer instance.",
                   "required": false,
-                  "group": "View Connection Options",
+                  "group": "OM Web Viewer Connection Options",
                   "aliases": []
                 },
                 {
                   "type": "string",
                   "name": "base-path",
-                  "description": "Context name of the target View REST API instance.",
+                  "description": "Context name of the target OM Web Viewer instance.",
                   "required": false,
                   "defaultValue": "web-viewer",
-                  "group": "View Connection Options",
+                  "group": "OM Web Viewer Connection Options",
                   "aliases": []
                 },
                 {
                   "type": "string",
                   "name": "protocol",
-                  "description": "Protocol of the target View REST API instance.",
+                  "description": "Protocol of the target OM Web Viewer instance.",
                   "required": false,
                   "allowableValues": {
                     "values": [
@@ -2090,7 +2090,7 @@
                     "caseSensitive": false
                   },
                   "defaultValue": "https",
-                  "group": "View Connection Options",
+                  "group": "OM Web Viewer Connection Options",
                   "aliases": []
                 },
                 {
@@ -2283,21 +2283,21 @@
                   "aliases": [
                     "hostname"
                   ],
-                  "description": "Hostname or ip address of the target View REST API instance.",
+                  "description": "Hostname or ip address of the target OM Web Viewer instance.",
                   "required": false,
-                  "group": "View Connection Options"
+                  "group": "OM Web Viewer Connection Options"
                 },
                 {
                   "type": "number",
                   "name": "port",
-                  "description": "Port of the target View REST API instance.",
+                  "description": "Port of the target OM Web Viewer instance.",
                   "numericValueRange": [
                     0,
                     65535
                   ],
                   "required": false,
                   "defaultValue": 443,
-                  "group": "View Connection Options",
+                  "group": "OM Web Viewer Connection Options",
                   "aliases": []
                 },
                 {
@@ -2306,31 +2306,31 @@
                   "aliases": [
                     "username"
                   ],
-                  "description": "User name used to authenticate against the target View REST API instance.",
+                  "description": "User name used to authenticate against the target OM Web Viewer instance.",
                   "required": false,
-                  "group": "View Connection Options"
+                  "group": "OM Web Viewer Connection Options"
                 },
                 {
                   "type": "string",
                   "name": "password",
-                  "description": "Password used to authenticate against the target View REST API instance.",
+                  "description": "Password used to authenticate against the target OM Web Viewer instance.",
                   "required": false,
-                  "group": "View Connection Options",
+                  "group": "OM Web Viewer Connection Options",
                   "aliases": []
                 },
                 {
                   "type": "string",
                   "name": "base-path",
-                  "description": "Context name of the target View REST API instance.",
+                  "description": "Context name of the target OM Web Viewer instance.",
                   "required": false,
                   "defaultValue": "web-viewer",
-                  "group": "View Connection Options",
+                  "group": "OM Web Viewer Connection Options",
                   "aliases": []
                 },
                 {
                   "type": "string",
                   "name": "protocol",
-                  "description": "Protocol of the target View REST API instance.",
+                  "description": "Protocol of the target OM Web Viewer instance.",
                   "required": false,
                   "allowableValues": {
                     "values": [
@@ -2340,7 +2340,7 @@
                     "caseSensitive": false
                   },
                   "defaultValue": "https",
-                  "group": "View Connection Options",
+                  "group": "OM Web Viewer Connection Options",
                   "aliases": []
                 },
                 {
@@ -2559,21 +2559,21 @@
               "aliases": [
                 "hostname"
               ],
-              "description": "Hostname or ip address of the target View REST API instance.",
+              "description": "Hostname or ip address of the target OM Web Viewer instance.",
               "required": false,
-              "group": "View Connection Options"
+              "group": "OM Web Viewer Connection Options"
             },
             {
               "type": "number",
               "name": "port",
-              "description": "Port of the target View REST API instance.",
+              "description": "Port of the target OM Web Viewer instance.",
               "numericValueRange": [
                 0,
                 65535
               ],
               "required": false,
               "defaultValue": 443,
-              "group": "View Connection Options",
+              "group": "OM Web Viewer Connection Options",
               "aliases": []
             },
             {
@@ -2582,31 +2582,31 @@
               "aliases": [
                 "username"
               ],
-              "description": "User name used to authenticate against the target View REST API instance.",
+              "description": "User name used to authenticate against the target OM Web Viewer instance.",
               "required": false,
-              "group": "View Connection Options"
+              "group": "OM Web Viewer Connection Options"
             },
             {
               "type": "string",
               "name": "password",
-              "description": "Password used to authenticate against the target View REST API instance.",
+              "description": "Password used to authenticate against the target OM Web Viewer instance.",
               "required": false,
-              "group": "View Connection Options",
+              "group": "OM Web Viewer Connection Options",
               "aliases": []
             },
             {
               "type": "string",
               "name": "base-path",
-              "description": "Context name of the target View REST API instance.",
+              "description": "Context name of the target OM Web Viewer instance.",
               "required": false,
               "defaultValue": "web-viewer",
-              "group": "View Connection Options",
+              "group": "OM Web Viewer Connection Options",
               "aliases": []
             },
             {
               "type": "string",
               "name": "protocol",
-              "description": "Protocol of the target View REST API instance.",
+              "description": "Protocol of the target OM Web Viewer instance.",
               "required": false,
               "allowableValues": {
                 "values": [
@@ -2616,7 +2616,7 @@
                 "caseSensitive": false
               },
               "defaultValue": "https",
-              "group": "View Connection Options",
+              "group": "OM Web Viewer Connection Options",
               "aliases": []
             },
             {
@@ -2734,21 +2734,21 @@
               "aliases": [
                 "hostname"
               ],
-              "description": "Hostname or ip address of the target View REST API instance.",
+              "description": "Hostname or ip address of the target OM Web Viewer instance.",
               "required": false,
-              "group": "View Connection Options"
+              "group": "OM Web Viewer Connection Options"
             },
             {
               "type": "number",
               "name": "port",
-              "description": "Port of the target View REST API instance.",
+              "description": "Port of the target OM Web Viewer instance.",
               "numericValueRange": [
                 0,
                 65535
               ],
               "required": false,
               "defaultValue": 443,
-              "group": "View Connection Options"
+              "group": "OM Web Viewer Connection Options"
             },
             {
               "type": "string",
@@ -2756,29 +2756,29 @@
               "aliases": [
                 "username"
               ],
-              "description": "User name used to authenticate against the target View REST API instance.",
+              "description": "User name used to authenticate against the target OM Web Viewer instance.",
               "required": false,
-              "group": "View Connection Options"
+              "group": "OM Web Viewer Connection Options"
             },
             {
               "type": "string",
               "name": "password",
-              "description": "Password used to authenticate against the target View REST API instance.",
+              "description": "Password used to authenticate against the target OM Web Viewer instance.",
               "required": false,
-              "group": "View Connection Options"
+              "group": "OM Web Viewer Connection Options"
             },
             {
               "type": "string",
               "name": "base-path",
-              "description": "Context name of the target View REST API instance.",
+              "description": "Context name of the target OM Web Viewer instance.",
               "required": false,
               "defaultValue": "web-viewer",
-              "group": "View Connection Options"
+              "group": "OM Web Viewer Connection Options"
             },
             {
               "type": "string",
               "name": "protocol",
-              "description": "Protocol of the target View REST API instance.",
+              "description": "Protocol of the target OM Web Viewer instance.",
               "required": false,
               "allowableValues": {
                 "values": [
@@ -2788,7 +2788,7 @@
                 "caseSensitive": false
               },
               "defaultValue": "https",
-              "group": "View Connection Options"
+              "group": "OM Web Viewer Connection Options"
             }
           ],
           "merge": true,
@@ -2842,8 +2842,8 @@
       "aliases": [
         "find"
       ],
-      "summary": "Search data in a View repository.",
-      "description": "Search data in a View repository.",
+      "summary": "Search data in a OM View repository.",
+      "description": "Search data in a OM View repository.",
       "type": "group",
       "children": [
         {
@@ -2985,21 +2985,21 @@
                   "aliases": [
                     "hostname"
                   ],
-                  "description": "Hostname or ip address of the target View REST API instance.",
+                  "description": "Hostname or ip address of the target OM Web Viewer instance.",
                   "required": false,
-                  "group": "View Connection Options"
+                  "group": "OM Web Viewer Connection Options"
                 },
                 {
                   "type": "number",
                   "name": "port",
-                  "description": "Port of the target View REST API instance.",
+                  "description": "Port of the target OM Web Viewer instance.",
                   "numericValueRange": [
                     0,
                     65535
                   ],
                   "required": false,
                   "defaultValue": 443,
-                  "group": "View Connection Options",
+                  "group": "OM Web Viewer Connection Options",
                   "aliases": []
                 },
                 {
@@ -3008,31 +3008,31 @@
                   "aliases": [
                     "username"
                   ],
-                  "description": "User name used to authenticate against the target View REST API instance.",
+                  "description": "User name used to authenticate against the target OM Web Viewer instance.",
                   "required": false,
-                  "group": "View Connection Options"
+                  "group": "OM Web Viewer Connection Options"
                 },
                 {
                   "type": "string",
                   "name": "password",
-                  "description": "Password used to authenticate against the target View REST API instance.",
+                  "description": "Password used to authenticate against the target OM Web Viewer instance.",
                   "required": false,
-                  "group": "View Connection Options",
+                  "group": "OM Web Viewer Connection Options",
                   "aliases": []
                 },
                 {
                   "type": "string",
                   "name": "base-path",
-                  "description": "Context name of the target View REST API instance.",
+                  "description": "Context name of the target OM Web Viewer instance.",
                   "required": false,
                   "defaultValue": "web-viewer",
-                  "group": "View Connection Options",
+                  "group": "OM Web Viewer Connection Options",
                   "aliases": []
                 },
                 {
                   "type": "string",
                   "name": "protocol",
-                  "description": "Protocol of the target View REST API instance.",
+                  "description": "Protocol of the target OM Web Viewer instance.",
                   "required": false,
                   "allowableValues": {
                     "values": [
@@ -3042,7 +3042,7 @@
                     "caseSensitive": false
                   },
                   "defaultValue": "https",
-                  "group": "View Connection Options",
+                  "group": "OM Web Viewer Connection Options",
                   "aliases": []
                 },
                 {
@@ -3289,21 +3289,21 @@
                   "aliases": [
                     "hostname"
                   ],
-                  "description": "Hostname or ip address of the target View REST API instance.",
+                  "description": "Hostname or ip address of the target OM Web Viewer instance.",
                   "required": false,
-                  "group": "View Connection Options"
+                  "group": "OM Web Viewer Connection Options"
                 },
                 {
                   "type": "number",
                   "name": "port",
-                  "description": "Port of the target View REST API instance.",
+                  "description": "Port of the target OM Web Viewer instance.",
                   "numericValueRange": [
                     0,
                     65535
                   ],
                   "required": false,
                   "defaultValue": 443,
-                  "group": "View Connection Options",
+                  "group": "OM Web Viewer Connection Options",
                   "aliases": []
                 },
                 {
@@ -3312,31 +3312,31 @@
                   "aliases": [
                     "username"
                   ],
-                  "description": "User name used to authenticate against the target View REST API instance.",
+                  "description": "User name used to authenticate against the target OM Web Viewer instance.",
                   "required": false,
-                  "group": "View Connection Options"
+                  "group": "OM Web Viewer Connection Options"
                 },
                 {
                   "type": "string",
                   "name": "password",
-                  "description": "Password used to authenticate against the target View REST API instance.",
+                  "description": "Password used to authenticate against the target OM Web Viewer instance.",
                   "required": false,
-                  "group": "View Connection Options",
+                  "group": "OM Web Viewer Connection Options",
                   "aliases": []
                 },
                 {
                   "type": "string",
                   "name": "base-path",
-                  "description": "Context name of the target View REST API instance.",
+                  "description": "Context name of the target OM Web Viewer instance.",
                   "required": false,
                   "defaultValue": "web-viewer",
-                  "group": "View Connection Options",
+                  "group": "OM Web Viewer Connection Options",
                   "aliases": []
                 },
                 {
                   "type": "string",
                   "name": "protocol",
-                  "description": "Protocol of the target View REST API instance.",
+                  "description": "Protocol of the target OM Web Viewer instance.",
                   "required": false,
                   "allowableValues": {
                     "values": [
@@ -3346,7 +3346,7 @@
                     "caseSensitive": false
                   },
                   "defaultValue": "https",
-                  "group": "View Connection Options",
+                  "group": "OM Web Viewer Connection Options",
                   "aliases": []
                 },
                 {
@@ -3594,21 +3594,21 @@
                   "aliases": [
                     "hostname"
                   ],
-                  "description": "Hostname or ip address of the target View REST API instance.",
+                  "description": "Hostname or ip address of the target OM Web Viewer instance.",
                   "required": false,
-                  "group": "View Connection Options"
+                  "group": "OM Web Viewer Connection Options"
                 },
                 {
                   "type": "number",
                   "name": "port",
-                  "description": "Port of the target View REST API instance.",
+                  "description": "Port of the target OM Web Viewer instance.",
                   "numericValueRange": [
                     0,
                     65535
                   ],
                   "required": false,
                   "defaultValue": 443,
-                  "group": "View Connection Options",
+                  "group": "OM Web Viewer Connection Options",
                   "aliases": []
                 },
                 {
@@ -3617,31 +3617,31 @@
                   "aliases": [
                     "username"
                   ],
-                  "description": "User name used to authenticate against the target View REST API instance.",
+                  "description": "User name used to authenticate against the target OM Web Viewer instance.",
                   "required": false,
-                  "group": "View Connection Options"
+                  "group": "OM Web Viewer Connection Options"
                 },
                 {
                   "type": "string",
                   "name": "password",
-                  "description": "Password used to authenticate against the target View REST API instance.",
+                  "description": "Password used to authenticate against the target OM Web Viewer instance.",
                   "required": false,
-                  "group": "View Connection Options",
+                  "group": "OM Web Viewer Connection Options",
                   "aliases": []
                 },
                 {
                   "type": "string",
                   "name": "base-path",
-                  "description": "Context name of the target View REST API instance.",
+                  "description": "Context name of the target OM Web Viewer instance.",
                   "required": false,
                   "defaultValue": "web-viewer",
-                  "group": "View Connection Options",
+                  "group": "OM Web Viewer Connection Options",
                   "aliases": []
                 },
                 {
                   "type": "string",
                   "name": "protocol",
-                  "description": "Protocol of the target View REST API instance.",
+                  "description": "Protocol of the target OM Web Viewer instance.",
                   "required": false,
                   "allowableValues": {
                     "values": [
@@ -3651,7 +3651,7 @@
                     "caseSensitive": false
                   },
                   "defaultValue": "https",
-                  "group": "View Connection Options",
+                  "group": "OM Web Viewer Connection Options",
                   "aliases": []
                 },
                 {
@@ -3811,21 +3811,21 @@
               "aliases": [
                 "hostname"
               ],
-              "description": "Hostname or ip address of the target View REST API instance.",
+              "description": "Hostname or ip address of the target OM Web Viewer instance.",
               "required": false,
-              "group": "View Connection Options"
+              "group": "OM Web Viewer Connection Options"
             },
             {
               "type": "number",
               "name": "port",
-              "description": "Port of the target View REST API instance.",
+              "description": "Port of the target OM Web Viewer instance.",
               "numericValueRange": [
                 0,
                 65535
               ],
               "required": false,
               "defaultValue": 443,
-              "group": "View Connection Options"
+              "group": "OM Web Viewer Connection Options"
             },
             {
               "type": "string",
@@ -3833,29 +3833,29 @@
               "aliases": [
                 "username"
               ],
-              "description": "User name used to authenticate against the target View REST API instance.",
+              "description": "User name used to authenticate against the target OM Web Viewer instance.",
               "required": false,
-              "group": "View Connection Options"
+              "group": "OM Web Viewer Connection Options"
             },
             {
               "type": "string",
               "name": "password",
-              "description": "Password used to authenticate against the target View REST API instance.",
+              "description": "Password used to authenticate against the target OM Web Viewer instance.",
               "required": false,
-              "group": "View Connection Options"
+              "group": "OM Web Viewer Connection Options"
             },
             {
               "type": "string",
               "name": "base-path",
-              "description": "Context name of the target View REST API instance.",
+              "description": "Context name of the target OM Web Viewer instance.",
               "required": false,
               "defaultValue": "web-viewer",
-              "group": "View Connection Options"
+              "group": "OM Web Viewer Connection Options"
             },
             {
               "type": "string",
               "name": "protocol",
-              "description": "Protocol of the target View REST API instance.",
+              "description": "Protocol of the target OM Web Viewer instance.",
               "required": false,
               "allowableValues": {
                 "values": [
@@ -3865,7 +3865,7 @@
                 "caseSensitive": false
               },
               "defaultValue": "https",
-              "group": "View Connection Options"
+              "group": "OM Web Viewer Connection Options"
             }
           ],
           "merge": true,
@@ -3916,8 +3916,8 @@
     },
     {
       "name": "set",
-      "summary": "Set information in View repository.",
-      "description": "Set information in View repository.",
+      "summary": "Set information in OM View repository.",
+      "description": "Set information in OM View repository.",
       "type": "group",
       "children": [
         {
@@ -3998,21 +3998,21 @@
                   "aliases": [
                     "hostname"
                   ],
-                  "description": "Hostname or ip address of the target View REST API instance.",
+                  "description": "Hostname or ip address of the target OM Web Viewer instance.",
                   "required": false,
-                  "group": "View Connection Options"
+                  "group": "OM Web Viewer Connection Options"
                 },
                 {
                   "type": "number",
                   "name": "port",
-                  "description": "Port of the target View REST API instance.",
+                  "description": "Port of the target OM Web Viewer instance.",
                   "numericValueRange": [
                     0,
                     65535
                   ],
                   "required": false,
                   "defaultValue": 443,
-                  "group": "View Connection Options",
+                  "group": "OM Web Viewer Connection Options",
                   "aliases": []
                 },
                 {
@@ -4021,31 +4021,31 @@
                   "aliases": [
                     "username"
                   ],
-                  "description": "User name used to authenticate against the target View REST API instance.",
+                  "description": "User name used to authenticate against the target OM Web Viewer instance.",
                   "required": false,
-                  "group": "View Connection Options"
+                  "group": "OM Web Viewer Connection Options"
                 },
                 {
                   "type": "string",
                   "name": "password",
-                  "description": "Password used to authenticate against the target View REST API instance.",
+                  "description": "Password used to authenticate against the target OM Web Viewer instance.",
                   "required": false,
-                  "group": "View Connection Options",
+                  "group": "OM Web Viewer Connection Options",
                   "aliases": []
                 },
                 {
                   "type": "string",
                   "name": "base-path",
-                  "description": "Context name of the target View REST API instance.",
+                  "description": "Context name of the target OM Web Viewer instance.",
                   "required": false,
                   "defaultValue": "web-viewer",
-                  "group": "View Connection Options",
+                  "group": "OM Web Viewer Connection Options",
                   "aliases": []
                 },
                 {
                   "type": "string",
                   "name": "protocol",
-                  "description": "Protocol of the target View REST API instance.",
+                  "description": "Protocol of the target OM Web Viewer instance.",
                   "required": false,
                   "allowableValues": {
                     "values": [
@@ -4055,7 +4055,7 @@
                     "caseSensitive": false
                   },
                   "defaultValue": "https",
-                  "group": "View Connection Options",
+                  "group": "OM Web Viewer Connection Options",
                   "aliases": []
                 },
                 {
@@ -4238,21 +4238,21 @@
                   "aliases": [
                     "hostname"
                   ],
-                  "description": "Hostname or ip address of the target View REST API instance.",
+                  "description": "Hostname or ip address of the target OM Web Viewer instance.",
                   "required": false,
-                  "group": "View Connection Options"
+                  "group": "OM Web Viewer Connection Options"
                 },
                 {
                   "type": "number",
                   "name": "port",
-                  "description": "Port of the target View REST API instance.",
+                  "description": "Port of the target OM Web Viewer instance.",
                   "numericValueRange": [
                     0,
                     65535
                   ],
                   "required": false,
                   "defaultValue": 443,
-                  "group": "View Connection Options",
+                  "group": "OM Web Viewer Connection Options",
                   "aliases": []
                 },
                 {
@@ -4261,31 +4261,31 @@
                   "aliases": [
                     "username"
                   ],
-                  "description": "User name used to authenticate against the target View REST API instance.",
+                  "description": "User name used to authenticate against the target OM Web Viewer instance.",
                   "required": false,
-                  "group": "View Connection Options"
+                  "group": "OM Web Viewer Connection Options"
                 },
                 {
                   "type": "string",
                   "name": "password",
-                  "description": "Password used to authenticate against the target View REST API instance.",
+                  "description": "Password used to authenticate against the target OM Web Viewer instance.",
                   "required": false,
-                  "group": "View Connection Options",
+                  "group": "OM Web Viewer Connection Options",
                   "aliases": []
                 },
                 {
                   "type": "string",
                   "name": "base-path",
-                  "description": "Context name of the target View REST API instance.",
+                  "description": "Context name of the target OM Web Viewer instance.",
                   "required": false,
                   "defaultValue": "web-viewer",
-                  "group": "View Connection Options",
+                  "group": "OM Web Viewer Connection Options",
                   "aliases": []
                 },
                 {
                   "type": "string",
                   "name": "protocol",
-                  "description": "Protocol of the target View REST API instance.",
+                  "description": "Protocol of the target OM Web Viewer instance.",
                   "required": false,
                   "allowableValues": {
                     "values": [
@@ -4295,7 +4295,7 @@
                     "caseSensitive": false
                   },
                   "defaultValue": "https",
-                  "group": "View Connection Options",
+                  "group": "OM Web Viewer Connection Options",
                   "aliases": []
                 },
                 {
@@ -4455,21 +4455,21 @@
               "aliases": [
                 "hostname"
               ],
-              "description": "Hostname or ip address of the target View REST API instance.",
+              "description": "Hostname or ip address of the target OM Web Viewer instance.",
               "required": false,
-              "group": "View Connection Options"
+              "group": "OM Web Viewer Connection Options"
             },
             {
               "type": "number",
               "name": "port",
-              "description": "Port of the target View REST API instance.",
+              "description": "Port of the target OM Web Viewer instance.",
               "numericValueRange": [
                 0,
                 65535
               ],
               "required": false,
               "defaultValue": 443,
-              "group": "View Connection Options"
+              "group": "OM Web Viewer Connection Options"
             },
             {
               "type": "string",
@@ -4477,29 +4477,29 @@
               "aliases": [
                 "username"
               ],
-              "description": "User name used to authenticate against the target View REST API instance.",
+              "description": "User name used to authenticate against the target OM Web Viewer instance.",
               "required": false,
-              "group": "View Connection Options"
+              "group": "OM Web Viewer Connection Options"
             },
             {
               "type": "string",
               "name": "password",
-              "description": "Password used to authenticate against the target View REST API instance.",
+              "description": "Password used to authenticate against the target OM Web Viewer instance.",
               "required": false,
-              "group": "View Connection Options"
+              "group": "OM Web Viewer Connection Options"
             },
             {
               "type": "string",
               "name": "base-path",
-              "description": "Context name of the target View REST API instance.",
+              "description": "Context name of the target OM Web Viewer instance.",
               "required": false,
               "defaultValue": "web-viewer",
-              "group": "View Connection Options"
+              "group": "OM Web Viewer Connection Options"
             },
             {
               "type": "string",
               "name": "protocol",
-              "description": "Protocol of the target View REST API instance.",
+              "description": "Protocol of the target OM Web Viewer instance.",
               "required": false,
               "allowableValues": {
                 "values": [
@@ -4509,7 +4509,7 @@
                 "caseSensitive": false
               },
               "defaultValue": "https",
-              "group": "View Connection Options"
+              "group": "OM Web Viewer Connection Options"
             }
           ],
           "merge": true,
@@ -4560,7 +4560,7 @@
       "positionals": []
     }
   ],
-  "summary": "Access View data and perform related tasks.",
+  "summary": "Access Output Management View™ for z/OS data and perform related tasks.",
   "aliases": [
     "cv"
   ],
