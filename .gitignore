@@ -8,6 +8,4 @@ package-lock.json
 *.bak
 zowe.json
 zowe.*.json
-
 .DS_Store
-**/.DS_Store
