@@ -11,6 +11,4 @@ zowe.config.json
 zowe.schema.json
 zowe.config.user.json
 /zowe.*.json
-
-*/.DS_Store
 .DS_Store
