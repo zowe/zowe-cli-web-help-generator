@@ -13,12 +13,17 @@ jobs:
 
     - name: Get Changed Files
       id: files
-      uses: tj-actions/changed-files@v42
-      with:
-        files: "**/*.json"
-    - run: |
-        readarray -t all_files <<<"$(jq -r '.[]' <<<'${{ steps.files.outputs.all_changed_files }}')"
-        for file in ${all_files[@]}; do
-          [[ ''${file}'' == *.jsonc ]] || (echo "Not a JSON file: ${file}" && exit 1)
-          [[ ''${file}'' == commandGroups/* ]] || [[ ''${file}'' == profiles/* ]] || (echo "Wrong location: ${file}" && exit 1)
+      run: |
+        CHANGED_FILES="$(git --no-pager diff ${{ github.event.pull_request.head.sha }} --name-only | grep '.json')"
+        echo $CHANGED_FILES | while IFS= read -r file; do
+          if [[ ''${file}'' != *.jsonc && (''${file}'' == commandGroups/* || ''${file}'' == profiles/* ) ]]; then
+            echo "File '${file}' should be in JSONC format, but is not."
+            exit 1
+          elif [[ ''${file}'' == zowe.template.json ]]; then
+            echo "The Zowe template should not be changed."
+            exit 1
+          elif [[ ''${file}'' == zowe.json || ''${file}'' == commandTree.json || ''${file}'' == package-lock.json ]]; then
+            echo "File '${file}' should not be committed into the repository."
+            exit 1
+          fi
         done
