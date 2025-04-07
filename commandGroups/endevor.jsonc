@@ -12112,6 +12112,19 @@
               "group": "options"
             },
             {
+              "name": "limit",
+              "aliases": [
+                "lim"
+              ],
+              "description": "Maximum number of results to return, where 0 is NOLIMIT.",
+              "type": "number",
+              "numericValueRange": [
+                0,
+                2147483647
+              ],
+              "group": "options"
+            },
+            {
               "name": "maxrc",
               "description": "The maximum value of the return code of a successful action. When the return code is greater than the maxrc value, the command fails",
               "type": "number",
@@ -12821,6 +12834,19 @@
               "group": "endevor search text options"
             },
             {
+              "name": "limit",
+              "aliases": [
+                "lim"
+              ],
+              "description": "Maximum number of results to return, where 0 is NOLIMIT.",
+              "type": "number",
+              "numericValueRange": [
+                0,
+                2147483647
+              ],
+              "group": "options"
+            },
+            {
               "name": "to-package",
               "aliases": [
                 "tp"
@@ -12850,7 +12876,8 @@
               "allowableValues": {
                 "values": [
                   "GENERATE",
-                  "MOVE"
+                  "MOVE",
+                  "DELETE"
                 ],
                 "caseSensitive": false
               },
@@ -15092,6 +15119,17 @@
               "type": "boolean",
               "description": "Specify to print component info from ACMQ.",
               "required": false,
+              "group": "options"
+            },
+            {
+              "name": "expand-includes",
+              "aliases": [
+                "expand",
+                "ei"
+              ],
+              "description": "Indicates that INCLUDE statements should be expanded in the course of the action.",
+              "required": false,
+              "type": "boolean",
               "group": "options"
             },
             {
