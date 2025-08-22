@@ -201,6 +201,24 @@
               "aliases": []
             },
             {
+              "name": "completion-timeout",
+              "aliases": [
+                "cto"
+              ],
+              "description": "The amount in time, in seconds, a REST operation should wait to complete before timing out",
+              "type": "number",
+              "group": "Zosmf Connection Options"
+            },
+            {
+              "name": "establish-connection-timeout",
+              "aliases": [
+                "ecto"
+              ],
+              "description": "The amount of time, in seconds, a REST operation should wait while connecting to the server before timing out",
+              "type": "number",
+              "group": "Zosmf Connection Options"
+            },
+            {
               "name": "show-inputs-only",
               "group": "Global Options",
               "description": "Show command inputs and do not run the command",
@@ -449,6 +467,24 @@
               "name": "cert-key-file",
               "description": "The file path to a certificate key file to use for authentication",
               "type": "existingLocalFile",
+              "group": "Zosmf Connection Options"
+            },
+            {
+              "name": "completion-timeout",
+              "aliases": [
+                "cto"
+              ],
+              "description": "The amount in time, in seconds, a REST operation should wait to complete before timing out",
+              "type": "number",
+              "group": "Zosmf Connection Options"
+            },
+            {
+              "name": "establish-connection-timeout",
+              "aliases": [
+                "ecto"
+              ],
+              "description": "The amount of time, in seconds, a REST operation should wait while connecting to the server before timing out",
+              "type": "number",
               "group": "Zosmf Connection Options"
             }
           ],
