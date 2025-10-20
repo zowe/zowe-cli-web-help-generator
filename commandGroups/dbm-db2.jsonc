@@ -2,7 +2,7 @@
 // "Broadcom" refers to Broadcom Inc. and/or its subsidiaries.
 {
   "name": "dbm-db2",
-  "description": "DBM-Db2 plug-in to interact with Db2 using the Broadcom Database Management Solutions for Db2 for z/OS.\n \n For details about command usage for automation, see DBM-Db2 samples at https://github.com/BroadcomMFD/dbm-db2-for-zowe-cli",
+  "description": "DBM-Db2 plug-in to interact with Db2 using the Broadcom Database Management Solutions for Db2 for z/OS.\n \n For details about command usage for automation, see DBM-Db2 samples at https://github.com/BroadcomMFD/dbm-db2",
   "type": "group",
   "children": [
     {
@@ -12,7 +12,7 @@
       "children": [
         {
           "name": "ddl",
-          "description": "Validate the syntax of input DDL and optionally verify Db2 object dependencies. Use this command to ensure that the syntax of the input DDL is valid. You can also optionally verify that the objects to be created do not exist on the Db2 subsystem and that the related objects that are required for successful creation of the objects exist on the Db2 subsystem or in the input DDL. You can generate input DDL using the 'zowe dbm generate ddl' command.\n \nFor details about command usage for automation, see DBM-Db2 samples at https://github.com/BroadcomMFD/dbm-db2-for-zowe-cli",
+          "description": "Validate the syntax of input DDL and optionally verify Db2 object dependencies. Use this command to ensure that the syntax of the input DDL is valid. You can also optionally verify that the objects to be created do not exist on the Db2 subsystem and that the related objects that are required for successful creation of the objects exist on the Db2 subsystem or in the input DDL. You can generate input DDL using the 'zowe dbm generate ddl' command.\n \nFor details about command usage for automation, see DBM-Db2 samples at https://github.com/BroadcomMFD/dbm-db2",
           "type": "command",
           "handler": "",
           "profile": {
@@ -102,7 +102,8 @@
               "description": "Specifies a string of one or more entries consisting of a Db2 subsystem ID and a DBM Data Service REST API server host name or TCP/IP address. Use a comma to separate entries. The same Db2 subsystem can be used in multiple DBM Data Service environments. For more information about configuring the DBM Data Service, see the Database Management Solutions for Db2 for z/OS documentation at https://techdocs.broadcom.com/db2mgmt",
               "required": false,
               "type": "string",
-              "group": "DBM-Db2 Connection Options"
+              "group": "DBM-Db2 Connection Options",
+              "hidden": true
             },
             {
               "name": "job-cards",
@@ -376,7 +377,7 @@
       "children": [
         {
           "name": "ddl",
-          "description": "Compare objects that are defined in a DDL file to objects that are defined on a Db2 subsystem and generate an update script to implement the necessary object changes. This command also generates a high-level change summary report and a parseable impact analysis report. You can execute the script that is generated from this command using the 'zowe dbm execute compare-script' command.\n \nFor details about command usage for automation, see DBM-Db2 samples at https://github.com/BroadcomMFD/dbm-db2-for-zowe-cli",
+          "description": "Compare objects that are defined in a DDL file to objects that are defined on a Db2 subsystem and generate an update script to implement the necessary object changes. This command also generates a high-level change summary report and a parseable impact analysis report. You can execute the script that is generated from this command using the 'zowe dbm execute compare-script' command.\n \nFor details about command usage for automation, see DBM-Db2 samples at https://github.com/BroadcomMFD/dbm-db2",
           "type": "command",
           "handler": "",
           "profile": {
@@ -551,7 +552,8 @@
               "description": "Specifies a string of one or more entries consisting of a Db2 subsystem ID and a DBM Data Service REST API server host name or TCP/IP address. Use a comma to separate entries. The same Db2 subsystem can be used in multiple DBM Data Service environments. For more information about configuring the DBM Data Service, see the Database Management Solutions for Db2 for z/OS documentation at https://techdocs.broadcom.com/db2mgmt",
               "required": false,
               "type": "string",
-              "group": "DBM-Db2 Connection Options"
+              "group": "DBM-Db2 Connection Options",
+              "hidden": true
             },
             {
               "name": "job-cards",
@@ -843,7 +845,7 @@
       "children": [
         {
           "name": "ddl",
-          "description": "Deploy Db2 object changes on the target Db2 subsystem using an input file that contains the DDL. For example, an application developer has made changes to DDL in a local file and is ready to test the DDL changes. Use this command to deploy the changes to the test environment.\n \nFor details about command usage for automation, see DBM-Db2 samples at https://github.com/BroadcomMFD/dbm-db2-for-zowe-cli",
+          "description": "Deploy Db2 object changes on the target Db2 subsystem using an input file that contains the DDL. For example, an application developer has made changes to DDL in a local file and is ready to test the DDL changes. Use this command to deploy the changes to the test environment.\n \nFor details about command usage for automation, see DBM-Db2 samples at https://github.com/BroadcomMFD/dbm-db2",
           "type": "command",
           "handler": "",
           "profile": {
@@ -970,7 +972,8 @@
               "description": "Specifies a string of one or more entries consisting of a Db2 subsystem ID and a DBM Data Service REST API server host name or TCP/IP address. Use a comma to separate entries. The same Db2 subsystem can be used in multiple DBM Data Service environments. For more information about configuring the DBM Data Service, see the Database Management Solutions for Db2 for z/OS documentation at https://techdocs.broadcom.com/db2mgmt",
               "required": false,
               "type": "string",
-              "group": "DBM-Db2 Connection Options"
+              "group": "DBM-Db2 Connection Options",
+              "hidden": true
             },
             {
               "name": "job-cards",
@@ -1262,7 +1265,7 @@
       "children": [
         {
           "name": "compare-script",
-          "description": "Execute the compare script that was generated with the 'zowe dbm compare ddl' command to implement the Db2 object changes on the Db2 subsystem specified within the script. This command also generates a recovery script to undo compare script changes.\n \nFor details about command usage for automation, see DBM-Db2 samples at https://github.com/BroadcomMFD/dbm-db2-for-zowe-cli\n",
+          "description": "Execute the compare script that was generated with the 'zowe dbm compare ddl' command to implement the Db2 object changes on the Db2 subsystem specified within the script. This command also generates a recovery script to undo compare script changes.\n \nFor details about command usage for automation, see DBM-Db2 samples at https://github.com/BroadcomMFD/dbm-db2\n",
           "type": "command",
           "handler": "",
           "profile": {
@@ -1348,7 +1351,8 @@
               "description": "Specifies a string of one or more entries consisting of a Db2 subsystem ID and a DBM Data Service REST API server host name or TCP/IP address. Use a comma to separate entries. The same Db2 subsystem can be used in multiple DBM Data Service environments. For more information about configuring the DBM Data Service, see the Database Management Solutions for Db2 for z/OS documentation at https://techdocs.broadcom.com/db2mgmt",
               "required": false,
               "type": "string",
-              "group": "DBM-Db2 Connection Options"
+              "group": "DBM-Db2 Connection Options",
+              "hidden": true
             },
             {
               "name": "job-cards",
@@ -1560,7 +1564,7 @@
         },
         {
           "name": "script",
-          "description": "Execute a Batch Processor script on a target subsystem. For example, use this command to execute a Batch Processor script or specifically to execute a recovery script to undo changes that were made by the 'zowe dbm execute compare-script' command. If execution of the script fails, you can execute it again using the 'script-section' or 'restart' options. You can edit the script and make changes before you execute or restart it.\n \nFor details about command usage for automation, see DBM-Db2 samples at https://github.com/BroadcomMFD/dbm-db2-for-zowe-cli\n",
+          "description": "Execute a Batch Processor script on a target subsystem. For example, use this command to execute a Batch Processor script or specifically to execute a recovery script to undo changes that were made by the 'zowe dbm execute compare-script' command. If execution of the script fails, you can execute it again using the 'script-section' or 'restart' options. You can edit the script and make changes before you execute or restart it.\n \nFor details about command usage for automation, see DBM-Db2 samples at https://github.com/BroadcomMFD/dbm-db2\n",
           "type": "command",
           "handler": "",
           "profile": {
@@ -1657,7 +1661,8 @@
               "description": "Specifies a string of one or more entries consisting of a Db2 subsystem ID and a DBM Data Service REST API server host name or TCP/IP address. Use a comma to separate entries. The same Db2 subsystem can be used in multiple DBM Data Service environments. For more information about configuring the DBM Data Service, see the Database Management Solutions for Db2 for z/OS documentation at https://techdocs.broadcom.com/db2mgmt",
               "required": false,
               "type": "string",
-              "group": "DBM-Db2 Connection Options"
+              "group": "DBM-Db2 Connection Options",
+              "hidden": true
             },
             {
               "name": "job-cards",
@@ -1889,7 +1894,7 @@
         },
         {
           "name": "migration-script",
-          "description": "Execute the migration script that was generated with the 'zowe dbm prepare migration' command to migrate Db2 objects (DDL) and table data from a source subsystem to a target subsystem. The source and target subsystem IDs are specified within the script.\n \nFor details about command usage for automation, see DBM-Db2 samples at https://github.com/BroadcomMFD/dbm-db2-for-zowe-cli\n",
+          "description": "Execute the migration script that was generated with the 'zowe dbm prepare migration' command to migrate Db2 objects (DDL) and table data from a source subsystem to a target subsystem. The source and target subsystem IDs are specified within the script.\n \nFor details about command usage for automation, see DBM-Db2 samples at https://github.com/BroadcomMFD/dbm-db2\n",
           "type": "command",
           "handler": "",
           "profile": {
@@ -1963,7 +1968,8 @@
               "description": "Specifies a string of one or more entries consisting of a Db2 subsystem ID and a DBM Data Service REST API server host name or TCP/IP address. Use a comma to separate entries. The same Db2 subsystem can be used in multiple DBM Data Service environments. For more information about configuring the DBM Data Service, see the Database Management Solutions for Db2 for z/OS documentation at https://techdocs.broadcom.com/db2mgmt",
               "required": false,
               "type": "string",
-              "group": "DBM-Db2 Connection Options"
+              "group": "DBM-Db2 Connection Options",
+              "hidden": true
             },
             {
               "name": "job-cards",
@@ -2221,7 +2227,7 @@
       "children": [
         {
           "name": "ddl",
-          "description": "Generate CREATE or DROP DDL statements for specified Db2 objects into an output DDL file. For example, use this command to generate CREATE TABLE definitions that you can then edit and use to update the table definition on a Db2 subsystem with the 'zowe dbm compare ddl' command.\n \nFor details about command usage for automation, see DBM-Db2 samples at https://github.com/BroadcomMFD/dbm-db2-for-zowe-cli",
+          "description": "Generate CREATE or DROP DDL statements for specified Db2 objects into an output DDL file. For example, use this command to generate CREATE TABLE definitions that you can then edit and use to update the table definition on a Db2 subsystem with the 'zowe dbm compare ddl' command.\n \nFor details about command usage for automation, see DBM-Db2 samples at https://github.com/BroadcomMFD/dbm-db2",
           "type": "command",
           "handler": "",
           "profile": {
@@ -2363,7 +2369,8 @@
               "description": "Specifies a string of one or more entries consisting of a Db2 subsystem ID and a DBM Data Service REST API server host name or TCP/IP address. Use a comma to separate entries. The same Db2 subsystem can be used in multiple DBM Data Service environments. For more information about configuring the DBM Data Service, see the Database Management Solutions for Db2 for z/OS documentation at https://techdocs.broadcom.com/db2mgmt",
               "required": false,
               "type": "string",
-              "group": "DBM-Db2 Connection Options"
+              "group": "DBM-Db2 Connection Options",
+              "hidden": true
             },
             {
               "name": "job-cards",
@@ -2652,7 +2659,7 @@
       "children": [
         {
           "name": "migration",
-          "description": "Generate a script to migrate Db2 object definitions (DDL) and data from a source subsystem to a target subsystem. You can specify which objects to include and apply changes to the objects as part of the migration. To execute the script, use the 'zowe dbm execute migration-script' command.\n \nFor details about command usage for automation, see DBM-Db2 samples at https://github.com/BroadcomMFD/dbm-db2-for-zowe-cli",
+          "description": "Generate a script to migrate Db2 object definitions (DDL) and data from a source subsystem to a target subsystem. You can specify which objects to include and apply changes to the objects as part of the migration. To execute the script, use the 'zowe dbm execute migration-script' command.\n \nFor details about command usage for automation, see DBM-Db2 samples at https://github.com/BroadcomMFD/dbm-db2",
           "type": "command",
           "handler": "",
           "profile": {
@@ -2797,7 +2804,8 @@
               "description": "Specifies a string of one or more entries consisting of a Db2 subsystem ID and a DBM Data Service REST API server host name or TCP/IP address. Use a comma to separate entries. The same Db2 subsystem can be used in multiple DBM Data Service environments. For more information about configuring the DBM Data Service, see the Database Management Solutions for Db2 for z/OS documentation at https://techdocs.broadcom.com/db2mgmt",
               "required": false,
               "type": "string",
-              "group": "DBM-Db2 Connection Options"
+              "group": "DBM-Db2 Connection Options",
+              "hidden": true
             },
             {
               "name": "job-cards",
