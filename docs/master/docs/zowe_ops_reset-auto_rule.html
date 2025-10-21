@@ -2,14 +2,14 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta http-equiv="X-UA-Compatible" content="ie=edge">
-<title>ops enable rule</title>
+<title>ops reset-auto rule</title>
 <link rel="stylesheet" href="../css/bundle-docs.css">
 <link rel="stylesheet" href="../css/docs.css">
 <article class="markdown-body">
-<h2><a href="zowe.html">zowe</a> › <a href="zowe_ops.html">ops</a> › <a href="zowe_ops_enable.html">enable</a> › <a href="zowe_ops_enable_rule.html">rule</a><button id="btn-print" class="no-print" onclick="window.print();" title="Print">🖨️</button></h2>
-<p>Enable the specified rule.</p>
+<h2><a href="zowe.html">zowe</a> › <a href="zowe_ops.html">ops</a> › <a href="zowe_ops_reset-auto.html">reset-auto</a> › <a href="zowe_ops_reset-auto_rule.html">rule</a><button id="btn-print" class="no-print" onclick="window.print();" title="Print">🖨️</button></h2>
+<p>Reset (turn off) autoenable for the specified rule.</p>
 <h4>Usage</h4>
-<p>zowe ops enable rule &lt;ruleset&gt; &lt;rule&gt; [options]</p>
+<p>zowe ops reset-auto rule &lt;ruleset&gt; &lt;rule&gt; [options]</p>
 <h4>Positional Arguments</h4>
 <ul>
 <li>
@@ -156,9 +156,9 @@ Allowed values: http, https</p>
 <h4>Examples</h4>
 <ul>
 <li>
-<p>Enable the rule &quot;MYRULE&quot; in the ruleset &quot;OPSRULES&quot; for the &quot;OPSS&quot; subsystem.:</p>
+<p>Reset autoenable for the rule &quot;MYRULE&quot; in the ruleset &quot;OPSRULES&quot; for the &quot;OPSS&quot; subsystem:</p>
 <ul>
-<li><code>zowe ops enable rule &quot;OPSRULES&quot; &quot;MYRULE&quot; --subsystem &quot;OPSS&quot;</code> <button class="btn-copy no-print" data-balloon-pos="right" data-clipboard-text="zowe ops enable rule &quot;OPSRULES&quot; &quot;MYRULE&quot; --subsystem &quot;OPSS&quot;">Copy</button></li>
+<li><code>zowe ops reset-auto rule &quot;OPSRULES&quot; &quot;MYRULE&quot; --subsystem &quot;OPSS&quot;</code> <button class="btn-copy no-print" data-balloon-pos="right" data-clipboard-text="zowe ops reset-auto rule &quot;OPSRULES&quot; &quot;MYRULE&quot; --subsystem &quot;OPSS&quot;">Copy</button></li>
 </ul>
 </li>
 </ul>
