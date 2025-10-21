@@ -339,9 +339,10 @@
               "aliases": [
                 "i"
               ],
-              "description": "Specifies Endevor Web Services dataSource name.",
-              "type": "string",
-              "group": "endevor-location definition options"
+              "description": "Specifies Endevor Web Services dataSource name if it isn't already included in basePath",
+              "type": "stringOrEmpty",
+              "group": "endevor-location definition options",
+              "defaultValue": ""
             },
             {
               "name": "protocol",
@@ -553,9 +554,10 @@
               "aliases": [
                 "i"
               ],
-              "description": "Specifies Endevor Web Services dataSource name.",
-              "type": "string",
-              "group": "endevor-location definition options"
+              "description": "Specifies Endevor Web Services dataSource name if it isn't already included in basePath",
+              "type": "stringOrEmpty",
+              "group": "endevor-location definition options",
+              "defaultValue": ""
             },
             {
               "name": "protocol",
@@ -809,9 +811,10 @@
               "aliases": [
                 "i"
               ],
-              "description": "Specifies Endevor Web Services dataSource name.",
-              "type": "string",
-              "group": "endevor-location definition options"
+              "description": "Specifies Endevor Web Services dataSource name if it isn't already included in basePath",
+              "type": "stringOrEmpty",
+              "group": "endevor-location definition options",
+              "defaultValue": ""
             },
             {
               "name": "protocol",
@@ -1023,9 +1026,10 @@
               "aliases": [
                 "i"
               ],
-              "description": "Specifies Endevor Web Services dataSource name.",
-              "type": "string",
-              "group": "endevor-location definition options"
+              "description": "Specifies Endevor Web Services dataSource name if it isn't already included in basePath",
+              "type": "stringOrEmpty",
+              "group": "endevor-location definition options",
+              "defaultValue": ""
             },
             {
               "name": "protocol",
@@ -1265,9 +1269,10 @@
               "aliases": [
                 "i"
               ],
-              "description": "Specifies Endevor Web Services dataSource name.",
-              "type": "string",
-              "group": "endevor-location definition options"
+              "description": "Specifies Endevor Web Services dataSource name if it isn't already included in basePath",
+              "type": "stringOrEmpty",
+              "group": "endevor-location definition options",
+              "defaultValue": ""
             },
             {
               "name": "protocol",
@@ -1479,9 +1484,10 @@
               "aliases": [
                 "i"
               ],
-              "description": "Specifies Endevor Web Services dataSource name.",
-              "type": "string",
-              "group": "endevor-location definition options"
+              "description": "Specifies Endevor Web Services dataSource name if it isn't already included in basePath",
+              "type": "stringOrEmpty",
+              "group": "endevor-location definition options",
+              "defaultValue": ""
             },
             {
               "name": "protocol",
@@ -1722,9 +1728,10 @@
               "aliases": [
                 "i"
               ],
-              "description": "Specifies Endevor Web Services dataSource name.",
-              "type": "string",
-              "group": "endevor-location definition options"
+              "description": "Specifies Endevor Web Services dataSource name if it isn't already included in basePath",
+              "type": "stringOrEmpty",
+              "group": "endevor-location definition options",
+              "defaultValue": ""
             },
             {
               "name": "protocol",
@@ -1936,9 +1943,10 @@
               "aliases": [
                 "i"
               ],
-              "description": "Specifies Endevor Web Services dataSource name.",
-              "type": "string",
-              "group": "endevor-location definition options"
+              "description": "Specifies Endevor Web Services dataSource name if it isn't already included in basePath",
+              "type": "stringOrEmpty",
+              "group": "endevor-location definition options",
+              "defaultValue": ""
             },
             {
               "name": "protocol",
@@ -2204,9 +2212,10 @@
               "aliases": [
                 "i"
               ],
-              "description": "Specifies Endevor Web Services dataSource name.",
-              "type": "string",
-              "group": "endevor-location definition options"
+              "description": "Specifies Endevor Web Services dataSource name if it isn't already included in basePath",
+              "type": "stringOrEmpty",
+              "group": "endevor-location definition options",
+              "defaultValue": ""
             },
             {
               "name": "protocol",
@@ -2418,9 +2427,10 @@
               "aliases": [
                 "i"
               ],
-              "description": "Specifies Endevor Web Services dataSource name.",
-              "type": "string",
-              "group": "endevor-location definition options"
+              "description": "Specifies Endevor Web Services dataSource name if it isn't already included in basePath",
+              "type": "stringOrEmpty",
+              "group": "endevor-location definition options",
+              "defaultValue": ""
             },
             {
               "name": "protocol",
@@ -2618,9 +2628,10 @@
               "aliases": [
                 "i"
               ],
-              "description": "Specifies Endevor Web Services dataSource name.",
-              "type": "string",
-              "group": "endevor-location definition options"
+              "description": "Specifies Endevor Web Services dataSource name if it isn't already included in basePath",
+              "type": "stringOrEmpty",
+              "group": "endevor-location definition options",
+              "defaultValue": ""
             },
             {
               "name": "protocol",
@@ -2833,9 +2844,10 @@
               "aliases": [
                 "i"
               ],
-              "description": "Specifies Endevor Web Services dataSource name.",
-              "type": "string",
-              "group": "endevor-location definition options"
+              "description": "Specifies Endevor Web Services dataSource name if it isn't already included in basePath",
+              "type": "stringOrEmpty",
+              "group": "endevor-location definition options",
+              "defaultValue": ""
             },
             {
               "name": "protocol",
@@ -3076,9 +3088,10 @@
               "aliases": [
                 "i"
               ],
-              "description": "Specifies Endevor Web Services dataSource name.",
-              "type": "string",
-              "group": "endevor-location definition options"
+              "description": "Specifies Endevor Web Services dataSource name if it isn't already included in basePath",
+              "type": "stringOrEmpty",
+              "group": "endevor-location definition options",
+              "defaultValue": ""
             },
             {
               "name": "protocol",
@@ -3290,9 +3303,10 @@
               "aliases": [
                 "i"
               ],
-              "description": "Specifies Endevor Web Services dataSource name.",
-              "type": "string",
-              "group": "endevor-location definition options"
+              "description": "Specifies Endevor Web Services dataSource name if it isn't already included in basePath",
+              "type": "stringOrEmpty",
+              "group": "endevor-location definition options",
+              "defaultValue": ""
             },
             {
               "name": "protocol",
@@ -3926,9 +3940,10 @@
               "aliases": [
                 "i"
               ],
-              "description": "Specifies Endevor Web Services dataSource name.",
-              "type": "string",
-              "group": "endevor-location definition options"
+              "description": "Specifies Endevor Web Services dataSource name if it isn't already included in basePath",
+              "type": "stringOrEmpty",
+              "group": "endevor-location definition options",
+              "defaultValue": ""
             },
             {
               "name": "protocol",
@@ -4140,9 +4155,10 @@
               "aliases": [
                 "i"
               ],
-              "description": "Specifies Endevor Web Services dataSource name.",
-              "type": "string",
-              "group": "endevor-location definition options"
+              "description": "Specifies Endevor Web Services dataSource name if it isn't already included in basePath",
+              "type": "stringOrEmpty",
+              "group": "endevor-location definition options",
+              "defaultValue": ""
             },
             {
               "name": "protocol",
@@ -4542,9 +4558,10 @@
               "aliases": [
                 "i"
               ],
-              "description": "Specifies Endevor Web Services dataSource name.",
-              "type": "string",
-              "group": "endevor-location definition options"
+              "description": "Specifies Endevor Web Services dataSource name if it isn't already included in basePath",
+              "type": "stringOrEmpty",
+              "group": "endevor-location definition options",
+              "defaultValue": ""
             },
             {
               "name": "protocol",
@@ -4834,9 +4851,10 @@
               "aliases": [
                 "i"
               ],
-              "description": "Specifies Endevor Web Services dataSource name.",
-              "type": "string",
-              "group": "endevor-location definition options"
+              "description": "Specifies Endevor Web Services dataSource name if it isn't already included in basePath",
+              "type": "stringOrEmpty",
+              "group": "endevor-location definition options",
+              "defaultValue": ""
             },
             {
               "name": "protocol",
@@ -5048,9 +5066,10 @@
               "aliases": [
                 "i"
               ],
-              "description": "Specifies Endevor Web Services dataSource name.",
-              "type": "string",
-              "group": "endevor-location definition options"
+              "description": "Specifies Endevor Web Services dataSource name if it isn't already included in basePath",
+              "type": "stringOrEmpty",
+              "group": "endevor-location definition options",
+              "defaultValue": ""
             },
             {
               "name": "protocol",
@@ -5300,9 +5319,10 @@
               "aliases": [
                 "i"
               ],
-              "description": "Specifies Endevor Web Services dataSource name.",
-              "type": "string",
-              "group": "endevor-location definition options"
+              "description": "Specifies Endevor Web Services dataSource name if it isn't already included in basePath",
+              "type": "stringOrEmpty",
+              "group": "endevor-location definition options",
+              "defaultValue": ""
             },
             {
               "name": "protocol",
@@ -5514,9 +5534,10 @@
               "aliases": [
                 "i"
               ],
-              "description": "Specifies Endevor Web Services dataSource name.",
-              "type": "string",
-              "group": "endevor-location definition options"
+              "description": "Specifies Endevor Web Services dataSource name if it isn't already included in basePath",
+              "type": "stringOrEmpty",
+              "group": "endevor-location definition options",
+              "defaultValue": ""
             },
             {
               "name": "protocol",
@@ -5780,9 +5801,10 @@
               "aliases": [
                 "i"
               ],
-              "description": "Specifies Endevor Web Services dataSource name.",
-              "type": "string",
-              "group": "endevor-location definition options"
+              "description": "Specifies Endevor Web Services dataSource name if it isn't already included in basePath",
+              "type": "stringOrEmpty",
+              "group": "endevor-location definition options",
+              "defaultValue": ""
             },
             {
               "name": "protocol",
@@ -5994,9 +6016,10 @@
               "aliases": [
                 "i"
               ],
-              "description": "Specifies Endevor Web Services dataSource name.",
-              "type": "string",
-              "group": "endevor-location definition options"
+              "description": "Specifies Endevor Web Services dataSource name if it isn't already included in basePath",
+              "type": "stringOrEmpty",
+              "group": "endevor-location definition options",
+              "defaultValue": ""
             },
             {
               "name": "protocol",
@@ -6420,9 +6443,10 @@
               "aliases": [
                 "i"
               ],
-              "description": "Specifies Endevor Web Services dataSource name.",
-              "type": "string",
-              "group": "endevor-location definition options"
+              "description": "Specifies Endevor Web Services dataSource name if it isn't already included in basePath",
+              "type": "stringOrEmpty",
+              "group": "endevor-location definition options",
+              "defaultValue": ""
             },
             {
               "name": "protocol",
@@ -6634,9 +6658,10 @@
               "aliases": [
                 "i"
               ],
-              "description": "Specifies Endevor Web Services dataSource name.",
-              "type": "string",
-              "group": "endevor-location definition options"
+              "description": "Specifies Endevor Web Services dataSource name if it isn't already included in basePath",
+              "type": "stringOrEmpty",
+              "group": "endevor-location definition options",
+              "defaultValue": ""
             },
             {
               "name": "protocol",
@@ -7104,9 +7129,10 @@
               "aliases": [
                 "i"
               ],
-              "description": "Specifies Endevor Web Services dataSource name.",
-              "type": "string",
-              "group": "endevor-location definition options"
+              "description": "Specifies Endevor Web Services dataSource name if it isn't already included in basePath",
+              "type": "stringOrEmpty",
+              "group": "endevor-location definition options",
+              "defaultValue": ""
             },
             {
               "name": "protocol",
@@ -7443,9 +7469,10 @@
               "aliases": [
                 "i"
               ],
-              "description": "Specifies Endevor Web Services dataSource name.",
-              "type": "string",
-              "group": "endevor-location definition options"
+              "description": "Specifies Endevor Web Services dataSource name if it isn't already included in basePath",
+              "type": "stringOrEmpty",
+              "group": "endevor-location definition options",
+              "defaultValue": ""
             },
             {
               "name": "protocol",
@@ -7785,9 +7812,10 @@
               "aliases": [
                 "i"
               ],
-              "description": "Specifies Endevor Web Services dataSource name.",
-              "type": "string",
-              "group": "endevor-location definition options"
+              "description": "Specifies Endevor Web Services dataSource name if it isn't already included in basePath",
+              "type": "stringOrEmpty",
+              "group": "endevor-location definition options",
+              "defaultValue": ""
             },
             {
               "name": "protocol",
@@ -8123,9 +8151,10 @@
               "aliases": [
                 "i"
               ],
-              "description": "Specifies Endevor Web Services dataSource name.",
-              "type": "string",
-              "group": "endevor-location definition options"
+              "description": "Specifies Endevor Web Services dataSource name if it isn't already included in basePath",
+              "type": "stringOrEmpty",
+              "group": "endevor-location definition options",
+              "defaultValue": ""
             },
             {
               "name": "protocol",
@@ -8462,9 +8491,10 @@
               "aliases": [
                 "i"
               ],
-              "description": "Specifies Endevor Web Services dataSource name.",
-              "type": "string",
-              "group": "endevor-location definition options"
+              "description": "Specifies Endevor Web Services dataSource name if it isn't already included in basePath",
+              "type": "stringOrEmpty",
+              "group": "endevor-location definition options",
+              "defaultValue": ""
             },
             {
               "name": "protocol",
@@ -9045,9 +9075,10 @@
               "aliases": [
                 "i"
               ],
-              "description": "Specifies Endevor Web Services dataSource name.",
-              "type": "string",
-              "group": "endevor-location definition options"
+              "description": "Specifies Endevor Web Services dataSource name if it isn't already included in basePath",
+              "type": "stringOrEmpty",
+              "group": "endevor-location definition options",
+              "defaultValue": ""
             },
             {
               "name": "protocol",
@@ -9395,9 +9426,10 @@
               "aliases": [
                 "i"
               ],
-              "description": "Specifies Endevor Web Services dataSource name.",
-              "type": "string",
-              "group": "endevor-location definition options"
+              "description": "Specifies Endevor Web Services dataSource name if it isn't already included in basePath",
+              "type": "stringOrEmpty",
+              "group": "endevor-location definition options",
+              "defaultValue": ""
             },
             {
               "name": "protocol",
@@ -9757,9 +9789,10 @@
               "aliases": [
                 "i"
               ],
-              "description": "Specifies Endevor Web Services dataSource name.",
-              "type": "string",
-              "group": "endevor-location definition options"
+              "description": "Specifies Endevor Web Services dataSource name if it isn't already included in basePath",
+              "type": "stringOrEmpty",
+              "group": "endevor-location definition options",
+              "defaultValue": ""
             },
             {
               "name": "protocol",
@@ -10137,9 +10170,10 @@
               "aliases": [
                 "i"
               ],
-              "description": "Specifies Endevor Web Services dataSource name.",
-              "type": "string",
-              "group": "endevor-location definition options"
+              "description": "Specifies Endevor Web Services dataSource name if it isn't already included in basePath",
+              "type": "stringOrEmpty",
+              "group": "endevor-location definition options",
+              "defaultValue": ""
             },
             {
               "name": "protocol",
@@ -10530,9 +10564,10 @@
               "aliases": [
                 "i"
               ],
-              "description": "Specifies Endevor Web Services dataSource name.",
-              "type": "string",
-              "group": "endevor-location definition options"
+              "description": "Specifies Endevor Web Services dataSource name if it isn't already included in basePath",
+              "type": "stringOrEmpty",
+              "group": "endevor-location definition options",
+              "defaultValue": ""
             },
             {
               "name": "protocol",
@@ -10922,9 +10957,10 @@
               "aliases": [
                 "i"
               ],
-              "description": "Specifies Endevor Web Services dataSource name.",
-              "type": "string",
-              "group": "endevor-location definition options"
+              "description": "Specifies Endevor Web Services dataSource name if it isn't already included in basePath",
+              "type": "stringOrEmpty",
+              "group": "endevor-location definition options",
+              "defaultValue": ""
             },
             {
               "name": "protocol",
@@ -11327,9 +11363,10 @@
               "aliases": [
                 "i"
               ],
-              "description": "Specifies Endevor Web Services dataSource name.",
-              "type": "string",
-              "group": "endevor-location definition options"
+              "description": "Specifies Endevor Web Services dataSource name if it isn't already included in basePath",
+              "type": "stringOrEmpty",
+              "group": "endevor-location definition options",
+              "defaultValue": ""
             },
             {
               "name": "protocol",
@@ -11732,9 +11769,10 @@
               "aliases": [
                 "i"
               ],
-              "description": "Specifies Endevor Web Services dataSource name.",
-              "type": "string",
-              "group": "endevor-location definition options"
+              "description": "Specifies Endevor Web Services dataSource name if it isn't already included in basePath",
+              "type": "stringOrEmpty",
+              "group": "endevor-location definition options",
+              "defaultValue": ""
             },
             {
               "name": "protocol",
@@ -12142,9 +12180,10 @@
               "aliases": [
                 "i"
               ],
-              "description": "Specifies Endevor Web Services dataSource name.",
-              "type": "string",
-              "group": "endevor-location definition options"
+              "description": "Specifies Endevor Web Services dataSource name if it isn't already included in basePath",
+              "type": "stringOrEmpty",
+              "group": "endevor-location definition options",
+              "defaultValue": ""
             },
             {
               "name": "protocol",
@@ -12850,7 +12889,8 @@
               "allowableValues": {
                 "values": [
                   "GENERATE",
-                  "MOVE"
+                  "MOVE",
+                  "DELETE"
                 ],
                 "caseSensitive": false
               },
@@ -12882,9 +12922,10 @@
               "aliases": [
                 "i"
               ],
-              "description": "Specifies Endevor Web Services dataSource name.",
-              "type": "string",
-              "group": "endevor-location definition options"
+              "description": "Specifies Endevor Web Services dataSource name if it isn't already included in basePath",
+              "type": "stringOrEmpty",
+              "group": "endevor-location definition options",
+              "defaultValue": ""
             },
             {
               "name": "protocol",
@@ -13193,9 +13234,10 @@
               "aliases": [
                 "i"
               ],
-              "description": "Specifies Endevor Web Services dataSource name.",
-              "type": "string",
-              "group": "endevor-location definition options"
+              "description": "Specifies Endevor Web Services dataSource name if it isn't already included in basePath",
+              "type": "stringOrEmpty",
+              "group": "endevor-location definition options",
+              "defaultValue": ""
             },
             {
               "name": "protocol",
@@ -13455,9 +13497,10 @@
               "aliases": [
                 "i"
               ],
-              "description": "Specifies Endevor Web Services dataSource name.",
-              "type": "string",
-              "group": "endevor-location definition options"
+              "description": "Specifies Endevor Web Services dataSource name if it isn't already included in basePath",
+              "type": "stringOrEmpty",
+              "group": "endevor-location definition options",
+              "defaultValue": ""
             },
             {
               "name": "protocol",
@@ -13937,9 +13980,10 @@
               "aliases": [
                 "i"
               ],
-              "description": "Specifies Endevor Web Services dataSource name.",
-              "type": "string",
-              "group": "endevor-location definition options"
+              "description": "Specifies Endevor Web Services dataSource name if it isn't already included in basePath",
+              "type": "stringOrEmpty",
+              "group": "endevor-location definition options",
+              "defaultValue": ""
             },
             {
               "name": "protocol",
@@ -14119,9 +14163,10 @@
               "aliases": [
                 "i"
               ],
-              "description": "Specifies Endevor Web Services dataSource name.",
-              "type": "string",
-              "group": "endevor-location definition options"
+              "description": "Specifies Endevor Web Services dataSource name if it isn't already included in basePath",
+              "type": "stringOrEmpty",
+              "group": "endevor-location definition options",
+              "defaultValue": ""
             },
             {
               "name": "protocol",
@@ -14521,9 +14566,10 @@
               "aliases": [
                 "i"
               ],
-              "description": "Specifies Endevor Web Services dataSource name.",
-              "type": "string",
-              "group": "endevor-location definition options"
+              "description": "Specifies Endevor Web Services dataSource name if it isn't already included in basePath",
+              "type": "stringOrEmpty",
+              "group": "endevor-location definition options",
+              "defaultValue": ""
             },
             {
               "name": "protocol",
@@ -14735,9 +14781,10 @@
               "aliases": [
                 "i"
               ],
-              "description": "Specifies Endevor Web Services dataSource name.",
-              "type": "string",
-              "group": "endevor-location definition options"
+              "description": "Specifies Endevor Web Services dataSource name if it isn't already included in basePath",
+              "type": "stringOrEmpty",
+              "group": "endevor-location definition options",
+              "defaultValue": ""
             },
             {
               "name": "protocol",
@@ -15095,6 +15142,17 @@
               "group": "options"
             },
             {
+              "name": "expand-includes",
+              "aliases": [
+                "expand",
+                "ei"
+              ],
+              "description": "Indicates that INCLUDE statements should be expanded in the course of the action.",
+              "type": "boolean",
+              "required": false,
+              "group": "options"
+            },
+            {
               "name": "where-ccid-current",
               "aliases": [
                 "wcc"
@@ -15193,9 +15251,10 @@
               "aliases": [
                 "i"
               ],
-              "description": "Specifies Endevor Web Services dataSource name.",
-              "type": "string",
-              "group": "endevor-location definition options"
+              "description": "Specifies Endevor Web Services dataSource name if it isn't already included in basePath",
+              "type": "stringOrEmpty",
+              "group": "endevor-location definition options",
+              "defaultValue": ""
             },
             {
               "name": "protocol",
@@ -15658,9 +15717,10 @@
               "aliases": [
                 "i"
               ],
-              "description": "Specifies Endevor Web Services dataSource name.",
-              "type": "string",
-              "group": "endevor-location definition options"
+              "description": "Specifies Endevor Web Services dataSource name if it isn't already included in basePath",
+              "type": "stringOrEmpty",
+              "group": "endevor-location definition options",
+              "defaultValue": ""
             },
             {
               "name": "protocol",
@@ -15957,9 +16017,10 @@
               "aliases": [
                 "i"
               ],
-              "description": "Specifies Endevor Web Services dataSource name.",
-              "type": "string",
-              "group": "endevor-location definition options"
+              "description": "Specifies Endevor Web Services dataSource name if it isn't already included in basePath",
+              "type": "stringOrEmpty",
+              "group": "endevor-location definition options",
+              "defaultValue": ""
             },
             {
               "name": "protocol",
@@ -16171,9 +16232,10 @@
               "aliases": [
                 "i"
               ],
-              "description": "Specifies Endevor Web Services dataSource name.",
-              "type": "string",
-              "group": "endevor-location definition options"
+              "description": "Specifies Endevor Web Services dataSource name if it isn't already included in basePath",
+              "type": "stringOrEmpty",
+              "group": "endevor-location definition options",
+              "defaultValue": ""
             },
             {
               "name": "protocol",
@@ -16500,9 +16562,10 @@
               "aliases": [
                 "i"
               ],
-              "description": "Specifies Endevor Web Services dataSource name.",
-              "type": "string",
-              "group": "endevor-location definition options"
+              "description": "Specifies Endevor Web Services dataSource name if it isn't already included in basePath",
+              "type": "stringOrEmpty",
+              "group": "endevor-location definition options",
+              "defaultValue": ""
             },
             {
               "name": "protocol",
@@ -16752,9 +16815,10 @@
               "aliases": [
                 "i"
               ],
-              "description": "Specifies Endevor Web Services dataSource name.",
-              "type": "string",
-              "group": "endevor-location definition options"
+              "description": "Specifies Endevor Web Services dataSource name if it isn't already included in basePath",
+              "type": "stringOrEmpty",
+              "group": "endevor-location definition options",
+              "defaultValue": ""
             },
             {
               "name": "protocol",
@@ -16977,9 +17041,10 @@
               "aliases": [
                 "i"
               ],
-              "description": "Specifies Endevor Web Services dataSource name.",
-              "type": "string",
-              "group": "endevor-location definition options"
+              "description": "Specifies Endevor Web Services dataSource name if it isn't already included in basePath",
+              "type": "stringOrEmpty",
+              "group": "endevor-location definition options",
+              "defaultValue": ""
             },
             {
               "name": "protocol",
@@ -17191,9 +17256,10 @@
               "aliases": [
                 "i"
               ],
-              "description": "Specifies Endevor Web Services dataSource name.",
-              "type": "string",
-              "group": "endevor-location definition options"
+              "description": "Specifies Endevor Web Services dataSource name if it isn't already included in basePath",
+              "type": "stringOrEmpty",
+              "group": "endevor-location definition options",
+              "defaultValue": ""
             },
             {
               "name": "protocol",
@@ -17873,9 +17939,10 @@
               "aliases": [
                 "i"
               ],
-              "description": "Specifies Endevor Web Services dataSource name.",
-              "type": "string",
-              "group": "endevor-location definition options"
+              "description": "Specifies Endevor Web Services dataSource name if it isn't already included in basePath",
+              "type": "stringOrEmpty",
+              "group": "endevor-location definition options",
+              "defaultValue": ""
             },
             {
               "name": "protocol",
@@ -18149,9 +18216,10 @@
               "aliases": [
                 "i"
               ],
-              "description": "Specifies Endevor Web Services dataSource name.",
-              "type": "string",
-              "group": "endevor-location definition options"
+              "description": "Specifies Endevor Web Services dataSource name if it isn't already included in basePath",
+              "type": "stringOrEmpty",
+              "group": "endevor-location definition options",
+              "defaultValue": ""
             },
             {
               "name": "protocol",
@@ -18401,9 +18469,10 @@
               "aliases": [
                 "i"
               ],
-              "description": "Specifies Endevor Web Services dataSource name.",
-              "type": "string",
-              "group": "endevor-location definition options"
+              "description": "Specifies Endevor Web Services dataSource name if it isn't already included in basePath",
+              "type": "stringOrEmpty",
+              "group": "endevor-location definition options",
+              "defaultValue": ""
             },
             {
               "name": "protocol",
@@ -18814,9 +18883,10 @@
               "aliases": [
                 "i"
               ],
-              "description": "Specifies Endevor Web Services dataSource name.",
-              "type": "string",
-              "group": "endevor-location definition options"
+              "description": "Specifies Endevor Web Services dataSource name if it isn't already included in basePath",
+              "type": "stringOrEmpty",
+              "group": "endevor-location definition options",
+              "defaultValue": ""
             },
             {
               "name": "protocol",
@@ -19028,9 +19098,10 @@
               "aliases": [
                 "i"
               ],
-              "description": "Specifies Endevor Web Services dataSource name.",
-              "type": "string",
-              "group": "endevor-location definition options"
+              "description": "Specifies Endevor Web Services dataSource name if it isn't already included in basePath",
+              "type": "stringOrEmpty",
+              "group": "endevor-location definition options",
+              "defaultValue": ""
             },
             {
               "name": "protocol",
@@ -19390,9 +19461,10 @@
               "aliases": [
                 "i"
               ],
-              "description": "Specifies Endevor Web Services dataSource name.",
-              "type": "string",
-              "group": "endevor-location definition options"
+              "description": "Specifies Endevor Web Services dataSource name if it isn't already included in basePath",
+              "type": "stringOrEmpty",
+              "group": "endevor-location definition options",
+              "defaultValue": ""
             },
             {
               "name": "protocol",
@@ -19684,9 +19756,10 @@
               "aliases": [
                 "i"
               ],
-              "description": "Specifies Endevor Web Services dataSource name.",
-              "type": "string",
-              "group": "endevor-location definition options"
+              "description": "Specifies Endevor Web Services dataSource name if it isn't already included in basePath",
+              "type": "stringOrEmpty",
+              "group": "endevor-location definition options",
+              "defaultValue": ""
             },
             {
               "name": "protocol",
@@ -19900,9 +19973,10 @@
               "aliases": [
                 "i"
               ],
-              "description": "Specifies Endevor Web Services dataSource name.",
-              "type": "string",
-              "group": "endevor-location definition options"
+              "description": "Specifies Endevor Web Services dataSource name if it isn't already included in basePath",
+              "type": "stringOrEmpty",
+              "group": "endevor-location definition options",
+              "defaultValue": ""
             },
             {
               "name": "protocol",
@@ -20315,9 +20389,10 @@
               "aliases": [
                 "i"
               ],
-              "description": "Specifies Endevor Web Services dataSource name.",
-              "type": "string",
-              "group": "endevor-location definition options"
+              "description": "Specifies Endevor Web Services dataSource name if it isn't already included in basePath",
+              "type": "stringOrEmpty",
+              "group": "endevor-location definition options",
+              "defaultValue": ""
             },
             {
               "name": "protocol",
@@ -20497,9 +20572,10 @@
               "aliases": [
                 "i"
               ],
-              "description": "Specifies Endevor Web Services dataSource name.",
-              "type": "string",
-              "group": "endevor-location definition options"
+              "description": "Specifies Endevor Web Services dataSource name if it isn't already included in basePath",
+              "type": "stringOrEmpty",
+              "group": "endevor-location definition options",
+              "defaultValue": ""
             },
             {
               "name": "protocol",
@@ -21049,9 +21125,10 @@
               "aliases": [
                 "i"
               ],
-              "description": "Specifies Endevor Web Services dataSource name.",
-              "type": "string",
-              "group": "endevor-location definition options"
+              "description": "Specifies Endevor Web Services dataSource name if it isn't already included in basePath",
+              "type": "stringOrEmpty",
+              "group": "endevor-location definition options",
+              "defaultValue": ""
             },
             {
               "name": "protocol",
@@ -21263,9 +21340,10 @@
               "aliases": [
                 "i"
               ],
-              "description": "Specifies Endevor Web Services dataSource name.",
-              "type": "string",
-              "group": "endevor-location definition options"
+              "description": "Specifies Endevor Web Services dataSource name if it isn't already included in basePath",
+              "type": "stringOrEmpty",
+              "group": "endevor-location definition options",
+              "defaultValue": ""
             },
             {
               "name": "protocol",
@@ -21573,9 +21651,10 @@
               "aliases": [
                 "i"
               ],
-              "description": "Specifies Endevor Web Services dataSource name.",
-              "type": "string",
-              "group": "endevor-location definition options"
+              "description": "Specifies Endevor Web Services dataSource name if it isn't already included in basePath",
+              "type": "stringOrEmpty",
+              "group": "endevor-location definition options",
+              "defaultValue": ""
             },
             {
               "name": "protocol",
@@ -21755,9 +21834,10 @@
               "aliases": [
                 "i"
               ],
-              "description": "Specifies Endevor Web Services dataSource name.",
-              "type": "string",
-              "group": "endevor-location definition options"
+              "description": "Specifies Endevor Web Services dataSource name if it isn't already included in basePath",
+              "type": "stringOrEmpty",
+              "group": "endevor-location definition options",
+              "defaultValue": ""
             },
             {
               "name": "protocol",
@@ -22136,9 +22216,10 @@
               "aliases": [
                 "i"
               ],
-              "description": "Specifies Endevor Web Services dataSource name.",
-              "type": "string",
-              "group": "endevor-location definition options"
+              "description": "Specifies Endevor Web Services dataSource name if it isn't already included in basePath",
+              "type": "stringOrEmpty",
+              "group": "endevor-location definition options",
+              "defaultValue": ""
             },
             {
               "name": "protocol",
@@ -22671,9 +22752,10 @@
               "aliases": [
                 "i"
               ],
-              "description": "Specifies Endevor Web Services dataSource name.",
-              "type": "string",
-              "group": "endevor-location definition options"
+              "description": "Specifies Endevor Web Services dataSource name if it isn't already included in basePath",
+              "type": "stringOrEmpty",
+              "group": "endevor-location definition options",
+              "defaultValue": ""
             },
             {
               "name": "protocol",
@@ -22885,9 +22967,10 @@
               "aliases": [
                 "i"
               ],
-              "description": "Specifies Endevor Web Services dataSource name.",
-              "type": "string",
-              "group": "endevor-location definition options"
+              "description": "Specifies Endevor Web Services dataSource name if it isn't already included in basePath",
+              "type": "stringOrEmpty",
+              "group": "endevor-location definition options",
+              "defaultValue": ""
             },
             {
               "name": "protocol",
@@ -23312,9 +23395,10 @@
               "aliases": [
                 "i"
               ],
-              "description": "Specifies Endevor Web Services dataSource name.",
-              "type": "string",
-              "group": "endevor-location definition options"
+              "description": "Specifies Endevor Web Services dataSource name if it isn't already included in basePath",
+              "type": "stringOrEmpty",
+              "group": "endevor-location definition options",
+              "defaultValue": ""
             },
             {
               "name": "protocol",
@@ -23572,9 +23656,10 @@
               "aliases": [
                 "i"
               ],
-              "description": "Specifies Endevor Web Services dataSource name.",
-              "type": "string",
-              "group": "endevor-location definition options"
+              "description": "Specifies Endevor Web Services dataSource name if it isn't already included in basePath",
+              "type": "stringOrEmpty",
+              "group": "endevor-location definition options",
+              "defaultValue": ""
             },
             {
               "name": "protocol",
@@ -23786,9 +23871,10 @@
               "aliases": [
                 "i"
               ],
-              "description": "Specifies Endevor Web Services dataSource name.",
-              "type": "string",
-              "group": "endevor-location definition options"
+              "description": "Specifies Endevor Web Services dataSource name if it isn't already included in basePath",
+              "type": "stringOrEmpty",
+              "group": "endevor-location definition options",
+              "defaultValue": ""
             },
             {
               "name": "protocol",
