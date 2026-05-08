@@ -201,6 +201,13 @@
               "aliases": []
             },
             {
+              "name": "cert-account",
+              "description": "The account name for PKCS 12 certificate stored in credential manager",
+              "type": "string",
+              "group": "Zosmf Connection Options",
+              "aliases": []
+            },
+            {
               "name": "completion-timeout",
               "aliases": [
                 "cto"
@@ -467,6 +474,12 @@
               "name": "cert-key-file",
               "description": "The file path to a certificate key file to use for authentication",
               "type": "existingLocalFile",
+              "group": "Zosmf Connection Options"
+            },
+            {
+              "name": "cert-account",
+              "description": "The account name for PKCS 12 certificate stored in credential manager",
+              "type": "string",
               "group": "Zosmf Connection Options"
             },
             {

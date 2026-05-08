@@ -390,6 +390,13 @@
               "type": "existingLocalFile",
               "group": "Base Connection Options",
               "aliases": []
+            },
+            {
+              "name": "cert-account",
+              "description": "The account name for PKCS 12 certificate stored in credential manager",
+              "type": "string",
+              "group": "Base Connection Options",
+              "aliases": []
             }
           ],
           "examples": [
@@ -733,6 +740,13 @@
               "aliases": []
             },
             {
+              "name": "cert-account",
+              "description": "The account name for PKCS 12 certificate stored in credential manager",
+              "type": "string",
+              "group": "Base Connection Options",
+              "aliases": []
+            },
+            {
               "name": "response-format-filter",
               "aliases": [
                 "rff"
@@ -973,6 +987,13 @@
               "type": "existingLocalFile",
               "group": "Base Connection Options",
               "aliases": []
+            },
+            {
+              "name": "cert-account",
+              "description": "The account name for PKCS 12 certificate stored in credential manager",
+              "type": "string",
+              "group": "Base Connection Options",
+              "aliases": []
             }
           ],
           "examples": [
@@ -1176,6 +1197,13 @@
               "type": "existingLocalFile",
               "group": "Base Connection Options",
               "aliases": []
+            },
+            {
+              "name": "cert-account",
+              "description": "The account name for PKCS 12 certificate stored in credential manager",
+              "type": "string",
+              "group": "Base Connection Options",
+              "aliases": []
             }
           ],
           "examples": [
@@ -1373,6 +1401,13 @@
               "name": "cert-key-file",
               "description": "The file path to a certificate key file to use for authentication",
               "type": "existingLocalFile",
+              "group": "Base Connection Options",
+              "aliases": []
+            },
+            {
+              "name": "cert-account",
+              "description": "The account name for PKCS 12 certificate stored in credential manager",
+              "type": "string",
               "group": "Base Connection Options",
               "aliases": []
             }
@@ -1588,6 +1623,13 @@
               "name": "cert-key-file",
               "description": "The file path to a certificate key file to use for authentication",
               "type": "existingLocalFile",
+              "group": "Base Connection Options",
+              "aliases": []
+            },
+            {
+              "name": "cert-account",
+              "description": "The account name for PKCS 12 certificate stored in credential manager",
+              "type": "string",
               "group": "Base Connection Options",
               "aliases": []
             }
@@ -2114,6 +2156,13 @@
               "type": "existingLocalFile",
               "group": "Base Connection Options",
               "aliases": []
+            },
+            {
+              "name": "cert-account",
+              "description": "The account name for PKCS 12 certificate stored in credential manager",
+              "type": "string",
+              "group": "Base Connection Options",
+              "aliases": []
             }
           ],
           "examples": [
@@ -2549,6 +2598,13 @@
               "type": "existingLocalFile",
               "group": "Base Connection Options",
               "aliases": []
+            },
+            {
+              "name": "cert-account",
+              "description": "The account name for PKCS 12 certificate stored in credential manager",
+              "type": "string",
+              "group": "Base Connection Options",
+              "aliases": []
             }
           ],
           "examples": [
@@ -2879,6 +2935,13 @@
               "type": "existingLocalFile",
               "group": "Base Connection Options",
               "aliases": []
+            },
+            {
+              "name": "cert-account",
+              "description": "The account name for PKCS 12 certificate stored in credential manager",
+              "type": "string",
+              "group": "Base Connection Options",
+              "aliases": []
             }
           ],
           "examples": [
@@ -3090,6 +3153,13 @@
               "name": "cert-key-file",
               "description": "The file path to a certificate key file to use for authentication",
               "type": "existingLocalFile",
+              "group": "Base Connection Options",
+              "aliases": []
+            },
+            {
+              "name": "cert-account",
+              "description": "The account name for PKCS 12 certificate stored in credential manager",
+              "type": "string",
               "group": "Base Connection Options",
               "aliases": []
             }
@@ -3338,6 +3408,13 @@
               "name": "cert-key-file",
               "description": "The file path to a certificate key file to use for authentication",
               "type": "existingLocalFile",
+              "group": "Base Connection Options",
+              "aliases": []
+            },
+            {
+              "name": "cert-account",
+              "description": "The account name for PKCS 12 certificate stored in credential manager",
+              "type": "string",
               "group": "Base Connection Options",
               "aliases": []
             },
@@ -3691,6 +3768,13 @@
               "type": "existingLocalFile",
               "group": "Base Connection Options",
               "aliases": []
+            },
+            {
+              "name": "cert-account",
+              "description": "The account name for PKCS 12 certificate stored in credential manager",
+              "type": "string",
+              "group": "Base Connection Options",
+              "aliases": []
             }
           ],
           "examples": [
@@ -4042,6 +4126,13 @@
               "type": "existingLocalFile",
               "group": "Base Connection Options",
               "aliases": []
+            },
+            {
+              "name": "cert-account",
+              "description": "The account name for PKCS 12 certificate stored in credential manager",
+              "type": "string",
+              "group": "Base Connection Options",
+              "aliases": []
             }
           ],
           "examples": [
@@ -4244,6 +4335,13 @@
               "name": "cert-key-file",
               "description": "The file path to a certificate key file to use for authentication",
               "type": "existingLocalFile",
+              "group": "Base Connection Options",
+              "aliases": []
+            },
+            {
+              "name": "cert-account",
+              "description": "The account name for PKCS 12 certificate stored in credential manager",
+              "type": "string",
               "group": "Base Connection Options",
               "aliases": []
             }
@@ -4449,6 +4547,13 @@
               "name": "cert-key-file",
               "description": "The file path to a certificate key file to use for authentication",
               "type": "existingLocalFile",
+              "group": "Base Connection Options",
+              "aliases": []
+            },
+            {
+              "name": "cert-account",
+              "description": "The account name for PKCS 12 certificate stored in credential manager",
+              "type": "string",
               "group": "Base Connection Options",
               "aliases": []
             }
@@ -4660,6 +4765,13 @@
               "type": "existingLocalFile",
               "group": "Base Connection Options",
               "aliases": []
+            },
+            {
+              "name": "cert-account",
+              "description": "The account name for PKCS 12 certificate stored in credential manager",
+              "type": "string",
+              "group": "Base Connection Options",
+              "aliases": []
             }
           ],
           "passOn": [],
@@ -4855,6 +4967,13 @@
               "name": "cert-key-file",
               "description": "The file path to a certificate key file to use for authentication",
               "type": "existingLocalFile",
+              "group": "Base Connection Options",
+              "aliases": []
+            },
+            {
+              "name": "cert-account",
+              "description": "The account name for PKCS 12 certificate stored in credential manager",
+              "type": "string",
               "group": "Base Connection Options",
               "aliases": []
             },
@@ -5110,6 +5229,13 @@
               "type": "existingLocalFile",
               "group": "Base Connection Options",
               "aliases": []
+            },
+            {
+              "name": "cert-account",
+              "description": "The account name for PKCS 12 certificate stored in credential manager",
+              "type": "string",
+              "group": "Base Connection Options",
+              "aliases": []
             }
           ],
           "examples": [
@@ -5315,6 +5441,13 @@
               "name": "cert-key-file",
               "description": "The file path to a certificate key file to use for authentication",
               "type": "existingLocalFile",
+              "group": "Base Connection Options",
+              "aliases": []
+            },
+            {
+              "name": "cert-account",
+              "description": "The account name for PKCS 12 certificate stored in credential manager",
+              "type": "string",
               "group": "Base Connection Options",
               "aliases": []
             }
@@ -5524,6 +5657,13 @@
               "name": "cert-key-file",
               "description": "The file path to a certificate key file to use for authentication",
               "type": "existingLocalFile",
+              "group": "Base Connection Options",
+              "aliases": []
+            },
+            {
+              "name": "cert-account",
+              "description": "The account name for PKCS 12 certificate stored in credential manager",
+              "type": "string",
               "group": "Base Connection Options",
               "aliases": []
             }
@@ -5908,6 +6048,13 @@
               "aliases": []
             },
             {
+              "name": "cert-account",
+              "description": "The account name for PKCS 12 certificate stored in credential manager",
+              "type": "string",
+              "group": "Base Connection Options",
+              "aliases": []
+            },
+            {
               "name": "response-format-filter",
               "aliases": [
                 "rff"
@@ -6169,6 +6316,13 @@
               "type": "existingLocalFile",
               "group": "Base Connection Options",
               "aliases": []
+            },
+            {
+              "name": "cert-account",
+              "description": "The account name for PKCS 12 certificate stored in credential manager",
+              "type": "string",
+              "group": "Base Connection Options",
+              "aliases": []
             }
           ],
           "examples": [
@@ -6363,6 +6517,13 @@
               "name": "cert-key-file",
               "description": "The file path to a certificate key file to use for authentication",
               "type": "existingLocalFile",
+              "group": "Base Connection Options",
+              "aliases": []
+            },
+            {
+              "name": "cert-account",
+              "description": "The account name for PKCS 12 certificate stored in credential manager",
+              "type": "string",
               "group": "Base Connection Options",
               "aliases": []
             },
@@ -6746,6 +6907,13 @@
               "aliases": []
             },
             {
+              "name": "cert-account",
+              "description": "The account name for PKCS 12 certificate stored in credential manager",
+              "type": "string",
+              "group": "Base Connection Options",
+              "aliases": []
+            },
+            {
               "name": "response-format-filter",
               "aliases": [
                 "rff"
@@ -7015,6 +7183,13 @@
               "name": "cert-key-file",
               "description": "The file path to a certificate key file to use for authentication",
               "type": "existingLocalFile",
+              "group": "Base Connection Options",
+              "aliases": []
+            },
+            {
+              "name": "cert-account",
+              "description": "The account name for PKCS 12 certificate stored in credential manager",
+              "type": "string",
               "group": "Base Connection Options",
               "aliases": []
             },
@@ -7297,6 +7472,13 @@
               "aliases": []
             },
             {
+              "name": "cert-account",
+              "description": "The account name for PKCS 12 certificate stored in credential manager",
+              "type": "string",
+              "group": "Base Connection Options",
+              "aliases": []
+            },
+            {
               "name": "response-format-filter",
               "aliases": [
                 "rff"
@@ -7545,6 +7727,13 @@
               "name": "cert-key-file",
               "description": "The file path to a certificate key file to use for authentication",
               "type": "existingLocalFile",
+              "group": "Base Connection Options",
+              "aliases": []
+            },
+            {
+              "name": "cert-account",
+              "description": "The account name for PKCS 12 certificate stored in credential manager",
+              "type": "string",
               "group": "Base Connection Options",
               "aliases": []
             },
@@ -7821,6 +8010,13 @@
               "aliases": []
             },
             {
+              "name": "cert-account",
+              "description": "The account name for PKCS 12 certificate stored in credential manager",
+              "type": "string",
+              "group": "Base Connection Options",
+              "aliases": []
+            },
+            {
               "name": "response-format-filter",
               "aliases": [
                 "rff"
@@ -8085,6 +8281,13 @@
               "type": "existingLocalFile",
               "group": "Base Connection Options",
               "aliases": []
+            },
+            {
+              "name": "cert-account",
+              "description": "The account name for PKCS 12 certificate stored in credential manager",
+              "type": "string",
+              "group": "Base Connection Options",
+              "aliases": []
             }
           ],
           "passOn": [],
@@ -8302,6 +8505,13 @@
               "type": "existingLocalFile",
               "group": "Base Connection Options",
               "aliases": []
+            },
+            {
+              "name": "cert-account",
+              "description": "The account name for PKCS 12 certificate stored in credential manager",
+              "type": "string",
+              "group": "Base Connection Options",
+              "aliases": []
             }
           ],
           "passOn": [],
@@ -8510,6 +8720,13 @@
               "type": "existingLocalFile",
               "group": "Base Connection Options",
               "aliases": []
+            },
+            {
+              "name": "cert-account",
+              "description": "The account name for PKCS 12 certificate stored in credential manager",
+              "type": "string",
+              "group": "Base Connection Options",
+              "aliases": []
             }
           ],
           "passOn": [],
@@ -8707,6 +8924,13 @@
               "name": "cert-key-file",
               "description": "The file path to a certificate key file to use for authentication",
               "type": "existingLocalFile",
+              "group": "Base Connection Options",
+              "aliases": []
+            },
+            {
+              "name": "cert-account",
+              "description": "The account name for PKCS 12 certificate stored in credential manager",
+              "type": "string",
               "group": "Base Connection Options",
               "aliases": []
             },
@@ -8973,6 +9197,13 @@
               "aliases": []
             },
             {
+              "name": "cert-account",
+              "description": "The account name for PKCS 12 certificate stored in credential manager",
+              "type": "string",
+              "group": "Base Connection Options",
+              "aliases": []
+            },
+            {
               "name": "response-format-filter",
               "aliases": [
                 "rff"
@@ -9195,6 +9426,13 @@
               "name": "cert-key-file",
               "description": "The file path to a certificate key file to use for authentication",
               "type": "existingLocalFile",
+              "group": "Base Connection Options",
+              "aliases": []
+            },
+            {
+              "name": "cert-account",
+              "description": "The account name for PKCS 12 certificate stored in credential manager",
+              "type": "string",
               "group": "Base Connection Options",
               "aliases": []
             },
@@ -9429,6 +9667,13 @@
               "name": "cert-key-file",
               "description": "The file path to a certificate key file to use for authentication",
               "type": "existingLocalFile",
+              "group": "Base Connection Options",
+              "aliases": []
+            },
+            {
+              "name": "cert-account",
+              "description": "The account name for PKCS 12 certificate stored in credential manager",
+              "type": "string",
               "group": "Base Connection Options",
               "aliases": []
             },
@@ -9874,6 +10119,13 @@
               "type": "existingLocalFile",
               "group": "Base Connection Options",
               "aliases": []
+            },
+            {
+              "name": "cert-account",
+              "description": "The account name for PKCS 12 certificate stored in credential manager",
+              "type": "string",
+              "group": "Base Connection Options",
+              "aliases": []
             }
           ],
           "examples": [
@@ -10232,6 +10484,13 @@
               "type": "existingLocalFile",
               "group": "Base Connection Options",
               "aliases": []
+            },
+            {
+              "name": "cert-account",
+              "description": "The account name for PKCS 12 certificate stored in credential manager",
+              "type": "string",
+              "group": "Base Connection Options",
+              "aliases": []
             }
           ],
           "examples": [
@@ -10444,6 +10703,13 @@
               "name": "cert-key-file",
               "description": "The file path to a certificate key file to use for authentication",
               "type": "existingLocalFile",
+              "group": "Base Connection Options",
+              "aliases": []
+            },
+            {
+              "name": "cert-account",
+              "description": "The account name for PKCS 12 certificate stored in credential manager",
+              "type": "string",
               "group": "Base Connection Options",
               "aliases": []
             }
@@ -10659,6 +10925,13 @@
               "name": "cert-key-file",
               "description": "The file path to a certificate key file to use for authentication",
               "type": "existingLocalFile",
+              "group": "Base Connection Options",
+              "aliases": []
+            },
+            {
+              "name": "cert-account",
+              "description": "The account name for PKCS 12 certificate stored in credential manager",
+              "type": "string",
               "group": "Base Connection Options",
               "aliases": []
             }
@@ -10989,6 +11262,13 @@
           "type": "existingLocalFile",
           "group": "Base Connection Options",
           "aliases": []
+        },
+        {
+          "name": "cert-account",
+          "description": "The account name for PKCS 12 certificate stored in credential manager",
+          "type": "string",
+          "group": "Base Connection Options",
+          "aliases": []
         }
       ],
       "examples": [
@@ -11233,6 +11513,13 @@
               "name": "cert-key-file",
               "description": "The file path to a certificate key file to use for authentication",
               "type": "existingLocalFile",
+              "group": "Base Connection Options",
+              "aliases": []
+            },
+            {
+              "name": "cert-account",
+              "description": "The account name for PKCS 12 certificate stored in credential manager",
+              "type": "string",
               "group": "Base Connection Options",
               "aliases": []
             }
@@ -11673,6 +11960,13 @@
               "aliases": []
             },
             {
+              "name": "cert-account",
+              "description": "The account name for PKCS 12 certificate stored in credential manager",
+              "type": "string",
+              "group": "Base Connection Options",
+              "aliases": []
+            },
+            {
               "name": "response-format-filter",
               "aliases": [
                 "rff"
@@ -11927,6 +12221,13 @@
               "name": "cert-key-file",
               "description": "The file path to a certificate key file to use for authentication",
               "type": "existingLocalFile",
+              "group": "Base Connection Options",
+              "aliases": []
+            },
+            {
+              "name": "cert-account",
+              "description": "The account name for PKCS 12 certificate stored in credential manager",
+              "type": "string",
               "group": "Base Connection Options",
               "aliases": []
             },
@@ -12287,6 +12588,13 @@
               "type": "existingLocalFile",
               "group": "Base Connection Options",
               "aliases": []
+            },
+            {
+              "name": "cert-account",
+              "description": "The account name for PKCS 12 certificate stored in credential manager",
+              "type": "string",
+              "group": "Base Connection Options",
+              "aliases": []
             }
           ],
           "examples": [
@@ -12565,6 +12873,13 @@
               "type": "existingLocalFile",
               "group": "Base Connection Options",
               "aliases": []
+            },
+            {
+              "name": "cert-account",
+              "description": "The account name for PKCS 12 certificate stored in credential manager",
+              "type": "string",
+              "group": "Base Connection Options",
+              "aliases": []
             }
           ],
           "examples": [
@@ -12812,6 +13127,13 @@
               "name": "cert-key-file",
               "description": "The file path to a certificate key file to use for authentication",
               "type": "existingLocalFile",
+              "group": "Base Connection Options",
+              "aliases": []
+            },
+            {
+              "name": "cert-account",
+              "description": "The account name for PKCS 12 certificate stored in credential manager",
+              "type": "string",
               "group": "Base Connection Options",
               "aliases": []
             }
@@ -13072,6 +13394,13 @@
               "name": "cert-key-file",
               "description": "The file path to a certificate key file to use for authentication",
               "type": "existingLocalFile",
+              "group": "Base Connection Options",
+              "aliases": []
+            },
+            {
+              "name": "cert-account",
+              "description": "The account name for PKCS 12 certificate stored in credential manager",
+              "type": "string",
               "group": "Base Connection Options",
               "aliases": []
             }
@@ -13337,6 +13666,13 @@
               "type": "existingLocalFile",
               "group": "Base Connection Options",
               "aliases": []
+            },
+            {
+              "name": "cert-account",
+              "description": "The account name for PKCS 12 certificate stored in credential manager",
+              "type": "string",
+              "group": "Base Connection Options",
+              "aliases": []
             }
           ],
           "examples": [
@@ -13592,6 +13928,13 @@
               "type": "existingLocalFile",
               "group": "Base Connection Options",
               "aliases": []
+            },
+            {
+              "name": "cert-account",
+              "description": "The account name for PKCS 12 certificate stored in credential manager",
+              "type": "string",
+              "group": "Base Connection Options",
+              "aliases": []
             }
           ],
           "examples": [
@@ -13806,6 +14149,13 @@
               "name": "cert-key-file",
               "description": "The file path to a certificate key file to use for authentication",
               "type": "existingLocalFile",
+              "group": "Base Connection Options",
+              "aliases": []
+            },
+            {
+              "name": "cert-account",
+              "description": "The account name for PKCS 12 certificate stored in credential manager",
+              "type": "string",
               "group": "Base Connection Options",
               "aliases": []
             }
@@ -14085,6 +14435,13 @@
               "type": "existingLocalFile",
               "group": "Base Connection Options",
               "aliases": []
+            },
+            {
+              "name": "cert-account",
+              "description": "The account name for PKCS 12 certificate stored in credential manager",
+              "type": "string",
+              "group": "Base Connection Options",
+              "aliases": []
             }
           ],
           "examples": [
@@ -14320,6 +14677,13 @@
               "name": "cert-key-file",
               "description": "The file path to a certificate key file to use for authentication",
               "type": "existingLocalFile",
+              "group": "Base Connection Options",
+              "aliases": []
+            },
+            {
+              "name": "cert-account",
+              "description": "The account name for PKCS 12 certificate stored in credential manager",
+              "type": "string",
               "group": "Base Connection Options",
               "aliases": []
             }
