@@ -521,6 +521,13 @@
               "type": "existingLocalFile",
               "group": "Base Connection Options",
               "aliases": []
+            },
+            {
+              "name": "cert-account",
+              "description": "The account name for PKCS 12 certificate stored in credential manager",
+              "type": "string",
+              "group": "Base Connection Options",
+              "aliases": []
             }
           ],
           "passOn": [],
@@ -993,6 +1000,13 @@
               "type": "existingLocalFile",
               "group": "Base Connection Options",
               "aliases": []
+            },
+            {
+              "name": "cert-account",
+              "description": "The account name for PKCS 12 certificate stored in credential manager",
+              "type": "string",
+              "group": "Base Connection Options",
+              "aliases": []
             }
           ],
           "passOn": [],
@@ -1449,6 +1463,13 @@
               "name": "cert-key-file",
               "description": "The file path to a certificate key file to use for authentication",
               "type": "existingLocalFile",
+              "group": "Base Connection Options",
+              "aliases": []
+            },
+            {
+              "name": "cert-account",
+              "description": "The account name for PKCS 12 certificate stored in credential manager",
+              "type": "string",
               "group": "Base Connection Options",
               "aliases": []
             }
@@ -1908,6 +1929,13 @@
               "name": "cert-key-file",
               "description": "The file path to a certificate key file to use for authentication",
               "type": "existingLocalFile",
+              "group": "Base Connection Options",
+              "aliases": []
+            },
+            {
+              "name": "cert-account",
+              "description": "The account name for PKCS 12 certificate stored in credential manager",
+              "type": "string",
               "group": "Base Connection Options",
               "aliases": []
             }
@@ -2394,6 +2422,13 @@
               "type": "existingLocalFile",
               "group": "Base Connection Options",
               "aliases": []
+            },
+            {
+              "name": "cert-account",
+              "description": "The account name for PKCS 12 certificate stored in credential manager",
+              "type": "string",
+              "group": "Base Connection Options",
+              "aliases": []
             }
           ],
           "passOn": [],
@@ -2808,6 +2843,13 @@
               "name": "cert-key-file",
               "description": "The file path to a certificate key file to use for authentication",
               "type": "existingLocalFile",
+              "group": "Base Connection Options",
+              "aliases": []
+            },
+            {
+              "name": "cert-account",
+              "description": "The account name for PKCS 12 certificate stored in credential manager",
+              "type": "string",
               "group": "Base Connection Options",
               "aliases": []
             }
@@ -3270,6 +3312,13 @@
               "type": "existingLocalFile",
               "group": "Base Connection Options",
               "aliases": []
+            },
+            {
+              "name": "cert-account",
+              "description": "The account name for PKCS 12 certificate stored in credential manager",
+              "type": "string",
+              "group": "Base Connection Options",
+              "aliases": []
             }
           ],
           "passOn": [],
@@ -3624,6 +3673,13 @@
               "name": "cert-key-file",
               "description": "The file path to a certificate key file to use for authentication",
               "type": "existingLocalFile",
+              "group": "Base Connection Options",
+              "aliases": []
+            },
+            {
+              "name": "cert-account",
+              "description": "The account name for PKCS 12 certificate stored in credential manager",
+              "type": "string",
               "group": "Base Connection Options",
               "aliases": []
             }
@@ -4120,6 +4176,13 @@
               "name": "cert-key-file",
               "description": "The file path to a certificate key file to use for authentication",
               "type": "existingLocalFile",
+              "group": "Base Connection Options",
+              "aliases": []
+            },
+            {
+              "name": "cert-account",
+              "description": "The account name for PKCS 12 certificate stored in credential manager",
+              "type": "string",
               "group": "Base Connection Options",
               "aliases": []
             }
@@ -4740,6 +4803,13 @@
               "type": "existingLocalFile",
               "group": "Base Connection Options",
               "aliases": []
+            },
+            {
+              "name": "cert-account",
+              "description": "The account name for PKCS 12 certificate stored in credential manager",
+              "type": "string",
+              "group": "Base Connection Options",
+              "aliases": []
             }
           ],
           "passOn": [],
@@ -5031,6 +5101,13 @@
               "name": "cert-key-file",
               "description": "The file path to a certificate key file to use for authentication",
               "type": "existingLocalFile",
+              "group": "Base Connection Options",
+              "aliases": []
+            },
+            {
+              "name": "cert-account",
+              "description": "The account name for PKCS 12 certificate stored in credential manager",
+              "type": "string",
               "group": "Base Connection Options",
               "aliases": []
             }
@@ -5499,6 +5576,13 @@
               "name": "cert-key-file",
               "description": "The file path to a certificate key file to use for authentication",
               "type": "existingLocalFile",
+              "group": "Base Connection Options",
+              "aliases": []
+            },
+            {
+              "name": "cert-account",
+              "description": "The account name for PKCS 12 certificate stored in credential manager",
+              "type": "string",
               "group": "Base Connection Options",
               "aliases": []
             }
@@ -5981,6 +6065,13 @@
               "name": "cert-key-file",
               "description": "The file path to a certificate key file to use for authentication",
               "type": "existingLocalFile",
+              "group": "Base Connection Options",
+              "aliases": []
+            },
+            {
+              "name": "cert-account",
+              "description": "The account name for PKCS 12 certificate stored in credential manager",
+              "type": "string",
               "group": "Base Connection Options",
               "aliases": []
             }
@@ -6625,6 +6716,13 @@
               "type": "existingLocalFile",
               "group": "Base Connection Options",
               "aliases": []
+            },
+            {
+              "name": "cert-account",
+              "description": "The account name for PKCS 12 certificate stored in credential manager",
+              "type": "string",
+              "group": "Base Connection Options",
+              "aliases": []
             }
           ],
           "passOn": [],
@@ -6984,6 +7082,13 @@
               "type": "existingLocalFile",
               "group": "Base Connection Options",
               "aliases": []
+            },
+            {
+              "name": "cert-account",
+              "description": "The account name for PKCS 12 certificate stored in credential manager",
+              "type": "string",
+              "group": "Base Connection Options",
+              "aliases": []
             }
           ],
           "passOn": [],
@@ -7224,7 +7329,7 @@
               "aliases": [
                 "fo"
               ],
-              "description": "Specify this option if you want a full output of list action.",
+              "description": "Specify this option if you want the full output of the list action.",
               "type": "boolean",
               "group": "output customization options"
             },
@@ -7327,6 +7432,13 @@
               "name": "cert-key-file",
               "description": "The file path to a certificate key file to use for authentication",
               "type": "existingLocalFile",
+              "group": "Base Connection Options",
+              "aliases": []
+            },
+            {
+              "name": "cert-account",
+              "description": "The account name for PKCS 12 certificate stored in credential manager",
+              "type": "string",
               "group": "Base Connection Options",
               "aliases": []
             },
@@ -7564,7 +7676,7 @@
               "aliases": [
                 "fo"
               ],
-              "description": "Specify this option if you want a full output of list action.",
+              "description": "Specify this option if you want the full output of the list action.",
               "type": "boolean",
               "group": "output customization options"
             },
@@ -7667,6 +7779,13 @@
               "name": "cert-key-file",
               "description": "The file path to a certificate key file to use for authentication",
               "type": "existingLocalFile",
+              "group": "Base Connection Options",
+              "aliases": []
+            },
+            {
+              "name": "cert-account",
+              "description": "The account name for PKCS 12 certificate stored in credential manager",
+              "type": "string",
               "group": "Base Connection Options",
               "aliases": []
             },
@@ -7907,7 +8026,7 @@
               "aliases": [
                 "fo"
               ],
-              "description": "Specify this option if you want a full output of list action.",
+              "description": "Specify this option if you want the full output of the list action.",
               "type": "boolean",
               "group": "output customization options"
             },
@@ -8010,6 +8129,13 @@
               "name": "cert-key-file",
               "description": "The file path to a certificate key file to use for authentication",
               "type": "existingLocalFile",
+              "group": "Base Connection Options",
+              "aliases": []
+            },
+            {
+              "name": "cert-account",
+              "description": "The account name for PKCS 12 certificate stored in credential manager",
+              "type": "string",
               "group": "Base Connection Options",
               "aliases": []
             },
@@ -8246,7 +8372,7 @@
               "aliases": [
                 "fo"
               ],
-              "description": "Specify this option if you want a full output of list action.",
+              "description": "Specify this option if you want the full output of the list action.",
               "type": "boolean",
               "group": "output customization options"
             },
@@ -8349,6 +8475,13 @@
               "name": "cert-key-file",
               "description": "The file path to a certificate key file to use for authentication",
               "type": "existingLocalFile",
+              "group": "Base Connection Options",
+              "aliases": []
+            },
+            {
+              "name": "cert-account",
+              "description": "The account name for PKCS 12 certificate stored in credential manager",
+              "type": "string",
               "group": "Base Connection Options",
               "aliases": []
             },
@@ -8586,7 +8719,7 @@
               "aliases": [
                 "fo"
               ],
-              "description": "Specify this option if you want a full output of list action.",
+              "description": "Specify this option if you want the full output of the list action.",
               "type": "boolean",
               "group": "output customization options"
             },
@@ -8689,6 +8822,13 @@
               "name": "cert-key-file",
               "description": "The file path to a certificate key file to use for authentication",
               "type": "existingLocalFile",
+              "group": "Base Connection Options",
+              "aliases": []
+            },
+            {
+              "name": "cert-account",
+              "description": "The account name for PKCS 12 certificate stored in credential manager",
+              "type": "string",
               "group": "Base Connection Options",
               "aliases": []
             },
@@ -8826,7 +8966,7 @@
               "aliases": [
                 "fo"
               ],
-              "description": "Specify this option if you want a full output of list action.",
+              "description": "Specify this option if you want the full output of the list action.",
               "type": "boolean",
               "group": "output customization options"
             },
@@ -8930,6 +9070,13 @@
               "name": "cert-key-file",
               "description": "The file path to a certificate key file to use for authentication",
               "type": "existingLocalFile",
+              "group": "Base Connection Options",
+              "aliases": []
+            },
+            {
+              "name": "cert-account",
+              "description": "The account name for PKCS 12 certificate stored in credential manager",
+              "type": "string",
               "group": "Base Connection Options",
               "aliases": []
             },
@@ -9170,7 +9317,7 @@
               "aliases": [
                 "fo"
               ],
-              "description": "Specify this option if you want a full output of list action.",
+              "description": "Specify this option if you want the full output of the list action.",
               "type": "boolean",
               "group": "output customization options"
             },
@@ -9273,6 +9420,13 @@
               "name": "cert-key-file",
               "description": "The file path to a certificate key file to use for authentication",
               "type": "existingLocalFile",
+              "group": "Base Connection Options",
+              "aliases": []
+            },
+            {
+              "name": "cert-account",
+              "description": "The account name for PKCS 12 certificate stored in credential manager",
+              "type": "string",
               "group": "Base Connection Options",
               "aliases": []
             },
@@ -9521,7 +9675,7 @@
               "aliases": [
                 "fo"
               ],
-              "description": "Specify this option if you want a full output of list action.",
+              "description": "Specify this option if you want the full output of the list action.",
               "type": "boolean",
               "group": "output customization options"
             },
@@ -9624,6 +9778,13 @@
               "name": "cert-key-file",
               "description": "The file path to a certificate key file to use for authentication",
               "type": "existingLocalFile",
+              "group": "Base Connection Options",
+              "aliases": []
+            },
+            {
+              "name": "cert-account",
+              "description": "The account name for PKCS 12 certificate stored in credential manager",
+              "type": "string",
               "group": "Base Connection Options",
               "aliases": []
             },
@@ -9884,7 +10045,7 @@
               "aliases": [
                 "fo"
               ],
-              "description": "Specify this option if you want a full output of list action.",
+              "description": "Specify this option if you want the full output of the list action.",
               "type": "boolean",
               "group": "output customization options"
             },
@@ -9987,6 +10148,13 @@
               "name": "cert-key-file",
               "description": "The file path to a certificate key file to use for authentication",
               "type": "existingLocalFile",
+              "group": "Base Connection Options",
+              "aliases": []
+            },
+            {
+              "name": "cert-account",
+              "description": "The account name for PKCS 12 certificate stored in credential manager",
+              "type": "string",
               "group": "Base Connection Options",
               "aliases": []
             },
@@ -10265,7 +10433,7 @@
               "aliases": [
                 "fo"
               ],
-              "description": "Specify this option if you want a full output of list action.",
+              "description": "Specify this option if you want the full output of the list action.",
               "type": "boolean",
               "group": "output customization options"
             },
@@ -10368,6 +10536,13 @@
               "name": "cert-key-file",
               "description": "The file path to a certificate key file to use for authentication",
               "type": "existingLocalFile",
+              "group": "Base Connection Options",
+              "aliases": []
+            },
+            {
+              "name": "cert-account",
+              "description": "The account name for PKCS 12 certificate stored in credential manager",
+              "type": "string",
               "group": "Base Connection Options",
               "aliases": []
             },
@@ -10659,7 +10834,7 @@
               "aliases": [
                 "fo"
               ],
-              "description": "Specify this option if you want a full output of list action.",
+              "description": "Specify this option if you want the full output of the list action.",
               "type": "boolean",
               "group": "output customization options"
             },
@@ -10762,6 +10937,13 @@
               "name": "cert-key-file",
               "description": "The file path to a certificate key file to use for authentication",
               "type": "existingLocalFile",
+              "group": "Base Connection Options",
+              "aliases": []
+            },
+            {
+              "name": "cert-account",
+              "description": "The account name for PKCS 12 certificate stored in credential manager",
+              "type": "string",
               "group": "Base Connection Options",
               "aliases": []
             },
@@ -11052,7 +11234,7 @@
               "aliases": [
                 "fo"
               ],
-              "description": "Specify this option if you want a full output of list action.",
+              "description": "Specify this option if you want the full output of the list action.",
               "type": "boolean",
               "group": "output customization options"
             },
@@ -11155,6 +11337,13 @@
               "name": "cert-key-file",
               "description": "The file path to a certificate key file to use for authentication",
               "type": "existingLocalFile",
+              "group": "Base Connection Options",
+              "aliases": []
+            },
+            {
+              "name": "cert-account",
+              "description": "The account name for PKCS 12 certificate stored in credential manager",
+              "type": "string",
               "group": "Base Connection Options",
               "aliases": []
             },
@@ -11458,7 +11647,7 @@
               "aliases": [
                 "fo"
               ],
-              "description": "Specify this option if you want a full output of list action.",
+              "description": "Specify this option if you want the full output of the list action.",
               "type": "boolean",
               "group": "output customization options"
             },
@@ -11561,6 +11750,13 @@
               "name": "cert-key-file",
               "description": "The file path to a certificate key file to use for authentication",
               "type": "existingLocalFile",
+              "group": "Base Connection Options",
+              "aliases": []
+            },
+            {
+              "name": "cert-account",
+              "description": "The account name for PKCS 12 certificate stored in credential manager",
+              "type": "string",
               "group": "Base Connection Options",
               "aliases": []
             },
@@ -11864,7 +12060,7 @@
               "aliases": [
                 "fo"
               ],
-              "description": "Specify this option if you want a full output of list action.",
+              "description": "Specify this option if you want the full output of the list action.",
               "type": "boolean",
               "group": "output customization options"
             },
@@ -11967,6 +12163,13 @@
               "name": "cert-key-file",
               "description": "The file path to a certificate key file to use for authentication",
               "type": "existingLocalFile",
+              "group": "Base Connection Options",
+              "aliases": []
+            },
+            {
+              "name": "cert-account",
+              "description": "The account name for PKCS 12 certificate stored in credential manager",
+              "type": "string",
               "group": "Base Connection Options",
               "aliases": []
             },
@@ -12288,7 +12491,7 @@
               "aliases": [
                 "fo"
               ],
-              "description": "Specify this option if you want a full output of list action.",
+              "description": "Specify this option if you want the full output of the list action.",
               "type": "boolean",
               "group": "output customization options"
             },
@@ -12391,6 +12594,13 @@
               "name": "cert-key-file",
               "description": "The file path to a certificate key file to use for authentication",
               "type": "existingLocalFile",
+              "group": "Base Connection Options",
+              "aliases": []
+            },
+            {
+              "name": "cert-account",
+              "description": "The account name for PKCS 12 certificate stored in credential manager",
+              "type": "string",
               "group": "Base Connection Options",
               "aliases": []
             },
@@ -13043,7 +13253,7 @@
               "aliases": [
                 "fo"
               ],
-              "description": "Specify this option if you want a full output of list action.",
+              "description": "Specify this option if you want the full output of the list action.",
               "type": "boolean",
               "group": "output customization options"
             },
@@ -13146,6 +13356,13 @@
               "name": "cert-key-file",
               "description": "The file path to a certificate key file to use for authentication",
               "type": "existingLocalFile",
+              "group": "Base Connection Options",
+              "aliases": []
+            },
+            {
+              "name": "cert-account",
+              "description": "The account name for PKCS 12 certificate stored in credential manager",
+              "type": "string",
               "group": "Base Connection Options",
               "aliases": []
             },
@@ -13355,7 +13572,7 @@
               "aliases": [
                 "fo"
               ],
-              "description": "Specify this option if you want a full output of list action.",
+              "description": "Specify this option if you want the full output of the list action.",
               "type": "boolean",
               "group": "output customization options"
             },
@@ -13449,6 +13666,13 @@
               "name": "cert-key-file",
               "description": "The file path to a certificate key file to use for authentication",
               "type": "existingLocalFile",
+              "group": "Base Connection Options",
+              "aliases": []
+            },
+            {
+              "name": "cert-account",
+              "description": "The account name for PKCS 12 certificate stored in credential manager",
+              "type": "string",
               "group": "Base Connection Options",
               "aliases": []
             },
@@ -13645,7 +13869,7 @@
             "aliases": [
               "fo"
             ],
-            "description": "Specify this option if you want a full output of list action.",
+            "description": "Specify this option if you want the full output of the list action.",
             "type": "boolean",
             "group": "output customization options"
           },
@@ -14154,6 +14378,13 @@
               "name": "cert-key-file",
               "description": "The file path to a certificate key file to use for authentication",
               "type": "existingLocalFile",
+              "group": "Base Connection Options",
+              "aliases": []
+            },
+            {
+              "name": "cert-account",
+              "description": "The account name for PKCS 12 certificate stored in credential manager",
+              "type": "string",
               "group": "Base Connection Options",
               "aliases": []
             }
@@ -14772,6 +15003,13 @@
               "name": "cert-key-file",
               "description": "The file path to a certificate key file to use for authentication",
               "type": "existingLocalFile",
+              "group": "Base Connection Options",
+              "aliases": []
+            },
+            {
+              "name": "cert-account",
+              "description": "The account name for PKCS 12 certificate stored in credential manager",
+              "type": "string",
               "group": "Base Connection Options",
               "aliases": []
             }
@@ -15459,6 +15697,13 @@
               "type": "existingLocalFile",
               "group": "Base Connection Options",
               "aliases": []
+            },
+            {
+              "name": "cert-account",
+              "description": "The account name for PKCS 12 certificate stored in credential manager",
+              "type": "string",
+              "group": "Base Connection Options",
+              "aliases": []
             }
           ],
           "passOn": [],
@@ -15925,6 +16170,13 @@
               "type": "existingLocalFile",
               "group": "Base Connection Options",
               "aliases": []
+            },
+            {
+              "name": "cert-account",
+              "description": "The account name for PKCS 12 certificate stored in credential manager",
+              "type": "string",
+              "group": "Base Connection Options",
+              "aliases": []
             }
           ],
           "passOn": [],
@@ -16225,6 +16477,13 @@
               "type": "existingLocalFile",
               "group": "Base Connection Options",
               "aliases": []
+            },
+            {
+              "name": "cert-account",
+              "description": "The account name for PKCS 12 certificate stored in credential manager",
+              "type": "string",
+              "group": "Base Connection Options",
+              "aliases": []
             }
           ],
           "passOn": [],
@@ -16407,18 +16666,23 @@
     {
       "name": "queryacm",
       "type": "group",
-      "description": "Query Elements and information about their components in Endevor.",
+      "description": "Query components used by element, or elements using component in Endevor.",
       "children": [
         {
           "examples": [
             {
-              "options": "elementName --env ENVNAME --sn 1 --sys SYSNAME --sub SUBNAME --typ TYPENAME -i ENDEVOR",
-              "description": "query all the components used by element \"elementName\" from the specified inventory location with the endevor profile set up"
+              "options": "ELMNAM --env ENVNAME --sn 1 --sys SYSNAME --sub SUBNAME --typ TYPENAME -i ENDEVOR",
+              "description": "Query all the components used by element \"ELMNAM\" from the specified inventory location with the Endevor profile set up."
+            },
+            {
+              "options": "ELMNAME --env ENVNAME --sn 1 --sys SYSNAME --sub SUBNAME --typ TYPENAME --exc --exi --exr -i ENDEVOR",
+              "description": "Query all the components used by element \"ELMNAME\" from the specified inventory location with the Endevor profile set up, exclude circular, indirect and related."
             }
           ],
-          "name": "components",
+          "name": "components-using-element",
           "aliases": [
-            "comp"
+            "comp",
+            "components"
           ],
           "type": "command",
           "handler": "",
@@ -16552,7 +16816,7 @@
               "aliases": [
                 "fo"
               ],
-              "description": "Specify this option if you want a full output of list action.",
+              "description": "Specify this option if you want the full output of the list action.",
               "type": "boolean",
               "group": "output customization options"
             },
@@ -16768,6 +17032,1472 @@
               "name": "cert-key-file",
               "description": "The file path to a certificate key file to use for authentication",
               "type": "existingLocalFile",
+              "group": "Base Connection Options",
+              "aliases": []
+            },
+            {
+              "name": "cert-account",
+              "description": "The account name for PKCS 12 certificate stored in credential manager",
+              "type": "string",
+              "group": "Base Connection Options",
+              "aliases": []
+            },
+            {
+              "name": "response-format-filter",
+              "aliases": [
+                "rff"
+              ],
+              "description": "Filter (include) fields in the response. Accepts an array of field/property names to include in the output response. You can filter JSON objects properties OR table columns/fields. In addition, you can use this option in conjunction with '--response-format-type' to reduce the output of a command to a single field/property or a list of a single field/property.",
+              "type": "array",
+              "group": "Response Format Options"
+            },
+            {
+              "name": "response-format-type",
+              "aliases": [
+                "rft"
+              ],
+              "description": "The command response output format type. Must be one of the following:\n\ntable: Formats output data as a table. Use this option when the output data is an array of homogeneous JSON objects. Each property of the object will become a column in the table.\n\nlist: Formats output data as a list of strings. Can be used on any data type (JSON objects/arrays) are stringified and a new line is added after each entry in an array.\n\nobject: Formats output data as a list of prettified objects (or single object). Can be used in place of \"table\" to change from tabular output to a list of prettified objects.\n\nstring: Formats output data as a string. JSON objects/arrays are stringified.",
+              "type": "string",
+              "allowableValues": {
+                "values": [
+                  "table",
+                  "list",
+                  "object",
+                  "string"
+                ],
+                "caseSensitive": false
+              },
+              "group": "Response Format Options"
+            },
+            {
+              "name": "response-format-header",
+              "aliases": [
+                "rfh"
+              ],
+              "description": "If \"--response-format-type table\" is specified, include the column headers in the output.",
+              "type": "boolean",
+              "group": "Response Format Options",
+              "defaultValue": null
+            }
+          ],
+          "outputFormatOptions": true,
+          "passOn": [],
+          "children": []
+        },
+        {
+          "examples": [
+            {
+              "options": "ELMNAM --env ENVNAME --sn 1 --sys SYSNAME --sub SUBNAME --typ TYPENAME -i ENDEVOR",
+              "description": "Query all the elements using specified component element \"ELMNAM\" from the specified inventory location with the Endevor profile set up."
+            }
+          ],
+          "name": "elements-using-element",
+          "aliases": [
+            "ele",
+            "element"
+          ],
+          "type": "command",
+          "handler": "",
+          "description": "Query elements using an element component with the Endevor ACM Query facility.",
+          "positionals": [
+            {
+              "name": "element",
+              "type": "string",
+              "description": "Name of the Endevor element.",
+              "required": true,
+              "stringLengthRange": [
+                1,
+                255
+              ]
+            }
+          ],
+          "profile": {
+            "optional": [
+              "endevor",
+              "endevor-location",
+              "base"
+            ]
+          },
+          "options": [
+            {
+              "name": "environment",
+              "aliases": [
+                "env"
+              ],
+              "description": "The Endevor environment where your project resides.",
+              "type": "string",
+              "stringLengthRange": [
+                1,
+                8
+              ],
+              "group": "endevor-location definition options"
+            },
+            {
+              "name": "system",
+              "aliases": [
+                "sys"
+              ],
+              "description": "The Endevor system where your project resides.",
+              "type": "string",
+              "stringLengthRange": [
+                1,
+                8
+              ],
+              "group": "endevor-location definition options"
+            },
+            {
+              "name": "subsystem",
+              "aliases": [
+                "sub"
+              ],
+              "description": "The Endevor subsystem where your project resides.",
+              "type": "string",
+              "stringLengthRange": [
+                1,
+                8
+              ],
+              "group": "endevor-location definition options"
+            },
+            {
+              "name": "type",
+              "aliases": [
+                "typ"
+              ],
+              "description": "Name of the Endevor element's type.",
+              "type": "string",
+              "stringLengthRange": [
+                1,
+                8
+              ],
+              "group": "endevor-location definition options"
+            },
+            {
+              "name": "stage-number",
+              "aliases": [
+                "sn"
+              ],
+              "description": "The Endevor stage number where your project resides.",
+              "type": "string",
+              "allowableValues": {
+                "values": [
+                  "\\*",
+                  "\\%",
+                  "1",
+                  "2"
+                ]
+              },
+              "group": "endevor-location definition options"
+            },
+            {
+              "name": "maxrc",
+              "description": "The maximum value of the return code of a successful action. When the return code is greater than the maxrc value, the command fails",
+              "type": "number",
+              "defaultValue": 8,
+              "group": "endevor-location definition options",
+              "aliases": []
+            },
+            {
+              "name": "excCirculars",
+              "aliases": [
+                "exc"
+              ],
+              "description": "Filters the result to exclude components that have a circular relationship to the subject of your search.",
+              "type": "boolean",
+              "group": "options"
+            },
+            {
+              "name": "excIndirect",
+              "aliases": [
+                "exi"
+              ],
+              "description": "Filters the result to exclude indirectly related components.",
+              "type": "boolean",
+              "group": "options"
+            },
+            {
+              "name": "excRelated",
+              "aliases": [
+                "exr"
+              ],
+              "description": "Filters the result to exclude related components.",
+              "type": "boolean",
+              "group": "options"
+            },
+            {
+              "name": "full-output",
+              "aliases": [
+                "fo"
+              ],
+              "description": "Specify this option if you want the full output of the list action.",
+              "type": "boolean",
+              "group": "output customization options"
+            },
+            {
+              "name": "asynchronous",
+              "aliases": [
+                "async"
+              ],
+              "description": "Submit this command as an asynchronous Endevor Web Services task",
+              "type": "boolean",
+              "group": "asynchronous task options"
+            },
+            {
+              "name": "host",
+              "aliases": [
+                "hostname"
+              ],
+              "description": "Specifies the base host name.",
+              "type": "string",
+              "group": "endevor session definition options"
+            },
+            {
+              "name": "port",
+              "aliases": [
+                "p"
+              ],
+              "description": "Specifies the port number.",
+              "type": "string",
+              "group": "endevor session definition options"
+            },
+            {
+              "name": "instance",
+              "aliases": [
+                "i"
+              ],
+              "description": "Specifies Endevor Web Services dataSource name if it isn't already included in basePath",
+              "type": "stringOrEmpty",
+              "group": "endevor-location definition options",
+              "defaultValue": ""
+            },
+            {
+              "name": "protocol",
+              "aliases": [
+                "prot"
+              ],
+              "description": "Specifies the protocol used for connecting to Endevor Rest API",
+              "type": "string",
+              "defaultValue": "https",
+              "allowableValues": {
+                "values": [
+                  "http",
+                  "https"
+                ],
+                "caseSensitive": false
+              },
+              "group": "endevor session definition options"
+            },
+            {
+              "name": "user",
+              "aliases": [
+                "username"
+              ],
+              "description": "Specifies the user name.",
+              "type": "string",
+              "group": "endevor session definition options"
+            },
+            {
+              "name": "password",
+              "aliases": [
+                "pass"
+              ],
+              "description": "Specifies the user's password.",
+              "type": "string",
+              "group": "endevor session definition options"
+            },
+            {
+              "name": "reject-unauthorized",
+              "aliases": [
+                "ru"
+              ],
+              "description": "Specify this option to have the server certificate verified against the list of supplied CAs",
+              "type": "boolean",
+              "group": "endevor session definition options"
+            },
+            {
+              "name": "base-path",
+              "aliases": [
+                "bp"
+              ],
+              "description": "Specifies the base path used for connecting to Endevor Rest API",
+              "type": "string",
+              "group": "endevor session definition options"
+            },
+            {
+              "name": "suppress-messages",
+              "aliases": [
+                "sm"
+              ],
+              "description": "Suppress all [INFO]/[WARN] messages from terminal output.",
+              "type": "boolean",
+              "group": "output customization options"
+            },
+            {
+              "name": "report-file",
+              "aliases": [
+                "file-name"
+              ],
+              "description": "File name for saving reports from Endevor SCM locally.",
+              "type": "string",
+              "group": "output customization options"
+            },
+            {
+              "name": "report-dir",
+              "description": "Directory for saving reports from Endevor SCM locally, if --report-file wasn't specified. Defaults to current directory.",
+              "type": "string",
+              "group": "output customization options",
+              "aliases": []
+            },
+            {
+              "name": "write-report",
+              "description": "Write the endevor reports to a file. By default, when return code is 0, no report will be written, unless this option is specified. When return code is bigger than 0, reports will be written to a file, unless this option is specifed to be false",
+              "type": "boolean",
+              "group": "output customization options",
+              "aliases": []
+            },
+            {
+              "name": "show-inputs-only",
+              "group": "Global Options",
+              "description": "Show command inputs and do not run the command",
+              "type": "boolean",
+              "aliases": []
+            },
+            {
+              "name": "response-format-json",
+              "aliases": [
+                "rfj"
+              ],
+              "group": "Global Options",
+              "description": "Produce JSON formatted data from a command",
+              "type": "boolean"
+            },
+            {
+              "name": "help",
+              "aliases": [
+                "h"
+              ],
+              "group": "Global Options",
+              "description": "Display help text",
+              "type": "boolean"
+            },
+            {
+              "name": "help-web",
+              "aliases": [
+                "hw"
+              ],
+              "group": "Global Options",
+              "description": "Display HTML help in browser",
+              "type": "boolean"
+            },
+            {
+              "name": "endevor-profile",
+              "aliases": [
+                "endevor-p"
+              ],
+              "group": "Profile Options",
+              "description": "The name of a (endevor) profile to load for this command execution.",
+              "type": "string"
+            },
+            {
+              "name": "endevor-location-profile",
+              "aliases": [
+                "endevor-location-p"
+              ],
+              "group": "Profile Options",
+              "description": "The name of a (endevor-location) profile to load for this command execution.",
+              "type": "string"
+            },
+            {
+              "name": "base-profile",
+              "aliases": [
+                "base-p"
+              ],
+              "group": "Profile Options",
+              "description": "The name of a (base) profile to load for this command execution.",
+              "type": "string"
+            },
+            {
+              "name": "token-type",
+              "aliases": [
+                "tt"
+              ],
+              "description": "The type of token to get and use for the API. Omit this option to use the default token type, which is provided by 'zowe auth login'.",
+              "type": "string",
+              "group": "Base Connection Options"
+            },
+            {
+              "name": "token-value",
+              "aliases": [
+                "tv"
+              ],
+              "description": "The value of the token to pass to the API.",
+              "type": "string",
+              "group": "Base Connection Options"
+            },
+            {
+              "name": "cert-file",
+              "description": "The file path to a certificate file to use for authentication.\n\nNote: The CLI does not support certificate files that require a password. For more information, search Troubleshooting PEM Certificates in Zowe Docs.",
+              "type": "existingLocalFile",
+              "group": "Base Connection Options",
+              "aliases": []
+            },
+            {
+              "name": "cert-key-file",
+              "description": "The file path to a certificate key file to use for authentication",
+              "type": "existingLocalFile",
+              "group": "Base Connection Options",
+              "aliases": []
+            },
+            {
+              "name": "cert-account",
+              "description": "The account name for PKCS 12 certificate stored in credential manager",
+              "type": "string",
+              "group": "Base Connection Options",
+              "aliases": []
+            },
+            {
+              "name": "response-format-filter",
+              "aliases": [
+                "rff"
+              ],
+              "description": "Filter (include) fields in the response. Accepts an array of field/property names to include in the output response. You can filter JSON objects properties OR table columns/fields. In addition, you can use this option in conjunction with '--response-format-type' to reduce the output of a command to a single field/property or a list of a single field/property.",
+              "type": "array",
+              "group": "Response Format Options"
+            },
+            {
+              "name": "response-format-type",
+              "aliases": [
+                "rft"
+              ],
+              "description": "The command response output format type. Must be one of the following:\n\ntable: Formats output data as a table. Use this option when the output data is an array of homogeneous JSON objects. Each property of the object will become a column in the table.\n\nlist: Formats output data as a list of strings. Can be used on any data type (JSON objects/arrays) are stringified and a new line is added after each entry in an array.\n\nobject: Formats output data as a list of prettified objects (or single object). Can be used in place of \"table\" to change from tabular output to a list of prettified objects.\n\nstring: Formats output data as a string. JSON objects/arrays are stringified.",
+              "type": "string",
+              "allowableValues": {
+                "values": [
+                  "table",
+                  "list",
+                  "object",
+                  "string"
+                ],
+                "caseSensitive": false
+              },
+              "group": "Response Format Options"
+            },
+            {
+              "name": "response-format-header",
+              "aliases": [
+                "rfh"
+              ],
+              "description": "If \"--response-format-type table\" is specified, include the column headers in the output.",
+              "type": "boolean",
+              "group": "Response Format Options",
+              "defaultValue": null
+            }
+          ],
+          "outputFormatOptions": true,
+          "passOn": [],
+          "children": []
+        },
+        {
+          "examples": [
+            {
+              "options": "MEMNAME -i ENDEVOR",
+              "description": "Query all the elements using specified component member \"MEMNAME\" from any dataset with the Endevor profile set up."
+            },
+            {
+              "options": "MEMNAME --dsn HLQ.TEST.JCLLIB -i ENDEVOR",
+              "description": "Query all the elements using specified component member \"MEMNAME\" from dataset HLQ.TEST.JCLLIB with the Endevor profile set up."
+            }
+          ],
+          "name": "elements-using-member",
+          "aliases": [
+            "mem",
+            "member"
+          ],
+          "type": "command",
+          "handler": "",
+          "description": "Query elements using a member component with the Endevor ACM Query facility.",
+          "positionals": [
+            {
+              "name": "member",
+              "type": "string",
+              "description": "Endevor component of type member.",
+              "required": true,
+              "stringLengthRange": [
+                1,
+                255
+              ]
+            }
+          ],
+          "profile": {
+            "optional": [
+              "endevor",
+              "endevor-location",
+              "base"
+            ]
+          },
+          "options": [
+            {
+              "name": "dsname",
+              "aliases": [
+                "dsn"
+              ],
+              "type": "string",
+              "description": "Data set name to search for components of member.",
+              "required": false,
+              "group": "options",
+              "stringLengthRange": [
+                1,
+                44
+              ]
+            },
+            {
+              "name": "excCirculars",
+              "aliases": [
+                "exc"
+              ],
+              "description": "Filters the result to exclude components that have a circular relationship to the subject of your search.",
+              "type": "boolean",
+              "group": "options"
+            },
+            {
+              "name": "excIndirect",
+              "aliases": [
+                "exi"
+              ],
+              "description": "Filters the result to exclude indirectly related components.",
+              "type": "boolean",
+              "group": "options"
+            },
+            {
+              "name": "excRelated",
+              "aliases": [
+                "exr"
+              ],
+              "description": "Filters the result to exclude related components.",
+              "type": "boolean",
+              "group": "options"
+            },
+            {
+              "name": "maxrc",
+              "description": "The maximum value of the return code of a successful action. When the return code is greater than the maxrc value, the command fails",
+              "type": "number",
+              "defaultValue": 8,
+              "group": "endevor-location definition options",
+              "aliases": []
+            },
+            {
+              "name": "full-output",
+              "aliases": [
+                "fo"
+              ],
+              "description": "Specify this option if you want the full output of the list action.",
+              "type": "boolean",
+              "group": "output customization options"
+            },
+            {
+              "name": "asynchronous",
+              "aliases": [
+                "async"
+              ],
+              "description": "Submit this command as an asynchronous Endevor Web Services task",
+              "type": "boolean",
+              "group": "asynchronous task options"
+            },
+            {
+              "name": "host",
+              "aliases": [
+                "hostname"
+              ],
+              "description": "Specifies the base host name.",
+              "type": "string",
+              "group": "endevor session definition options"
+            },
+            {
+              "name": "port",
+              "aliases": [
+                "p"
+              ],
+              "description": "Specifies the port number.",
+              "type": "string",
+              "group": "endevor session definition options"
+            },
+            {
+              "name": "instance",
+              "aliases": [
+                "i"
+              ],
+              "description": "Specifies Endevor Web Services dataSource name if it isn't already included in basePath",
+              "type": "stringOrEmpty",
+              "group": "endevor-location definition options",
+              "defaultValue": ""
+            },
+            {
+              "name": "protocol",
+              "aliases": [
+                "prot"
+              ],
+              "description": "Specifies the protocol used for connecting to Endevor Rest API",
+              "type": "string",
+              "defaultValue": "https",
+              "allowableValues": {
+                "values": [
+                  "http",
+                  "https"
+                ],
+                "caseSensitive": false
+              },
+              "group": "endevor session definition options"
+            },
+            {
+              "name": "user",
+              "aliases": [
+                "username"
+              ],
+              "description": "Specifies the user name.",
+              "type": "string",
+              "group": "endevor session definition options"
+            },
+            {
+              "name": "password",
+              "aliases": [
+                "pass"
+              ],
+              "description": "Specifies the user's password.",
+              "type": "string",
+              "group": "endevor session definition options"
+            },
+            {
+              "name": "reject-unauthorized",
+              "aliases": [
+                "ru"
+              ],
+              "description": "Specify this option to have the server certificate verified against the list of supplied CAs",
+              "type": "boolean",
+              "group": "endevor session definition options"
+            },
+            {
+              "name": "base-path",
+              "aliases": [
+                "bp"
+              ],
+              "description": "Specifies the base path used for connecting to Endevor Rest API",
+              "type": "string",
+              "group": "endevor session definition options"
+            },
+            {
+              "name": "suppress-messages",
+              "aliases": [
+                "sm"
+              ],
+              "description": "Suppress all [INFO]/[WARN] messages from terminal output.",
+              "type": "boolean",
+              "group": "output customization options"
+            },
+            {
+              "name": "report-file",
+              "aliases": [
+                "file-name"
+              ],
+              "description": "File name for saving reports from Endevor SCM locally.",
+              "type": "string",
+              "group": "output customization options"
+            },
+            {
+              "name": "report-dir",
+              "description": "Directory for saving reports from Endevor SCM locally, if --report-file wasn't specified. Defaults to current directory.",
+              "type": "string",
+              "group": "output customization options",
+              "aliases": []
+            },
+            {
+              "name": "write-report",
+              "description": "Write the endevor reports to a file. By default, when return code is 0, no report will be written, unless this option is specified. When return code is bigger than 0, reports will be written to a file, unless this option is specifed to be false",
+              "type": "boolean",
+              "group": "output customization options",
+              "aliases": []
+            },
+            {
+              "name": "show-inputs-only",
+              "group": "Global Options",
+              "description": "Show command inputs and do not run the command",
+              "type": "boolean",
+              "aliases": []
+            },
+            {
+              "name": "response-format-json",
+              "aliases": [
+                "rfj"
+              ],
+              "group": "Global Options",
+              "description": "Produce JSON formatted data from a command",
+              "type": "boolean"
+            },
+            {
+              "name": "help",
+              "aliases": [
+                "h"
+              ],
+              "group": "Global Options",
+              "description": "Display help text",
+              "type": "boolean"
+            },
+            {
+              "name": "help-web",
+              "aliases": [
+                "hw"
+              ],
+              "group": "Global Options",
+              "description": "Display HTML help in browser",
+              "type": "boolean"
+            },
+            {
+              "name": "endevor-profile",
+              "aliases": [
+                "endevor-p"
+              ],
+              "group": "Profile Options",
+              "description": "The name of a (endevor) profile to load for this command execution.",
+              "type": "string"
+            },
+            {
+              "name": "endevor-location-profile",
+              "aliases": [
+                "endevor-location-p"
+              ],
+              "group": "Profile Options",
+              "description": "The name of a (endevor-location) profile to load for this command execution.",
+              "type": "string"
+            },
+            {
+              "name": "base-profile",
+              "aliases": [
+                "base-p"
+              ],
+              "group": "Profile Options",
+              "description": "The name of a (base) profile to load for this command execution.",
+              "type": "string"
+            },
+            {
+              "name": "token-type",
+              "aliases": [
+                "tt"
+              ],
+              "description": "The type of token to get and use for the API. Omit this option to use the default token type, which is provided by 'zowe auth login'.",
+              "type": "string",
+              "group": "Base Connection Options"
+            },
+            {
+              "name": "token-value",
+              "aliases": [
+                "tv"
+              ],
+              "description": "The value of the token to pass to the API.",
+              "type": "string",
+              "group": "Base Connection Options"
+            },
+            {
+              "name": "cert-file",
+              "description": "The file path to a certificate file to use for authentication.\n\nNote: The CLI does not support certificate files that require a password. For more information, search Troubleshooting PEM Certificates in Zowe Docs.",
+              "type": "existingLocalFile",
+              "group": "Base Connection Options",
+              "aliases": []
+            },
+            {
+              "name": "cert-key-file",
+              "description": "The file path to a certificate key file to use for authentication",
+              "type": "existingLocalFile",
+              "group": "Base Connection Options",
+              "aliases": []
+            },
+            {
+              "name": "cert-account",
+              "description": "The account name for PKCS 12 certificate stored in credential manager",
+              "type": "string",
+              "group": "Base Connection Options",
+              "aliases": []
+            },
+            {
+              "name": "response-format-filter",
+              "aliases": [
+                "rff"
+              ],
+              "description": "Filter (include) fields in the response. Accepts an array of field/property names to include in the output response. You can filter JSON objects properties OR table columns/fields. In addition, you can use this option in conjunction with '--response-format-type' to reduce the output of a command to a single field/property or a list of a single field/property.",
+              "type": "array",
+              "group": "Response Format Options"
+            },
+            {
+              "name": "response-format-type",
+              "aliases": [
+                "rft"
+              ],
+              "description": "The command response output format type. Must be one of the following:\n\ntable: Formats output data as a table. Use this option when the output data is an array of homogeneous JSON objects. Each property of the object will become a column in the table.\n\nlist: Formats output data as a list of strings. Can be used on any data type (JSON objects/arrays) are stringified and a new line is added after each entry in an array.\n\nobject: Formats output data as a list of prettified objects (or single object). Can be used in place of \"table\" to change from tabular output to a list of prettified objects.\n\nstring: Formats output data as a string. JSON objects/arrays are stringified.",
+              "type": "string",
+              "allowableValues": {
+                "values": [
+                  "table",
+                  "list",
+                  "object",
+                  "string"
+                ],
+                "caseSensitive": false
+              },
+              "group": "Response Format Options"
+            },
+            {
+              "name": "response-format-header",
+              "aliases": [
+                "rfh"
+              ],
+              "description": "If \"--response-format-type table\" is specified, include the column headers in the output.",
+              "type": "boolean",
+              "group": "Response Format Options",
+              "defaultValue": null
+            }
+          ],
+          "outputFormatOptions": true,
+          "passOn": [],
+          "children": []
+        },
+        {
+          "examples": [
+            {
+              "options": "COMMENTN -i ENDEVOR",
+              "description": "Query all the elements using specified component \"COMMENTN\" from the specified inventory location with the Endevor profile set up."
+            }
+          ],
+          "name": "elements-using-comment",
+          "aliases": [
+            "comm",
+            "comment"
+          ],
+          "type": "command",
+          "handler": "",
+          "description": "Query elements using a comment component with the Endevor ACM Query facility.",
+          "positionals": [
+            {
+              "name": "comment",
+              "type": "string",
+              "description": "Endevor component of type comment.",
+              "required": true,
+              "stringLengthRange": [
+                1,
+                70
+              ]
+            }
+          ],
+          "profile": {
+            "optional": [
+              "endevor",
+              "endevor-location",
+              "base"
+            ]
+          },
+          "options": [
+            {
+              "name": "excCirculars",
+              "aliases": [
+                "exc"
+              ],
+              "description": "Filters the result to exclude components that have a circular relationship to the subject of your search.",
+              "type": "boolean",
+              "group": "options"
+            },
+            {
+              "name": "excIndirect",
+              "aliases": [
+                "exi"
+              ],
+              "description": "Filters the result to exclude indirectly related components.",
+              "type": "boolean",
+              "group": "options"
+            },
+            {
+              "name": "excRelated",
+              "aliases": [
+                "exr"
+              ],
+              "description": "Filters the result to exclude related components.",
+              "type": "boolean",
+              "group": "options"
+            },
+            {
+              "name": "maxrc",
+              "description": "The maximum value of the return code of a successful action. When the return code is greater than the maxrc value, the command fails",
+              "type": "number",
+              "defaultValue": 8,
+              "group": "endevor-location definition options",
+              "aliases": []
+            },
+            {
+              "name": "full-output",
+              "aliases": [
+                "fo"
+              ],
+              "description": "Specify this option if you want the full output of the list action.",
+              "type": "boolean",
+              "group": "output customization options"
+            },
+            {
+              "name": "asynchronous",
+              "aliases": [
+                "async"
+              ],
+              "description": "Submit this command as an asynchronous Endevor Web Services task",
+              "type": "boolean",
+              "group": "asynchronous task options"
+            },
+            {
+              "name": "host",
+              "aliases": [
+                "hostname"
+              ],
+              "description": "Specifies the base host name.",
+              "type": "string",
+              "group": "endevor session definition options"
+            },
+            {
+              "name": "port",
+              "aliases": [
+                "p"
+              ],
+              "description": "Specifies the port number.",
+              "type": "string",
+              "group": "endevor session definition options"
+            },
+            {
+              "name": "instance",
+              "aliases": [
+                "i"
+              ],
+              "description": "Specifies Endevor Web Services dataSource name if it isn't already included in basePath",
+              "type": "stringOrEmpty",
+              "group": "endevor-location definition options",
+              "defaultValue": ""
+            },
+            {
+              "name": "protocol",
+              "aliases": [
+                "prot"
+              ],
+              "description": "Specifies the protocol used for connecting to Endevor Rest API",
+              "type": "string",
+              "defaultValue": "https",
+              "allowableValues": {
+                "values": [
+                  "http",
+                  "https"
+                ],
+                "caseSensitive": false
+              },
+              "group": "endevor session definition options"
+            },
+            {
+              "name": "user",
+              "aliases": [
+                "username"
+              ],
+              "description": "Specifies the user name.",
+              "type": "string",
+              "group": "endevor session definition options"
+            },
+            {
+              "name": "password",
+              "aliases": [
+                "pass"
+              ],
+              "description": "Specifies the user's password.",
+              "type": "string",
+              "group": "endevor session definition options"
+            },
+            {
+              "name": "reject-unauthorized",
+              "aliases": [
+                "ru"
+              ],
+              "description": "Specify this option to have the server certificate verified against the list of supplied CAs",
+              "type": "boolean",
+              "group": "endevor session definition options"
+            },
+            {
+              "name": "base-path",
+              "aliases": [
+                "bp"
+              ],
+              "description": "Specifies the base path used for connecting to Endevor Rest API",
+              "type": "string",
+              "group": "endevor session definition options"
+            },
+            {
+              "name": "suppress-messages",
+              "aliases": [
+                "sm"
+              ],
+              "description": "Suppress all [INFO]/[WARN] messages from terminal output.",
+              "type": "boolean",
+              "group": "output customization options"
+            },
+            {
+              "name": "report-file",
+              "aliases": [
+                "file-name"
+              ],
+              "description": "File name for saving reports from Endevor SCM locally.",
+              "type": "string",
+              "group": "output customization options"
+            },
+            {
+              "name": "report-dir",
+              "description": "Directory for saving reports from Endevor SCM locally, if --report-file wasn't specified. Defaults to current directory.",
+              "type": "string",
+              "group": "output customization options",
+              "aliases": []
+            },
+            {
+              "name": "write-report",
+              "description": "Write the endevor reports to a file. By default, when return code is 0, no report will be written, unless this option is specified. When return code is bigger than 0, reports will be written to a file, unless this option is specifed to be false",
+              "type": "boolean",
+              "group": "output customization options",
+              "aliases": []
+            },
+            {
+              "name": "show-inputs-only",
+              "group": "Global Options",
+              "description": "Show command inputs and do not run the command",
+              "type": "boolean",
+              "aliases": []
+            },
+            {
+              "name": "response-format-json",
+              "aliases": [
+                "rfj"
+              ],
+              "group": "Global Options",
+              "description": "Produce JSON formatted data from a command",
+              "type": "boolean"
+            },
+            {
+              "name": "help",
+              "aliases": [
+                "h"
+              ],
+              "group": "Global Options",
+              "description": "Display help text",
+              "type": "boolean"
+            },
+            {
+              "name": "help-web",
+              "aliases": [
+                "hw"
+              ],
+              "group": "Global Options",
+              "description": "Display HTML help in browser",
+              "type": "boolean"
+            },
+            {
+              "name": "endevor-profile",
+              "aliases": [
+                "endevor-p"
+              ],
+              "group": "Profile Options",
+              "description": "The name of a (endevor) profile to load for this command execution.",
+              "type": "string"
+            },
+            {
+              "name": "endevor-location-profile",
+              "aliases": [
+                "endevor-location-p"
+              ],
+              "group": "Profile Options",
+              "description": "The name of a (endevor-location) profile to load for this command execution.",
+              "type": "string"
+            },
+            {
+              "name": "base-profile",
+              "aliases": [
+                "base-p"
+              ],
+              "group": "Profile Options",
+              "description": "The name of a (base) profile to load for this command execution.",
+              "type": "string"
+            },
+            {
+              "name": "token-type",
+              "aliases": [
+                "tt"
+              ],
+              "description": "The type of token to get and use for the API. Omit this option to use the default token type, which is provided by 'zowe auth login'.",
+              "type": "string",
+              "group": "Base Connection Options"
+            },
+            {
+              "name": "token-value",
+              "aliases": [
+                "tv"
+              ],
+              "description": "The value of the token to pass to the API.",
+              "type": "string",
+              "group": "Base Connection Options"
+            },
+            {
+              "name": "cert-file",
+              "description": "The file path to a certificate file to use for authentication.\n\nNote: The CLI does not support certificate files that require a password. For more information, search Troubleshooting PEM Certificates in Zowe Docs.",
+              "type": "existingLocalFile",
+              "group": "Base Connection Options",
+              "aliases": []
+            },
+            {
+              "name": "cert-key-file",
+              "description": "The file path to a certificate key file to use for authentication",
+              "type": "existingLocalFile",
+              "group": "Base Connection Options",
+              "aliases": []
+            },
+            {
+              "name": "cert-account",
+              "description": "The account name for PKCS 12 certificate stored in credential manager",
+              "type": "string",
+              "group": "Base Connection Options",
+              "aliases": []
+            },
+            {
+              "name": "response-format-filter",
+              "aliases": [
+                "rff"
+              ],
+              "description": "Filter (include) fields in the response. Accepts an array of field/property names to include in the output response. You can filter JSON objects properties OR table columns/fields. In addition, you can use this option in conjunction with '--response-format-type' to reduce the output of a command to a single field/property or a list of a single field/property.",
+              "type": "array",
+              "group": "Response Format Options"
+            },
+            {
+              "name": "response-format-type",
+              "aliases": [
+                "rft"
+              ],
+              "description": "The command response output format type. Must be one of the following:\n\ntable: Formats output data as a table. Use this option when the output data is an array of homogeneous JSON objects. Each property of the object will become a column in the table.\n\nlist: Formats output data as a list of strings. Can be used on any data type (JSON objects/arrays) are stringified and a new line is added after each entry in an array.\n\nobject: Formats output data as a list of prettified objects (or single object). Can be used in place of \"table\" to change from tabular output to a list of prettified objects.\n\nstring: Formats output data as a string. JSON objects/arrays are stringified.",
+              "type": "string",
+              "allowableValues": {
+                "values": [
+                  "table",
+                  "list",
+                  "object",
+                  "string"
+                ],
+                "caseSensitive": false
+              },
+              "group": "Response Format Options"
+            },
+            {
+              "name": "response-format-header",
+              "aliases": [
+                "rfh"
+              ],
+              "description": "If \"--response-format-type table\" is specified, include the column headers in the output.",
+              "type": "boolean",
+              "group": "Response Format Options",
+              "defaultValue": null
+            }
+          ],
+          "outputFormatOptions": true,
+          "passOn": [],
+          "children": []
+        },
+        {
+          "examples": [
+            {
+              "options": "OBJNAME -i ENDEVOR",
+              "description": "Query all the elements using specified component \"OBJNAME\" from the specified inventory location with the Endevor profile set up."
+            }
+          ],
+          "name": "elements-using-object",
+          "aliases": [
+            "obj",
+            "object"
+          ],
+          "type": "command",
+          "handler": "",
+          "description": "Query elements using an object component with the Endevor ACM Query facility.",
+          "positionals": [
+            {
+              "name": "object",
+              "type": "string",
+              "description": "Endevor component of type object.",
+              "required": true,
+              "stringLengthRange": [
+                1,
+                70
+              ]
+            }
+          ],
+          "profile": {
+            "optional": [
+              "endevor",
+              "endevor-location",
+              "base"
+            ]
+          },
+          "options": [
+            {
+              "name": "excCirculars",
+              "aliases": [
+                "exc"
+              ],
+              "description": "Filters the result to exclude components that have a circular relationship to the subject of your search.",
+              "type": "boolean",
+              "group": "options"
+            },
+            {
+              "name": "excIndirect",
+              "aliases": [
+                "exi"
+              ],
+              "description": "Filters the result to exclude indirectly related components.",
+              "type": "boolean",
+              "group": "options"
+            },
+            {
+              "name": "excRelated",
+              "aliases": [
+                "exr"
+              ],
+              "description": "Filters the result to exclude related components.",
+              "type": "boolean",
+              "group": "options"
+            },
+            {
+              "name": "maxrc",
+              "description": "The maximum value of the return code of a successful action. When the return code is greater than the maxrc value, the command fails",
+              "type": "number",
+              "defaultValue": 8,
+              "group": "endevor-location definition options",
+              "aliases": []
+            },
+            {
+              "name": "full-output",
+              "aliases": [
+                "fo"
+              ],
+              "description": "Specify this option if you want the full output of the list action.",
+              "type": "boolean",
+              "group": "output customization options"
+            },
+            {
+              "name": "asynchronous",
+              "aliases": [
+                "async"
+              ],
+              "description": "Submit this command as an asynchronous Endevor Web Services task",
+              "type": "boolean",
+              "group": "asynchronous task options"
+            },
+            {
+              "name": "host",
+              "aliases": [
+                "hostname"
+              ],
+              "description": "Specifies the base host name.",
+              "type": "string",
+              "group": "endevor session definition options"
+            },
+            {
+              "name": "port",
+              "aliases": [
+                "p"
+              ],
+              "description": "Specifies the port number.",
+              "type": "string",
+              "group": "endevor session definition options"
+            },
+            {
+              "name": "instance",
+              "aliases": [
+                "i"
+              ],
+              "description": "Specifies Endevor Web Services dataSource name if it isn't already included in basePath",
+              "type": "stringOrEmpty",
+              "group": "endevor-location definition options",
+              "defaultValue": ""
+            },
+            {
+              "name": "protocol",
+              "aliases": [
+                "prot"
+              ],
+              "description": "Specifies the protocol used for connecting to Endevor Rest API",
+              "type": "string",
+              "defaultValue": "https",
+              "allowableValues": {
+                "values": [
+                  "http",
+                  "https"
+                ],
+                "caseSensitive": false
+              },
+              "group": "endevor session definition options"
+            },
+            {
+              "name": "user",
+              "aliases": [
+                "username"
+              ],
+              "description": "Specifies the user name.",
+              "type": "string",
+              "group": "endevor session definition options"
+            },
+            {
+              "name": "password",
+              "aliases": [
+                "pass"
+              ],
+              "description": "Specifies the user's password.",
+              "type": "string",
+              "group": "endevor session definition options"
+            },
+            {
+              "name": "reject-unauthorized",
+              "aliases": [
+                "ru"
+              ],
+              "description": "Specify this option to have the server certificate verified against the list of supplied CAs",
+              "type": "boolean",
+              "group": "endevor session definition options"
+            },
+            {
+              "name": "base-path",
+              "aliases": [
+                "bp"
+              ],
+              "description": "Specifies the base path used for connecting to Endevor Rest API",
+              "type": "string",
+              "group": "endevor session definition options"
+            },
+            {
+              "name": "suppress-messages",
+              "aliases": [
+                "sm"
+              ],
+              "description": "Suppress all [INFO]/[WARN] messages from terminal output.",
+              "type": "boolean",
+              "group": "output customization options"
+            },
+            {
+              "name": "report-file",
+              "aliases": [
+                "file-name"
+              ],
+              "description": "File name for saving reports from Endevor SCM locally.",
+              "type": "string",
+              "group": "output customization options"
+            },
+            {
+              "name": "report-dir",
+              "description": "Directory for saving reports from Endevor SCM locally, if --report-file wasn't specified. Defaults to current directory.",
+              "type": "string",
+              "group": "output customization options",
+              "aliases": []
+            },
+            {
+              "name": "write-report",
+              "description": "Write the endevor reports to a file. By default, when return code is 0, no report will be written, unless this option is specified. When return code is bigger than 0, reports will be written to a file, unless this option is specifed to be false",
+              "type": "boolean",
+              "group": "output customization options",
+              "aliases": []
+            },
+            {
+              "name": "show-inputs-only",
+              "group": "Global Options",
+              "description": "Show command inputs and do not run the command",
+              "type": "boolean",
+              "aliases": []
+            },
+            {
+              "name": "response-format-json",
+              "aliases": [
+                "rfj"
+              ],
+              "group": "Global Options",
+              "description": "Produce JSON formatted data from a command",
+              "type": "boolean"
+            },
+            {
+              "name": "help",
+              "aliases": [
+                "h"
+              ],
+              "group": "Global Options",
+              "description": "Display help text",
+              "type": "boolean"
+            },
+            {
+              "name": "help-web",
+              "aliases": [
+                "hw"
+              ],
+              "group": "Global Options",
+              "description": "Display HTML help in browser",
+              "type": "boolean"
+            },
+            {
+              "name": "endevor-profile",
+              "aliases": [
+                "endevor-p"
+              ],
+              "group": "Profile Options",
+              "description": "The name of a (endevor) profile to load for this command execution.",
+              "type": "string"
+            },
+            {
+              "name": "endevor-location-profile",
+              "aliases": [
+                "endevor-location-p"
+              ],
+              "group": "Profile Options",
+              "description": "The name of a (endevor-location) profile to load for this command execution.",
+              "type": "string"
+            },
+            {
+              "name": "base-profile",
+              "aliases": [
+                "base-p"
+              ],
+              "group": "Profile Options",
+              "description": "The name of a (base) profile to load for this command execution.",
+              "type": "string"
+            },
+            {
+              "name": "token-type",
+              "aliases": [
+                "tt"
+              ],
+              "description": "The type of token to get and use for the API. Omit this option to use the default token type, which is provided by 'zowe auth login'.",
+              "type": "string",
+              "group": "Base Connection Options"
+            },
+            {
+              "name": "token-value",
+              "aliases": [
+                "tv"
+              ],
+              "description": "The value of the token to pass to the API.",
+              "type": "string",
+              "group": "Base Connection Options"
+            },
+            {
+              "name": "cert-file",
+              "description": "The file path to a certificate file to use for authentication.\n\nNote: The CLI does not support certificate files that require a password. For more information, search Troubleshooting PEM Certificates in Zowe Docs.",
+              "type": "existingLocalFile",
+              "group": "Base Connection Options",
+              "aliases": []
+            },
+            {
+              "name": "cert-key-file",
+              "description": "The file path to a certificate key file to use for authentication",
+              "type": "existingLocalFile",
+              "group": "Base Connection Options",
+              "aliases": []
+            },
+            {
+              "name": "cert-account",
+              "description": "The account name for PKCS 12 certificate stored in credential manager",
+              "type": "string",
               "group": "Base Connection Options",
               "aliases": []
             },
@@ -17247,6 +18977,13 @@
               "name": "cert-key-file",
               "description": "The file path to a certificate key file to use for authentication",
               "type": "existingLocalFile",
+              "group": "Base Connection Options",
+              "aliases": []
+            },
+            {
+              "name": "cert-account",
+              "description": "The account name for PKCS 12 certificate stored in credential manager",
+              "type": "string",
               "group": "Base Connection Options",
               "aliases": []
             }
@@ -18149,6 +19886,13 @@
               "aliases": []
             },
             {
+              "name": "cert-account",
+              "description": "The account name for PKCS 12 certificate stored in credential manager",
+              "type": "string",
+              "group": "Base Connection Options",
+              "aliases": []
+            },
+            {
               "name": "response-format-filter",
               "aliases": [
                 "rff"
@@ -18422,6 +20166,13 @@
               "name": "cert-key-file",
               "description": "The file path to a certificate key file to use for authentication",
               "type": "existingLocalFile",
+              "group": "Base Connection Options",
+              "aliases": []
+            },
+            {
+              "name": "cert-account",
+              "description": "The account name for PKCS 12 certificate stored in credential manager",
+              "type": "string",
               "group": "Base Connection Options",
               "aliases": []
             },
@@ -19091,6 +20842,13 @@
               "type": "existingLocalFile",
               "group": "Base Connection Options",
               "aliases": []
+            },
+            {
+              "name": "cert-account",
+              "description": "The account name for PKCS 12 certificate stored in credential manager",
+              "type": "string",
+              "group": "Base Connection Options",
+              "aliases": []
             }
           ],
           "passOn": [],
@@ -19669,6 +21427,13 @@
               "type": "existingLocalFile",
               "group": "Base Connection Options",
               "aliases": []
+            },
+            {
+              "name": "cert-account",
+              "description": "The account name for PKCS 12 certificate stored in credential manager",
+              "type": "string",
+              "group": "Base Connection Options",
+              "aliases": []
             }
           ],
           "passOn": [],
@@ -19962,6 +21727,13 @@
               "name": "cert-key-file",
               "description": "The file path to a certificate key file to use for authentication",
               "type": "existingLocalFile",
+              "group": "Base Connection Options",
+              "aliases": []
+            },
+            {
+              "name": "cert-account",
+              "description": "The account name for PKCS 12 certificate stored in credential manager",
+              "type": "string",
               "group": "Base Connection Options",
               "aliases": []
             }
@@ -20563,6 +22335,13 @@
               "name": "cert-key-file",
               "description": "The file path to a certificate key file to use for authentication",
               "type": "existingLocalFile",
+              "group": "Base Connection Options",
+              "aliases": []
+            },
+            {
+              "name": "cert-account",
+              "description": "The account name for PKCS 12 certificate stored in credential manager",
+              "type": "string",
               "group": "Base Connection Options",
               "aliases": []
             }
@@ -21333,6 +23112,13 @@
               "type": "existingLocalFile",
               "group": "Base Connection Options",
               "aliases": []
+            },
+            {
+              "name": "cert-account",
+              "description": "The account name for PKCS 12 certificate stored in credential manager",
+              "type": "string",
+              "group": "Base Connection Options",
+              "aliases": []
             }
           ],
           "passOn": [],
@@ -21825,6 +23611,13 @@
               "name": "cert-key-file",
               "description": "The file path to a certificate key file to use for authentication",
               "type": "existingLocalFile",
+              "group": "Base Connection Options",
+              "aliases": []
+            },
+            {
+              "name": "cert-account",
+              "description": "The account name for PKCS 12 certificate stored in credential manager",
+              "type": "string",
               "group": "Base Connection Options",
               "aliases": []
             }
@@ -22424,6 +24217,13 @@
               "type": "existingLocalFile",
               "group": "Base Connection Options",
               "aliases": []
+            },
+            {
+              "name": "cert-account",
+              "description": "The account name for PKCS 12 certificate stored in credential manager",
+              "type": "string",
+              "group": "Base Connection Options",
+              "aliases": []
             }
           ],
           "passOn": [],
@@ -22958,6 +24758,13 @@
               "name": "cert-key-file",
               "description": "The file path to a certificate key file to use for authentication",
               "type": "existingLocalFile",
+              "group": "Base Connection Options",
+              "aliases": []
+            },
+            {
+              "name": "cert-account",
+              "description": "The account name for PKCS 12 certificate stored in credential manager",
+              "type": "string",
               "group": "Base Connection Options",
               "aliases": []
             }
@@ -23603,6 +25410,13 @@
               "type": "existingLocalFile",
               "group": "Base Connection Options",
               "aliases": []
+            },
+            {
+              "name": "cert-account",
+              "description": "The account name for PKCS 12 certificate stored in credential manager",
+              "type": "string",
+              "group": "Base Connection Options",
+              "aliases": []
             }
           ],
           "passOn": [],
@@ -23862,6 +25676,13 @@
               "name": "cert-key-file",
               "description": "The file path to a certificate key file to use for authentication",
               "type": "existingLocalFile",
+              "group": "Base Connection Options",
+              "aliases": []
+            },
+            {
+              "name": "cert-account",
+              "description": "The account name for PKCS 12 certificate stored in credential manager",
+              "type": "string",
               "group": "Base Connection Options",
               "aliases": []
             }
