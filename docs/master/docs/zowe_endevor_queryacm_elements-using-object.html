@@ -2,74 +2,20 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta http-equiv="X-UA-Compatible" content="ie=edge">
-<title>endevor queryacm components</title>
+<title>endevor queryacm elements-using-object</title>
 <link rel="stylesheet" href="../css/bundle-docs.css">
 <link rel="stylesheet" href="../css/docs.css">
 <article class="markdown-body">
-<h2><a href="zowe.html">zowe</a> › <a href="zowe_endevor.html">endevor</a> › <a href="zowe_endevor_queryacm.html">queryacm</a> › <a href="zowe_endevor_queryacm_components.html">components</a><button id="btn-print" class="no-print" onclick="window.print();" title="Print">🖨️</button></h2>
-<p>Query components used by a specified Element with the Endevor ACM Query facility.</p>
+<h2><a href="zowe.html">zowe</a> › <a href="zowe_endevor.html">endevor</a> › <a href="zowe_endevor_queryacm.html">queryacm</a> › <a href="zowe_endevor_queryacm_elements-using-object.html">elements-using-object</a><button id="btn-print" class="no-print" onclick="window.print();" title="Print">🖨️</button></h2>
+<p>Query elements using an object component with the Endevor ACM Query facility.</p>
 <h4>Usage</h4>
-<p>zowe endevor queryacm components &lt;element&gt; [options]</p>
+<p>zowe endevor queryacm elements-using-object &lt;object&gt; [options]</p>
 <h4>Positional Arguments</h4>
 <ul>
 <li>
-<p><code>element</code>		 <em>(string)</em></p>
+<p><code>object</code>		 <em>(string)</em></p>
 <ul>
-<li>Name of the Endevor element.</li>
-</ul>
-</li>
-</ul>
-<h4>endevor-location definition options</h4>
-<ul>
-<li>
-<p><code>--environment</code> | <code>--env</code> <em>(string)</em></p>
-<ul>
-<li>The Endevor environment where your project resides.</li>
-</ul>
-</li>
-<li>
-<p><code>--system</code> | <code>--sys</code> <em>(string)</em></p>
-<ul>
-<li>The Endevor system where your project resides.</li>
-</ul>
-</li>
-<li>
-<p><code>--subsystem</code> | <code>--sub</code> <em>(string)</em></p>
-<ul>
-<li>The Endevor subsystem where your project resides.</li>
-</ul>
-</li>
-<li>
-<p><code>--type</code> | <code>--typ</code> <em>(string)</em></p>
-<ul>
-<li>Name of the Endevor element's type.</li>
-</ul>
-</li>
-<li>
-<p><code>--stage-number</code> | <code>--sn</code> <em>(string)</em></p>
-<ul>
-<li>
-<p>The Endevor stage number where your project resides.</p>
-<p>Allowed values: \*, \%, 1, 2</p>
-</li>
-</ul>
-</li>
-<li>
-<p><code>--maxrc</code> <em>(number)</em></p>
-<ul>
-<li>
-<p>The maximum value of the return code of a successful action. When the return code is greater than the maxrc value, the command fails</p>
-<p>Default value: 8</p>
-</li>
-</ul>
-</li>
-<li>
-<p><code>--instance</code> | <code>-i</code> <em>(string)</em></p>
-<ul>
-<li>
-<p>Specifies Endevor Web Services dataSource name if it isn't already included in basePath</p>
-<p>Default value:</p>
-</li>
+<li>Endevor component of type object.</li>
 </ul>
 </li>
 </ul>
@@ -94,12 +40,33 @@
 </ul>
 </li>
 </ul>
+<h4>endevor-location definition options</h4>
+<ul>
+<li>
+<p><code>--maxrc</code> <em>(number)</em></p>
+<ul>
+<li>
+<p>The maximum value of the return code of a successful action. When the return code is greater than the maxrc value, the command fails</p>
+<p>Default value: 8</p>
+</li>
+</ul>
+</li>
+<li>
+<p><code>--instance</code> | <code>-i</code> <em>(string)</em></p>
+<ul>
+<li>
+<p>Specifies Endevor Web Services dataSource name if it isn't already included in basePath</p>
+<p>Default value:</p>
+</li>
+</ul>
+</li>
+</ul>
 <h4>output customization options</h4>
 <ul>
 <li>
 <p><code>--full-output</code> | <code>--fo</code> <em>(boolean)</em></p>
 <ul>
-<li>Specify this option if you want a full output of list action.</li>
+<li>Specify this option if you want the full output of the list action.</li>
 </ul>
 </li>
 <li>
@@ -235,6 +202,12 @@ Allowed values: http, https</p>
 <li>The file path to a certificate key file to use for authentication</li>
 </ul>
 </li>
+<li>
+<p><code>--cert-account</code> <em>(string)</em></p>
+<ul>
+<li>The account name for PKCS 12 certificate stored in credential manager</li>
+</ul>
+</li>
 </ul>
 <h4>Response Format Options</h4>
 <ul>
@@ -267,9 +240,9 @@ Allowed values: http, https</p>
 <h4>Examples</h4>
 <ul>
 <li>
-<p>query all the components used by element &quot;elementName&quot; from the specified inventory location with the endevor profile set up:</p>
+<p>Query all the elements using specified component &quot;OBJNAME&quot; from the specified inventory location with the Endevor profile set up.:</p>
 <ul>
-<li><code>zowe endevor queryacm components elementName --env ENVNAME --sn 1 --sys SYSNAME --sub SUBNAME --typ TYPENAME -i ENDEVOR</code> <button class="btn-copy no-print" data-balloon-pos="right" data-clipboard-text="zowe endevor queryacm components elementName --env ENVNAME --sn 1 --sys SYSNAME --sub SUBNAME --typ TYPENAME -i ENDEVOR">Copy</button></li>
+<li><code>zowe endevor queryacm elements-using-object OBJNAME -i ENDEVOR</code> <button class="btn-copy no-print" data-balloon-pos="right" data-clipboard-text="zowe endevor queryacm elements-using-object OBJNAME -i ENDEVOR">Copy</button></li>
 </ul>
 </li>
 </ul>
