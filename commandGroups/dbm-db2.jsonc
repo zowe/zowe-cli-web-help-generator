@@ -1311,6 +1311,16 @@
               "group": "Options"
             },
             {
+              "name": "output-script-logfile",
+              "description": "Specifies the local output file name that contains the script execution log.\n      \n\u001b[90m Default value: script.log \u001b[0m",
+              "type": "string",
+              "aliases": [
+                "osl"
+              ],
+              "required": false,
+              "group": "Options"
+            },
+            {
               "name": "restart",
               "description": "Specifies the location in the script where you want to restart execution. The effects of previous successful script statement executions remain. \n \nThe following restart options are valid:\n      \nnew - Restart execution of the script at the first statement. \n      \ntoken - Restart execution of the script at the location that is recorded in the specified token and that was returned from a previous execution failure.",
               "type": "string",
@@ -1610,6 +1620,16 @@
               "type": "string",
               "aliases": [
                 "td"
+              ],
+              "required": false,
+              "group": "Options"
+            },
+            {
+              "name": "output-script-logfile",
+              "description": "Specifies the local output file name that contains the script execution log.\n      \n\u001b[90m Default value: script.log \u001b[0m",
+              "type": "string",
+              "aliases": [
+                "osl"
               ],
               "required": false,
               "group": "Options"
@@ -1941,6 +1961,16 @@
             "suppressOptions": []
           },
           "options": [
+            {
+              "name": "output-script-logfile",
+              "description": "Specifies the local output file name that contains the script execution log.\n      \n\u001b[90m Default value: script.log \u001b[0m",
+              "type": "string",
+              "aliases": [
+                "osl"
+              ],
+              "required": false,
+              "group": "Options"
+            },
             {
               "name": "restart",
               "description": "Specifies the location in the script where you want to restart execution. The effects of previous successful script statement executions remain. \n \nThe following restart options are valid:\n        \nnew - Restart execution of the script at the first statement.\n        \nname, token - Restart execution of the script at the location in the restart section that is recorded in the specified token and that was returned from a prior execution failure.\n  \nA section is a '.SYSTEM <name>' statement, where <name> identifies a logical grouping of statements such as UNLOADS or SQLDDL. 'source' is an alias for UNLOADS. 'target' is an alias for SQLDDL.",
