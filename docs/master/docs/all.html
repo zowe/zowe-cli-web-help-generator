@@ -37373,7 +37373,7 @@ The date and time when the build was done, GMT</p>
 </ul>
 <a class="cmd-anchor" name="zowe_config_init"></a><h3><a href="#zowe">zowe</a> › <a href="#zowe_config">config</a> › <a href="#zowe_config_init">init</a><button id="btn-print" class="no-print" onclick="window.print();" title="Print">🖨️</button></h3>
 <p>Initialize config files. Defaults to initializing &quot;zowe.config.json&quot; in the current working directory unless otherwise specified.</p>
-<p>Use &quot;--user-config&quot; to init &quot;zowe.config.user.json&quot;. Use &quot;--global-config&quot; to initialize the configuration files in your home &quot;~/.zowe&quot; directory.</p>
+<p>Use &quot;--user-config&quot; to init &quot;zowe.config.user.json&quot;. Use &quot;--global-config&quot; to initialize the configuration files in your home &quot;&lt;The User Home Directory&gt;/.zowe&quot; directory.</p>
 <p>Use &quot;--no-prompt&quot; to skip prompting for values in a CI environment.</p>
 <h4>Usage</h4>
 <p>zowe config init [options]</p>
@@ -37443,13 +37443,13 @@ The date and time when the build was done, GMT</p>
 <h4>Examples</h4>
 <ul>
 <li>
-<p>Initialize configuration files in your home &quot;~/.zowe&quot; directory:</p>
+<p>Initialize configuration files in your home &quot;&lt;The User Home Directory&gt;/.zowe&quot; directory:</p>
 <ul>
 <li><code>zowe config init --global-config</code> <button class="btn-copy no-print" data-balloon-pos="right" data-clipboard-text="zowe config init --global-config">Copy</button></li>
 </ul>
 </li>
 <li>
-<p>Do a dry run of initializing configuration files in your home &quot;~/.zowe&quot; directory:</p>
+<p>Do a dry run of initializing configuration files in your home &quot;&lt;The User Home Directory&gt;/.zowe&quot; directory:</p>
 <ul>
 <li><code>zowe config init --global-config --dry-run</code> <button class="btn-copy no-print" data-balloon-pos="right" data-clipboard-text="zowe config init --global-config --dry-run">Copy</button></li>
 </ul>
@@ -39168,6 +39168,15 @@ TBTS TESTTS% PRODTS%</p>
 </ul>
 </li>
 <li>
+<p><code>--output-script-logfile</code> | <code>--osl</code> <em>(string)</em></p>
+<ul>
+<li>
+<p>Specifies the local output file name that contains the script execution log.</p>
+<p>Default value: script.log</p>
+</li>
+</ul>
+</li>
+<li>
 <p><code>--restart</code> | <code>-r</code> <em>(string)</em></p>
 <ul>
 <li>
@@ -39366,6 +39375,15 @@ TBTS TESTTS% PRODTS%</p>
 </ul>
 <h4>Options</h4>
 <ul>
+<li>
+<p><code>--output-script-logfile</code> | <code>--osl</code> <em>(string)</em></p>
+<ul>
+<li>
+<p>Specifies the local output file name that contains the script execution log.</p>
+<p>Default value: script.log</p>
+</li>
+</ul>
+</li>
 <li>
 <p><code>--restart</code> | <code>-r</code> <em>(string)</em></p>
 <ul>
@@ -39573,6 +39591,15 @@ TBTS TESTTS% PRODTS%</p>
 <p>Specifies the target Db2 subsystem or data sharing group where you want to execute the script. If this option is not specified, the target subsystem is identified by the first .CONNECT statement in the script.</p>
 <p>Note: If you specify the data sharing group, the first active Db2 subsystem in the group is used.</p>
 <p>The target-db2 option takes precedence over any other value that is specified for the Db2 subsystem or data sharing group.</p>
+</li>
+</ul>
+</li>
+<li>
+<p><code>--output-script-logfile</code> | <code>--osl</code> <em>(string)</em></p>
+<ul>
+<li>
+<p>Specifies the local output file name that contains the script execution log.</p>
+<p>Default value: script.log</p>
 </li>
 </ul>
 </li>
@@ -76035,7 +76062,7 @@ Allowed values: http, https</p>
 <ul>
 <li>
 <p>Reject self-signed certificates.</p>
-<p>Default value: false</p>
+<p>Default value: true</p>
 </li>
 </ul>
 </li>
@@ -102396,7 +102423,7 @@ Allowed values: http, https</p>
 <a name="zowe_zos-tso_issue"></a><h2><a href="#zowe">zowe</a> › <a href="#zowe_zos-tso">zos-tso</a> › <a href="#zowe_zos-tso_issue">issue</a><button id="btn-print" class="no-print" onclick="window.print();" title="Print">🖨️</button></h2>
 <p>Issue TSO commands.</p>
 <a class="cmd-anchor" name="zowe_zos-tso_issue_command"></a><h3><a href="#zowe">zowe</a> › <a href="#zowe_zos-tso">zos-tso</a> › <a href="#zowe_zos-tso_issue">issue</a> › <a href="#zowe_zos-tso_issue_command">command</a><button id="btn-print" class="no-print" onclick="window.print();" title="Print">🖨️</button></h3>
-<p>Creates a TSO address space, issues a TSO command through the newly created address space, waits for the READY prompt to print the response, and terminates the TSO address space. All response data are returned to the user up to (but not including) the TSO 'READY' prompt.</p>
+<p>Creates a TSO address space, issues a TSO command through the newly created address space, waits for the READY prompt to print the response, and terminates the TSO address space. All response data is returned to the user up to (but not including) the TSO 'READY' prompt.</p>
 <h4>Usage</h4>
 <p>zowe zos-tso issue command &lt;commandText&gt; [options]</p>
 <h4>Positional Arguments</h4>
@@ -102424,6 +102451,15 @@ Allowed values: http, https</p>
 <ul>
 <li>
 <p>Statefulness of address space created for TSO command. This option is not supported when --suppress-startup-messages is set to false.</p>
+<p>Default value: false</p>
+</li>
+</ul>
+</li>
+<li>
+<p><code>--legacy</code> <em>(boolean)</em></p>
+<ul>
+<li>
+<p>Force the use of the previous TSO command functionality (where Zowe CLI creates and tears down the TSO address space via multiple API calls). This is useful for working around an issue that might occur when using the newer z/OSMF API where an error reading 'Did not receive output from the z/OSMF TSO API' is thrown.</p>
 <p>Default value: false</p>
 </li>
 </ul>
