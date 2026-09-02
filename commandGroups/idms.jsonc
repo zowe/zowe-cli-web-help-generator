@@ -62,6 +62,14 @@
               "group": "IDMS Connection Options"
             },
             {
+              "name": "protocol",
+              "description": "The protocol used to connect to the IDMS REST API service",
+              "type": "string",
+              "defaultValue": "https",
+              "group": "IDMS Connection Options",
+              "aliases": []
+            },
+            {
               "name": "reject-unauthorized",
               "aliases": [
                 "ru"
@@ -303,6 +311,14 @@
               "description": "Mainframe password, which can be the same as your TSO password",
               "type": "string",
               "group": "IDMS Connection Options"
+            },
+            {
+              "name": "protocol",
+              "description": "The protocol used to connect to the IDMS REST API service",
+              "type": "string",
+              "defaultValue": "https",
+              "group": "IDMS Connection Options",
+              "aliases": []
             },
             {
               "name": "reject-unauthorized",
@@ -548,6 +564,14 @@
               "group": "IDMS Connection Options"
             },
             {
+              "name": "protocol",
+              "description": "The protocol used to connect to the IDMS REST API service",
+              "type": "string",
+              "defaultValue": "https",
+              "group": "IDMS Connection Options",
+              "aliases": []
+            },
+            {
               "name": "reject-unauthorized",
               "aliases": [
                 "ru"
@@ -790,6 +814,14 @@
               "group": "IDMS Connection Options"
             },
             {
+              "name": "protocol",
+              "description": "The protocol used to connect to the IDMS REST API service",
+              "type": "string",
+              "defaultValue": "https",
+              "group": "IDMS Connection Options",
+              "aliases": []
+            },
+            {
               "name": "reject-unauthorized",
               "aliases": [
                 "ru"
@@ -1024,6 +1056,14 @@
               "group": "IDMS Connection Options"
             },
             {
+              "name": "protocol",
+              "description": "The protocol used to connect to the IDMS REST API service",
+              "type": "string",
+              "defaultValue": "https",
+              "group": "IDMS Connection Options",
+              "aliases": []
+            },
+            {
               "name": "reject-unauthorized",
               "aliases": [
                 "ru"
@@ -1256,6 +1296,14 @@
               "description": "Mainframe password, which can be the same as your TSO password",
               "type": "string",
               "group": "IDMS Connection Options"
+            },
+            {
+              "name": "protocol",
+              "description": "The protocol used to connect to the IDMS REST API service",
+              "type": "string",
+              "defaultValue": "https",
+              "group": "IDMS Connection Options",
+              "aliases": []
             },
             {
               "name": "reject-unauthorized",
@@ -1494,6 +1542,14 @@
               "description": "Mainframe password, which can be the same as your TSO password",
               "type": "string",
               "group": "IDMS Connection Options"
+            },
+            {
+              "name": "protocol",
+              "description": "The protocol used to connect to the IDMS REST API service",
+              "type": "string",
+              "defaultValue": "https",
+              "group": "IDMS Connection Options",
+              "aliases": []
             },
             {
               "name": "reject-unauthorized",
@@ -1735,6 +1791,14 @@
               "group": "IDMS Connection Options"
             },
             {
+              "name": "protocol",
+              "description": "The protocol used to connect to the IDMS REST API service",
+              "type": "string",
+              "defaultValue": "https",
+              "group": "IDMS Connection Options",
+              "aliases": []
+            },
+            {
               "name": "reject-unauthorized",
               "aliases": [
                 "ru"
@@ -1955,6 +2019,14 @@
               "description": "Mainframe password, which can be the same as your TSO password",
               "type": "string",
               "group": "IDMS Connection Options"
+            },
+            {
+              "name": "protocol",
+              "description": "The protocol used to connect to the IDMS REST API service",
+              "type": "string",
+              "defaultValue": "https",
+              "group": "IDMS Connection Options",
+              "aliases": []
             },
             {
               "name": "reject-unauthorized",
@@ -2249,6 +2321,14 @@
               "group": "IDMS Connection Options"
             },
             {
+              "name": "protocol",
+              "description": "The protocol used to connect to the IDMS REST API service",
+              "type": "string",
+              "defaultValue": "https",
+              "group": "IDMS Connection Options",
+              "aliases": []
+            },
+            {
               "name": "reject-unauthorized",
               "aliases": [
                 "ru"
@@ -2484,6 +2564,14 @@
               "group": "IDMS Connection Options"
             },
             {
+              "name": "protocol",
+              "description": "The protocol used to connect to the IDMS REST API service",
+              "type": "string",
+              "defaultValue": "https",
+              "group": "IDMS Connection Options",
+              "aliases": []
+            },
+            {
               "name": "reject-unauthorized",
               "aliases": [
                 "ru"
@@ -2714,6 +2802,14 @@
               "description": "Mainframe password, which can be the same as your TSO password",
               "type": "string",
               "group": "IDMS Connection Options"
+            },
+            {
+              "name": "protocol",
+              "description": "The protocol used to connect to the IDMS REST API service",
+              "type": "string",
+              "defaultValue": "https",
+              "group": "IDMS Connection Options",
+              "aliases": []
             },
             {
               "name": "reject-unauthorized",
@@ -2994,6 +3090,14 @@
               "group": "IDMS Connection Options"
             },
             {
+              "name": "protocol",
+              "description": "The protocol used to connect to the IDMS REST API service",
+              "type": "string",
+              "defaultValue": "https",
+              "group": "IDMS Connection Options",
+              "aliases": []
+            },
+            {
               "name": "reject-unauthorized",
               "aliases": [
                 "ru"
@@ -3228,6 +3332,14 @@
               "description": "Mainframe password, which can be the same as your TSO password",
               "type": "string",
               "group": "IDMS Connection Options"
+            },
+            {
+              "name": "protocol",
+              "description": "The protocol used to connect to the IDMS REST API service",
+              "type": "string",
+              "defaultValue": "https",
+              "group": "IDMS Connection Options",
+              "aliases": []
             },
             {
               "name": "reject-unauthorized",
