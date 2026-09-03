@@ -29,7 +29,7 @@
               "aliases": [
                 "td"
               ],
-              "description": "Specifies the target Db2 subsystem or data sharing group where you want to use a command.\n \n \u001b[90m Note: If you specify the data sharing group, the first active Db2 subsystem in the group is used. \u001b[0m",
+              "description": "Specifies the target Db2 subsystem or data sharing group where you want to use a command.",
               "required": false,
               "type": "string",
               "group": "Required Options"
@@ -401,7 +401,7 @@
               "aliases": [
                 "td"
               ],
-              "description": "Specifies the target Db2 subsystem or data sharing group where you want to use a command.\n \n \u001b[90m Note: If you specify the data sharing group, the first active Db2 subsystem in the group is used. \u001b[0m",
+              "description": "Specifies the target Db2 subsystem or data sharing group where you want to use a command.",
               "required": false,
               "type": "string",
               "group": "Required Options"
@@ -876,7 +876,7 @@
               "aliases": [
                 "td"
               ],
-              "description": "Specifies the target Db2 subsystem or data sharing group where you want to use a command.\n \n \u001b[90m Note: If you specify the data sharing group, the first active Db2 subsystem in the group is used. \u001b[0m",
+              "description": "Specifies the target Db2 subsystem or data sharing group where you want to use a command.",
               "required": false,
               "type": "string",
               "group": "Required Options"
@@ -1616,7 +1616,7 @@
           "options": [
             {
               "name": "target-db2",
-              "description": "Specifies the target Db2 subsystem or data sharing group where you want to execute the script. If this option is not specified, the target subsystem is identified by the first .CONNECT statement in the script.\n \n \u001b[90m Note: If you specify the data sharing group, the first active Db2 subsystem in the group is used.\n \n The target-db2 option takes precedence over any other value that is specified for the Db2 subsystem or data sharing group. \u001b[0m",
+              "description": "Specifies the target Db2 subsystem or data sharing group where you want to execute the script. If this option is not specified, the target subsystem is identified by the first .CONNECT statement in the script.\n \n \u001b[90m Note: The target-db2 option takes precedence over any other value that is specified for the Db2 subsystem or data sharing group. \u001b[0m",
               "type": "string",
               "aliases": [
                 "td"
@@ -2337,7 +2337,7 @@
               "aliases": [
                 "sd"
               ],
-              "description": "Specifies the source Db2 subsystem or data sharing group where the objects that you want to use in a command are located.\n \n \u001b[90m Note: If you specify the data sharing group, the first active Db2 subsystem in the group is used. \u001b[0m",
+              "description": "Specifies the source Db2 subsystem or data sharing group where the objects that you want to use in a command are located.",
               "required": false,
               "type": "string",
               "group": "Required Options"
@@ -2776,7 +2776,7 @@
               "aliases": [
                 "sd"
               ],
-              "description": "Specifies the source Db2 subsystem or data sharing group where the objects that you want to use in a command are located.\n \n \u001b[90m Note: If you specify the data sharing group, the first active Db2 subsystem in the group is used. \u001b[0m",
+              "description": "Specifies the source Db2 subsystem or data sharing group where the objects that you want to use in a command are located.",
               "required": false,
               "type": "string",
               "group": "Required Options"
@@ -2786,7 +2786,7 @@
               "aliases": [
                 "td"
               ],
-              "description": "Specifies the target Db2 subsystem or data sharing group where you want to use a command.\n \n \u001b[90m Note: If you specify the data sharing group, the first active Db2 subsystem in the group is used. \u001b[0m",
+              "description": "Specifies the target Db2 subsystem or data sharing group where you want to use a command.",
               "required": false,
               "type": "string",
               "group": "Required Options"

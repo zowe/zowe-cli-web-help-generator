@@ -276,8 +276,9 @@
               "aliases": [
                 "ru"
               ],
-              "description": "Reject self-signed certificates. \n\nDefault: false",
+              "description": "Reject self-signed certificates. Use --ru false to connect to EBG servers with self-signed certificates.",
               "type": "boolean",
+              "defaultValue": true,
               "group": "Endevor Bridge for Git connection options (you can also use an 'ebg' profile)"
             },
             {
@@ -480,8 +481,9 @@
               "aliases": [
                 "ru"
               ],
-              "description": "Reject self-signed certificates. \n\nDefault: false",
+              "description": "Reject self-signed certificates. Use --ru false to connect to EBG servers with self-signed certificates.",
               "type": "boolean",
+              "defaultValue": true,
               "group": "Endevor Bridge for Git connection options (you can also use an 'ebg' profile)"
             },
             {
@@ -633,8 +635,9 @@
               "aliases": [
                 "ru"
               ],
-              "description": "Reject self-signed certificates. \n\nDefault: false",
+              "description": "Reject self-signed certificates. Use --ru false to connect to EBG servers with self-signed certificates.",
               "type": "boolean",
+              "defaultValue": true,
               "group": "Endevor Bridge for Git connection options (you can also use an 'ebg' profile)"
             },
             {
@@ -882,8 +885,9 @@
               "aliases": [
                 "ru"
               ],
-              "description": "Reject self-signed certificates. \n\nDefault: false",
+              "description": "Reject self-signed certificates. Use --ru false to connect to EBG servers with self-signed certificates.",
               "type": "boolean",
+              "defaultValue": true,
               "group": "Endevor Bridge for Git connection options (you can also use an 'ebg' profile)"
             },
             {
@@ -1092,8 +1096,9 @@
               "aliases": [
                 "ru"
               ],
-              "description": "Reject self-signed certificates. \n\nDefault: false",
+              "description": "Reject self-signed certificates. Use --ru false to connect to EBG servers with self-signed certificates.",
               "type": "boolean",
+              "defaultValue": true,
               "group": "Endevor Bridge for Git connection options (you can also use an 'ebg' profile)"
             },
             {
@@ -1298,8 +1303,9 @@
               "aliases": [
                 "ru"
               ],
-              "description": "Reject self-signed certificates. \n\nDefault: false",
+              "description": "Reject self-signed certificates. Use --ru false to connect to EBG servers with self-signed certificates.",
               "type": "boolean",
+              "defaultValue": true,
               "group": "Endevor Bridge for Git connection options (you can also use an 'ebg' profile)"
             },
             {
@@ -1520,8 +1526,9 @@
               "aliases": [
                 "ru"
               ],
-              "description": "Reject self-signed certificates. \n\nDefault: false",
+              "description": "Reject self-signed certificates. Use --ru false to connect to EBG servers with self-signed certificates.",
               "type": "boolean",
+              "defaultValue": true,
               "group": "Endevor Bridge for Git connection options (you can also use an 'ebg' profile)"
             },
             {
@@ -1712,8 +1719,9 @@
               "aliases": [
                 "ru"
               ],
-              "description": "Reject self-signed certificates. \n\nDefault: false",
+              "description": "Reject self-signed certificates. Use --ru false to connect to EBG servers with self-signed certificates.",
               "type": "boolean",
+              "defaultValue": true,
               "group": "Endevor Bridge for Git connection options (you can also use an 'ebg' profile)"
             },
             {
@@ -2042,8 +2050,9 @@
               "aliases": [
                 "ru"
               ],
-              "description": "Reject self-signed certificates. \n\nDefault: false",
+              "description": "Reject self-signed certificates. Use --ru false to connect to EBG servers with self-signed certificates.",
               "type": "boolean",
+              "defaultValue": true,
               "group": "Endevor Bridge for Git connection options (you can also use an 'ebg' profile)"
             },
             {
@@ -2484,8 +2493,9 @@
               "aliases": [
                 "ru"
               ],
-              "description": "Reject self-signed certificates. \n\nDefault: false",
+              "description": "Reject self-signed certificates. Use --ru false to connect to EBG servers with self-signed certificates.",
               "type": "boolean",
+              "defaultValue": true,
               "group": "Endevor Bridge for Git connection options (you can also use an 'ebg' profile)"
             },
             {
@@ -2821,8 +2831,9 @@
               "aliases": [
                 "ru"
               ],
-              "description": "Reject self-signed certificates. \n\nDefault: false",
+              "description": "Reject self-signed certificates. Use --ru false to connect to EBG servers with self-signed certificates.",
               "type": "boolean",
+              "defaultValue": true,
               "group": "Endevor Bridge for Git connection options (you can also use an 'ebg' profile)"
             },
             {
@@ -2962,6 +2973,276 @@
           "children": []
         },
         {
+          "name": "users",
+          "aliases": [
+            "u"
+          ],
+          "type": "command",
+          "handler": "",
+          "description": "Upload Mainframe users to Bridge for Git for traceability of changes from Endevor to Bridge for Git.\n  Before you upload mainframe users, ensure that the application.yml parameter “commit-author” is set to “ENDEVOR_USER”.",
+          "profile": {
+            "optional": [
+              "ebg",
+              "endevor",
+              "base"
+            ]
+          },
+          "options": [
+            {
+              "name": "connection",
+              "description": "Endevor connection name.",
+              "type": "string",
+              "required": false,
+              "group": "Options",
+              "aliases": []
+            },
+            {
+              "name": "mainframe-user",
+              "aliases": [
+                "mu"
+              ],
+              "description": "Mainframe user name",
+              "type": "string",
+              "required": false,
+              "group": "Options"
+            },
+            {
+              "name": "git-user",
+              "aliases": [
+                "gu"
+              ],
+              "description": "Git user name.",
+              "type": "string",
+              "required": false,
+              "group": "Options"
+            },
+            {
+              "name": "user-email",
+              "aliases": [
+                "m"
+              ],
+              "description": "User role.",
+              "type": "string",
+              "required": false,
+              "group": "Options"
+            },
+            {
+              "name": "csv-file",
+              "aliases": [
+                "csv"
+              ],
+              "description": "CSV file with users to import.",
+              "type": "existingLocalFile",
+              "required": false,
+              "conflictsWith": [
+                "mainframe-user",
+                "git-user",
+                "user-email"
+              ],
+              "group": "Options"
+            },
+            {
+              "name": "protocol",
+              "aliases": [
+                "prot"
+              ],
+              "description": "Endevor Bridge for Git SCM protocol. \n\nDefault: https",
+              "type": "string",
+              "required": true,
+              "group": "Endevor Bridge for Git connection options (you can also use an 'ebg' profile)",
+              "defaultValue": "https",
+              "allowableValues": {
+                "values": [
+                  "http",
+                  "https"
+                ],
+                "caseSensitive": false
+              }
+            },
+            {
+              "name": "host",
+              "aliases": [
+                "H"
+              ],
+              "description": "Endevor Bridge for Git hostname.",
+              "type": "string",
+              "required": true,
+              "group": "Endevor Bridge for Git connection options (you can also use an 'ebg' profile)"
+            },
+            {
+              "name": "port",
+              "aliases": [
+                "P"
+              ],
+              "description": "Endevor Bridge for Git port.",
+              "type": "number",
+              "required": true,
+              "group": "Endevor Bridge for Git connection options (you can also use an 'ebg' profile)"
+            },
+            {
+              "name": "user",
+              "aliases": [
+                "u"
+              ],
+              "description": "Endevor Bridge for Git username (your git username).",
+              "type": "string",
+              "required": true,
+              "group": "Endevor Bridge for Git connection options (you can also use an 'ebg' profile)"
+            },
+            {
+              "name": "token",
+              "aliases": [
+                "t"
+              ],
+              "description": "Git personal access token (Obtain the token from your Git Enterprise Server).",
+              "type": "string",
+              "required": true,
+              "group": "Endevor Bridge for Git connection options (you can also use an 'ebg' profile)"
+            },
+            {
+              "name": "reject-unauthorized",
+              "aliases": [
+                "ru"
+              ],
+              "description": "Reject self-signed certificates. Use --ru false to connect to EBG servers with self-signed certificates.",
+              "type": "boolean",
+              "defaultValue": true,
+              "group": "Endevor Bridge for Git connection options (you can also use an 'ebg' profile)"
+            },
+            {
+              "name": "ebg-base-path",
+              "description": "The Endevor Bridge for Git Rest API base path.",
+              "type": "string",
+              "required": false,
+              "group": "Endevor Bridge for Git connection options (you can also use an 'ebg' profile)",
+              "aliases": []
+            },
+            {
+              "name": "show-inputs-only",
+              "group": "Global Options",
+              "description": "Show command inputs and do not run the command",
+              "type": "boolean",
+              "aliases": []
+            },
+            {
+              "name": "response-format-json",
+              "aliases": [
+                "rfj"
+              ],
+              "group": "Global Options",
+              "description": "Produce JSON formatted data from a command",
+              "type": "boolean"
+            },
+            {
+              "name": "help",
+              "aliases": [
+                "h"
+              ],
+              "group": "Global Options",
+              "description": "Display help text",
+              "type": "boolean"
+            },
+            {
+              "name": "help-web",
+              "aliases": [
+                "hw"
+              ],
+              "group": "Global Options",
+              "description": "Display HTML help in browser",
+              "type": "boolean"
+            },
+            {
+              "name": "ebg-profile",
+              "aliases": [
+                "ebg-p"
+              ],
+              "group": "Profile Options",
+              "description": "The name of a (ebg) profile to load for this command execution.",
+              "type": "string"
+            },
+            {
+              "name": "endevor-profile",
+              "aliases": [
+                "endevor-p"
+              ],
+              "group": "Profile Options",
+              "description": "The name of a (endevor) profile to load for this command execution.",
+              "type": "string"
+            },
+            {
+              "name": "base-profile",
+              "aliases": [
+                "base-p"
+              ],
+              "group": "Profile Options",
+              "description": "The name of a (base) profile to load for this command execution.",
+              "type": "string"
+            },
+            {
+              "name": "password",
+              "aliases": [
+                "pass",
+                "pw"
+              ],
+              "description": "Password to authenticate to service on the mainframe.",
+              "type": "string",
+              "group": "Base Connection Options"
+            },
+            {
+              "name": "token-type",
+              "aliases": [
+                "tt"
+              ],
+              "description": "The type of token to get and use for the API. Omit this option to use the default token type, which is provided by 'zowe auth login'.",
+              "type": "string",
+              "group": "Base Connection Options"
+            },
+            {
+              "name": "token-value",
+              "aliases": [
+                "tv"
+              ],
+              "description": "The value of the token to pass to the API.",
+              "type": "string",
+              "group": "Base Connection Options"
+            },
+            {
+              "name": "cert-file",
+              "description": "The file path to a certificate file to use for authentication.\n\nNote: The CLI does not support certificate files that require a password. For more information, search Troubleshooting PEM Certificates in Zowe Docs.",
+              "type": "existingLocalFile",
+              "group": "Base Connection Options",
+              "aliases": []
+            },
+            {
+              "name": "cert-key-file",
+              "description": "The file path to a certificate key file to use for authentication",
+              "type": "existingLocalFile",
+              "group": "Base Connection Options",
+              "aliases": []
+            },
+            {
+              "name": "cert-account",
+              "description": "The account name for PKCS 12 certificate stored in credential manager",
+              "type": "string",
+              "group": "Base Connection Options",
+              "aliases": []
+            }
+          ],
+          "examples": [
+            {
+              "description": "Upload a single mainframe user specifying both the Git and Endevor username, email, and corresponding Endevor connection",
+              "options": "--connection endevor-connection-name --mainframe-user ENVUSERNAME --git-user GITUSERNAME --user-email NAME@EMAIL.NET"
+            },
+            {
+              "description": "Bulk upload new mainframe users by importing a csv format file",
+              "options": "--connection endevor-connection-name --csv-file mf-users.csv"
+            }
+          ],
+          "positionals": [],
+          "passOn": [],
+          "children": []
+        },
+        {
           "name": "local-hook-token",
           "aliases": [
             "token"
@@ -3050,8 +3331,9 @@
               "aliases": [
                 "ru"
               ],
-              "description": "Reject self-signed certificates. \n\nDefault: false",
+              "description": "Reject self-signed certificates. Use --ru false to connect to EBG servers with self-signed certificates.",
               "type": "boolean",
+              "defaultValue": true,
               "group": "Endevor Bridge for Git connection options (you can also use an 'ebg' profile)"
             },
             {
@@ -3305,8 +3587,9 @@
               "aliases": [
                 "ru"
               ],
-              "description": "Reject self-signed certificates. \n\nDefault: false",
+              "description": "Reject self-signed certificates. Use --ru false to connect to EBG servers with self-signed certificates.",
               "type": "boolean",
+              "defaultValue": true,
               "group": "Endevor Bridge for Git connection options (you can also use an 'ebg' profile)"
             },
             {
@@ -3663,8 +3946,9 @@
               "aliases": [
                 "ru"
               ],
-              "description": "Reject self-signed certificates. \n\nDefault: false",
+              "description": "Reject self-signed certificates. Use --ru false to connect to EBG servers with self-signed certificates.",
               "type": "boolean",
+              "defaultValue": true,
               "group": "Endevor Bridge for Git connection options (you can also use an 'ebg' profile)"
             },
             {
@@ -3858,8 +4142,9 @@
               "aliases": [
                 "ru"
               ],
-              "description": "Reject self-signed certificates. \n\nDefault: false",
+              "description": "Reject self-signed certificates. Use --ru false to connect to EBG servers with self-signed certificates.",
               "type": "boolean",
+              "defaultValue": true,
               "group": "Endevor Bridge for Git connection options (you can also use an 'ebg' profile)"
             },
             {
@@ -3909,6 +4194,352 @@
           "type": "boolean"
         }
       ],
+      "positionals": []
+    },
+    {
+      "name": "configure",
+      "description": "Configure the plugin, mappings, repositories",
+      "type": "group",
+      "children": [
+        {
+          "name": "repository",
+          "aliases": [
+            "repo"
+          ],
+          "type": "command",
+          "handler": "",
+          "description": "Configure repository by adding pre-push hook",
+          "positionals": [],
+          "profile": {
+            "optional": [
+              "ebg",
+              "endevor",
+              "base"
+            ]
+          },
+          "options": [
+            {
+              "name": "force-rewrite",
+              "aliases": [
+                "force",
+                "f"
+              ],
+              "description": "Overwrite the output file if it already exists. Skips the default safety check.",
+              "type": "boolean",
+              "defaultValue": false,
+              "group": "Options"
+            },
+            {
+              "name": "protocol",
+              "aliases": [
+                "prot"
+              ],
+              "description": "Endevor Bridge for Git SCM protocol. \n\nDefault: https",
+              "type": "string",
+              "required": true,
+              "group": "Endevor Bridge for Git connection options (you can also use an 'ebg' profile)",
+              "defaultValue": "https",
+              "allowableValues": {
+                "values": [
+                  "http",
+                  "https"
+                ],
+                "caseSensitive": false
+              }
+            },
+            {
+              "name": "host",
+              "aliases": [
+                "H"
+              ],
+              "description": "Endevor Bridge for Git hostname.",
+              "type": "string",
+              "required": true,
+              "group": "Endevor Bridge for Git connection options (you can also use an 'ebg' profile)"
+            },
+            {
+              "name": "port",
+              "aliases": [
+                "P"
+              ],
+              "description": "Endevor Bridge for Git port.",
+              "type": "number",
+              "required": true,
+              "group": "Endevor Bridge for Git connection options (you can also use an 'ebg' profile)"
+            },
+            {
+              "name": "user",
+              "aliases": [
+                "u"
+              ],
+              "description": "Endevor Bridge for Git username (your git username).",
+              "type": "string",
+              "required": true,
+              "group": "Endevor Bridge for Git connection options (you can also use an 'ebg' profile)"
+            },
+            {
+              "name": "token",
+              "aliases": [
+                "t"
+              ],
+              "description": "Git personal access token (Obtain the token from your Git Enterprise Server).",
+              "type": "string",
+              "required": true,
+              "group": "Endevor Bridge for Git connection options (you can also use an 'ebg' profile)"
+            },
+            {
+              "name": "reject-unauthorized",
+              "aliases": [
+                "ru"
+              ],
+              "description": "Reject self-signed certificates. Use --ru false to connect to EBG servers with self-signed certificates.",
+              "type": "boolean",
+              "defaultValue": true,
+              "group": "Endevor Bridge for Git connection options (you can also use an 'ebg' profile)"
+            },
+            {
+              "name": "ebg-base-path",
+              "description": "The Endevor Bridge for Git Rest API base path.",
+              "type": "string",
+              "required": false,
+              "group": "Endevor Bridge for Git connection options (you can also use an 'ebg' profile)",
+              "aliases": []
+            },
+            {
+              "name": "show-inputs-only",
+              "group": "Global Options",
+              "description": "Show command inputs and do not run the command",
+              "type": "boolean",
+              "aliases": []
+            },
+            {
+              "name": "response-format-json",
+              "aliases": [
+                "rfj"
+              ],
+              "group": "Global Options",
+              "description": "Produce JSON formatted data from a command",
+              "type": "boolean"
+            },
+            {
+              "name": "help",
+              "aliases": [
+                "h"
+              ],
+              "group": "Global Options",
+              "description": "Display help text",
+              "type": "boolean"
+            },
+            {
+              "name": "help-web",
+              "aliases": [
+                "hw"
+              ],
+              "group": "Global Options",
+              "description": "Display HTML help in browser",
+              "type": "boolean"
+            },
+            {
+              "name": "ebg-profile",
+              "aliases": [
+                "ebg-p"
+              ],
+              "group": "Profile Options",
+              "description": "The name of a (ebg) profile to load for this command execution.",
+              "type": "string"
+            },
+            {
+              "name": "endevor-profile",
+              "aliases": [
+                "endevor-p"
+              ],
+              "group": "Profile Options",
+              "description": "The name of a (endevor) profile to load for this command execution.",
+              "type": "string"
+            },
+            {
+              "name": "base-profile",
+              "aliases": [
+                "base-p"
+              ],
+              "group": "Profile Options",
+              "description": "The name of a (base) profile to load for this command execution.",
+              "type": "string"
+            },
+            {
+              "name": "password",
+              "aliases": [
+                "pass",
+                "pw"
+              ],
+              "description": "Password to authenticate to service on the mainframe.",
+              "type": "string",
+              "group": "Base Connection Options"
+            },
+            {
+              "name": "token-type",
+              "aliases": [
+                "tt"
+              ],
+              "description": "The type of token to get and use for the API. Omit this option to use the default token type, which is provided by 'zowe auth login'.",
+              "type": "string",
+              "group": "Base Connection Options"
+            },
+            {
+              "name": "token-value",
+              "aliases": [
+                "tv"
+              ],
+              "description": "The value of the token to pass to the API.",
+              "type": "string",
+              "group": "Base Connection Options"
+            },
+            {
+              "name": "cert-file",
+              "description": "The file path to a certificate file to use for authentication.\n\nNote: The CLI does not support certificate files that require a password. For more information, search Troubleshooting PEM Certificates in Zowe Docs.",
+              "type": "existingLocalFile",
+              "group": "Base Connection Options",
+              "aliases": []
+            },
+            {
+              "name": "cert-key-file",
+              "description": "The file path to a certificate key file to use for authentication",
+              "type": "existingLocalFile",
+              "group": "Base Connection Options",
+              "aliases": []
+            },
+            {
+              "name": "cert-account",
+              "description": "The account name for PKCS 12 certificate stored in credential manager",
+              "type": "string",
+              "group": "Base Connection Options",
+              "aliases": []
+            }
+          ],
+          "passOn": [],
+          "children": []
+        }
+      ],
+      "passOn": [
+        {
+          "property": "options",
+          "value": [
+            {
+              "name": "protocol",
+              "aliases": [
+                "prot"
+              ],
+              "description": "Endevor Bridge for Git SCM protocol. \n\nDefault: https",
+              "type": "string",
+              "required": true,
+              "group": "Endevor Bridge for Git connection options (you can also use an 'ebg' profile)",
+              "defaultValue": "https",
+              "allowableValues": {
+                "values": [
+                  "http",
+                  "https"
+                ],
+                "caseSensitive": false
+              }
+            },
+            {
+              "name": "host",
+              "aliases": [
+                "H"
+              ],
+              "description": "Endevor Bridge for Git hostname.",
+              "type": "string",
+              "required": true,
+              "group": "Endevor Bridge for Git connection options (you can also use an 'ebg' profile)"
+            },
+            {
+              "name": "port",
+              "aliases": [
+                "P"
+              ],
+              "description": "Endevor Bridge for Git port.",
+              "type": "number",
+              "required": true,
+              "group": "Endevor Bridge for Git connection options (you can also use an 'ebg' profile)"
+            },
+            {
+              "name": "user",
+              "aliases": [
+                "u"
+              ],
+              "description": "Endevor Bridge for Git username (your git username).",
+              "type": "string",
+              "required": true,
+              "group": "Endevor Bridge for Git connection options (you can also use an 'ebg' profile)"
+            },
+            {
+              "name": "token",
+              "aliases": [
+                "t"
+              ],
+              "description": "Git personal access token (Obtain the token from your Git Enterprise Server).",
+              "type": "string",
+              "required": true,
+              "group": "Endevor Bridge for Git connection options (you can also use an 'ebg' profile)"
+            },
+            {
+              "name": "reject-unauthorized",
+              "aliases": [
+                "ru"
+              ],
+              "description": "Reject self-signed certificates. Use --ru false to connect to EBG servers with self-signed certificates.",
+              "type": "boolean",
+              "defaultValue": true,
+              "group": "Endevor Bridge for Git connection options (you can also use an 'ebg' profile)"
+            },
+            {
+              "name": "ebg-base-path",
+              "description": "The Endevor Bridge for Git Rest API base path.",
+              "type": "string",
+              "required": false,
+              "group": "Endevor Bridge for Git connection options (you can also use an 'ebg' profile)"
+            }
+          ],
+          "merge": true
+        }
+      ],
+      "options": [
+        {
+          "name": "help-examples",
+          "group": "Global Options",
+          "description": "Display examples for all the commands in a group",
+          "type": "boolean",
+          "aliases": []
+        },
+        {
+          "name": "response-format-json",
+          "aliases": [
+            "rfj"
+          ],
+          "group": "Global Options",
+          "description": "Produce JSON formatted data from a command",
+          "type": "boolean"
+        },
+        {
+          "name": "help",
+          "aliases": [
+            "h"
+          ],
+          "group": "Global Options",
+          "description": "Display help text",
+          "type": "boolean"
+        },
+        {
+          "name": "help-web",
+          "aliases": [
+            "hw"
+          ],
+          "group": "Global Options",
+          "description": "Display HTML help in browser",
+          "type": "boolean"
+        }
+      ],
+      "aliases": [],
       "positionals": []
     },
     {
@@ -4021,8 +4652,9 @@
               "aliases": [
                 "ru"
               ],
-              "description": "Reject self-signed certificates. \n\nDefault: false",
+              "description": "Reject self-signed certificates. Use --ru false to connect to EBG servers with self-signed certificates.",
               "type": "boolean",
+              "defaultValue": true,
               "group": "Endevor Bridge for Git connection options (you can also use an 'ebg' profile)"
             },
             {
@@ -4232,8 +4864,9 @@
               "aliases": [
                 "ru"
               ],
-              "description": "Reject self-signed certificates. \n\nDefault: false",
+              "description": "Reject self-signed certificates. Use --ru false to connect to EBG servers with self-signed certificates.",
               "type": "boolean",
+              "defaultValue": true,
               "group": "Endevor Bridge for Git connection options (you can also use an 'ebg' profile)"
             },
             {
@@ -4444,8 +5077,9 @@
               "aliases": [
                 "ru"
               ],
-              "description": "Reject self-signed certificates. \n\nDefault: false",
+              "description": "Reject self-signed certificates. Use --ru false to connect to EBG servers with self-signed certificates.",
               "type": "boolean",
+              "defaultValue": true,
               "group": "Endevor Bridge for Git connection options (you can also use an 'ebg' profile)"
             },
             {
@@ -4660,8 +5294,9 @@
               "aliases": [
                 "ru"
               ],
-              "description": "Reject self-signed certificates. \n\nDefault: false",
+              "description": "Reject self-signed certificates. Use --ru false to connect to EBG servers with self-signed certificates.",
               "type": "boolean",
+              "defaultValue": true,
               "group": "Endevor Bridge for Git connection options (you can also use an 'ebg' profile)"
             },
             {
@@ -4864,8 +5499,9 @@
               "aliases": [
                 "ru"
               ],
-              "description": "Reject self-signed certificates. \n\nDefault: false",
+              "description": "Reject self-signed certificates. Use --ru false to connect to EBG servers with self-signed certificates.",
               "type": "boolean",
+              "defaultValue": true,
               "group": "Endevor Bridge for Git connection options (you can also use an 'ebg' profile)"
             },
             {
@@ -5124,8 +5760,9 @@
               "aliases": [
                 "ru"
               ],
-              "description": "Reject self-signed certificates. \n\nDefault: false",
+              "description": "Reject self-signed certificates. Use --ru false to connect to EBG servers with self-signed certificates.",
               "type": "boolean",
+              "defaultValue": true,
               "group": "Endevor Bridge for Git connection options (you can also use an 'ebg' profile)"
             },
             {
@@ -5338,8 +5975,9 @@
               "aliases": [
                 "ru"
               ],
-              "description": "Reject self-signed certificates. \n\nDefault: false",
+              "description": "Reject self-signed certificates. Use --ru false to connect to EBG servers with self-signed certificates.",
               "type": "boolean",
+              "defaultValue": true,
               "group": "Endevor Bridge for Git connection options (you can also use an 'ebg' profile)"
             },
             {
@@ -5554,8 +6192,9 @@
               "aliases": [
                 "ru"
               ],
-              "description": "Reject self-signed certificates. \n\nDefault: false",
+              "description": "Reject self-signed certificates. Use --ru false to connect to EBG servers with self-signed certificates.",
               "type": "boolean",
+              "defaultValue": true,
               "group": "Endevor Bridge for Git connection options (you can also use an 'ebg' profile)"
             },
             {
@@ -5749,8 +6388,9 @@
               "aliases": [
                 "ru"
               ],
-              "description": "Reject self-signed certificates. \n\nDefault: false",
+              "description": "Reject self-signed certificates. Use --ru false to connect to EBG servers with self-signed certificates.",
               "type": "boolean",
+              "defaultValue": true,
               "group": "Endevor Bridge for Git connection options (you can also use an 'ebg' profile)"
             },
             {
@@ -5941,8 +6581,9 @@
               "aliases": [
                 "ru"
               ],
-              "description": "Reject self-signed certificates. \n\nDefault: false",
+              "description": "Reject self-signed certificates. Use --ru false to connect to EBG servers with self-signed certificates.",
               "type": "boolean",
+              "defaultValue": true,
               "group": "Endevor Bridge for Git connection options (you can also use an 'ebg' profile)"
             },
             {
@@ -6211,8 +6852,9 @@
               "aliases": [
                 "ru"
               ],
-              "description": "Reject self-signed certificates. \n\nDefault: false",
+              "description": "Reject self-signed certificates. Use --ru false to connect to EBG servers with self-signed certificates.",
               "type": "boolean",
+              "defaultValue": true,
               "group": "Endevor Bridge for Git connection options (you can also use an 'ebg' profile)"
             },
             {
@@ -6414,8 +7056,9 @@
               "aliases": [
                 "ru"
               ],
-              "description": "Reject self-signed certificates. \n\nDefault: false",
+              "description": "Reject self-signed certificates. Use --ru false to connect to EBG servers with self-signed certificates.",
               "type": "boolean",
+              "defaultValue": true,
               "group": "Endevor Bridge for Git connection options (you can also use an 'ebg' profile)"
             },
             {
@@ -6800,8 +7443,9 @@
               "aliases": [
                 "ru"
               ],
-              "description": "Reject self-signed certificates. \n\nDefault: false",
+              "description": "Reject self-signed certificates. Use --ru false to connect to EBG servers with self-signed certificates.",
               "type": "boolean",
+              "defaultValue": true,
               "group": "Endevor Bridge for Git connection options (you can also use an 'ebg' profile)"
             },
             {
@@ -7080,8 +7724,9 @@
               "aliases": [
                 "ru"
               ],
-              "description": "Reject self-signed certificates. \n\nDefault: false",
+              "description": "Reject self-signed certificates. Use --ru false to connect to EBG servers with self-signed certificates.",
               "type": "boolean",
+              "defaultValue": true,
               "group": "Endevor Bridge for Git connection options (you can also use an 'ebg' profile)"
             },
             {
@@ -7365,8 +8010,9 @@
               "aliases": [
                 "ru"
               ],
-              "description": "Reject self-signed certificates. \n\nDefault: false",
+              "description": "Reject self-signed certificates. Use --ru false to connect to EBG servers with self-signed certificates.",
               "type": "boolean",
+              "defaultValue": true,
               "group": "Endevor Bridge for Git connection options (you can also use an 'ebg' profile)"
             },
             {
@@ -7624,8 +8270,9 @@
               "aliases": [
                 "ru"
               ],
-              "description": "Reject self-signed certificates. \n\nDefault: false",
+              "description": "Reject self-signed certificates. Use --ru false to connect to EBG servers with self-signed certificates.",
               "type": "boolean",
+              "defaultValue": true,
               "group": "Endevor Bridge for Git connection options (you can also use an 'ebg' profile)"
             },
             {
@@ -7903,8 +8550,9 @@
               "aliases": [
                 "ru"
               ],
-              "description": "Reject self-signed certificates. \n\nDefault: false",
+              "description": "Reject self-signed certificates. Use --ru false to connect to EBG servers with self-signed certificates.",
               "type": "boolean",
+              "defaultValue": true,
               "group": "Endevor Bridge for Git connection options (you can also use an 'ebg' profile)"
             },
             {
@@ -8176,8 +8824,9 @@
               "aliases": [
                 "ru"
               ],
-              "description": "Reject self-signed certificates. \n\nDefault: false",
+              "description": "Reject self-signed certificates. Use --ru false to connect to EBG servers with self-signed certificates.",
               "type": "boolean",
+              "defaultValue": true,
               "group": "Endevor Bridge for Git connection options (you can also use an 'ebg' profile)"
             },
             {
@@ -8400,8 +9049,9 @@
               "aliases": [
                 "ru"
               ],
-              "description": "Reject self-signed certificates. \n\nDefault: false",
+              "description": "Reject self-signed certificates. Use --ru false to connect to EBG servers with self-signed certificates.",
               "type": "boolean",
+              "defaultValue": true,
               "group": "Endevor Bridge for Git connection options (you can also use an 'ebg' profile)"
             },
             {
@@ -8615,8 +9265,9 @@
               "aliases": [
                 "ru"
               ],
-              "description": "Reject self-signed certificates. \n\nDefault: false",
+              "description": "Reject self-signed certificates. Use --ru false to connect to EBG servers with self-signed certificates.",
               "type": "boolean",
+              "defaultValue": true,
               "group": "Endevor Bridge for Git connection options (you can also use an 'ebg' profile)"
             },
             {
@@ -8821,8 +9472,9 @@
               "aliases": [
                 "ru"
               ],
-              "description": "Reject self-signed certificates. \n\nDefault: false",
+              "description": "Reject self-signed certificates. Use --ru false to connect to EBG servers with self-signed certificates.",
               "type": "boolean",
+              "defaultValue": true,
               "group": "Endevor Bridge for Git connection options (you can also use an 'ebg' profile)"
             },
             {
@@ -9090,8 +9742,9 @@
               "aliases": [
                 "ru"
               ],
-              "description": "Reject self-signed certificates. \n\nDefault: false",
+              "description": "Reject self-signed certificates. Use --ru false to connect to EBG servers with self-signed certificates.",
               "type": "boolean",
+              "defaultValue": true,
               "group": "Endevor Bridge for Git connection options (you can also use an 'ebg' profile)"
             },
             {
@@ -9323,8 +9976,9 @@
               "aliases": [
                 "ru"
               ],
-              "description": "Reject self-signed certificates. \n\nDefault: false",
+              "description": "Reject self-signed certificates. Use --ru false to connect to EBG servers with self-signed certificates.",
               "type": "boolean",
+              "defaultValue": true,
               "group": "Endevor Bridge for Git connection options (you can also use an 'ebg' profile)"
             },
             {
@@ -9564,8 +10218,9 @@
               "aliases": [
                 "ru"
               ],
-              "description": "Reject self-signed certificates. \n\nDefault: false",
+              "description": "Reject self-signed certificates. Use --ru false to connect to EBG servers with self-signed certificates.",
               "type": "boolean",
+              "defaultValue": true,
               "group": "Endevor Bridge for Git connection options (you can also use an 'ebg' profile)"
             },
             {
@@ -9725,6 +10380,270 @@
           "positionals": [],
           "passOn": [],
           "children": []
+        },
+        {
+          "name": "server-config",
+          "aliases": [
+            "s"
+          ],
+          "type": "command",
+          "handler": "",
+          "description": "List Bridge for Git server configuration",
+          "summary": "List server configuration",
+          "profile": {
+            "optional": [
+              "ebg",
+              "base"
+            ]
+          },
+          "options": [
+            {
+              "name": "token",
+              "aliases": [
+                "t"
+              ],
+              "description": "Git personal access token (Obtain the token from your Git Enterprise Server).",
+              "type": "string",
+              "required": false,
+              "group": "Endevor Bridge for Git connection options (you can also use an 'ebg' profile)",
+              "defaultValue": "INVALID_TOKEN"
+            },
+            {
+              "name": "user",
+              "aliases": [
+                "u"
+              ],
+              "description": "Endevor Bridge for Git username (your git username).",
+              "type": "string",
+              "required": false,
+              "group": "Endevor Bridge for Git connection options (you can also use an 'ebg' profile)",
+              "defaultValue": "INVALID_USER"
+            },
+            {
+              "name": "protocol",
+              "aliases": [
+                "prot"
+              ],
+              "description": "Endevor Bridge for Git SCM protocol. \n\nDefault: https",
+              "type": "string",
+              "required": true,
+              "group": "Endevor Bridge for Git connection options (you can also use an 'ebg' profile)",
+              "defaultValue": "https",
+              "allowableValues": {
+                "values": [
+                  "http",
+                  "https"
+                ],
+                "caseSensitive": false
+              }
+            },
+            {
+              "name": "host",
+              "aliases": [
+                "H"
+              ],
+              "description": "Endevor Bridge for Git hostname.",
+              "type": "string",
+              "required": true,
+              "group": "Endevor Bridge for Git connection options (you can also use an 'ebg' profile)"
+            },
+            {
+              "name": "port",
+              "aliases": [
+                "P"
+              ],
+              "description": "Endevor Bridge for Git port.",
+              "type": "number",
+              "required": true,
+              "group": "Endevor Bridge for Git connection options (you can also use an 'ebg' profile)"
+            },
+            {
+              "name": "user",
+              "aliases": [
+                "u"
+              ],
+              "description": "Endevor Bridge for Git username (your git username).",
+              "type": "string",
+              "required": true,
+              "group": "Endevor Bridge for Git connection options (you can also use an 'ebg' profile)"
+            },
+            {
+              "name": "token",
+              "aliases": [
+                "t"
+              ],
+              "description": "Git personal access token (Obtain the token from your Git Enterprise Server).",
+              "type": "string",
+              "required": true,
+              "group": "Endevor Bridge for Git connection options (you can also use an 'ebg' profile)"
+            },
+            {
+              "name": "reject-unauthorized",
+              "aliases": [
+                "ru"
+              ],
+              "description": "Reject self-signed certificates. Use --ru false to connect to EBG servers with self-signed certificates.",
+              "type": "boolean",
+              "defaultValue": true,
+              "group": "Endevor Bridge for Git connection options (you can also use an 'ebg' profile)"
+            },
+            {
+              "name": "ebg-base-path",
+              "description": "The Endevor Bridge for Git Rest API base path.",
+              "type": "string",
+              "required": false,
+              "group": "Endevor Bridge for Git connection options (you can also use an 'ebg' profile)",
+              "aliases": []
+            },
+            {
+              "name": "show-inputs-only",
+              "group": "Global Options",
+              "description": "Show command inputs and do not run the command",
+              "type": "boolean",
+              "aliases": []
+            },
+            {
+              "name": "response-format-json",
+              "aliases": [
+                "rfj"
+              ],
+              "group": "Global Options",
+              "description": "Produce JSON formatted data from a command",
+              "type": "boolean"
+            },
+            {
+              "name": "help",
+              "aliases": [
+                "h"
+              ],
+              "group": "Global Options",
+              "description": "Display help text",
+              "type": "boolean"
+            },
+            {
+              "name": "help-web",
+              "aliases": [
+                "hw"
+              ],
+              "group": "Global Options",
+              "description": "Display HTML help in browser",
+              "type": "boolean"
+            },
+            {
+              "name": "ebg-profile",
+              "aliases": [
+                "ebg-p"
+              ],
+              "group": "Profile Options",
+              "description": "The name of a (ebg) profile to load for this command execution.",
+              "type": "string"
+            },
+            {
+              "name": "base-profile",
+              "aliases": [
+                "base-p"
+              ],
+              "group": "Profile Options",
+              "description": "The name of a (base) profile to load for this command execution.",
+              "type": "string"
+            },
+            {
+              "name": "password",
+              "aliases": [
+                "pass",
+                "pw"
+              ],
+              "description": "Password to authenticate to service on the mainframe.",
+              "type": "string",
+              "group": "Base Connection Options"
+            },
+            {
+              "name": "token-type",
+              "aliases": [
+                "tt"
+              ],
+              "description": "The type of token to get and use for the API. Omit this option to use the default token type, which is provided by 'zowe auth login'.",
+              "type": "string",
+              "group": "Base Connection Options"
+            },
+            {
+              "name": "token-value",
+              "aliases": [
+                "tv"
+              ],
+              "description": "The value of the token to pass to the API.",
+              "type": "string",
+              "group": "Base Connection Options"
+            },
+            {
+              "name": "cert-file",
+              "description": "The file path to a certificate file to use for authentication.\n\nNote: The CLI does not support certificate files that require a password. For more information, search Troubleshooting PEM Certificates in Zowe Docs.",
+              "type": "existingLocalFile",
+              "group": "Base Connection Options",
+              "aliases": []
+            },
+            {
+              "name": "cert-key-file",
+              "description": "The file path to a certificate key file to use for authentication",
+              "type": "existingLocalFile",
+              "group": "Base Connection Options",
+              "aliases": []
+            },
+            {
+              "name": "cert-account",
+              "description": "The account name for PKCS 12 certificate stored in credential manager",
+              "type": "string",
+              "group": "Base Connection Options",
+              "aliases": []
+            },
+            {
+              "name": "response-format-filter",
+              "aliases": [
+                "rff"
+              ],
+              "description": "Filter (include) fields in the response. Accepts an array of field/property names to include in the output response. You can filter JSON objects properties OR table columns/fields. In addition, you can use this option in conjunction with '--response-format-type' to reduce the output of a command to a single field/property or a list of a single field/property.",
+              "type": "array",
+              "group": "Response Format Options"
+            },
+            {
+              "name": "response-format-type",
+              "aliases": [
+                "rft"
+              ],
+              "description": "The command response output format type. Must be one of the following:\n\ntable: Formats output data as a table. Use this option when the output data is an array of homogeneous JSON objects. Each property of the object will become a column in the table.\n\nlist: Formats output data as a list of strings. Can be used on any data type (JSON objects/arrays) are stringified and a new line is added after each entry in an array.\n\nobject: Formats output data as a list of prettified objects (or single object). Can be used in place of \"table\" to change from tabular output to a list of prettified objects.\n\nstring: Formats output data as a string. JSON objects/arrays are stringified.",
+              "type": "string",
+              "allowableValues": {
+                "values": [
+                  "table",
+                  "list",
+                  "object",
+                  "string"
+                ],
+                "caseSensitive": false
+              },
+              "group": "Response Format Options"
+            },
+            {
+              "name": "response-format-header",
+              "aliases": [
+                "rfh"
+              ],
+              "description": "If \"--response-format-type table\" is specified, include the column headers in the output.",
+              "type": "boolean",
+              "group": "Response Format Options",
+              "defaultValue": null
+            }
+          ],
+          "outputFormatOptions": true,
+          "examples": [
+            {
+              "description": "List configuration of connected Bridge for Git server",
+              "options": ""
+            }
+          ],
+          "positionals": [],
+          "passOn": [],
+          "children": []
         }
       ],
       "passOn": [
@@ -9794,8 +10713,9 @@
               "aliases": [
                 "ru"
               ],
-              "description": "Reject self-signed certificates. \n\nDefault: false",
+              "description": "Reject self-signed certificates. Use --ru false to connect to EBG servers with self-signed certificates.",
               "type": "boolean",
+              "defaultValue": true,
               "group": "Endevor Bridge for Git connection options (you can also use an 'ebg' profile)"
             },
             {
@@ -10014,8 +10934,9 @@
               "aliases": [
                 "ru"
               ],
-              "description": "Reject self-signed certificates. \n\nDefault: false",
+              "description": "Reject self-signed certificates. Use --ru false to connect to EBG servers with self-signed certificates.",
               "type": "boolean",
+              "defaultValue": true,
               "group": "Endevor Bridge for Git connection options (you can also use an 'ebg' profile)"
             },
             {
@@ -10209,8 +11130,9 @@
               "aliases": [
                 "ru"
               ],
-              "description": "Reject self-signed certificates. \n\nDefault: false",
+              "description": "Reject self-signed certificates. Use --ru false to connect to EBG servers with self-signed certificates.",
               "type": "boolean",
+              "defaultValue": true,
               "group": "Endevor Bridge for Git connection options (you can also use an 'ebg' profile)"
             },
             {
@@ -10379,8 +11301,9 @@
               "aliases": [
                 "ru"
               ],
-              "description": "Reject self-signed certificates. \n\nDefault: false",
+              "description": "Reject self-signed certificates. Use --ru false to connect to EBG servers with self-signed certificates.",
               "type": "boolean",
+              "defaultValue": true,
               "group": "Endevor Bridge for Git connection options (you can also use an 'ebg' profile)"
             },
             {
@@ -10600,8 +11523,9 @@
               "aliases": [
                 "ru"
               ],
-              "description": "Reject self-signed certificates. \n\nDefault: false",
+              "description": "Reject self-signed certificates. Use --ru false to connect to EBG servers with self-signed certificates.",
               "type": "boolean",
+              "defaultValue": true,
               "group": "Endevor Bridge for Git connection options (you can also use an 'ebg' profile)"
             },
             {
@@ -10822,8 +11746,9 @@
               "aliases": [
                 "ru"
               ],
-              "description": "Reject self-signed certificates. \n\nDefault: false",
+              "description": "Reject self-signed certificates. Use --ru false to connect to EBG servers with self-signed certificates.",
               "type": "boolean",
+              "defaultValue": true,
               "group": "Endevor Bridge for Git connection options (you can also use an 'ebg' profile)"
             },
             {
@@ -11013,8 +11938,9 @@
               "aliases": [
                 "ru"
               ],
-              "description": "Reject self-signed certificates. \n\nDefault: false",
+              "description": "Reject self-signed certificates. Use --ru false to connect to EBG servers with self-signed certificates.",
               "type": "boolean",
+              "defaultValue": true,
               "group": "Endevor Bridge for Git connection options (you can also use an 'ebg' profile)"
             },
             {
@@ -11157,8 +12083,9 @@
           "aliases": [
             "ru"
           ],
-          "description": "Reject self-signed certificates. \n\nDefault: false",
+          "description": "Reject self-signed certificates. Use --ru false to connect to EBG servers with self-signed certificates.",
           "type": "boolean",
+          "defaultValue": true,
           "group": "Endevor Bridge for Git connection options (you can also use an 'ebg' profile)"
         },
         {
@@ -11401,8 +12328,9 @@
               "aliases": [
                 "ru"
               ],
-              "description": "Reject self-signed certificates. \n\nDefault: false",
+              "description": "Reject self-signed certificates. Use --ru false to connect to EBG servers with self-signed certificates.",
               "type": "boolean",
+              "defaultValue": true,
               "group": "Endevor Bridge for Git connection options (you can also use an 'ebg' profile)"
             },
             {
@@ -11853,8 +12781,9 @@
               "aliases": [
                 "ru"
               ],
-              "description": "Reject self-signed certificates. \n\nDefault: false",
+              "description": "Reject self-signed certificates. Use --ru false to connect to EBG servers with self-signed certificates.",
               "type": "boolean",
+              "defaultValue": true,
               "group": "Endevor Bridge for Git connection options (you can also use an 'ebg' profile)"
             },
             {
@@ -12118,8 +13047,9 @@
               "aliases": [
                 "ru"
               ],
-              "description": "Reject self-signed certificates. \n\nDefault: false",
+              "description": "Reject self-signed certificates. Use --ru false to connect to EBG servers with self-signed certificates.",
               "type": "boolean",
+              "defaultValue": true,
               "group": "Endevor Bridge for Git connection options (you can also use an 'ebg' profile)"
             },
             {
@@ -12483,8 +13413,9 @@
               "aliases": [
                 "ru"
               ],
-              "description": "Reject self-signed certificates. \n\nDefault: false",
+              "description": "Reject self-signed certificates. Use --ru false to connect to EBG servers with self-signed certificates.",
               "type": "boolean",
+              "defaultValue": true,
               "group": "Endevor Bridge for Git connection options (you can also use an 'ebg' profile)"
             },
             {
@@ -12768,8 +13699,9 @@
               "aliases": [
                 "ru"
               ],
-              "description": "Reject self-signed certificates. \n\nDefault: false",
+              "description": "Reject self-signed certificates. Use --ru false to connect to EBG servers with self-signed certificates.",
               "type": "boolean",
+              "defaultValue": true,
               "group": "Endevor Bridge for Git connection options (you can also use an 'ebg' profile)"
             },
             {
@@ -13024,8 +13956,9 @@
               "aliases": [
                 "ru"
               ],
-              "description": "Reject self-signed certificates. \n\nDefault: false",
+              "description": "Reject self-signed certificates. Use --ru false to connect to EBG servers with self-signed certificates.",
               "type": "boolean",
+              "defaultValue": true,
               "group": "Endevor Bridge for Git connection options (you can also use an 'ebg' profile)"
             },
             {
@@ -13291,8 +14224,9 @@
               "aliases": [
                 "ru"
               ],
-              "description": "Reject self-signed certificates. \n\nDefault: false",
+              "description": "Reject self-signed certificates. Use --ru false to connect to EBG servers with self-signed certificates.",
               "type": "boolean",
+              "defaultValue": true,
               "group": "Endevor Bridge for Git connection options (you can also use an 'ebg' profile)"
             },
             {
@@ -13561,8 +14495,9 @@
               "aliases": [
                 "ru"
               ],
-              "description": "Reject self-signed certificates. \n\nDefault: false",
+              "description": "Reject self-signed certificates. Use --ru false to connect to EBG servers with self-signed certificates.",
               "type": "boolean",
+              "defaultValue": true,
               "group": "Endevor Bridge for Git connection options (you can also use an 'ebg' profile)"
             },
             {
@@ -13833,8 +14768,9 @@
               "aliases": [
                 "ru"
               ],
-              "description": "Reject self-signed certificates. \n\nDefault: false",
+              "description": "Reject self-signed certificates. Use --ru false to connect to EBG servers with self-signed certificates.",
               "type": "boolean",
+              "defaultValue": true,
               "group": "Endevor Bridge for Git connection options (you can also use an 'ebg' profile)"
             },
             {
@@ -14046,8 +14982,9 @@
               "aliases": [
                 "ru"
               ],
-              "description": "Reject self-signed certificates. \n\nDefault: false",
+              "description": "Reject self-signed certificates. Use --ru false to connect to EBG servers with self-signed certificates.",
               "type": "boolean",
+              "defaultValue": true,
               "group": "Endevor Bridge for Git connection options (you can also use an 'ebg' profile)"
             },
             {
@@ -14330,8 +15267,9 @@
               "aliases": [
                 "ru"
               ],
-              "description": "Reject self-signed certificates. \n\nDefault: false",
+              "description": "Reject self-signed certificates. Use --ru false to connect to EBG servers with self-signed certificates.",
               "type": "boolean",
+              "defaultValue": true,
               "group": "Endevor Bridge for Git connection options (you can also use an 'ebg' profile)"
             },
             {
@@ -14565,8 +15503,9 @@
               "aliases": [
                 "ru"
               ],
-              "description": "Reject self-signed certificates. \n\nDefault: false",
+              "description": "Reject self-signed certificates. Use --ru false to connect to EBG servers with self-signed certificates.",
               "type": "boolean",
+              "defaultValue": true,
               "group": "Endevor Bridge for Git connection options (you can also use an 'ebg' profile)"
             },
             {
@@ -14769,8 +15708,9 @@
               "aliases": [
                 "ru"
               ],
-              "description": "Reject self-signed certificates. \n\nDefault: false",
+              "description": "Reject self-signed certificates. Use --ru false to connect to EBG servers with self-signed certificates.",
               "type": "boolean",
+              "defaultValue": true,
               "group": "Endevor Bridge for Git connection options (you can also use an 'ebg' profile)"
             },
             {
