@@ -2,26 +2,45 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta http-equiv="X-UA-Compatible" content="ie=edge">
-<title>endevor-bridge-for-git sync-back</title>
+<title>endevor-bridge-for-git create users</title>
 <link rel="stylesheet" href="../css/bundle-docs.css">
 <link rel="stylesheet" href="../css/docs.css">
 <article class="markdown-body">
-<h2><a href="zowe.html">zowe</a> › <a href="zowe_endevor-bridge-for-git.html">endevor-bridge-for-git</a> › <a href="zowe_endevor-bridge-for-git_sync-back.html">sync-back</a><button id="btn-print" class="no-print" onclick="window.print();" title="Print">🖨️</button></h2>
-<p>Schedule global sync-back or sync-back for a specific mapping</p>
+<h2><a href="zowe.html">zowe</a> › <a href="zowe_endevor-bridge-for-git.html">endevor-bridge-for-git</a> › <a href="zowe_endevor-bridge-for-git_create.html">create</a> › <a href="zowe_endevor-bridge-for-git_create_users.html">users</a><button id="btn-print" class="no-print" onclick="window.print();" title="Print">🖨️</button></h2>
+<p>Upload Mainframe users to Bridge for Git for traceability of changes from Endevor to Bridge for Git.<br>
+Before you upload mainframe users, ensure that the application.yml parameter “commit-author” is set to “ENDEVOR_USER”.</p>
 <h4>Usage</h4>
-<p>zowe endevor-bridge-for-git sync-back [context] [mapping] [options]</p>
-<h4>Positional Arguments</h4>
+<p>zowe endevor-bridge-for-git create users [options]</p>
+<h4>Options</h4>
 <ul>
 <li>
-<p><code>context</code>		 <em>(string)</em></p>
+<p><code>--connection</code> <em>(string)</em></p>
 <ul>
-<li>Git-Endevor mapping context (ID of the organization, project, team, or the Git repository owner).</li>
+<li>Endevor connection name.</li>
 </ul>
 </li>
 <li>
-<p><code>mapping</code>		 <em>(string)</em></p>
+<p><code>--mainframe-user</code> | <code>--mu</code> <em>(string)</em></p>
 <ul>
-<li>Git-Endevor mapping name (Git repository ID).</li>
+<li>Mainframe user name</li>
+</ul>
+</li>
+<li>
+<p><code>--git-user</code> | <code>--gu</code> <em>(string)</em></p>
+<ul>
+<li>Git user name.</li>
+</ul>
+</li>
+<li>
+<p><code>--user-email</code> | <code>-m</code> <em>(string)</em></p>
+<ul>
+<li>User role.</li>
+</ul>
+</li>
+<li>
+<p><code>--csv-file</code> | <code>--csv</code> <em>(local file path)</em></p>
+<ul>
+<li>CSV file with users to import.</li>
 </ul>
 </li>
 </ul>
@@ -87,6 +106,12 @@ Allowed values: http, https</p>
 </ul>
 </li>
 <li>
+<p><code>--endevor-profile</code> | <code>--endevor-p</code> <em>(string)</em></p>
+<ul>
+<li>The name of a (endevor) profile to load for this command execution.</li>
+</ul>
+</li>
+<li>
 <p><code>--base-profile</code> | <code>--base-p</code> <em>(string)</em></p>
 <ul>
 <li>The name of a (base) profile to load for this command execution.</li>
@@ -138,15 +163,15 @@ Allowed values: http, https</p>
 <h4>Examples</h4>
 <ul>
 <li>
-<p>Schedule global sync-back using the default EBG profile:</p>
+<p>Upload a single mainframe user specifying both the Git and Endevor username, email, and corresponding Endevor connection:</p>
 <ul>
-<li><code>zowe endevor-bridge-for-git sync-back</code> <button class="btn-copy no-print" data-balloon-pos="right" data-clipboard-text="zowe endevor-bridge-for-git sync-back">Copy</button></li>
+<li><code>zowe endevor-bridge-for-git create users --connection endevor-connection-name --mainframe-user ENVUSERNAME --git-user GITUSERNAME --user-email NAME@EMAIL.NET</code> <button class="btn-copy no-print" data-balloon-pos="right" data-clipboard-text="zowe endevor-bridge-for-git create users --connection endevor-connection-name --mainframe-user ENVUSERNAME --git-user GITUSERNAME --user-email NAME@EMAIL.NET">Copy</button></li>
 </ul>
 </li>
 <li>
-<p>Schedule sync-back for the Git-Endevor mapping 'MY-CONTEXT / MY-MAPPING' using the default EBG profile:</p>
+<p>Bulk upload new mainframe users by importing a csv format file:</p>
 <ul>
-<li><code>zowe endevor-bridge-for-git sync-back MY-CONTEXT MY-MAPPING</code> <button class="btn-copy no-print" data-balloon-pos="right" data-clipboard-text="zowe endevor-bridge-for-git sync-back MY-CONTEXT MY-MAPPING">Copy</button></li>
+<li><code>zowe endevor-bridge-for-git create users --connection endevor-connection-name --csv-file mf-users.csv</code> <button class="btn-copy no-print" data-balloon-pos="right" data-clipboard-text="zowe endevor-bridge-for-git create users --connection endevor-connection-name --csv-file mf-users.csv">Copy</button></li>
 </ul>
 </li>
 </ul>

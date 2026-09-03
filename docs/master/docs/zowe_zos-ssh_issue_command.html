@@ -85,6 +85,21 @@
 <li>How long in milliseconds to wait for the SSH handshake to complete.</li>
 </ul>
 </li>
+<li>
+<p><code>--host-key</code> | <code>--hk</code> <em>(string)</em></p>
+<ul>
+<li>The trusted host key of the z/OS SSH server, as the base64-encoded key blob presented by the server. When set, the server's key is verified against it before any credentials are sent.</li>
+</ul>
+</li>
+<li>
+<p><code>--insecure</code> | <code>-i</code> <em>(boolean)</em></p>
+<ul>
+<li>
+<p>Skip verification of the z/OS SSH server's host key, so the server's identity is not confirmed before credentials are sent.</p>
+<p>Default value: false</p>
+</li>
+</ul>
+</li>
 </ul>
 <h4>Profile Options</h4>
 <ul>

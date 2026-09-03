@@ -259,6 +259,7 @@
 <li><a href="#zowe_config">config</a><ul><li><a href="#zowe_config_auto-init">auto-init</a></li>
 </ul><ul><li><a href="#zowe_config_convert-profiles">convert-profiles | convert</a></li>
 </ul><ul><li><a href="#zowe_config_edit">edit</a></li>
+</ul><ul><li><a href="#zowe_config_export-redacted">export-redacted | er</a></li>
 </ul><ul><li><a href="#zowe_config_import">import</a></li>
 </ul><ul><li><a href="#zowe_config_init">init</a></li>
 </ul><ul><li><a href="#zowe_config_list">list | ls</a></li>
@@ -387,11 +388,14 @@
 </ul><ul><li><a href="#zowe_endevor-bridge-for-git_administrate_resynchronize">resynchronize</a></li>
 </ul><ul><li><a href="#zowe_endevor-bridge-for-git_administrate_view-current-log">view-current-log | view-log</a></li>
 </ul></li>
+</ul><ul><li><a href="#zowe_endevor-bridge-for-git_configure">configure</a><ul><li><a href="#zowe_endevor-bridge-for-git_configure_repository">repository | repo</a></li>
+</ul></li>
 </ul><ul><li><a href="#zowe_endevor-bridge-for-git_create">create | cr | c</a><ul><li><a href="#zowe_endevor-bridge-for-git_create_branch">branch | br</a></li>
 </ul><ul><li><a href="#zowe_endevor-bridge-for-git_create_endevor-connection">endevor-connection | connection | con</a></li>
 </ul><ul><li><a href="#zowe_endevor-bridge-for-git_create_local-hook-token">local-hook-token | token</a></li>
 </ul><ul><li><a href="#zowe_endevor-bridge-for-git_create_mapping">mapping | m</a></li>
 </ul><ul><li><a href="#zowe_endevor-bridge-for-git_create_mf-webhook-settings">mf-webhook-settings | mf-webhook</a></li>
+</ul><ul><li><a href="#zowe_endevor-bridge-for-git_create_users">users | u</a></li>
 </ul><ul><li><a href="#zowe_endevor-bridge-for-git_create_webhook-settings">webhook-settings | webhook</a></li>
 </ul></li>
 </ul><ul><li><a href="#zowe_endevor-bridge-for-git_delete">delete | del | d</a><ul><li><a href="#zowe_endevor-bridge-for-git_delete_branch">branch | br</a></li>
@@ -416,6 +420,7 @@
 </ul><ul><li><a href="#zowe_endevor-bridge-for-git_list_mf-webhook-settings">mf-webhook-settings | mf-webhook</a></li>
 </ul><ul><li><a href="#zowe_endevor-bridge-for-git_list_operations">operations | o</a></li>
 </ul><ul><li><a href="#zowe_endevor-bridge-for-git_list_processor-group">processor-group | pg</a></li>
+</ul><ul><li><a href="#zowe_endevor-bridge-for-git_list_server-config">server-config | s</a></li>
 </ul><ul><li><a href="#zowe_endevor-bridge-for-git_list_sync-back-settings">sync-back-settings | sync-back</a></li>
 </ul><ul><li><a href="#zowe_endevor-bridge-for-git_list_user">user | u | users</a></li>
 </ul><ul><li><a href="#zowe_endevor-bridge-for-git_list_webhook-settings">webhook-settings | webhook</a></li>
@@ -664,7 +669,8 @@
 </ul><ul><li><a href="#zowe_zos-files_invoke">invoke | call</a><ul><li><a href="#zowe_zos-files_invoke_ams-file">ams-file | af</a></li>
 </ul><ul><li><a href="#zowe_zos-files_invoke_ams-statements">ams-statements | as</a></li>
 </ul></li>
-</ul><ul><li><a href="#zowe_zos-files_list">list | ls</a><ul><li><a href="#zowe_zos-files_list_all-members">all-members | am</a></li>
+</ul><ul><li><a href="#zowe_zos-files_list">list | ls</a><ul><li><a href="#zowe_zos-files_list_alias">alias | a</a></li>
+</ul><ul><li><a href="#zowe_zos-files_list_all-members">all-members | am</a></li>
 </ul><ul><li><a href="#zowe_zos-files_list_data-set">data-set | ds</a></li>
 </ul><ul><li><a href="#zowe_zos-files_list_file-system">file-system | fs</a></li>
 </ul><ul><li><a href="#zowe_zos-files_list_uss-files">uss-files | uf | uss</a></li>
@@ -37288,6 +37294,115 @@ The date and time when the build was done, GMT</p>
 </ul>
 </li>
 </ul>
+<a class="cmd-anchor" name="zowe_config_export-redacted"></a><h3><a href="#zowe">zowe</a> › <a href="#zowe_config">config</a> › <a href="#zowe_config_export-redacted">export-redacted</a><button id="btn-print" class="no-print" onclick="window.print();" title="Print">🖨️</button></h3>
+<p>Export your Zowe configuration with sensitive values redacted and common properties given matching keys for troubleshooting and sharing purposes.</p>
+<h4>Usage</h4>
+<p>zowe config export-redacted [options]</p>
+<h4>Options</h4>
+<ul>
+<li>
+<p><code>--redact-strings</code> | <code>--rs</code> <em>(boolean)</em></p>
+<ul>
+<li>
+<p>Redact string values with consistent keys</p>
+<p>Default value: true</p>
+</li>
+</ul>
+</li>
+<li>
+<p><code>--redact-numbers</code> | <code>--rn</code> <em>(boolean)</em></p>
+<ul>
+<li>
+<p>Redact numeric values with consistent keys</p>
+<p>Default value: true</p>
+</li>
+</ul>
+</li>
+<li>
+<p><code>--redact-booleans</code> | <code>--rb</code> <em>(boolean)</em></p>
+<ul>
+<li>
+<p>Redact boolean values with consistent keys</p>
+<p>Default value: false</p>
+</li>
+</ul>
+</li>
+<li>
+<p><code>--hide-secure-fields</code> | <code>--hsf</code> <em>(boolean)</em></p>
+<ul>
+<li>
+<p>Hide secure field names from output (secure field names are shown by default since they don't contain sensitive values)</p>
+<p>Default value: false</p>
+</li>
+</ul>
+</li>
+<li>
+<p><code>--redact-profile-names</code> | <code>--rpn</code> <em>(boolean)</em></p>
+<ul>
+<li>
+<p>Redact profile names and their references in defaults section</p>
+<p>Default value: true</p>
+</li>
+</ul>
+</li>
+<li>
+<p><code>--show-host-path</code> | <code>--shp</code> <em>(boolean)</em></p>
+<ul>
+<li>
+<p>Show the host and basePath property values instead of redacting them. Takes precedence over `redact-strings` option</p>
+<p>Default value: false</p>
+</li>
+</ul>
+</li>
+<li>
+<p><code>--dry-run</code> | <code>--dr</code> <em>(boolean)</em></p>
+<ul>
+<li>
+<p>Print redacted configs to stdout instead of exporting to directory</p>
+<p>Default value: false</p>
+</li>
+</ul>
+</li>
+<li>
+<p><code>--export-dir</code> | <code>-d</code> <em>(string)</em></p>
+<ul>
+<li>Directory where config files will be exported. Defaults to current working directory.</li>
+</ul>
+</li>
+</ul>
+<h4>Examples</h4>
+<ul>
+<li>
+<p>Export all config layers to current directory:</p>
+<ul>
+<li><code>zowe config export-redacted</code> <button class="btn-copy no-print" data-balloon-pos="right" data-clipboard-text="zowe config export-redacted">Copy</button></li>
+</ul>
+</li>
+<li>
+<p>Export all config layers to specified directory:</p>
+<ul>
+<li><code>zowe config export-redacted --export-dir ./exported-configs</code> <button class="btn-copy no-print" data-balloon-pos="right" data-clipboard-text="zowe config export-redacted --export-dir ./exported-configs">Copy</button></li>
+</ul>
+</li>
+<li>
+<p>Dry run - show redacted config to stdout:</p>
+<ul>
+<li><code>zowe config export-redacted --dry-run</code> <button class="btn-copy no-print" data-balloon-pos="right" data-clipboard-text="zowe config export-redacted --dry-run">Copy</button></li>
+</ul>
+</li>
+<li>
+<p>Export without redacting profile names:</p>
+<ul>
+<li><code>zowe config export-redacted --export-dir ./configs --no-redact-profile-names</code> <button class="btn-copy no-print" data-balloon-pos="right" data-clipboard-text="zowe config export-redacted --export-dir ./configs --no-redact-profile-names">Copy</button></li>
+</ul>
+</li>
+<li>
+<p>Export while showing the host and basePath values:</p>
+<ul>
+<li><code>zowe config export-redacted --export-dir ./configs --show-host-path</code> <button class="btn-copy no-print" data-balloon-pos="right" data-clipboard-text="zowe config export-redacted --export-dir ./configs --show-host-path">Copy</button></li>
+</ul>
+</li>
+</ul>
 <a class="cmd-anchor" name="zowe_config_import"></a><h3><a href="#zowe">zowe</a> › <a href="#zowe_config">config</a> › <a href="#zowe_config_import">import</a><button id="btn-print" class="no-print" onclick="window.print();" title="Print">🖨️</button></h3>
 <p>Import config files from another location on disk or from an Internet URL.</p>
 <p>If the config `$schema` property points to a relative path, the schema will also be imported.</p>
@@ -38266,10 +38381,7 @@ The date and time when the build was done, GMT</p>
 <li>
 <p><code>--target-db2</code> | <code>--td</code> <em>(string)</em></p>
 <ul>
-<li>
-<p>Specifies the target Db2 subsystem or data sharing group where you want to use a command.</p>
-<p>Note: If you specify the data sharing group, the first active Db2 subsystem in the group is used.</p>
-</li>
+<li>Specifies the target Db2 subsystem or data sharing group where you want to use a command.</li>
 </ul>
 </li>
 </ul>
@@ -38484,10 +38596,7 @@ The date and time when the build was done, GMT</p>
 <li>
 <p><code>--target-db2</code> | <code>--td</code> <em>(string)</em></p>
 <ul>
-<li>
-<p>Specifies the target Db2 subsystem or data sharing group where you want to use a command.</p>
-<p>Note: If you specify the data sharing group, the first active Db2 subsystem in the group is used.</p>
-</li>
+<li>Specifies the target Db2 subsystem or data sharing group where you want to use a command.</li>
 </ul>
 </li>
 </ul>
@@ -38846,10 +38955,7 @@ If no extension is provided, the format is set to JSON.</p>
 <li>
 <p><code>--target-db2</code> | <code>--td</code> <em>(string)</em></p>
 <ul>
-<li>
-<p>Specifies the target Db2 subsystem or data sharing group where you want to use a command.</p>
-<p>Note: If you specify the data sharing group, the first active Db2 subsystem in the group is used.</p>
-</li>
+<li>Specifies the target Db2 subsystem or data sharing group where you want to use a command.</li>
 </ul>
 </li>
 </ul>
@@ -39589,8 +39695,7 @@ TBTS TESTTS% PRODTS%</p>
 <ul>
 <li>
 <p>Specifies the target Db2 subsystem or data sharing group where you want to execute the script. If this option is not specified, the target subsystem is identified by the first .CONNECT statement in the script.</p>
-<p>Note: If you specify the data sharing group, the first active Db2 subsystem in the group is used.</p>
-<p>The target-db2 option takes precedence over any other value that is specified for the Db2 subsystem or data sharing group.</p>
+<p>Note: The target-db2 option takes precedence over any other value that is specified for the Db2 subsystem or data sharing group.</p>
 </li>
 </ul>
 </li>
@@ -39885,10 +39990,7 @@ database db1 include(children);</p>
 <li>
 <p><code>--source-db2</code> | <code>--sd</code> <em>(string)</em></p>
 <ul>
-<li>
-<p>Specifies the source Db2 subsystem or data sharing group where the objects that you want to use in a command are located.</p>
-<p>Note: If you specify the data sharing group, the first active Db2 subsystem in the group is used.</p>
-</li>
+<li>Specifies the source Db2 subsystem or data sharing group where the objects that you want to use in a command are located.</li>
 </ul>
 </li>
 </ul>
@@ -40186,19 +40288,13 @@ database db1 include(children);</p>
 <li>
 <p><code>--source-db2</code> | <code>--sd</code> <em>(string)</em></p>
 <ul>
-<li>
-<p>Specifies the source Db2 subsystem or data sharing group where the objects that you want to use in a command are located.</p>
-<p>Note: If you specify the data sharing group, the first active Db2 subsystem in the group is used.</p>
-</li>
+<li>Specifies the source Db2 subsystem or data sharing group where the objects that you want to use in a command are located.</li>
 </ul>
 </li>
 <li>
 <p><code>--target-db2</code> | <code>--td</code> <em>(string)</em></p>
 <ul>
-<li>
-<p>Specifies the target Db2 subsystem or data sharing group where you want to use a command.</p>
-<p>Note: If you specify the data sharing group, the first active Db2 subsystem in the group is used.</p>
-</li>
+<li>Specifies the target Db2 subsystem or data sharing group where you want to use a command.</li>
 </ul>
 </li>
 </ul>
@@ -54423,8 +54519,8 @@ Allowed values: http, https</p>
 <p><code>--reject-unauthorized</code> | <code>--ru</code> <em>(boolean)</em></p>
 <ul>
 <li>
-<p>Reject self-signed certificates.</p>
-<p>Default: false</p>
+<p>Reject self-signed certificates. Use --ru false to connect to EBG servers with self-signed certificates.</p>
+<p>Default value: true</p>
 </li>
 </ul>
 </li>
@@ -54569,8 +54665,8 @@ Allowed values: http, https</p>
 <p><code>--reject-unauthorized</code> | <code>--ru</code> <em>(boolean)</em></p>
 <ul>
 <li>
-<p>Reject self-signed certificates.</p>
-<p>Default: false</p>
+<p>Reject self-signed certificates. Use --ru false to connect to EBG servers with self-signed certificates.</p>
+<p>Default value: true</p>
 </li>
 </ul>
 </li>
@@ -54701,8 +54797,8 @@ Allowed values: http, https</p>
 <p><code>--reject-unauthorized</code> | <code>--ru</code> <em>(boolean)</em></p>
 <ul>
 <li>
-<p>Reject self-signed certificates.</p>
-<p>Default: false</p>
+<p>Reject self-signed certificates. Use --ru false to connect to EBG servers with self-signed certificates.</p>
+<p>Default value: true</p>
 </li>
 </ul>
 </li>
@@ -54833,8 +54929,8 @@ Allowed values: http, https</p>
 <p><code>--reject-unauthorized</code> | <code>--ru</code> <em>(boolean)</em></p>
 <ul>
 <li>
-<p>Reject self-signed certificates.</p>
-<p>Default: false</p>
+<p>Reject self-signed certificates. Use --ru false to connect to EBG servers with self-signed certificates.</p>
+<p>Default value: true</p>
 </li>
 </ul>
 </li>
@@ -54977,8 +55073,8 @@ Allowed values: http, https</p>
 <p><code>--reject-unauthorized</code> | <code>--ru</code> <em>(boolean)</em></p>
 <ul>
 <li>
-<p>Reject self-signed certificates.</p>
-<p>Default: false</p>
+<p>Reject self-signed certificates. Use --ru false to connect to EBG servers with self-signed certificates.</p>
+<p>Default value: true</p>
 </li>
 </ul>
 </li>
@@ -55112,8 +55208,8 @@ Allowed values: http, https</p>
 <p><code>--reject-unauthorized</code> | <code>--ru</code> <em>(boolean)</em></p>
 <ul>
 <li>
-<p>Reject self-signed certificates.</p>
-<p>Default: false</p>
+<p>Reject self-signed certificates. Use --ru false to connect to EBG servers with self-signed certificates.</p>
+<p>Default value: true</p>
 </li>
 </ul>
 </li>
@@ -55215,6 +55311,140 @@ Allowed values: http, https</p>
 <p>View the current log file for Endevor Bridge for Git.:</p>
 <ul>
 <li><code>zowe endevor-bridge-for-git administrate view-current-log --tail 1000</code> <button class="btn-copy no-print" data-balloon-pos="right" data-clipboard-text="zowe endevor-bridge-for-git administrate view-current-log --tail 1000">Copy</button></li>
+</ul>
+</li>
+</ul>
+<a name="zowe_endevor-bridge-for-git_configure"></a><h2><a href="#zowe">zowe</a> › <a href="#zowe_endevor-bridge-for-git">endevor-bridge-for-git</a> › <a href="#zowe_endevor-bridge-for-git_configure">configure</a><button id="btn-print" class="no-print" onclick="window.print();" title="Print">🖨️</button></h2>
+<p>Configure the plugin, mappings, repositories</p>
+<a class="cmd-anchor" name="zowe_endevor-bridge-for-git_configure_repository"></a><h3><a href="#zowe">zowe</a> › <a href="#zowe_endevor-bridge-for-git">endevor-bridge-for-git</a> › <a href="#zowe_endevor-bridge-for-git_configure">configure</a> › <a href="#zowe_endevor-bridge-for-git_configure_repository">repository</a><button id="btn-print" class="no-print" onclick="window.print();" title="Print">🖨️</button></h3>
+<p>Configure repository by adding pre-push hook</p>
+<h4>Usage</h4>
+<p>zowe endevor-bridge-for-git configure repository [options]</p>
+<h4>Options</h4>
+<ul>
+<li>
+<p><code>--force-rewrite</code> | <code>--force</code> | <code>-f</code> <em>(boolean)</em></p>
+<ul>
+<li>
+<p>Overwrite the output file if it already exists. Skips the default safety check.</p>
+<p>Default value: false</p>
+</li>
+</ul>
+</li>
+</ul>
+<h4>Endevor Bridge for Git connection options (you can also use an 'ebg' profile)</h4>
+<ul>
+<li>
+<p><code>--protocol</code> | <code>--prot</code> <em>(string)</em></p>
+<ul>
+<li>
+<p>Endevor Bridge for Git SCM protocol.</p>
+<p>Default: https</p>
+<p>Default value: https<br>
+Allowed values: http, https</p>
+</li>
+</ul>
+</li>
+<li>
+<p><code>--host</code> | <code>-H</code> <em>(string)</em></p>
+<ul>
+<li>Endevor Bridge for Git hostname.</li>
+</ul>
+</li>
+<li>
+<p><code>--port</code> | <code>-P</code> <em>(number)</em></p>
+<ul>
+<li>Endevor Bridge for Git port.</li>
+</ul>
+</li>
+<li>
+<p><code>--user</code> | <code>-u</code> <em>(string)</em></p>
+<ul>
+<li>Endevor Bridge for Git username (your git username).</li>
+</ul>
+</li>
+<li>
+<p><code>--token</code> | <code>-t</code> <em>(string)</em></p>
+<ul>
+<li>Git personal access token (Obtain the token from your Git Enterprise Server).</li>
+</ul>
+</li>
+<li>
+<p><code>--reject-unauthorized</code> | <code>--ru</code> <em>(boolean)</em></p>
+<ul>
+<li>
+<p>Reject self-signed certificates. Use --ru false to connect to EBG servers with self-signed certificates.</p>
+<p>Default value: true</p>
+</li>
+</ul>
+</li>
+<li>
+<p><code>--ebg-base-path</code> <em>(string)</em></p>
+<ul>
+<li>The Endevor Bridge for Git Rest API base path.</li>
+</ul>
+</li>
+</ul>
+<h4>Profile Options</h4>
+<ul>
+<li>
+<p><code>--ebg-profile</code> | <code>--ebg-p</code> <em>(string)</em></p>
+<ul>
+<li>The name of a (ebg) profile to load for this command execution.</li>
+</ul>
+</li>
+<li>
+<p><code>--endevor-profile</code> | <code>--endevor-p</code> <em>(string)</em></p>
+<ul>
+<li>The name of a (endevor) profile to load for this command execution.</li>
+</ul>
+</li>
+<li>
+<p><code>--base-profile</code> | <code>--base-p</code> <em>(string)</em></p>
+<ul>
+<li>The name of a (base) profile to load for this command execution.</li>
+</ul>
+</li>
+</ul>
+<h4>Base Connection Options</h4>
+<ul>
+<li>
+<p><code>--password</code> | <code>--pass</code> | <code>--pw</code> <em>(string)</em></p>
+<ul>
+<li>Password to authenticate to service on the mainframe.</li>
+</ul>
+</li>
+<li>
+<p><code>--token-type</code> | <code>--tt</code> <em>(string)</em></p>
+<ul>
+<li>The type of token to get and use for the API. Omit this option to use the default token type, which is provided by 'zowe auth login'.</li>
+</ul>
+</li>
+<li>
+<p><code>--token-value</code> | <code>--tv</code> <em>(string)</em></p>
+<ul>
+<li>The value of the token to pass to the API.</li>
+</ul>
+</li>
+<li>
+<p><code>--cert-file</code> <em>(local file path)</em></p>
+<ul>
+<li>
+<p>The file path to a certificate file to use for authentication.</p>
+<p>Note: The CLI does not support certificate files that require a password. For more information, search Troubleshooting PEM Certificates in Zowe Docs.</p>
+</li>
+</ul>
+</li>
+<li>
+<p><code>--cert-key-file</code> <em>(local file path)</em></p>
+<ul>
+<li>The file path to a certificate key file to use for authentication</li>
+</ul>
+</li>
+<li>
+<p><code>--cert-account</code> <em>(string)</em></p>
+<ul>
+<li>The account name for PKCS 12 certificate stored in credential manager</li>
 </ul>
 </li>
 </ul>
@@ -55411,8 +55641,8 @@ Allowed values: http, https</p>
 <p><code>--reject-unauthorized</code> | <code>--ru</code> <em>(boolean)</em></p>
 <ul>
 <li>
-<p>Reject self-signed certificates.</p>
-<p>Default: false</p>
+<p>Reject self-signed certificates. Use --ru false to connect to EBG servers with self-signed certificates.</p>
+<p>Default value: true</p>
 </li>
 </ul>
 </li>
@@ -55635,8 +55865,8 @@ Allowed values: http, https</p>
 <p><code>--reject-unauthorized</code> | <code>--ru</code> <em>(boolean)</em></p>
 <ul>
 <li>
-<p>Reject self-signed certificates.</p>
-<p>Default: false</p>
+<p>Reject self-signed certificates. Use --ru false to connect to EBG servers with self-signed certificates.</p>
+<p>Default value: true</p>
 </li>
 </ul>
 </li>
@@ -55776,8 +56006,8 @@ Allowed values: http, https</p>
 <p><code>--reject-unauthorized</code> | <code>--ru</code> <em>(boolean)</em></p>
 <ul>
 <li>
-<p>Reject self-signed certificates.</p>
-<p>Default: false</p>
+<p>Reject self-signed certificates. Use --ru false to connect to EBG servers with self-signed certificates.</p>
+<p>Default value: true</p>
 </li>
 </ul>
 </li>
@@ -56008,8 +56238,8 @@ Allowed values: http, https</p>
 <p><code>--reject-unauthorized</code> | <code>--ru</code> <em>(boolean)</em></p>
 <ul>
 <li>
-<p>Reject self-signed certificates.</p>
-<p>Default: false</p>
+<p>Reject self-signed certificates. Use --ru false to connect to EBG servers with self-signed certificates.</p>
+<p>Default value: true</p>
 </li>
 </ul>
 </li>
@@ -56182,8 +56412,8 @@ Allowed values: http, https</p>
 <p><code>--reject-unauthorized</code> | <code>--ru</code> <em>(boolean)</em></p>
 <ul>
 <li>
-<p>Reject self-signed certificates.</p>
-<p>Default: false</p>
+<p>Reject self-signed certificates. Use --ru false to connect to EBG servers with self-signed certificates.</p>
+<p>Default value: true</p>
 </li>
 </ul>
 </li>
@@ -56285,6 +56515,175 @@ Allowed values: http, https</p>
 <p>Create new MF webhook settings using the default EBG profile:</p>
 <ul>
 <li><code>zowe endevor-bridge-for-git create mf-webhook-settings &quot;--mf-webhook-url https://HOST:PORT/mfwebhookserver &quot; + &quot;--description description --recipient user@broadcom.com --watched-directories &quot;/u/location1&quot; &quot;/u/location2&quot; &quot;</code> <button class="btn-copy no-print" data-balloon-pos="right" data-clipboard-text="zowe endevor-bridge-for-git create mf-webhook-settings &quot;--mf-webhook-url https://HOST:PORT/mfwebhookserver &quot; + &quot;--description description --recipient user@broadcom.com --watched-directories &quot;/u/location1&quot; &quot;/u/location2&quot; &quot;">Copy</button></li>
+</ul>
+</li>
+</ul>
+<a class="cmd-anchor" name="zowe_endevor-bridge-for-git_create_users"></a><h3><a href="#zowe">zowe</a> › <a href="#zowe_endevor-bridge-for-git">endevor-bridge-for-git</a> › <a href="#zowe_endevor-bridge-for-git_create">create</a> › <a href="#zowe_endevor-bridge-for-git_create_users">users</a><button id="btn-print" class="no-print" onclick="window.print();" title="Print">🖨️</button></h3>
+<p>Upload Mainframe users to Bridge for Git for traceability of changes from Endevor to Bridge for Git.<br>
+Before you upload mainframe users, ensure that the application.yml parameter “commit-author” is set to “ENDEVOR_USER”.</p>
+<h4>Usage</h4>
+<p>zowe endevor-bridge-for-git create users [options]</p>
+<h4>Options</h4>
+<ul>
+<li>
+<p><code>--connection</code> <em>(string)</em></p>
+<ul>
+<li>Endevor connection name.</li>
+</ul>
+</li>
+<li>
+<p><code>--mainframe-user</code> | <code>--mu</code> <em>(string)</em></p>
+<ul>
+<li>Mainframe user name</li>
+</ul>
+</li>
+<li>
+<p><code>--git-user</code> | <code>--gu</code> <em>(string)</em></p>
+<ul>
+<li>Git user name.</li>
+</ul>
+</li>
+<li>
+<p><code>--user-email</code> | <code>-m</code> <em>(string)</em></p>
+<ul>
+<li>User role.</li>
+</ul>
+</li>
+<li>
+<p><code>--csv-file</code> | <code>--csv</code> <em>(local file path)</em></p>
+<ul>
+<li>CSV file with users to import.</li>
+</ul>
+</li>
+</ul>
+<h4>Endevor Bridge for Git connection options (you can also use an 'ebg' profile)</h4>
+<ul>
+<li>
+<p><code>--protocol</code> | <code>--prot</code> <em>(string)</em></p>
+<ul>
+<li>
+<p>Endevor Bridge for Git SCM protocol.</p>
+<p>Default: https</p>
+<p>Default value: https<br>
+Allowed values: http, https</p>
+</li>
+</ul>
+</li>
+<li>
+<p><code>--host</code> | <code>-H</code> <em>(string)</em></p>
+<ul>
+<li>Endevor Bridge for Git hostname.</li>
+</ul>
+</li>
+<li>
+<p><code>--port</code> | <code>-P</code> <em>(number)</em></p>
+<ul>
+<li>Endevor Bridge for Git port.</li>
+</ul>
+</li>
+<li>
+<p><code>--user</code> | <code>-u</code> <em>(string)</em></p>
+<ul>
+<li>Endevor Bridge for Git username (your git username).</li>
+</ul>
+</li>
+<li>
+<p><code>--token</code> | <code>-t</code> <em>(string)</em></p>
+<ul>
+<li>Git personal access token (Obtain the token from your Git Enterprise Server).</li>
+</ul>
+</li>
+<li>
+<p><code>--reject-unauthorized</code> | <code>--ru</code> <em>(boolean)</em></p>
+<ul>
+<li>
+<p>Reject self-signed certificates. Use --ru false to connect to EBG servers with self-signed certificates.</p>
+<p>Default value: true</p>
+</li>
+</ul>
+</li>
+<li>
+<p><code>--ebg-base-path</code> <em>(string)</em></p>
+<ul>
+<li>The Endevor Bridge for Git Rest API base path.</li>
+</ul>
+</li>
+</ul>
+<h4>Profile Options</h4>
+<ul>
+<li>
+<p><code>--ebg-profile</code> | <code>--ebg-p</code> <em>(string)</em></p>
+<ul>
+<li>The name of a (ebg) profile to load for this command execution.</li>
+</ul>
+</li>
+<li>
+<p><code>--endevor-profile</code> | <code>--endevor-p</code> <em>(string)</em></p>
+<ul>
+<li>The name of a (endevor) profile to load for this command execution.</li>
+</ul>
+</li>
+<li>
+<p><code>--base-profile</code> | <code>--base-p</code> <em>(string)</em></p>
+<ul>
+<li>The name of a (base) profile to load for this command execution.</li>
+</ul>
+</li>
+</ul>
+<h4>Base Connection Options</h4>
+<ul>
+<li>
+<p><code>--password</code> | <code>--pass</code> | <code>--pw</code> <em>(string)</em></p>
+<ul>
+<li>Password to authenticate to service on the mainframe.</li>
+</ul>
+</li>
+<li>
+<p><code>--token-type</code> | <code>--tt</code> <em>(string)</em></p>
+<ul>
+<li>The type of token to get and use for the API. Omit this option to use the default token type, which is provided by 'zowe auth login'.</li>
+</ul>
+</li>
+<li>
+<p><code>--token-value</code> | <code>--tv</code> <em>(string)</em></p>
+<ul>
+<li>The value of the token to pass to the API.</li>
+</ul>
+</li>
+<li>
+<p><code>--cert-file</code> <em>(local file path)</em></p>
+<ul>
+<li>
+<p>The file path to a certificate file to use for authentication.</p>
+<p>Note: The CLI does not support certificate files that require a password. For more information, search Troubleshooting PEM Certificates in Zowe Docs.</p>
+</li>
+</ul>
+</li>
+<li>
+<p><code>--cert-key-file</code> <em>(local file path)</em></p>
+<ul>
+<li>The file path to a certificate key file to use for authentication</li>
+</ul>
+</li>
+<li>
+<p><code>--cert-account</code> <em>(string)</em></p>
+<ul>
+<li>The account name for PKCS 12 certificate stored in credential manager</li>
+</ul>
+</li>
+</ul>
+<h4>Examples</h4>
+<ul>
+<li>
+<p>Upload a single mainframe user specifying both the Git and Endevor username, email, and corresponding Endevor connection:</p>
+<ul>
+<li><code>zowe endevor-bridge-for-git create users --connection endevor-connection-name --mainframe-user ENVUSERNAME --git-user GITUSERNAME --user-email NAME@EMAIL.NET</code> <button class="btn-copy no-print" data-balloon-pos="right" data-clipboard-text="zowe endevor-bridge-for-git create users --connection endevor-connection-name --mainframe-user ENVUSERNAME --git-user GITUSERNAME --user-email NAME@EMAIL.NET">Copy</button></li>
+</ul>
+</li>
+<li>
+<p>Bulk upload new mainframe users by importing a csv format file:</p>
+<ul>
+<li><code>zowe endevor-bridge-for-git create users --connection endevor-connection-name --csv-file mf-users.csv</code> <button class="btn-copy no-print" data-balloon-pos="right" data-clipboard-text="zowe endevor-bridge-for-git create users --connection endevor-connection-name --csv-file mf-users.csv">Copy</button></li>
 </ul>
 </li>
 </ul>
@@ -56405,8 +56804,8 @@ Allowed values: http, https</p>
 <p><code>--reject-unauthorized</code> | <code>--ru</code> <em>(boolean)</em></p>
 <ul>
 <li>
-<p>Reject self-signed certificates.</p>
-<p>Default: false</p>
+<p>Reject self-signed certificates. Use --ru false to connect to EBG servers with self-signed certificates.</p>
+<p>Default value: true</p>
 </li>
 </ul>
 </li>
@@ -56557,8 +56956,8 @@ Allowed values: http, https</p>
 <p><code>--reject-unauthorized</code> | <code>--ru</code> <em>(boolean)</em></p>
 <ul>
 <li>
-<p>Reject self-signed certificates.</p>
-<p>Default: false</p>
+<p>Reject self-signed certificates. Use --ru false to connect to EBG servers with self-signed certificates.</p>
+<p>Default value: true</p>
 </li>
 </ul>
 </li>
@@ -56689,8 +57088,8 @@ Allowed values: http, https</p>
 <p><code>--reject-unauthorized</code> | <code>--ru</code> <em>(boolean)</em></p>
 <ul>
 <li>
-<p>Reject self-signed certificates.</p>
-<p>Default: false</p>
+<p>Reject self-signed certificates. Use --ru false to connect to EBG servers with self-signed certificates.</p>
+<p>Default value: true</p>
 </li>
 </ul>
 </li>
@@ -56827,8 +57226,8 @@ Allowed values: http, https</p>
 <p><code>--reject-unauthorized</code> | <code>--ru</code> <em>(boolean)</em></p>
 <ul>
 <li>
-<p>Reject self-signed certificates.</p>
-<p>Default: false</p>
+<p>Reject self-signed certificates. Use --ru false to connect to EBG servers with self-signed certificates.</p>
+<p>Default value: true</p>
 </li>
 </ul>
 </li>
@@ -56956,8 +57355,8 @@ Allowed values: http, https</p>
 <p><code>--reject-unauthorized</code> | <code>--ru</code> <em>(boolean)</em></p>
 <ul>
 <li>
-<p>Reject self-signed certificates.</p>
-<p>Default: false</p>
+<p>Reject self-signed certificates. Use --ru false to connect to EBG servers with self-signed certificates.</p>
+<p>Default value: true</p>
 </li>
 </ul>
 </li>
@@ -57094,8 +57493,8 @@ Allowed values: http, https</p>
 <p><code>--reject-unauthorized</code> | <code>--ru</code> <em>(boolean)</em></p>
 <ul>
 <li>
-<p>Reject self-signed certificates.</p>
-<p>Default: false</p>
+<p>Reject self-signed certificates. Use --ru false to connect to EBG servers with self-signed certificates.</p>
+<p>Default value: true</p>
 </li>
 </ul>
 </li>
@@ -57226,8 +57625,8 @@ Allowed values: http, https</p>
 <p><code>--reject-unauthorized</code> | <code>--ru</code> <em>(boolean)</em></p>
 <ul>
 <li>
-<p>Reject self-signed certificates.</p>
-<p>Default: false</p>
+<p>Reject self-signed certificates. Use --ru false to connect to EBG servers with self-signed certificates.</p>
+<p>Default value: true</p>
 </li>
 </ul>
 </li>
@@ -57386,8 +57785,8 @@ Allowed values: http, https</p>
 <p><code>--reject-unauthorized</code> | <code>--ru</code> <em>(boolean)</em></p>
 <ul>
 <li>
-<p>Reject self-signed certificates.</p>
-<p>Default: false</p>
+<p>Reject self-signed certificates. Use --ru false to connect to EBG servers with self-signed certificates.</p>
+<p>Default value: true</p>
 </li>
 </ul>
 </li>
@@ -57536,8 +57935,8 @@ Allowed values: http, https</p>
 <p><code>--reject-unauthorized</code> | <code>--ru</code> <em>(boolean)</em></p>
 <ul>
 <li>
-<p>Reject self-signed certificates.</p>
-<p>Default: false</p>
+<p>Reject self-signed certificates. Use --ru false to connect to EBG servers with self-signed certificates.</p>
+<p>Default value: true</p>
 </li>
 </ul>
 </li>
@@ -57697,8 +58096,8 @@ Allowed values: http, https</p>
 <p><code>--reject-unauthorized</code> | <code>--ru</code> <em>(boolean)</em></p>
 <ul>
 <li>
-<p>Reject self-signed certificates.</p>
-<p>Default: false</p>
+<p>Reject self-signed certificates. Use --ru false to connect to EBG servers with self-signed certificates.</p>
+<p>Default value: true</p>
 </li>
 </ul>
 </li>
@@ -57854,8 +58253,8 @@ Allowed values: http, https</p>
 <p><code>--reject-unauthorized</code> | <code>--ru</code> <em>(boolean)</em></p>
 <ul>
 <li>
-<p>Reject self-signed certificates.</p>
-<p>Default: false</p>
+<p>Reject self-signed certificates. Use --ru false to connect to EBG servers with self-signed certificates.</p>
+<p>Default value: true</p>
 </li>
 </ul>
 </li>
@@ -58020,8 +58419,8 @@ Allowed values: http, https</p>
 <p><code>--reject-unauthorized</code> | <code>--ru</code> <em>(boolean)</em></p>
 <ul>
 <li>
-<p>Reject self-signed certificates.</p>
-<p>Default: false</p>
+<p>Reject self-signed certificates. Use --ru false to connect to EBG servers with self-signed certificates.</p>
+<p>Default value: true</p>
 </li>
 </ul>
 </li>
@@ -58158,8 +58557,8 @@ Allowed values: http, https</p>
 <p><code>--reject-unauthorized</code> | <code>--ru</code> <em>(boolean)</em></p>
 <ul>
 <li>
-<p>Reject self-signed certificates.</p>
-<p>Default: false</p>
+<p>Reject self-signed certificates. Use --ru false to connect to EBG servers with self-signed certificates.</p>
+<p>Default value: true</p>
 </li>
 </ul>
 </li>
@@ -58293,8 +58692,8 @@ Allowed values: http, https</p>
 <p><code>--reject-unauthorized</code> | <code>--ru</code> <em>(boolean)</em></p>
 <ul>
 <li>
-<p>Reject self-signed certificates.</p>
-<p>Default: false</p>
+<p>Reject self-signed certificates. Use --ru false to connect to EBG servers with self-signed certificates.</p>
+<p>Default value: true</p>
 </li>
 </ul>
 </li>
@@ -58459,8 +58858,8 @@ Allowed values: http, https</p>
 <p><code>--reject-unauthorized</code> | <code>--ru</code> <em>(boolean)</em></p>
 <ul>
 <li>
-<p>Reject self-signed certificates.</p>
-<p>Default: false</p>
+<p>Reject self-signed certificates. Use --ru false to connect to EBG servers with self-signed certificates.</p>
+<p>Default value: true</p>
 </li>
 </ul>
 </li>
@@ -58625,8 +59024,8 @@ Allowed values: http, https</p>
 <p><code>--reject-unauthorized</code> | <code>--ru</code> <em>(boolean)</em></p>
 <ul>
 <li>
-<p>Reject self-signed certificates.</p>
-<p>Default: false</p>
+<p>Reject self-signed certificates. Use --ru false to connect to EBG servers with self-signed certificates.</p>
+<p>Default value: true</p>
 </li>
 </ul>
 </li>
@@ -58775,8 +59174,8 @@ Allowed values: http, https</p>
 <p><code>--reject-unauthorized</code> | <code>--ru</code> <em>(boolean)</em></p>
 <ul>
 <li>
-<p>Reject self-signed certificates.</p>
-<p>Default: false</p>
+<p>Reject self-signed certificates. Use --ru false to connect to EBG servers with self-signed certificates.</p>
+<p>Default value: true</p>
 </li>
 </ul>
 </li>
@@ -58898,8 +59297,8 @@ Allowed values: http, https</p>
 <p><code>--reject-unauthorized</code> | <code>--ru</code> <em>(boolean)</em></p>
 <ul>
 <li>
-<p>Reject self-signed certificates.</p>
-<p>Default: false</p>
+<p>Reject self-signed certificates. Use --ru false to connect to EBG servers with self-signed certificates.</p>
+<p>Default value: true</p>
 </li>
 </ul>
 </li>
@@ -59089,8 +59488,8 @@ Allowed values: http, https</p>
 <p><code>--reject-unauthorized</code> | <code>--ru</code> <em>(boolean)</em></p>
 <ul>
 <li>
-<p>Reject self-signed certificates.</p>
-<p>Default: false</p>
+<p>Reject self-signed certificates. Use --ru false to connect to EBG servers with self-signed certificates.</p>
+<p>Default value: true</p>
 </li>
 </ul>
 </li>
@@ -59264,8 +59663,8 @@ Allowed values: http, https</p>
 <p><code>--reject-unauthorized</code> | <code>--ru</code> <em>(boolean)</em></p>
 <ul>
 <li>
-<p>Reject self-signed certificates.</p>
-<p>Default: false</p>
+<p>Reject self-signed certificates. Use --ru false to connect to EBG servers with self-signed certificates.</p>
+<p>Default value: true</p>
 </li>
 </ul>
 </li>
@@ -59442,8 +59841,8 @@ Allowed values: http, https</p>
 <p><code>--reject-unauthorized</code> | <code>--ru</code> <em>(boolean)</em></p>
 <ul>
 <li>
-<p>Reject self-signed certificates.</p>
-<p>Default: false</p>
+<p>Reject self-signed certificates. Use --ru false to connect to EBG servers with self-signed certificates.</p>
+<p>Default value: true</p>
 </li>
 </ul>
 </li>
@@ -59631,6 +60030,169 @@ Allowed values: http, https</p>
 </ul>
 </li>
 </ul>
+<a class="cmd-anchor" name="zowe_endevor-bridge-for-git_list_server-config"></a><h3><a href="#zowe">zowe</a> › <a href="#zowe_endevor-bridge-for-git">endevor-bridge-for-git</a> › <a href="#zowe_endevor-bridge-for-git_list">list</a> › <a href="#zowe_endevor-bridge-for-git_list_server-config">server-config</a><button id="btn-print" class="no-print" onclick="window.print();" title="Print">🖨️</button></h3>
+<p>List Bridge for Git server configuration</p>
+<h4>Usage</h4>
+<p>zowe endevor-bridge-for-git list server-config [options]</p>
+<h4>Endevor Bridge for Git connection options (you can also use an 'ebg' profile)</h4>
+<ul>
+<li>
+<p><code>--token</code> | <code>-t</code> <em>(string)</em></p>
+<ul>
+<li>Git personal access token (Obtain the token from your Git Enterprise Server).</li>
+</ul>
+</li>
+<li>
+<p><code>--user</code> | <code>-u</code> <em>(string)</em></p>
+<ul>
+<li>Endevor Bridge for Git username (your git username).</li>
+</ul>
+</li>
+<li>
+<p><code>--protocol</code> | <code>--prot</code> <em>(string)</em></p>
+<ul>
+<li>
+<p>Endevor Bridge for Git SCM protocol.</p>
+<p>Default: https</p>
+<p>Default value: https<br>
+Allowed values: http, https</p>
+</li>
+</ul>
+</li>
+<li>
+<p><code>--host</code> | <code>-H</code> <em>(string)</em></p>
+<ul>
+<li>Endevor Bridge for Git hostname.</li>
+</ul>
+</li>
+<li>
+<p><code>--port</code> | <code>-P</code> <em>(number)</em></p>
+<ul>
+<li>Endevor Bridge for Git port.</li>
+</ul>
+</li>
+<li>
+<p><code>--user</code> | <code>-u</code> <em>(string)</em></p>
+<ul>
+<li>Endevor Bridge for Git username (your git username).</li>
+</ul>
+</li>
+<li>
+<p><code>--token</code> | <code>-t</code> <em>(string)</em></p>
+<ul>
+<li>Git personal access token (Obtain the token from your Git Enterprise Server).</li>
+</ul>
+</li>
+<li>
+<p><code>--reject-unauthorized</code> | <code>--ru</code> <em>(boolean)</em></p>
+<ul>
+<li>
+<p>Reject self-signed certificates. Use --ru false to connect to EBG servers with self-signed certificates.</p>
+<p>Default value: true</p>
+</li>
+</ul>
+</li>
+<li>
+<p><code>--ebg-base-path</code> <em>(string)</em></p>
+<ul>
+<li>The Endevor Bridge for Git Rest API base path.</li>
+</ul>
+</li>
+</ul>
+<h4>Profile Options</h4>
+<ul>
+<li>
+<p><code>--ebg-profile</code> | <code>--ebg-p</code> <em>(string)</em></p>
+<ul>
+<li>The name of a (ebg) profile to load for this command execution.</li>
+</ul>
+</li>
+<li>
+<p><code>--base-profile</code> | <code>--base-p</code> <em>(string)</em></p>
+<ul>
+<li>The name of a (base) profile to load for this command execution.</li>
+</ul>
+</li>
+</ul>
+<h4>Base Connection Options</h4>
+<ul>
+<li>
+<p><code>--password</code> | <code>--pass</code> | <code>--pw</code> <em>(string)</em></p>
+<ul>
+<li>Password to authenticate to service on the mainframe.</li>
+</ul>
+</li>
+<li>
+<p><code>--token-type</code> | <code>--tt</code> <em>(string)</em></p>
+<ul>
+<li>The type of token to get and use for the API. Omit this option to use the default token type, which is provided by 'zowe auth login'.</li>
+</ul>
+</li>
+<li>
+<p><code>--token-value</code> | <code>--tv</code> <em>(string)</em></p>
+<ul>
+<li>The value of the token to pass to the API.</li>
+</ul>
+</li>
+<li>
+<p><code>--cert-file</code> <em>(local file path)</em></p>
+<ul>
+<li>
+<p>The file path to a certificate file to use for authentication.</p>
+<p>Note: The CLI does not support certificate files that require a password. For more information, search Troubleshooting PEM Certificates in Zowe Docs.</p>
+</li>
+</ul>
+</li>
+<li>
+<p><code>--cert-key-file</code> <em>(local file path)</em></p>
+<ul>
+<li>The file path to a certificate key file to use for authentication</li>
+</ul>
+</li>
+<li>
+<p><code>--cert-account</code> <em>(string)</em></p>
+<ul>
+<li>The account name for PKCS 12 certificate stored in credential manager</li>
+</ul>
+</li>
+</ul>
+<h4>Response Format Options</h4>
+<ul>
+<li>
+<p><code>--response-format-filter</code> | <code>--rff</code> <em>(array)</em></p>
+<ul>
+<li>Filter (include) fields in the response. Accepts an array of field/property names to include in the output response. You can filter JSON objects properties OR table columns/fields. In addition, you can use this option in conjunction with '--response-format-type' to reduce the output of a command to a single field/property or a list of a single field/property.</li>
+</ul>
+</li>
+<li>
+<p><code>--response-format-type</code> | <code>--rft</code> <em>(string)</em></p>
+<ul>
+<li>
+<p>The command response output format type. Must be one of the following:</p>
+<p>table: Formats output data as a table. Use this option when the output data is an array of homogeneous JSON objects. Each property of the object will become a column in the table.</p>
+<p>list: Formats output data as a list of strings. Can be used on any data type (JSON objects/arrays) are stringified and a new line is added after each entry in an array.</p>
+<p>object: Formats output data as a list of prettified objects (or single object). Can be used in place of &quot;table&quot; to change from tabular output to a list of prettified objects.</p>
+<p>string: Formats output data as a string. JSON objects/arrays are stringified.</p>
+<p>Allowed values: table, list, object, string</p>
+</li>
+</ul>
+</li>
+<li>
+<p><code>--response-format-header</code> | <code>--rfh</code> <em>(boolean)</em></p>
+<ul>
+<li>If &quot;--response-format-type table&quot; is specified, include the column headers in the output.</li>
+</ul>
+</li>
+</ul>
+<h4>Examples</h4>
+<ul>
+<li>
+<p>List configuration of connected Bridge for Git server:</p>
+<ul>
+<li><code>zowe endevor-bridge-for-git list server-config</code> <button class="btn-copy no-print" data-balloon-pos="right" data-clipboard-text="zowe endevor-bridge-for-git list server-config">Copy</button></li>
+</ul>
+</li>
+</ul>
 <a class="cmd-anchor" name="zowe_endevor-bridge-for-git_list_sync-back-settings"></a><h3><a href="#zowe">zowe</a> › <a href="#zowe_endevor-bridge-for-git">endevor-bridge-for-git</a> › <a href="#zowe_endevor-bridge-for-git_list">list</a> › <a href="#zowe_endevor-bridge-for-git_list_sync-back-settings">sync-back-settings</a><button id="btn-print" class="no-print" onclick="window.print();" title="Print">🖨️</button></h3>
 <p>List sync-back settings used by Endevor Bridge for Git.</p>
 <h4>Usage</h4>
@@ -59691,8 +60253,8 @@ Allowed values: http, https</p>
 <p><code>--reject-unauthorized</code> | <code>--ru</code> <em>(boolean)</em></p>
 <ul>
 <li>
-<p>Reject self-signed certificates.</p>
-<p>Default: false</p>
+<p>Reject self-signed certificates. Use --ru false to connect to EBG servers with self-signed certificates.</p>
+<p>Default value: true</p>
 </li>
 </ul>
 </li>
@@ -59884,8 +60446,8 @@ Allowed values: http, https</p>
 <p><code>--reject-unauthorized</code> | <code>--ru</code> <em>(boolean)</em></p>
 <ul>
 <li>
-<p>Reject self-signed certificates.</p>
-<p>Default: false</p>
+<p>Reject self-signed certificates. Use --ru false to connect to EBG servers with self-signed certificates.</p>
+<p>Default value: true</p>
 </li>
 </ul>
 </li>
@@ -60074,8 +60636,8 @@ Allowed values: http, https</p>
 <p><code>--reject-unauthorized</code> | <code>--ru</code> <em>(boolean)</em></p>
 <ul>
 <li>
-<p>Reject self-signed certificates.</p>
-<p>Default: false</p>
+<p>Reject self-signed certificates. Use --ru false to connect to EBG servers with self-signed certificates.</p>
+<p>Default value: true</p>
 </li>
 </ul>
 </li>
@@ -60254,8 +60816,8 @@ Allowed values: http, https</p>
 <p><code>--reject-unauthorized</code> | <code>--ru</code> <em>(boolean)</em></p>
 <ul>
 <li>
-<p>Reject self-signed certificates.</p>
-<p>Default: false</p>
+<p>Reject self-signed certificates. Use --ru false to connect to EBG servers with self-signed certificates.</p>
+<p>Default value: true</p>
 </li>
 </ul>
 </li>
@@ -60398,8 +60960,8 @@ Allowed values: http, https</p>
 <p><code>--reject-unauthorized</code> | <code>--ru</code> <em>(boolean)</em></p>
 <ul>
 <li>
-<p>Reject self-signed certificates.</p>
-<p>Default: false</p>
+<p>Reject self-signed certificates. Use --ru false to connect to EBG servers with self-signed certificates.</p>
+<p>Default value: true</p>
 </li>
 </ul>
 </li>
@@ -60550,8 +61112,8 @@ Allowed values: http, https</p>
 <p><code>--reject-unauthorized</code> | <code>--ru</code> <em>(boolean)</em></p>
 <ul>
 <li>
-<p>Reject self-signed certificates.</p>
-<p>Default: false</p>
+<p>Reject self-signed certificates. Use --ru false to connect to EBG servers with self-signed certificates.</p>
+<p>Default value: true</p>
 </li>
 </ul>
 </li>
@@ -60703,8 +61265,8 @@ Allowed values: http, https</p>
 <p><code>--reject-unauthorized</code> | <code>--ru</code> <em>(boolean)</em></p>
 <ul>
 <li>
-<p>Reject self-signed certificates.</p>
-<p>Default: false</p>
+<p>Reject self-signed certificates. Use --ru false to connect to EBG servers with self-signed certificates.</p>
+<p>Default value: true</p>
 </li>
 </ul>
 </li>
@@ -60847,8 +61409,8 @@ Allowed values: http, https</p>
 <p><code>--reject-unauthorized</code> | <code>--ru</code> <em>(boolean)</em></p>
 <ul>
 <li>
-<p>Reject self-signed certificates.</p>
-<p>Default: false</p>
+<p>Reject self-signed certificates. Use --ru false to connect to EBG servers with self-signed certificates.</p>
+<p>Default value: true</p>
 </li>
 </ul>
 </li>
@@ -60996,8 +61558,8 @@ Allowed values: http, https</p>
 <p><code>--reject-unauthorized</code> | <code>--ru</code> <em>(boolean)</em></p>
 <ul>
 <li>
-<p>Reject self-signed certificates.</p>
-<p>Default: false</p>
+<p>Reject self-signed certificates. Use --ru false to connect to EBG servers with self-signed certificates.</p>
+<p>Default value: true</p>
 </li>
 </ul>
 </li>
@@ -61143,8 +61705,8 @@ Allowed values: http, https</p>
 <p><code>--reject-unauthorized</code> | <code>--ru</code> <em>(boolean)</em></p>
 <ul>
 <li>
-<p>Reject self-signed certificates.</p>
-<p>Default: false</p>
+<p>Reject self-signed certificates. Use --ru false to connect to EBG servers with self-signed certificates.</p>
+<p>Default value: true</p>
 </li>
 </ul>
 </li>
@@ -61302,8 +61864,8 @@ Allowed values: http, https</p>
 <p><code>--reject-unauthorized</code> | <code>--ru</code> <em>(boolean)</em></p>
 <ul>
 <li>
-<p>Reject self-signed certificates.</p>
-<p>Default: false</p>
+<p>Reject self-signed certificates. Use --ru false to connect to EBG servers with self-signed certificates.</p>
+<p>Default value: true</p>
 </li>
 </ul>
 </li>
@@ -61491,8 +62053,8 @@ Allowed values: http, https</p>
 <p><code>--reject-unauthorized</code> | <code>--ru</code> <em>(boolean)</em></p>
 <ul>
 <li>
-<p>Reject self-signed certificates.</p>
-<p>Default: false</p>
+<p>Reject self-signed certificates. Use --ru false to connect to EBG servers with self-signed certificates.</p>
+<p>Default value: true</p>
 </li>
 </ul>
 </li>
@@ -61674,8 +62236,8 @@ Allowed values: http, https</p>
 <p><code>--reject-unauthorized</code> | <code>--ru</code> <em>(boolean)</em></p>
 <ul>
 <li>
-<p>Reject self-signed certificates.</p>
-<p>Default: false</p>
+<p>Reject self-signed certificates. Use --ru false to connect to EBG servers with self-signed certificates.</p>
+<p>Default value: true</p>
 </li>
 </ul>
 </li>
@@ -61876,8 +62438,8 @@ Allowed values: http, https</p>
 <p><code>--reject-unauthorized</code> | <code>--ru</code> <em>(boolean)</em></p>
 <ul>
 <li>
-<p>Reject self-signed certificates.</p>
-<p>Default: false</p>
+<p>Reject self-signed certificates. Use --ru false to connect to EBG servers with self-signed certificates.</p>
+<p>Default value: true</p>
 </li>
 </ul>
 </li>
@@ -62059,8 +62621,8 @@ Allowed values: http, https</p>
 <p><code>--reject-unauthorized</code> | <code>--ru</code> <em>(boolean)</em></p>
 <ul>
 <li>
-<p>Reject self-signed certificates.</p>
-<p>Default: false</p>
+<p>Reject self-signed certificates. Use --ru false to connect to EBG servers with self-signed certificates.</p>
+<p>Default value: true</p>
 </li>
 </ul>
 </li>
@@ -62248,8 +62810,8 @@ Allowed values: http, https</p>
 <p><code>--reject-unauthorized</code> | <code>--ru</code> <em>(boolean)</em></p>
 <ul>
 <li>
-<p>Reject self-signed certificates.</p>
-<p>Default: false</p>
+<p>Reject self-signed certificates. Use --ru false to connect to EBG servers with self-signed certificates.</p>
+<p>Default value: true</p>
 </li>
 </ul>
 </li>
@@ -62416,8 +62978,8 @@ Allowed values: http, https</p>
 <p><code>--reject-unauthorized</code> | <code>--ru</code> <em>(boolean)</em></p>
 <ul>
 <li>
-<p>Reject self-signed certificates.</p>
-<p>Default: false</p>
+<p>Reject self-signed certificates. Use --ru false to connect to EBG servers with self-signed certificates.</p>
+<p>Default value: true</p>
 </li>
 </ul>
 </li>
@@ -62735,8 +63297,8 @@ Allowed values: http, https</p>
 <p><code>--reject-unauthorized</code> | <code>--ru</code> <em>(boolean)</em></p>
 <ul>
 <li>
-<p>Reject self-signed certificates.</p>
-<p>Default: false</p>
+<p>Reject self-signed certificates. Use --ru false to connect to EBG servers with self-signed certificates.</p>
+<p>Default value: true</p>
 </li>
 </ul>
 </li>
@@ -62879,8 +63441,8 @@ Allowed values: http, https</p>
 <p><code>--reject-unauthorized</code> | <code>--ru</code> <em>(boolean)</em></p>
 <ul>
 <li>
-<p>Reject self-signed certificates.</p>
-<p>Default: false</p>
+<p>Reject self-signed certificates. Use --ru false to connect to EBG servers with self-signed certificates.</p>
+<p>Default value: true</p>
 </li>
 </ul>
 </li>
@@ -63123,8 +63685,8 @@ Allowed values: http, https</p>
 <p><code>--reject-unauthorized</code> | <code>--ru</code> <em>(boolean)</em></p>
 <ul>
 <li>
-<p>Reject self-signed certificates.</p>
-<p>Default: false</p>
+<p>Reject self-signed certificates. Use --ru false to connect to EBG servers with self-signed certificates.</p>
+<p>Default value: true</p>
 </li>
 </ul>
 </li>
@@ -67310,6 +67872,15 @@ Allowed values: http, https</p>
 </ul>
 </li>
 <li>
+<p><code>--protocol</code> <em>(string)</em></p>
+<ul>
+<li>
+<p>The protocol used to connect to the IDMS REST API service</p>
+<p>Default value: https</p>
+</li>
+</ul>
+</li>
+<li>
 <p><code>--reject-unauthorized</code> | <code>--ru</code> <em>(boolean)</em></p>
 <ul>
 <li>
@@ -67474,6 +68045,15 @@ Allowed values: http, https</p>
 </ul>
 </li>
 <li>
+<p><code>--protocol</code> <em>(string)</em></p>
+<ul>
+<li>
+<p>The protocol used to connect to the IDMS REST API service</p>
+<p>Default value: https</p>
+</li>
+</ul>
+</li>
+<li>
 <p><code>--reject-unauthorized</code> | <code>--ru</code> <em>(boolean)</em></p>
 <ul>
 <li>
@@ -67635,6 +68215,15 @@ Allowed values: http, https</p>
 </ul>
 </li>
 <li>
+<p><code>--protocol</code> <em>(string)</em></p>
+<ul>
+<li>
+<p>The protocol used to connect to the IDMS REST API service</p>
+<p>Default value: https</p>
+</li>
+</ul>
+</li>
+<li>
 <p><code>--reject-unauthorized</code> | <code>--ru</code> <em>(boolean)</em></p>
 <ul>
 <li>
@@ -67790,6 +68379,15 @@ Allowed values: http, https</p>
 </ul>
 </li>
 <li>
+<p><code>--protocol</code> <em>(string)</em></p>
+<ul>
+<li>
+<p>The protocol used to connect to the IDMS REST API service</p>
+<p>Default value: https</p>
+</li>
+</ul>
+</li>
+<li>
 <p><code>--reject-unauthorized</code> | <code>--ru</code> <em>(boolean)</em></p>
 <ul>
 <li>
@@ -67942,6 +68540,15 @@ Allowed values: http, https</p>
 <p><code>--password</code> | <code>--pass</code> | <code>--pw</code> <em>(string)</em></p>
 <ul>
 <li>Mainframe password, which can be the same as your TSO password</li>
+</ul>
+</li>
+<li>
+<p><code>--protocol</code> <em>(string)</em></p>
+<ul>
+<li>
+<p>The protocol used to connect to the IDMS REST API service</p>
+<p>Default value: https</p>
+</li>
 </ul>
 </li>
 <li>
@@ -68101,6 +68708,15 @@ Allowed values: http, https</p>
 </ul>
 </li>
 <li>
+<p><code>--protocol</code> <em>(string)</em></p>
+<ul>
+<li>
+<p>The protocol used to connect to the IDMS REST API service</p>
+<p>Default value: https</p>
+</li>
+</ul>
+</li>
+<li>
 <p><code>--reject-unauthorized</code> | <code>--ru</code> <em>(boolean)</em></p>
 <ul>
 <li>
@@ -68256,6 +68872,15 @@ Allowed values: http, https</p>
 <p><code>--password</code> | <code>--pass</code> | <code>--pw</code> <em>(string)</em></p>
 <ul>
 <li>Mainframe password, which can be the same as your TSO password</li>
+</ul>
+</li>
+<li>
+<p><code>--protocol</code> <em>(string)</em></p>
+<ul>
+<li>
+<p>The protocol used to connect to the IDMS REST API service</p>
+<p>Default value: https</p>
+</li>
 </ul>
 </li>
 <li>
@@ -68423,6 +69048,15 @@ Allowed values: http, https</p>
 </ul>
 </li>
 <li>
+<p><code>--protocol</code> <em>(string)</em></p>
+<ul>
+<li>
+<p>The protocol used to connect to the IDMS REST API service</p>
+<p>Default value: https</p>
+</li>
+</ul>
+</li>
+<li>
 <p><code>--reject-unauthorized</code> | <code>--ru</code> <em>(boolean)</em></p>
 <ul>
 <li>
@@ -68560,6 +69194,15 @@ Allowed values: http, https</p>
 <p><code>--password</code> | <code>--pass</code> | <code>--pw</code> <em>(string)</em></p>
 <ul>
 <li>Mainframe password, which can be the same as your TSO password</li>
+</ul>
+</li>
+<li>
+<p><code>--protocol</code> <em>(string)</em></p>
+<ul>
+<li>
+<p>The protocol used to connect to the IDMS REST API service</p>
+<p>Default value: https</p>
+</li>
 </ul>
 </li>
 <li>
@@ -68729,6 +69372,15 @@ Allowed values: http, https</p>
 </ul>
 </li>
 <li>
+<p><code>--protocol</code> <em>(string)</em></p>
+<ul>
+<li>
+<p>The protocol used to connect to the IDMS REST API service</p>
+<p>Default value: https</p>
+</li>
+</ul>
+</li>
+<li>
 <p><code>--reject-unauthorized</code> | <code>--ru</code> <em>(boolean)</em></p>
 <ul>
 <li>
@@ -68881,6 +69533,15 @@ Allowed values: http, https</p>
 <p><code>--password</code> | <code>--pass</code> | <code>--pw</code> <em>(string)</em></p>
 <ul>
 <li>Mainframe password, which can be the same as your TSO password</li>
+</ul>
+</li>
+<li>
+<p><code>--protocol</code> <em>(string)</em></p>
+<ul>
+<li>
+<p>The protocol used to connect to the IDMS REST API service</p>
+<p>Default value: https</p>
+</li>
 </ul>
 </li>
 <li>
@@ -69092,6 +69753,15 @@ Allowed values: http, https</p>
 </ul>
 </li>
 <li>
+<p><code>--protocol</code> <em>(string)</em></p>
+<ul>
+<li>
+<p>The protocol used to connect to the IDMS REST API service</p>
+<p>Default value: https</p>
+</li>
+</ul>
+</li>
+<li>
 <p><code>--reject-unauthorized</code> | <code>--ru</code> <em>(boolean)</em></p>
 <ul>
 <li>
@@ -69247,6 +69917,15 @@ Allowed values: http, https</p>
 </ul>
 </li>
 <li>
+<p><code>--protocol</code> <em>(string)</em></p>
+<ul>
+<li>
+<p>The protocol used to connect to the IDMS REST API service</p>
+<p>Default value: https</p>
+</li>
+</ul>
+</li>
+<li>
 <p><code>--reject-unauthorized</code> | <code>--ru</code> <em>(boolean)</em></p>
 <ul>
 <li>
@@ -69399,6 +70078,15 @@ Allowed values: http, https</p>
 <p><code>--password</code> | <code>--pass</code> | <code>--pw</code> <em>(string)</em></p>
 <ul>
 <li>Mainframe password, which can be the same as your TSO password</li>
+</ul>
+</li>
+<li>
+<p><code>--protocol</code> <em>(string)</em></p>
+<ul>
+<li>
+<p>The protocol used to connect to the IDMS REST API service</p>
+<p>Default value: https</p>
+</li>
 </ul>
 </li>
 <li>
@@ -82044,11 +82732,11 @@ Allowed values: http, https</p>
 <p><code>plugin...</code>		 <em>(string)</em></p>
 <ul>
 <li>
-<p>A space-separated list of plug-ins to install. A plug-in can be any format that is accepted by the `npm install` command (local directory, TAR file, git URL, public package, private package, etc...).</p>
-<p>To use a relative local directory, at least one '/' or '\' must exist in the plug-in path. For example, you have a local plug-in in a folder called 'test-plugin' that you want to install. Specify the relative local directory by issuing the following command:</p>
+<p>A space-separated list of plug-ins to install. A plug-in can be any format that is accepted by the `npm install` command (local directory, TAR file, git URL, public package, private package, etc.).</p>
+<p>To use a relative local directory, at least one '/' or '\' must exist in the plug-in path. For example, there is a local plug-in in folder 'test-plugin' that you want to install. Specify the relative local directory by issuing the following command:</p>
 <p>zowe plugins install ./test-plugin</p>
-<p>If you omit the './', then the install command looks for 'test-plugin' in an npm registry.</p>
-<p>If the plugin argument is omitted, the plugins.json file will determine which plug-ins are installed. For more information on the plugins.json file, see the --file option.</p>
+<p>If you omit the './', the install command looks for 'test-plugin' in an NPM registry.</p>
+<p>If the `plugin` argument is omitted, the plugins.json file determines which plug-ins are installed. For more information on the plugins.json file, see the --file entry in the Options section.</p>
 </li>
 </ul>
 </li>
@@ -82059,9 +82747,9 @@ Allowed values: http, https</p>
 <p><code>--file</code> <em>(local file path)</em></p>
 <ul>
 <li>
-<p>Specifies the location of a plugins.json file that contains the plug-ins you want to install.</p>
-<p>All plug-ins specified in plugins.json will be installed to the base CLI and the contents will be placed into /home/&lt;user&gt;/.zowe/plugins/plugins.json.</p>
-<p>If you do not specify a plugins.json file and do not specify a plug-in, the default plugin.json file (/home/&lt;user&gt;/.zowe/plugins/plugins.json) will be used. This provides a way to install plug-ins that were lost or corrupted after reinstalling or updating Zowe CLI.</p>
+<p>The location of a plugins.json file that contains the plug-ins you want to install.</p>
+<p>All plug-ins specified in plugins.json are installed to the base CLI and the contents are placed into /home/&lt;user&gt;/.zowe/plugins/plugins.json.</p>
+<p>If you do not specify a plugins.json file and do not specify a plug-in, the default plugin.json file (/home/&lt;user&gt;/.zowe/plugins/plugins.json) is used. This provides a way to install plug-ins that were lost or corrupted after reinstalling or updating Zowe CLI.</p>
 </li>
 </ul>
 </li>
@@ -82069,8 +82757,8 @@ Allowed values: http, https</p>
 <p><code>--registry</code> <em>(string)</em></p>
 <ul>
 <li>
-<p>The npm registry that is used when installing remote packages. When this value is omitted, the value returned by `npm config get registry` is used.</p>
-<p>For more information about npm registries, see: <a href="https://docs.npmjs.com/misc/registry">https://docs.npmjs.com/misc/registry</a></p>
+<p>The NPM registry that is used when installing remote packages. When omitted, the value returned by `npm config get registry` is used.</p>
+<p>For more information about NPM registries, see: <a href="https://docs.npmjs.com/misc/registry">https://docs.npmjs.com/misc/registry</a></p>
 </li>
 </ul>
 </li>
@@ -82078,18 +82766,30 @@ Allowed values: http, https</p>
 <p><code>--login</code> <em>(boolean)</em></p>
 <ul>
 <li>
-<p>The flag to add a registry user account to install from secure registry. It saves credentials to the .npmrc file using `npm login`. When this value is omitted, credentials from .npmrc file is used. If you used this flag once for specific registry, you don't have to use it again, it uses credentials from .npmrc file.</p>
-<p>For more information about npm registries, see:<br>
-<a href="https://docs.npmjs.com/cli/login">https://docs.npmjs.com/cli/login</a> for NPM &gt;= 9<br>
-<a href="https://docs.npmjs.com/cli/adduser">https://docs.npmjs.com/cli/adduser</a> for NPM &lt; 9</p>
+<p>The flag to add a registry user account to install from secure registry. It saves credentials to the `.npmrc` file using `npm login`.</p>
+<p>When omitted, credentials from `.npmrc` file are used. If you used this flag once for specific registry, you do not have to use it again, it uses credentials from `.npmrc` file.</p>
+<p>For more information about NPM registries, see:<br>
+<a href="https://docs.npmjs.com/cli/login">https://docs.npmjs.com/cli/login</a></p>
 </li>
 </ul>
 </li>
 <li>
 <p><code>--verbose</code> <em>(boolean)</em></p>
 <ul>
-<li>Specifies that verbose output is printed for npm install.<br>
-This may be useful for debugging errors during plugin installation.</li>
+<li>
+<p>Verbose output is printed for NPM install.</p>
+<p>This can be useful for debugging errors during plug-in installation.</p>
+</li>
+</ul>
+</li>
+<li>
+<p><code>--allow-scripts</code> <em>(string)</em></p>
+<ul>
+<li>
+<p>A comma-separated list of package names that are allowed to run their NPM install scripts (preinstall, install, postinstall, and prepare). The names must match. Zowe passes this list to NPM as its own --allow-scripts option.</p>
+<p>NPM 12 blocks these scripts unless the package is in the list. This breaks plug-ins that have a dependency that must be built during install, such as the Db2 plug-in and its ibm_db dependency. Older versions of NPM do not know this option and ignore it, so using this option does not change how they work. Older versions of NPM may show a warning about the --allow-scripts option being unknown. This warning can be safely ignored. When omitted, Zowe does not pass anything to NPM, and NPM decides what to do.</p>
+<p>Only list packages that you trust. Install scripts can run any code on your machine.</p>
+</li>
 </ul>
 </li>
 </ul>
@@ -82135,6 +82835,12 @@ This may be useful for debugging errors during plugin installation.</li>
 <p>Install a remote plug-in from the registry which requires authorization(don't need to use this flag if you have already logged in before):</p>
 <ul>
 <li><code>zowe plugins install my-plugin --registry https://registry.npmjs.org/ --login</code> <button class="btn-copy no-print" data-balloon-pos="right" data-clipboard-text="zowe plugins install my-plugin --registry https://registry.npmjs.org/ --login">Copy</button></li>
+</ul>
+</li>
+<li>
+<p>Install a remote plug-in and let one of its dependencies run its npm install scripts:</p>
+<ul>
+<li><code>zowe plugins install my-plugin --allow-scripts=&quot;ibm_db&quot;</code> <button class="btn-copy no-print" data-balloon-pos="right" data-clipboard-text="zowe plugins install my-plugin --allow-scripts=&quot;ibm_db&quot;">Copy</button></li>
 </ul>
 </li>
 </ul>
@@ -82212,7 +82918,7 @@ This may be useful for debugging errors during plugin installation.</li>
 <ul>
 <li>
 <p>The name of the plug-in to update.</p>
-<p>If the plug-in argument is omitted, no action is taken.</p>
+<p>If omitted, no action is taken.</p>
 </li>
 </ul>
 </li>
@@ -82223,8 +82929,8 @@ This may be useful for debugging errors during plugin installation.</li>
 <p><code>--registry</code> <em>(string)</em></p>
 <ul>
 <li>
-<p>The npm registry that is used when installing remote packages. When this value is omitted, the value returned by `npm config get registry` is used.</p>
-<p>For more information about npm registries, see: <a href="https://docs.npmjs.com/misc/registry">https://docs.npmjs.com/misc/registry</a></p>
+<p>The NPM registry that is used when installing remote packages. When omitted, the value returned by `npm config get registry` is used.</p>
+<p>For more information about NPM registries, see: <a href="https://docs.npmjs.com/misc/registry">https://docs.npmjs.com/misc/registry</a></p>
 </li>
 </ul>
 </li>
@@ -82232,10 +82938,20 @@ This may be useful for debugging errors during plugin installation.</li>
 <p><code>--login</code> <em>(boolean)</em></p>
 <ul>
 <li>
-<p>The flag to add a registry user account to install from secure registry. It saves credentials to the .npmrc file using `npm login`. When this value is omitted, credentials from .npmrc file is used. If you used this flag once for specific registry, you don't have to use it again, it uses credentials from .npmrc file.</p>
-<p>For more information about npm registries, see:<br>
-<a href="https://docs.npmjs.com/cli/login">https://docs.npmjs.com/cli/login</a> for NPM &gt;= 9<br>
-<a href="https://docs.npmjs.com/cli/adduser">https://docs.npmjs.com/cli/adduser</a> for NPM &lt; 9</p>
+<p>The flag to add a registry user account to install from secure registry. It saves credentials to the `.npmrc` file using `npm login`.</p>
+<p>When omitted, credentials from `.npmrc` file are used. If you used this flag once for specific registry, you do not have to use it again, it uses credentials from `.npmrc` file.</p>
+<p>For more information about NPM registries, see:<br>
+<a href="https://docs.npmjs.com/cli/login">https://docs.npmjs.com/cli/login</a></p>
+</li>
+</ul>
+</li>
+<li>
+<p><code>--allow-scripts</code> <em>(string)</em></p>
+<ul>
+<li>
+<p>A comma-separated list of package names that are allowed to run their NPM install scripts (preinstall, install, postinstall, and prepare). The names must match. Zowe passes this list to NPM as its own --allow-scripts option.</p>
+<p>NPM 12 blocks these scripts unless the package is in the list. This breaks plug-ins that have a dependency that must be built during install, such as the Db2 plug-in and its ibm_db dependency. Older versions of NPM do not know this option and ignore it, so using this option does not change how they work. Older versions of NPM may show a warning about the --allow-scripts option being unknown. This warning can be safely ignored. When omitted, Zowe does not pass anything to NPM, and NPM decides what to do.</p>
+<p>Only list packages that you trust. Install scripts can run any code on your machine.</p>
 </li>
 </ul>
 </li>
@@ -82252,6 +82968,12 @@ This may be useful for debugging errors during plugin installation.</li>
 <p>Update a remote plug-in from the registry which requires authorization(don't need to use this flag if you have already logged in before):</p>
 <ul>
 <li><code>zowe plugins update my-plugin --registry https://registry.npmjs.org/ --login</code> <button class="btn-copy no-print" data-balloon-pos="right" data-clipboard-text="zowe plugins update my-plugin --registry https://registry.npmjs.org/ --login">Copy</button></li>
+</ul>
+</li>
+<li>
+<p>Update a plug-in and let one of its dependencies run its npm install scripts:</p>
+<ul>
+<li><code>zowe plugins update my-plugin --allow-scripts=&quot;ibm_db&quot;</code> <button class="btn-copy no-print" data-balloon-pos="right" data-clipboard-text="zowe plugins update my-plugin --allow-scripts=&quot;ibm_db&quot;">Copy</button></li>
 </ul>
 </li>
 </ul>
@@ -91674,6 +92396,152 @@ Allowed values: http, https</p>
 </ul>
 <a name="zowe_zos-files_list"></a><h2><a href="#zowe">zowe</a> › <a href="#zowe_zos-files">zos-files</a> › <a href="#zowe_zos-files_list">list</a><button id="btn-print" class="no-print" onclick="window.print();" title="Print">🖨️</button></h2>
 <p>List data sets and data set members. Optionally, you can list their details and attributes.</p>
+<a class="cmd-anchor" name="zowe_zos-files_list_alias"></a><h3><a href="#zowe">zowe</a> › <a href="#zowe_zos-files">zos-files</a> › <a href="#zowe_zos-files_list">list</a> › <a href="#zowe_zos-files_list_alias">alias</a><button id="btn-print" class="no-print" onclick="window.print();" title="Print">🖨️</button></h3>
+<p>Resolve a data set alias to find the target data set it points to. Uses IDCAMS LISTCAT to look up the alias in the catalog and return the associated data set name.</p>
+<h4>Usage</h4>
+<p>zowe zos-files list alias &lt;aliasName&gt; [options]</p>
+<h4>Positional Arguments</h4>
+<ul>
+<li>
+<p><code>aliasName</code>		 <em>(string)</em></p>
+<ul>
+<li>The name of the data set alias that you want to resolve</li>
+</ul>
+</li>
+</ul>
+<h4>Zosmf Connection Options</h4>
+<ul>
+<li>
+<p><code>--host</code> | <code>-H</code> <em>(string)</em></p>
+<ul>
+<li>The z/OSMF server host name.</li>
+</ul>
+</li>
+<li>
+<p><code>--port</code> | <code>-P</code> <em>(number)</em></p>
+<ul>
+<li>
+<p>The z/OSMF server port.</p>
+<p>Default value: 443</p>
+</li>
+</ul>
+</li>
+<li>
+<p><code>--user</code> | <code>-u</code> <em>(string)</em></p>
+<ul>
+<li>Mainframe (z/OSMF) user name, which can be the same as your TSO login.</li>
+</ul>
+</li>
+<li>
+<p><code>--password</code> | <code>--pass</code> | <code>--pw</code> <em>(string)</em></p>
+<ul>
+<li>Mainframe (z/OSMF) password, which can be the same as your TSO password.</li>
+</ul>
+</li>
+<li>
+<p><code>--reject-unauthorized</code> | <code>--ru</code> <em>(boolean)</em></p>
+<ul>
+<li>
+<p>Reject self-signed certificates.</p>
+<p>Default value: true</p>
+</li>
+</ul>
+</li>
+<li>
+<p><code>--base-path</code> | <code>--bp</code> <em>(string)</em></p>
+<ul>
+<li>The base path for your API mediation layer instance. Specify this option to prepend the base path to all z/OSMF resources when making REST requests. Do not specify this option if you are not using an API mediation layer.</li>
+</ul>
+</li>
+<li>
+<p><code>--protocol</code> <em>(string)</em></p>
+<ul>
+<li>
+<p>The protocol used (HTTP or HTTPS)</p>
+<p>Default value: https<br>
+Allowed values: http, https</p>
+</li>
+</ul>
+</li>
+<li>
+<p><code>--cert-file</code> <em>(local file path)</em></p>
+<ul>
+<li>The file path to a certificate file to use for authentication</li>
+</ul>
+</li>
+<li>
+<p><code>--cert-key-file</code> <em>(local file path)</em></p>
+<ul>
+<li>The file path to a certificate key file to use for authentication</li>
+</ul>
+</li>
+<li>
+<p><code>--cert-account</code> <em>(string)</em></p>
+<ul>
+<li>The account name for PKCS 12 certificate stored in credential manager</li>
+</ul>
+</li>
+<li>
+<p><code>--completion-timeout</code> | <code>--cto</code> <em>(number)</em></p>
+<ul>
+<li>The amount in time, in seconds, a REST operation should wait to complete before timing out</li>
+</ul>
+</li>
+<li>
+<p><code>--establish-connection-timeout</code> | <code>--ecto</code> <em>(number)</em></p>
+<ul>
+<li>The amount of time, in seconds, a REST operation should wait while connecting to the server before timing out</li>
+</ul>
+</li>
+</ul>
+<h4>Options</h4>
+<ul>
+<li>
+<p><code>--response-timeout</code> | <code>--rto</code> <em>(number)</em></p>
+<ul>
+<li>The maximum amount of time in seconds the z/OSMF Files TSO servlet should run before returning a response. Any request exceeding this amount of time will be terminated and return an error. Allowed values: 5 - 600</li>
+</ul>
+</li>
+</ul>
+<h4>Profile Options</h4>
+<ul>
+<li>
+<p><code>--zosmf-profile</code> | <code>--zosmf-p</code> <em>(string)</em></p>
+<ul>
+<li>The name of a (zosmf) profile to load for this command execution.</li>
+</ul>
+</li>
+<li>
+<p><code>--base-profile</code> | <code>--base-p</code> <em>(string)</em></p>
+<ul>
+<li>The name of a (base) profile to load for this command execution.</li>
+</ul>
+</li>
+</ul>
+<h4>Base Connection Options</h4>
+<ul>
+<li>
+<p><code>--token-type</code> | <code>--tt</code> <em>(string)</em></p>
+<ul>
+<li>The type of token to get and use for the API. Omit this option to use the default token type, which is provided by 'zowe auth login'.</li>
+</ul>
+</li>
+<li>
+<p><code>--token-value</code> | <code>--tv</code> <em>(string)</em></p>
+<ul>
+<li>The value of the token to pass to the API.</li>
+</ul>
+</li>
+</ul>
+<h4>Examples</h4>
+<ul>
+<li>
+<p>Resolve the alias &quot;SHARE.ALIAS.NAME&quot; to find its target data set:</p>
+<ul>
+<li><code>zowe zos-files list alias &quot;SHARE.ALIAS.NAME&quot;</code> <button class="btn-copy no-print" data-balloon-pos="right" data-clipboard-text="zowe zos-files list alias &quot;SHARE.ALIAS.NAME&quot;">Copy</button></li>
+</ul>
+</li>
+</ul>
 <a class="cmd-anchor" name="zowe_zos-files_list_all-members"></a><h3><a href="#zowe">zowe</a> › <a href="#zowe_zos-files">zos-files</a> › <a href="#zowe_zos-files_list">list</a> › <a href="#zowe_zos-files_list_all-members">all-members</a><button id="btn-print" class="no-print" onclick="window.print();" title="Print">🖨️</button></h3>
 <p>List all members of a partitioned data set. To view additional information about each member, use the --attributes option under the Options section of this help text.</p>
 <h4>Usage</h4>
@@ -102333,6 +103201,21 @@ Allowed values: http, https</p>
 <p><code>--handshakeTimeout</code> | <code>--timeout</code> | <code>--to</code> <em>(number)</em></p>
 <ul>
 <li>How long in milliseconds to wait for the SSH handshake to complete.</li>
+</ul>
+</li>
+<li>
+<p><code>--host-key</code> | <code>--hk</code> <em>(string)</em></p>
+<ul>
+<li>The trusted host key of the z/OS SSH server, as the base64-encoded key blob presented by the server. When set, the server's key is verified against it before any credentials are sent.</li>
+</ul>
+</li>
+<li>
+<p><code>--insecure</code> | <code>-i</code> <em>(boolean)</em></p>
+<ul>
+<li>
+<p>Skip verification of the z/OS SSH server's host key, so the server's identity is not confirmed before credentials are sent.</p>
+<p>Default value: false</p>
+</li>
 </ul>
 </li>
 </ul>

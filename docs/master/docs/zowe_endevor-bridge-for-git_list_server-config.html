@@ -2,31 +2,28 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta http-equiv="X-UA-Compatible" content="ie=edge">
-<title>endevor-bridge-for-git sync-back</title>
+<title>endevor-bridge-for-git list server-config</title>
 <link rel="stylesheet" href="../css/bundle-docs.css">
 <link rel="stylesheet" href="../css/docs.css">
 <article class="markdown-body">
-<h2><a href="zowe.html">zowe</a> › <a href="zowe_endevor-bridge-for-git.html">endevor-bridge-for-git</a> › <a href="zowe_endevor-bridge-for-git_sync-back.html">sync-back</a><button id="btn-print" class="no-print" onclick="window.print();" title="Print">🖨️</button></h2>
-<p>Schedule global sync-back or sync-back for a specific mapping</p>
+<h2><a href="zowe.html">zowe</a> › <a href="zowe_endevor-bridge-for-git.html">endevor-bridge-for-git</a> › <a href="zowe_endevor-bridge-for-git_list.html">list</a> › <a href="zowe_endevor-bridge-for-git_list_server-config.html">server-config</a><button id="btn-print" class="no-print" onclick="window.print();" title="Print">🖨️</button></h2>
+<p>List Bridge for Git server configuration</p>
 <h4>Usage</h4>
-<p>zowe endevor-bridge-for-git sync-back [context] [mapping] [options]</p>
-<h4>Positional Arguments</h4>
-<ul>
-<li>
-<p><code>context</code>		 <em>(string)</em></p>
-<ul>
-<li>Git-Endevor mapping context (ID of the organization, project, team, or the Git repository owner).</li>
-</ul>
-</li>
-<li>
-<p><code>mapping</code>		 <em>(string)</em></p>
-<ul>
-<li>Git-Endevor mapping name (Git repository ID).</li>
-</ul>
-</li>
-</ul>
+<p>zowe endevor-bridge-for-git list server-config [options]</p>
 <h4>Endevor Bridge for Git connection options (you can also use an 'ebg' profile)</h4>
 <ul>
+<li>
+<p><code>--token</code> | <code>-t</code> <em>(string)</em></p>
+<ul>
+<li>Git personal access token (Obtain the token from your Git Enterprise Server).</li>
+</ul>
+</li>
+<li>
+<p><code>--user</code> | <code>-u</code> <em>(string)</em></p>
+<ul>
+<li>Endevor Bridge for Git username (your git username).</li>
+</ul>
+</li>
 <li>
 <p><code>--protocol</code> | <code>--prot</code> <em>(string)</em></p>
 <ul>
@@ -135,18 +132,40 @@ Allowed values: http, https</p>
 </ul>
 </li>
 </ul>
-<h4>Examples</h4>
+<h4>Response Format Options</h4>
 <ul>
 <li>
-<p>Schedule global sync-back using the default EBG profile:</p>
+<p><code>--response-format-filter</code> | <code>--rff</code> <em>(array)</em></p>
 <ul>
-<li><code>zowe endevor-bridge-for-git sync-back</code> <button class="btn-copy no-print" data-balloon-pos="right" data-clipboard-text="zowe endevor-bridge-for-git sync-back">Copy</button></li>
+<li>Filter (include) fields in the response. Accepts an array of field/property names to include in the output response. You can filter JSON objects properties OR table columns/fields. In addition, you can use this option in conjunction with '--response-format-type' to reduce the output of a command to a single field/property or a list of a single field/property.</li>
 </ul>
 </li>
 <li>
-<p>Schedule sync-back for the Git-Endevor mapping 'MY-CONTEXT / MY-MAPPING' using the default EBG profile:</p>
+<p><code>--response-format-type</code> | <code>--rft</code> <em>(string)</em></p>
 <ul>
-<li><code>zowe endevor-bridge-for-git sync-back MY-CONTEXT MY-MAPPING</code> <button class="btn-copy no-print" data-balloon-pos="right" data-clipboard-text="zowe endevor-bridge-for-git sync-back MY-CONTEXT MY-MAPPING">Copy</button></li>
+<li>
+<p>The command response output format type. Must be one of the following:</p>
+<p>table: Formats output data as a table. Use this option when the output data is an array of homogeneous JSON objects. Each property of the object will become a column in the table.</p>
+<p>list: Formats output data as a list of strings. Can be used on any data type (JSON objects/arrays) are stringified and a new line is added after each entry in an array.</p>
+<p>object: Formats output data as a list of prettified objects (or single object). Can be used in place of &quot;table&quot; to change from tabular output to a list of prettified objects.</p>
+<p>string: Formats output data as a string. JSON objects/arrays are stringified.</p>
+<p>Allowed values: table, list, object, string</p>
+</li>
+</ul>
+</li>
+<li>
+<p><code>--response-format-header</code> | <code>--rfh</code> <em>(boolean)</em></p>
+<ul>
+<li>If &quot;--response-format-type table&quot; is specified, include the column headers in the output.</li>
+</ul>
+</li>
+</ul>
+<h4>Examples</h4>
+<ul>
+<li>
+<p>List configuration of connected Bridge for Git server:</p>
+<ul>
+<li><code>zowe endevor-bridge-for-git list server-config</code> <button class="btn-copy no-print" data-balloon-pos="right" data-clipboard-text="zowe endevor-bridge-for-git list server-config">Copy</button></li>
 </ul>
 </li>
 </ul>
