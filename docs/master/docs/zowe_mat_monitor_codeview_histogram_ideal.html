@@ -2,14 +2,14 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta http-equiv="X-UA-Compatible" content="ie=edge">
-<title>mat monitor codeview csect</title>
+<title>mat monitor codeview histogram ideal</title>
 <link rel="stylesheet" href="../css/bundle-docs.css">
 <link rel="stylesheet" href="../css/docs.css">
 <article class="markdown-body">
-<h2><a href="zowe.html">zowe</a> › <a href="zowe_mat.html">mat</a> › <a href="zowe_mat_monitor.html">monitor</a> › <a href="zowe_mat_monitor_codeview.html">codeview</a> › <a href="zowe_mat_monitor_codeview_csect.html">csect</a><button id="btn-print" class="no-print" onclick="window.print();" title="Print">🖨️</button></h2>
-<p>Get the CodeView measurement details in CSECT mode.</p>
+<h2><a href="zowe.html">zowe</a> › <a href="zowe_mat.html">mat</a> › <a href="zowe_mat_monitor.html">monitor</a> › <a href="zowe_mat_monitor_codeview.html">codeview</a> › <a href="zowe_mat_monitor_codeview_histogram.html">histogram</a> › <a href="zowe_mat_monitor_codeview_histogram_ideal.html">ideal</a><button id="btn-print" class="no-print" onclick="window.print();" title="Print">🖨️</button></h2>
+<p>Get the Histogram measurement details in Ideal mode.</p>
 <h4>Usage</h4>
-<p>zowe mat monitor codeview csect [options]</p>
+<p>zowe mat monitor codeview histogram ideal [options]</p>
 <h4>Options</h4>
 <ul>
 <li>
@@ -22,6 +22,30 @@
 <p><code>--mon_num</code> <em>(number)</em></p>
 <ul>
 <li>Specifies the unique monitor number of the measurement.</li>
+</ul>
+</li>
+<li>
+<p><code>--system</code> <em>(string)</em></p>
+<ul>
+<li>Specifies the system ID that you request the Histogram data for. You can get the system ID value from the 'codeview ideal' command response.</li>
+</ul>
+</li>
+<li>
+<p><code>--program</code> <em>(string)</em></p>
+<ul>
+<li>Specifies the program name that you request the Histogram data for. You can get the program name from the 'codeview ideal' command response.</li>
+</ul>
+</li>
+<li>
+<p><code>--objVersion</code> <em>(string)</em></p>
+<ul>
+<li>Specifies the object version that you request the Histogram data for. You can get the object version from the 'codeview ideal' command response.</li>
+</ul>
+</li>
+<li>
+<p><code>--srcVersion</code> <em>(string)</em></p>
+<ul>
+<li>Specifies the source version that you request the Histogram data for. You can get the source version from the 'codeview ideal' command response.</li>
 </ul>
 </li>
 </ul>
@@ -137,21 +161,21 @@ Allowed values: http, https</p>
 <h4>Examples</h4>
 <ul>
 <li>
-<p>Get the CodeView measurement details in CSECT mode for monitor number 5:</p>
+<p>Get the Histogram data in Ideal mode for monitor number 5,system ID '$ID', program name 'BAGTEST2', object version 'PRD', source version '001'.:</p>
 <ul>
-<li><code>zowe mat monitor codeview csect --mon_num 5</code> <button class="btn-copy no-print" data-balloon-pos="right" data-clipboard-text="zowe mat monitor codeview csect --mon_num 5">Copy</button></li>
+<li><code>zowe mat monitor codeview histogram ideal --mon_num 5 --system '$ID' --program 'BAGTEST2' --objVersion 'PRD' --srcVersion '001'</code> <button class="btn-copy no-print" data-balloon-pos="right" data-clipboard-text="zowe mat monitor codeview histogram ideal --mon_num 5 --system '$ID' --program 'BAGTEST2' --objVersion 'PRD' --srcVersion '001'">Copy</button></li>
 </ul>
 </li>
 <li>
-<p>Get the CodeView measurement details in CSECT mode for the latest monitor in the TESTPROF profile:</p>
+<p>Get the Histogram data in Ideal mode for the latest monitor in the TESTPROF profile for system ID '$ID', program name 'BAGTEST2', object version 'PRD', source version '001'.:</p>
 <ul>
-<li><code>zowe mat monitor codeview csect --profile TESTPROF</code> <button class="btn-copy no-print" data-balloon-pos="right" data-clipboard-text="zowe mat monitor codeview csect --profile TESTPROF">Copy</button></li>
+<li><code>zowe mat monitor codeview histogram ideal --profile 'TESTPROF' --system '$ID' --program 'BAGTEST2' --objVersion 'PRD' --srcVersion '001'</code> <button class="btn-copy no-print" data-balloon-pos="right" data-clipboard-text="zowe mat monitor codeview histogram ideal --profile 'TESTPROF' --system '$ID' --program 'BAGTEST2' --objVersion 'PRD' --srcVersion '001'">Copy</button></li>
 </ul>
 </li>
 <li>
-<p>Get the CodeView measurement details in CSECT mode for monitor number 5, with the specific MAT profile details defined:</p>
+<p>Get the Histogram data in Ideal mode for monitor number 5,system ID '$ID', program name 'BAGTEST2', object version 'PRD', source version '001' with the specific MAT profile details defined.:</p>
 <ul>
-<li><code>zowe mat monitor codeview csect --mon_num 5 --host &quot;example.com&quot; --port 12345 --user johndoe --password qwerty</code> <button class="btn-copy no-print" data-balloon-pos="right" data-clipboard-text="zowe mat monitor codeview csect --mon_num 5 --host &quot;example.com&quot; --port 12345 --user johndoe --password qwerty">Copy</button></li>
+<li><code>zowe mat monitor codeview histogram ideal --mon_num 5 --system '$ID' --program 'BAGTEST2' --objVersion 'PRD' --srcVersion '001' --host 'example.com' --port 12345 --user 'johndoe' --password 'qwerty'</code> <button class="btn-copy no-print" data-balloon-pos="right" data-clipboard-text="zowe mat monitor codeview histogram ideal --mon_num 5 --system '$ID' --program 'BAGTEST2' --objVersion 'PRD' --srcVersion '001' --host 'example.com' --port 12345 --user 'johndoe' --password 'qwerty'">Copy</button></li>
 </ul>
 </li>
 </ul>

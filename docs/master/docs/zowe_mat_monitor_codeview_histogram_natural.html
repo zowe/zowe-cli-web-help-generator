@@ -2,14 +2,14 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta http-equiv="X-UA-Compatible" content="ie=edge">
-<title>mat monitor codeview csect</title>
+<title>mat monitor codeview histogram natural</title>
 <link rel="stylesheet" href="../css/bundle-docs.css">
 <link rel="stylesheet" href="../css/docs.css">
 <article class="markdown-body">
-<h2><a href="zowe.html">zowe</a> › <a href="zowe_mat.html">mat</a> › <a href="zowe_mat_monitor.html">monitor</a> › <a href="zowe_mat_monitor_codeview.html">codeview</a> › <a href="zowe_mat_monitor_codeview_csect.html">csect</a><button id="btn-print" class="no-print" onclick="window.print();" title="Print">🖨️</button></h2>
-<p>Get the CodeView measurement details in CSECT mode.</p>
+<h2><a href="zowe.html">zowe</a> › <a href="zowe_mat.html">mat</a> › <a href="zowe_mat_monitor.html">monitor</a> › <a href="zowe_mat_monitor_codeview.html">codeview</a> › <a href="zowe_mat_monitor_codeview_histogram.html">histogram</a> › <a href="zowe_mat_monitor_codeview_histogram_natural.html">natural</a><button id="btn-print" class="no-print" onclick="window.print();" title="Print">🖨️</button></h2>
+<p>Get the Histogram measurement details in Natural mode.</p>
 <h4>Usage</h4>
-<p>zowe mat monitor codeview csect [options]</p>
+<p>zowe mat monitor codeview histogram natural [options]</p>
 <h4>Options</h4>
 <ul>
 <li>
@@ -22,6 +22,18 @@
 <p><code>--mon_num</code> <em>(number)</em></p>
 <ul>
 <li>Specifies the unique monitor number of the measurement.</li>
+</ul>
+</li>
+<li>
+<p><code>--library</code> <em>(string)</em></p>
+<ul>
+<li>Specifies the library name that you request the Histogram data for. You can get the library name from the 'codeview natural' command response.</li>
+</ul>
+</li>
+<li>
+<p><code>--routine</code> <em>(string)</em></p>
+<ul>
+<li>Specifies the routine name that you request the Histogram data for. You can get the routine name from the 'codeview natural' command response.</li>
 </ul>
 </li>
 </ul>
@@ -137,21 +149,21 @@ Allowed values: http, https</p>
 <h4>Examples</h4>
 <ul>
 <li>
-<p>Get the CodeView measurement details in CSECT mode for monitor number 5:</p>
+<p>Get the Histogram data in Natural mode for monitor number 5,library name CATAPPS, routine name IFEX1R.:</p>
 <ul>
-<li><code>zowe mat monitor codeview csect --mon_num 5</code> <button class="btn-copy no-print" data-balloon-pos="right" data-clipboard-text="zowe mat monitor codeview csect --mon_num 5">Copy</button></li>
+<li><code>zowe mat monitor codeview histogram natural --mon_num 5 --library 'CATAPPS' --routine 'IFEX1R'</code> <button class="btn-copy no-print" data-balloon-pos="right" data-clipboard-text="zowe mat monitor codeview histogram natural --mon_num 5 --library 'CATAPPS' --routine 'IFEX1R'">Copy</button></li>
 </ul>
 </li>
 <li>
-<p>Get the CodeView measurement details in CSECT mode for the latest monitor in the TESTPROF profile:</p>
+<p>Get the Histogram data in Natural mode for the latest monitor in the TESTPROF profile for library name CATAPPS, routine name IFEX1R.:</p>
 <ul>
-<li><code>zowe mat monitor codeview csect --profile TESTPROF</code> <button class="btn-copy no-print" data-balloon-pos="right" data-clipboard-text="zowe mat monitor codeview csect --profile TESTPROF">Copy</button></li>
+<li><code>zowe mat monitor codeview histogram natural --profile 'TESTPROF' --library 'CATAPPS' --routine 'IFEX1R'</code> <button class="btn-copy no-print" data-balloon-pos="right" data-clipboard-text="zowe mat monitor codeview histogram natural --profile 'TESTPROF' --library 'CATAPPS' --routine 'IFEX1R'">Copy</button></li>
 </ul>
 </li>
 <li>
-<p>Get the CodeView measurement details in CSECT mode for monitor number 5, with the specific MAT profile details defined:</p>
+<p>Get the Histogram data in Natural mode for monitor number 5,library name CATAPPS, routine name IFEX1R with the specific MAT profile details defined.:</p>
 <ul>
-<li><code>zowe mat monitor codeview csect --mon_num 5 --host &quot;example.com&quot; --port 12345 --user johndoe --password qwerty</code> <button class="btn-copy no-print" data-balloon-pos="right" data-clipboard-text="zowe mat monitor codeview csect --mon_num 5 --host &quot;example.com&quot; --port 12345 --user johndoe --password qwerty">Copy</button></li>
+<li><code>zowe mat monitor codeview histogram natural --mon_num 5 --library 'CATAPPS' --routine 'IFEX1R' --host 'example.com' --port 12345 --user 'johndoe' --password 'qwerty'</code> <button class="btn-copy no-print" data-balloon-pos="right" data-clipboard-text="zowe mat monitor codeview histogram natural --mon_num 5 --library 'CATAPPS' --routine 'IFEX1R' --host 'example.com' --port 12345 --user 'johndoe' --password 'qwerty'">Copy</button></li>
 </ul>
 </li>
 </ul>
