@@ -234,6 +234,9 @@
         },
         {
           "name": "codeview",
+          "aliases": [
+            "cv"
+          ],
           "summary": "Get CodeView data",
           "description": "Get the CodeView measurement details.",
           "type": "group",
@@ -243,8 +246,8 @@
               "aliases": [
                 "cs"
               ],
-              "summary": "Get CodeView data in Csect mode",
-              "description": "Get the CodeView measurement details in Csect mode.",
+              "summary": "Get CodeView data in CSECT mode",
+              "description": "Get the CodeView measurement details in CSECT mode.",
               "type": "command",
               "handler": "",
               "profile": {
@@ -443,15 +446,15 @@
               ],
               "examples": [
                 {
-                  "description": "Get the CodeView measurement details in Csect mode for monitor number 5",
+                  "description": "Get the CodeView measurement details in CSECT mode for monitor number 5",
                   "options": "--mon_num 5"
                 },
                 {
-                  "description": "Get the CodeView measurement details in Csect mode for the latest monitor in the TESTPROF profile",
+                  "description": "Get the CodeView measurement details in CSECT mode for the latest monitor in the TESTPROF profile",
                   "options": "--profile TESTPROF"
                 },
                 {
-                  "description": "Get the CodeView measurement details in Csect mode for monitor number 5, with the specific MAT profile details defined",
+                  "description": "Get the CodeView measurement details in CSECT mode for monitor number 5, with the specific MAT profile details defined",
                   "options": "--mon_num 5 --host \"example.com\" --port 12345 --user johndoe --password qwerty"
                 }
               ],
@@ -916,12 +919,12 @@
               "children": []
             },
             {
-              "name": "histogram",
+              "name": "natural",
               "aliases": [
-                "hsg"
+                "nat"
               ],
-              "summary": "Get Histogram data",
-              "description": "Get the Histogram details for the measurement.",
+              "summary": "Get CodeView data in Natural mode.",
+              "description": "Get the CodeView measurement details in Natural mode.",
               "type": "command",
               "handler": "",
               "profile": {
@@ -942,41 +945,6 @@
                   "name": "mon_num",
                   "description": "Specifies the unique monitor number of the measurement.",
                   "type": "number",
-                  "group": "Options",
-                  "aliases": []
-                },
-                {
-                  "name": "module",
-                  "description": "Specifies the module name that you request the Histogram data for. You get the module value from the 'codeview csect' command response. The module name can be empty (e.g., --module \"IGZCPAC\" or --module '\"\"').",
-                  "type": "stringOrEmpty",
-                  "group": "Options",
-                  "aliases": []
-                },
-                {
-                  "name": "csect",
-                  "description": "Specifies the CSECT name that you request the Histogram data for. You get the csect value from the 'codeview csect' command response. The CSECT name can be empty (e.g.,  --csect \"TUNCOB01\" or --csect '\"\"').",
-                  "type": "stringOrEmpty",
-                  "group": "Options",
-                  "aliases": []
-                },
-                {
-                  "name": "group",
-                  "description": "Specifies the histogram group size parameter that defines the resolution of the histogram (e.g., --group 32). If you do not specify the group parameter, the group size value defaults to 4 bytes. If the source program listing is registered with MAT, the group size parameter is ignored. The --group parameter is optional. Lower values of the --group parameter result in more granular representation of the histogram data. Values: numbers between 2 and 999999.",
-                  "type": "stringOrEmpty",
-                  "group": "Options",
-                  "aliases": []
-                },
-                {
-                  "name": "top",
-                  "description": "Specifies the maximum number of the top consuming CSECT activity locations that you want to obtain in the response (e.g., --top 5). If you specify --top 0, you get the list of all CSECT activity locations that MAT has detected during the measurement.The --top parameter is optional. Values: numbers between 0 and 300.",
-                  "type": "number",
-                  "group": "Options",
-                  "aliases": []
-                },
-                {
-                  "name": "listing",
-                  "description": "Enables you to retrieve program listing details that pertain to the specific CSECT and statement. To use the listing retrieval option, you must install and configure the Endevor® Web Services and have the program listing for the specific measurement registered with MAT. The source code listing is retrieved through Endevor® footprints for Cobol, C/C++, and Assembler programs. The program listing file is downloaded to your local directory that you specified with the 'listingDir' parameter in your MAT configuration profile. When you request the histogram details with the '--listing' option, the 'histogram' command returns the additional 'listing' column that contains a reference to the program listing with the specific CSECT name, program type, line and column number that pertain to the requested CSECT and statement, for example, c:listingsSA420LE.asm:382:51. If you use Visual Studio Code (VS Code) IDE, you can click on the reference in the command responce in your VS Code terminal to navigate directly to the indicated source program location.The --listing parameter is optional.",
-                  "type": "boolean",
                   "group": "Options",
                   "aliases": []
                 },
@@ -1155,25 +1123,1095 @@
               ],
               "examples": [
                 {
-                  "description": "Get the Histogram details for monitor number 5, CSECT name TUNCOB01, and module name RUNCOB",
-                  "options": "--mon_num 5 --csect \"TUNCOB01\" --module \"RUNCOB\""
+                  "description": "Get the CodeView measurement details in Natural mode for monitor number 5",
+                  "options": "--mon_num 5"
                 },
                 {
-                  "description": "Get the Histogram details for the latest monitor in the TESTPROF profile for CSECT name TUNCOB01, empty module name, limiting the group size to 32 bytes and the number of returned records to 5 top consumers",
-                  "options": "--profile TESTPROF --csect \"TUNCOB01\" --module '\"\"' --top 5 --group 32"
+                  "description": "Get the CodeView measurement details in Natural mode for the latest monitor in the TESTPROF profile",
+                  "options": "--profile TESTPROF"
                 },
                 {
-                  "description": "Get the Histogram details for monitor number 5, CSECT name TUNCOB01, and module name RUNCOB, limit the number of returned records to 5 top consumers, and request the listing details",
-                  "options": "--mon_num 5 --csect \"TUNCOB01\" --module \"RUNCOB\" --top 5 --listing"
-                },
-                {
-                  "description": "Get the Histogram details for monitor number 5, CSECT name TUNCOB01, and module name RUNCOB, with the specific MAT profile details defined",
-                  "options": "--mon_num 5 --csect \"TUNCOB01\" --module \"RUNCOB\" --host \"example.com\" --port 12345 --user johndoe --password qwerty"
+                  "description": "Get the CodeView measurement details in Natural mode for monitor number 5, with the specific MAT profile details defined",
+                  "options": "--mon_num 5 --host \"example.com\" --port 12345 --user johndoe --password qwerty"
                 }
               ],
               "positionals": [],
               "passOn": [],
               "children": []
+            },
+            {
+              "name": "ideal",
+              "aliases": [
+                "idl"
+              ],
+              "summary": "Get CodeView data in Ideal mode.",
+              "description": "Get the CodeView measurement details in Ideal mode.",
+              "type": "command",
+              "handler": "",
+              "profile": {
+                "optional": [
+                  "mat",
+                  "base"
+                ]
+              },
+              "options": [
+                {
+                  "name": "profile",
+                  "description": "Specifies the name of the profile that you want to analyze. When you specify the profile name, you get the data for the latest measurement within the specified profile.",
+                  "type": "string",
+                  "group": "Options",
+                  "aliases": []
+                },
+                {
+                  "name": "mon_num",
+                  "description": "Specifies the unique monitor number of the measurement.",
+                  "type": "number",
+                  "group": "Options",
+                  "aliases": []
+                },
+                {
+                  "name": "protocol",
+                  "aliases": [
+                    "o"
+                  ],
+                  "description": "Specifies the protocol defined for the MAT REST API server (http or https).",
+                  "type": "string",
+                  "allowableValues": {
+                    "values": [
+                      "http",
+                      "https"
+                    ]
+                  },
+                  "defaultValue": "https",
+                  "group": "MAT Profile Options"
+                },
+                {
+                  "name": "host",
+                  "aliases": [
+                    "H"
+                  ],
+                  "description": "Specifies the hostname or IP address defined for the MAT REST API server (e.g. 127.0.0.0 or localhost).",
+                  "type": "string",
+                  "group": "MAT Profile Options"
+                },
+                {
+                  "name": "port",
+                  "aliases": [
+                    "P"
+                  ],
+                  "description": "Specifies the server port (e.g. 8080).",
+                  "type": "number",
+                  "group": "MAT Profile Options"
+                },
+                {
+                  "name": "user",
+                  "aliases": [
+                    "u"
+                  ],
+                  "description": "Your mainframe username.",
+                  "type": "string",
+                  "group": "MAT Profile Options"
+                },
+                {
+                  "name": "password",
+                  "aliases": [
+                    "pw"
+                  ],
+                  "description": "Your mainframe password.",
+                  "type": "string",
+                  "group": "MAT Profile Options"
+                },
+                {
+                  "name": "base-path",
+                  "aliases": [
+                    "bp"
+                  ],
+                  "description": "The base path for your API mediation layer instance. Specify this option to prepend the base path to all resources when making REST requests. Do not specify this option if you are not using an API mediation layer.",
+                  "type": "string",
+                  "group": "MAT Profile Options"
+                },
+                {
+                  "name": "reject-unauthorized",
+                  "aliases": [
+                    "ru"
+                  ],
+                  "description": "Reject self-signed certificates.",
+                  "type": "boolean",
+                  "defaultValue": true,
+                  "group": "MAT Profile Options"
+                },
+                {
+                  "name": "listingDir",
+                  "aliases": [
+                    "ldir"
+                  ],
+                  "description": "Specifies the directory where you want to store the registered program listings (e.g. 'c:\\listings') for your immediate source code inspection. You can use the advantage of automated listing registration with MAT and listing retrieval through Endevor® footprints for Cobol, C/C++, and Assembler programs. When a source program listing is registered with MAT, you can enhance the histogram analysis data with the program listing details that pertain to the specific CSECT and program statement. The listing is transfered to the specified directory, which enables you to navigate directly to the line of the source code in you VS Code IDE and inspect the program statement. To use the listing retrieval option through Endevor® footprints, you need to have the Endevor® Web Services installed and configured and specify the Endevor® web server details in the MAT database configuration.",
+                  "type": "string",
+                  "required": false,
+                  "group": "MAT Profile Options"
+                },
+                {
+                  "name": "show-inputs-only",
+                  "group": "Global Options",
+                  "description": "Show command inputs and do not run the command",
+                  "type": "boolean",
+                  "aliases": []
+                },
+                {
+                  "name": "response-format-json",
+                  "aliases": [
+                    "rfj"
+                  ],
+                  "group": "Global Options",
+                  "description": "Produce JSON formatted data from a command",
+                  "type": "boolean"
+                },
+                {
+                  "name": "help",
+                  "aliases": [
+                    "h"
+                  ],
+                  "group": "Global Options",
+                  "description": "Display help text",
+                  "type": "boolean"
+                },
+                {
+                  "name": "help-web",
+                  "aliases": [
+                    "hw"
+                  ],
+                  "group": "Global Options",
+                  "description": "Display HTML help in browser",
+                  "type": "boolean"
+                },
+                {
+                  "name": "mat-profile",
+                  "aliases": [
+                    "mat-p"
+                  ],
+                  "group": "Profile Options",
+                  "description": "The name of a (mat) profile to load for this command execution.",
+                  "type": "string"
+                },
+                {
+                  "name": "base-profile",
+                  "aliases": [
+                    "base-p"
+                  ],
+                  "group": "Profile Options",
+                  "description": "The name of a (base) profile to load for this command execution.",
+                  "type": "string"
+                },
+                {
+                  "name": "token-type",
+                  "aliases": [
+                    "tt"
+                  ],
+                  "description": "The type of token to get and use for the API. Omit this option to use the default token type, which is provided by 'zowe auth login'.",
+                  "type": "string",
+                  "group": "Base Connection Options"
+                },
+                {
+                  "name": "token-value",
+                  "aliases": [
+                    "tv"
+                  ],
+                  "description": "The value of the token to pass to the API.",
+                  "type": "string",
+                  "group": "Base Connection Options"
+                },
+                {
+                  "name": "cert-file",
+                  "description": "The file path to a certificate file to use for authentication.\n\nNote: The CLI does not support certificate files that require a password. For more information, search Troubleshooting PEM Certificates in Zowe Docs.",
+                  "type": "existingLocalFile",
+                  "group": "Base Connection Options",
+                  "aliases": []
+                },
+                {
+                  "name": "cert-key-file",
+                  "description": "The file path to a certificate key file to use for authentication",
+                  "type": "existingLocalFile",
+                  "group": "Base Connection Options",
+                  "aliases": []
+                },
+                {
+                  "name": "cert-account",
+                  "description": "The account name for PKCS 12 certificate stored in credential manager",
+                  "type": "string",
+                  "group": "Base Connection Options",
+                  "aliases": []
+                }
+              ],
+              "examples": [
+                {
+                  "description": "Get the CodeView measurement details in Ideal mode for monitor number 5",
+                  "options": "--mon_num 5"
+                },
+                {
+                  "description": "Get the CodeView measurement details in Ideal mode for the latest monitor in the TESTPROF profile",
+                  "options": "--profile TESTPROF"
+                },
+                {
+                  "description": "Get the CodeView measurement details in Ideal mode for monitor number 5, with the specific MAT profile details defined",
+                  "options": "--mon_num 5 --host \"example.com\" --port 12345 --user johndoe --password qwerty"
+                }
+              ],
+              "positionals": [],
+              "passOn": [],
+              "children": []
+            },
+            {
+              "name": "histogram",
+              "aliases": [
+                "hsg"
+              ],
+              "summary": "Get Histogram data",
+              "description": "Get the Histogram measurement details.",
+              "type": "group",
+              "children": [
+                {
+                  "name": "csect",
+                  "aliases": [
+                    "cs"
+                  ],
+                  "summary": "Get Histogram data in CSECT mode.",
+                  "description": "Get the Histogram measurement details in CSECT mode.",
+                  "type": "command",
+                  "handler": "",
+                  "profile": {
+                    "optional": [
+                      "mat",
+                      "base"
+                    ]
+                  },
+                  "options": [
+                    {
+                      "name": "profile",
+                      "description": "Specifies the name of the profile that you want to analyze. When you specify the profile name, you get the data for the latest measurement within the specified profile.",
+                      "type": "string",
+                      "group": "Options",
+                      "aliases": []
+                    },
+                    {
+                      "name": "mon_num",
+                      "description": "Specifies the unique monitor number of the measurement.",
+                      "type": "number",
+                      "group": "Options",
+                      "aliases": []
+                    },
+                    {
+                      "name": "module",
+                      "description": "Specifies the module name that you request the Histogram data for. You get the module value from the 'codeview csect' command response. The module name can be empty (e.g., --module \"IGZCPAC\" or --module '\"\"').",
+                      "type": "stringOrEmpty",
+                      "group": "Options",
+                      "aliases": []
+                    },
+                    {
+                      "name": "csect",
+                      "description": "Specifies the CSECT name that you request the Histogram data for. You get the csect value from the 'codeview csect' command response. The CSECT name can be empty (e.g.,  --csect \"TUNCOB01\" or --csect '\"\"').",
+                      "type": "stringOrEmpty",
+                      "group": "Options",
+                      "aliases": []
+                    },
+                    {
+                      "name": "group",
+                      "description": "Specifies the histogram group size parameter that defines the resolution of the histogram (e.g., --group 32). If you do not specify the group parameter, the group size value defaults to 4 bytes. If the source program listing is registered with MAT, the group size parameter is ignored. The --group parameter is optional. Lower values of the --group parameter result in more granular representation of the histogram data. Values: numbers between 2 and 999999.",
+                      "type": "stringOrEmpty",
+                      "group": "Options",
+                      "aliases": []
+                    },
+                    {
+                      "name": "top",
+                      "description": "Specifies the maximum number of the top consuming CSECT activity locations that you want to obtain in the response (e.g., --top 5). If you specify --top 0, you get the list of all CSECT activity locations that MAT has detected during the measurement.The --top parameter is optional. Values: numbers between 0 and 300.",
+                      "type": "number",
+                      "group": "Options",
+                      "aliases": []
+                    },
+                    {
+                      "name": "listing",
+                      "description": "Enables you to retrieve program listing details that pertain to the specific CSECT and statement. To use the listing retrieval option, ensure that the program listing for the specific measurement is registered with MAT, and that you have the Endevor® Web Services connection configured locally via the --endevor-* options below (or the ZOWE_OPT_ENDEVOR_* environment variable). The source code listing is retrieved through Endevor® footprints for Cobol, C/C++, and Assembler programs. The program listing file is downloaded to your local directory that you specified with the 'listingDir' parameter in your MAT configuration profile. When you request the histogram details with the '--listing' option, the 'histogram' command returns the additional 'listing' column that contains a reference to the program listing with the specific CSECT name, program type, line and column number that pertain to the requested CSECT and statement, for example, c:listingsSA420LE.asm:382:51. If you use Visual Studio Code (VS Code) IDE, you can click on the reference in the command responce in your VS Code terminal to navigate directly to the indicated source program location.The --listing parameter is optional.",
+                      "type": "boolean",
+                      "group": "Options",
+                      "aliases": []
+                    },
+                    {
+                      "name": "endevor-host",
+                      "description": "Specifies the host of the Endevor Web Services used to retrieve program listings. Can also be configured via the ZOWE_OPT_ENDEVOR_HOST environment variable.",
+                      "type": "string",
+                      "group": "MAT Endevor Listing Options",
+                      "aliases": []
+                    },
+                    {
+                      "name": "endevor-port",
+                      "description": "Specifies the port of the Endevor Web Services used to retrieve program listings. Can also be configured via the ZOWE_OPT_ENDEVOR_PORT environment variable.",
+                      "type": "number",
+                      "group": "MAT Endevor Listing Options",
+                      "aliases": []
+                    },
+                    {
+                      "name": "endevor-base-path",
+                      "description": "Specifies the base path prefix for the Endevor Web Services REST call. Can also be configured via the ZOWE_OPT_ENDEVOR_BASE_PATH environment variable.",
+                      "type": "stringOrEmpty",
+                      "defaultValue": "",
+                      "group": "MAT Endevor Listing Options",
+                      "aliases": []
+                    },
+                    {
+                      "name": "endevor-reject-unauthorized",
+                      "description": "Reject self-signed certificates on the Endevor Web Services connection. Can also be configured via the ZOWE_OPT_ENDEVOR_REJECT_UNAUTHORIZED environment variable.",
+                      "type": "boolean",
+                      "defaultValue": true,
+                      "group": "MAT Endevor Listing Options",
+                      "aliases": []
+                    },
+                    {
+                      "name": "endevor-reuse-mat-credentials",
+                      "description": "Reuses the MAT profile --user/--password as the basic authentication credentials for the Endevor call. If not configured, supply --endevor-user and --endevor-password.Can also be configured via the ZOWE_OPT_ENDEVOR_REUSE_MAT_CREDENTIALS environment variable.",
+                      "type": "boolean",
+                      "defaultValue": false,
+                      "group": "MAT Endevor Listing Options",
+                      "aliases": []
+                    },
+                    {
+                      "name": "endevor-user",
+                      "description": "Specifies the username for the Endevor Web Services connection. Not required if --endevor-reuse-mat-credentials is specified. Can also be configured via the ZOWE_OPT_ENDEVOR_USER environment variable.",
+                      "type": "string",
+                      "group": "MAT Endevor Listing Options",
+                      "aliases": []
+                    },
+                    {
+                      "name": "endevor-password",
+                      "description": "Specifies the password for the Endevor Web Services connection. Not required if --endevor-reuse-mat-credentials is specified. Can also be configured via the ZOWE_OPT_ENDEVOR_PASSWORD environment variable.",
+                      "type": "string",
+                      "group": "MAT Endevor Listing Options",
+                      "aliases": []
+                    },
+                    {
+                      "name": "protocol",
+                      "aliases": [
+                        "o"
+                      ],
+                      "description": "Specifies the protocol defined for the MAT REST API server (http or https).",
+                      "type": "string",
+                      "allowableValues": {
+                        "values": [
+                          "http",
+                          "https"
+                        ]
+                      },
+                      "defaultValue": "https",
+                      "group": "MAT Profile Options"
+                    },
+                    {
+                      "name": "host",
+                      "aliases": [
+                        "H"
+                      ],
+                      "description": "Specifies the hostname or IP address defined for the MAT REST API server (e.g. 127.0.0.0 or localhost).",
+                      "type": "string",
+                      "group": "MAT Profile Options"
+                    },
+                    {
+                      "name": "port",
+                      "aliases": [
+                        "P"
+                      ],
+                      "description": "Specifies the server port (e.g. 8080).",
+                      "type": "number",
+                      "group": "MAT Profile Options"
+                    },
+                    {
+                      "name": "user",
+                      "aliases": [
+                        "u"
+                      ],
+                      "description": "Your mainframe username.",
+                      "type": "string",
+                      "group": "MAT Profile Options"
+                    },
+                    {
+                      "name": "password",
+                      "aliases": [
+                        "pw"
+                      ],
+                      "description": "Your mainframe password.",
+                      "type": "string",
+                      "group": "MAT Profile Options"
+                    },
+                    {
+                      "name": "base-path",
+                      "aliases": [
+                        "bp"
+                      ],
+                      "description": "The base path for your API mediation layer instance. Specify this option to prepend the base path to all resources when making REST requests. Do not specify this option if you are not using an API mediation layer.",
+                      "type": "string",
+                      "group": "MAT Profile Options"
+                    },
+                    {
+                      "name": "reject-unauthorized",
+                      "aliases": [
+                        "ru"
+                      ],
+                      "description": "Reject self-signed certificates.",
+                      "type": "boolean",
+                      "defaultValue": true,
+                      "group": "MAT Profile Options"
+                    },
+                    {
+                      "name": "listingDir",
+                      "aliases": [
+                        "ldir"
+                      ],
+                      "description": "Specifies the directory where you want to store the registered program listings (e.g. 'c:\\listings') for your immediate source code inspection. You can use the advantage of automated listing registration with MAT and listing retrieval through Endevor® footprints for Cobol, C/C++, and Assembler programs. When a source program listing is registered with MAT, you can enhance the histogram analysis data with the program listing details that pertain to the specific CSECT and program statement. The listing is transfered to the specified directory, which enables you to navigate directly to the line of the source code in you VS Code IDE and inspect the program statement. To use the listing retrieval option through Endevor® footprints, you need to have the Endevor® Web Services installed and configured and specify the Endevor® web server details in the MAT database configuration.",
+                      "type": "string",
+                      "required": false,
+                      "group": "MAT Profile Options"
+                    },
+                    {
+                      "name": "show-inputs-only",
+                      "group": "Global Options",
+                      "description": "Show command inputs and do not run the command",
+                      "type": "boolean",
+                      "aliases": []
+                    },
+                    {
+                      "name": "response-format-json",
+                      "aliases": [
+                        "rfj"
+                      ],
+                      "group": "Global Options",
+                      "description": "Produce JSON formatted data from a command",
+                      "type": "boolean"
+                    },
+                    {
+                      "name": "help",
+                      "aliases": [
+                        "h"
+                      ],
+                      "group": "Global Options",
+                      "description": "Display help text",
+                      "type": "boolean"
+                    },
+                    {
+                      "name": "help-web",
+                      "aliases": [
+                        "hw"
+                      ],
+                      "group": "Global Options",
+                      "description": "Display HTML help in browser",
+                      "type": "boolean"
+                    },
+                    {
+                      "name": "mat-profile",
+                      "aliases": [
+                        "mat-p"
+                      ],
+                      "group": "Profile Options",
+                      "description": "The name of a (mat) profile to load for this command execution.",
+                      "type": "string"
+                    },
+                    {
+                      "name": "base-profile",
+                      "aliases": [
+                        "base-p"
+                      ],
+                      "group": "Profile Options",
+                      "description": "The name of a (base) profile to load for this command execution.",
+                      "type": "string"
+                    },
+                    {
+                      "name": "token-type",
+                      "aliases": [
+                        "tt"
+                      ],
+                      "description": "The type of token to get and use for the API. Omit this option to use the default token type, which is provided by 'zowe auth login'.",
+                      "type": "string",
+                      "group": "Base Connection Options"
+                    },
+                    {
+                      "name": "token-value",
+                      "aliases": [
+                        "tv"
+                      ],
+                      "description": "The value of the token to pass to the API.",
+                      "type": "string",
+                      "group": "Base Connection Options"
+                    },
+                    {
+                      "name": "cert-file",
+                      "description": "The file path to a certificate file to use for authentication.\n\nNote: The CLI does not support certificate files that require a password. For more information, search Troubleshooting PEM Certificates in Zowe Docs.",
+                      "type": "existingLocalFile",
+                      "group": "Base Connection Options",
+                      "aliases": []
+                    },
+                    {
+                      "name": "cert-key-file",
+                      "description": "The file path to a certificate key file to use for authentication",
+                      "type": "existingLocalFile",
+                      "group": "Base Connection Options",
+                      "aliases": []
+                    },
+                    {
+                      "name": "cert-account",
+                      "description": "The account name for PKCS 12 certificate stored in credential manager",
+                      "type": "string",
+                      "group": "Base Connection Options",
+                      "aliases": []
+                    }
+                  ],
+                  "examples": [
+                    {
+                      "description": "Get the Histogram details in CSECT mode for monitor number 5, CSECT name TUNCOB01, and module name RUNCOB",
+                      "options": "--mon_num 5 --csect \"TUNCOB01\" --module \"RUNCOB\""
+                    },
+                    {
+                      "description": "Get the Histogram details in CSECT mode for the latest monitor in the TESTPROF profile for CSECT name TUNCOB01, empty module name, limiting the group size to 32 bytes and the number of returned records to 5 top consumers",
+                      "options": "--profile TESTPROF --csect \"TUNCOB01\" --module '\"\"' --top 5 --group 32"
+                    },
+                    {
+                      "description": "Get the Histogram details for in CSECT mode monitor number 5, CSECT name TUNCOB01, and module name RUNCOB, limit the number of returned records to 5 top consumers, and request the listing details",
+                      "options": "--mon_num 5 --csect \"TUNCOB01\" --module \"RUNCOB\" --top 5 --listing"
+                    },
+                    {
+                      "description": "Get the Histogram details in CSECT mode for monitor number 5, CSECT name TUNCOB01, and module name RUNCOB, with the specific MAT profile details defined",
+                      "options": "--mon_num 5 --csect \"TUNCOB01\" --module \"RUNCOB\" --host \"example.com\" --port 12345 --user johndoe --password qwerty"
+                    },
+                    {
+                      "description": "Get the Histogram details about listing retrieval with the re-used MAT profile credentials for a locally-configured Endevor host options",
+                      "options": "--csect \"TUNCOB01\" --listing --endevor-host \"endevor.example.com\" --endevor-port 8080 --endevor-base-path \"EndevorService/rest\" --endevor-reuse-mat-credentials"
+                    },
+                    {
+                      "description": "Get the Histogram details about listing retrieval with Endevor-specific credential options",
+                      "options": "--csect \"TUNCOB01\" --listing --endevor-host \"endevor.example.com\" --endevor-port 8080 --endevor-base-path \"EndevorService/rest\" --endevor-user janedoe --endevor-password qwerty"
+                    }
+                  ],
+                  "positionals": [],
+                  "passOn": [],
+                  "children": []
+                },
+                {
+                  "name": "ideal",
+                  "aliases": [
+                    "idl"
+                  ],
+                  "summary": "Get Histogram data in Ideal mode.",
+                  "description": "Get the Histogram measurement details in Ideal mode.",
+                  "type": "command",
+                  "handler": "",
+                  "profile": {
+                    "optional": [
+                      "mat",
+                      "base"
+                    ]
+                  },
+                  "options": [
+                    {
+                      "name": "profile",
+                      "description": "Specifies the name of the profile that you want to analyze. When you specify the profile name, you get the data for the latest measurement within the specified profile.",
+                      "type": "string",
+                      "group": "Options",
+                      "aliases": []
+                    },
+                    {
+                      "name": "mon_num",
+                      "description": "Specifies the unique monitor number of the measurement.",
+                      "type": "number",
+                      "group": "Options",
+                      "aliases": []
+                    },
+                    {
+                      "name": "system",
+                      "description": "Specifies the system ID that you request the Histogram data for. You can get the system ID value from the 'codeview ideal' command response.",
+                      "type": "string",
+                      "group": "Options",
+                      "aliases": []
+                    },
+                    {
+                      "name": "program",
+                      "description": "Specifies the program name that you request the Histogram data for. You can get the program name from the 'codeview ideal' command response.",
+                      "type": "string",
+                      "group": "Options",
+                      "aliases": []
+                    },
+                    {
+                      "name": "objVersion",
+                      "description": "Specifies the object version that you request the Histogram data for. You can get the object version from the 'codeview ideal' command response.",
+                      "type": "string",
+                      "group": "Options",
+                      "aliases": []
+                    },
+                    {
+                      "name": "srcVersion",
+                      "description": "Specifies the source version that you request the Histogram data for. You can get the source version from the 'codeview ideal' command response.",
+                      "type": "string",
+                      "group": "Options",
+                      "aliases": []
+                    },
+                    {
+                      "name": "protocol",
+                      "aliases": [
+                        "o"
+                      ],
+                      "description": "Specifies the protocol defined for the MAT REST API server (http or https).",
+                      "type": "string",
+                      "allowableValues": {
+                        "values": [
+                          "http",
+                          "https"
+                        ]
+                      },
+                      "defaultValue": "https",
+                      "group": "MAT Profile Options"
+                    },
+                    {
+                      "name": "host",
+                      "aliases": [
+                        "H"
+                      ],
+                      "description": "Specifies the hostname or IP address defined for the MAT REST API server (e.g. 127.0.0.0 or localhost).",
+                      "type": "string",
+                      "group": "MAT Profile Options"
+                    },
+                    {
+                      "name": "port",
+                      "aliases": [
+                        "P"
+                      ],
+                      "description": "Specifies the server port (e.g. 8080).",
+                      "type": "number",
+                      "group": "MAT Profile Options"
+                    },
+                    {
+                      "name": "user",
+                      "aliases": [
+                        "u"
+                      ],
+                      "description": "Your mainframe username.",
+                      "type": "string",
+                      "group": "MAT Profile Options"
+                    },
+                    {
+                      "name": "password",
+                      "aliases": [
+                        "pw"
+                      ],
+                      "description": "Your mainframe password.",
+                      "type": "string",
+                      "group": "MAT Profile Options"
+                    },
+                    {
+                      "name": "base-path",
+                      "aliases": [
+                        "bp"
+                      ],
+                      "description": "The base path for your API mediation layer instance. Specify this option to prepend the base path to all resources when making REST requests. Do not specify this option if you are not using an API mediation layer.",
+                      "type": "string",
+                      "group": "MAT Profile Options"
+                    },
+                    {
+                      "name": "reject-unauthorized",
+                      "aliases": [
+                        "ru"
+                      ],
+                      "description": "Reject self-signed certificates.",
+                      "type": "boolean",
+                      "defaultValue": true,
+                      "group": "MAT Profile Options"
+                    },
+                    {
+                      "name": "listingDir",
+                      "aliases": [
+                        "ldir"
+                      ],
+                      "description": "Specifies the directory where you want to store the registered program listings (e.g. 'c:\\listings') for your immediate source code inspection. You can use the advantage of automated listing registration with MAT and listing retrieval through Endevor® footprints for Cobol, C/C++, and Assembler programs. When a source program listing is registered with MAT, you can enhance the histogram analysis data with the program listing details that pertain to the specific CSECT and program statement. The listing is transfered to the specified directory, which enables you to navigate directly to the line of the source code in you VS Code IDE and inspect the program statement. To use the listing retrieval option through Endevor® footprints, you need to have the Endevor® Web Services installed and configured and specify the Endevor® web server details in the MAT database configuration.",
+                      "type": "string",
+                      "required": false,
+                      "group": "MAT Profile Options"
+                    },
+                    {
+                      "name": "show-inputs-only",
+                      "group": "Global Options",
+                      "description": "Show command inputs and do not run the command",
+                      "type": "boolean",
+                      "aliases": []
+                    },
+                    {
+                      "name": "response-format-json",
+                      "aliases": [
+                        "rfj"
+                      ],
+                      "group": "Global Options",
+                      "description": "Produce JSON formatted data from a command",
+                      "type": "boolean"
+                    },
+                    {
+                      "name": "help",
+                      "aliases": [
+                        "h"
+                      ],
+                      "group": "Global Options",
+                      "description": "Display help text",
+                      "type": "boolean"
+                    },
+                    {
+                      "name": "help-web",
+                      "aliases": [
+                        "hw"
+                      ],
+                      "group": "Global Options",
+                      "description": "Display HTML help in browser",
+                      "type": "boolean"
+                    },
+                    {
+                      "name": "mat-profile",
+                      "aliases": [
+                        "mat-p"
+                      ],
+                      "group": "Profile Options",
+                      "description": "The name of a (mat) profile to load for this command execution.",
+                      "type": "string"
+                    },
+                    {
+                      "name": "base-profile",
+                      "aliases": [
+                        "base-p"
+                      ],
+                      "group": "Profile Options",
+                      "description": "The name of a (base) profile to load for this command execution.",
+                      "type": "string"
+                    },
+                    {
+                      "name": "token-type",
+                      "aliases": [
+                        "tt"
+                      ],
+                      "description": "The type of token to get and use for the API. Omit this option to use the default token type, which is provided by 'zowe auth login'.",
+                      "type": "string",
+                      "group": "Base Connection Options"
+                    },
+                    {
+                      "name": "token-value",
+                      "aliases": [
+                        "tv"
+                      ],
+                      "description": "The value of the token to pass to the API.",
+                      "type": "string",
+                      "group": "Base Connection Options"
+                    },
+                    {
+                      "name": "cert-file",
+                      "description": "The file path to a certificate file to use for authentication.\n\nNote: The CLI does not support certificate files that require a password. For more information, search Troubleshooting PEM Certificates in Zowe Docs.",
+                      "type": "existingLocalFile",
+                      "group": "Base Connection Options",
+                      "aliases": []
+                    },
+                    {
+                      "name": "cert-key-file",
+                      "description": "The file path to a certificate key file to use for authentication",
+                      "type": "existingLocalFile",
+                      "group": "Base Connection Options",
+                      "aliases": []
+                    },
+                    {
+                      "name": "cert-account",
+                      "description": "The account name for PKCS 12 certificate stored in credential manager",
+                      "type": "string",
+                      "group": "Base Connection Options",
+                      "aliases": []
+                    }
+                  ],
+                  "examples": [
+                    {
+                      "description": "Get the Histogram data in Ideal mode for monitor number 5,system ID '$ID', program name 'BAGTEST2', object version 'PRD', source version '001'.",
+                      "options": "--mon_num 5 --system '$ID' --program 'BAGTEST2' --objVersion 'PRD' --srcVersion '001'"
+                    },
+                    {
+                      "description": "Get the Histogram data in Ideal mode for the latest monitor in the TESTPROF profile for system ID '$ID', program name 'BAGTEST2', object version 'PRD', source version '001'.",
+                      "options": "--profile 'TESTPROF' --system '$ID' --program 'BAGTEST2' --objVersion 'PRD' --srcVersion '001'"
+                    },
+                    {
+                      "description": "Get the Histogram data in Ideal mode for monitor number 5,system ID '$ID', program name 'BAGTEST2', object version 'PRD', source version '001' with the specific MAT profile details defined.",
+                      "options": "--mon_num 5 --system '$ID' --program 'BAGTEST2' --objVersion 'PRD' --srcVersion '001' --host 'example.com' --port 12345 --user 'johndoe' --password 'qwerty'"
+                    }
+                  ],
+                  "positionals": [],
+                  "passOn": [],
+                  "children": []
+                },
+                {
+                  "name": "natural",
+                  "aliases": [
+                    "nat"
+                  ],
+                  "summary": "Get Histogram data in Natural mode.",
+                  "description": "Get the Histogram measurement details in Natural mode.",
+                  "type": "command",
+                  "handler": "",
+                  "profile": {
+                    "optional": [
+                      "mat",
+                      "base"
+                    ]
+                  },
+                  "options": [
+                    {
+                      "name": "profile",
+                      "description": "Specifies the name of the profile that you want to analyze. When you specify the profile name, you get the data for the latest measurement within the specified profile.",
+                      "type": "string",
+                      "group": "Options",
+                      "aliases": []
+                    },
+                    {
+                      "name": "mon_num",
+                      "description": "Specifies the unique monitor number of the measurement.",
+                      "type": "number",
+                      "group": "Options",
+                      "aliases": []
+                    },
+                    {
+                      "name": "library",
+                      "description": "Specifies the library name that you request the Histogram data for. You can get the library name from the 'codeview natural' command response.",
+                      "type": "string",
+                      "group": "Options",
+                      "aliases": []
+                    },
+                    {
+                      "name": "routine",
+                      "description": "Specifies the routine name that you request the Histogram data for. You can get the routine name from the 'codeview natural' command response.",
+                      "type": "string",
+                      "group": "Options",
+                      "aliases": []
+                    },
+                    {
+                      "name": "protocol",
+                      "aliases": [
+                        "o"
+                      ],
+                      "description": "Specifies the protocol defined for the MAT REST API server (http or https).",
+                      "type": "string",
+                      "allowableValues": {
+                        "values": [
+                          "http",
+                          "https"
+                        ]
+                      },
+                      "defaultValue": "https",
+                      "group": "MAT Profile Options"
+                    },
+                    {
+                      "name": "host",
+                      "aliases": [
+                        "H"
+                      ],
+                      "description": "Specifies the hostname or IP address defined for the MAT REST API server (e.g. 127.0.0.0 or localhost).",
+                      "type": "string",
+                      "group": "MAT Profile Options"
+                    },
+                    {
+                      "name": "port",
+                      "aliases": [
+                        "P"
+                      ],
+                      "description": "Specifies the server port (e.g. 8080).",
+                      "type": "number",
+                      "group": "MAT Profile Options"
+                    },
+                    {
+                      "name": "user",
+                      "aliases": [
+                        "u"
+                      ],
+                      "description": "Your mainframe username.",
+                      "type": "string",
+                      "group": "MAT Profile Options"
+                    },
+                    {
+                      "name": "password",
+                      "aliases": [
+                        "pw"
+                      ],
+                      "description": "Your mainframe password.",
+                      "type": "string",
+                      "group": "MAT Profile Options"
+                    },
+                    {
+                      "name": "base-path",
+                      "aliases": [
+                        "bp"
+                      ],
+                      "description": "The base path for your API mediation layer instance. Specify this option to prepend the base path to all resources when making REST requests. Do not specify this option if you are not using an API mediation layer.",
+                      "type": "string",
+                      "group": "MAT Profile Options"
+                    },
+                    {
+                      "name": "reject-unauthorized",
+                      "aliases": [
+                        "ru"
+                      ],
+                      "description": "Reject self-signed certificates.",
+                      "type": "boolean",
+                      "defaultValue": true,
+                      "group": "MAT Profile Options"
+                    },
+                    {
+                      "name": "listingDir",
+                      "aliases": [
+                        "ldir"
+                      ],
+                      "description": "Specifies the directory where you want to store the registered program listings (e.g. 'c:\\listings') for your immediate source code inspection. You can use the advantage of automated listing registration with MAT and listing retrieval through Endevor® footprints for Cobol, C/C++, and Assembler programs. When a source program listing is registered with MAT, you can enhance the histogram analysis data with the program listing details that pertain to the specific CSECT and program statement. The listing is transfered to the specified directory, which enables you to navigate directly to the line of the source code in you VS Code IDE and inspect the program statement. To use the listing retrieval option through Endevor® footprints, you need to have the Endevor® Web Services installed and configured and specify the Endevor® web server details in the MAT database configuration.",
+                      "type": "string",
+                      "required": false,
+                      "group": "MAT Profile Options"
+                    },
+                    {
+                      "name": "show-inputs-only",
+                      "group": "Global Options",
+                      "description": "Show command inputs and do not run the command",
+                      "type": "boolean",
+                      "aliases": []
+                    },
+                    {
+                      "name": "response-format-json",
+                      "aliases": [
+                        "rfj"
+                      ],
+                      "group": "Global Options",
+                      "description": "Produce JSON formatted data from a command",
+                      "type": "boolean"
+                    },
+                    {
+                      "name": "help",
+                      "aliases": [
+                        "h"
+                      ],
+                      "group": "Global Options",
+                      "description": "Display help text",
+                      "type": "boolean"
+                    },
+                    {
+                      "name": "help-web",
+                      "aliases": [
+                        "hw"
+                      ],
+                      "group": "Global Options",
+                      "description": "Display HTML help in browser",
+                      "type": "boolean"
+                    },
+                    {
+                      "name": "mat-profile",
+                      "aliases": [
+                        "mat-p"
+                      ],
+                      "group": "Profile Options",
+                      "description": "The name of a (mat) profile to load for this command execution.",
+                      "type": "string"
+                    },
+                    {
+                      "name": "base-profile",
+                      "aliases": [
+                        "base-p"
+                      ],
+                      "group": "Profile Options",
+                      "description": "The name of a (base) profile to load for this command execution.",
+                      "type": "string"
+                    },
+                    {
+                      "name": "token-type",
+                      "aliases": [
+                        "tt"
+                      ],
+                      "description": "The type of token to get and use for the API. Omit this option to use the default token type, which is provided by 'zowe auth login'.",
+                      "type": "string",
+                      "group": "Base Connection Options"
+                    },
+                    {
+                      "name": "token-value",
+                      "aliases": [
+                        "tv"
+                      ],
+                      "description": "The value of the token to pass to the API.",
+                      "type": "string",
+                      "group": "Base Connection Options"
+                    },
+                    {
+                      "name": "cert-file",
+                      "description": "The file path to a certificate file to use for authentication.\n\nNote: The CLI does not support certificate files that require a password. For more information, search Troubleshooting PEM Certificates in Zowe Docs.",
+                      "type": "existingLocalFile",
+                      "group": "Base Connection Options",
+                      "aliases": []
+                    },
+                    {
+                      "name": "cert-key-file",
+                      "description": "The file path to a certificate key file to use for authentication",
+                      "type": "existingLocalFile",
+                      "group": "Base Connection Options",
+                      "aliases": []
+                    },
+                    {
+                      "name": "cert-account",
+                      "description": "The account name for PKCS 12 certificate stored in credential manager",
+                      "type": "string",
+                      "group": "Base Connection Options",
+                      "aliases": []
+                    }
+                  ],
+                  "examples": [
+                    {
+                      "description": "Get the Histogram data in Natural mode for monitor number 5,library name CATAPPS, routine name IFEX1R.",
+                      "options": "--mon_num 5 --library 'CATAPPS' --routine 'IFEX1R'"
+                    },
+                    {
+                      "description": "Get the Histogram data in Natural mode for the latest monitor in the TESTPROF profile for library name CATAPPS, routine name IFEX1R.",
+                      "options": "--profile 'TESTPROF' --library 'CATAPPS' --routine 'IFEX1R'"
+                    },
+                    {
+                      "description": "Get the Histogram data in Natural mode for monitor number 5,library name CATAPPS, routine name IFEX1R with the specific MAT profile details defined.",
+                      "options": "--mon_num 5 --library 'CATAPPS' --routine 'IFEX1R' --host 'example.com' --port 12345 --user 'johndoe' --password 'qwerty'"
+                    }
+                  ],
+                  "positionals": [],
+                  "passOn": [],
+                  "children": []
+                }
+              ],
+              "options": [
+                {
+                  "name": "help-examples",
+                  "group": "Global Options",
+                  "description": "Display examples for all the commands in a group",
+                  "type": "boolean",
+                  "aliases": []
+                },
+                {
+                  "name": "response-format-json",
+                  "aliases": [
+                    "rfj"
+                  ],
+                  "group": "Global Options",
+                  "description": "Produce JSON formatted data from a command",
+                  "type": "boolean"
+                },
+                {
+                  "name": "help",
+                  "aliases": [
+                    "h"
+                  ],
+                  "group": "Global Options",
+                  "description": "Display help text",
+                  "type": "boolean"
+                },
+                {
+                  "name": "help-web",
+                  "aliases": [
+                    "hw"
+                  ],
+                  "group": "Global Options",
+                  "description": "Display HTML help in browser",
+                  "type": "boolean"
+                }
+              ],
+              "positionals": [],
+              "passOn": []
             }
           ],
           "options": [
@@ -1212,7 +2250,6 @@
               "type": "boolean"
             }
           ],
-          "aliases": [],
           "positionals": [],
           "passOn": []
         },
@@ -3378,8 +4415,8 @@
               "aliases": [
                 "csd"
               ],
-              "summary": "Get CodeView data in Csect mode",
-              "description": "Get the CodeView measurement details in Csect mode.",
+              "summary": "Get CodeView data in CSECT mode",
+              "description": "Get the CodeView measurement details in CSECT mode.",
               "type": "command",
               "handler": "",
               "profile": {
@@ -3585,15 +4622,15 @@
               ],
               "examples": [
                 {
-                  "description": "Get the CodeView measurement details in Csect mode for monitor number 5",
+                  "description": "Get the CodeView measurement details in CSECT mode for monitor number 5",
                   "options": "--mon_num 5"
                 },
                 {
-                  "description": "Get the CodeView measurement details in Csect mode for the latest monitor in the TESTPROF profile",
+                  "description": "Get the CodeView measurement details in CSECT mode for the latest monitor in the TESTPROF profile",
                   "options": "--profile TESTPROF"
                 },
                 {
-                  "description": "Get the CodeView measurement details in Csect mode for monitor number 5, with the specific MAT profile details defined",
+                  "description": "Get the CodeView measurement details in CSECT mode for monitor number 5, with the specific MAT profile details defined",
                   "options": "--mon_num 5 --host \"example.com\" --port 12345 --user johndoe --password qwerty"
                 }
               ],
@@ -6501,6 +7538,227 @@
           ],
           "positionals": [],
           "passOn": []
+        },
+        {
+          "name": "adabas",
+          "summary": "Get Adabas data.",
+          "description": "Get the Adabas measurement details.",
+          "type": "command",
+          "aliases": [
+            "ada"
+          ],
+          "handler": "",
+          "profile": {
+            "optional": [
+              "mat",
+              "base"
+            ]
+          },
+          "options": [
+            {
+              "name": "profile",
+              "description": "Specifies the name of the profile that you want to analyze. When you specify the profile name, you get the data for the latest measurement within the specified profile.",
+              "type": "string",
+              "group": "Options",
+              "aliases": []
+            },
+            {
+              "name": "mon_num",
+              "description": "Specifies the unique monitor number of the measurement.",
+              "type": "number",
+              "group": "Options",
+              "aliases": []
+            },
+            {
+              "name": "protocol",
+              "aliases": [
+                "o"
+              ],
+              "description": "Specifies the protocol defined for the MAT REST API server (http or https).",
+              "type": "string",
+              "allowableValues": {
+                "values": [
+                  "http",
+                  "https"
+                ]
+              },
+              "defaultValue": "https",
+              "group": "MAT Profile Options"
+            },
+            {
+              "name": "host",
+              "aliases": [
+                "H"
+              ],
+              "description": "Specifies the hostname or IP address defined for the MAT REST API server (e.g. 127.0.0.0 or localhost).",
+              "type": "string",
+              "group": "MAT Profile Options"
+            },
+            {
+              "name": "port",
+              "aliases": [
+                "P"
+              ],
+              "description": "Specifies the server port (e.g. 8080).",
+              "type": "number",
+              "group": "MAT Profile Options"
+            },
+            {
+              "name": "user",
+              "aliases": [
+                "u"
+              ],
+              "description": "Your mainframe username.",
+              "type": "string",
+              "group": "MAT Profile Options"
+            },
+            {
+              "name": "password",
+              "aliases": [
+                "pw"
+              ],
+              "description": "Your mainframe password.",
+              "type": "string",
+              "group": "MAT Profile Options"
+            },
+            {
+              "name": "base-path",
+              "aliases": [
+                "bp"
+              ],
+              "description": "The base path for your API mediation layer instance. Specify this option to prepend the base path to all resources when making REST requests. Do not specify this option if you are not using an API mediation layer.",
+              "type": "string",
+              "group": "MAT Profile Options"
+            },
+            {
+              "name": "reject-unauthorized",
+              "aliases": [
+                "ru"
+              ],
+              "description": "Reject self-signed certificates.",
+              "type": "boolean",
+              "defaultValue": true,
+              "group": "MAT Profile Options"
+            },
+            {
+              "name": "listingDir",
+              "aliases": [
+                "ldir"
+              ],
+              "description": "Specifies the directory where you want to store the registered program listings (e.g. 'c:\\listings') for your immediate source code inspection. You can use the advantage of automated listing registration with MAT and listing retrieval through Endevor® footprints for Cobol, C/C++, and Assembler programs. When a source program listing is registered with MAT, you can enhance the histogram analysis data with the program listing details that pertain to the specific CSECT and program statement. The listing is transfered to the specified directory, which enables you to navigate directly to the line of the source code in you VS Code IDE and inspect the program statement. To use the listing retrieval option through Endevor® footprints, you need to have the Endevor® Web Services installed and configured and specify the Endevor® web server details in the MAT database configuration.",
+              "type": "string",
+              "required": false,
+              "group": "MAT Profile Options"
+            },
+            {
+              "name": "show-inputs-only",
+              "group": "Global Options",
+              "description": "Show command inputs and do not run the command",
+              "type": "boolean",
+              "aliases": []
+            },
+            {
+              "name": "response-format-json",
+              "aliases": [
+                "rfj"
+              ],
+              "group": "Global Options",
+              "description": "Produce JSON formatted data from a command",
+              "type": "boolean"
+            },
+            {
+              "name": "help",
+              "aliases": [
+                "h"
+              ],
+              "group": "Global Options",
+              "description": "Display help text",
+              "type": "boolean"
+            },
+            {
+              "name": "help-web",
+              "aliases": [
+                "hw"
+              ],
+              "group": "Global Options",
+              "description": "Display HTML help in browser",
+              "type": "boolean"
+            },
+            {
+              "name": "mat-profile",
+              "aliases": [
+                "mat-p"
+              ],
+              "group": "Profile Options",
+              "description": "The name of a (mat) profile to load for this command execution.",
+              "type": "string"
+            },
+            {
+              "name": "base-profile",
+              "aliases": [
+                "base-p"
+              ],
+              "group": "Profile Options",
+              "description": "The name of a (base) profile to load for this command execution.",
+              "type": "string"
+            },
+            {
+              "name": "token-type",
+              "aliases": [
+                "tt"
+              ],
+              "description": "The type of token to get and use for the API. Omit this option to use the default token type, which is provided by 'zowe auth login'.",
+              "type": "string",
+              "group": "Base Connection Options"
+            },
+            {
+              "name": "token-value",
+              "aliases": [
+                "tv"
+              ],
+              "description": "The value of the token to pass to the API.",
+              "type": "string",
+              "group": "Base Connection Options"
+            },
+            {
+              "name": "cert-file",
+              "description": "The file path to a certificate file to use for authentication.\n\nNote: The CLI does not support certificate files that require a password. For more information, search Troubleshooting PEM Certificates in Zowe Docs.",
+              "type": "existingLocalFile",
+              "group": "Base Connection Options",
+              "aliases": []
+            },
+            {
+              "name": "cert-key-file",
+              "description": "The file path to a certificate key file to use for authentication",
+              "type": "existingLocalFile",
+              "group": "Base Connection Options",
+              "aliases": []
+            },
+            {
+              "name": "cert-account",
+              "description": "The account name for PKCS 12 certificate stored in credential manager",
+              "type": "string",
+              "group": "Base Connection Options",
+              "aliases": []
+            }
+          ],
+          "examples": [
+            {
+              "description": "Get the Adabas measurement details for monitor number 5",
+              "options": "--mon_num 5"
+            },
+            {
+              "description": "Get the Adabas measurement details for the latest monitor in the TESTPROF profile",
+              "options": "--profile TESTPROF"
+            },
+            {
+              "description": "Get the Adabas measurement details for monitor number 5, with the specific MAT profile details defined",
+              "options": "--mon_num 5 --host \"example.com\" --port 12345 --user johndoe --password qwerty"
+            }
+          ],
+          "positionals": [],
+          "passOn": [],
+          "children": []
         }
       ],
       "passOn": [
