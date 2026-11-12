@@ -212,6 +212,29 @@
               "type": "string",
               "group": "Base Connection Options",
               "aliases": []
+            },
+            {
+              "name": "allowed-login-method",
+              "description": "Restricts which credentials a user is prompted for when logging into a service or updating stored credentials, so that they comply with site requirements. Accepted values are 'direct-basic', 'direct-cert-pem', 'apiml-basic', 'apiml-cert-pem', and 'prompt'. Defaults to 'prompt' when omitted.",
+              "type": "string",
+              "allowableValues": {
+                "values": [
+                  "direct-basic",
+                  "direct-cert-pem",
+                  "apiml-basic",
+                  "apiml-cert-pem",
+                  "prompt"
+                ]
+              },
+              "group": "Base Connection Options",
+              "aliases": []
+            },
+            {
+              "name": "auth-order",
+              "description": "A comma separated list of authentication types, in order of precedence, that should be used to authenticate to a service. Accepted values are 'basic', 'bearer', 'token', 'cert-pem', and 'none'.",
+              "type": "string",
+              "group": "Base Connection Options",
+              "aliases": []
             }
           ],
           "examples": [
@@ -442,6 +465,29 @@
                   "type": "string",
                   "group": "Base Connection Options",
                   "aliases": []
+                },
+                {
+                  "name": "allowed-login-method",
+                  "description": "Restricts which credentials a user is prompted for when logging into a service or updating stored credentials, so that they comply with site requirements. Accepted values are 'direct-basic', 'direct-cert-pem', 'apiml-basic', 'apiml-cert-pem', and 'prompt'. Defaults to 'prompt' when omitted.",
+                  "type": "string",
+                  "allowableValues": {
+                    "values": [
+                      "direct-basic",
+                      "direct-cert-pem",
+                      "apiml-basic",
+                      "apiml-cert-pem",
+                      "prompt"
+                    ]
+                  },
+                  "group": "Base Connection Options",
+                  "aliases": []
+                },
+                {
+                  "name": "auth-order",
+                  "description": "A comma separated list of authentication types, in order of precedence, that should be used to authenticate to a service. Accepted values are 'basic', 'bearer', 'token', 'cert-pem', and 'none'.",
+                  "type": "string",
+                  "group": "Base Connection Options",
+                  "aliases": []
                 }
               ],
               "examples": [
@@ -660,6 +706,29 @@
                 {
                   "name": "cert-account",
                   "description": "The account name for PKCS 12 certificate stored in credential manager",
+                  "type": "string",
+                  "group": "Base Connection Options",
+                  "aliases": []
+                },
+                {
+                  "name": "allowed-login-method",
+                  "description": "Restricts which credentials a user is prompted for when logging into a service or updating stored credentials, so that they comply with site requirements. Accepted values are 'direct-basic', 'direct-cert-pem', 'apiml-basic', 'apiml-cert-pem', and 'prompt'. Defaults to 'prompt' when omitted.",
+                  "type": "string",
+                  "allowableValues": {
+                    "values": [
+                      "direct-basic",
+                      "direct-cert-pem",
+                      "apiml-basic",
+                      "apiml-cert-pem",
+                      "prompt"
+                    ]
+                  },
+                  "group": "Base Connection Options",
+                  "aliases": []
+                },
+                {
+                  "name": "auth-order",
+                  "description": "A comma separated list of authentication types, in order of precedence, that should be used to authenticate to a service. Accepted values are 'basic', 'bearer', 'token', 'cert-pem', and 'none'.",
                   "type": "string",
                   "group": "Base Connection Options",
                   "aliases": []
@@ -898,6 +967,29 @@
                   "type": "string",
                   "group": "Base Connection Options",
                   "aliases": []
+                },
+                {
+                  "name": "allowed-login-method",
+                  "description": "Restricts which credentials a user is prompted for when logging into a service or updating stored credentials, so that they comply with site requirements. Accepted values are 'direct-basic', 'direct-cert-pem', 'apiml-basic', 'apiml-cert-pem', and 'prompt'. Defaults to 'prompt' when omitted.",
+                  "type": "string",
+                  "allowableValues": {
+                    "values": [
+                      "direct-basic",
+                      "direct-cert-pem",
+                      "apiml-basic",
+                      "apiml-cert-pem",
+                      "prompt"
+                    ]
+                  },
+                  "group": "Base Connection Options",
+                  "aliases": []
+                },
+                {
+                  "name": "auth-order",
+                  "description": "A comma separated list of authentication types, in order of precedence, that should be used to authenticate to a service. Accepted values are 'basic', 'bearer', 'token', 'cert-pem', and 'none'.",
+                  "type": "string",
+                  "group": "Base Connection Options",
+                  "aliases": []
                 }
               ],
               "examples": [
@@ -1119,6 +1211,29 @@
                   "type": "string",
                   "group": "Base Connection Options",
                   "aliases": []
+                },
+                {
+                  "name": "allowed-login-method",
+                  "description": "Restricts which credentials a user is prompted for when logging into a service or updating stored credentials, so that they comply with site requirements. Accepted values are 'direct-basic', 'direct-cert-pem', 'apiml-basic', 'apiml-cert-pem', and 'prompt'. Defaults to 'prompt' when omitted.",
+                  "type": "string",
+                  "allowableValues": {
+                    "values": [
+                      "direct-basic",
+                      "direct-cert-pem",
+                      "apiml-basic",
+                      "apiml-cert-pem",
+                      "prompt"
+                    ]
+                  },
+                  "group": "Base Connection Options",
+                  "aliases": []
+                },
+                {
+                  "name": "auth-order",
+                  "description": "A comma separated list of authentication types, in order of precedence, that should be used to authenticate to a service. Accepted values are 'basic', 'bearer', 'token', 'cert-pem', and 'none'.",
+                  "type": "string",
+                  "group": "Base Connection Options",
+                  "aliases": []
                 }
               ],
               "examples": [
@@ -1337,6 +1452,29 @@
                 {
                   "name": "cert-account",
                   "description": "The account name for PKCS 12 certificate stored in credential manager",
+                  "type": "string",
+                  "group": "Base Connection Options",
+                  "aliases": []
+                },
+                {
+                  "name": "allowed-login-method",
+                  "description": "Restricts which credentials a user is prompted for when logging into a service or updating stored credentials, so that they comply with site requirements. Accepted values are 'direct-basic', 'direct-cert-pem', 'apiml-basic', 'apiml-cert-pem', and 'prompt'. Defaults to 'prompt' when omitted.",
+                  "type": "string",
+                  "allowableValues": {
+                    "values": [
+                      "direct-basic",
+                      "direct-cert-pem",
+                      "apiml-basic",
+                      "apiml-cert-pem",
+                      "prompt"
+                    ]
+                  },
+                  "group": "Base Connection Options",
+                  "aliases": []
+                },
+                {
+                  "name": "auth-order",
+                  "description": "A comma separated list of authentication types, in order of precedence, that should be used to authenticate to a service. Accepted values are 'basic', 'bearer', 'token', 'cert-pem', and 'none'.",
                   "type": "string",
                   "group": "Base Connection Options",
                   "aliases": []
@@ -1657,6 +1795,29 @@
                       "type": "string",
                       "group": "Base Connection Options",
                       "aliases": []
+                    },
+                    {
+                      "name": "allowed-login-method",
+                      "description": "Restricts which credentials a user is prompted for when logging into a service or updating stored credentials, so that they comply with site requirements. Accepted values are 'direct-basic', 'direct-cert-pem', 'apiml-basic', 'apiml-cert-pem', and 'prompt'. Defaults to 'prompt' when omitted.",
+                      "type": "string",
+                      "allowableValues": {
+                        "values": [
+                          "direct-basic",
+                          "direct-cert-pem",
+                          "apiml-basic",
+                          "apiml-cert-pem",
+                          "prompt"
+                        ]
+                      },
+                      "group": "Base Connection Options",
+                      "aliases": []
+                    },
+                    {
+                      "name": "auth-order",
+                      "description": "A comma separated list of authentication types, in order of precedence, that should be used to authenticate to a service. Accepted values are 'basic', 'bearer', 'token', 'cert-pem', and 'none'.",
+                      "type": "string",
+                      "group": "Base Connection Options",
+                      "aliases": []
                     }
                   ],
                   "examples": [
@@ -1918,6 +2079,29 @@
                       "type": "string",
                       "group": "Base Connection Options",
                       "aliases": []
+                    },
+                    {
+                      "name": "allowed-login-method",
+                      "description": "Restricts which credentials a user is prompted for when logging into a service or updating stored credentials, so that they comply with site requirements. Accepted values are 'direct-basic', 'direct-cert-pem', 'apiml-basic', 'apiml-cert-pem', and 'prompt'. Defaults to 'prompt' when omitted.",
+                      "type": "string",
+                      "allowableValues": {
+                        "values": [
+                          "direct-basic",
+                          "direct-cert-pem",
+                          "apiml-basic",
+                          "apiml-cert-pem",
+                          "prompt"
+                        ]
+                      },
+                      "group": "Base Connection Options",
+                      "aliases": []
+                    },
+                    {
+                      "name": "auth-order",
+                      "description": "A comma separated list of authentication types, in order of precedence, that should be used to authenticate to a service. Accepted values are 'basic', 'bearer', 'token', 'cert-pem', and 'none'.",
+                      "type": "string",
+                      "group": "Base Connection Options",
+                      "aliases": []
                     }
                   ],
                   "examples": [
@@ -2150,6 +2334,29 @@
                     {
                       "name": "cert-account",
                       "description": "The account name for PKCS 12 certificate stored in credential manager",
+                      "type": "string",
+                      "group": "Base Connection Options",
+                      "aliases": []
+                    },
+                    {
+                      "name": "allowed-login-method",
+                      "description": "Restricts which credentials a user is prompted for when logging into a service or updating stored credentials, so that they comply with site requirements. Accepted values are 'direct-basic', 'direct-cert-pem', 'apiml-basic', 'apiml-cert-pem', and 'prompt'. Defaults to 'prompt' when omitted.",
+                      "type": "string",
+                      "allowableValues": {
+                        "values": [
+                          "direct-basic",
+                          "direct-cert-pem",
+                          "apiml-basic",
+                          "apiml-cert-pem",
+                          "prompt"
+                        ]
+                      },
+                      "group": "Base Connection Options",
+                      "aliases": []
+                    },
+                    {
+                      "name": "auth-order",
+                      "description": "A comma separated list of authentication types, in order of precedence, that should be used to authenticate to a service. Accepted values are 'basic', 'bearer', 'token', 'cert-pem', and 'none'.",
                       "type": "string",
                       "group": "Base Connection Options",
                       "aliases": []
@@ -2460,6 +2667,29 @@
                   "type": "string",
                   "group": "Base Connection Options",
                   "aliases": []
+                },
+                {
+                  "name": "allowed-login-method",
+                  "description": "Restricts which credentials a user is prompted for when logging into a service or updating stored credentials, so that they comply with site requirements. Accepted values are 'direct-basic', 'direct-cert-pem', 'apiml-basic', 'apiml-cert-pem', and 'prompt'. Defaults to 'prompt' when omitted.",
+                  "type": "string",
+                  "allowableValues": {
+                    "values": [
+                      "direct-basic",
+                      "direct-cert-pem",
+                      "apiml-basic",
+                      "apiml-cert-pem",
+                      "prompt"
+                    ]
+                  },
+                  "group": "Base Connection Options",
+                  "aliases": []
+                },
+                {
+                  "name": "auth-order",
+                  "description": "A comma separated list of authentication types, in order of precedence, that should be used to authenticate to a service. Accepted values are 'basic', 'bearer', 'token', 'cert-pem', and 'none'.",
+                  "type": "string",
+                  "group": "Base Connection Options",
+                  "aliases": []
                 }
               ],
               "examples": [
@@ -2692,6 +2922,29 @@
                 {
                   "name": "cert-account",
                   "description": "The account name for PKCS 12 certificate stored in credential manager",
+                  "type": "string",
+                  "group": "Base Connection Options",
+                  "aliases": []
+                },
+                {
+                  "name": "allowed-login-method",
+                  "description": "Restricts which credentials a user is prompted for when logging into a service or updating stored credentials, so that they comply with site requirements. Accepted values are 'direct-basic', 'direct-cert-pem', 'apiml-basic', 'apiml-cert-pem', and 'prompt'. Defaults to 'prompt' when omitted.",
+                  "type": "string",
+                  "allowableValues": {
+                    "values": [
+                      "direct-basic",
+                      "direct-cert-pem",
+                      "apiml-basic",
+                      "apiml-cert-pem",
+                      "prompt"
+                    ]
+                  },
+                  "group": "Base Connection Options",
+                  "aliases": []
+                },
+                {
+                  "name": "auth-order",
+                  "description": "A comma separated list of authentication types, in order of precedence, that should be used to authenticate to a service. Accepted values are 'basic', 'bearer', 'token', 'cert-pem', and 'none'.",
                   "type": "string",
                   "group": "Base Connection Options",
                   "aliases": []
@@ -2950,6 +3203,29 @@
               "type": "string",
               "group": "Base Connection Options",
               "aliases": []
+            },
+            {
+              "name": "allowed-login-method",
+              "description": "Restricts which credentials a user is prompted for when logging into a service or updating stored credentials, so that they comply with site requirements. Accepted values are 'direct-basic', 'direct-cert-pem', 'apiml-basic', 'apiml-cert-pem', and 'prompt'. Defaults to 'prompt' when omitted.",
+              "type": "string",
+              "allowableValues": {
+                "values": [
+                  "direct-basic",
+                  "direct-cert-pem",
+                  "apiml-basic",
+                  "apiml-cert-pem",
+                  "prompt"
+                ]
+              },
+              "group": "Base Connection Options",
+              "aliases": []
+            },
+            {
+              "name": "auth-order",
+              "description": "A comma separated list of authentication types, in order of precedence, that should be used to authenticate to a service. Accepted values are 'basic', 'bearer', 'token', 'cert-pem', and 'none'.",
+              "type": "string",
+              "group": "Base Connection Options",
+              "aliases": []
             }
           ],
           "examples": [
@@ -3177,6 +3453,29 @@
                 {
                   "name": "cert-account",
                   "description": "The account name for PKCS 12 certificate stored in credential manager",
+                  "type": "string",
+                  "group": "Base Connection Options",
+                  "aliases": []
+                },
+                {
+                  "name": "allowed-login-method",
+                  "description": "Restricts which credentials a user is prompted for when logging into a service or updating stored credentials, so that they comply with site requirements. Accepted values are 'direct-basic', 'direct-cert-pem', 'apiml-basic', 'apiml-cert-pem', and 'prompt'. Defaults to 'prompt' when omitted.",
+                  "type": "string",
+                  "allowableValues": {
+                    "values": [
+                      "direct-basic",
+                      "direct-cert-pem",
+                      "apiml-basic",
+                      "apiml-cert-pem",
+                      "prompt"
+                    ]
+                  },
+                  "group": "Base Connection Options",
+                  "aliases": []
+                },
+                {
+                  "name": "auth-order",
+                  "description": "A comma separated list of authentication types, in order of precedence, that should be used to authenticate to a service. Accepted values are 'basic', 'bearer', 'token', 'cert-pem', and 'none'.",
                   "type": "string",
                   "group": "Base Connection Options",
                   "aliases": []
@@ -3419,6 +3718,29 @@
                 {
                   "name": "cert-account",
                   "description": "The account name for PKCS 12 certificate stored in credential manager",
+                  "type": "string",
+                  "group": "Base Connection Options",
+                  "aliases": []
+                },
+                {
+                  "name": "allowed-login-method",
+                  "description": "Restricts which credentials a user is prompted for when logging into a service or updating stored credentials, so that they comply with site requirements. Accepted values are 'direct-basic', 'direct-cert-pem', 'apiml-basic', 'apiml-cert-pem', and 'prompt'. Defaults to 'prompt' when omitted.",
+                  "type": "string",
+                  "allowableValues": {
+                    "values": [
+                      "direct-basic",
+                      "direct-cert-pem",
+                      "apiml-basic",
+                      "apiml-cert-pem",
+                      "prompt"
+                    ]
+                  },
+                  "group": "Base Connection Options",
+                  "aliases": []
+                },
+                {
+                  "name": "auth-order",
+                  "description": "A comma separated list of authentication types, in order of precedence, that should be used to authenticate to a service. Accepted values are 'basic', 'bearer', 'token', 'cert-pem', and 'none'.",
                   "type": "string",
                   "group": "Base Connection Options",
                   "aliases": []
@@ -3709,6 +4031,29 @@
                   "type": "string",
                   "group": "Base Connection Options",
                   "aliases": []
+                },
+                {
+                  "name": "allowed-login-method",
+                  "description": "Restricts which credentials a user is prompted for when logging into a service or updating stored credentials, so that they comply with site requirements. Accepted values are 'direct-basic', 'direct-cert-pem', 'apiml-basic', 'apiml-cert-pem', and 'prompt'. Defaults to 'prompt' when omitted.",
+                  "type": "string",
+                  "allowableValues": {
+                    "values": [
+                      "direct-basic",
+                      "direct-cert-pem",
+                      "apiml-basic",
+                      "apiml-cert-pem",
+                      "prompt"
+                    ]
+                  },
+                  "group": "Base Connection Options",
+                  "aliases": []
+                },
+                {
+                  "name": "auth-order",
+                  "description": "A comma separated list of authentication types, in order of precedence, that should be used to authenticate to a service. Accepted values are 'basic', 'bearer', 'token', 'cert-pem', and 'none'.",
+                  "type": "string",
+                  "group": "Base Connection Options",
+                  "aliases": []
                 }
               ],
               "examples": [
@@ -3942,6 +4287,29 @@
                   "type": "string",
                   "group": "Base Connection Options",
                   "aliases": []
+                },
+                {
+                  "name": "allowed-login-method",
+                  "description": "Restricts which credentials a user is prompted for when logging into a service or updating stored credentials, so that they comply with site requirements. Accepted values are 'direct-basic', 'direct-cert-pem', 'apiml-basic', 'apiml-cert-pem', and 'prompt'. Defaults to 'prompt' when omitted.",
+                  "type": "string",
+                  "allowableValues": {
+                    "values": [
+                      "direct-basic",
+                      "direct-cert-pem",
+                      "apiml-basic",
+                      "apiml-cert-pem",
+                      "prompt"
+                    ]
+                  },
+                  "group": "Base Connection Options",
+                  "aliases": []
+                },
+                {
+                  "name": "auth-order",
+                  "description": "A comma separated list of authentication types, in order of precedence, that should be used to authenticate to a service. Accepted values are 'basic', 'bearer', 'token', 'cert-pem', and 'none'.",
+                  "type": "string",
+                  "group": "Base Connection Options",
+                  "aliases": []
                 }
               ],
               "examples": [
@@ -4165,6 +4533,29 @@
                 {
                   "name": "cert-account",
                   "description": "The account name for PKCS 12 certificate stored in credential manager",
+                  "type": "string",
+                  "group": "Base Connection Options",
+                  "aliases": []
+                },
+                {
+                  "name": "allowed-login-method",
+                  "description": "Restricts which credentials a user is prompted for when logging into a service or updating stored credentials, so that they comply with site requirements. Accepted values are 'direct-basic', 'direct-cert-pem', 'apiml-basic', 'apiml-cert-pem', and 'prompt'. Defaults to 'prompt' when omitted.",
+                  "type": "string",
+                  "allowableValues": {
+                    "values": [
+                      "direct-basic",
+                      "direct-cert-pem",
+                      "apiml-basic",
+                      "apiml-cert-pem",
+                      "prompt"
+                    ]
+                  },
+                  "group": "Base Connection Options",
+                  "aliases": []
+                },
+                {
+                  "name": "auth-order",
+                  "description": "A comma separated list of authentication types, in order of precedence, that should be used to authenticate to a service. Accepted values are 'basic', 'bearer', 'token', 'cert-pem', and 'none'.",
                   "type": "string",
                   "group": "Base Connection Options",
                   "aliases": []
@@ -4394,6 +4785,29 @@
                   "type": "string",
                   "group": "Base Connection Options",
                   "aliases": []
+                },
+                {
+                  "name": "allowed-login-method",
+                  "description": "Restricts which credentials a user is prompted for when logging into a service or updating stored credentials, so that they comply with site requirements. Accepted values are 'direct-basic', 'direct-cert-pem', 'apiml-basic', 'apiml-cert-pem', and 'prompt'. Defaults to 'prompt' when omitted.",
+                  "type": "string",
+                  "allowableValues": {
+                    "values": [
+                      "direct-basic",
+                      "direct-cert-pem",
+                      "apiml-basic",
+                      "apiml-cert-pem",
+                      "prompt"
+                    ]
+                  },
+                  "group": "Base Connection Options",
+                  "aliases": []
+                },
+                {
+                  "name": "auth-order",
+                  "description": "A comma separated list of authentication types, in order of precedence, that should be used to authenticate to a service. Accepted values are 'basic', 'bearer', 'token', 'cert-pem', and 'none'.",
+                  "type": "string",
+                  "group": "Base Connection Options",
+                  "aliases": []
                 }
               ],
               "examples": [
@@ -4615,6 +5029,29 @@
                 {
                   "name": "cert-account",
                   "description": "The account name for PKCS 12 certificate stored in credential manager",
+                  "type": "string",
+                  "group": "Base Connection Options",
+                  "aliases": []
+                },
+                {
+                  "name": "allowed-login-method",
+                  "description": "Restricts which credentials a user is prompted for when logging into a service or updating stored credentials, so that they comply with site requirements. Accepted values are 'direct-basic', 'direct-cert-pem', 'apiml-basic', 'apiml-cert-pem', and 'prompt'. Defaults to 'prompt' when omitted.",
+                  "type": "string",
+                  "allowableValues": {
+                    "values": [
+                      "direct-basic",
+                      "direct-cert-pem",
+                      "apiml-basic",
+                      "apiml-cert-pem",
+                      "prompt"
+                    ]
+                  },
+                  "group": "Base Connection Options",
+                  "aliases": []
+                },
+                {
+                  "name": "auth-order",
+                  "description": "A comma separated list of authentication types, in order of precedence, that should be used to authenticate to a service. Accepted values are 'basic', 'bearer', 'token', 'cert-pem', and 'none'.",
                   "type": "string",
                   "group": "Base Connection Options",
                   "aliases": []
@@ -4846,6 +5283,29 @@
                   "type": "string",
                   "group": "Base Connection Options",
                   "aliases": []
+                },
+                {
+                  "name": "allowed-login-method",
+                  "description": "Restricts which credentials a user is prompted for when logging into a service or updating stored credentials, so that they comply with site requirements. Accepted values are 'direct-basic', 'direct-cert-pem', 'apiml-basic', 'apiml-cert-pem', and 'prompt'. Defaults to 'prompt' when omitted.",
+                  "type": "string",
+                  "allowableValues": {
+                    "values": [
+                      "direct-basic",
+                      "direct-cert-pem",
+                      "apiml-basic",
+                      "apiml-cert-pem",
+                      "prompt"
+                    ]
+                  },
+                  "group": "Base Connection Options",
+                  "aliases": []
+                },
+                {
+                  "name": "auth-order",
+                  "description": "A comma separated list of authentication types, in order of precedence, that should be used to authenticate to a service. Accepted values are 'basic', 'bearer', 'token', 'cert-pem', and 'none'.",
+                  "type": "string",
+                  "group": "Base Connection Options",
+                  "aliases": []
                 }
               ],
               "examples": [
@@ -5074,6 +5534,29 @@
                   "type": "string",
                   "group": "Base Connection Options",
                   "aliases": []
+                },
+                {
+                  "name": "allowed-login-method",
+                  "description": "Restricts which credentials a user is prompted for when logging into a service or updating stored credentials, so that they comply with site requirements. Accepted values are 'direct-basic', 'direct-cert-pem', 'apiml-basic', 'apiml-cert-pem', and 'prompt'. Defaults to 'prompt' when omitted.",
+                  "type": "string",
+                  "allowableValues": {
+                    "values": [
+                      "direct-basic",
+                      "direct-cert-pem",
+                      "apiml-basic",
+                      "apiml-cert-pem",
+                      "prompt"
+                    ]
+                  },
+                  "group": "Base Connection Options",
+                  "aliases": []
+                },
+                {
+                  "name": "auth-order",
+                  "description": "A comma separated list of authentication types, in order of precedence, that should be used to authenticate to a service. Accepted values are 'basic', 'bearer', 'token', 'cert-pem', and 'none'.",
+                  "type": "string",
+                  "group": "Base Connection Options",
+                  "aliases": []
                 }
               ],
               "examples": [
@@ -5252,6 +5735,29 @@
             {
               "name": "cert-account",
               "description": "The account name for PKCS 12 certificate stored in credential manager",
+              "type": "string",
+              "group": "Base Connection Options",
+              "aliases": []
+            },
+            {
+              "name": "allowed-login-method",
+              "description": "Restricts which credentials a user is prompted for when logging into a service or updating stored credentials, so that they comply with site requirements. Accepted values are 'direct-basic', 'direct-cert-pem', 'apiml-basic', 'apiml-cert-pem', and 'prompt'. Defaults to 'prompt' when omitted.",
+              "type": "string",
+              "allowableValues": {
+                "values": [
+                  "direct-basic",
+                  "direct-cert-pem",
+                  "apiml-basic",
+                  "apiml-cert-pem",
+                  "prompt"
+                ]
+              },
+              "group": "Base Connection Options",
+              "aliases": []
+            },
+            {
+              "name": "auth-order",
+              "description": "A comma separated list of authentication types, in order of precedence, that should be used to authenticate to a service. Accepted values are 'basic', 'bearer', 'token', 'cert-pem', and 'none'.",
               "type": "string",
               "group": "Base Connection Options",
               "aliases": []
@@ -5482,6 +5988,29 @@
                   "type": "string",
                   "group": "Base Connection Options",
                   "aliases": []
+                },
+                {
+                  "name": "allowed-login-method",
+                  "description": "Restricts which credentials a user is prompted for when logging into a service or updating stored credentials, so that they comply with site requirements. Accepted values are 'direct-basic', 'direct-cert-pem', 'apiml-basic', 'apiml-cert-pem', and 'prompt'. Defaults to 'prompt' when omitted.",
+                  "type": "string",
+                  "allowableValues": {
+                    "values": [
+                      "direct-basic",
+                      "direct-cert-pem",
+                      "apiml-basic",
+                      "apiml-cert-pem",
+                      "prompt"
+                    ]
+                  },
+                  "group": "Base Connection Options",
+                  "aliases": []
+                },
+                {
+                  "name": "auth-order",
+                  "description": "A comma separated list of authentication types, in order of precedence, that should be used to authenticate to a service. Accepted values are 'basic', 'bearer', 'token', 'cert-pem', and 'none'.",
+                  "type": "string",
+                  "group": "Base Connection Options",
+                  "aliases": []
                 }
               ],
               "examples": [
@@ -5702,6 +6231,29 @@
                 {
                   "name": "cert-account",
                   "description": "The account name for PKCS 12 certificate stored in credential manager",
+                  "type": "string",
+                  "group": "Base Connection Options",
+                  "aliases": []
+                },
+                {
+                  "name": "allowed-login-method",
+                  "description": "Restricts which credentials a user is prompted for when logging into a service or updating stored credentials, so that they comply with site requirements. Accepted values are 'direct-basic', 'direct-cert-pem', 'apiml-basic', 'apiml-cert-pem', and 'prompt'. Defaults to 'prompt' when omitted.",
+                  "type": "string",
+                  "allowableValues": {
+                    "values": [
+                      "direct-basic",
+                      "direct-cert-pem",
+                      "apiml-basic",
+                      "apiml-cert-pem",
+                      "prompt"
+                    ]
+                  },
+                  "group": "Base Connection Options",
+                  "aliases": []
+                },
+                {
+                  "name": "auth-order",
+                  "description": "A comma separated list of authentication types, in order of precedence, that should be used to authenticate to a service. Accepted values are 'basic', 'bearer', 'token', 'cert-pem', and 'none'.",
                   "type": "string",
                   "group": "Base Connection Options",
                   "aliases": []
@@ -5956,6 +6508,29 @@
                   "type": "string",
                   "group": "Base Connection Options",
                   "aliases": []
+                },
+                {
+                  "name": "allowed-login-method",
+                  "description": "Restricts which credentials a user is prompted for when logging into a service or updating stored credentials, so that they comply with site requirements. Accepted values are 'direct-basic', 'direct-cert-pem', 'apiml-basic', 'apiml-cert-pem', and 'prompt'. Defaults to 'prompt' when omitted.",
+                  "type": "string",
+                  "allowableValues": {
+                    "values": [
+                      "direct-basic",
+                      "direct-cert-pem",
+                      "apiml-basic",
+                      "apiml-cert-pem",
+                      "prompt"
+                    ]
+                  },
+                  "group": "Base Connection Options",
+                  "aliases": []
+                },
+                {
+                  "name": "auth-order",
+                  "description": "A comma separated list of authentication types, in order of precedence, that should be used to authenticate to a service. Accepted values are 'basic', 'bearer', 'token', 'cert-pem', and 'none'.",
+                  "type": "string",
+                  "group": "Base Connection Options",
+                  "aliases": []
                 }
               ],
               "examples": [
@@ -6138,6 +6713,29 @@
             {
               "name": "cert-account",
               "description": "The account name for PKCS 12 certificate stored in credential manager",
+              "type": "string",
+              "group": "Base Connection Options",
+              "aliases": []
+            },
+            {
+              "name": "allowed-login-method",
+              "description": "Restricts which credentials a user is prompted for when logging into a service or updating stored credentials, so that they comply with site requirements. Accepted values are 'direct-basic', 'direct-cert-pem', 'apiml-basic', 'apiml-cert-pem', and 'prompt'. Defaults to 'prompt' when omitted.",
+              "type": "string",
+              "allowableValues": {
+                "values": [
+                  "direct-basic",
+                  "direct-cert-pem",
+                  "apiml-basic",
+                  "apiml-cert-pem",
+                  "prompt"
+                ]
+              },
+              "group": "Base Connection Options",
+              "aliases": []
+            },
+            {
+              "name": "auth-order",
+              "description": "A comma separated list of authentication types, in order of precedence, that should be used to authenticate to a service. Accepted values are 'basic', 'bearer', 'token', 'cert-pem', and 'none'.",
               "type": "string",
               "group": "Base Connection Options",
               "aliases": []
@@ -6366,6 +6964,29 @@
                   "type": "string",
                   "group": "Base Connection Options",
                   "aliases": []
+                },
+                {
+                  "name": "allowed-login-method",
+                  "description": "Restricts which credentials a user is prompted for when logging into a service or updating stored credentials, so that they comply with site requirements. Accepted values are 'direct-basic', 'direct-cert-pem', 'apiml-basic', 'apiml-cert-pem', and 'prompt'. Defaults to 'prompt' when omitted.",
+                  "type": "string",
+                  "allowableValues": {
+                    "values": [
+                      "direct-basic",
+                      "direct-cert-pem",
+                      "apiml-basic",
+                      "apiml-cert-pem",
+                      "prompt"
+                    ]
+                  },
+                  "group": "Base Connection Options",
+                  "aliases": []
+                },
+                {
+                  "name": "auth-order",
+                  "description": "A comma separated list of authentication types, in order of precedence, that should be used to authenticate to a service. Accepted values are 'basic', 'bearer', 'token', 'cert-pem', and 'none'.",
+                  "type": "string",
+                  "group": "Base Connection Options",
+                  "aliases": []
                 }
               ],
               "examples": [
@@ -6580,6 +7201,29 @@
                 {
                   "name": "cert-account",
                   "description": "The account name for PKCS 12 certificate stored in credential manager",
+                  "type": "string",
+                  "group": "Base Connection Options",
+                  "aliases": []
+                },
+                {
+                  "name": "allowed-login-method",
+                  "description": "Restricts which credentials a user is prompted for when logging into a service or updating stored credentials, so that they comply with site requirements. Accepted values are 'direct-basic', 'direct-cert-pem', 'apiml-basic', 'apiml-cert-pem', and 'prompt'. Defaults to 'prompt' when omitted.",
+                  "type": "string",
+                  "allowableValues": {
+                    "values": [
+                      "direct-basic",
+                      "direct-cert-pem",
+                      "apiml-basic",
+                      "apiml-cert-pem",
+                      "prompt"
+                    ]
+                  },
+                  "group": "Base Connection Options",
+                  "aliases": []
+                },
+                {
+                  "name": "auth-order",
+                  "description": "A comma separated list of authentication types, in order of precedence, that should be used to authenticate to a service. Accepted values are 'basic', 'bearer', 'token', 'cert-pem', and 'none'.",
                   "type": "string",
                   "group": "Base Connection Options",
                   "aliases": []
@@ -6800,6 +7444,29 @@
                   "type": "string",
                   "group": "Base Connection Options",
                   "aliases": []
+                },
+                {
+                  "name": "allowed-login-method",
+                  "description": "Restricts which credentials a user is prompted for when logging into a service or updating stored credentials, so that they comply with site requirements. Accepted values are 'direct-basic', 'direct-cert-pem', 'apiml-basic', 'apiml-cert-pem', and 'prompt'. Defaults to 'prompt' when omitted.",
+                  "type": "string",
+                  "allowableValues": {
+                    "values": [
+                      "direct-basic",
+                      "direct-cert-pem",
+                      "apiml-basic",
+                      "apiml-cert-pem",
+                      "prompt"
+                    ]
+                  },
+                  "group": "Base Connection Options",
+                  "aliases": []
+                },
+                {
+                  "name": "auth-order",
+                  "description": "A comma separated list of authentication types, in order of precedence, that should be used to authenticate to a service. Accepted values are 'basic', 'bearer', 'token', 'cert-pem', and 'none'.",
+                  "type": "string",
+                  "group": "Base Connection Options",
+                  "aliases": []
                 }
               ],
               "examples": [
@@ -7014,6 +7681,29 @@
                 {
                   "name": "cert-account",
                   "description": "The account name for PKCS 12 certificate stored in credential manager",
+                  "type": "string",
+                  "group": "Base Connection Options",
+                  "aliases": []
+                },
+                {
+                  "name": "allowed-login-method",
+                  "description": "Restricts which credentials a user is prompted for when logging into a service or updating stored credentials, so that they comply with site requirements. Accepted values are 'direct-basic', 'direct-cert-pem', 'apiml-basic', 'apiml-cert-pem', and 'prompt'. Defaults to 'prompt' when omitted.",
+                  "type": "string",
+                  "allowableValues": {
+                    "values": [
+                      "direct-basic",
+                      "direct-cert-pem",
+                      "apiml-basic",
+                      "apiml-cert-pem",
+                      "prompt"
+                    ]
+                  },
+                  "group": "Base Connection Options",
+                  "aliases": []
+                },
+                {
+                  "name": "auth-order",
+                  "description": "A comma separated list of authentication types, in order of precedence, that should be used to authenticate to a service. Accepted values are 'basic', 'bearer', 'token', 'cert-pem', and 'none'.",
                   "type": "string",
                   "group": "Base Connection Options",
                   "aliases": []
@@ -7255,6 +7945,29 @@
                   "type": "string",
                   "group": "Base Connection Options",
                   "aliases": []
+                },
+                {
+                  "name": "allowed-login-method",
+                  "description": "Restricts which credentials a user is prompted for when logging into a service or updating stored credentials, so that they comply with site requirements. Accepted values are 'direct-basic', 'direct-cert-pem', 'apiml-basic', 'apiml-cert-pem', and 'prompt'. Defaults to 'prompt' when omitted.",
+                  "type": "string",
+                  "allowableValues": {
+                    "values": [
+                      "direct-basic",
+                      "direct-cert-pem",
+                      "apiml-basic",
+                      "apiml-cert-pem",
+                      "prompt"
+                    ]
+                  },
+                  "group": "Base Connection Options",
+                  "aliases": []
+                },
+                {
+                  "name": "auth-order",
+                  "description": "A comma separated list of authentication types, in order of precedence, that should be used to authenticate to a service. Accepted values are 'basic', 'bearer', 'token', 'cert-pem', and 'none'.",
+                  "type": "string",
+                  "group": "Base Connection Options",
+                  "aliases": []
                 }
               ],
               "examples": [
@@ -7480,6 +8193,29 @@
                 {
                   "name": "cert-account",
                   "description": "The account name for PKCS 12 certificate stored in credential manager",
+                  "type": "string",
+                  "group": "Base Connection Options",
+                  "aliases": []
+                },
+                {
+                  "name": "allowed-login-method",
+                  "description": "Restricts which credentials a user is prompted for when logging into a service or updating stored credentials, so that they comply with site requirements. Accepted values are 'direct-basic', 'direct-cert-pem', 'apiml-basic', 'apiml-cert-pem', and 'prompt'. Defaults to 'prompt' when omitted.",
+                  "type": "string",
+                  "allowableValues": {
+                    "values": [
+                      "direct-basic",
+                      "direct-cert-pem",
+                      "apiml-basic",
+                      "apiml-cert-pem",
+                      "prompt"
+                    ]
+                  },
+                  "group": "Base Connection Options",
+                  "aliases": []
+                },
+                {
+                  "name": "auth-order",
+                  "description": "A comma separated list of authentication types, in order of precedence, that should be used to authenticate to a service. Accepted values are 'basic', 'bearer', 'token', 'cert-pem', and 'none'.",
                   "type": "string",
                   "group": "Base Connection Options",
                   "aliases": []
@@ -7737,6 +8473,29 @@
             {
               "name": "cert-account",
               "description": "The account name for PKCS 12 certificate stored in credential manager",
+              "type": "string",
+              "group": "Base Connection Options",
+              "aliases": []
+            },
+            {
+              "name": "allowed-login-method",
+              "description": "Restricts which credentials a user is prompted for when logging into a service or updating stored credentials, so that they comply with site requirements. Accepted values are 'direct-basic', 'direct-cert-pem', 'apiml-basic', 'apiml-cert-pem', and 'prompt'. Defaults to 'prompt' when omitted.",
+              "type": "string",
+              "allowableValues": {
+                "values": [
+                  "direct-basic",
+                  "direct-cert-pem",
+                  "apiml-basic",
+                  "apiml-cert-pem",
+                  "prompt"
+                ]
+              },
+              "group": "Base Connection Options",
+              "aliases": []
+            },
+            {
+              "name": "auth-order",
+              "description": "A comma separated list of authentication types, in order of precedence, that should be used to authenticate to a service. Accepted values are 'basic', 'bearer', 'token', 'cert-pem', and 'none'.",
               "type": "string",
               "group": "Base Connection Options",
               "aliases": []
@@ -8140,6 +8899,29 @@
             {
               "name": "cert-account",
               "description": "The account name for PKCS 12 certificate stored in credential manager",
+              "type": "string",
+              "group": "Base Connection Options",
+              "aliases": []
+            },
+            {
+              "name": "allowed-login-method",
+              "description": "Restricts which credentials a user is prompted for when logging into a service or updating stored credentials, so that they comply with site requirements. Accepted values are 'direct-basic', 'direct-cert-pem', 'apiml-basic', 'apiml-cert-pem', and 'prompt'. Defaults to 'prompt' when omitted.",
+              "type": "string",
+              "allowableValues": {
+                "values": [
+                  "direct-basic",
+                  "direct-cert-pem",
+                  "apiml-basic",
+                  "apiml-cert-pem",
+                  "prompt"
+                ]
+              },
+              "group": "Base Connection Options",
+              "aliases": []
+            },
+            {
+              "name": "auth-order",
+              "description": "A comma separated list of authentication types, in order of precedence, that should be used to authenticate to a service. Accepted values are 'basic', 'bearer', 'token', 'cert-pem', and 'none'.",
               "type": "string",
               "group": "Base Connection Options",
               "aliases": []
@@ -8709,6 +9491,29 @@
               "type": "string",
               "group": "Base Connection Options",
               "aliases": []
+            },
+            {
+              "name": "allowed-login-method",
+              "description": "Restricts which credentials a user is prompted for when logging into a service or updating stored credentials, so that they comply with site requirements. Accepted values are 'direct-basic', 'direct-cert-pem', 'apiml-basic', 'apiml-cert-pem', and 'prompt'. Defaults to 'prompt' when omitted.",
+              "type": "string",
+              "allowableValues": {
+                "values": [
+                  "direct-basic",
+                  "direct-cert-pem",
+                  "apiml-basic",
+                  "apiml-cert-pem",
+                  "prompt"
+                ]
+              },
+              "group": "Base Connection Options",
+              "aliases": []
+            },
+            {
+              "name": "auth-order",
+              "description": "A comma separated list of authentication types, in order of precedence, that should be used to authenticate to a service. Accepted values are 'basic', 'bearer', 'token', 'cert-pem', and 'none'.",
+              "type": "string",
+              "group": "Base Connection Options",
+              "aliases": []
             }
           ],
           "examples": [
@@ -8913,6 +9718,29 @@
             {
               "name": "cert-account",
               "description": "The account name for PKCS 12 certificate stored in credential manager",
+              "type": "string",
+              "group": "Base Connection Options",
+              "aliases": []
+            },
+            {
+              "name": "allowed-login-method",
+              "description": "Restricts which credentials a user is prompted for when logging into a service or updating stored credentials, so that they comply with site requirements. Accepted values are 'direct-basic', 'direct-cert-pem', 'apiml-basic', 'apiml-cert-pem', and 'prompt'. Defaults to 'prompt' when omitted.",
+              "type": "string",
+              "allowableValues": {
+                "values": [
+                  "direct-basic",
+                  "direct-cert-pem",
+                  "apiml-basic",
+                  "apiml-cert-pem",
+                  "prompt"
+                ]
+              },
+              "group": "Base Connection Options",
+              "aliases": []
+            },
+            {
+              "name": "auth-order",
+              "description": "A comma separated list of authentication types, in order of precedence, that should be used to authenticate to a service. Accepted values are 'basic', 'bearer', 'token', 'cert-pem', and 'none'.",
               "type": "string",
               "group": "Base Connection Options",
               "aliases": []
