@@ -7,7 +7,7 @@
 <link rel="stylesheet" href="../css/docs.css">
 <article class="markdown-body">
 <h2><a href="zowe.html">zowe</a> › <a href="zowe_sysview.html">sysview</a> › <a href="zowe_sysview_capture-immediate.html">capture-immediate</a><button id="btn-print" class="no-print" onclick="window.print();" title="Print">🖨️</button></h2>
-<p>Submit a capture request2</p>
+<p>Submit a capture request</p>
 <h4>Usage</h4>
 <p>zowe sysview capture-immediate &lt;capture-file&gt; [options]</p>
 <h4>Positional Arguments</h4>
@@ -136,6 +136,21 @@
 <p><code>--cert-account</code> <em>(string)</em></p>
 <ul>
 <li>The account name for PKCS 12 certificate stored in credential manager</li>
+</ul>
+</li>
+<li>
+<p><code>--allowed-login-method</code> <em>(string)</em></p>
+<ul>
+<li>
+<p>Restricts which credentials a user is prompted for when logging into a service or updating stored credentials, so that they comply with site requirements. Accepted values are 'direct-basic', 'direct-cert-pem', 'apiml-basic', 'apiml-cert-pem', and 'prompt'. Defaults to 'prompt' when omitted.</p>
+<p>Allowed values: direct-basic, direct-cert-pem, apiml-basic, apiml-cert-pem, prompt</p>
+</li>
+</ul>
+</li>
+<li>
+<p><code>--auth-order</code> <em>(string)</em></p>
+<ul>
+<li>A comma separated list of authentication types, in order of precedence, that should be used to authenticate to a service. Accepted values are 'basic', 'bearer', 'token', 'cert-pem', and 'none'.</li>
 </ul>
 </li>
 </ul>

@@ -33,6 +33,12 @@
 <li>Local file of notes for package.</li>
 </ul>
 </li>
+<li>
+<p><code>--approver-group</code> | <code>--ag</code> <em>(string)</em></p>
+<ul>
+<li>Approver group name for approve or deny package action.</li>
+</ul>
+</li>
 </ul>
 <h4>endevor-location definition options</h4>
 <ul>
@@ -194,6 +200,21 @@ Allowed values: http, https</p>
 <p><code>--cert-account</code> <em>(string)</em></p>
 <ul>
 <li>The account name for PKCS 12 certificate stored in credential manager</li>
+</ul>
+</li>
+<li>
+<p><code>--allowed-login-method</code> <em>(string)</em></p>
+<ul>
+<li>
+<p>Restricts which credentials a user is prompted for when logging into a service or updating stored credentials, so that they comply with site requirements. Accepted values are 'direct-basic', 'direct-cert-pem', 'apiml-basic', 'apiml-cert-pem', and 'prompt'. Defaults to 'prompt' when omitted.</p>
+<p>Allowed values: direct-basic, direct-cert-pem, apiml-basic, apiml-cert-pem, prompt</p>
+</li>
+</ul>
+</li>
+<li>
+<p><code>--auth-order</code> <em>(string)</em></p>
+<ul>
+<li>A comma separated list of authentication types, in order of precedence, that should be used to authenticate to a service. Accepted values are 'basic', 'bearer', 'token', 'cert-pem', and 'none'.</li>
 </ul>
 </li>
 </ul>

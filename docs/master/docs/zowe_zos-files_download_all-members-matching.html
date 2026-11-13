@@ -112,6 +112,18 @@ The maximum number of TSO address spaces have been created. When you specify 0, 
 <li>The maximum amount of time in seconds the z/OSMF Files TSO servlet should run before returning a response. Any request exceeding this amount of time will be terminated and return an error. Allowed values: 5 - 600</li>
 </ul>
 </li>
+<li>
+<p><code>--tso-account</code> <em>(string)</em></p>
+<ul>
+<li>If specified, this value will be sent in the header X-IBM-Request-Acctnum for z/OSMF data set and file operations that support it.</li>
+</ul>
+</li>
+<li>
+<p><code>--tso-procedure</code> | <code>--tso-proc</code> <em>(string)</em></p>
+<ul>
+<li>If specified, this value will be sent in the header X-IBM-Request-Proc for z/OSMF data set and file operations that support it.</li>
+</ul>
+</li>
 </ul>
 <h4>Zosmf Connection Options</h4>
 <ul>
@@ -225,6 +237,21 @@ Allowed values: http, https</p>
 <p><code>--token-value</code> | <code>--tv</code> <em>(string)</em></p>
 <ul>
 <li>The value of the token to pass to the API.</li>
+</ul>
+</li>
+<li>
+<p><code>--allowed-login-method</code> <em>(string)</em></p>
+<ul>
+<li>
+<p>Restricts which credentials a user is prompted for when logging into a service or updating stored credentials, so that they comply with site requirements. Accepted values are 'direct-basic', 'direct-cert-pem', 'apiml-basic', 'apiml-cert-pem', and 'prompt'. Defaults to 'prompt' when omitted.</p>
+<p>Allowed values: direct-basic, direct-cert-pem, apiml-basic, apiml-cert-pem, prompt</p>
+</li>
+</ul>
+</li>
+<li>
+<p><code>--auth-order</code> <em>(string)</em></p>
+<ul>
+<li>A comma separated list of authentication types, in order of precedence, that should be used to authenticate to a service. Accepted values are 'basic', 'bearer', 'token', 'cert-pem', and 'none'.</li>
 </ul>
 </li>
 </ul>
