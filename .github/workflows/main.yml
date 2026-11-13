@@ -77,7 +77,10 @@ jobs:
 
     - name: Prepare Puppeteer
       id: prep-puppeteer
-      run: npx --no-install puppeteer browsers install chrome --install-deps
+      run: |
+        sudo env "PATH=$PATH" \
+          "PUPPETEER_CACHE_DIR=$HOME/.cache/puppeteer" \
+          npx --no-install puppeteer browsers install chrome --install-deps
 
     - name: Build Web Help
       id: build

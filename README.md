@@ -101,4 +101,4 @@ To preview web help with your plug-in included locally, perform the following st
     ```
     This prints `generatedWebHelp/docs/all.html` to `zowe.pdf` in Letter format with 0.4-inch margins on all four sides and background graphics enabled.
 
-    The browser installer selects the Chrome build required by the project's pinned Puppeteer version. Do not use `chrome@latest`, which can install a different build. Both CI workflows add `--install-deps` to install Chrome's Linux system dependencies.
+    The browser installer selects the Chrome build required by the project's pinned Puppeteer version. Do not use `chrome@latest`, which can install a different build. Both CI workflows use passwordless `sudo` on GitHub-hosted Ubuntu runners because `--install-deps` requires root privileges to install Chrome's Linux system dependencies. They explicitly preserve `PATH` for the Node.js version selected by `actions/setup-node` and set `PUPPETEER_CACHE_DIR` to the runner user's `$HOME/.cache/puppeteer`, so the subsequent non-root PDF build can find Chrome.
