@@ -27,9 +27,7 @@ jobs:
 
     - name: Install Node Package Dependencies
       id: install-node
-      run: |
-        npm i --prod
-        npm install -g puppeteer-cli
+      run: npm i --prod
 
     - name: Set Up Zowe
       id: setup-zowe
@@ -59,14 +57,20 @@ jobs:
         zowe plugins uninstall @zowe/mq-for-zowe-cli
         zowe plugins uninstall @zowe/zos-ftp-for-zowe-cli
 
+    - name: Prepare Puppeteer
+      id: prep-puppeteer
+      run: |
+        sudo env "PATH=$PATH" \
+          "PUPPETEER_CACHE_DIR=$HOME/.cache/puppeteer" \
+          npx --no-install puppeteer browsers install chrome --install-deps
+
     - name: Build Web Help
       id: build
       run: |
         which zowe || true
         zowe --version || true
         npm run build:local -- ${{ steps.get-version.outputs.number }}
-        export margin="0.4in"
-        puppeteer print ./generatedWebHelp/docs/all.html ./zowe.pdf --margin-top $margin --margin-right $margin --margin-bottom $margin --margin-left $margin --no-sandbox
+        npm run build:pdf
 
     - name: Archive Results
       id: upload

@@ -10,6 +10,8 @@ To contribute your plug-in's web help, follow the steps below for installing and
 
 ## Installing
 
+Requires Node.js 22.12.0 or later.
+
 1. Clone this repository from GitHub:
     ```bash
     git clone https://github.com/zowe/zowe-cli-web-help-generator.git
@@ -91,3 +93,12 @@ To preview web help with your plug-in included locally, perform the following st
     This will generate the CLI command tree from the CLI and @zowe packages, merge all of the command groups in the defined folders, and generate the web help in the "generatedWebHelp" directory.
 
 3. Open the file "generatedWebHelp/index.html" in your browser to view the generated web help.
+
+4. (Optional) Generate the PDF using the project's official Puppeteer dependency:
+    ```bash
+    npx --no-install puppeteer browsers install chrome
+    npm run build:pdf
+    ```
+    This prints `generatedWebHelp/docs/all.html` to `zowe.pdf` in Letter format with 0.4-inch margins on all four sides and background graphics enabled.
+
+    The browser installer selects the Chrome build required by the project's pinned Puppeteer version. Do not use `chrome@latest`, which can install a different build. Both CI workflows use passwordless `sudo` on GitHub-hosted Ubuntu runners because `--install-deps` requires root privileges to install Chrome's Linux system dependencies. They explicitly preserve `PATH` for the Node.js version selected by `actions/setup-node` and set `PUPPETEER_CACHE_DIR` to the runner user's `$HOME/.cache/puppeteer`, so the subsequent non-root PDF build can find Chrome.
