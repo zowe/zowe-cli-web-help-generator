@@ -41,9 +41,7 @@ jobs:
 
     - name: Install Node Package Dependencies
       id: install-node
-      run: |
-        npm i --prod
-        npm install -g puppeteer-cli
+      run: npm i --prod
 
     - name: Install PIP Dependencies
       id: install-pip
@@ -77,14 +75,17 @@ jobs:
       if: ${{ steps.get-version-from-workflow.outcome == 'skipped' }}
       run: echo "number=$(echo 'CLI_v'$(npx zowe --version --rfj | jq -r .data.version))" >> $GITHUB_OUTPUT
 
+    - name: Prepare Puppeteer
+      id: prep-puppeteer
+      run: npx --no-install puppeteer browsers install chrome --install-deps
+
     - name: Build Web Help
       id: build
       run: |
         which zowe || true
         zowe --version || true
         npm run build:local -- ${{ github.event.inputs.zowe-version || steps.get-version.outputs.number }}
-        export margin="0.4in"
-        puppeteer print ./generatedWebHelp/docs/all.html ./zowe.pdf --margin-top $margin --margin-right $margin --margin-bottom $margin --margin-left $margin --no-sandbox
+        npm run build:pdf
 
     - name: Archive Results
       id: upload

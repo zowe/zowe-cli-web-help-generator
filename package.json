@@ -22,6 +22,7 @@
     "scripts": {
         "build": "npm run retrieveCommandTree && npm run mergeCommandTrees && npm run generateWebHelp",
         "build:local": "zowe --ac --rfj > commandTree.json && echo 'Command Tree generated successfully.' && npm run mergeCommandTrees && npm run generateWebHelp",
+        "build:pdf": "node scripts/pdf.mjs",
         "clean": "rimraf commandTree.json package-lock.json generatedWebHelp",
         "contribute": "npm run retrieveCommandTree && npm run trim",
         "retrieveCommandTree": "npx zowe --ac --rfj > commandTree.json && echo 'Command Tree generated successfully.'",
@@ -38,6 +39,7 @@
         "@zowe/imperative": "^8.0.0",
         "husky": "^8.0.3",
         "jsonc": "^2.0.0",
+        "puppeteer": "25.16.0",
         "ts-node": "^10.9.2",
         "typescript": "^4.4.4",
         "word-wrap": "^1.2.5"
@@ -51,7 +53,7 @@
         "rimraf": "^5.0.0"
     },
     "engines": {
-        "node": ">=18.0.0"
+        "node": ">=22.12.0"
     },
     "bin": "zowe"
 }
