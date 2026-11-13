@@ -9,7 +9,7 @@ on:
   workflow_dispatch:
     inputs:
       zowe-version:
-        description: "Specify the Zowe verison (vX.X.X)"
+        description: "Specify the Zowe version (format: vX.X.X)"
         required: false
       release:
         description: "Create a release with the artifact"
